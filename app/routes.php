@@ -14,17 +14,15 @@
 Route::get('/', 'HomeController@showWelcome');
 
 Route::get('/customerIndividual', 'HomeController@individual');
-	{
+	
 
-		return View::make('customerIndividual');
-	}
+Route::get('/customerCompany', 'HomeController@company');
+
+
 
 //Route::get('/', function(){ return View::make('layouts/master'); });
 
 /*
-Route::get('/', function(){
-	return View::make('forms/customerCompany');
-});
 
 //Route::get('/', function(){
 	return View::make('forms/customerIndividual');
@@ -61,17 +59,16 @@ Route::get('/', function(){
 Route::get('/', function(){
 	return View::make('forms/fabricAndMaterialsSwatches');
 });
-<<<<<<< HEAD
 */
-=======
-
-Route::get('/', function(){
-	return View::make('forms/catalogue');
-});
-
-Route::get('/', function(){
-	return View::make('forms/designPattern');
-});
 
 
->>>>>>> 8d60e4947778664ae09fb2f7fe0e3dc886397371
+// Route::get('/', function(){
+// 	return View::make('catalogue');
+// });
+
+// Route::get('/', function(){
+// 	return View::make('designPattern');
+// });
+
+
+

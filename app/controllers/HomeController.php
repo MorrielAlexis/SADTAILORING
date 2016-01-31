@@ -25,4 +25,15 @@ class HomeController extends BaseController {
 		return View::make('customerIndividual');
 	}
 
+	public function company()
+	{
+		return View::make('customerCompany');
+	}
+
+
+
 }
+
+
+
+

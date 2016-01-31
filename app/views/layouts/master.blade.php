@@ -65,9 +65,9 @@
 											<a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Customer Profile</a>
 											<div class="collapsible-body">
 												<ul>
-													<li class="bold {{ strpos(Request::url(), 'forms/customerIndividual') !== false ? 'active' : '' }}">
+				
 													<a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerIndividual">Individual</a></li>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Company</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerCompany">Company</a></li>
 												</ul>
 											</div>
 										</li>
