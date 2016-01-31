@@ -15,3 +15,44 @@ Route::get('/', function()
 {
 	return View::make('layouts/master');
 });
+
+Route::get('/', function(){
+	return View::make('forms/customerCompany');
+});
+
+Route::get('/', function(){
+	return View::make('forms/customerIndividual');
+});
+
+Route::get('/', function(){
+	return View::make('forms/employeeRole');
+});
+
+Route::get('/', function(){
+	return View::make('forms/employee');
+});
+
+Route::get('/', function(){
+	return View::make('forms/garments');
+});
+
+Route::get('/', function(){
+	return View::make('forms/garmentsDetails');
+});
+
+Route::get('/', function(){
+	return View::make('forms/measurementDetails');
+});
+
+Route::get('/', function(){
+	return View::make('forms/measurementCategory');
+});
+
+Route::get('/', function(){
+	return View::make('forms/fabricAndMaterialsFabricType');
+});
+
+Route::get('/', function(){
+	return View::make('forms/fabricAndMaterialsSwatches');
+});
+
