@@ -23,6 +23,7 @@
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
+                    <th date-field= "fabric type ID">Fabric Type ID</th>
               			<th data-field="fabric type Name">Fabric Type Name</th>
              		  	<th data-field="SwatchName">Swatch Name</th>
                     <th data-field="SwatchCode">Swatch Code</th>
@@ -30,7 +31,9 @@
               			</tr>
               		<thead>
               		<tbody>
+
               			<td>001</td>
+                    <td>Type Name</td>
               			<td>President</td>
               			<td>run a certain group</td>
                     <td>imagelink</td>
@@ -48,6 +51,8 @@
 
             		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
             		<p></p>
+                <div class = "label">Fabric Type ID: </div>
+                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
             		<div class = "label">Fabric Type Name: </div>
            			<div class="input-field">
                   <select>
@@ -79,6 +84,8 @@
 
             		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
             		<p></p>
+                <div class = "label">Fabric Type ID: </div>
+                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
             		<div class = "label">Fabric Type Name: </div>
                 <div class="input-field">
                   <select>
@@ -92,7 +99,9 @@
                 <div class = "label">Swatch Code:</div>
                 <div class="input"> <input type="text" placeholder="Swatch Code"> </div>
                 <div class = "label">Image:</div>
-                <div class="input"> <input type="text" placeholder="Image"> </div>
+                <button class = "teal button">Upload Image</button>
+                 <img class="materialboxed" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
+          
                 <div class="modal-footer">
                   <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                    <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
