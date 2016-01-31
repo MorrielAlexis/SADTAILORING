@@ -23,9 +23,9 @@
     
       				<table class = "centered" align = "center" border = "1">
        				<thead>
-          				<tr>
-              			<th data-field="id">EMP ID</th>
-             		 	  <th data-field="firstname">First Name</th>
+          			<tr>
+              	     <th data-field="id">EMP ID</th>
+             		 <th data-field="firstname">First Name</th>
                     <th data-field="lastname">Last Name</th>
                     <th data-field="address">Address</th>
                     <th data-field="Age">Age</th>

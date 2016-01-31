@@ -61,4 +61,17 @@ Route::get('/', function(){
 Route::get('/', function(){
 	return View::make('forms/fabricAndMaterialsSwatches');
 });
+<<<<<<< HEAD
 */
+=======
+
+Route::get('/', function(){
+	return View::make('forms/catalogue');
+});
+
+Route::get('/', function(){
+	return View::make('forms/designPattern');
+});
+
+
+>>>>>>> 8d60e4947778664ae09fb2f7fe0e3dc886397371
