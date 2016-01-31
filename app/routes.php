@@ -40,3 +40,19 @@ Route::get('/', function(){
 	return View::make('forms/garmentsDetails');
 });
 
+Route::get('/', function(){
+	return View::make('forms/measurementDetails');
+});
+
+Route::get('/', function(){
+	return View::make('forms/measurementCategory');
+});
+
+Route::get('/', function(){
+	return View::make('forms/fabricAndMaterialsFabricType');
+});
+
+Route::get('/', function(){
+	return View::make('forms/fabricAndMaterialsSwatches');
+});
+

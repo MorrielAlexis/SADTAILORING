@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>"Role"</title>
+		<title>Measurement</title>
 		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- STYLES START -->
@@ -14,7 +14,7 @@
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    	<span class="card-title"><h4>Role</h4></span>
+   		    	<span class="card-title"><h4>Measurement Details</h4></span>
    				<div class="divider"></div>
     			<div class="card-content">
 
@@ -23,9 +23,9 @@
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
-              			<th data-field="id">Role ID</th>
-             		  	<th data-field="name">Role Name</th>
-              			<th data-field="address">Role Description</th>
+              			<th data-field="id">Measurement ID</th>
+             		  	<th data-field="name">Measurement Name</th>
+              			<th data-field="description">Measurement Description</th>
               			</tr>
               		<thead>
               		<tbody>
@@ -40,17 +40,17 @@
               		</table>
 
               		<div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee </font> </div>
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement </font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Personal Information</b> </font></div>
+            		<div class = "label"><font size = "+2"> <b>Measurement Details</b> </font></div>
             		<p></p>
-            		<div class = "label">Role ID: </div>
+            		<div class = "label">Measurement ID: </div>
            			<div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-           			<div class = "label">Role Name: </div>
-           			<div class="input"><input type="text" placeholder="Role Name"> </div>
-           			<div class = "label">Role Description:</div>
-           			<div class="input"> <input type="text" placeholder="Role Description"> </div>
+           			<div class = "label">Measurement Name: </div>
+           			<div class="input"><input type="text" placeholder="Measurement Name"> </div>
+           			<div class = "label">Measurement Description:</div>
+           			<div class="input"> <input type="text" placeholder="Measurement Description"> </div>
            			<div class="modal-footer">
          		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
            				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
@@ -63,17 +63,17 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee </font> </div>
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement </font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Personal Information</b> </font></div>
+            		<div class = "label"><font size = "+2"> <b>Measurement Details</b> </font></div>
             		<p></p>
-            		<div class = "label">Role ID: </div>
+            		<div class = "label">Measurement ID: </div>
            			<div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-           			<div class = "label">Role Name: </div>
-           			<div class="input"><input type="text" placeholder="Role Name"> </div>
-           			<div class = "label">Role Description:</div>
-           			<div class="input"> <input type="text" placeholder="Role Description"> </div>	
+           			<div class = "label">Measurement Name: </div>
+           			<div class="input"><input type="text" placeholder="Measurement Name"> </div>
+           			<div class = "label">Measurement Description:</div>
+           			<div class="input"> <input type="text" placeholder="Measurement Description"> </div>	
 
            			<div class="modal-footer">
          		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>

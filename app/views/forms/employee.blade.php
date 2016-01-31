@@ -72,7 +72,7 @@
                  <div class="input"> <input type="text" placeholder="Address"> </div>
                  <div class = "label">Age </div>
                  <div class="input"> <input type="text" placeholder="Age"> </div>
-                  <div class = "label">Role: </div>      
+                <div class = "label">Role: </div>      
 
                   <div class="input-field">
                   <select>
