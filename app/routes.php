@@ -19,3 +19,24 @@ Route::get('/', function()
 Route::get('/', function(){
 	return View::make('forms/customerCompany');
 });
+
+Route::get('/', function(){
+	return View::make('forms/customerIndividual');
+});
+
+Route::get('/', function(){
+	return View::make('forms/employeeRole');
+});
+
+Route::get('/', function(){
+	return View::make('forms/employee');
+});
+
+Route::get('/', function(){
+	return View::make('forms/garments');
+});
+
+Route::get('/', function(){
+	return View::make('forms/garmentsDetails');
+});
+
