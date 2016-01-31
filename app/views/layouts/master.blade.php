@@ -65,7 +65,8 @@
 											<a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Customer Profile</a>
 											<div class="collapsible-body">
 												<ul>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Individual</a></li>
+													<li class="bold {{ strpos(Request::url(), 'forms/customerIndividual') !== false ? 'active' : '' }}">
+													<a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerIndividual">Individual</a></li>
 													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Company</a></li>
 												</ul>
 											</div>
@@ -166,9 +167,15 @@
 		</a>
 	</nav>
 
+	<main>
+		@yield('content')
+	</main>
+
       {{ HTML::script('js/jquery-2.1.4.min.js') }}
       {{ HTML::script('js/materialize.min.js') }}
       {{ HTML::script('js/collapse.js') }}
+
+      @yield('scripts')
 </body>
 
 </html>

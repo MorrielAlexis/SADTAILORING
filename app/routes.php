@@ -11,19 +11,25 @@
 |
 */
 
-Route::get('/huehue', function()
-{
-	return View::make('layouts/master');
-});
+Route::get('/', 'HomeController@showWelcome');
 
+Route::get('/customerIndividual', 'HomeController@individual');
+	{
+
+		return View::make('customerIndividual');
+	}
+
+//Route::get('/', function(){ return View::make('layouts/master'); });
+
+/*
 Route::get('/', function(){
 	return View::make('forms/customerCompany');
 });
 
-Route::get('/', function(){
+//Route::get('/', function(){
 	return View::make('forms/customerIndividual');
 });
-
+/*
 Route::get('/', function(){
 	return View::make('forms/employeeRole');
 });
@@ -55,4 +61,4 @@ Route::get('/', function(){
 Route::get('/', function(){
 	return View::make('forms/fabricAndMaterialsSwatches');
 });
-
+*/
