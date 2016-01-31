@@ -14,7 +14,7 @@
   		  <!-- Modal Trigger -->
   <a class="waves-effect waves-light btn modal-trigger" href="#modal1">ADD</a>
   <div class="col s12 m12 l12 overflow-x">
-   <table class="responsive-table">
+   <table class="centered">
      
         <thead>
           <tr>
