@@ -11,6 +11,14 @@
 
 	<body>
 
+
+  <div class="row">
+  <div class="col s12 m12 l12">
+   <div class="card-panel">
+  <span class="card-title"><h4>Customer Profile - Company</h4></span>
+  <div class="divider"></div>
+  <div class="card-content">
+
   		  <!-- Modal Trigger -->
   <a class="waves-effect waves-light btn modal-trigger" href="#modal1">ADD</a>
   <div class="col s12 m12 l12 overflow-x">
