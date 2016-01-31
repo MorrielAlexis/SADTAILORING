@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Fabric and Materials</title>
+		<title>Catalogue</title>
 		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- STYLES START -->
@@ -14,7 +14,7 @@
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    	<span class="card-title"><h4>Swatches</h4></span>
+   		    	<span class="card-title"><h4>Catalogue</h4></span>
    				<div class="divider"></div>
     			<div class="card-content">
 
@@ -23,10 +23,10 @@
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
-                    <th date-field= "fabric type ID">Fabric Type ID</th>
-              			<th data-field="fabric type Name">Fabric Type Name</th>
-             		  	<th data-field="SwatchName">Swatch Name</th>
-                    <th data-field="SwatchCode">Swatch Code</th>
+                    <th date-field= "Catalog ID">Catalog ID</th>
+              			<th data-field="Catalog Category">Catalog Category</th>
+             		  	<th data-field="Catalog Name">Catalog Name</th>
+                    <th data-field="Description">Description</th>
               			<th data-field="Image">Image</th>
               			</tr>
               		<thead>
@@ -45,34 +45,34 @@
               		</table>
 
               		<div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Fabric and Materials
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Catalogue
                  </font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
+            		<div class = "label"><font size = "+2"> <b>Catalogue</b> </font></div>
             		<p></p>
-                <div class = "label">Fabric Type ID: </div>
+                <div class = "label">Catalogue ID: </div>
                  <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-                <div class = "label">Fabric Type Name: </div>
-                <div class="input-field">
+            		<div class = "label">Garment Category: </div>
+           			<div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
-                    <option value="1">Fabric 1</option>
-                    <option value="2">Fabric 2</option>
-                  </select
+                    <option value="1">Garment 1</option>
+                    <option value="2">Garment 2</option>
+                  </select>
                 </div>      
-                <div class = "label">Swatch Name: </div>
-                <div class="input"><input type="text" placeholder="Swatch Name"> </div>
-                <div class = "label">Swatch Code:</div>
-                <div class="input"> <input type="text" placeholder="Swatch Code"> </div>
+           			<div class = "label">Catalog Name </div>
+           			<div class="input"><input type="text" placeholder="Catalog Name"> </div>
+           			<div class = "label">Description</div>
+           			<div class="input"> <input type="text" placeholder="Description"> </div>
                 <div class = "label">Image:</div>
-                <button class = "teal button">Upload Image</button>
+                 <button class = "teal button">Upload Image</button>
                  <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
-
-                <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
-                </div>
+                
+           			<div class="modal-footer">
+         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+           			</div>
 
     			</div>
 
@@ -81,29 +81,29 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Fabric Materials </font> </div>
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Catalogue </font> </div>
            			<div class="modal-content">
 
             		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
             		<p></p>
-                <div class = "label">Fabric Type ID: </div>
+                <div class = "label">Catalogue ID: </div>
                  <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-            		<div class = "label">Fabric Type Name: </div>
+                <div class = "label">Garment Category: </div>
                 <div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
-                    <option value="1">Fabric 1</option>
-                    <option value="2">Fabric 2</option>
-                  </select
+                    <option value="1">Garment 1</option>
+                    <option value="2">Garment 2</option>
+                  </select>
                 </div>      
-                <div class = "label">Swatch Name: </div>
-                <div class="input"><input type="text" placeholder="Swatch Name"> </div>
-                <div class = "label">Swatch Code:</div>
-                <div class="input"> <input type="text" placeholder="Swatch Code"> </div>
+                <div class = "label">Catalog Name </div>
+                <div class="input"><input type="text" placeholder="Catalog Name"> </div>
+                <div class = "label">Description</div>
+                <div class="input"> <input type="text" placeholder="Description"> </div>
                 <div class = "label">Image:</div>
-                <button class = "teal button">Upload Image</button>
+                 <button class = "teal button">Upload Image</button>
                  <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
-
+                
                 <div class="modal-footer">
                   <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                    <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  

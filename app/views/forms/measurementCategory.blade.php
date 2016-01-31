@@ -23,6 +23,7 @@
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
+                    <th data-field = "id"> Category ID
               			<th data-field="category">Category</th>
              		  	<th data-field="GarmentName">Garment Name</th>
               			<th data-field="MeasurementName">Measurement Name</th>

@@ -56,3 +56,12 @@ Route::get('/', function(){
 	return View::make('forms/fabricAndMaterialsSwatches');
 });
 
+Route::get('/', function(){
+	return View::make('forms/catalogue');
+});
+
+Route::get('/', function(){
+	return View::make('forms/designPattern');
+});
+
+
