@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/huehue', function()
 {
 	return View::make('layouts/master');
 });
