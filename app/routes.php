@@ -21,11 +21,7 @@ Route::get('/employee', 'EmployeeController@empProfile');
 
 Route::get('/employeeRole', 'EmployeeController@roles');
 
-<<<<<<< HEAD
 Route::get('/garments', 'GarmentsController@category');
-=======
-//Route::get('/', function(){ return View::make('buttonDetails'); });
->>>>>>> a1cbde6587abd2fdeb76dd834959cb227f2fcd64
 
 Route::get('/garmentsDetails', 'GarmentsController@details');
 
@@ -35,8 +31,8 @@ Route::get('/measurementCategory', 'MeasurementController@category');
 
 Route::get('/measurementDetails', 'MeasurementController@details');
 
-Route::get('/fabricAndMaterialsFabricType', 'fabricAndMaterialsController@fabricType');
+Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabricType');
 
-Route::get('/fabricAndMaterialsFabricType', 'fabricAndMaterialsController@swatches');
+Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatches');
 
 Route::get('/catalogue', 'CatalogueController@catalogue');

@@ -122,8 +122,8 @@
 											<a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Materials and Fabrics</a>
 											<div class="collapsible-body">
 												<ul>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="fabricAndMaterialsFabricType">Fabric Types</a></li>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="facbricAndMaterialSwatches">Swatches</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/fabricAndMaterialsFabricType">Fabric Types</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/fabricAndMaterialsSwatches">Swatches</a></li>
 													<!--Materials Dropdown-->
 													<li class="no-padding">
 														<ul class="collapsible collapsible-accordion">
