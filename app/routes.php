@@ -20,7 +20,7 @@ Route::get('/customerCompany', 'HomeController@company');
 
 
 
-//Route::get('/', function(){ return View::make('layouts/master'); });
+//Route::get('/', function(){ return View::make('buttonDetails'); });
 
 /*
 
