@@ -21,7 +21,11 @@ Route::get('/employee', 'EmployeeController@empProfile');
 
 Route::get('/employeeRole', 'EmployeeController@roles');
 
+<<<<<<< HEAD
 Route::get('/garments', 'GarmentsController@category');
+=======
+//Route::get('/', function(){ return View::make('buttonDetails'); });
+>>>>>>> a1cbde6587abd2fdeb76dd834959cb227f2fcd64
 
 Route::get('/garmentsDetails', 'GarmentsController@details');
 
