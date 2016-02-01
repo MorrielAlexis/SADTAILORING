@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Measurement</title>
-		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- STYLES START -->
-    {{ HTML::style('css/materialize.min.css') }}
-    
-	</head>
-	<body>
-
-
+@extends('layouts.master')
+  
+@section('content')
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
@@ -131,13 +121,12 @@
     	</div>
     </div>	
 
+@stop
 
+@section('scripts')
     {{ HTML::script('js/jquery-2.1.4.min.js') }}
     {{ HTML::script('js/materialize.min.js') }}
     {{ HTML::script('js/forModal.js') }}
     {{ HTML::script('js/inputfield.js')}}
 
-
-
-	</body>
-</html>
+@stop

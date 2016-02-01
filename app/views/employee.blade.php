@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>"Employee Profile"</title>
-		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+@extends('layouts.master')
 
-    <!-- STYLES START -->
-    {{ HTML::style('css/materialize.min.css') }}
-    
-	</head>
-	<body>
-
-
-
+@section('content')
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    	<span class="card-title"><h4>Role</h4></span>
+   		    	<span class="card-title"><h4>Employee Profile</h4></span>
    				<div class="divider"></div>
     			<div class="card-content">
 
@@ -76,7 +65,7 @@
 
                   <div class="input-field">
                   <select>
-                    <option value="" disabled selected>Role</option>
+                    <option value="" disabled selected>Pick a role</option>
                     <option value="1">Production Manager</option>
                     <option value="2">Sewer</option>
                     <option value="3">Cutter</option>
@@ -156,15 +145,14 @@
     	</div>
     </div>	
 
+@stop
 
 
-
+@section('scripts')
     {{ HTML::script('js/jquery-2.1.4.min.js') }}
     {{ HTML::script('js/materialize.min.js') }}
     {{ HTML::script('js/forModal.js') }}
     {{ HTML::script('js/forDropdown.js') }}
     {{ HTML::script('js/inputfield.js')}}
 
-
-	</body>
-</html>
+@stop

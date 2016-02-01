@@ -13,62 +13,26 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
-Route::get('/customerIndividual', 'HomeController@individual');
-	
+Route::get('/customerIndividual', 'CustomerController@individual');
 
-Route::get('/customerCompany', 'HomeController@company');
+Route::get('/customerCompany', 'CustomerController@company');
 
+Route::get('/employee', 'EmployeeController@empProfile');	
 
+Route::get('/employeeRole', 'EmployeeController@roles');
 
-//Route::get('/', function(){ return View::make('layouts/master'); });
+Route::get('/garments', 'GarmentsController@category');
 
-/*
+Route::get('/garmentsDetails', 'GarmentsController@details');
 
-//Route::get('/', function(){
-	return View::make('forms/customerIndividual');
-});
-/*
-Route::get('/', function(){
-	return View::make('forms/employeeRole');
-});
+Route::get('/designPattern', 'GarmentsController@designPattern');
 
-Route::get('/', function(){
-	return View::make('forms/employee');
-});
+Route::get('/measurementCategory', 'MeasurementController@category');
 
-Route::get('/', function(){
-	return View::make('forms/garments');
-});
+Route::get('/measurementDetails', 'MeasurementController@details');
 
-Route::get('/', function(){
-	return View::make('forms/garmentsDetails');
-});
+Route::get('/fabricAndMaterialsFabricType', 'fabricAndMaterialsController@fabricType');
 
-Route::get('/', function(){
-	return View::make('forms/measurementDetails');
-});
+Route::get('/fabricAndMaterialsFabricType', 'fabricAndMaterialsController@swatches');
 
-Route::get('/', function(){
-	return View::make('forms/measurementCategory');
-});
-
-Route::get('/', function(){
-	return View::make('forms/fabricAndMaterialsFabricType');
-});
-
-Route::get('/', function(){
-	return View::make('forms/fabricAndMaterialsSwatches');
-});
-*/
-
-
-// Route::get('/', function(){
-// 	return View::make('catalogue');
-// });
-
-// Route::get('/', function(){
-// 	return View::make('designPattern');
-// });
-
-
-
+Route::get('/catalogue', 'CatalogueController@catalogue');

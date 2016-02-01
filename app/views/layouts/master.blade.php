@@ -65,8 +65,7 @@
 											<a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Customer Profile</a>
 											<div class="collapsible-body">
 												<ul>
-				
-													<a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerIndividual">Individual</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerIndividual">Individual</a></li>
 													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerCompany">Company</a></li>
 												</ul>
 											</div>
@@ -80,8 +79,8 @@
 											<a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Employee</a>
 											<div class="collapsible-body">
 												<ul>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Employee Profile</a></li>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Position Roles</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/employee">Employee Profile</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/employeeRole">Position Roles</a></li>
 												</ul>
 											</div>
 										</li>
@@ -94,9 +93,9 @@
 											<a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Garments</a>
 											<div class="collapsible-body">
 												<ul>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Category</a></li>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Details</a></li>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Design Pattern</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/garments">Category</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/garmentsDetails">Details</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/designPattern">Design Pattern</a></li>
 													<!--Measurements Dropdown-->
 													<li class="no-padding">
 														<ul class="collapsible collapsible-accordion">
@@ -104,8 +103,8 @@
 																<a style="color: ligthcoral" class="waves-effect waves-light btn-small, collapsible-header">Measurements</a>
 																<div class="collapsible-body">
 																	<ul>
-																		<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Header</a></li>
-																		<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Details</a></li>
+																		<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/measurementCategory">Header</a></li>
+																		<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/measurementDetails	">Details</a></li>
 																	</ul>
 																</div>
 															</li>
@@ -123,8 +122,8 @@
 											<a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Materials and Fabrics</a>
 											<div class="collapsible-body">
 												<ul>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Fabric Types</a></li>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Swatches</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="fabricAndMaterialsFabricType">Fabric Types</a></li>
+													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="facbricAndMaterialSwatches">Swatches</a></li>
 													<!--Materials Dropdown-->
 													<li class="no-padding">
 														<ul class="collapsible collapsible-accordion">
@@ -148,7 +147,7 @@
 										</li>
 									</ul>
 								</li>
-								<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Catalogue</a></li>
+								<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/catalogue">Catalogue</a></li>
 							</ul>
 						</div>
 					</li>
