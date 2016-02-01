@@ -1,0 +1,27 @@
+header, main, footer {
+      	padding-left: 240px;
+    	}
+
+    	@media only screen and (max-width : 992px) {
+      		header, main, footer {
+        	padding-left: 0;
+      		}
+    	}
+    	
+    	a{
+    		color: lightcoral;
+    	}
+
+    	#shop{
+    		margin-right:20px;
+    	}
+
+    	nav{
+    		background-color: lavender;
+    	}
+
+    	.waves-effect.waves-light .waves-ripple {
+
+	    	background-color: lightcoral;
+    	}
+
