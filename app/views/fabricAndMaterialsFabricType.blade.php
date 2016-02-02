@@ -19,9 +19,9 @@
               			</tr>
               		<thead>
               		<tbody>
-              			<td>001</td>
-              			<td>President</td>
-              			<td>run a certain group</td>
+              			<td>id</td>
+              			<td>Fabric Name</td>
+              			<td>Fabric Description</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
               			
 
@@ -29,22 +29,24 @@
               		</tbody>
               		</table>
 
-              		<div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Fabric and Materials
+              	<div id="edit" class="modal">
+           			  <div class = "label"><font color = "teal" size = "+3" back >&nbsp Fabric Type
                  </font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Fabric Type</b> </font></div>
-            		<p></p>
-            		<div class = "label">Fabric ID: </div>
-           			<div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-           			<div class = "label">Fabric Name: </div>
-           			<div class="input"><input type="text" placeholder="Measurement Name"> </div>
-           			<div class = "label">Fabric Description:</div>
-           			<div class="input"> <input type="text" placeholder="Measurement Description"> </div>
+                <div class="input-field">
+                 <input id="FabricName" type="text" class="validate">
+                 <label for="fabric_name">Fabric Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="FabricDescription" type="text" class="validate">
+                 <label for="fabric_description">Fabric Desription: </label>
+                </div>
+
            			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
            			</div>
 
     			</div>
@@ -54,20 +56,23 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement </font> </div>
-           			<div class="modal-content">
+                  <div class = "label"><font color = "teal" size = "+3" back >&nbsp Fabric Type
+                 </font> </div>
+                <div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Measurement Details</b> </font></div>
-            		<p></p>
-            		<div class = "label">Fabric ID: </div>
-                <div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-                <div class = "label">Fabric Name: </div>
-                <div class="input"><input type="text" placeholder="Measurement Name"> </div>
-                <div class = "label">Fabric Description:</div>
-                <div class="input"> <input type="text" placeholder="Measurement Description"> </div>
+                <div class="input-field">
+                 <input id="FabricName" type="text" class="validate">
+                 <label for="fabric_name">Fabric Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="FabricDescription" type="text" class="validate">
+                 <label for="fabric_description">Fabric Desription: </label>
+                </div>
+
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
                 </div>
     	</div>
     </div>	

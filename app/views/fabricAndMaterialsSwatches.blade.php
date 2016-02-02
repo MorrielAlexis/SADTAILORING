@@ -22,10 +22,10 @@
               		<thead>
               		<tbody>
 
-              			<td>001</td>
-                    <td>Type Name</td>
-              			<td>President</td>
-              			<td>run a certain group</td>
+              			<td>id</td>
+                    <td>Fabric Tyoe Name</td>
+              			<td>Swatch Name</td>
+              			<td>Swatch Code</td>
                     <td>imagelink</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
               			
@@ -34,34 +34,43 @@
               		</tbody>
               		</table>
 
-              		<div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Fabric and Materials
+              	<div id="edit" class="modal">
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Swatches
                  </font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
-            		<p></p>
-                <div class = "label">Fabric Type ID: </div>
-                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-                <div class = "label">Fabric Type Name: </div>
                 <div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
                     <option value="1">Fabric 1</option>
                     <option value="2">Fabric 2</option>
-                  </select
-                </div>      
-                <div class = "label">Swatch Name: </div>
-                <div class="input"><input type="text" placeholder="Swatch Name"> </div>
-                <div class = "label">Swatch Code:</div>
-                <div class="input"> <input type="text" placeholder="Swatch Code"> </div>
-                <div class = "label">Image:</div>
-                <button class = "teal button">Upload Image</button>
-                 <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
+                  </select>
+                  <label>Fabric Type Name: </label>
+                </div>  
+
+                <div class="input-field">
+                 <input id="SwatchName" type="text" class="validate">
+                 <label for="swatch_name">Swatch Name: </label>
+                </div>    
+
+                <div class="input-field">
+                 <input id="SwatchCode" type="text" class="validate">
+                 <label for="swatch_code">Swatch Code: </label>
+                </div>
+
+                 <div class="file-field input-field">
+                  <div class="btn">
+                  <span>Upload Image</span>
+                  <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                  </div>
+                </div>
 
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>  
                 </div>
 
     			</div>
@@ -71,32 +80,42 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Fabric Materials </font> </div>
-           			<div class="modal-content">
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Swatches
+                 </font> </div>
+                <div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
-            		<p></p>
-                <div class = "label">Fabric Type ID: </div>
-                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-            		<div class = "label">Fabric Type Name: </div>
                 <div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
                     <option value="1">Fabric 1</option>
                     <option value="2">Fabric 2</option>
-                  </select
-                </div>      
-                <div class = "label">Swatch Name: </div>
-                <div class="input"><input type="text" placeholder="Swatch Name"> </div>
-                <div class = "label">Swatch Code:</div>
-                <div class="input"> <input type="text" placeholder="Swatch Code"> </div>
-                <div class = "label">Image:</div>
-                <button class = "teal button">Upload Image</button>
-                 <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
+                  </select>
+                  <label>Fabric Type Name: </label>
+                </div>  
+
+                <div class="input-field">
+                 <input id="SwatchName" type="text" class="validate">
+                 <label for="swatch_name">Swatch Name: </label>
+                </div>    
+
+                <div class="input-field">
+                 <input id="SwatchCode" type="text" class="validate">
+                 <label for="swatch_code">Swatch Code: </label>
+                </div>
+
+                 <div class="file-field input-field">
+                  <div class="btn">
+                  <span>Upload Image</span>
+                  <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                  </div>
+                </div>
 
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>  
                 </div>
     	</div>
     </div>	

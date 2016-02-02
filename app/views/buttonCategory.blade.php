@@ -40,24 +40,17 @@
               		</table>
 
               	<div id="edit" class="modal modal-fixed-footer">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Button
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Button Category
                  </font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Button Category</b> </font></div>
-            		<p></p>
-
-                <div class="input-field">
-                 <input id="ButtonCategoryID" type="text" class="validate" readonly = "readonly">
-                 <label for="last_name">Button Category ID: </label>
-                </div>
                 <div class="input-field">
                  <input id="ButtonCategoryName" type="text" class="validate">
-                 <label for="last_name">Button Category Name: </label>
+                 <label for="button_category_name">Button Category Name: </label>
                 </div>
                 <div class="input-field">
                  <input id="ButtonCategoryDescription" type="text" class="validate">
-                 <label for="last_name">Button Category Description: </label>
+                 <label for="buttom_category_description">Button Category Description: </label>
                 </div>
 
          		   		<a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
@@ -71,17 +64,11 @@
     		</div>
 
     			<div id="add" class="modal modal-fixed-footer">
-                <div class = "label"><font color = "teal" size = "+3" back >&nbsp Button
+                <div class = "label"><font color = "teal" size = "+3" back >&nbsp Button Category
                  </font> </div>
                 <div class="modal-content">
-
-                <div class = "label"><font size = "+2"> <b>Button Category</b> </font></div>
                 <p></p>
 
-                <div class="input-field">
-                 <input id="ButtonCategoryID" type="text" class="validate" readonly = "readonly">
-                 <label for="last_name">Button Category ID: </label>
-                </div>
                 <div class="input-field">
                  <input id="ButtonCategoryName" type="text" class="validate">
                  <label for="last_name">Button Category Name: </label>

@@ -13,31 +13,25 @@
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
-                    <th data-field = "id"> Category ID
+                    <th data-field = "id"> Category ID </th>
               			<th data-field="category">Category</th>
              		  	<th data-field="GarmentName">Garment Name</th>
               			<th data-field="MeasurementName">Measurement Name</th>
               			</tr>
               		<thead>
               		<tbody>
-              			<td>001</td>
-              			<td>President</td>
-              			<td>run a certain group</td>
+              			<td>ID</td>
+              			<td>Category </td>
+              			<td>Garment Name</td>
+                    <td>Measurement Name</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
-              			
-
-
+            
               		</tbody>
               		</table>
 
               	<div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement </font> </div>
-           			<div class="modal-content">
-
-            		<div class = "label"><font size = "+2"> <b>Measurement Category</b> </font></div>
-            		<p></p>
-            		
-           			<div class = "label">Category</div>      
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement Category </font> </div>
+           			<div class="modal-content">   
 
                 <div class="input-field">
                   <select>
@@ -45,9 +39,9 @@
                     <option value="1">Uniform</option>
                     <option value="2">Gowns</option>
                   </select>
+                  <label>Category</label>
                 </div>     
-
-                 <div class = "label">Garment Name</div>      
+    
 
                   <div class="input-field">
                   <select>
@@ -55,9 +49,9 @@
                     <option value="1">Blouse</option>
                     <option value="2">Pants</option>
                   </select>
+                  <label>Garment Name</label>
                 </div>    
-
-                <div class = "label">Measurement Name</div>      
+  
 
                   <div class="input-field">
                   <select>
@@ -65,11 +59,12 @@
                     <option value="1">Measurement 1</option>
                     <option value="2">Measurement 2</option>
                   </select>
+                  <label>Measurement Name</label>
                 </div>    
 
            			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
            			</div>
 
     			</div>
@@ -79,12 +74,8 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement </font> </div>
-           			<div class="modal-content">
-
-            		<div class = "label"><font size = "+2"> <b>Measurement Category</b> </font></div>
-            		<p></p>
-            		<div class = "label">Category</div>      
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement Category </font> </div>
+                <div class="modal-content">   
 
                 <div class="input-field">
                   <select>
@@ -92,9 +83,9 @@
                     <option value="1">Uniform</option>
                     <option value="2">Gowns</option>
                   </select>
+                  <label>Category</label>
                 </div>     
-
-                 <div class = "label">Garment Name</div>      
+    
 
                   <div class="input-field">
                   <select>
@@ -102,9 +93,9 @@
                     <option value="1">Blouse</option>
                     <option value="2">Pants</option>
                   </select>
+                  <label>Garment Name</label>
                 </div>    
-
-                <div class = "label">Measurement Name</div>      
+  
 
                   <div class="input-field">
                   <select>
@@ -112,11 +103,12 @@
                     <option value="1">Measurement 1</option>
                     <option value="2">Measurement 2</option>
                   </select>
+                  <label>Measurement Name</label>
                 </div>    
 
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>  
                 </div>
     	</div>
     </div>	

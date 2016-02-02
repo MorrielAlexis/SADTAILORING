@@ -20,9 +20,9 @@
               			</tr>
               		<thead>
               		<tbody>
-              			<td>001</td>
-              			<td>Garment to</td>
-                    <td>Product to</td>
+              			<td>ID</td>
+              			<td>Cat Name</td>
+                    <td>Prod Name</td>
               			<td>Pro Desc</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
               			
@@ -32,30 +32,32 @@
               		</table>
 
               	<div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Garments </font> </div>
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Garments Details </font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Garments Details</b> </font></div>
-            		<p></p>
-            		<div class = "label">Garment Details ID: </div>
-           			<div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-                <div class = "label">Category Name: </div>
-                <div class="input"><input type="text" placeholder="Category Name"> </div>
-                <div class = "label">Product Name: </div>
-                 <div class="input-field">
+                <div class="input-field">
                   <select>
-                    <option value="" disabled selected>Product</option>
-                    <option value="1">Product 1</option>
-                    <option value="2">Product 2</option>
-                    <option value="3">Product 3</option>
+                    <option value="" disabled selected>Category</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
                   </select>
+                  <label>Category Name</label>
                 </div>  
-                
-           			<div class = "label">Product Description: </div>
-           			<div class="input"><input type="text" placeholder="Product Description"> </div>
+
+                <div class="input-field">
+                 <input id="ProductName" type="text" class="validate">
+                 <label for="product_name">Product Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="ProductDescription" type="text" class="validate">
+                 <label for="product_description">Product Description: </label>
+                </div>
+
            			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
            			</div>
 
     			</div>
@@ -65,30 +67,32 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Category Information </font> </div>
-           			<div class="modal-content">
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Garments Details </font> </div>
+                <div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Garments Category Information</b> </font></div>
-            		<p></p>
-                <div class = "label">Garment Details ID: </div>
-                <div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-                <div class = "label">Category Name: </div>
-                <div class="input"><input type="text" placeholder="Category Name"> </div>
-                <div class = "label">Product Name: </div>
-                 <div class="input-field">
+                <div class="input-field">
                   <select>
-                    <option value="" disabled selected>Product</option>
-                    <option value="1">Product 1</option>
-                    <option value="2">Product 2</option>
-                    <option value="3">Product 3</option>
+                    <option value="" disabled selected>Category</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
                   </select>
+                  <label>Category Name</label>
                 </div>  
-                
-                <div class = "label">Product Description: </div>
-                <div class="input"><input type="text" placeholder="Product Description"> </div>
+
+                <div class="input-field">
+                 <input id="ProductName" type="text" class="validate">
+                 <label for="product_name">Product Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="ProductDescription" type="text" class="validate">
+                 <label for="product_description">Product Description: </label>
+                </div>
+
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
                 </div>
     	</div>
     </div>	

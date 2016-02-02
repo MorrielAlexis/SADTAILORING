@@ -23,10 +23,10 @@
               		<tbody>
 
               			<td>001</td>
-                    <td>Type Name</td>
-              			<td>President</td>
-              			<td>run a certain group</td>
-                    <td>imagelink</td>
+                    <td>Catalog Category</td>
+              			<td>Catalog Nane</td>
+              			<td>Catalog Description</td>
+                    <td>image</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
               			
 
@@ -34,34 +34,43 @@
               		</tbody>
               		</table>
 
-              		<div id="edit" class="modal">
+              		<div id="edit" class="modal modal-fixed-footer">
            			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Catalogue
                  </font> </div>
            			<div class="modal-content">
-
-            		<div class = "label"><font size = "+2"> <b>Catalogue</b> </font></div>
-            		<p></p>
-                <div class = "label">Catalogue ID: </div>
-                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-            		<div class = "label">Garment Category: </div>
            			<div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
                     <option value="1">Garment 1</option>
                     <option value="2">Garment 2</option>
                   </select>
+                  <label> Garment Category</label>
                 </div>      
-           			<div class = "label">Catalog Name </div>
-           			<div class="input"><input type="text" placeholder="Catalog Name"> </div>
-           			<div class = "label">Description</div>
-           			<div class="input"> <input type="text" placeholder="Description"> </div>
-                <div class = "label">Image:</div>
-                 <button class = "teal button">Upload Image</button>
-                 <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
-                
+
+                <div class="input-field">
+                 <input id="CatalogName" type="text" class="validate">
+                 <label for="Catalog_Name"> Catalog Name </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="ButtonCategoryName" type="text" class="validate">
+                 <label for="Button_Category_Name">Button Category Name: </label>
+                </div>
+
+           			
+                <div class="file-field input-field">
+                <div class="btn">
+               <span>Upload Image</span>
+               <input type="file">
+              </div>
+               <div class="file-path-wrapper">
+               <input class="file-path validate" type="text">
+               </div>
+                </div>
            			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+         		   		
+                  <a href="cancel" class="modal-action modal-close waves-effect waves-green btn btn">Cancel</a>
+                  <a href="save" class="modal-action modal-close waves-effect waves-green btn btn">Save</a>  
            			</div>
 
     			</div>
@@ -70,33 +79,44 @@
     			</div>
     		</div>
 
-    			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Catalogue </font> </div>
-           			<div class="modal-content">
-
-            		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
-            		<p></p>
-                <div class = "label">Catalogue ID: </div>
-                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-                <div class = "label">Garment Category: </div>
+    			<div id="add" class="modal modal-fixed-footer">
+                <div class = "label"><font color = "teal" size = "+3" back >&nbsp Catalogue
+                 </font> </div>
+                <div class="modal-content">
                 <div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
                     <option value="1">Garment 1</option>
                     <option value="2">Garment 2</option>
                   </select>
+                  <label> Garment Category</label>
                 </div>      
-                <div class = "label">Catalog Name </div>
-                <div class="input"><input type="text" placeholder="Catalog Name"> </div>
-                <div class = "label">Description</div>
-                <div class="input"> <input type="text" placeholder="Description"> </div>
-                <div class = "label">Image:</div>
-                 <button class = "teal button">Upload Image</button>
-                 <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
+
+                <div class="input-field">
+                 <input id="CatalogName" type="text" class="validate">
+                 <label for="Catalog_Name"> Catalog Name </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="ButtonCategoryName" type="text" class="validate">
+                 <label for="Button_Category_Name">Button Category Name: </label>
+                </div>
+
                 
+                <div class="file-field input-field">
+                <div class="btn">
+               <span>Upload Image</span>
+               <input type="file">
+              </div>
+               <div class="file-path-wrapper">
+               <input class="file-path validate" type="text">
+               </div>
+                </div>
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                  <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>  
+                   
                 </div>
     	</div>
     </div>	

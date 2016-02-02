@@ -22,8 +22,8 @@
               		<tbody>
 
               			<td>001</td>
-                    <td>Type Name</td>
-              			<td>President</td>
+                    <td>Garment Name</td>
+              			<td>Pattern Name</td>
                     <td>imagelink</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
               			
@@ -36,28 +36,35 @@
            			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Design Pattern
                  </font> </div>
            			<div class="modal-content">
-
-            		<div class = "label"><font size = "+2"> <b>Design Pattern</b> </font></div>
-            		<p></p>
-                <div class = "label">Design Pattern ID: </div>
-                <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-            		<div class = "label">Garment Name: </div>
            			<div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
                     <option value="1">Garment 1</option>
                     <option value="2">Garment 2</option>
                   </select>
+                  <label>Garment Name:</label>
                 </div>      
-           			<div class = "label">Pattern Name </div>
-           			<div class="input"><input type="text" placeholder="Catalog Name"> </div>
-                <div class = "label">Image:</div>
-                 <button class = "teal button">Upload Image</button>
-                 <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
+                <div class="input-field">
+                 <input id="PatternName" type="text" class="validate">
+                 <label for="pattern_name">Patterm Name: </label>
+                </div>
+
+                <div class="file-field input-field">
+                <div class="btn">
+               <span>Upload Image</span>
+               <input type="file">
+              </div>
+               <div class="file-path-wrapper">
+               <input class="file-path validate" type="text">
+               </div>
+                </div>
+                  
+
+           			
                 
            			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
            			</div>
 
     			</div>
@@ -67,30 +74,38 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Catalogue </font> </div>
-           			<div class="modal-content">
-
-            		<div class = "label"><font size = "+2"> <b>Swatches</b> </font></div>
-            		<p></p>
-                <div class = "label">Design Pattern ID: </div>
-                <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-                <div class = "label">Garment Name: </div>
+                <div class = "label"><font color = "teal" size = "+3" back >&nbsp Design Pattern
+                 </font> </div>
+                <div class="modal-content">
                 <div class="input-field">
                   <select>
                     <option value="" disabled selected>Type Name</option>
                     <option value="1">Garment 1</option>
                     <option value="2">Garment 2</option>
                   </select>
+                  <label>Garment Name:</label>
                 </div>      
-                <div class = "label">Pattern Name </div>
-                <div class="input"><input type="text" placeholder="Catalog Name"> </div>
-                <div class = "label">Image:</div>
-                 <button class = "teal button">Upload Image</button>
-                 <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
+                <div class="input-field">
+                 <input id="PatternName" type="text" class="validate">
+                 <label for="pattern_name">Patterm Name: </label>
+                </div>
+
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Upload Image</span>
+                    <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                 </div>
+                </div>
+                  
+
+                
                 
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                  <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
                 </div>
     	</div>
     </div>	

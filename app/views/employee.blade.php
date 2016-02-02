@@ -27,16 +27,16 @@
               			</tr>
               		<thead>
               		<tbody>
-              		  <td>2013-04227-MN-0</td>
-                    <td>Marc Joseph</td>
-                    <td> Delim</td>
-                    <td> 19</td>
-                    <td> basketball</td>
-                    <td>Marikina</td>
-                    <td>09351610917</td> 
-                    <td>6551837</td>
-                    <td>1234567</td>
-                    <td>marcjosephdelim@gmail.com</td>
+              		    <td>id</td>
+                        <td>First Name</td>
+                        <td> Last Name</td>
+                        <td> Address </td>
+                        <td> age </td>
+                        <td>Role</td>
+                        <td>cp number</td> 
+                        <td>phone</td>
+                        <td>fax</td>
+                        <td>email</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
               			
 
@@ -45,23 +45,28 @@
               		</table>
 
                  <div id="edit" class="modal">
-                 <div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee </font> </div>
+                 <div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee Information </font> </div>
                  <div class="modal-content">
 
-                 <div class = "label"><font size = "+2"> <b>Employee Information</b> </font>
-                 </div>
-                 <p></p>
-                 <div class = "label">Employee ID: </div>
-                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-                 <div class = "label">First Name: </div>
-                 <div class="input"> <input type="text" placeholder="First Name"> </div>
-                 <div class = "label">Last Name: </div>
-                 <div class="input"> <input type="text" placeholder="Last Name"> </div>
-                 <div class = "label">Address:</div>
-                 <div class="input"> <input type="text" placeholder="Address"> </div>
-                 <div class = "label">Age </div>
-                 <div class="input"> <input type="text" placeholder="Age"> </div>
-                <div class = "label">Role: </div>      
+                <div class="input-field">
+                 <input id="FirstName" type="text" class="validate">
+                 <label for="first_name">First Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="LastName" type="text" class="validate">
+                 <label for="last_name">Last Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Address" type="text" class="validate">
+                 <label for="Address">Address: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Age" type="text" class="validate">
+                 <label for="Age">Age: </label>
+                </div>  
 
                   <div class="input-field">
                   <select>
@@ -71,22 +76,34 @@
                     <option value="3">Cutter</option>
                     <option value="4">Runner</option>
                   </select>
+                  <label>Role</label>
                 </div>      
                  
+                <div class="input-field">
+                 <input id="Cellphone Number" type="text" class="validate">
+                 <label for="cellphone_number">Cellphone Number: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Landline Number" type="text" class="validate">
+                 <label for="landline_number">Landline Number: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Fax Number" type="text" class="validate">
+                 <label for="Fax_number">Fax Number: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Email" type="text" class="validate">
+                 <label for="email">Email Address: </label>
+                </div>
               
-                 <div class = "label">Cellphone Number: </div>
-                 <div class="input"> <input type="text" placeholder="Cellphone"> </div>
-                 <div class = "label">Landline Number: </div>
-                 <div class="input"> <input type="text" placeholder="Landline Number"></div>
-                 <div class = "label">Fax Number: </div>
-                 <div class="input"> <input type="text" placeholder="Fax Number"></div>
-                 <div class = "label">Email Address: </div>
-                 <div class="input"> <input type="text" placeholder="Email"> </div>
             
             
                  <div class="modal-footer">
-                 <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+                 <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>
       
                   </div>
 
@@ -97,48 +114,65 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee </font> </div>
+                 <div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee Information </font> </div>
                  <div class="modal-content">
 
-                 <div class = "label"><font size = "+2"> <b>Employee Information</b> </font>
-                 </div>
-                 <p></p>
-                 <div class = "label">Employee ID: </div>
-                 <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-                 <div class = "label">First Name: </div>
-                 <div class="input"> <input type="text" placeholder="First Name"> </div>
-                 <div class = "label">Last Name: </div>
-                 <div class="input"> <input type="text" placeholder="Last Name"> </div>
-                 <div class = "label">Address:</div>
-                 <div class="input"> <input type="text" placeholder="Address"> </div>
-                 <div class = "label">Age </div>
-                 <div class="input"> <input type="text" placeholder="Age"> </div>
-                  <div class = "label">Role: </div>      
+                <div class="input-field">
+                 <input id="FirstName" type="text" class="validate">
+                 <label for="first_name">First Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="LastName" type="text" class="validate">
+                 <label for="last_name">Last Name: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Address" type="text" class="validate">
+                 <label for="Address">Address: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Age" type="text" class="validate">
+                 <label for="Age">Age: </label>
+                </div>  
 
                   <div class="input-field">
                   <select>
-                    <option value="" disabled selected>Role</option>
+                    <option value="" disabled selected>Pick a role</option>
                     <option value="1">Production Manager</option>
                     <option value="2">Sewer</option>
                     <option value="3">Cutter</option>
                     <option value="4">Runner</option>
                   </select>
+                  <label>Role</label>
                 </div>      
                  
+                <div class="input-field">
+                 <input id="Cellphone Number" type="text" class="validate">
+                 <label for="cellphone_number">Cellphone Number: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Landline Number" type="text" class="validate">
+                 <label for="landline_number">Landline Number: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Fax Number" type="text" class="validate">
+                 <label for="Fax_number">Fax Number: </label>
+                </div>
+
+                <div class="input-field">
+                 <input id="Email" type="text" class="validate">
+                 <label for="email">Email Address: </label>
+                </div>
               
-                 <div class = "label">Cellphone Number: </div>
-                 <div class="input"> <input type="text" placeholder="Cellphone"> </div>
-                 <div class = "label">Landline Number: </div>
-                 <div class="input"> <input type="text" placeholder="Landline Number"></div>
-                 <div class = "label">Fax Number: </div>
-                 <div class="input"> <input type="text" placeholder="Fax Number"></div>
-                 <div class = "label">Email Address: </div>
-                 <div class="input"> <input type="text" placeholder="Email"> </div>
             
             
                  <div class="modal-footer">
-                 <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+                 <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>
       
                   </div>
 

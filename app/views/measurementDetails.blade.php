@@ -19,9 +19,9 @@
               			</tr>
               		<thead>
               		<tbody>
-              			<td>001</td>
-              			<td>President</td>
-              			<td>run a certain group</td>
+              			<td>ID</td>
+              			<td>Measurement Name</td>
+              			<td>Measurement Description</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
               			
 
@@ -29,21 +29,22 @@
               		</tbody>
               		</table>
 
-              		<div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement </font> </div>
+              	<div id="edit" class="modal">
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement Details</font> </div>
            			<div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Measurement Details</b> </font></div>
-            		<p></p>
-            		<div class = "label">Measurement ID: </div>
-           			<div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-           			<div class = "label">Measurement Name: </div>
-           			<div class="input"><input type="text" placeholder="Measurement Name"> </div>
-           			<div class = "label">Measurement Description:</div>
-           			<div class="input"> <input type="text" placeholder="Measurement Description"> </div>
+            		<div class="input-field">
+                 <input id="MeasurementName" type="text" class="validate">
+                 <label for="measurement_name"> Measurement Name: </label>
+                </div>
+                <div class="input-field">
+                 <input id="MeasurementDescription" type="text" class="validate">
+                 <label for="measurement_description">Measurement Description: </label>
+                </div>
+
            			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
            			</div>
 
     			</div>
@@ -53,22 +54,22 @@
     		</div>
 
     			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement </font> </div>
-           			<div class="modal-content">
+           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Measurement Details</font> </div>
+                <div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Measurement Details</b> </font></div>
-            		<p></p>
-            		<div class = "label">Measurement ID: </div>
-           			<div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-           			<div class = "label">Measurement Name: </div>
-           			<div class="input"><input type="text" placeholder="Measurement Name"> </div>
-           			<div class = "label">Measurement Description:</div>
-           			<div class="input"> <input type="text" placeholder="Measurement Description"> </div>	
+                <div class="input-field">
+                 <input id="MeasurementName" type="text" class="validate">
+                 <label for="measurement_name"> Measurement Name: </label>
+                </div>
+                <div class="input-field">
+                 <input id="MeasurementDescription" type="text" class="validate">
+                 <label for="measurement_description">Measurement Description: </label>
+                </div>
 
-           			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				<a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
-           			</div>
+                <div class="modal-footer">
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
+                </div>
     	</div>
     </div>	
 
