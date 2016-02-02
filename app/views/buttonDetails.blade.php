@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Button</title>
-		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+@extends('layouts.master')
 
-    <!-- STYLES START -->
-    {{ HTML::style('css/materialize.min.css') }}
-    
-	</head>
-	<body>
-
-
+@section('content')
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
@@ -70,8 +60,8 @@
                  <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
 
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
                 </div>
 
     			</div>
@@ -106,19 +96,26 @@
                  <img class="materialboxed" align = "center" data-caption="A picture of some deer and tons of trees" width="150" src="http://th01.deviantart.net/fs70/PRE/i/2013/126/1/e/nature_portrait_by_pw_fotografie-d63tx0n.jpg">
 
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
                 </div>
     	</div>
     </div>	
 
+@stop
 
-    {{ HTML::script('js/jquery-2.1.4.min.js') }}
-    {{ HTML::script('js/materialize.min.js') }}
-    {{ HTML::script('js/forModal.js') }}
-    {{ HTML::script('js/inputfield.js')}}
+@section('scripts')
+    <script>
+      $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+      });
+    </script>
 
+    <script>
+      $(document).ready(function(){
+      $('select').material_select();
+      });
+    </script>
 
-
-	</body>
-</html>
+@stop

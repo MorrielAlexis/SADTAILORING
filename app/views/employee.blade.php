@@ -102,8 +102,8 @@
             
             
                  <div class="modal-footer">
-                 <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
-                 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>
+                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a>
       
                   </div>
 
@@ -171,8 +171,8 @@
             
             
                  <div class="modal-footer">
-                 <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
-                 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>
+                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a>
       
                   </div>
 
@@ -183,10 +183,30 @@
 
 
 @section('scripts')
-    {{ HTML::script('js/jquery-2.1.4.min.js') }}
-    {{ HTML::script('js/materialize.min.js') }}
-    {{ HTML::script('js/forModal.js') }}
-    {{ HTML::script('js/forDropdown.js') }}
-    {{ HTML::script('js/inputfield.js')}}
+    <script>
+      $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+      });
+    </script>
+
+    <script>
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+      }
+      );
+    </script>
+
+    <script>
+      $(document).ready(function(){
+      $('select').material_select();
+      });
+    </script>
 
 @stop

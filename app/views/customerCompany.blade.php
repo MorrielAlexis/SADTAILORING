@@ -77,8 +77,8 @@
             
             
             <div class="modal-footer">
-            <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-            <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
       
            </div>
   
@@ -125,8 +125,8 @@
             
             
             <div class="modal-footer">
-            <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-            <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
       
            </div>
   	     
@@ -138,10 +138,13 @@
     @stop
 
     @section('scripts')
+      <script>
+      $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+      });
+      </script>
 
-      {{ HTML::script('js/jquery-2.1.4.min.js') }}
-      {{ HTML::script('js/materialize.min.js') }}
-      {{ HTML::script('js/forModal.js') }}
   	 
     @stop                             
 		

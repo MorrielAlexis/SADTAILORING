@@ -63,8 +63,8 @@
            			
                 
            			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
+         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+           				 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
            			</div>
 
     			</div>
@@ -104,8 +104,8 @@
                 
                 
                 <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
-                  <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
                 </div>
     	</div>
     </div>	
@@ -113,8 +113,17 @@
 @stop
 
 @section('scripts')
-    {{ HTML::script('js/jquery-2.1.4.min.js') }}
-    {{ HTML::script('js/materialize.min.js') }}
-    {{ HTML::script('js/forModal.js') }}
-    {{ HTML::script('js/inputfield.js')}}
+    <script>
+      $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+      });
+    </script>
+
+     <script>
+      $(document).ready(function(){
+      $('select').material_select();
+      });
+    </script>
+    
 @stop

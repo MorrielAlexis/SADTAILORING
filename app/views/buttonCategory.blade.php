@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Buttons</title>
-		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+@extends('layouts.master')
 
-    <!-- STYLES START -->
-    {{ HTML::style('css/materialize.min.css') }}
-    
-	</head>
-	<body>
-
-
+@section('content')
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
@@ -53,8 +43,8 @@
                  <label for="buttom_category_description">Button Category Description: </label>
                 </div>
 
-         		   		<a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
            			</div>
 
     			</div>
@@ -79,8 +69,8 @@
                 </div >
 
                   <div class col s6>
-                  <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
                 </div>
                     
                 </div>
@@ -88,12 +78,14 @@
     	</div>
     </div>	
 
+@stop
 
-    {{ HTML::script('js/jquery-2.1.4.min.js') }}
-    {{ HTML::script('js/materialize.min.js') }}
-    {{ HTML::script('js/forModal.js') }}
+@section('scripts')
+    <script>
+      $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+      });
+    </script>
 
-
-
-	</body>
-</html>
+@stop
