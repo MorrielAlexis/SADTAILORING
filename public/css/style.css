@@ -7,21 +7,19 @@ header, main, footer {
         	padding-left: 0;
       		}
     	}
-    	
-    	a{
-    		color: lightcoral;
-    	}
-
+    
     	#shop{
     		margin-right:20px;
     	}
 
     	nav{
-    		background-color: lavender;
+    		background-color: teal;
+            font-family: cursive;
     	}
 
     	.waves-effect.waves-light .waves-ripple {
 
-	    	background-color: lightcoral;
+	    	background-color: teal;
     	}
 
+      

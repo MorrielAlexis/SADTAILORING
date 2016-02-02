@@ -39,22 +39,29 @@
               		</tbody>
               		</table>
 
-              		<div id="edit" class="modal">
+              	<div id="edit" class="modal modal-fixed-footer">
            			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Button
                  </font> </div>
            			<div class="modal-content">
 
             		<div class = "label"><font size = "+2"> <b>Button Category</b> </font></div>
             		<p></p>
-            		<div class = "label">Button Category ID: </div>
-           			<div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-           			<div class = "label">Button Category Name: </div>
-           			<div class="input"><input type="text" placeholder="Button Category Name"> </div>
-           			<div class = "label">Button Category Description:</div>
-           			<div class="input"> <input type="text" placeholder="Button Category Description"> </div>
-           			<div class="modal-footer">
-         		   		<a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>	
+
+                <div class="input-field">
+                 <input id="ButtonCategoryID" type="text" class="validate" readonly = "readonly">
+                 <label for="last_name">Button Category ID: </label>
+                </div>
+                <div class="input-field">
+                 <input id="ButtonCategoryName" type="text" class="validate">
+                 <label for="last_name">Button Category Name: </label>
+                </div>
+                <div class="input-field">
+                 <input id="ButtonCategoryDescription" type="text" class="validate">
+                 <label for="last_name">Button Category Description: </label>
+                </div>
+
+         		   		<a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
            			</div>
 
     			</div>
@@ -63,21 +70,32 @@
     			</div>
     		</div>
 
-    			<div id="add" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Button </font> </div>
-           			<div class="modal-content">
+    			<div id="add" class="modal modal-fixed-footer">
+                <div class = "label"><font color = "teal" size = "+3" back >&nbsp Button
+                 </font> </div>
+                <div class="modal-content">
 
-            		<div class = "label"><font size = "+2"> <b>Button Category</b> </font></div>
+                <div class = "label"><font size = "+2"> <b>Button Category</b> </font></div>
                 <p></p>
-                <div class = "label">Button Category ID: </div>
-                <div class="input"> <input type="text" placeholder="" readonly = "readonly"> </div>
-                <div class = "label">Button Category Name: </div>
-                <div class="input"><input type="text" placeholder="Button Category Name"> </div>
-                <div class = "label">Button Category Description:</div>
-                <div class="input"> <input type="text" placeholder="Button Category Description"> </div>
-                <div class="modal-footer">
-                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="save" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>  
+
+                <div class="input-field">
+                 <input id="ButtonCategoryID" type="text" class="validate" readonly = "readonly">
+                 <label for="last_name">Button Category ID: </label>
+                </div>
+                <div class="input-field">
+                 <input id="ButtonCategoryName" type="text" class="validate">
+                 <label for="last_name">Button Category Name: </label>
+                </div>
+                <div class="input-field">
+                 <input id="ButtonCategoryDescription" type="text" class="validate">
+                 <label for="last_name">Button Category Description: </label>
+                </div >
+
+                  <div class col s6>
+                  <a href="save" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
+                  <a href="cancel" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
+                </div>
+                    
                 </div>
 
     	</div>

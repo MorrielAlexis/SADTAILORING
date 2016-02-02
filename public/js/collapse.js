@@ -1,11 +1,11 @@
-$(document).ready(function){
+$(document).ready(function)({
   $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 240
+      menuWidth: 240, // Default is 240
       edge: 'right', // Choose the horizontal origin
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    }
-  );
-  	$('.collapsible').collapsible();
+    });
+  $('.collapsible').collapsible();
+  
    // Show sideNav
   $('.button-collapse').sideNav('show');
   // Hide sideNav

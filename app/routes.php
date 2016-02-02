@@ -36,3 +36,8 @@ Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabric
 Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatches');
 
 Route::get('/catalogue', 'CatalogueController@catalogue');
+
+// Route::get('/', function()
+// {
+// 	return View::make('buttonCategory');
+// });	

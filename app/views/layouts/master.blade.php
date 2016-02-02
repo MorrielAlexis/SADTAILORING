@@ -17,99 +17,114 @@
 
 		<ul id="slide-out" class="side-nav fixed">
 		<li><div id="logo"></div></li>
-		<li><b><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Sales</a></b></li>
-		<li><b><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Job Order</a></b></li>
-		
+		<li><b><a class="waves-effect waves-light btn-small" href="#!">Sales</a></b></li>
+		<div style="border: 1px solid aquamarine" class="divider"></div>
+		<li><b><a class="waves-effect waves-light btn-small" href="#!">Job Order</a></b></li>
+		<div style="border: 1px solid aquamarine" class="divider"></div>
+
 		<!--Maintenance Dropdown-->
 		<li class="no-padding">
 		<ul class="collapsible collapsible-accordion">
-			<li><a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header"><b>Maintenance</b></a>
+			<li><a class="waves-effect waves-light btn-small, collapsible-header"><b>Maintenance</b></a>
 				<div class="collapsible-body">
 					<ul>
+						<div style="border: 1px dashed aquamarine" class="divider"></div>
+										
 					<!--Customer Profile Dropdown-->
 						<li class="no-padding">
 						<ul class="collapsible collapsible-accordion">
-							<li><a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Customer Profile</a>
+							<li><a style="color: black" class="waves-effect waves-light btn-small, collapsible-header">Customer Profile</a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerIndividual">Individual</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/customerCompany">Company</a></li>
+										<div style="border: 1px dashed aquamarine" class="divider"></div>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/customerIndividual">Individual</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/customerCompany">Company</a></li>
 									</ul>
 								</div>
 							</li>
 						</ul>
 						</li>
+						<div style="border: 1px solid aquamarine" class="divider"></div>
 					<!--Employee Dropdown-->			
 						<li class="no-padding">
 						<ul class="collapsible collapsible-accordion">
-							<li><a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Employee</a>
+							<li><a style="color: black" class="waves-effect waves-light btn-small, collapsible-header">Employee</a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/employee">Employee Profile</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/employeeRole">Position Roles</a></li>
+										<div style="border: 1px dashed aquamarine" class="divider"></div>
+										<li><a style="color: black	" class="waves-effect waves-light btn-small" href="/employee">Employee Profile</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/employeeRole">Position Roles</a></li>
 									</ul>
 								</div>
 							</li>
 						</ul>
 						</li>
+						<div style="border: 1px solid aquamarine" class="divider"></div>
 					<!--Garments Dropdown-->
 						<li class="no-padding">
 						<ul class="collapsible collapsible-accordion">
-							<li><a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Garments</a>
+							<li><a style="color: black" class="waves-effect waves-light btn-small, collapsible-header">Garments</a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/garments">Category</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/garmentsDetails">Details</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/designPattern">Design Pattern</a></li>
+										<div style="border: 1px dashed aquamarine" class="divider"></div>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/garments">Category</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/garmentsDetails">Details</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/designPattern">Design Pattern</a></li>
 									<!--Measurements Dropdown-->
 										<li class="no-padding">
 										<ul class="collapsible collapsible-accordion">
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Measurements</a>
+										<li><a style="color: black" class="waves-effect waves-light btn-small, collapsible-header">Measurements</a>
 											<div class="collapsible-body">
 												<ul>
-													<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/measurementCategory">Header</a></li>
-								  					<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/measurementDetails	">Details</a></li>
+													<div style="border: 1px dashed aquamarine" class="divider"></div>
+													<li><a style="color: black" class="waves-effect waves-light btn-small" href="/measurementCategory">Header</a></li>
+								  					<li><a style="color: black" class="waves-effect waves-light btn-small" href="/measurementDetails">Details</a></li>
 												</ul>
 											</div>
 										</li>
 										</ul>
 										</li>
+										<div style="border: 1px solid aquamarine" class="divider"></div>
 									</ul>
 								</div>
 							</li>
 						</ul>
 						</li>
+						<div style="border: 1px solid aquamarine" class="divider"></div>
 					<!--Materials and Fabrics Dropdown-->
 						<li class="no-padding">
 						<ul class="collapsible collapsible-accordion">
-							<li><a style="color: lightcoral" class="waves-effect waves-light btn-small, collapsible-header">Materials and Fabrics</a>
+							<li><a style="color: black" class="waves-effect waves-light btn-small, collapsible-header">Materials and Fabrics</a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/fabricAndMaterialsFabricType">Fabric Types</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/fabricAndMaterialsSwatches">Swatches</a></li>
+										<div style="border: 1px dashed aquamarine" class="divider"></div>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/fabricAndMaterialsFabricType">Fabric Types</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/fabricAndMaterialsSwatches">Swatches</a></li>
 				  	<!--Materials Dropdown-->
 						<li class="no-padding">
 						<ul class="collapsible collapsible-accordion">
-							<li class="bold"><a style="color: lightcoral" class="bold, waves-effect waves-light btn-small, collapsible-header">Materials</a>
+							<li class="bold"><a style="color: black" class="bold, waves-effect waves-light btn-small, collapsible-header">Materials</a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Threads</a></li>
-								 		<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Needles</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Buttons</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Zippers</a></li>
-										<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="#!">Hook & Eye</a></li>
+										<div style="border: 1px dashed aquamarine" class="divider"></div>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="#!">Threads</a></li>
+								 		<li><a style="color: black" class="waves-effect waves-light btn-small" href="#!">Needles</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="#!">Buttons</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="#!">Zippers</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="#!">Hook & Eye</a></li>
 									</ul>
 								</div>
 							</li>
 						</ul>
 						</li>
-								
+						<div style="border: 1px solid aquamarine" class="divider"></div>
 						</ul>
 						</div>
 						</li>
 						</ul>
 						</li>
-								<li><a style="color: lightcoral" class="waves-effect waves-light btn-small" href="/catalogue">Catalogue</a></li>
+						<div style="border: 1px solid aquamarine" class="divider"></div>
+								<li><a style="color: black" class="waves-effect waves-light btn-small" href="/catalogue">Catalogue</a></li>
 							</ul>
 						</div>
 					</li>
@@ -117,7 +132,7 @@
 			</li>
 		</ul>
 
-		<ul style="color:lightcoral" id="shop" class="right hide-on-med-and-down">
+		<ul style="color: aquamarine" id="shop" class="right hide-on-med-and-down">
       		<h4>Fashion Collection</h4>
       	</ul>
 
