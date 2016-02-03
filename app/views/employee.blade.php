@@ -23,7 +23,7 @@
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    	<span class="card-title"><h6>Employee Profile</h6></span>
+   		    	<span class="card-title"><h5><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
       				<table class = "centered" align = "center" border = "1">
@@ -39,7 +39,7 @@
                     <th data-field="Landline">Phone No.</th>
                     <th data-field="email">Email Address</th>
               			</tr>
-              		<thead>
+              		</thead>
               		<tbody>
               		    <td>id</td>
                         <td>First Name</td>
@@ -101,11 +101,6 @@
                       </div>
 
                       <div class="input-field">
-                       <input id="Fax Number" type="text" class="validate">
-                       <label for="Fax_number">Fax Number: </label>
-                      </div>
-
-                      <div class="input-field">
                        <input id="Email" type="text" class="validate">
                        <label for="email">Email Address: </label>
                       </div>
@@ -122,9 +117,9 @@
 
           <!-- <Modal Structure for Add Employee> -->
     			<div id="newemp" class="modal modal-fixed-footer">
-                 <div class = "label"><font color = "teal" size = "+3" back ><h5><center>ADD NEW EMPLOYEE</h5></center></font> </div>
                  <div class="modal-content">
-                <p>
+                 <font color = "teal"><h5><center>ADD NEW EMPLOYEE</h5></center></font>
+                  <p>
 
                 <div class="input-field">
                  <input id="FirstName" type="text" class="validate">
@@ -165,11 +160,6 @@
                 <div class="input-field">
                  <input id="Landline Number" type="text" class="validate">
                  <label for="landline_number">Landline Number: </label>
-                </div>
-
-                <div class="input-field">
-                 <input id="Fax Number" type="text" class="validate">
-                 <label for="Fax_number">Fax Number: </label>
                 </div>
 
                 <div class="input-field">

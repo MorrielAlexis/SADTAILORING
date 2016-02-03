@@ -20,17 +20,17 @@
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    	<span class="card-title"><h5></center>Roles</center></h5></span>
+   		    	<span class="card-title"><h5><center>Roles</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
       				<table class = "centered" align = "center" border = "1">
-       				<thead>
+       				 <thead>
           				<tr>
               			<th data-field="id">Role ID</th>
              		  	<th data-field="name">Role Name</th>
               			<th data-field="address">Role Description</th>
               			</tr>
-              		<thead>
+              		</thead>
               		<tbody>
               			<td>ID</td>
               			<td>Production Manager</td>
@@ -54,8 +54,8 @@
                 </div>
 
            			<div class="modal-footer">
-         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-           				 <button type="submit" class="waves-effect waves-green btn-flat">Save</a>	
+         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+           				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>	
            			</div>
 
     			   </div>
@@ -65,7 +65,7 @@
     		</div>
 
     			<div id="addRole" class="modal">
-                <div class = "label"><font color = "teal" size = "+3" back ></h5><center>Employee Role </h5></center></font> </div>
+                <div class = "label"><font color = "teal" size = "+3" back ></h5><center> Add Employee Role </h5></center></font> </div>
                 <div class="modal-content">
 
                 <div class="input-field">
@@ -79,8 +79,8 @@
                 </div>
 
                 <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a> 
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
 
              </div>

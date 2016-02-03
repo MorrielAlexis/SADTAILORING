@@ -68,7 +68,7 @@
 									<ul>
 										<div style="border: 1px dashed aquamarine" class="divider"></div>
 										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/garments">Category</a></li>
-										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/garmentsDetails">Details</a></li>
+										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/garmentsDetails">Segment</a></li>
 										<li><a style="color: black" class="waves-effect waves-light btn-small" href="/designPattern">Design Pattern</a></li>
 									<!--Measurements Dropdown-->
 										<li class="no-padding">
