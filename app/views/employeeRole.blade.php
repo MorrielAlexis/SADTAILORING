@@ -1,15 +1,28 @@
 @extends('layouts.master')
 
 @section('content')
+ <div class="main-wrapper">
+    <div class="row">
+      <div class="col s12 m12 l12">
+      <span class="page-title"><h4>Employee-Roles</h4></span>
+    </div>
+
+
+
+    <div class="row">
+    <div class="col s12 m12 l6">
+       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addRole">ADD A NEW ROLE</button>
+     </div>
+   </div>
+  </div>
+
+
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    	<span class="card-title"><h4>Role</h4></span>
+   		    	<span class="card-title"><h5></center>Roles</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
-
-    			<a class="waves-effect waves-light btn modal-trigger" href="#add">ADD</a>
-    
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
@@ -20,17 +33,14 @@
               		<thead>
               		<tbody>
               			<td>ID</td>
-              			<td>Role Name </td>
-              			<td>Role Desc</td>
-              			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button>
-              			
-
-
-              		</tbody>
+              			<td>Production Manager</td>
+              			<td>In charge in supervising every transaction.</td>
+              			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editRole">EDIT</button>
+                 		</tbody>
               		</table>
-
-              <div id="edit" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee Role </font> </div>
+              <p>
+              <div id="editRole" class="modal">
+           			<div class = "label"><font color = "teal" size = "+3" back ><center><h5> Edit Role Details </h5></center></font> </div>
            			<div class="modal-content">
 
                 <div class="input-field">
@@ -44,8 +54,8 @@
                 </div>
 
            			<div class="modal-footer">
-         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
-           				 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a>	
+         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+           				 <button type="submit" class="waves-effect waves-green btn-flat">Save</a>	
            			</div>
 
     			   </div>
@@ -54,8 +64,8 @@
     			</div>
     		</div>
 
-    			<div id="add" class="modal">
-                <div class = "label"><font color = "teal" size = "+3" back >&nbsp Employee Role </font> </div>
+    			<div id="addRole" class="modal">
+                <div class = "label"><font color = "teal" size = "+3" back ></h5><center>Employee Role </h5></center></font> </div>
                 <div class="modal-content">
 
                 <div class="input-field">
@@ -69,8 +79,8 @@
                 </div>
 
                 <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Cancel</a>
-                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Save</a> 
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a> 
                 </div>
 
              </div>
