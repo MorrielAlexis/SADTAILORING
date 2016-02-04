@@ -94,7 +94,7 @@
 					<!--Materials and Fabrics Dropdown-->
 						<li class="no-padding">
 						<ul class="collapsible collapsible-accordion">
-							<li><a style="color: black" class="waves-effect waves-light btn-small, collapsible-header">Materials and Fabrics</a>
+							<li><a style="color: black" class="waves-effect waves-light btn-small, collapsible-header">Fabrics and Materials</a>
 								<div class="collapsible-body">
 									<ul>
 										<div style="border: 1px dashed aquamarine" class="divider"></div>
