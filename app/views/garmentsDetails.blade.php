@@ -32,8 +32,8 @@
               		</thead>
               		<tbody>
               			<td>ID</td>
-              			<td>Cat Name</td>
-                    <td>Prod Name</td>
+              			<td>Uniform</td>
+                    <td>Polo</td>
               			<td>Pro Desc</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editSegment">EDIT</button>
                   </tbody>
