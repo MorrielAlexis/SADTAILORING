@@ -26,7 +26,7 @@
                     <th data-field = "id"> Measurement ID </th>
               			<th data-field="category">Garment Name</th>
              		  	<th data-field="GarmentName">Segment Name</th>
-              			<th data-field="MeasurementName">Measurement Name</th>
+              			<th data-field="MeasurementName">Sleeve</th>
               			</tr>
               		</thead>
               		<tbody>
@@ -84,7 +84,7 @@
     		</div>
           <p>
     			<div id="addMeasurementInfo" class="modal modal-fixed-footer">
-           			<div class = "label"><font color = "teal" size = "+3" back > Add Measurement Info </font> </div>
+           			<font color = "teal"> <center><h5>Add Measurement Information </h5></center></font> 
                 <div class="modal-content">   
 
                 <div class="input-field">
@@ -99,7 +99,7 @@
 
                   <div class="input-field">
                   <select>
-                    <option value="" disabled selected> Select a Segment Name</option>
+                    <option value="" disabled selected> Select a Segment </option>
                     <option value="1">Blouse</option>
                     <option value="2">Pants</option>
                   </select>
@@ -117,8 +117,7 @@
                 </div>  
                 </p>
               </div>
-
-
+            
                 <div class="modal-footer">
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
