@@ -13,5 +13,10 @@ class FabricAndMaterialsController extends BaseController{
 		return View::make('fabricAndMaterialsSwatches');
 	}
 
+	public function materials()
+	{
+		return View::make('fabricAndMaterialsMaterials');
+	}
+
 
 }

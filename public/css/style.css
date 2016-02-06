@@ -1,4 +1,4 @@
-header, main, footer {
+        header, main, footer {
       	padding-left: 240px;
     	}
 
@@ -8,18 +8,61 @@ header, main, footer {
       		}
     	}
     
-    	#shop{
-    		margin-right:20px;
+
+        header{
+            background: teal;
+            width: 100%;
+            height: 60px;
+        } 
+
+        #slide-out{
+            margin-top: 60px;
+            background: white;
+        }
+
+        #slide-out:hover{
+            background: white;
+        }
+
+        #slide-out:active{
+            background: white;
+        }
+    	body{
+            font-family: 'Century Gothic';
     	}
 
-    	nav{
-    		background-color: teal;
-            font-family: cursive;
-    	}
+        h4{
+            color: teal;
+            margin-left: 20px;
+        }
 
-    	.waves-effect.waves-light .waves-ripple {
+        .hue{
+            width: col s12; 
+            height: 340px;
+        }
 
-	    	background-color: teal;
-    	}
 
-      
+        #slide-out > li :hover{
+            background: white;
+
+        }
+
+        #slide-out > li :visited{
+            background: white;
+        }
+
+        #slide-out > li :active{
+            background: white;
+        }
+
+        #slide-out > li ul li :active{
+            background: white;
+        }
+
+        #slide-out > li ul li :visited{
+            background: white;
+        }
+        
+        #slide-out > li ul li :hover{
+            background: white;
+        }

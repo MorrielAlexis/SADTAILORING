@@ -18,5 +18,10 @@ class GarmentsController extends BaseController{
 		return View::make('designPattern');
 	}
 
+	public function measurements()
+	{
+		return View::make('measurements');
+	}
+
 
 }

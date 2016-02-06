@@ -35,5 +35,10 @@ Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabric
 
 Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatches');
 
+Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
+
 Route::get('/catalogue', 'CatalogueController@catalogue');
+
+Route::get('/measurements', 'GarmentsController@measurements');
+
 
