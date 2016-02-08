@@ -41,4 +41,6 @@ Route::get('/catalogue', 'CatalogueController@catalogue');
 
 Route::get('/measurements', 'GarmentsController@measurements');
 
+Route::post('/addEmployee', array('uses'=>'EmployeeController@addEmployee'));
 
+Route::post('/editEmployee', array('uses'=>'EmployeeController@editEmployee'));

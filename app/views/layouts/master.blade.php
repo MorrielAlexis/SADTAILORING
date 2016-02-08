@@ -19,7 +19,7 @@
 	<li class="no-padding">
   	<ul class="collapsible collapsible-accordion">
   		
-  		<li><a class="bold" href="#!"><b>Logo?</b></a></li>
+  		<li><a class="bold" href="/"><b>Logo?</b></a></li>
 		<div class="divider"></div>
 		<li class="bold"><a class="collapsible-header waves-effect waves-teal"><b>Job Order</b></a>
   			<div class="collapsible-body">

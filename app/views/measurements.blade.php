@@ -11,8 +11,8 @@
         <li class="tab col s3"><a href="#test2">Details</a></li>
       </ul>
     </div>
-    <div id="test1" class="hue col s12">
-
+  
+  <div id="test1" class="hue col s12">
 
   <div class="main-wrapper">
     <div class="row">
@@ -140,7 +140,10 @@
     </div>  
 
     </div>
-    <div id="test2" class="hue col s12"><a href="/measurementDetails"></a></div>
+    <div id="test2" class="hue col s12">
+      
+
+    </div>
   </div>
 
 @stop

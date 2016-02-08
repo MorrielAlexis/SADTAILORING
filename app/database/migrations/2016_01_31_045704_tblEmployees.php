@@ -13,7 +13,7 @@ class TblEmployees extends Migration {
 	public function up()
 	{
 		Schema::create('tblEmployees', function(Blueprint $table){
-			$table->integer('intEmpID')->primary();
+			$table->string('strEmpID')->primary();
 			$table->string('strEmpFName');
 			$table->string('strEmpLName');
 			$table->string('strEmpAddress');

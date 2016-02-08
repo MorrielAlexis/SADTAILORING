@@ -13,7 +13,7 @@ class TblCustomerProfileCompanies extends Migration {
 	public function up()
 	{
 		Schema::create('tblCustomerProfileCompanies', function(Blueprint $table){
-			$table->integer('strCustProfComID')->primary();
+			$table->string('strCustProfComID')->primary();
 			$table->string('strCustProfComName');
 			$table->string('strCustProfComAddress');
 			$table->string('strCustProfComDesc');
