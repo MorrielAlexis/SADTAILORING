@@ -131,6 +131,11 @@
                 <p>
                   <form action="/addEmployee" method="POST">
                     <div class="input-field">
+                      <label for="empID">Employee ID: </label>
+                      <input value="{{$newID}}" id="EmpID" name="EmpID" type="text" class="validate" readonly>                      
+                    </div>
+
+                    <div class="input-field">
                       <input id="FirstName" name="FirstName" type="text" class="validate">
                       <label for="first_name">First Name: </label>
                     </div>
