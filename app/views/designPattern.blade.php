@@ -26,7 +26,7 @@
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
-                    <th date-field= "Catalog ID">Design Pattern ID</th>
+                    <th data-field= "Catalog ID">Design Pattern ID</th>
               			<th data-field="Garment Name">Segment Name </th>
              		  	<th data-field="Pattern Name">Pattern Name</th>
               			<th data-field="Pattern Image">Pattern Image</th>

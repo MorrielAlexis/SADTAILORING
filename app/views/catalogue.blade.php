@@ -28,15 +28,15 @@
       				<table class = "centered" align = "center" border = "1">
        				<thead>
           				<tr>
-                    <th date-field= "Catalog ID">Catalog ID</th>
+                    <th data-field= "Catalog ID">Catalog ID</th>
               			<th data-field="Catalog Category">Category</th>
              		  	<th data-field="Catalog Name">Catalog Name</th>
                     <th data-field="Description">Description</th>
               			<th data-field="Image">Image</th>
               			</tr>
               		<thead>
-              		<tbody>
 
+              		<tbody>
               			<td>001</td>
                     <td>Gown</td>
               			<td>Promenade Dress</td>
@@ -44,13 +44,14 @@
                     <td>image</td>
               			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCatalogue">EDIT</button>
               		</tbody>
-              		</table>
+              </table>
 
-                  <p>
-              		<div id="editCatalogue" class="modal modal-fixed-footer">
-           			<font color = "teal" ><center><h5>Edit Catalogue Details</h5></center>
-                 </font> 
+              <p>
+              <div id="editCatalogue" class="modal modal-fixed-footer">
+                <font color = "teal" ><center><h5>Edit Catalogue Details</h5></center>
+                </font> 
            			<div class="modal-content">
+
            			<div class="input-field">
                   <select>
                     <option value="" disabled selected>Catalogue Category</option>
@@ -61,27 +62,26 @@
                 </div>      
 
                 <div class="input-field">
-                 <input id="CatalogName" type="text" class="validate">
-                 <label for="Catalog_Name"> Catalog Name </label>
+                  <input id="CatalogName" type="text" class="validate">
+                  <label for="Catalog_Name"> Catalog Name </label>
                 </div>
 
                 <div class="input-field">
-                 <input id="CategoryDesc" type="text" class="validate">
-                 <label for="Category_Desc">Category Description </label>
+                  <input id="CategoryDesc" type="text" class="validate">
+                  <label for="Category_Desc">Category Description </label>
                 </div>
 
-           			
                 <div class="file-field input-field">
-                <div class="btn">
-               <span>Upload Image</span>
-               <input type="file">
-              </div>
-               <div class="file-path-wrapper">
-               <input class="file-path validate" type="text">
-               </div>
-                </div>
-           			<div class="modal-footer">
-                </p>
+                  <div class="btn">
+                    <span>Upload Image</span>
+                    <input type="file">
+                  </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text">
+                    </div>
+                  </div>
+
+              </p>
               </div>
          		   		
                   <div class="modal-footer">
@@ -97,46 +97,47 @@
 
           <p>
     			<div id="addCatalogue" class="modal modal-fixed-footer">
-                <font color = "teal"><h5><center>Add Catalogue </center></h5>
-                 </font> 
-                <div class="modal-content">
-                <div class="input-field">
-                  <select>
-                    <option value="" disabled selected>Catalogue Category</option>
-                    <option value="1">Gown</option>
-                    <option value="2">Uniform</option>
-                  </select>
-                  <label> Catalogue Category</label>
-                </div>      
+              <font color = "teal"><h5><center>Add Catalogue </center></h5>
+              </font> 
+              <div class="modal-content">
 
-                <div class="input-field">
-                 <input id="CatalogName" type="text" class="validate">
-                 <label for="Catalog_Name"> Catalog Name </label>
-                </div>
+              <div class="input-field">
+                <select>
+                  <option value="" disabled selected>Catalogue Category</option>
+                  <option value="1">Gown</option>
+                  <option value="2">Uniform</option>
+                </select>
+                <label> Catalogue Category</label>
+              </div>      
 
-                 <div class="input-field">
-                 <input id="CategoryDesc" type="text" class="validate">
-                 <label for="Category_Desc">Category Description </label>
-                </div>
+              <div class="input-field">
+                <input id="CatalogName" type="text" class="validate">
+                <label for="Catalog_Name"> Catalog Name </label>
+              </div>
+
+              <div class="input-field">
+                <input id="CategoryDesc" type="text" class="validate">
+                <label for="Category_Desc">Category Description </label>
+              </div>
 
                 
-                <div class="file-field input-field">
+              <div class="file-field input-field">
                 <div class="btn">
-               <span>Upload Image</span>
-               <input type="file">
+                  <span>Upload Image</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+                </div>
               </div>
-               <div class="file-path-wrapper">
-               <input class="file-path validate" type="text">
-               </div>
-                </div>
-               </p>
-               </div> 
-                <div class="modal-footer">
-                  
+
+          </p>
+          </div> 
+
+              <div class="modal-footer">                  
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
-                   
-                </div>
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>                    
+             </div>
     	</div>
     </div>	
 
