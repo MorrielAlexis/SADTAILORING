@@ -17,9 +17,13 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('layouts/master');
+		return View::make('login');
 	}
 
+	public function goToMain()
+	{
+		return View::make('layouts/master');
+	}
 }
 
 
