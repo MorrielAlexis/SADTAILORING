@@ -47,3 +47,7 @@ Route::post('/addEmployee', array('uses'=>'EmployeeController@addEmployee'));
 
 Route::post('/editEmployee', array('uses'=>'EmployeeController@editEmployee'));
 
+Route::post('/addRole', array('uses' =>'EmployeeController@addRole'));
+
+Route::post('/editRole', array('uses' => 'EmployeeController@editRole'));
+

@@ -18,7 +18,10 @@ class TblEmployees extends Migration {
 			$table->string('strEmpLName');
 			$table->string('strEmpAddress');
 			$table->integer('intEmpAge');
-			$table->integer('strEmpRoleID');//fk
+			$table->string('strEmpRoleID');//fk
+			$table->string('strCellNo');
+			$table->string('strPhoneNo');
+			$table->string('strEmailAdd');
 			// $table->boolean('actStatus')->default('1');
 			$table->timestamps();
 		});

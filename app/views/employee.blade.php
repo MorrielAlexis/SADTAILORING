@@ -39,16 +39,16 @@
 
               <tbody>
                 @foreach($employee as $employee)
-                </tr>
+                <tr>
               		<td>{{ $employee->strEmpID }}</td>
                   <td>{{ $employee->strEmpFName }}</td>
                   <td>{{ $employee->strEmpLName }}</td>
                   <td>{{ $employee->strEmpAddress }} </td>
                   <td>{{ $employee->intEmpAge }} </td>
-                  <td>Role</td>
-                  <td>cp number</td> 
-                  <td>phone</td>
-                  <td>email</td>
+                  <td>{{ $employee->strEmpRoleID }}</td>
+                  <td>{{ $employee->strCellNo }}</td> 
+                  <td>{{ $employee->strPhoneNo }}</td>
+                  <td>{{ $employee->strEmailAdd }}</td>
               		<td>
                   <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$employee->strEmpID}}">EDIT</button>
 
@@ -66,47 +66,45 @@
 
                           <div class="input-field">
                             <label for="first_name">Employee First Name: </label>
-                            <input id="FirstName" name="FirstName" type="text" class="validate">
+                            <input value="{{$employee->strEmpFName}}" id="FirstName" name="FirstName" type="text" class="validate">
                           </div>
 
                           <div class="input-field">
-                            <input id="LastName" name="LastName" type="text" class="validate">
+                            <input value="{{$employee->strEmpLName}}" id="LastName" name="LastName" type="text" class="validate">
                             <label for="LastName">Employee Last Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input id="Address" name="Address" type="text" class="validate">
+                            <input value="{{$employee->strEmpAddress}}" id="Address" name="Address" type="text" class="validate">
                             <label for="Address">Address: </label>
                           </div>
 
                           <div class="input-field">
-                            <input id="Age" name="Age" type="text" class="validate">
+                            <input value="{{$employee->intEmpAge}}" id="Age" name="Age" type="text" class="validate">
                             <label for="Age">Age: </label>
                           </div>  
 
                           <div class="input-field">
                             <select>
-                              <label>Role</label>
-                              <option value="" disabled selected>Pick a role</option>
-                              <option value="1">Production Manager</option>
-                              <option value="2">Sewer</option>
-                              <option value="3">Cutter</option>
-                              <option value="4">Runner</option>
-                            </select>
+                              <option selected disabled>Pick a role</option>
+                                @foreach($roles as $id=>$name)
+                                <option value="{{ $id }}">{{ $name }}</option>
+                                @endforeach
+                            </select>                            
                           </div>      
                              
                           <div class="input-field">
-                            <input id="Cellphone Number" type="text" class="validate">
+                            <input value="{{$employee->strCellNo}}" id="CellNo" name="CellNo" type="text" class="validate">
                             <label for="cellphone_number">Cellphone Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input id="Landline Number" type="text" class="validate">
+                            <input value="{{$employee->strPhoneNo}}" id="PhoneNo" name="PhoneNo" type="text" class="validate">
                             <label for="landline_number">Landline Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input id="Email" type="text" class="validate">
+                            <input value="{{$employee->strEmailAdd}}" id="Email" name="Email"type="text" class="validate">
                             <label for="email">Email Address: </label>
                           </div>
                         </p>
@@ -115,8 +113,7 @@
                       <div class="modal-footer">
                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                          <button type="submit" class="waves-effect waves-green btn-flat">DONE EDITING</a>
-                      </div>
-                    </div>                   
+                      </div>                  
                     </form>
               </td>
             </tr>
@@ -156,34 +153,32 @@
                     </div>  
 
                       <div class="input-field">
-                          <select>
-                            <option value="" disabled selected>Pick a role</option>
-                            <option value="1">Production Manager</option>
-                            <option value="2">Sewer</option>
-                            <option value="3">Cutter</option>
-                            <option value="4">Runner</option>
-                          </select>
-                        <label>Role</label>
+                        <select>
+                              <option selected disabled>Pick a role</option>
+                                @foreach($roles as $id=>$name)
+                                <option value="{{ $id }}">{{ $name }}</option>
+                                @endforeach
+                            </select>   
                       </div>      
                    
                       <div class="input-field">
-                        <input id="Cellphone Number" type="text" class="validate">
+                        <input id="CellNo" name="CellNo" type="text" class="validate">
                         <label for="cellphone_number">Cellphone Number: </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="Landline Number" type="text" class="validate">
+                        <input id="PhoneNo" name="PhoneNo" type="text" class="validate">
                         <label for="landline_number">Landline Number: </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="Email" type="text" class="validate">
+                        <input id="Email" name="Email" type="text" class="validate">
                         <label for="email">Email Address: </label>
                       </div>
                 </p>
               </div>
                       <div class="modal-footer">
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                         <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
                       </div>
                 </form>

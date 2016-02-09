@@ -22,70 +22,84 @@
     		<div class="card-panel">
    		    	<span class="card-title"><h5><center>Roles</center></h5></span>
    				<div class="divider"></div>
+
     			<div class="card-content">
-      				<table class = "centered" align = "center" border = "1">
-       				 <thead>
-          				<tr>
-              			<th data-field="id">Role ID</th>
-             		  	<th data-field="name">Role Name</th>
-              			<th data-field="address">Role Description</th>
-              			</tr>
-              		</thead>
-              		<tbody>
-              			<td>ID</td>
-              			<td>Production Manager</td>
-              			<td>In charge in supervising every transaction.</td>
-              			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editRole">EDIT</button>
-                 		</tbody>
-              		</table>
-              <p>
-              <div id="editRole" class="modal">
-           			<div class = "label"><font color = "teal" size = "+3" back ><center><h5> Edit Role Details </h5></center></font> </div>
-           			<div class="modal-content">
+      			<table class = "centered" align = "center" border = "1">
+       				<thead>
+          			<tr>
+              		<th data-field="id">Role ID</th>
+             		  <th data-field="name">Role Name</th>
+              		<th data-field="address">Role Description</th>
+              	</tr>
+              </thead>
 
-                <div class="input-field">
-                 <input id="RoleName" type="text" class="validate">
-                 <label for="role_name">Role Name: </label>
-                </div>
+              <tbody>
+                @foreach($role as $role)
+                <tr>
+                	<td>{{ $role->strRoleID }}</td>
+                	<td>{{ $role->strRoleName }}</td>
+                	<td>{{ $role->strRoleDescription }}</td>
+                	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$role->strRoleID}}">EDIT</button>
+                 		
+              <div id="{{$role->strRoleID}}" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                  <font color = "teal" size = "+3" back ><center><h5> Edit Role Details </h5></center></font>
+                  <p>
+                  <form action="/editRole" method="POST">
+                    <div class="input-field">
+                      <input value="{{$role->strRoleID}}"i d="RoleID" name="RoleID" type="text" class="validate" readonly>
+                      <label for="role_id">Role ID: </label>
+                    </div>
 
-                <div class="input-field">
-                 <input id="RoleDescription" type="text" class="validate">
-                 <label for="role_description">Role Description: </label>
-                </div>
+                    <div class="input-field">
+                      <input value="{{$role->strRoleName}}" id="RoleName" name="RoleName" type="text" class="validate">
+                      <label for="role_name">Role Name: </label>
+                    </div>
 
-           			<div class="modal-footer">
-         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
-           				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>	
-           			</div>
+                    <div class="input-field">
+                      <input value="{{$role->strRoleDescription}}" id="RoleDescription" name="RoleDescription" type="text" class="validate">
+                      <label for="role_description">Role Description: </label>
+                    </div>  
+                    </p>    
+    			       </div>
 
-    			   </div>
-
-    		
-    			</div>
-    		</div>
+                    <div class="modal-footer">
+                      <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                    </div>
+                  </form>
+                </td>
+              </tr>
+            @endforeach
+            </tbody>
+            </table>
 
     			<div id="addRole" class="modal">
-                <div class = "label"><font color = "teal" size = "+3" back ></h5><center> Add Employee Role </h5></center></font> </div>
-                <div class="modal-content">
+            <font color = "teal" size = "+3" back ></h5><center> Add Employee Role </h5></center></font>
+              <div class="modal-content">
+              <p>
+                <form action="/addRole" method="POST">
+                  <div class="input-field">
+                    <input value="{{$newID}}" id="RoleID" name="RoleID" type="text" class="validate" readonly>
+                    <label for="role_id">Role ID: </label>
+                  </div>
+                        
+                  <div class="input-field">
+                    <input id="RoleName" name="RoleName" type="text" class="validate">
+                    <label for="role_name">Role Name: </label>
+                  </div>
 
-                <div class="input-field">
-                 <input id="RoleName" type="text" class="validate">
-                 <label for="role_name">Role Name: </label>
-                </div>
-
-                <div class="input-field">
-                 <input id="RoleDescription" type="text" class="validate">
-                 <label for="role_description">Role Description: </label>
-                </div>
-
-                <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
-                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                </div>
-
-             </div>
-    	</div>
-    </div>	
+                  <div class="input-field">
+                    <input id="RoleDescription" name="RoleDescription" type="text" class="validate">
+                    <label for="role_description">Role Description: </label>
+                  </div>
+              </p>
+              </div>
+                  <div class="modal-footer">
+                    <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                  </div>
+              </form>
 
 @stop
 

@@ -12,33 +12,71 @@ class EmployeeController extends BaseController{
 			->take(1)
 			->get();
 
-
+		//dd($newID);
 		$ID = $ids["0"]->strEmpID;
 		$newID = $this->smartCounter($ID);	
 
+		$roles =  Role::lists('strRoleName', 'strRoleID'); 
+		
 		$employee = Employee::all();
+			/*
+		$employee = DB::table('tblEmployees')
+            ->leftJoin('tblRoles', 'tblEmployees.strEmpRoleID', '=', 'tblRoles.strRoleID')
+            ->select('tblEmployees.*', 'tblRoles.strRoleName')
+            ->get()	;*/
 
-		return View::make('employee')->with('employee', $employee)->with('newID', $newID);
+		return View::make('employee')
+					->with('employee', $employee)
+					->with('roles', $roles)
+					->with('newID', $newID);
 	}
 
 	public function roles()
-	{
-		return View::make('employeeRole');
+	{	
+		$ids = DB::table('tblRoles')
+			->select('strRoleID')
+			->orderBy('updated_at', 'desc')
+			->orderBy('strRoleID', 'desc')
+			->take(1)
+			->get();
+
+		$ID = $ids["0"]->strRoleID;
+		$newID = $this->smartCounter($ID);	
+
+		$role = Role::all();
+
+		return View::make('employeeRole')->with('role', $role)->with('newID', $newID);
 	}
 
 	public function addEmployee()
-	{
+	{	
+
 		$employee = Employee::create(array(
 			'strEmpID' => Input::get('EmpID'),
 			'strEmpFName' => Input::get('FirstName'),		
 			'strEmpLName' => Input::get('LastName'),
 			'strEmpAddress' => Input::get('Address'),
 			'intEmpAge' => Input::get('Age'),
-			'strEmpRoleID' => 1
+			'strEmpRoleID' => Input::get('roles'), 
+			'strCellNo' => Input::get('CellNo'),
+			'strPhoneNo' => Input::get('PhoneNo'),
+			'strEmailAdd' => Input::get('Email')
 			));
 
 		$employee->save();
 		return Redirect::to('/employee');
+	}
+
+	public function addRole()
+	{		
+		$role = Role::create(array(
+			'strRoleID' => Input::get('RoleID'),
+			'strRoleName' => Input::get('RoleName'),
+			'strRoleDescription' => Input::get('RoleDescription')
+			));
+
+		$role->save();
+		return Redirect::to('/employeeRole');
 	}
 
 	public function editEmployee()
@@ -50,9 +88,25 @@ class EmployeeController extends BaseController{
 		$employee->strEmpLName = Input::get('LastName');
 		$employee->strEmpAddress = Input::get('Address');
 		$employee->intEmpAge = Input::get('Age');
+		$employee->strEmpRoleID = Input::get('roles');
+		$employee->strCellNo = Input::get('CellNo');
+		$employee->strPhoneNo = Input::get('PhoneNo');
+		$employee->strEmailAdd = Input::get('Email');
 
 		$employee->save();
 		return Redirect::to('/employee');
+	}
+
+	public function editRole()
+	{
+		$id = Input::get('RoleID');
+		$role = Role::find($id);
+
+		$role->strRoleName = Input::get('RoleName');	
+		$role->strRoleDescription = Input::get('RoleDescription');
+
+		$role->save();
+		return Redirect::to('/employeeRole');
 	}
 
 	public function smartCounter($id)
@@ -65,7 +119,7 @@ class EmployeeController extends BaseController{
 		$tempNew = [];
 		$newID = "";
 		$add = TRUE;
-//dd(count($lastID));
+
 		for($ctr = count($lastID)-1; $ctr >= 0; $ctr--){
 
 			$tempID = $lastID[$ctr];

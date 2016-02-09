@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
+@extends('layouts.master')
 
-    <title>Zipper</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    {{ HTML::style('css/materialize.min.css') }}
-    {{ HTML::style('css/style.css') }}
-    
-
-</head>
-<body>
-
+@section('content')
 	<div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -24,8 +13,6 @@
         </div>
       
     </div>
-
-
 
     <div class="row">
     	<div class="col s12 m12 l12">
@@ -158,14 +145,9 @@
                  </div>		
               </div>	
 
+@stop
 
-
-    {{ HTML::script('js/jquery-2.1.4.min.js') }}
-    {{ HTML::script('js/materialize.min.js') }}
-    {{ HTML::script('js/forModal.js') }}
-    {{ HTML::script('js/forDropdown.js') }}
-    {{ HTML::script('js/inputfield.js')}}
-
+@section('scripts')
     <script>
       $(document).ready(function(){
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
@@ -178,9 +160,4 @@
       $('select').material_select();
       });
     </script>
-
-  </div>
-
-</body>
-
-</html>
+@stop
