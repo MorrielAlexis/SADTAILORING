@@ -176,8 +176,8 @@
                       </div>
 
                       <div class="input-field">
-                        <input id="Email" name="Email" type="text" class="validate">
-                        <label for="email">Email Address: </label>
+                        <input id="Email" name="Email" type="email" class="validate">
+                        <label for="email" data-error="wrong" data-success="right">Email Address: </label>
                       </div>
                 </p>
               </div>
@@ -199,7 +199,8 @@
     </script>
 
     <script>
-    $('.dropdown-button').dropdown({
+    $(document).ready(function(){
+      $('.dropdown-button').dropdown({
       inDuration: 300,
       outDuration: 225,
       constrain_width: false, // Does not change width of dropdown to that of the activator
@@ -209,6 +210,8 @@
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
       }
       );
+    }
+    
     </script>
 
     <script>

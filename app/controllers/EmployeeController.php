@@ -7,12 +7,11 @@ class EmployeeController extends BaseController{
 	{	
 		$ids = DB::table('tblEmployees')
 			->select('strEmpID')
-			->orderBy('updated_at', 'desc')
+			->orderBy('created_at', 'desc')
 			->orderBy('strEmpID', 'desc')
 			->take(1)
 			->get();
 
-		//dd($newID);
 		$ID = $ids["0"]->strEmpID;
 		$newID = $this->smartCounter($ID);	
 
@@ -36,7 +35,7 @@ class EmployeeController extends BaseController{
 	{	
 		$ids = DB::table('tblRoles')
 			->select('strRoleID')
-			->orderBy('updated_at', 'desc')
+			->orderBy('created_at')
 			->orderBy('strRoleID', 'desc')
 			->take(1)
 			->get();
