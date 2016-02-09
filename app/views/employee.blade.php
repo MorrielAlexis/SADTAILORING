@@ -111,8 +111,8 @@
                       </div>
 
                       <div class="modal-footer">
+                        <button type="submit" class="waves-effect waves-green btn-flat">UPDATE</button>
                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                         <button type="submit" class="waves-effect waves-green btn-flat">DONE EDITING</a>
                       </div>                  
                     </form>
               </td>
@@ -178,8 +178,8 @@
                 </p>
               </div>
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                         <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                       </div>
                 </form>
             <!-- <End for Add Employee> -->

@@ -27,62 +27,75 @@
                     <th data-field="id">Garment ID</th>
                     <th data-field="garmentName">Garment Name</th>
                     <th data-field="garmentDescription">Garment Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+                  </tr>
+              </thead>
+
+              <tbody>
                     <td>id</td>
                     <td>Uniform</td>
-                    <td>Daily use. For office. </td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editGCategory">EDIT</button>
+                    <td>Daily use. For office.</td>
+                    <td>
+                    <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editGCategory">EDIT</button>
           
-                  <tbody>
-                  </table>
-
+               
                 <!-- Modal Structure for Edit Garment Category> -->
                 <div id="editGCategory" class="modal modal-fixed-footer">
                   <div class="modal-content">
                   <font color = "teal"><h5><center>Edit Garment Category </center></h5>
                  </font>
                  <p> 
-                
+                    <!-- <form action="/editGCategory" method="POST"> -->
+                      <div class="input-field">
+                            <label for="garment_id">Garment ID: </label>
+                            <input value="GarmentID "id="GarmentID" name="GarmentID" type="text" class="validate" readonly>
+                      </div>
 
-                <div class="input-field">
-                 <input id="GarmentName" type="text" class="validate">
-                 <label for="garment_name">Garment Name: </label>
-                </div>
+                      <div class="input-field">
+                         <input value="GarmentName" id="GarmentName" name="GarmentName"type="text" class="validate">
+                         <label for="garment_name">Garment Name: </label>
+                      </div>
 
-                <div class="input-field">
-                 <input id="GarmentDescription" type="text" class="validate">
-                 <label for="garment_description">Garment Desription: </label>
-                </div>
-              </p>
-            </div>
+                      <div class="input-field">
+                         <input id="GarmentDescription" id="GarmentDescription" name="GarmentDescription" type="text" class="validate">
+                         <label for="garment_description">Garment Desription: </label>
+                      </div>
+                    </p>
+                  </div>
 
                 <div class="modal-footer">
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
-
-          </div>
-
+              </form>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
         
-          </div>
-        </div>
-
+         
+         <!--    <Modal for Add Garment Category> -->
           <div id="addGCategory" class="modal modal-fixed-footer">
             <div class="modal-content">
                 <font color = "teal"><h5><center> Add A Garment Category </h5></center></font> 
                 <p>
-                <div class="input-field">
-                 <input id="GarmentName" type="text" class="validate">
-                 <label for="garment_name">Garment Name: </label>
-                </div>
+                  <!-- <form action="/addGCategory" method="POST"> -->
 
-                <div class="input-field">
-                 <input id="GarmentDescription" type="text" class="validate">
-                 <label for="garment_description">Garment Desription: </label>
-                </div>
-              </p>
+                      <div class="input-field">
+                            <label for="garment_id">Garment ID: </label>
+                            <input value="GarmentID "id="GarmentID" name="GarmentID" type="text" class="validate" readonly>
+                      </div>
+
+                      <div class="input-field">
+                             <input value="GarmentName" id="GarmentName" name="GarmentName" type="text" class="validate">
+                             <label for="garment_name">Garment Name: </label>
+                      </div>
+
+                      <div class="input-field">
+                             <input value="GarmentDescription" id="GarmentDescription" name="GarmentDescription" type="text" class="validate">
+                             <label for="garment_description">Garment Desription: </label>
+                      </div>
+                </p>
             </div>
 
                 <div class="modal-footer">
