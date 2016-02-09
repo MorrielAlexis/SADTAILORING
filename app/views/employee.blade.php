@@ -45,7 +45,7 @@
                   <td>{{ $employee->strEmpLName }}</td>
                   <td>{{ $employee->strEmpAddress }} </td>
                   <td>{{ $employee->intEmpAge }} </td>
-                  <td>{{ $employee->strEmpRoleID }}</td>
+                  <td>{{ $employee->strRoleName}}</td>
                   <td>{{ $employee->strCellNo }}</td> 
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
