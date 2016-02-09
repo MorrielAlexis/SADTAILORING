@@ -84,13 +84,17 @@
                             <label for="Age">Age: </label>
                           </div>  
 
-                          <div class="input-field">
-                            <select name='roles'>
-                              <option selected disabled>Pick a role</option>
+                          <div class="input-field">                                                    
+                              <select name='roles'>
+                              <option disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
-                                <option value="{{ $id }}">{{ $name }}</option>
+                                    @if($employee->strEmpRoleID == $id)
+                                      <option selected value="{{ $id }}">{{ $name }}</option>
+                                    @else
+                                      <option value="{{ $id }}">{{ $name }}</option>
+                                    @endif
                                 @endforeach
-                            </select>                            
+                            </select>    
                           </div>      
                              
                           <div class="input-field">
