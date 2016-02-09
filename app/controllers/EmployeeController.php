@@ -19,11 +19,12 @@ class EmployeeController extends BaseController{
 		$roles =  Role::lists('strRoleName', 'strRoleID'); 
 		
 		$employee = Employee::all();
-			/*
+		
+		/*
 		$employee = DB::table('tblEmployees')
             ->leftJoin('tblRoles', 'tblEmployees.strEmpRoleID', '=', 'tblRoles.strRoleID')
             ->select('tblEmployees.*', 'tblRoles.strRoleName')
-            ->get()	;*/
+            ->get();*/
 
 		return View::make('employee')
 					->with('employee', $employee)

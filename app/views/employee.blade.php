@@ -85,7 +85,7 @@
                           </div>  
 
                           <div class="input-field">
-                            <select>
+                            <select name='roles'>
                               <option selected disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
                                 <option value="{{ $id }}">{{ $name }}</option>
@@ -153,12 +153,12 @@
                     </div>  
 
                       <div class="input-field">
-                        <select>
+                        <select name='roles'>
                               <option selected disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
                                 <option value="{{ $id }}">{{ $name }}</option>
                                 @endforeach
-                            </select>   
+                        </select>   
                       </div>      
                    
                       <div class="input-field">
