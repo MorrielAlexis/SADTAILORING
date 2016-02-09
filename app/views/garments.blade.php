@@ -83,16 +83,16 @@
 
                       <div class="input-field">
                             <label for="garment_id">Garment ID: </label>
-                            <input value="GarmentID "id="GarmentID" name="GarmentID" type="text" class="validate" readonly>
+                            <input value="GarmentID" id="GarmentID" name="GarmentID" type="text" class="validate" readonly>
                       </div>
 
                       <div class="input-field">
-                             <input value="GarmentName" id="GarmentName" name="GarmentName" type="text" class="validate">
+                             <input id="GarmentName" name="GarmentName" type="text" class="validate">
                              <label for="garment_name">Garment Name: </label>
                       </div>
 
                       <div class="input-field">
-                             <input value="GarmentDescription" id="GarmentDescription" name="GarmentDescription" type="text" class="validate">
+                             <input id="GarmentDescription" name="GarmentDescription" type="text" class="validate">
                              <label for="garment_description">Garment Desription: </label>
                       </div>
                 </p>
