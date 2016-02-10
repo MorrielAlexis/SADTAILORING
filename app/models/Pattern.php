@@ -16,6 +16,6 @@ class Pattern extends Eloquent {
 
 	public function measurement() {
 
-		return $this->hasMany('MeasurementHead');
+		return $this->hasMany('MeasurementHead', 'strMeasurementID');
 	}
 }

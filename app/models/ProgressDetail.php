@@ -11,6 +11,6 @@ class ProgressDetail extends Eloquent {
 
 	public function detail() {
 
-		return $this->hasMany('JobProgress');
+		return $this->hasMany('JobProgress', 'strEmpJobProgressID');
 	}
 }

@@ -11,10 +11,6 @@ class Customer extends Eloquent {
 								'dtUpdatedAt');
 
 
-	public function customer() {
-
-		return $this->hasMany('PrivateIndividual', 'Company');
-	}
 
 	public function accountType(){
 

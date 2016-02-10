@@ -10,6 +10,6 @@ class CustomerAccountType extends Eloquent {
 
 	public function accountType() {
 
-		return $this->hasMany('Customer');
+		return $this->hasMany('Customer', 'strCustomerID');
 	}
 }

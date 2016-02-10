@@ -10,6 +10,6 @@ class Role extends ELoquent {
 
 	public function role() {
 
-		return $this->hasMany('Employee');
+		return $this->hasMany('Employee', 'strEmployeeID');
 	}
 }

@@ -8,8 +8,8 @@ class CustomerType extends Eloquent {
 								'strCustTypeDesc');
 
 
-	public function customerType() {
+	public function customer() {
 
-		return $this->hasMany('PrivateIndividual', 'Company');
+		return $this->hasMany('PrivateIndividual', 'Company', 'strCustPrivIndivID', 'strCustCompanyID');
 	}
 }

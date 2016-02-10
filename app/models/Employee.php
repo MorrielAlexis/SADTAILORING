@@ -24,6 +24,6 @@ class Employee extends Eloquent {
 
 	public function jobProgress() {
 
-		return $this->hasMany('JobProgress');
+		return $this->hasMany('JobProgress', 'strEmpJobProgressID');
 	}
 }

@@ -16,11 +16,11 @@ class Segment extends Eloquent {
 
 	public function measurement() {
 
-		return $this->hasMany('Segment');
+		return $this->hasMany('MeasurementHead', 'strMeasurementID');
 	}
 
 	public function pattern() {
 
-		return $this->hasMany('Pattern');
+		return $this->hasMany('Pattern', 'strDesignPatternID');
 	}
 }

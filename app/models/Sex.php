@@ -9,6 +9,6 @@ class Sex extends Eloquent {
 
 	public function sex() {
 
-		return $this->hasMany('PrivateIndividual', 'Employee');
+		return $this->hasMany('PrivateIndividual', 'Employee', 'strCustPrivIndivID', 'strEmployeeID');
 	}
 }
