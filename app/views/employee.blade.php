@@ -27,11 +27,11 @@
           			<tr>
               	    <th data-field="id">Employee ID</th>
              		    <th data-field="firstname">First Name</th>
-                    <th data-field="lastname">Last Name</th>
-                    <th data-field="address">Address</th>
+                    <th data-field="lastname">Last Name</th>          
                     <th data-field="Age">Age</th>
-                    <th data-field="Role">Role</th>
                     <th data-field="Sex">Sex</th>
+                    <th data-field="address">Address</th>
+                    <th data-field="Role">Role</th>
                     <th data-field="cellphone">Cellphone No.</th>
                     <th data-field="Landline">Phone No.</th>
                     <th data-field="email">Email Address</th>
@@ -67,31 +67,31 @@
                     <form action="/editEmployee" method="POST">
                           <div class="input-field">
                             <label for="first_name">Employee ID: </label>
-                            <input value="{{$employee->strEmployeeID}}" id="EmpID" name="EmpID" type="text" class="validate" readonly>
+                            <input value="{{$employee->strEmployeeID}}" id="editEmpID" name="editEmpID" type="text" class="validate" readonly>
                           </div>
 
                           <div class="input-field">
                             <label for="first_name">Employee First Name: </label>
-                            <input value="{{$employee->strEmpFName}}" id="FirstName" name="FirstName" type="text" class="validate">
+                            <input value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpLName}}" id="LastName" name="LastName" type="text" class="validate">
+                            <input value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
                             <label for="LastName">Employee Last Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpAddress}}" id="Address" name="Address" type="text" class="validate">
+                            <input value="{{$employee->strEmpAddress}}" id="editAddress" name="editAddress" type="text" class="validate">
                             <label for="Address">Address: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpAge}}" id="Age" name="Age" type="text" class="validate">
+                            <input value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validate">
                             <label for="Age">Age: </label>
                           </div>  
 
                           <div class="input-field">                                                    
-                              <select name='roles'>
+                              <select name='editRoles'>
                               <option disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
                                     @if($employee->strRole == $id)
@@ -104,7 +104,7 @@
                           </div>   
 
                           <div class="input-field">                                                    
-                              <select name='sex'>
+                              <select name='editSex'>
                               <option disabled>Sex</option>
                                   @if($employee->strSex == "M")
                                     <option selected value="{{$employee->strSex}}">Male</option>
@@ -117,17 +117,17 @@
                           </div>   
 
                           <div class="input-field">
-                            <input value="{{$employee->strCellNo}}" id="CellNo" name="CellNo" type="text" class="validate">
+                            <input value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validate">
                             <label for="cellphone_number">Cellphone Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strPhoneNo}}" id="PhoneNo" name="PhoneNo" type="text" class="validate">
+                            <input value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validate">
                             <label for="landline_number">Landline Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmailAdd}}" id="Email" name="Email"type="text" class="validate">
+                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
                             <label for="email">Email Address: </label>
                           </div>
                         </p>
@@ -149,34 +149,34 @@
               <div class="modal-content">
                 <font color = "teal"><h5><center>ADD NEW EMPLOYEE</h5></center></font>
                 <p>
-                  <form action="/addEmployee" method="POST">
+                  <form action="/addEmployee" method="POST" id="addEmployee" name="addEmployee">
                     <div class="input-field">
                       <label for="empID">Employee ID: </label>
-                      <input value="{{$newID}}" id="EmpID" name="EmpID" type="text" class="validate" readonly>                      
+                      <input value="{{$newID}}" id="addEmpID" name="addEmpID" type="text" class="validate" readonly>                      
                     </div>
 
                     <div class="input-field">
-                      <input id="FirstName" name="FirstName" type="text" class="validate">
+                      <input id="addFirstName" name="addFirstName" type="text" class="validate" required>
                       <label for="first_name">First Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input id="LastName" name="LastName" type="text" class="validate">
+                      <input id="addLastName" name="addLastName" type="text" class="validate" required>
                       <label for="last_name">Last Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input id="Address" name="Address" type="text" class="validate">
+                      <input id="addAddress" name="addAddress" type="text" class="validate">
                       <label for="Address">Address: </label>
                     </div>
 
                     <div class="input-field">
-                      <input id="Age" name="Age" type="text" class="validate">
+                      <input id="addAge" name="addAge" type="text" class="validate">
                       <label for="Age">Age: </label>
                     </div>  
 
                       <div class="input-field">
-                        <select name='roles'>
+                        <select name='addRoles' id='addRoles' required>
                               <option selected disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
                                 <option value="{{ $id }}">{{ $name }}</option>
@@ -185,31 +185,31 @@
                       </div>      
 
                        <div class="input-field">                                                    
-                              <select name='sex'>
+                              <select name='addSex' id='addSex' required>
                               <option selected disabled>Sex</option>
-                                      <option value="Male">Male</option>
-                                      <option value="Female">Female</option>
+                                      <option value="M">Male</option>
+                                      <option value="F">Female</option>
                             </select>    
                       </div>   
                    
                       <div class="input-field">
-                        <input id="CellNo" name="CellNo" type="text" class="validate">
+                        <input id="addCellNo" name="addCellNo" type="text" class="validate">
                         <label for="cellphone_number">Cellphone Number: </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="PhoneNo" name="PhoneNo" type="text" class="validate">
+                        <input id="addPhoneNo" name="addPhoneNo" type="text" class="validate">
                         <label for="landline_number">Landline Number: </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="Email" name="Email" type="email" class="validate">
+                        <input id="addEmail" name="addEmail" type="email" class="validate">
                         <label for="email" data-error="wrong" data-success="right">Email Address: </label>
                       </div>
                 </p>
               </div>
                       <div class="modal-footer">
-                        <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
+                        <button type="submit" id="send" name="send" class="modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                       </div>
                 </form>
@@ -219,14 +219,8 @@
 
 @section('scripts')
     <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-
-    <script>
-    $(document).ready(function(){
+    $( document ).ready(function() {
+    
       $('.dropdown-button').dropdown({
       inDuration: 300,
       outDuration: 225,
@@ -235,16 +229,31 @@
       gutter: 0, // Spacing from edge
       belowOrigin: false, // Displays dropdown below the button
       alignment: 'left' // Displays dropdown with edge aligned to the left of button
-      }
-      );
-    }
-    
+      });
+
+      $('select').material_select();
+
+      $('.modal-trigger').leanModal();
+
+    });
     </script>
 
     <script>
       $(document).ready(function(){
-      $('select').material_select();
+        $("#send").click(function(e){
+          
+          var firstName = $("#addFirstName").val();
+          var lastName = $("#addLastName").val();
+          var role = $("#addRoles").val();
+          var sex = $("#addSex").val();
+              
+          if(firstName == '' || lastName == '' || sex == null || role == null)
+              e.preventDefault();
+       });
       });
     </script>
+
+
+    
 
 @stop
