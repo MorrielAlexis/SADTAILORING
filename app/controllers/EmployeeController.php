@@ -56,7 +56,7 @@ class EmployeeController extends BaseController{
 			'strEmpFName' => Input::get('FirstName'),		
 			'strEmpLName' => Input::get('LastName'),
 			'strEmpAge' => Input::get('Age'),
-			'strSex' => 'M',
+			'strSex' => Input::get('sex'),
 			'strEmpAddress' => Input::get('Address'),			
 			'strRole' => Input::get('roles'), 
 			'strCellNo' => Input::get('CellNo'),
@@ -86,9 +86,10 @@ class EmployeeController extends BaseController{
 		$employee = Employee::find($id);
 
 		$employee->strEmpFName = Input::get('FirstName');	
-		$employee->strEmpLName = Input::get('LastName');
+		$employee->strEmpLName = Input::get('LastName');		
+		$employee->strEmpAge = Input::get('Age');
+		$employee->strSex = Input::get('sex');
 		$employee->strEmpAddress = Input::get('Address');
-		$employee->intEmpAge = Input::get('Age');
 		$employee->strRole = Input::get('roles');
 		$employee->strCellNo = Input::get('CellNo');
 		$employee->strPhoneNo = Input::get('PhoneNo');

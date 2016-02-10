@@ -31,6 +31,7 @@
                     <th data-field="address">Address</th>
                     <th data-field="Age">Age</th>
                     <th data-field="Role">Role</th>
+                    <th data-field="Sex">Sex</th>
                     <th data-field="cellphone">Cellphone No.</th>
                     <th data-field="Landline">Phone No.</th>
                     <th data-field="email">Email Address</th>
@@ -43,9 +44,14 @@
               		<td>{{ $employee->strEmployeeID }}</td>
                   <td>{{ $employee->strEmpFName }}</td>
                   <td>{{ $employee->strEmpLName }}</td>
-                  <td>{{ $employee->strEmpAddress }} </td>
                   <td>{{ $employee->strEmpAge }} </td>
-                  <td>{{ $employee->strEmpRoleName}}</td>
+                  <td>
+                    @if($employee->strSex == 'M') Male
+                    @else Female
+                    @endif
+                  </td>
+                  <td>{{ $employee->strEmpAddress }} </td>
+                  <td>{{ $employee->strEmpRoleName}}</td>                  
                   <td>{{ $employee->strCellNo }}</td> 
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
@@ -95,8 +101,21 @@
                                     @endif
                                 @endforeach
                             </select>    
-                          </div>      
-                             
+                          </div>   
+
+                          <div class="input-field">                                                    
+                              <select name='sex'>
+                              <option disabled>Sex</option>
+                                  @if($employee->strSex == "M")
+                                    <option selected value="{{$employee->strSex}}">Male</option>
+                                    <option value="F">Female</option>
+                                  @else
+                                    <option value="M">Male</option>
+                                    <option selected value="{{$employee->strSex}}">Female</option>
+                                  @endif
+                            </select>    
+                          </div>   
+
                           <div class="input-field">
                             <input value="{{$employee->strCellNo}}" id="CellNo" name="CellNo" type="text" class="validate">
                             <label for="cellphone_number">Cellphone Number: </label>
@@ -164,6 +183,14 @@
                                 @endforeach
                         </select>   
                       </div>      
+
+                       <div class="input-field">                                                    
+                              <select name='sex'>
+                              <option selected disabled>Sex</option>
+                                      <option value="Male">Male</option>
+                                      <option value="Female">Female</option>
+                            </select>    
+                      </div>   
                    
                       <div class="input-field">
                         <input id="CellNo" name="CellNo" type="text" class="validate">
