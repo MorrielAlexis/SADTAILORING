@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblEmployees extends Migration {
+class TblEmployee extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,17 +12,15 @@ class TblEmployees extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tblEmployees', function(Blueprint $table){
-			$table->string('strEmpID')->primary();
+		Schema::create('tblEmployee', function(Blueprint $table){
+			$table->string('strEmployeeID')->primary();
 			$table->string('strEmpFName');
 			$table->string('strEmpLName');
+			$table->string('strEmpAge');
+			$table->string('strGender');//fk
 			$table->string('strEmpAddress');
-			$table->integer('intEmpAge');
-			$table->string('strEmpRoleID');//fk
-			$table->string('strCellNo');
-			$table->string('strPhoneNo');
-			$table->string('strEmailAdd');
-			// $table->boolean('actStatus')->default('1');
+			$table->string('strRole');//fk
+			$table->datetime('dtUpdatedAt');
 			$table->timestamps();
 		});
 	}
@@ -34,8 +32,7 @@ class TblEmployees extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('tblEmployees');
-	
+		Schema::dropIfExists('tblEmployee');
 	}
 
 }

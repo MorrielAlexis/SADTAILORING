@@ -1,12 +1,15 @@
 <?php
 
-class Role extends Eloquent
-{
-	protected $table = 'tblRoles';
-	protected $primaryKey = 'strRoleID';
-	protected $fillable = array('strRoleID','strRoleName', 'strRoleDescription');
+class Role extends ELoquent {
 
-	public function employees() {
-		return $this->hasMany('Employee', 'strEmpRoleID', 'strRoleID');
+	protected $table = 'tblEmployeeRole';
+	protected $primaryKey = 'strEmpRoleID';
+	protected $fillable = array('strEmpRoleName',
+								'strEmpRoleDesc');
+
+
+	public function role() {
+
+		return $this->hasMany('Employee');
 	}
 }
