@@ -7,11 +7,11 @@
   <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Threads</a></li>
-        <li class="tab col s3"><a href="#test2">Needles</a></li>
-        <li class="tab col s3"><a href="#test3">Buttons</a></li>
-        <li class="tab col s3"><a href="#test4">Zippers</a></li>
-        <li class="tab col s3"><a href="#test5">Hook & Eye</a></li>
+        <li class="tab col s3"><a style="color:teal" href="#test1"><b>Threads</b></a></li>
+        <li class="tab col s3"><a style="color:teal" href="#test2"><b>Needles</b></a></li>
+        <li class="tab col s3"><a style="color:teal" href="#test3"><b>Buttons</b></a></li>
+        <li class="tab col s3"><a style="color:teal" href="#test4"><b>Zippers</b></a></li>
+        <li class="tab col s3"><a style="color:teal" href="#test5"><b>Hook & Eye</b></a></li>
       </ul>
     </div>
     <div id="test1" class="hue col s12">threads.</div>
