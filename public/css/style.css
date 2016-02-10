@@ -1,5 +1,5 @@
         header, main, footer {
-      	padding-left: 240px;
+      	padding-left: 300px;
     	}
 
     	@media only screen and (max-width : 992px) {
@@ -38,13 +38,40 @@
 
         .hue{
             width: col s12; 
-            height: 340px;
+            height: auto;
         }
 
+        .tab{
+            background: aquamarine;
+            border: teal;
+        }
 
+        .tab:hover{
+            color: teal;
+        }
+
+        .admin-background{
+            background-image:("admin-background.jpg");
+            color: teal;
+            font-style: bold;
+            height: 100px;
+        }
+
+        .user{
+            color:teal;
+        }
+
+        #admin{
+            background: url("admin-background.jpg");
+        }
+
+        #admin :hover{
+            background: url("admin-background.jpg");
+        }
+
+    
         #slide-out > li :hover{
             background: white;
-
         }
 
         #slide-out > li :visited{

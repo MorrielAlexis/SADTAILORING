@@ -5,7 +5,7 @@
 	<title>Fashion Collection</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    {{ HTML::style('css/materialize.min.css') }}
+  {{ HTML::style('css/materialize.min.css') }}
 	{{ HTML::style('css/style.css') }}
 
 </head>
@@ -16,12 +16,30 @@
 
   <nav id="slide-out" class="side-nav fixed"> 
 
+  <li id="admin" class="admin-background">
+    <div class="row">
+      <div style="height:20px"></div>
+      <div class="col col s4 m4 l4">
+        <img src="img/admin-icon.png" alt="" class="circle responsive-img valign profile-image">
+      </div>
+      <div>
+         <ul id="profile-dropdown" class="dropdown-content">
+          <li><a href="#"><i class="mdi-action-face-unlock"> Profile</i></a></li>
+          <li><a href="#"><i class="mdi-action-settings"> Settings</i></a></li>
+          <li><a href="#"><i class="mdi-communication-live-help"> Help</i></a></li>
+          <li class="divider"></li>
+          <li><a href="#"><i class="mdi-action-lock-outline"> Lock</i></a></li>
+          <li><a href="#"><i class="mdi-hardware-keyboard-tab"> Logout</i></a></li>
+        </ul>
+      <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><span class="user">User Admin</span><i class="mdi-navigation-arrow-drop-down right"></i></a>
+      </div>
+    </div>
+  </li>
+
 	<li class="no-padding">
   	<ul class="collapsible collapsible-accordion">
-  		
-  		<li><a class="bold" href="/"><b>Logo?</b></a></li>
-		<div class="divider"></div>
-		<li class="bold"><a class="collapsible-header waves-effect waves-teal"><b>Job Order</b></a>
+      <li class="divider"></li>
+  		<li class="bold"><a class="collapsible-header waves-effect waves-teal"><b>Job Order</b></a>
   			<div class="collapsible-body">
   				<ul>
   					<li><a style="color:black" class="waves-effect waves-teal" href="#!">Huehue</a></li>
