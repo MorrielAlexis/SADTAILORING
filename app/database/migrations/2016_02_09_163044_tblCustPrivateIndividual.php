@@ -18,7 +18,7 @@ class TblCustPrivateIndividual extends Migration {
 			$table->string('strCustID');//fk
 			$table->string('strCustFName');
 			$table->string('strCustLName');
-			$table->integer('intGender');//fk
+			$table->integer('intSex');//fk
 			$table->string('strCustAddress');
 			$table->string('strCustEmailAddress');
 			$table->string('strCustPhoneNumber');

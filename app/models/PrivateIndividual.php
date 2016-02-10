@@ -8,7 +8,7 @@ class PrivateIndividual extends Eloquent {
 								'strCustID',
 								'strCustFName',
 								'strCustLName',
-								'intGender',
+								'intSex',
 								'strCustAddress',
 								'strCustEmailAddress',
 								'strCustPhoneNumber',
@@ -25,8 +25,8 @@ class PrivateIndividual extends Eloquent {
 		return $this->belongsTo('CustomerType');
 	}
 
-	public function gender() {
+	public function sex() {
 
-		return $this->belongsTo('Gender');
+		return $this->belongsTo('Sex');
 	}
 }

@@ -7,7 +7,7 @@ class Employee extends Eloquent {
 	protected $fillable = array('strEmpFName',
 								'strEmpLName',
 								'strEmpAge',
-								'strGender',
+								'intSex',
 								'strEmpAddress',
 								'strRole',
 								'dtUpdatedAt');
@@ -17,9 +17,9 @@ class Employee extends Eloquent {
 		return $this->belongsTo('Role');
 	}
 
-	public function gender() {
+	public function sex() {
 
-		return $this->belongsTo('Gender');
+		return $this->belongsTo('Sex');
 	}
 
 	public function jobProgress() {

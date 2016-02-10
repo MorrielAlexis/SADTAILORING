@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblGender extends Migration {
+class TblSex extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class TblGender extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tblGender', function(Blueprint $table){
-			$table->integer('intGenderID')->primary();
-			$table->str('strGenderName');
+		Schema::create('tblSex', function(Blueprint $table){
+			$table->integer('intSexID')->primary();
+			$table->str('strSexName');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +26,7 @@ class TblGender extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('tblGender');
+		Schema::dropIfExists('tblSex');
 	}
 
 }

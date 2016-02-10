@@ -17,7 +17,7 @@ class TblEmployee extends Migration {
 			$table->string('strEmpFName');
 			$table->string('strEmpLName');
 			$table->string('strEmpAge');
-			$table->string('strGender');//fk
+			$table->string('intSex');//fk
 			$table->string('strEmpAddress');
 			$table->string('strRole');//fk
 			$table->datetime('dtUpdatedAt');

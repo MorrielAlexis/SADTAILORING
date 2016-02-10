@@ -24,7 +24,7 @@ class CreatingForeignKeys extends Migration {
 		Schema::table('tblCustPrivateIndividual', function($table){
 			$table->foreign('strTypeID')->references('strCustTypeID')->on('tblCustomeType');
 			$table->foreign('strCustID')->references('strCustomerID')->on('tblCustomer');
-			$table->foreign('intGender')->references('intGenderID')->on('tblGender');
+			$table->foreign('intSex')->references('intSexID')->on('tblSex');
 		});
 
 		Schema::table('tblEmployeeJobProgress', function($table){
@@ -34,7 +34,7 @@ class CreatingForeignKeys extends Migration {
 		});
 
 		Schema::table('tblEmployee', function($table){
-			$table->foreign('intGender')->references('intGenderID')->on('tblGender');
+			$table->foreign('intSex')->references('intSexID')->on('tblSex');
 			$table->foreign('strRole')->references('strEmpRoleID')->on('tblEmployeeRole');
 		});
 
@@ -75,7 +75,7 @@ class CreatingForeignKeys extends Migration {
 		Schema::table('tblCustPrivateIndividual', function($table){
 			$table->dropColumn('strTypeID');
 			$table->dropColumn('strCustID');
-			$table->dropColumn('intGender');
+			$table->dropColumn('intSex');
 		});
 
 		Schema::table('tblEmployeeJobProgress', function($table){
@@ -84,7 +84,7 @@ class CreatingForeignKeys extends Migration {
 		});
 
 		Schema::table('tblCustomer', function($table){
-			$table->dropColumn('intGender');
+			$table->dropColumn('intSex');
 			$table->dropColumn('strRole');
 		});
 
