@@ -2,6 +2,7 @@
 
 class MeasurementHead extends Eloquent {
 
+	public $incrementing = false;
 	protected $table = 'tblMeasurementHeader';
 	protected $primaryKey = 'strMeasurementID';
 	protected $fillable = array('strGarmentCategory',
@@ -12,16 +13,16 @@ class MeasurementHead extends Eloquent {
 
 	public function category() {
 
-		return $this->belongsTo('Category');
+		return $this->belongsTo('Category', 'strGarmentCategoryID');
 	}
 
 	public function segment() {
 
-		return $this->belongsTo('Segment');
+		return $this->belongsTo('Segment', 'strGarmentSegmentID');
 	}
 
 	public function pattern() {
 
-		return $this->belongsTo('Pattern');
+		return $this->belongsTo('Pattern', 'strDesignPatternID');
 	}
 }

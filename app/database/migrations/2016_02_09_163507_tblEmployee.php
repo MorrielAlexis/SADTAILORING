@@ -17,11 +17,16 @@ class TblEmployee extends Migration {
 			$table->string('strEmpFName');
 			$table->string('strEmpLName');
 			$table->string('strEmpAge');
-			$table->string('intSex');//fk
+			$table->string('strSex');
 			$table->string('strEmpAddress');
-			$table->string('strRole');//fk
-			$table->datetime('dtUpdatedAt');
+			$table->string('strRole')->index();
+			//$table->datetime('dtUpdatedAt');
 			$table->timestamps();
+		});
+
+		Schema::table('tblEmployee', function(Blueprint $table){
+
+			$table->foreign('strRole')->references('strEmpRoleID')->on('tblEmployeeRole');
 		});
 	}
 
@@ -33,6 +38,10 @@ class TblEmployee extends Migration {
 	public function down()
 	{
 		Schema::dropIfExists('tblEmployee');
+
+		Schema::table('tblEmployee', function($table){
+			$table->dropColumn('strRole');
+		});
 	}
 
 }

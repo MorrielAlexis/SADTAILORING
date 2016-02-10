@@ -2,6 +2,7 @@
 
 class Segment extends Eloquent {
 
+	public $incrementing = false;
 	protected $table = 'tblGarmentSegment';
 	protected $primaryKey = 'strGarmentSegmentID';
 	protected $fillable = array('strCategory',
@@ -11,7 +12,7 @@ class Segment extends Eloquent {
 
 	public function segment() {
 
-		return $this->belongsTo('Category');
+		return $this->belongsTo('Category', 'strGarmentCategoryID');
 	}
 
 	public function measurement() {

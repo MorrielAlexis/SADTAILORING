@@ -14,10 +14,15 @@ class TblGarmentSegment extends Migration {
 	{
 		Schema::create('tblGarmentSegment', function(Blueprint $table){
 			$table->string('strGarmentSegmentID')->primary();
-			$table->string('strCategory');//fk
+			$table->string('strCategory')->index();
 			$table->string('strSegmentName');
 			$table->text('txtSegmentDesc');
 			$table->timestamps();
+		});
+
+		Schema::table('tblGarmentSegment', function(Blueprint $table){
+
+			$table->foreign('strCategory')->references('strGarmentCategoryID')->on('tblGarmentCategory');
 		});
 	}
 
@@ -29,6 +34,10 @@ class TblGarmentSegment extends Migration {
 	public function down()
 	{
 		Schema::dropIfExists('tblGarmentSegment');
+
+		Schema::table('tblGarmentSegment', function($table){
+			$table->dropColumn('strCategory');
+		});
 	}
 
 }

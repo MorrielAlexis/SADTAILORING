@@ -2,6 +2,7 @@
 
 class Pattern extends Eloquent {
 
+	public $incrementing = false;
 	protected $table = 'tblDesignPattern';
 	protected $primaryKey = 'strDesignPatternID';
 	protected $fillable = array('strSegment',
@@ -11,7 +12,7 @@ class Pattern extends Eloquent {
 
 	public function pattern() {
 
-		return $this->belongsTo('Segment');
+		return $this->belongsTo('Segment', 'strGarmentSegmentID');
 	}
 
 	public function measurement() {

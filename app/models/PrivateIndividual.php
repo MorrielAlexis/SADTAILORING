@@ -2,31 +2,22 @@
 
 class PrivateIndividual extends Eloquent {
 
+	public $incrementing = false;
 	protected $table = 'tblCustPrivateIndividual';
 	protected $primaryKey = 'strCustPrivIndivID';
-	protected $fillable = array('strTypeID',
-								'strCustID',
-								'strCustFName',
+	protected $fillable = array('strCustFName',
 								'strCustLName',
-								'intSex',
+								'strSex',
 								'strCustAddress',
 								'strCustEmailAddress',
 								'strCustPhoneNumber',
 								'strCustLandlineNumber');
 
-
+/*
 	public function privateIndividual() {
 
 		return $this->belongsTo('Customer');
-	}
+	}*/
 
-	public function customerType() {
 
-		return $this->belongsTo('CustomerType');
-	}
-
-	public function sex() {
-
-		return $this->belongsTo('Sex');
-	}
 }

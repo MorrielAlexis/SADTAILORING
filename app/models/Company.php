@@ -2,11 +2,10 @@
 
 class Company extends Eloquent {
 
+	public $incrementing = false;
 	protected $table = 'tblCustCompany';
 	protected $primaryKey = 'strCustCompanyID';
-	protected $fillable = array('strTypeID',
-								'strCustID',
-								'strCustCompanyName',
+	protected $fillable = array('strCustCompanyName',
 								'strCustCompanyAddress',
 								'strCustContactPerson',
 								'strCustCompanyEmailAddress',
@@ -15,13 +14,9 @@ class Company extends Eloquent {
 								'strCustFaxNumber');
 
 
-	public function company() {
+/*	public function company() {
 
 		return $this->belongsTo('Customer');
 	}
-
-	public function customerType() {
-
-		return $this->belongsTo('CustomerType');
-	}
+*/
 }

@@ -2,28 +2,21 @@
 
 class Employee extends Eloquent {
 
+	public $incrementing = false;
 	protected $table = 'tblEmployee';
 	protected $primaryKey = 'strEmployeeID';
 	protected $fillable = array('strEmpFName',
 								'strEmpLName',
 								'strEmpAge',
-								'intSex',
+								'strSex',
 								'strEmpAddress',
 								'strRole',
-								'dtUpdatedAt');
+								//'dtUpdatedAt'
+								);
 
 	public function employee() {
 
-		return $this->belongsTo('Role');
+		return $this->belongsTo('Role', 'strEmpRoleID');
 	}
 
-	public function sex() {
-
-		return $this->belongsTo('Sex');
-	}
-
-	public function jobProgress() {
-
-		return $this->hasMany('JobProgress', 'strEmpJobProgressID');
-	}
 }

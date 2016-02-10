@@ -14,11 +14,18 @@ class TblMeasurementHeader extends Migration {
 	{
 		Schema::create('tblMeasurementHeader', function(Blueprint $table){
 			$table->string('strMeasurementID')->primary();
-			$table->string('strGarmentCategory');//fk
-			$table->string('strGarmentSegment');//fk
-			$table->string('strDesignPattern');//fk
+			$table->string('strGarmentCategory')->index();
+			$table->string('strGarmentSegment')->index();
+			$table->string('strDesignPattern')->index();
 			$table->string('strMeasurementName');
 			$table->timestamps();
+		});
+
+		Schema::table('tblMeasurementHeader', function(Blueprint $table){
+
+			$table->foreign('strGarmentCategory')->references('strGarmentCategoryID')->on('tblGarmentCategory');
+			$table->foreign('strGarmentSegment')->references('strGarmentSegmentID')->on('tblGarmentSegment');
+			$table->foreign('strDesignPattern')->references('strDesignPatternID')->on('tblDesignPattern');
 		});
 	}
 
@@ -30,6 +37,13 @@ class TblMeasurementHeader extends Migration {
 	public function down()
 	{
 		Schema::dropIfExists('tblMeasurementHeader');
+
+		Schema::table('tblMeasurementHeader', function($table){
+			$table->dropColumn('strGarmentCategory');
+			$table->dropColumn('strGarmentSegment');
+			$table->dropColumn('strDesignPattern');
+		});
+
 	}
 
 }

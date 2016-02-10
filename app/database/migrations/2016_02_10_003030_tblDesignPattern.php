@@ -14,10 +14,15 @@ class TblDesignPattern extends Migration {
 	{
 		Schema::create('tblDesignPattern', function(Blueprint $table){
 			$table->string('strDesignPatternID')->primary();
-			$table->string('strSegment');//fk
+			$table->string('strSegment')->index();
 			$table->string('strPatternName');
 			$table->text('txtPatternImage');
 			$table->timestamps();
+		});
+
+		Schema::table('tblDesignPattern', function(Blueprint $table){
+
+			$table->foreign('strSegment')->references('strGarmentSegmentID')->on('tblGarmentSegment');
 		});
 	}
 
@@ -29,6 +34,10 @@ class TblDesignPattern extends Migration {
 	public function down()
 	{
 		Schema::dropIfExists('tblDesignPattern');
+
+		Schema::table('tblDesignPattern', function($table){
+			$table->dropColumn('strSegment');
+		});
 	}
 
 }
