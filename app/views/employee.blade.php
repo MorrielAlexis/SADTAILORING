@@ -40,28 +40,28 @@
               <tbody>
                 @foreach($employee as $employee)
                 <tr>
-              		<td>{{ $employee->strEmpID }}</td>
+              		<td>{{ $employee->strEmployeeID }}</td>
                   <td>{{ $employee->strEmpFName }}</td>
                   <td>{{ $employee->strEmpLName }}</td>
                   <td>{{ $employee->strEmpAddress }} </td>
-                  <td>{{ $employee->intEmpAge }} </td>
-                  <td>{{ $employee->strRoleName}}</td>
+                  <td>{{ $employee->strEmpAge }} </td>
+                  <td>{{ $employee->strEmpRoleName}}</td>
                   <td>{{ $employee->strCellNo }}</td> 
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
               		<td>
-                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$employee->strEmpID}}">EDIT</button>
+                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$employee->strEmployeeID}}">EDIT</button>
 
                                   
                 <!-- <Modal Structure for Edit Employee>   -->
-              <div id="{{$employee->strEmpID}}" class="modal modal-fixed-footer">
+              <div id="{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
                 <div class="modal-content">
                   <font color = "teal"><h5><center>Edit Employee Information </center></h5></font> 
                   <p>
                     <form action="/editEmployee" method="POST">
                           <div class="input-field">
                             <label for="first_name">Employee ID: </label>
-                            <input value="{{$employee->strEmpID}}" id="EmpID" name="EmpID" type="text" class="validate" readonly>
+                            <input value="{{$employee->strEmployeeID}}" id="EmpID" name="EmpID" type="text" class="validate" readonly>
                           </div>
 
                           <div class="input-field">
@@ -80,7 +80,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->intEmpAge}}" id="Age" name="Age" type="text" class="validate">
+                            <input value="{{$employee->strEmpAge}}" id="Age" name="Age" type="text" class="validate">
                             <label for="Age">Age: </label>
                           </div>  
 
@@ -88,7 +88,7 @@
                               <select name='roles'>
                               <option disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
-                                    @if($employee->strEmpRoleID == $id)
+                                    @if($employee->strRole == $id)
                                       <option selected value="{{ $id }}">{{ $name }}</option>
                                     @else
                                       <option value="{{ $id }}">{{ $name }}</option>

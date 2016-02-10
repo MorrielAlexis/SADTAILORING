@@ -1,15 +1,15 @@
 <?php
 
-class Role extends ELoquent {
+class Role extends Eloquent {
 
-	public $incrementing = false;
 	protected $table = 'tblEmployeeRole';
 	protected $primaryKey = 'strEmpRoleID';
-	protected $fillable = array('strEmpRoleName',
-								'strEmpRoleDesc');
+	protected $fillable = array('strEmpRoleID',
+								'strEmpRoleName',
+								'txtEmpRoleDesc');
 
-
-	public function role() {
+	
+	public function employees() {
 
 		return $this->hasMany('Employee', 'strEmployeeID');
 	}

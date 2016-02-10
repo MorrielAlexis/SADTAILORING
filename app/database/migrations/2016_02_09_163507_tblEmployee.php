@@ -20,6 +20,9 @@ class TblEmployee extends Migration {
 			$table->string('strSex');
 			$table->string('strEmpAddress');
 			$table->string('strRole')->index();
+			$table->string('strCellNo');
+			$table->string('strPhoneNo');
+			$table->string('strEmailAdd');
 			//$table->datetime('dtUpdatedAt');
 			$table->timestamps();
 		});

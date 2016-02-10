@@ -5,24 +5,24 @@ class EmployeeController extends BaseController{
 
 	public function empProfile()
 	{	
-		$ids = DB::table('tblEmployees')
-			->select('strEmpID')
+		$ids = DB::table('tblEmployee')
+			->select('strEmployeeID')
 			->orderBy('created_at', 'desc')
-			->orderBy('strEmpID', 'desc')
+			->orderBy('strEmployeeID', 'desc')
 			->take(1)
 			->get();
 
-		$ID = $ids["0"]->strEmpID;
+		$ID = $ids["0"]->strEmployeeID;
 		$newID = $this->smartCounter($ID);	
 
-		$roles =  Role::lists('strRoleName', 'strRoleID'); 
+		$roles =  Role::lists('strEmpRoleName', 'strEmpRoleID'); 
 		
 		//$employee = Employee::all();
 		
 		
-		$employee = DB::table('tblEmployees')
-            ->join('tblRoles', 'tblEmployees.strEmpRoleID', '=', 'tblRoles.strRoleID')
-            ->select('tblEmployees.*', 'tblRoles.strRoleName')
+		$employee = DB::table('tblEmployee')
+            ->join('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
+            ->select('tblEmployee.*', 'tblEmployeeRole.strEmpRoleName')
             ->get();
 
 		return View::make('employee')
@@ -33,14 +33,14 @@ class EmployeeController extends BaseController{
 
 	public function roles()
 	{	
-		$ids = DB::table('tblRoles')
-			->select('strRoleID')
-			->orderBy('created_at')
-			->orderBy('strRoleID', 'desc')
+		$ids = DB::table('tblEmployeeRole')
+			->select('strEmpRoleID')
+			->orderBy('created_at', 'desc')
+			->orderBy('strEmpRoleID', 'desc')
 			->take(1)
 			->get();
 
-		$ID = $ids["0"]->strRoleID;
+		$ID = $ids["0"]->strEmpRoleID;
 		$newID = $this->smartCounter($ID);	
 
 		$role = Role::all();
@@ -52,12 +52,13 @@ class EmployeeController extends BaseController{
 	{	
 
 		$employee = Employee::create(array(
-			'strEmpID' => Input::get('EmpID'),
+			'strEmployeeID' => Input::get('EmpID'),
 			'strEmpFName' => Input::get('FirstName'),		
 			'strEmpLName' => Input::get('LastName'),
-			'strEmpAddress' => Input::get('Address'),
-			'intEmpAge' => Input::get('Age'),
-			'strEmpRoleID' => Input::get('roles'), 
+			'strEmpAge' => Input::get('Age'),
+			'strSex' => 'M',
+			'strEmpAddress' => Input::get('Address'),			
+			'strRole' => Input::get('roles'), 
 			'strCellNo' => Input::get('CellNo'),
 			'strPhoneNo' => Input::get('PhoneNo'),
 			'strEmailAdd' => Input::get('Email')
@@ -68,11 +69,11 @@ class EmployeeController extends BaseController{
 	}
 
 	public function addRole()
-	{		
+	{	
 		$role = Role::create(array(
-			'strRoleID' => Input::get('RoleID'),
-			'strRoleName' => Input::get('RoleName'),
-			'strRoleDescription' => Input::get('RoleDescription')
+			'strEmpRoleID' => Input::get('RoleID'),
+			'strEmpRoleName' => Input::get('RoleName'),
+			'txtEmpRoleDesc' => Input::get('RoleDescription')
 			));
 
 		$role->save();
@@ -88,7 +89,7 @@ class EmployeeController extends BaseController{
 		$employee->strEmpLName = Input::get('LastName');
 		$employee->strEmpAddress = Input::get('Address');
 		$employee->intEmpAge = Input::get('Age');
-		$employee->strEmpRoleID = Input::get('roles');
+		$employee->strRole = Input::get('roles');
 		$employee->strCellNo = Input::get('CellNo');
 		$employee->strPhoneNo = Input::get('PhoneNo');
 		$employee->strEmailAdd = Input::get('Email');
@@ -102,8 +103,8 @@ class EmployeeController extends BaseController{
 		$id = Input::get('RoleID');
 		$role = Role::find($id);
 
-		$role->strRoleName = Input::get('RoleName');	
-		$role->strRoleDescription = Input::get('RoleDescription');
+		$role->strEmpRoleName = Input::get('RoleName');	
+		$role->strEmpRoleDescription = Input::get('RoleDescription');
 
 		$role->save();
 		return Redirect::to('/employeeRole');

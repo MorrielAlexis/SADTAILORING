@@ -36,10 +36,10 @@
               <tbody>
                 @foreach($role as $role)
                 <tr>
-                	<td>{{ $role->strRoleID }}</td>
-                	<td>{{ $role->strRoleName }}</td>
-                	<td>{{ $role->strRoleDescription }}</td>
-                	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$role->strRoleID}}">EDIT</button>
+                	<td>{{ $role->strEmpRoleID }}</td>
+                	<td>{{ $role->strEmpRoleName }}</td>
+                	<td>{{ $role->txtEmpRoleDesc }}</td>
+                	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$role->strEmpRoleID}}">EDIT</button>
                  		
               <div id="{{$role->strRoleID}}" class="modal modal-fixed-footer">
                 <div class="modal-content">
@@ -47,17 +47,17 @@
                   <p>
                   <form action="/editRole" method="POST">
                     <div class="input-field">
-                      <input value="{{$role->strRoleID}}"i d="RoleID" name="RoleID" type="text" class="validate" readonly>
+                      <input value="{{$role->strEmpRoleID}}"i d="RoleID" name="RoleID" type="text" class="validate" readonly>
                       <label for="role_id">Role ID: </label>
                     </div>
 
                     <div class="input-field">
-                      <input value="{{$role->strRoleName}}" id="RoleName" name="RoleName" type="text" class="validate">
+                      <input value="{{$role->strEmpRoleName}}" id="RoleName" name="RoleName" type="text" class="validate">
                       <label for="role_name">Role Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input value="{{$role->strRoleDescription}}" id="RoleDescription" name="RoleDescription" type="text" class="validate">
+                      <input value="{{$role->txtEmpRoleDesc}}" id="RoleDescription" name="RoleDescription" type="text" class="validate">
                       <label for="role_description">Role Description: </label>
                     </div>  
                     </p>    
