@@ -18,10 +18,9 @@
     <!--Measurement Category-->
   <div id="test1" class="hue col s12">
 
+  <!--Add Measurement Info BUTTON-->
   <div class="main-wrapper">
     <div class="row">
-      
-      <!--Add Measurement Info BUTTON-->
       <div class="row">
         <div class="col s12 m12 l6">
           <div style="height:20px"></div>
@@ -144,17 +143,18 @@
                 </div>
       </div>
       <!--End of Card Panel-->
+         <div id="test2" class="hue col s12">Melody.</div>
       
     </div><!--row-->
   </div><!--Main Wrapper-->
-    </div>
+</div>
     <!--END OF MEASUREMENT CATEGORY-->
 
 
     <!--Measurement Details-->
-    <div id="test2" name="test2"class="hue col s12">
+ 
 
-    <div class="main-wrapper">
+   <!--  <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
       <span class="page-title"><h4>Measurement Parts</h4></span>
@@ -242,7 +242,7 @@
     </div>
     <!--END OF MEASUREMENT DETAILS--> 
 
-  </div>
+
 </div>
 
 @stop
