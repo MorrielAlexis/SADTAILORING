@@ -41,23 +41,23 @@
                 	<td>{{ $role->txtEmpRoleDesc }}</td>
                 	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$role->strEmpRoleID}}">EDIT</button>
                  		
-              <div id="{{$role->strRoleID}}" class="modal modal-fixed-footer">
+              <div id="{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                 <div class="modal-content">
                   <font color = "teal" size = "+3" back ><center><h5> Edit Role Details </h5></center></font>
                   <p>
                   <form action="/editRole" method="POST">
                     <div class="input-field">
-                      <input value="{{$role->strEmpRoleID}}"i d="RoleID" name="RoleID" type="text" class="validate" readonly>
+                      <input value="{{$role->strEmpRoleID}}" id="editRoleID" name="editRoleID" type="text" class="validate" readonly>
                       <label for="role_id">Role ID: </label>
                     </div>
 
                     <div class="input-field">
-                      <input value="{{$role->strEmpRoleName}}" id="RoleName" name="RoleName" type="text" class="validate">
+                      <input value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
                       <label for="role_name">Role Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input value="{{$role->txtEmpRoleDesc}}" id="RoleDescription" name="RoleDescription" type="text" class="validate">
+                      <input value="{{$role->txtEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
                       <label for="role_description">Role Description: </label>
                     </div>  
                     </p>    
@@ -80,17 +80,17 @@
               <p>
                 <form action="/addRole" method="POST">
                   <div class="input-field">
-                    <input value="{{$newID}}" id="RoleID" name="RoleID" type="text" class="validate" readonly>
+                    <input value="{{$newID}}" id="addRoleID" name="addRoleID" type="text" class="validate" readonly>
                     <label for="role_id">Role ID: </label>
                   </div>
                         
                   <div class="input-field">
-                    <input id="RoleName" name="RoleName" type="text" class="validate">
+                    <input id="addRoleName" name="addRoleName" type="text" class="validate">
                     <label for="role_name">Role Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="RoleDescription" name="RoleDescription" type="text" class="validate">
+                    <input id="addRoleDescription" name="addRoleDescription" type="text" class="validate">
                     <label for="role_description">Role Description: </label>
                   </div>
               </p>

@@ -6,9 +6,9 @@ class Category extends Eloquent {
 	protected $primaryKey = 'strGarmentCategoryID';
 	protected $fillable = array('strGarmentCategoryID',
 								'strGarmentCategoryName',
-								'strGarmentCategoryDesc');
+								'txtGarmentCategoryDesc');
 
-
+/*
 	public function category() {
 
 		return $this->hasMany('Segment', 'strGarmentSegmentID');
@@ -17,5 +17,5 @@ class Category extends Eloquent {
 	public function measurement() {
 
 		return $this->hasMany('MeasurementHead', 'strMeasurementID');
-	}
+	}*/
 }

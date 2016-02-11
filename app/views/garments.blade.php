@@ -31,80 +31,77 @@
               </thead>
 
               <tbody>
-                    <td>id</td>
-                    <td>Uniform</td>
-                    <td>Daily use. For office.</td>
+                @foreach($category as $category)
+                  <tr>
+                    <td>{{ $category->strGarmentCategoryID }}</td>
+                    <td>{{ $category->strGarmentCategoryName }}</td>
+                    <td>{{ $category->txtGarmentCategoryDesc }}</td>
                     <td>
-                    <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editGCategory">EDIT</button>
+                    <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{ $category->strGarmentCategoryID }}">EDIT</button>
           
                
                 <!-- Modal Structure for Edit Garment Category> -->
-                <div id="editGCategory" class="modal modal-fixed-footer">
+                <div id="{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
                   <div class="modal-content">
-                  <font color = "teal"><h5><center>Edit Garment Category </center></h5>
-                 </font>
-                 <p> 
-                    <!-- <form action="/editGCategory" method="POST"> -->
+                  <font color = "teal"><h5><center>Edit Garment Category </center></h5></font>
+                  <p> 
+                    <form action="/editGarmentCategory" method="POST">
                       <div class="input-field">
-                        <input value="editGarmentID "id="editGarmentID" name="editGarmentID" type="text" class="validate" readonly>
+                        <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="text" class="validate" readonly>
                         <label for="garment_id">Garment ID: </label>
                       </div>
 
                       <div class="input-field">
-                         <input value="editGarmentName" id="editGarmentName" name="editGarmentName"type="text" class="validate">
+                         <input value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validate">
                          <label for="garment_name">Garment Name: </label>
                       </div>
 
                       <div class="input-field">
-                         <input value= "editGarmentDescription" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+                         <input value= "{{ $category->txtGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
                          <label for="garment_description">Garment Desription: </label>
                       </div>
-
-                    </p>
+                  </p>
                   </div>
 
                 <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+                  <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
+              </form>
             </td>
           </tr>
-          
+          @endforeach
         </tbody>
       </table>
-        
-         
+             
          <!--    <Modal for Add Garment Category> -->
           <div id="addGCategory" class="modal modal-fixed-footer">
             <div class="modal-content">
-                <font color = "teal"><h5><center> Add A Garment Category </h5></center></font> 
-                <p>
-                  <!-- <form action="/addGCategory" method="POST"> -->
+              <font color = "teal"><h5><center> Add A Garment Category </h5></center></font> 
+              <p>
+                <form action="/addGarmentCategory" method="POST" id="addGarmentCategory" name="addGarmentCategory">
+                  <div class="input-field">
+                    <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="text" class="validate" readonly>
+                    <label for="garment_id">Garment ID: </label>
+                  </div>
 
-                      <div class="input-field">
-                             <input value="addGarmentID" id="addGarmentID" name="addGarmentID" type="text" class="validate" readonly>
-                            <label for="garment_id">Garment ID: </label>
-                      </div>
+                  <div class="input-field">
+                    <input id="addGarmentName" name="addGarmentName" type="text" class="validate">
+                    <label for="garment_name">Garment Name: </label>
+                  </div>
 
-                      <div class="input-field">
-                             <input id="GarmentName" name="GarmentName" type="text" class="validate">
-                             <label for="garment_name">Garment Name: </label>
-                      </div>
-
-                      <div class="input-field">
-                             <input id="GarmentDescription" name="GarmentDescription" type="text" class="validate">
-                             <label for="garment_description">Garment Desription: </label>
-                      </div>
-                </p>
+                  <div class="input-field">
+                    <input id="addGarmentDesc" name="addGarmentDesc" type="text" class="validate">
+                    <label for="garment_description">Garment Desription: </label>
+                  </div>
+              </p>
             </div>
 
             <div class="modal-footer">
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+              <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
             </div>
-      </div>
-    </div>  
-
+          </form>
 @stop
 
 @section('scripts')
@@ -133,7 +130,4 @@
       $('select').material_select();
       });
     </script>
-
-
-
 @stop

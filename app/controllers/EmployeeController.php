@@ -71,9 +71,9 @@ class EmployeeController extends BaseController{
 	public function addRole()
 	{	
 		$role = Role::create(array(
-			'strEmpRoleID' => Input::get('RoleID'),
-			'strEmpRoleName' => Input::get('RoleName'),
-			'txtEmpRoleDesc' => Input::get('RoleDescription')
+			'strEmpRoleID' => Input::get('addRoleID'),
+			'strEmpRoleName' => Input::get('addRoleName'),
+			'txtEmpRoleDesc' => Input::get('addRoleDescription')
 			));
 
 		$role->save();
@@ -82,18 +82,18 @@ class EmployeeController extends BaseController{
 
 	public function editEmployee()
 	{
-		$id = Input::get('EmpID');
+		$id = Input::get('editEmpID');
 		$employee = Employee::find($id);
 
-		$employee->strEmpFName = Input::get('FirstName');	
-		$employee->strEmpLName = Input::get('LastName');		
-		$employee->strEmpAge = Input::get('Age');
-		$employee->strSex = Input::get('sex');
-		$employee->strEmpAddress = Input::get('Address');
-		$employee->strRole = Input::get('roles');
-		$employee->strCellNo = Input::get('CellNo');
-		$employee->strPhoneNo = Input::get('PhoneNo');
-		$employee->strEmailAdd = Input::get('Email');
+		$employee->strEmpFName = Input::get('editFirstName');	
+		$employee->strEmpLName = Input::get('editLastName');		
+		$employee->strEmpAge = Input::get('editAge');
+		$employee->strSex = Input::get('editSex');
+		$employee->strEmpAddress = Input::get('editAddress');
+		$employee->strRole = Input::get('editRoles');
+		$employee->strCellNo = Input::get('editCellNo');
+		$employee->strPhoneNo = Input::get('editPhoneNo');
+		$employee->strEmailAdd = Input::get('editEmail');
 
 		$employee->save();
 		return Redirect::to('/employee');
@@ -101,11 +101,11 @@ class EmployeeController extends BaseController{
 
 	public function editRole()
 	{
-		$id = Input::get('RoleID');
+		$id = Input::get('editRoleID');
 		$role = Role::find($id);
 
-		$role->strEmpRoleName = Input::get('RoleName');	
-		$role->strEmpRoleDescription = Input::get('RoleDescription');
+		$role->strEmpRoleName = Input::get('editRoleName');	
+		$role->txtEmpRoleDesc = Input::get('editRoleDescription');
 
 		$role->save();
 		return Redirect::to('/employeeRole');

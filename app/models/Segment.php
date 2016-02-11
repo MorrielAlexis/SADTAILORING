@@ -9,7 +9,7 @@ class Segment extends Eloquent {
 								'strSegmentName',
 								'txtSegmentDesc');
 
-
+	/*
 	public function segment() {
 
 		return $this->belongsTo('Category', 'strGarmentCategoryID');
@@ -24,4 +24,4 @@ class Segment extends Eloquent {
 
 		return $this->hasMany('Pattern', 'strDesignPatternID');
 	}
-}
+*/}
