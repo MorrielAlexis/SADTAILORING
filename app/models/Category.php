@@ -2,10 +2,10 @@
 
 class Category extends Eloquent {
 
-	public $incrementing = false;
 	protected $table = 'tblGarmentCategory';
 	protected $primaryKey = 'strGarmentCategoryID';
-	protected $fillable = array('strGarmentCategoryName',
+	protected $fillable = array('strGarmentCategoryID',
+								'strGarmentCategoryName',
 								'strGarmentCategoryDesc');
 
 

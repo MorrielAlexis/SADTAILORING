@@ -2,10 +2,10 @@
 
 class Segment extends Eloquent {
 
-	public $incrementing = false;
 	protected $table = 'tblGarmentSegment';
 	protected $primaryKey = 'strGarmentSegmentID';
-	protected $fillable = array('strCategory',
+	protected $fillable = array('strGarmentSegmentID',
+								'strCategory',
 								'strSegmentName',
 								'txtSegmentDesc');
 
