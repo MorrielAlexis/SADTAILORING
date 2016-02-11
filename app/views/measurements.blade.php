@@ -16,12 +16,11 @@
     
     <!--Tab Contents-->
     <!--Measurement Category-->
-    <div id="test1" class="hue col s12">
+  <div id="test1" class="hue col s12">
 
+  <!--Add Measurement Info BUTTON-->
   <div class="main-wrapper">
     <div class="row">
-      
-      <!--Add Measurement Info BUTTON-->
       <div class="row">
         <div class="col s12 m12 l6">
           <div style="height:20px"></div>
@@ -37,7 +36,6 @@
             <span class="card-title"><h5><center>Measurement Information</center></h5></span>
           <div class="divider"></div>
           <div class="card-content">
-
     
               <table class = "centered" align = "center" border = "1">
               <thead>
@@ -47,7 +45,8 @@
                     <th data-field="GarmentName">Segment Name</th>
                     <th data-field="MeasurementName">Measurement Name</th>
                     </tr>
-                  </thead>
+              </thead>
+
                   <tbody>
                     <td>001</td>
                     <td>Uniform</td>
@@ -144,17 +143,18 @@
                 </div>
       </div>
       <!--End of Card Panel-->
+         <div id="test2" class="hue col s12">Melody.</div>
       
     </div><!--row-->
   </div><!--Main Wrapper-->
-    </div>
+</div>
     <!--END OF MEASUREMENT CATEGORY-->
 
 
     <!--Measurement Details-->
-    <div id="test2" name="test2"class="hue col s12">
+ 
 
-    <div class="main-wrapper">
+   <!--  <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
       <span class="page-title"><h4>Measurement Parts</h4></span>
@@ -242,7 +242,8 @@
     </div>
     <!--END OF MEASUREMENT DETAILS--> 
 
-  </div>
+
+</div>
 
 @stop
 

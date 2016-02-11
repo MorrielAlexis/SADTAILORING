@@ -2,16 +2,16 @@
 
 class Category extends Eloquent {
 
-	public $incrementing = false;
 	protected $table = 'tblGarmentCategory';
 	protected $primaryKey = 'strGarmentCategoryID';
-	protected $fillable = array('strGarmentCategoryName',
+	protected $fillable = array('strGarmentCategoryID',
+								'strGarmentCategoryName',
 								'strGarmentCategoryDesc');
 
 
 	public function category() {
 
-		return $this->hasMany('Segment', 'strGarmentSegmetID');
+		return $this->hasMany('Segment', 'strGarmentSegmentID');
 	}
 
 	public function measurement() {
