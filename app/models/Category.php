@@ -11,7 +11,7 @@ class Category extends Eloquent {
 
 	public function category() {
 
-		return $this->hasMany('Segment', 'strGarmentSegmetID');
+		return $this->hasMany('Segment', 'strGarmentSegmentID');
 	}
 
 	public function measurement() {
