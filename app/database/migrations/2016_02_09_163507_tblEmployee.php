@@ -19,7 +19,7 @@ class TblEmployee extends Migration {
 			$table->string('strEmpAge');
 			$table->string('strSex');
 			$table->string('strEmpAddress');
-			$table->string('strRole')->index();
+			$table->string('strRole')->index();//fk
 			$table->string('strCellNo');
 			$table->string('strPhoneNo');
 			$table->string('strEmailAdd');

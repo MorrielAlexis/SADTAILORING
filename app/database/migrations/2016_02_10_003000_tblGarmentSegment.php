@@ -14,7 +14,7 @@ class TblGarmentSegment extends Migration {
 	{
 		Schema::create('tblGarmentSegment', function(Blueprint $table){
 			$table->string('strGarmentSegmentID')->primary();
-			$table->string('strCategory')->index();
+			$table->string('strCategory')->index();//fk
 			$table->string('strSegmentName');
 			$table->text('txtSegmentDesc');
 			$table->timestamps();
