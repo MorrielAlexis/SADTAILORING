@@ -23,6 +23,7 @@ class TblEmployee extends Migration {
 			$table->string('strCellNo');
 			$table->string('strPhoneNo');
 			$table->string('strEmailAdd');
+			$table->boolean('boolIsActive');
 			//$table->datetime('dtUpdatedAt');
 			$table->timestamps();
 		});

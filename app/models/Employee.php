@@ -14,7 +14,8 @@ class Employee extends Eloquent {
 								'strRole',
 								'strCellNo',
 								'strPhoneNo',
-								'strEmailAdd'
+								'strEmailAdd',
+								'boolIsActive'
 								//'dtUpdatedAt'
 								);
 	/*

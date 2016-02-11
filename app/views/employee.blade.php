@@ -40,6 +40,7 @@
 
               <tbody>
                 @foreach($employee as $employee)
+                  @if($employee->boolIsActive == 1)
                 <tr>
               		<td>{{ $employee->strEmployeeID }}</td>
                   <td>{{ $employee->strEmpFName }}</td>
@@ -56,11 +57,12 @@
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
               		<td>
-                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$employee->strEmployeeID}}">EDIT</button>
-
-                                  
+                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
+                  <td>
+                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$employee->strEmployeeID}}">DELETE</button>
+                            
                 <!-- <Modal Structure for Edit Employee>   -->
-              <div id="{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
+              <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
                 <div class="modal-content">
                   <font color = "teal"><h5><center>Edit Employee Information </center></h5></font> 
                   <p>
@@ -138,8 +140,51 @@
                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                       </div>                  
                     </form>
+                  </div> 
+
+              <!-- Modal for (SOFT) delete Employee -->
+              <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                  <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                  <p>
+                    <form action="/delEmployee" method="POST">
+                          <div class="input-field">
+                            <label for="first_name">Employee ID: </label>
+                            <input value="{{$employee->strEmployeeID}}" id="delEmpID" name="delEmpID" type="text" class="validate" readonly>
+                          </div>
+
+                          <div class="input-field">
+                            <label for="first_name">Employee First Name: </label>
+                            <input value="{{$employee->strEmpFName}}" id="delFirstName" name="delFirstName" type="text" class="validate" readonly>
+                          </div>
+
+                          <div class="input-field">
+                            <input value="{{$employee->strEmpLName}}" id="delLastName" name="delLastName" type="text" class="validate" readonly>
+                            <label for="LastName">Employee Last Name: </label>
+                          </div>
+
+                          <div class="input-field">                                                    
+                              <select name='editRoles'>
+                              <option disabled>Pick a role</option>
+                                @foreach($roles as $id=>$name)
+                                    @if($employee->strRole == $id)
+                                      <option selected value="{{ $id }}" disabled>{{ $name }}</option>
+                                    @else
+                                      <option value="{{ $id }}" disabled>{{ $name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>    
+                          </div>   
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
+                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                      </div>                  
+                    </form>
+                  </div>
               </td>
             </tr>
+            @endif
             @endforeach
           </tbody>
           </table>

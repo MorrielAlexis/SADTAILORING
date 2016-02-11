@@ -15,10 +15,7 @@ class EmployeeController extends BaseController{
 		$ID = $ids["0"]->strEmployeeID;
 		$newID = $this->smartCounter($ID);	
 
-		$roles =  Role::lists('strEmpRoleName', 'strEmpRoleID'); 
-		
-		//$employee = Employee::all();
-		
+		$roles =  Role::lists('strEmpRoleName', 'strEmpRoleID'); 		
 		
 		$employee = DB::table('tblEmployee')
             ->join('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
@@ -61,7 +58,8 @@ class EmployeeController extends BaseController{
 			'strRole' => Input::get('addRoles'), 
 			'strCellNo' => Input::get('addCellNo'),
 			'strPhoneNo' => Input::get('addPhoneNo'),
-			'strEmailAdd' => Input::get('addEmail')
+			'strEmailAdd' => Input::get('addEmail'),
+			'boolIsActive' => 1
 			));
 
 		$employee->save();
@@ -109,6 +107,17 @@ class EmployeeController extends BaseController{
 
 		$role->save();
 		return Redirect::to('/employeeRole');
+	}
+
+	public function delEmployee()
+	{
+		$id = Input::get('delEmpID');
+		$employee = Employee::find($id);
+
+		$employee->boolIsActive = 0;
+
+		$employee->save();
+		return Redirect::to('/employee');
 	}
 
 	public function smartCounter($id)
