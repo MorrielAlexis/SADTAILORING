@@ -152,7 +152,7 @@
 
 
     <!--Measurement Details-->
-    <div id="test2" class="hue col s12">
+    <div id="test2" name="test2"class="hue col s12">
 
     <div class="main-wrapper">
     <div class="row">
@@ -248,7 +248,7 @@
 
 @section('scripts')
     <script>
-     $(document).ready(function)({
+     $(document).ready(function(){
         $('ul.tabs').tabs();
         });
     </script>

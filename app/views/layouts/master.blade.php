@@ -112,7 +112,7 @@
       {{ HTML::script('js/materialize.min.js') }}
       
       <script>
-	     $(document).ready(function)({
+	     $(document).ready(function(){
 	 		 $('.button-collapse').sideNav({
 		      menuWidth: 240, // Default is 240
 		      edge: 'right', // Choose the horizontal origin
@@ -120,10 +120,10 @@
 	    		});
 	  		$('.collapsible').collapsible();
 	  		// Show sideNav
-	 		$('.button-collapse').sideNav('show');
+	 	   	$('.button-collapse').sideNav('show');
 	  		// Hide sideNav
-	 		$('.button-collapse').sideNav('hide');     
-			});
+	 		  $('.button-collapse').sideNav('hide');     
+
 	     	$('ul.tabs').tabs();
   			});
       </script>

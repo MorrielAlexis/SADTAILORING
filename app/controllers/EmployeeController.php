@@ -52,16 +52,16 @@ class EmployeeController extends BaseController{
 	{	
 
 		$employee = Employee::create(array(
-			'strEmployeeID' => Input::get('EmpID'),
-			'strEmpFName' => Input::get('FirstName'),		
-			'strEmpLName' => Input::get('LastName'),
-			'strEmpAge' => Input::get('Age'),
-			'strSex' => Input::get('sex'),
-			'strEmpAddress' => Input::get('Address'),			
-			'strRole' => Input::get('roles'), 
-			'strCellNo' => Input::get('CellNo'),
-			'strPhoneNo' => Input::get('PhoneNo'),
-			'strEmailAdd' => Input::get('Email')
+			'strEmployeeID' => Input::get('addEmpID'),
+			'strEmpFName' => Input::get('addFirstName'),		
+			'strEmpLName' => Input::get('addLastName'),
+			'strEmpAge' => Input::get('addAge'),
+			'strSex' => Input::get('addSex'),
+			'strEmpAddress' => Input::get('addAddress'),			
+			'strRole' => Input::get('addRoles'), 
+			'strCellNo' => Input::get('addCellNo'),
+			'strPhoneNo' => Input::get('addPhoneNo'),
+			'strEmailAdd' => Input::get('addEmail')
 			));
 
 		$employee->save();
