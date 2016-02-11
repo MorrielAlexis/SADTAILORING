@@ -29,88 +29,93 @@
                     <th data-field="name">Product Name</th>
               			<th data-field="address">Product Description</th>
               			</tr>
-              		</thead>
-              		<tbody>
-              			<td>ID</td>
-              			<td>Uniform</td>
-                    <td>Polo</td>
-              			<td>Pro Desc</td>
-              			<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editSegment">EDIT</button>
-                  </tbody>
-              		</table>
+              </thead>
+              <tbody>
+              		<td>ID</td>
+              		<td>Uniform</td>
+                  <td>Polo</td>
+              		<td>Pro Desc</td>
+              		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editSegment">EDIT</button>
+                      
+                      <div id="editSegment" class="modal modal-fixed-footer">
+                        <font color = "teal"><h5><center> Edit Segment Details </center></h5></font> 
+                        <div class="modal-content">
+                          <p>  
 
-                 <!--  <Modal structure for edit segment> -->
-              	<div id="editSegment" class="modal modal-fixed-footer">
-           			<font color = "teal"><h5><center> Edit Segment Details </center></h5></font> 
-           			<div class="modal-content">
-                <p>  
+                          <div class="input-field">
+                            <input value="editGarmentDetailsID" id="editGarmentDetailsID" name="editGarmentDetailsID" type="text" class="validate" readonly = "readonly">
+                            <label for="garment_details_id">Garment Details ID: </label>
+                          </div>
 
-                <div class="input-field">
-                  <select>
-                    <option value="" disabled selected>Category</option>
-                    <option value="1">Uniform</option>
-                    <option value="2">Gown</option>
-                    <option value="3">Tuxedo</option>
-                  </select>
-                  <label>Category Name</label>
-                </div>  
+                          <div class="input-field">
+                            <select>
+                              <option value="" disabled selected>Category</option>
+                              <option value="1">Uniform</option>
+                              <option value="2">Gown</option>
+                              <option value="3">Tuxedo</option>
+                            </select>
+                            <label>Category Name</label>
+                          </div>  
 
-                <div class="input-field">
-                 <input id="ProductName" type="text" class="validate">
-                 <label for="product_name">Product Name: </label>
-                </div>
+                          <div class="input-field">
+                            <input id="editProductName" name= "editProductName" value "editProductName" type="text" class="validate">
+                            <label for="product_name">Product Name: </label>
+                          </div>
 
-                <div class="input-field">
-                 <input id="ProductDescription" type="text" class="validate">
-                 <label for="product_description">Product Description: </label>
-                </div>
-              </p>
-            </div>
+                          <div class="input-field">
+                            <input id="ProductDescription" name = "editProductName" value = "editProductName" type="text" class="validate">
+                            <label for="product_description">Product Description: </label>
+                          </div>
+                          </p>
+                        </div>
 
-           			<div class="modal-footer">
-         		   		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
-           				 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>	
-           			</div>
+                        <div class="modal-footer">
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                        </div>
+                  </td>
+              </tbody>
+              </table>
 
-    			</div>
+    			               <div id="addSegment" class="modal modal-fixed-footer">
+           			            <font color = "teal"><h5><center> ADD SEGMENT</center></h5> </font> 
+                            <div class="modal-content">
+                                <p>
 
-    		
-    			</div>
-    		</div>
+                                <div class="input-field">
+                                  <input value="addGarmentDetailsID" id="addGarmentDetailsID" name="addGarmentDetailsID" type="text" class="validate" readonly = "readonly">
+                                  <label for="garment_details_id">Garment Details ID: </label>
+                                </div>
 
-    			<div id="addSegment" class="modal modal-fixed-footer">
-           			<font color = "teal"><h5><center> ADD SEGMENT</center></h5> </font> 
-                <div class="modal-content">
-                <p>
+                                <div class="input-field">
+                                  <select>
+                                    <option value="" disabled selected>Category</option>
+                                    <option value="1">Uniform</option>
+                                    <option value="2">Gown</option>
+                                    <option value="3">Tuxedo</option>
+                                  </select>
+                                  <label>Category Name</label>
+                                </div>  
 
-                <div class="input-field">
-                  <select>
-                    <option value="" disabled selected>Category</option>
-                    <option value="1">Uniform</option>
-                    <option value="2">Gown</option>
-                    <option value="3">Tuxedo</option>
-                  </select>
-                  <label>Category Name</label>
-                </div>  
+                                <div class="input-field">
+                                  <input id="addProductName" name= "addProductName" type="text" class="validate">
+                                  <label for="product_name">Product Name: </label>
+                                </div>
 
-                <div class="input-field">
-                 <input id="ProductName" type="text" class="validate">
-                 <label for="product_name">Product Name: </label>
-                </div>
+                                <div class="input-field">
+                                  <input id="addProductDescription" name = "addProductDescription" type="text" class="validate">
+                                  <label for="product_description">Product Description: </label>
+                                </div>
+                                </p>
+                            </div>
 
-                <div class="input-field">
-                 <input id="ProductDescription" type="text" class="validate">
-                 <label for="product_description">Product Description: </label>
-                </div>
-              </p>
-            </div>
-
-                <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
-                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                </div>
-    	</div>
-    </div>	
+                            <div class="modal-footer">
+                              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+                              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                            </div>
+    	                 </div>
+        </div>	
+      </div>
 
 @stop
 

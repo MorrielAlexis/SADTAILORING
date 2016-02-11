@@ -46,27 +46,27 @@
                  <p> 
                     <!-- <form action="/editGCategory" method="POST"> -->
                       <div class="input-field">
-                            <label for="garment_id">Garment ID: </label>
-                            <input value="GarmentID "id="GarmentID" name="GarmentID" type="text" class="validate" readonly>
+                        <input value="editGarmentID "id="editGarmentID" name="editGarmentID" type="text" class="validate" readonly>
+                        <label for="garment_id">Garment ID: </label>
                       </div>
 
                       <div class="input-field">
-                         <input value="GarmentName" id="GarmentName" name="GarmentName"type="text" class="validate">
+                         <input value="editGarmentName" id="editGarmentName" name="editGarmentName"type="text" class="validate">
                          <label for="garment_name">Garment Name: </label>
                       </div>
 
                       <div class="input-field">
-                         <input id="GarmentDescription" id="GarmentDescription" name="GarmentDescription" type="text" class="validate">
+                         <input value= "editGarmentDescription" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
                          <label for="garment_description">Garment Desription: </label>
                       </div>
+
                     </p>
                   </div>
 
                 <div class="modal-footer">
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
-                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
-              </form>
             </td>
           </tr>
           
@@ -82,8 +82,8 @@
                   <!-- <form action="/addGCategory" method="POST"> -->
 
                       <div class="input-field">
+                             <input value="addGarmentID" id="addGarmentID" name="addGarmentID" type="text" class="validate" readonly>
                             <label for="garment_id">Garment ID: </label>
-                            <input value="GarmentID" id="GarmentID" name="GarmentID" type="text" class="validate" readonly>
                       </div>
 
                       <div class="input-field">
@@ -98,10 +98,10 @@
                 </p>
             </div>
 
-                <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
-                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+            </div>
       </div>
     </div>  
 
