@@ -4,6 +4,7 @@
 
 	<title>Fashion Collection</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   {{ HTML::style('css/materialize.min.css') }}
 	{{ HTML::style('css/style.css') }}
@@ -15,7 +16,7 @@
   <header></header>
 
   <nav id="slide-out" class="side-nav fixed"> 
-
+  <ul id="ul">
   <li id="admin" class="admin-background">
     <div class="row">
       <div style="height:20px"></div>
@@ -37,23 +38,16 @@
   </li>
 
 	<li class="no-padding">
-  	<ul class="collapsible collapsible-accordion">
-      <li class="divider"></li>
-  		<li class="bold"><a class="collapsible-header waves-effect waves-teal"><b>Job Order</b></a>
-  			<div class="collapsible-body">
-  				<ul>
-  					<li><a style="color:black" class="waves-effect waves-teal" href="#!">Huehue</a></li>
-  					<li><a style="color:black" class="waves-effect waves-teal" href="#!">Ajuju</a></li>
-  				</ul>
-  			</div>
-  		</li>
- 	<div class="divider"></div>
-  	<li class="bold"><a class="collapsible-header waves-effect waves-teal"><b>Maintenance</b></a>
+  <ul class="collapsible collapsible-accordion">
+    <div class="divider"></div>
+    <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">dashboard</i><b>Dashboard</b></a></li>
+    <div class="divider"></div>
+  	<li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">settings</i><b>Maintenance</b></a>
   	<div class="collapsible-body">
   		<ul>
-  	<li class="no-padding">
-  	<ul class="collapsible collapsible-accordion">
-  		<li class="bold"><a style="color:black" class="collapsible-header waves-effect waves-teal">Customer Profile</a>
+  	  <li class="no-padding">
+  	  <ul class="collapsible collapsible-accordion">
+  		<li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Customer Profile</b></a>
   			<div class="collapsible-body">
   				<ul>
   					<li><a style="color:black" class="waves-effect waves-teal" href="/customerIndividual">Individual</a></li>
@@ -62,7 +56,7 @@
   				</ul>
   			</div>
   		</li>
-  		<li class="bold"><a style="color:black" class="collapsible-header waves-effect waves-teal">Employee</a>
+  		<li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Employee</b></a>
   			<div class="collapsible-body">
   				<ul> 	
   					<li><a style="color:black" class="waves-effect waves-teal" href="/employee">Employee Profile</a></li>
@@ -71,7 +65,7 @@
   				</ul>
   			</div>
   		</li>
-  		<li class="bold"><a style="color:black" class="collapsible-header waves-effect waves-teal">Garments</a>
+  		<li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Garments</b></a>
   			<div class="collapsible-body">
   				<ul> 	
   					<li><a style="color:black" class="waves-effect waves-teal" href="/garments">Category</a></li>
@@ -82,7 +76,7 @@
   				</ul>
   			</div>
   		</li>
-  		<li class="bold"><a style="color:black" class="collapsible-header waves-effect waves-teal">Materials & Fabrics</a>
+  		<li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Materials & Fabrics</b></a>
   			<div class="collapsible-body">
   				<ul> 	
   					<li><a style="color:black" class="waves-effect waves-teal" href="/fabricAndMaterialsFabricType">Fabric Types</a></li>
@@ -92,15 +86,27 @@
   				</ul>
   			</div>
   		</li>
-  		<li class="bold"><a style="color:black" class="collapsible-header waves-effect waves-teal" href="/catalogue">Catalogue</a></li>
+  		<li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal" href="/catalogue"><b>Catalogue</b></a></li>
+    	</ul>
+  	  </div>
+  	  </li>
+    
+    <div class="divider"></div>
+    <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">monetization_on</i><b>Transaction</b></a></li>
+    <div class="divider"></div>
+    <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">assessment</i><b>Queries</b></a></li>
+    <div class="divider"></div>
+    <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">multiline_chart</i><b>Reports</b></a></li>
+    <div class="divider"></div>
+    <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">loyalty</i><b>Utilities</b></a></li>
 
-	</ul>
-	</div>
-  	</li>
-	</ul>
-	</li>
-</ul>
-</li>
+	  </ul>
+	  </li>
+
+  </ul>
+  </li>
+
+  </ul>
   </nav>
 
 

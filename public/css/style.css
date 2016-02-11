@@ -8,6 +8,9 @@
       		}
     	}
     
+        *{
+            font-family: 'Century Gothic';
+        }
 
         header{
             background: teal;
@@ -27,6 +30,7 @@
         #slide-out:active{
             background: white;
         }
+
     	body{
             font-family: 'Century Gothic';
     	}
@@ -69,16 +73,24 @@
             background: url("admin-background.jpg");
         }
 
-    
-        #slide-out > li :hover{
+        .small.material-icons{
+            color: teal;
+        }
+
+        #ul{
+            list-style-type: none;
             background: white;
         }
 
-        #slide-out > li :visited{
+        #ul :hover{
             background: white;
         }
 
-        #slide-out > li :active{
+        #ul :visited{
+            background: white;
+        }
+
+        #ul :active{
             background: white;
         }
 
