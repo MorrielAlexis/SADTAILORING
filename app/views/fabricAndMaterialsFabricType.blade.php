@@ -27,7 +27,7 @@
        				<table class = "centered" align = "center" border = "1">
                 <thead>
                   <tr>
-              		  <th data-field="id">Fabric Type ID</th>
+              		  <th data-field="fabricID">Fabric Type ID</th>
                     <th data-field="fabricName">Fabric Type Name</th>
               		  <th data-field="fabricDescription">Fabric Description</th>
               	 </tr>

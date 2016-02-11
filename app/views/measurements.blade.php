@@ -16,7 +16,7 @@
     
     <!--Tab Contents-->
     <!--Measurement Category-->
-    <div id="test1" class="hue col s12">
+  <div id="test1" class="hue col s12">
 
   <div class="main-wrapper">
     <div class="row">
@@ -37,7 +37,6 @@
             <span class="card-title"><h5><center>Measurement Information</center></h5></span>
           <div class="divider"></div>
           <div class="card-content">
-
     
               <table class = "centered" align = "center" border = "1">
               <thead>
@@ -47,7 +46,8 @@
                     <th data-field="GarmentName">Segment Name</th>
                     <th data-field="MeasurementName">Measurement Name</th>
                     </tr>
-                  </thead>
+              </thead>
+
                   <tbody>
                     <td>001</td>
                     <td>Uniform</td>
@@ -243,6 +243,7 @@
     <!--END OF MEASUREMENT DETAILS--> 
 
   </div>
+</div>
 
 @stop
 
