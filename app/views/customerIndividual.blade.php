@@ -1,127 +1,175 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="row">
-    <div class="col s12 m12 l12">
-    <div class="card-panel">
-    <span class="card-title"><h4>Customer Profile - Individual</h4></span>
-    <div class="divider"></div>
-    <div class="card-content">
-
-  		  <!-- Modal Trigger -->
-     <a class="waves-effect waves-light btn modal-trigger" href="#add">ADD</a>
-    
-      <table class = "centered" align = "center" border = "1">
-        <thead>
-          <tr>
-              <th data-field="id">Indivual ID</th>
-              <th data-field="name">First Name</th>
-              <th data-field="name">Last Name</th>
-              <th data-field="address">Address</th>
-              <th data-field="email">Email Address</th>
-              <th data-field="cellphone">Cellphone No.</th>
-              <th data-field="Landline">Phone No.</th>
-              <th data-field="fax">Fax No.</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            
-            <td>2013-04227-MN-0</td>
-            <td>Marc Joseph</td>
-            <td> Delim</td>
-            <td>Marikina</td>
-            <td>marcjosephdelim@gmail.com</td>
-            <td>09351610917</td> 
-            <td>6551837</td>
-            <td>1234567</td>        
-            <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit">EDIT</button></td>
-
-            </tr>
-        </tbody>
-      </table>
-                <!-- Modal Structure -->
-            <div id="edit" class="modal">
-            <div class = "label"><font color = "teal" size = "+3" back >&nbsp Individual Profile </font> </div>
-            <div class="modal-content">
-
-            <div class = "label"><font size = "+2"> <b>Personal Information</b> </font>
-            </div>
-            <p></p>
-            <div class = "label">Customer ID: </div>
-            <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-            <div class = "label">First Name: </div>
-            <div class="input"> <input type="text" placeholder="First Name"> </div>
-            <div class = "label">Last Name: </div>
-            <div class="input"> <input type="text" placeholder="Last Name"> </div>
-            <div class = "label">Address:</div>
-            <div class="input"> <input type="text" placeholder="Address"> </div>
-            <div class = "label">Email Address: </div>
-            <div class="input"> <input type="email" placeholder="Email"> </div>
-            <div class = "label">Cellphone Number: </div>
-            <div class="input"> <input type="text" placeholder="Cellphone"> </div>
-            <div class = "label">Landline Number: </div>
-            <div class="input"> <input type="text" placeholder="Landline Number"></div>
-            <div class = "label">Contact Person: </div>
-            <div class = "label">Fax Number: </div>
-            <div class="input"> <input type="text" placeholder="Fax Number"></div>
-            
-            
-            <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
-      
-           </div>
-  
-          
-    </div> 
-  </div>
-    
-
-    
-
-            
-  <!-- Modal Structure --> 
-      <div id="add" class="modal">
-            <div class = "label"><font color = "teal" size = "+3" back >&nbsp Individual Profile </font> </div>
-            <div class="modal-content">
-
-            <div class = "label"><font size = "+2"> <b>Personal Information</b> </font>
-            </div>
-            <p></p>
-
-            <div class = "label">Customer ID: </div>
-            <div class="input"> <input type="text" readonly = "readonly" placeholder=""> </div>
-            <div class = "label">First Name: </div>
-            <div class="input"> <input type="text" placeholder="First Name"> </div>
-            <div class = "label">Last Name: </div>
-            <div class="input"> <input type="text" placeholder="Last Name"> </div>
-            <div class = "label">Address:</div>
-            <div class="input"> <input type="text" placeholder="Address"> </div>
-            <div class = "label">Email Address: </div>
-            <div class="input"> <input type="email" placeholder="Email"> </div>
-            <div class = "label">Cellphone Number: </div>
-            <div class="input"> <input type="text" placeholder="Cellphone"> </div>
-            <div class = "label">Landline Number: </div>
-            <div class="input"> <input type="text" placeholder="Landline Number"></div>
-            <div class = "label">Contact Person: </div>
-            <div class = "label">Fax Number: </div>
-            <div class="input"> <input type="text" placeholder="Fax Number"></div>
-
-            
-            <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
-      
-           </div>
-  	     
-          
+    <div class="main-wrapper">
+      <div class="row">
+        <div class="col s12 m12 l12">
+        <span class="page-title"><h4>Customer Individual</h4></span>
+        </div>
       </div>
 
-     </div>  
+      <div class="row">
+        <div class="col s12 m12 l6">
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCusIndi">ADD INDIVIDUAL Customer</button>
+        </div>      
+      </div>
+    </div>
+    
+
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <div class="card-panel">
+          <span class="card-title"><h5><center>Button</center></h5></span>
+          <div class="divider"></div>
+
+
+          <div class="card-content">
+    
+            <table class = "centered" align = "center" border = "1">
+              <thead>
+                <tr>
+                  <th data-field="id">Indivual ID</th>
+                  <th data-field="fname">First Name</th>
+                  <th data-field="lname">Last Name</th>
+                  <th data-field="address">Address</th>
+                  <th data-field="Landline">Telephone No.</th>
+                  <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="fax">Fax No.</th>
+                  <th data-field="email">Email Address</th>
+
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>            
+                  <td>2013-04227-MN-0</td>
+                  <td>Marc Joseph</td>
+                  <td>Delim</td>
+                  <td>Marikina</td>                  
+                  <td>6551837</td>
+                  <td>09351610917</td> 
+                  <td>1234567</td> 
+                  <td>marcjosephdelim@gmail.com</td> 
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCusIndi">EDIT</button></td>
+
+                  <div id="editCusIndi" class="modal">
+                    <div class = "label"><font color = "teal" size = "+3" back >&nbsp Edit Individual Profile </font> </div>
+                        
+                    <div class="modal-content">
+
+                      <div class="input-field">                 
+                        <input value="editIndiID" id="editIndiID" name="editIndiID" type="text" class="validate" readonly = "readonly">
+                        <label for="indi_id">Individual ID: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="editFName" name = "editFName" value = "editFName" type="text" class="validate">
+                        <label for="first_name"> First Name: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="editLName" name = "editLName" value = "editLName" type="text" class="validate">
+                        <label for="last_name"> Last Name </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="editAddresss" name = "editAddress" value = "editAddress" type="text" class="validate">
+                        <label for="address"> Address: </label>
+                      </div>
+                      
+                      <div class="input-field">
+                        <input id="editPhone" name = "editPhone" value = "editPhone" type="text" class="validate">
+                        <label for="tel"> Telephone Number: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="editCel" name = "editCel" value = "editCel" type="text" class="validate">
+                        <label for="cellphone"> Cellphone Number: </label>
+                      </div>
+                        
+                      <div class="input-field">
+                        <input id="editFax" name = "editFax" value = "editFax" type="text" class="validate">
+                        <label for="fax"> Fax Number: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="editEmail" name = "editEmail" value = "editEmail" type="text" class="validate">
+                        <label for="email"> Email Address: </label>
+                      </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>     
+                    </div>
+
+                  </div>
+                </tr>
+              </tbody>
+            </table>
+          </div>   
+
+                  <div id="addCusIndi" class="modal">
+                    <div class = "label"><font color = "teal" size = "+3" back >&nbsp Add Individual Profile </font> </div>
+                    <div class="modal-content">
+
+                      <div class="input-field">                 
+                        <input value = "addIndiID" id="addIndiID" name="addIndiID" type="text" class="validate" readonly = "readonly">
+                        <label for="indi_id">Individual ID: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="addFName" name = "addFName" type="text" class="validate">
+                        <label for="first_name"> First Name: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="addLName" name = "addLName" type="text" class="validate">
+                        <label for="last_name"> Last Name </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="addAddresss" name = "addAddress" type="text" class="validate">
+                        <label for="address"> Address: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="addPhone" name = "addPhone" type="text" class="validate">
+                        <label for="tel"> Telephone Number: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="addCel" name = "addCel" type="text" class="validate">
+                        <label for="cellphone"> Cellphone Number: </label>
+                      </div>                     
+
+                      <div class="input-field">
+                        <input id="addFax" name = "addFax" type="text" class="validate">
+                        <label for="fax"> Fax Number: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input id="addEmail" name = "addEmail" type="text" class="validate">
+                        <label for="email"> Email Address: </label>
+                      </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>      
+                    </div>
+
+                  </div>
+
+            
+        </div>
+      </div> 
     </div> 
-@stop
+    @stop
 
 @section('scripts')
     <script>

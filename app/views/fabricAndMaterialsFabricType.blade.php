@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class="main-wrapper">
+  <div class="main-wrapper">  <!-- Main Wrapper  -->   
     <div class="row">
       <div class="col s12 m12 l12">
         <span class="page-title"><h4>Fabric Type</h4></span>
-      </div>
+      </div> 
     </div>
 
     <div class="row">
@@ -13,16 +13,18 @@
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addFabricType">ADD FABRIC TYPE</button>
       </div>
     </div>
-  </div>
+  </div> <!-- End of Main Wrapper  --> 
 
   
 
-    <div class="row">
-    	<div class="col s12 m12 l12">
-    		<div class="card-panel">
+  <div class="row"> <!-- row -->
+
+    	<div class="col s12 m12 l12">  <!-- col s12 m12 l12 -->
+
+    		<div class="card-panel">  <!-- card-panel -->
    		    <span class="card-title"><h5><center>Fabric Type</center></h5></span>
-   				<div class="divider"></div>
-    			 <div class="card-content">
+   				<div class="divider"> </div>
+            <div class="card-content"><!-- card-content  --> 
 
        				<table class = "centered" align = "center" border = "1">
                 <thead>
@@ -30,7 +32,7 @@
               		  <th data-field="fabricID">Fabric Type ID</th>
                     <th data-field="fabricName">Fabric Type Name</th>
               		  <th data-field="fabricDescription">Fabric Description</th>
-              	 </tr>
+              	  </tr>
                 </thead>
 
                 <tbody>
@@ -39,12 +41,10 @@
               		<td>Hot and silky. For formal events.</td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editFabricType">EDIT</button>
               	
-                   <div id="editFabricType" class="modal modal-fixed-footer">
-                    <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center>
-                    </font> 
+                  <div id="editFabricType" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
+                    <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center></font> 
                     <div class="modal-content">
                       <p>
-
 
                       <div class="input-field">
                         <input value = "editFabricID" id="editFabricID" name = "editFabricID" readonly = "readonly" type="text" class="validate">
@@ -66,14 +66,15 @@
                    <div class="modal-footer">
                       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
                       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                   </div>    
+                   </div>
+
+                  </div> <!-- editFabricType  -->    
                   </td>
                 </tbody>
               </table>
           
-    			         <div id="addFabricType" class="modal modal-fixed-footer">
-                      <font color = "teal"><center><h5> Add Fabric Type</h5></center>
-                      </font> 
+    			       <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
+                    <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
                     <div class="modal-content">
                       <p>
 
@@ -92,6 +93,7 @@
                         <input id="addFabricDescription" name = "addFabricDescription" type="text" class="validate">
                         <label for="fabric_description">Fabric Desription: </label>
                       </div>
+
                       </p>
                     </div>
 
@@ -99,9 +101,12 @@
                       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
                       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                     </div>
-    	             </div>
-                </div>	
-
+                    
+    	           </div><!-- addFabricType  -->
+            </div> <!-- card-content  --> 
+        </div>  <!-- card-panel -->
+      </div> <!-- col s12 m12 l12 --> 
+  </div>     <!-- row --> 
 @stop
 
 @section('scripts')

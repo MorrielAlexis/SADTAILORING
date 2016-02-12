@@ -6,34 +6,35 @@
       <div class="col s12 m12 l12">
       <span class="page-title"><h4>Button</h4></span>
       </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6">
-           <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addButton">ADD Button</button>
-        </div>
-      
     </div>
 
-
-
     <div class="row">
-    	<div class="col s12 m12 l12">
-    		<div class="card-panel">
-   		    	<span class="card-title"><h5><center>Button</center></h5></span>
-   				<div class="divider"></div>
-    			<div class="card-content">
+      <div class="col s12 m12 l6">
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addButton">ADD Button</button>
+      </div>      
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col s12 m12 l12">
+    	<div class="card-panel">
+   		    <span class="card-title"><h5><center>Button</center></h5></span>
+   			<div class="divider"></div>
+    		<div class="card-content">
     
-      				<table class = "centered" align = "center" border = "1">
-       				   <thead>
-          				<tr>
-                    <th date-field= "Button ID">Button ID</th>
-             				<th data-field="Button Name">Button Name</th>
-                    <th data-field="Button Size">Button Size</th>
-                    <th data-field="Button Color">Button Color</th>
-                    <th data-field="Button">Button</th>
-              			<th data-field="Image">Image</th>
-              		</tr>
-                 </thead>
+      		<table class = "centered" align = "center" border = "1">
+       			<thead>
+          		<tr>
+                <th date-field= "Button ID">Button ID</th>
+             		<th data-field="Button Name">Button Name</th>
+                <th data-field="Button Size">Button Size</th>
+                <th data-field="Button Color">Button Color</th>
+                <th data-field="Button">Button</th>
+              	<th data-field="Image">Image</th>
+              </tr>
+            </thead>
 
               		<tbody>
               			<td>001</td>
