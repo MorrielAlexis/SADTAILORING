@@ -20,8 +20,8 @@
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
    		    	<span class="card-title"><h5><center>Swatches Details</h5></center></span>
-   				<div class="divider"></div>
-    			<div class="card-content">
+            <div class="divider"></div>
+            <div class="card-content">
    
       				<table class = "centered" align = "center" border = "1">
        				 <thead>
@@ -35,118 +35,119 @@
                 </thead>
 
               	<tbody>
-              		<td>id</td>
-                  <td>Silk</td>
-              		<td>Martina Chuchu</td>
-              		<td>MC2345</td>
-                  <td>imagelink</td>
-              		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editSwatches">EDIT</button>
+                  <tr>
+              		  <td>id</td>
+                    <td>Silk</td>
+              		  <td>Martina Chuchu</td>
+              		  <td>MC2345</td>
+                    <td>imagelink</td>
+              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editSwatches">EDIT</button>
 
-                    <div id="editSwatches" class="modal modal-fixed-footer">
-                      <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
-                      <div class="modal-content">
-                        <p>
+                      <div id="editSwatches" class="modal modal-fixed-footer">
+                        <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
+                        <div class="modal-content">
+                          <p>
 
-                    <div class="input-field">
-                      <input value = "editSwatchID" id="editSwatchID" name= "editSwatchID" type="text" readonly = "readonly" class="validate">
-                      <label for="swatch_id">Swatch ID: </label>
-                    </div>
+                          <div class="input-field">
+                            <input value = "editSwatchID" id="editSwatchID" name= "editSwatchID" type="text" readonly = "readonly" class="validate">
+                            <label for="swatch_id">Swatch ID: </label>
+                          </div>
 
-                    <div class="input-field">
-                      <select>
-                        <option value="" disabled selected>Select Fabric Type</option>
-                        <option value="1">Fabric 1</option>
-                        <option value="2">Fabric 2</option>
-                      </select>
-                      <label>Fabric Type Name: </label>
-                    </div>  
+                          <div class="input-field">
+                            <select>
+                              <option value="" disabled selected>Select Fabric Type</option>
+                              <option value="1">Fabric 1</option>
+                              <option value="2">Fabric 2</option>
+                            </select>
+                            <label>Fabric Type Name: </label>
+                          </div>  
 
-                    <div class="input-field">
-                      <input id="editSwatchName" value = "editSwatchName" name = "editSwatchName" type="text" class="validate">
-                      <label for="swatch_name">Swatch Name: </label>
-                    </div>    
+                          <div class="input-field">
+                            <input id="editSwatchName" value = "editSwatchName" name = "editSwatchName" type="text" class="validate">
+                            <label for="swatch_name">Swatch Name: </label>
+                          </div>    
 
-                    <div class="input-field">
-                      <input id="editSwatchCode" value = "editSwatchCode" name = "editSwatchCode" type="text" class="validate">
-                      <label for="swatch_code">Swatch Code: </label>
-                    </div>
+                          <div class="input-field">
+                            <input id="editSwatchCode" value = "editSwatchCode" name = "editSwatchCode" type="text" class="validate">
+                            <label for="swatch_code">Swatch Code: </label>
+                          </div>
 
-
-
-                    <div class="file-field input-field">
-                      <div class="btn">
-                        <span>Upload Image</span>
-                        <input type="file">
-                      </div>
-                        <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                      </div>
-                    </div>
-                    </p>
-                    <br>
-                    <br>
-                  </div>
+                          <div class="file-field input-field">
+                            <div class="btn">
+                              <span>Upload Image</span>
+                              <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
+                          </p>
+                          <br><br>
+                        </div>
                   
+                        <div class="modal-footer">
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                        </div>
 
-
-                    <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
-                    </div> 
-                  </td>                     
-              	</tbody>
+                      </div> 
+                    </td> 
+                  </tr>                    
+                </tbody>
               </table>
 
-                    <div id="addSwatches" class="modal modal-fixed-footer">
-           			      <font color = "teal"><center><h5> Add Swatch </h5></center>
-                      </font> 
-                    <div class="modal-content">
-                      <p>
+              <div id="addSwatches" class="modal modal-fixed-footer">
+                <font color = "teal"><center><h5> Add Swatch </h5></center></font> 
+                <div class="modal-content">
+                  <p>
 
-                      <div class="input-field">
-                        <input value = "addSwatchID" id="addSwatchID" name= "addSwatchID" type="text" readonly = "readonly" class="validate">
-                        <label for="swatch_id">Swatch ID: </label>
-                      </div>
-
-                      <div class="input-field">
-                        <select>
-                          <option value="" disabled selected>Select Fabric</option>
-                          <option value="1">Fabric 1</option>
-                          <option value="2">Fabric 2</option>
-                        </select>
-                        <label>Fabric Type Name: </label>
-                      </div>  
-
-                      <div class="input-field">
-                        <input id="addSwatchName" name = "addSwatchName" type="text" class="validate">
-                        <label for="swatch_name">Swatch Name: </label>
-                      </div>    
-
-                      <div class="input-field">
-                        <input id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
-                        <label for="swatch_code">Swatch Code: </label>
-                      </div>
-
-                      <div class="file-field input-field">
-                        <div class="btn">
-                        <span>Upload Image</span>
-                        <input type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                         <input class="file-path validate" type="text">
-                        </div>
-                      </div>
-                      <br>
-                      <br>
-                      </p>  
+                  <div class="input-field">
+                    <input value = "addSwatchID" id="addSwatchID" name= "addSwatchID" type="text" readonly = "readonly" class="validate">
+                    <label for="swatch_id">Swatch ID: </label>
                   </div>
+
+                  <div class="input-field">
+                    <select>
+                      <option value="" disabled selected>Select Fabric</option>
+                      <option value="1">Fabric 1</option>
+                      <option value="2">Fabric 2</option>
+                    </select>
+                    <label>Fabric Type Name: </label>
+                  </div>  
+
+                  <div class="input-field">
+                    <input id="addSwatchName" name = "addSwatchName" type="text" class="validate">
+                    <label for="swatch_name">Swatch Name: </label>
+                  </div>    
+
+                  <div class="input-field">
+                    <input id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
+                    <label for="swatch_code">Swatch Code: </label>
+                  </div>
+
+                  <div class="file-field input-field">
+                    <div class="btn">
+                      <span>Upload Image</span>
+                      <input type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text">
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  </p>  
+                </div>
 
                 <div class="modal-footer">
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                 </div>
-    	</div>
-    </div>	
+              </div>
+    	       </div>
+        </div>
+      </div>
+     </div> 	
 
 @stop
 

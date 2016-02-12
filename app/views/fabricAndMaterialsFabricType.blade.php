@@ -36,73 +36,74 @@
                 </thead>
 
                 <tbody>
-              		<td>id</td>
-              		<td>Linen</td>
-              		<td>Hot and silky. For formal events.</td>
-              		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editFabricType">EDIT</button>
+                  <tr>
+              		  <td>id</td>
+              		  <td>Linen</td>
+              		  <td>Hot and silky. For formal events.</td>
+              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editFabricType">EDIT</button>
               	
-                  <div id="editFabricType" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
-                    <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center></font> 
-                    <div class="modal-content">
-                      <p>
+                    <div id="editFabricType" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
+                      <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center></font> 
+                      <div class="modal-content">
+                        <p>
 
-                      <div class="input-field">
-                        <input value = "editFabricID" id="editFabricID" name = "editFabricID" readonly = "readonly" type="text" class="validate">
-                        <label for="fabric_id">Fabric ID: </label>
+                        <div class="input-field">
+                          <input value = "editFabricID" id="editFabricID" name = "editFabricID" readonly = "readonly" type="text" class="validate">
+                          <label for="fabric_id">Fabric ID: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input value = "editFabricName" id="editFabricName" name = "editFabricName" type="text" class="validate">
+                          <label for="fabric_name">Fabric Name: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input value = "editFabricDescription" id="editFabricDescription" name = "editFabricDescription" type="text" class="validate">
+                          <label for="fabric_description">Fabric Desription: </label>
+                        </div>  
+                        </p>
                       </div>
 
-                      <div class="input-field">
-                        <input value = "editFabricName" id="editFabricName" name = "editFabricName" type="text" class="validate">
-                        <label for="fabric_name">Fabric Name: </label>
+                      <div class="modal-footer">
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
 
-                      <div class="input-field">
-                        <input value = "editFabricDescription" id="editFabricDescription" name = "editFabricDescription" type="text" class="validate">
-                        <label for="fabric_description">Fabric Desription: </label>
-                      </div>  
-                      </p>
-                    </div>
-
-                   <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                   </div>
-
-                  </div> <!-- editFabricType  -->    
-                  </td>
+                    </div> <!-- editFabricType  -->    
+                    </td>
+                  </tr>
                 </tbody>
               </table>
           
-    			       <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
-                    <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
-                    <div class="modal-content">
-                      <p>
+              <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
+                <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
+                <div class="modal-content">
+                  <p>
 
-                      <div class="input-field">
-                        <input value = "addFabricID" id="addFabricID" name = "addFabricID" readonly = "readonly" type="text" class="validate">
-                        <label for="fabric_id">Fabric ID: </label>
-                      </div>
+                  <div class="input-field">
+                    <input value = "addFabricID" id="addFabricID" name = "addFabricID" readonly = "readonly" type="text" class="validate">
+                    <label for="fabric_id">Fabric ID: </label>
+                  </div>
 
+                  <div class="input-field">
+                    <input id="addFabricName" name = "addFabricName" type="text" class="validate">
+                    <label for="fabric_name">Fabric Name: </label>
+                  </div>
 
-                      <div class="input-field">
-                        <input id="addFabricName" name = "addFabricName" type="text" class="validate">
-                        <label for="fabric_name">Fabric Name: </label>
-                      </div>
+                  <div class="input-field">
+                    <input id="addFabricDescription" name = "addFabricDescription" type="text" class="validate">
+                    <label for="fabric_description">Fabric Desription: </label>
+                  </div>
 
-                      <div class="input-field">
-                        <input id="addFabricDescription" name = "addFabricDescription" type="text" class="validate">
-                        <label for="fabric_description">Fabric Desription: </label>
-                      </div>
+                  </p>
+                </div>
 
-                      </p>
-                    </div>
-
-                    <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                    </div>
+                <div class="modal-footer">
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                </div>
                     
-    	           </div><!-- addFabricType  -->
+    	       </div><!-- addFabricType  -->
             </div> <!-- card-content  --> 
         </div>  <!-- card-panel -->
       </div> <!-- col s12 m12 l12 --> 

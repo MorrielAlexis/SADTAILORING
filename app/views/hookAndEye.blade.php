@@ -4,13 +4,13 @@
 	<div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
-      <span class="page-title"><h4>Button</h4></span>
+      <span class="page-title"><h4>Hook and Eye</h4></span>
       </div>
     </div>
 
     <div class="row">
       <div class="col s12 m12 l6">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addButton">ADD Button</button>
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addHookEye">ADD Hook and Eye</button>
       </div>      
     </div>
   </div>
@@ -20,18 +20,18 @@
   <div class="row">
     <div class="col s12 m12 l12">
     	<div class="card-panel">
-   		 <span class="card-title"><h5><center>Button</center></h5></span>
+   		 <span class="card-title"><h5><center>Hook and Eye</center></h5></span>
    			<div class="divider"></div>
     		<div class="card-content">
     
       		<table class = "centered" align = "center" border = "1">
        			<thead>
           		<tr>
-                <th date-field= "Button ID">Button ID</th>
-             		<th data-field="Button Name">Button Name</th>
-                <th data-field="Button Size">Button Size</th>
-                <th data-field="Button Color">Button Color</th>
-                <th data-field="Button">Button</th>
+                <th date-field="Hook and Eye ID">Hook and Eye ID</th>
+             		<th data-field="Hook and Eye Name">Hook and Eye Name</th>
+                <th data-field="Hook and Eye Size">Hook and Eye Size</th>
+                <th data-field="Hook and Eye Color">Hook and Eye Color</th>
+                <th data-field="Hook and Eye">Hook and Eye</th>
               	<th data-field="Image">Image</th>
               </tr>
             </thead>
@@ -39,41 +39,41 @@
             <tbody>
               <tr>
               	<td>001</td>
-                <td>Button Name</td>
-              	<td>Button Size</td>
-              	<td>Button Color</td>
-              	<td>Button</td>
+                <td>Hook and Eye Name</td>
+              	<td>Hook and Eye Size</td>
+              	<td>Hook and Eye Color</td>
+              	<td>Hook and Eye</td>
                 <td>image</td>
-              	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editButton">EDIT</button>
+              	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editHookEye">EDIT</button>
               		    
-                  <div id="editButton" class="modal modal-fixed-footer">
-                    <font color = "teal" ><center><h5>Edit Button</h5></center></font> 
+                  <div id="editHookEye" class="modal modal-fixed-footer">
+                    <font color = "teal" ><center><h5>Edit Hook and Eye</h5></center></font> 
 
                     <div class="modal-content">
 
                       <div class="input-field">
-                        <input id="editButtonID" name = "editButtonID" value = "editButtonID" readonly = "readonly" type="text" class="validate">
-                        <label for="Button_ID"> Button ID: </label>
+                        <input id="editHookEyeID" name = "editHookeyeID" value = "editHookEyeID" readonly = "readonly" type="text" class="validate">
+                        <label for="HookEye_ID"> Hook and Eye ID </label>
                       </div>
                   
                       <div class="input-field">
-                        <input id="editButtonName" name = "editButtonName" value = "editButtonName" type="text" class="validate">
-                        <label for="Button_Name"> Button Name </label>
+                        <input id="editHookEyeName" name = "editHookEyeName" value = "editHookEyeName" type="text" class="validate">
+                        <label for="HookEye_Name"> Hook and Eye Name </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="editButtonSize" name = "editButtonSize" value = "editButtonSize" type="text" class="validate">
-                        <label for="Button_Size"> Button Size </label>
+                        <input id="editHookEyeSize" name = "editHookEyeSize" value = "editHookEyeSize" type="text" class="validate">
+                        <label for="HookEye_Size"> Hook and Eye Size </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="editButtonColor" name = "editButtonColor" value = "editButtonColor" type="text" class="validate">
-                        <label for="Button_Color"> Button Color </label>
+                        <input id="editHookEyeColor" name = "editHookEyeColor" value = "editHookEyeColor" type="text" class="validate">
+                        <label for="Hookeye_Color"> Hook and Eye Color </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="Button" type="text" class="validate">
-                        <label for="Button"> Button </label>
+                        <input id="Hook and Eye" type="text" class="validate">
+                        <label for="Hook and Eye"> Hook and Eye </label>
                       </div>
                 
                       <div class="file-field input-field">
@@ -103,34 +103,34 @@
             </tbody>
           </table>
 
-          <div id="addButton" class="modal modal-fixed-footer">
-            <font color = "teal"><h5><center>Add Button </center></h5></font> 
+          <div id="addHookEye" class="modal modal-fixed-footer">
+            <font color = "teal"><h5><center>Add Hook and Eye </center></h5></font> 
             <div class="modal-content">
 
               <div class="input-field">
-                <input id="addButtonID" name = "addButtonID" value = "addButtonID" readonly = "readonly" type="text" class="validate">
-                <label for="Button_ID"> Button ID: </label>
+                <input id="addHookEyeID" name = "addHookEyeID" value = "addHookEyeID" readonly = "readonly" type="text" class="validate">
+                <label for="HookEye_ID"> Hook and Eye ID </label>
               </div>
                   
               <div class="input-field">
-                <input id="addButtonName" name = "addButtonName" type="text" class="validate">
-                <label for="Button_Name"> Button Name </label>
+                <input id="addHookEyeName" name = "addHookEyeName" type="text" class="validate">
+                <label for="HookEye_Name"> Hook and Eye Name </label>
               </div>
 
               <div class="input-field">
-                <input id="addButtonSize" name = "addButtonSize" type="text" class="validate">
-                <label for="Button_Size"> Button Size </label>
+                <input id="addHookEyeSize" name = "addHookEyeSize" type="text" class="validate">
+                <label for="HookEye_Size"> Hook and Eye Size </label>
               </div>
 
               <div class="input-field">
-                <input id="addButtonColor" name = "addButtonColor" type="text" class="validate">
-                <label for="Button_Color"> Button Color </label>
+                <input id="addHookEyeColor" name = "addHookEyeColor" type="text" class="validate">
+                <label for="HookEye_Color"> Hook and Eye Color </label>
               </div>
 
 
               <div class="input-field">
-                <input id="addButton" name = "addButton" type="text" class="validate">
-                <label for="Button"> Button </label>
+                <input id="addHookEye" name = "addHookEye" type="text" class="validate">
+                <label for="Hook and Eye"> Hook and Eye </label>
               </div>
                 
               <div class="file-field input-field">
