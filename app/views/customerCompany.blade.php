@@ -107,58 +107,58 @@
               </tbody>
             </table>
     
-                  <div id="addCom" class="modal">
-                    <div class = "label"><font color = "teal" size = "+3" back >&nbsp Add Company Profile </font> </div>
+            <div id="addCom" class="modal">
+              <div class = "label"><font color = "teal" size = "+3" back >&nbsp Add Company Profile </font> </div>
                         
-                    <div class="modal-content">
+              <div class="modal-content">
 
-                      <div class="input-field">                 
-                        <input value="addComID" id="addComID" name="addComID" type="text" class="validate" readonly = "readonly">
-                        <label for="company_id">Company ID: </label>
-                      </div>
+              <div class="input-field">                 
+                <input value="addComID" id="addComID" name="addComID" type="text" class="validate" readonly = "readonly">
+                <label for="company_id">Company ID: </label>
+              </div>
 
-                      <div class="input-field">
-                        <input id="addComName" name = "addComName" type="text" class="validate">
-                        <label for="company_name"> Company Name: </label>
-                      </div>
+              <div class="input-field">
+                <input id="addComName" name = "addComName" type="text" class="validate">
+                <label for="company_name"> Company Name: </label>
+              </div>
 
-                      <div class="input-field">
-                        <input id="addAddress" name = "addAddress" type="text" class="validate">
-                        <label for="address"> Address: </label>
-                      </div>
+              <div class="input-field">
+                <input id="addAddress" name = "addAddress" type="text" class="validate">
+                <label for="address"> Address: </label>
+              </div>
 
-                      <div class="input-field">
-                        <input id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
-                        <label for="com_email_address"> Company Email Address: </label>
-                      </div>
+              <div class="input-field">
+                <input id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
+                <label for="com_email_address"> Company Email Address: </label>
+              </div>
 
-                      <div class="input-field">
-                        <input id="addConPerson" name = "addConPerson" type="text" class="validate">
-                        <label for="company_name"> Company Name: </label>
-                      </div>
+              <div class="input-field">
+                <input id="addConPerson" name = "addConPerson" type="text" class="validate">
+                <label for="company_name"> Company Name: </label>
+              </div>
 
-                      <div class="input-field">
-                        <input id="addPhone" name = "addPhone" type="text" class="validate">
-                        <label for="tel"> Telephone Number: </label>
-                      </div>
+              <div class="input-field">
+                <input id="addPhone" name = "addPhone" type="text" class="validate">
+                <label for="tel"> Telephone Number: </label>
+              </div>
 
-                      <div class="input-field">
-                        <input id="addCel" name = "addCel" type="text" class="validate">
-                        <label for="cellphone"> Cellphone Number: </label>
-                      </div>
+              <div class="input-field">
+                <input id="addCel" name = "addCel" type="text" class="validate">
+                <label for="cellphone"> Cellphone Number: </label>
+              </div>
 
-                      <div class="input-field">
-                        <input id="addFax" name = "addFax" type="text" class="validate">
-                        <label for="fax"> Fax Number: </label>
-                      </div>
-                    </div>
+              <div class="input-field">
+                <input id="addFax" name = "addFax" type="text" class="validate">
+                <label for="fax"> Fax Number: </label>
+              </div>
+            </div>
 
-                    <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>     
-                    </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>     
+            </div>
 
-                  </div>         
+          </div>         
         </div>
        </div>  
     </div> 
