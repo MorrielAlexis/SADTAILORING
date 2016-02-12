@@ -48,61 +48,61 @@
                   <td>6551837</td>
                   <td>09351610917</td>
                   <td>1234567</td>        
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCom">EDIT</button></td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCom">EDIT</button>
 
-                  <div id="editCom" class="modal">
-                    <div class = "label"><font color = "teal" size = "+3" back >&nbsp Edit Company Profile </font> </div>
+                    <div id="editCom" class="modal">
+                      <div class = "label"><font color = "teal" size = "+3" back >&nbsp Edit Company Profile </font> </div>
                         
-                    <div class="modal-content">
+                      <div class="modal-content">
 
-                      <div class="input-field">                 
-                        <input value="editComID" id="editComID" name="editComID" type="text" class="validate" readonly = "readonly">
-                        <label for="company_id">Company ID: </label>
+                        <div class="input-field">                 
+                          <input value="editComID" id="editComID" name="editComID" type="text" class="validate" readonly = "readonly">
+                          <label for="company_id">Company ID: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editComName" name = "editComName" value = "editComName" type="text" class="validate">
+                          <label for="company_name"> Company Name: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editAddress" name = "editAddress" value = "editAddress" type="text" class="validate">
+                          <label for="address"> Address: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editComEmailAdd" name = "editComEmailAddress" value = "editComEmailAddress" type="text" class="validate">
+                          <label for="com_email_address"> Company Email Address: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editConPerson" name = "editConPerson" value = "editConPerson" type="text" class="validate">
+                          <label for="company_name"> Company Name: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editPhone" name = "editPhone" value = "editPhone" type="text" class="validate">
+                          <label for="tel"> Telephone Number: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editCel" name = "editCel" value = "editCel" type="text" class="validate">
+                          <label for="cellphone"> Cellphone Number: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editFax" name = "editFax" value = "editFax" type="text" class="validate">
+                          <label for="fax"> Fax Number: </label>
+                        </div>
                       </div>
 
-                      <div class="input-field">
-                        <input id="editComName" name = "editComName" value = "editComName" type="text" class="validate">
-                        <label for="company_name"> Company Name: </label>
+                      <div class="modal-footer">
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>     
                       </div>
 
-                      <div class="input-field">
-                        <input id="editAddress" name = "editAddress" value = "editAddress" type="text" class="validate">
-                        <label for="address"> Address: </label>
-                      </div>
-
-                      <div class="input-field">
-                        <input id="editComEmailAdd" name = "editComEmailAddress" value = "editComEmailAddress" type="text" class="validate">
-                        <label for="com_email_address"> Company Email Address: </label>
-                      </div>
-
-                      <div class="input-field">
-                        <input id="editConPerson" name = "editConPerson" value = "editConPerson" type="text" class="validate">
-                        <label for="company_name"> Company Name: </label>
-                      </div>
-
-                      <div class="input-field">
-                        <input id="editPhone" name = "editPhone" value = "editPhone" type="text" class="validate">
-                        <label for="tel"> Telephone Number: </label>
-                      </div>
-
-                      <div class="input-field">
-                        <input id="editCel" name = "editCel" value = "editCel" type="text" class="validate">
-                        <label for="cellphone"> Cellphone Number: </label>
-                      </div>
-
-                      <div class="input-field">
-                        <input id="editFax" name = "editFax" value = "editFax" type="text" class="validate">
-                        <label for="fax"> Fax Number: </label>
-                      </div>
-                    </div>
-
-                    <div class="modal-footer">
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>     
-                    </div>
-
-                  </div>
-                  
+                   </div>
+                  </td>                  
                 </tr>    
               </tbody>
             </table>
