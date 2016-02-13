@@ -22,7 +22,7 @@ class TblDesignPattern extends Migration {
 
 		Schema::table('tblDesignPattern', function(Blueprint $table){
 
-			$table->foreign('strSegment')->references('strGarmentSegmentID')->on('tblGarmentSegment');
+			$table->foreign('strSegmentName')->references('strGarmentSegmentID')->on('tblGarmentSegment');
 		});
 	}
 

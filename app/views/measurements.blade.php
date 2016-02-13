@@ -42,10 +42,10 @@
             <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
-                  <th data-field = "id"> Measurement ID </th>
-                  <th data-field="category">Measurement Name</th>
-                  <th data-field="MeasurementName">Segment Name</th>
-                  <th data-field="MeasurementName">Sleeve</th>
+                  <th data-field = "MeasurementID"> Measurement ID </th>
+                  <th data-field="Garmentcategory">Garment Category</th>
+                  <th data-field="SegmentName">Segment Name</th>
+                  <th data-field="MeasurementName">Measurement Name</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,7 +53,7 @@
                   <td>001</td>
                   <td>Uniform</td>
                   <td>Blouse</td>
-                  <td>Measurement Name</td>
+                  <td>Bust</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editMeasurementInfo">EDIT</button>
                   
                     <div id="editMeasurementInfo" class="modal modal-fixed-footer">
@@ -68,17 +68,17 @@
 
                         <div class="input-field">
                           <select>
-                            <option value="" disabled selected> Select A Measurement Category:</option>
+                            <option value="" disabled selected> Select A Garment Category:</option>
                             <option value="1">Uniform</option>
                             <option value="2">Gowns</option>
                           </select>
-                          <label> Measurement Category </label>
+                          <label> Garment Category </label>
                         </div>     
     
 
                         <div class="input-field">
                           <select>
-                            <option value="" disabled selected> Selec a Segment </option>
+                            <option value="" disabled selected> Select a Segment </option>
                             <option value="1">Blouse</option>
                             <option value="2">Pants</option>
                           </select>
@@ -119,11 +119,11 @@
    
                 <div class="input-field">
                   <select>
-                    <option value="" disabled selected> Select a Measurement Category</option>
+                    <option value="" disabled selected> Select a Garment Category</option>
                     <option value="1">Uniform</option>
                     <option value="2">Gowns</option>
                   </select>
-                  <label> Measurement Category</label>
+                  <label> Garment Category</label>
                 </div> 
 
                 <div class="input-field">
@@ -188,14 +188,14 @@
             <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
-                  <th data-field="id">Measurement ID</th>
+                  <th data-field="id">Measurement Part ID</th>
                   <th data-field="name">Measurement Name</th>
                   <th data-field="description">Measurement Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>ID</td>
+                  <td>MEAPART001</td>
                   <td>Measurement Name</td>
                   <td>Measurement Description</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editMeasurementPart">EDIT</button>

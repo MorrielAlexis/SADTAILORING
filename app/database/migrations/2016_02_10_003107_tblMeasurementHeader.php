@@ -14,18 +14,17 @@ class TblMeasurementHeader extends Migration {
 	{
 		Schema::create('tblMeasurementHeader', function(Blueprint $table){
 			$table->string('strMeasurementID')->primary();
-			$table->string('strGarmentCategory')->index();
-			$table->string('strGarmentSegment')->index();
-			$table->string('strDesignPattern')->index();
-			$table->string('strMeasurementName');
+			$table->string('strGarmentCategoryName')->index();//fk
+			$table->string('strGarmentSegmentName')->index();//fk
+			$table->string('strMeasurementName')->index();//fk
 			$table->timestamps();
 		});
 
-		Schema::table('tblMeasurementHeader', function(Blueprint $table){
+		Schema::table('tblDesignPattern', function(Blueprint $table){
 
-			$table->foreign('strGarmentCategory')->references('strGarmentCategoryID')->on('tblGarmentCategory');
-			$table->foreign('strGarmentSegment')->references('strGarmentSegmentID')->on('tblGarmentSegment');
-			$table->foreign('strDesignPattern')->references('strDesignPatternID')->on('tblDesignPattern');
+			$table->foreign('strGarmentCategoryName')->references('strGarmentCategoryID')->on('tblGarmentCategory');
+			$table->foreign('strGarmentSegmentName')->references('strGarmentSegmentID')->on('tblGarmentSegment');
+			$table->foreign('strMeasurementName')->references('strMeasurementDetailID')->on('tblMeasurementDetail');
 		});
 	}
 
@@ -41,8 +40,10 @@ class TblMeasurementHeader extends Migration {
 		Schema::table('tblMeasurementHeader', function($table){
 			$table->dropColumn('strGarmentCategory');
 			$table->dropColumn('strGarmentSegment');
-			$table->dropColumn('strDesignPattern');
+			$table->dropColumn('strMeasurementName');
 		});
+
+
 
 	}
 
