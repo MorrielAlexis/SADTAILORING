@@ -18,13 +18,13 @@ class TblCustPrivateIndividual extends Migration {
 			$table->string('strCustPrivIndivID')->primary();
 			//$table->string('strAcctTypeID')->index();
 			//$table->string('strCustID')->unique();
-			$table->string('strCustFName');
-			$table->string('strCustLName');
-			$table->string('strSex');
-			$table->string('strCustAddress');
-			$table->string('strCustEmailAddress');
-			$table->string('strCustPhoneNumber');
-			$table->string('strCustLandlineNumber');
+			$table->string('strCustPrivFName');
+			$table->string('strCustPrivLName');
+			// $table->string('strPrivSex');
+			$table->string('strCustPrivAddress');
+			$table->string('strCustPrivLandlineNumber');
+			$table->string('strCustPrivCPNumber');		
+			$table->string('strCustPrivEmailAddress');
 			$table->timestamps();
 		});
 

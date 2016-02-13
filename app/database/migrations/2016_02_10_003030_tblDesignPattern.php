@@ -14,9 +14,9 @@ class TblDesignPattern extends Migration {
 	{
 		Schema::create('tblDesignPattern', function(Blueprint $table){
 			$table->string('strDesignPatternID')->primary();
-			$table->string('strSegment')->index();
+			$table->string('strSegmentName')->index();//fk
 			$table->string('strPatternName');
-			$table->text('txtPatternImage');
+			$table->string('strPatternImage');
 			$table->timestamps();
 		});
 

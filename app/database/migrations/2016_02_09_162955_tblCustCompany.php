@@ -20,11 +20,11 @@ class TblCustCompany extends Migration {
 			//$table->string('strCustID')->unique();
 			$table->string('strCustCompanyName');
 			$table->string('strCustCompanyAddress');
-			$table->string('strCustContactPerson');
 			$table->string('strCustCompanyEmailAddress');
-			$table->string('strCustPhoneNumber');
-			$table->string('strCustLandlineNumber');
-			$table->string('strCustFaxNumber');
+			$table->string('strCustContactPerson');
+			$table->string('strCustCompanyTelNumber');
+			$table->string('strCustCompanyCPNumber');
+			$table->string('strCustCompanyFaxNumber');
 			$table->timestamps();
 		});
 

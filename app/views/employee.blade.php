@@ -20,7 +20,6 @@
     		<div class="card-panel">
    		    	<span class="card-title"><h5><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
-
     			<div class="card-content">
       			<table class = "centered" align = "center" border = "1">
        				<thead>

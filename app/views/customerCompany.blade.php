@@ -97,8 +97,8 @@
                       </div>
 
                       <div class="modal-footer">
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>     
+                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>  
+                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>   
                       </div>
 
                    </div>
@@ -108,7 +108,7 @@
             </table>
     
             <div id="addCom" class="modal">
-              <div class = "label"><font color = "teal" size = "+3" back >&nbsp Add Company Profile </font> </div>
+              <h5><font color = "teal"><center>&nbsp Add Company Profile </center> </font> </h5>
                         
               <div class="modal-content">
 
@@ -154,8 +154,8 @@
             </div>
 
             <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>  
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>     
             </div>
 
           </div>         

@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card-panel">
-          <span class="card-title"><h5><center>Button</center></h5></span>
+          <span class="card-title"><h5><center>List of Individual Customer</center></h5></span>
           <div class="divider"></div>
 
 
@@ -34,7 +34,6 @@
                   <th data-field="address">Address</th>
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="cellphone">Cellphone No.</th>
-                  <th data-field="fax">Fax No.</th>
                   <th data-field="email">Email Address</th>
 
                 </tr>
@@ -48,12 +47,11 @@
                   <td>Marikina</td>                  
                   <td>6551837</td>
                   <td>09351610917</td> 
-                  <td>1234567</td> 
                   <td>marcjosephdelim@gmail.com</td> 
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCusIndi">EDIT</button>
 
                     <div id="editCusIndi" class="modal">
-                      <div class = "label"><font color = "teal" size = "+3" back >&nbsp Edit Individual Profile </font> </div>
+                      <div class = "label"><font color = "teal" size = "+3" back >&nbsp Edit Customer Profile </font> </div>
                         
                       <div class="modal-content">
 
@@ -88,11 +86,6 @@
                         </div>
                         
                         <div class="input-field">
-                          <input id="editFax" name = "editFax" value = "editFax" type="text" class="validate">
-                          <label for="fax"> Fax Number: </label>
-                        </div>
-
-                        <div class="input-field">
                           <input id="editEmail" name = "editEmail" value = "editEmail" type="text" class="validate">
                           <label for="email"> Email Address: </label>
                         </div>
@@ -113,7 +106,7 @@
              
 
             <div id="addCusIndi" class="modal">
-              <div class = "label"><font color = "teal" size = "+3" back >&nbsp Add Individual Profile </font> </div>
+              <div class = "label"><font color = "teal" size = "+3" back >&nbsp Add Customer Profile </font> </div>
               <div class="modal-content">
 
                 <div class="input-field">                 
@@ -145,11 +138,6 @@
                   <input id="addCel" name = "addCel" type="text" class="validate">
                   <label for="cellphone"> Cellphone Number: </label>
                 </div>                     
-
-                <div class="input-field">
-                  <input id="addFax" name = "addFax" type="text" class="validate">
-                  <label for="fax"> Fax Number: </label>
-                </div>
 
                 <div class="input-field">
                   <input id="addEmail" name = "addEmail" type="text" class="validate">
