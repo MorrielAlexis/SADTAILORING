@@ -12,7 +12,7 @@ class TblMeasurementDetail extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblMeasurementDetail', function(Blueprint $table){
+		Schema::create('tblMeasurementDetail', function(Blueprint $table){
 			$table->string('strMeasurementDetailID')->primary();
 			$table->string('strMeasurementDetailName');
 			$table->string('strMeasurementDetailDesc', 255)->nullable()->change();

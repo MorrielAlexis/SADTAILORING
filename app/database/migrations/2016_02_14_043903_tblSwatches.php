@@ -17,7 +17,7 @@ class TblSwatches extends Migration {
 			$table->string('strSwatchFabricTypeName')->index();
 			$table->string('strSwatchName');
 			$table->string('strSwatchCode');
-			$table->string('strSwatchImage');
+			$table->string('strSwatchImage')->nullable()->change();
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});

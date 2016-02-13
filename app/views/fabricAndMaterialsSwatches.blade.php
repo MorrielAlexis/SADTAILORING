@@ -40,7 +40,7 @@
               <td>{{ $swatch2->strFabricTypeName }}</td>
               <td>{{ $swatch2->strSwatchName }}</td>
               <td>{{ $swatch2->strSwatchCode }}</td>
-              <td><img src="{{URL::asset($swatch2->strSwatchImage)}}"></td>
+              <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch2->strSwatchImage)}}"></td>
               <td>
 
                <form action="/reactSwatch" method="POST">
@@ -88,7 +88,7 @@
                     <td>{{ $swatch->strFabricTypeName }}</td>
                     <td>{{ $swatch->strSwatchName }}</td>
                     <td>{{ $swatch->strSwatchCode }}</td>
-                    <td><img src="{{URL::asset($swatch->strSwatchImage)}}"></td>
+                    <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch->strSwatchImage)}}"></td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
 
@@ -268,6 +268,14 @@
       $('select').material_select();
       });
     </script>
+
+    
+    <script>
+      $(document).ready(function(){
+    $('.materialboxed').materialbox();
+     });
+    </script>
+
 
     <script>
       function clearData(){
