@@ -1,6 +1,6 @@
 <?php
 
-class Category extends Eloquent {
+class DesignPattern extends Eloquent {
 
 	protected $table = 'tblDesignPattern';
 	protected $primaryKey = 'strDesignPatternID';
