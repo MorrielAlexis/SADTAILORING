@@ -32,7 +32,7 @@
           <li><a href="#"><i class="mdi-action-lock-outline"> Lock</i></a></li>
           <li><a href="#"><i class="mdi-hardware-keyboard-tab"> Logout</i></a></li>
         </ul>
-      <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><span class="user">User Admin</span><i class="mdi-navigation-arrow-drop-down right"></i></a>
+      <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><span class="user">Admin</span><i class="mdi-navigation-arrow-drop-down right"></i></a>
       </div>
     </div>
   </li>

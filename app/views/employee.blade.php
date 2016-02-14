@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div id="huehue">
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -11,9 +12,55 @@
   <div class="row">
     <div class="col s12 m12 l6">
        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#newemp">ADD NEW EMPLOYEE</button>
+       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL EMPLOYEES</button>
      </div>
    </div>
   </div>
+
+  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ALL EMPLOYEES</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+            <th data-field="id">Employee ID</th>
+            <th data-field="firstname">First Name</th>
+            <th data-field="lastname">Last Name</th>          
+            <th data-field="Age">Age</th>
+            <th data-field="Sex">Sex</th>
+            <th data-field="address">Address</th>
+            <th data-field="Role">Role</th>
+            <th data-field="cellphone">Cellphone No.</th>
+            <th data-field="Landline">Phone No.</th>
+            <th data-field="email">Email Address</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td>EmployeeID</td>
+              <td>EmpFe\sfregdfName</td>
+              <td>EmpLwrasgdcxvName</td>
+              <td>EmpAge</td>
+              <td>Sex</td>
+              <td>Empwt agdsvcxAddress</td>
+              <td>EmpRoleName</td>                  
+              <td>CellNo</td> 
+              <td>PhoneNo</td>
+              <td>Emailaskjdfnc aljs,xAdd</td>
+              <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
 
     <div class="row">
     	<div class="col s12 m12 l12">
@@ -258,6 +305,7 @@
                       </div>
                 </form>
             <!-- <End for Add Employee> -->
+</div>
 @stop
 
 

@@ -10,9 +10,42 @@
        <div class="row">
         <div class="col s12 m12 l6">
            <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSegment">ADD NEW SEGMENT</button>
+           <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW SEGMENTS</button>
          </div>
       </div>
      </div>
+
+  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ALL SEGMENTS</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+            <th data-field="id">Garment Details ID</th>
+            <th data-field="name">Category Name</th>
+            <th data-field="name">Segment Name</th>
+            <th data-field="address">Segment Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td>Segment ID</td>
+              <td>Category Name</td>
+              <td>Segment Name</td>
+              <td>Segment Description</td>
+              <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
 
 
     <div class="row">
