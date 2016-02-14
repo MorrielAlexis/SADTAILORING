@@ -22,15 +22,10 @@ class DesignPatternController extends BaseController{
 				->select('tblDesignPattern.*', 'tblGarmentSegment.strGarmentSegmentName')
 				->get();
 
-		$pattern2 = DB::table('tblDesignPattern')
-				->join('tblGarmentSegment', 'tblDesignPattern.strDesignSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
-				->select('tblDesignPattern.*', 'tblGarmentSegment.strGarmentSegmentName')
-				->get();
-
 		return View::make('designPattern')
 						->with('newID', $newID)
 						->with('pattern', $pattern)
-						->with('pattern2', $pattern2)
+						->with('pattern2', $pattern)
 						->with('segment', $segment);
 	}
 
