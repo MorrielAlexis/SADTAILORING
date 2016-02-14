@@ -8,16 +8,16 @@ class CustomerController extends BaseController{
 		$ids = DB::table('tblCustPrivateIndividual')
 			->select('strCustPrivIndivID')
 			->orderBy('created_at', 'desc')
-			->orderBy('strCustCompanyID', 'desc')
+			->orderBy('strCustPrivIndivID', 'desc')
 			->take(1)
 			->get();
 
 		$ID = $ids["0"]->strCustPrivIndivID;
 		$newID = $this->smartCounter($ID);	
 
-		$privateindividual = PrivateIndividual::all();
+		$individual = PrivateIndividual::all();
 		
-		return View::make('customerIndividual')->with('privindiv', $privindiv)->with('newID', $newID);
+		return View::make('customerIndividual')->with('individual', $individual)->with('newID', $newID);
 	}
 
 	public function company()
@@ -34,13 +34,13 @@ class CustomerController extends BaseController{
 		
 		$company = Company::all();
 
-		return View::make('customerCOmpany')->with('company', $company)->with('newID', $newID);
+		return View::make('customerCompany')->with('company', $company)->with('newID', $newID);
 	}
 
 	public function addCustPrivIndiv()
 	{	
 
-		$privindiv = PrivateIndividual::create(array(
+		$individual = PrivateIndividual::create(array(
 			'strCustPrivIndivID' => Input::get('addIndiID'),
 			'strCustFName' => Input::get('addFName'),		
 			'strCustLName' => Input::get('addLName'),
@@ -51,24 +51,24 @@ class CustomerController extends BaseController{
 			'strCustLandlineNumber' => Input::get('addPhone')
 			));
 
-		$privindiv->save();
+		$individual->save();
 		return Redirect::to('/customerIndividual');
 	}
 
 	public function editCustPrivIndiv()
 	{
 		$id = Input::get('editCustPrivIndivID');
-		$privindiv = PrivateIndividual::find($id);
+		$individual = PrivateIndividual::find($id);
 
-		$privindiv->strCustFName = Input::get('editFName');	
-		$privindiv->strCustLName = Input::get('editLName');
-		$privindiv->strSex = Input::get('editAddress');
-		$privindiv->strCustAddress = Input::get('editAddress');
-		$privindiv->strCustEmailAddress = Input::get('editEmail');			
-		$privindiv->strCustPhoneNumber = Input::get('editCel');
-		$privindiv->strCustLandlineNumber = Input::get('editPhone');
+		$individual->strCustFName = Input::get('editFName');	
+		$individual->strCustLName = Input::get('editLName');
+		$individual->strSex = Input::get('editAddress');
+		$individual->strCustAddress = Input::get('editAddress');
+		$individual->strCustEmailAddress = Input::get('editEmail');			
+		$individual->strCustPhoneNumber = Input::get('editCel');
+		$individual->strCustLandlineNumber = Input::get('editPhone');
 
-		$privindiv->save();
+		$individual->save();
 		return Redirect::to('/customerIndividual');
 	}
 
@@ -76,14 +76,14 @@ class CustomerController extends BaseController{
 	{	
 
 		$company = Company::create(array(
-			'strCustCompanyID' => Input::get('addEmpID'),
-			'strCustCompanyName' => Input::get('addFirstName'),		
-			'strCustCompanyAddress' => Input::get('addLastName'),
-			'strCustContactPerson' => Input::get('addAge'),
-			'strCustCompanyEmailAddress' => Input::get('addSex'),
-			'strCustCompanyTelNumber' => Input::get('addAddress'),			
-			'strCustCompanyCPNumber' => Input::get('addRoles'), 
-			'strCustCompanyFaxNumber' => Input::get('addCellNo'),
+			'strCustCompanyID' => Input::get('addComID'),
+			'strCustCompanyName' => Input::get('addComName'),		
+			'strCustCompanyAddress' => Input::get('addAddress'),
+			'strCustContactPerson' => Input::get('addConPerson'),
+			'strCustCompanyEmailAddress' => Input::get('addComEmailAddress'),			
+			'strCustCompanyCPNumber' => Input::get('addCel'), 
+			'strCustCompanyTelNumber' => Input::get('addPhone'),
+			'strCustCompanyFaxNumber' => Input::get('addFax'),
 			'boolIsActive' => 1
 			));
 
@@ -93,16 +93,16 @@ class CustomerController extends BaseController{
 
 	public function editcustCompany()
 	{
-		$id = Input::get('editCustCompanyID');
+		$id = Input::get('editComID');
 		$company = Company::find($id);
 
-		$company->strCustCompanyName = Input::get('addFirstName');	
-		$company->strCustCompanyAddress = Input::get('addLastName');
-		$company->strCustContactPerson = Input::get('addAge');
-		$company->strCustCompanyEmailAddress = Input::get('addSex');
-		$company->strCustCompanyTelNumber = Input::get('addAddress');			
-		$company->strCustCompanyCPNumber = Input::get('addRoles');
-		$company->strCustCompanyFaxNumber = Input::get('addCellNo');
+		$company->strCustCompanyName = Input::get('editComName');	
+		$company->strCustCompanyAddress = Input::get('editAddress');
+		$company->strCustContactPerson = Input::get('editConPerson');
+		$company->strCustCompanyEmailAddress = Input::get('editComEmailAddress');
+		$company->strCustCompanyTelNumber = Input::get('editPhone');			
+		$company->strCustCompanyCPNumber = Input::get('editCel');
+		$company->strCustCompanyFaxNumber = Input::get('editFax');
 
 		$company->save();
 		return Redirect::to('/customerCompany');

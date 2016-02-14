@@ -105,7 +105,9 @@
 
                    </div>
                   </td>                  
-                </tr>    
+                </tr>
+                @endif
+                @endforeach    
               </tbody>
             </table>
     
