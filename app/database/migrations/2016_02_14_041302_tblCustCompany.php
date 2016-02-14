@@ -12,7 +12,7 @@ class TblCustCompany extends Migration {
 	 */
 	public function up()
 	{
-		chema::create('tblCustCompany', function(Blueprint $table){
+		Schema::create('tblCustCompany', function(Blueprint $table){
 			$table->engine = 'InnoDB';
 			$table->string('strCustCompanyID')->primary();
 			//$table->string('strAcctTypeID')->index();//fk
