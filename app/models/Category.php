@@ -9,7 +9,7 @@ class Category extends Eloquent {
 								'txtGarmentCategoryDesc',
 								'boolIsActive');
 
-
+/*
 	public function category() {
 
 		return $this->hasMany('Segment', 'strGarmentSegmentID');
@@ -18,5 +18,5 @@ class Category extends Eloquent {
 	public function measurement() {
 
 		return $this->hasMany('MeasurementHead', 'strMeasurementID');
-	}
+	}*/
 }

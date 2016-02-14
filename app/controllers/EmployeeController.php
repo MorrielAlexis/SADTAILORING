@@ -112,12 +112,12 @@ class EmployeeController extends BaseController{
 	public function delEmployee()
 	{
 		$id = Input::get('delEmpID');
-		$employee = Employee::find($id);
+		$employe = Employee::find($id);
 
-		$employee->boolIsActive = 0;
+		$employe->boolIsActive = 0;
 
-		$employee->save();
-		return Redirect::to('/employee');
+		$employe->save();
+		return Redirect::to('/measurements');
 	}
 
 	public function smartCounter($id)

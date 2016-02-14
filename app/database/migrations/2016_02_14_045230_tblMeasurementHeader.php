@@ -14,8 +14,8 @@ class TblMeasurementHeader extends Migration {
 	{
 		Schema::create('tblMeasurementHeader', function(Blueprint $table){
 			$table->string('strMeasurementID')->primary();
-			$table->string('strGarmentCategoryName')->index();//fk
-			$table->string('strGarmentSegmentName')->index();//fk
+			$table->string('strCategoryName')->index();//fk
+			$table->string('strSegmentName')->index();//fk
 			$table->string('strMeasurementName')->index();//fk
 			$table->boolean('boolIsActive');
 			$table->timestamps();
@@ -23,8 +23,8 @@ class TblMeasurementHeader extends Migration {
 
 		Schema::table('tblMeasurementHeader', function(Blueprint $table){
 
-			$table->foreign('strGarmentCategoryName')->references('strGarmentCategoryID')->on('tblGarmentCategory');
-			$table->foreign('strGarmentSegmentName')->references('strGarmentSegmentID')->on('tblGarmentSegment');
+			$table->foreign('strCategoryName')->references('strGarmentCategoryID')->on('tblGarmentCategory');
+			$table->foreign('strSegmentName')->references('strGarmentSegmentID')->on('tblGarmentSegment');
 			$table->foreign('strMeasurementName')->references('strMeasurementDetailID')->on('tblMeasurementDetail');
 		});
 	}

@@ -330,18 +330,4 @@
     });
     </script>
 
-    <script>
-      $(document).ready(function(){
-        $("#send").click(function(e){
-          
-          var firstName = $("#addFirstName").val();
-          var lastName = $("#addLastName").val();
-          var role = $("#addRoles").val();
-          var sex = $("#addSex").val();
-              
-          if(firstName == '' || lastName == '' || sex == null || role == null)
-              e.preventDefault();
-       });
-      });
-    </script>
 @stop

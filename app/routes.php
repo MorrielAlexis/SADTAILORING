@@ -29,9 +29,7 @@ Route::get('/garmentsDetails', 'GarmentsController@details');
 
 Route::get('/designPattern', 'GarmentsController@designPattern');
 
-Route::get('/measurementCategory', 'MeasurementController@category');
-
-Route::get('/measurementDetails', 'MeasurementController@details');
+Route::get('/measurements', 'MeasurementController@measurements');
 
 Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabricType');
 
@@ -40,8 +38,6 @@ Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatches
 Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
 
 Route::get('/catalogue', 'CatalogueController@catalogue');
-
-Route::get('/measurements', 'GarmentsController@measurements');
 
 Route::post('/addEmployee', array('uses'=>'EmployeeController@addEmployee'));
 
@@ -61,6 +57,19 @@ Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarment
 
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
 
+<<<<<<< HEAD
+Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
+
+Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));
+
+Route::post('/editMeasurementDetail', array('uses' => 'MeasurementController@editDetail'));
+
+Route::post('/addMeasurementCategory', array('uses' => 'MeasurementController@addCategory'));
+
+Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@editCategory'));
+
+Route::post('/delMeasurementCategory', array('uses' => 'MeasurementController@delCategory'));
+=======
 Route::post('/addCustPrivIndiv', array('uses' => 'GarmentsController@addCustPrivIndiv'));
 
 Route::post('/editCustPrivIndiv', array('uses' => 'GarmentsController@editCustPrivIndiv'));
@@ -68,3 +77,4 @@ Route::post('/editCustPrivIndiv', array('uses' => 'GarmentsController@editCustPr
 Route::post('/addCustCompany', array('uses' => 'GarmentsController@addCustCompany'));
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
+>>>>>>> 9115b1669d877d3404977892f25f716cca305f5e
