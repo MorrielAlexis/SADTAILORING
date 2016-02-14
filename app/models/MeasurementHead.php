@@ -7,7 +7,6 @@ class MeasurementHead extends Eloquent {
 	protected $primaryKey = 'strMeasurementID';
 	protected $fillable = array('strGarmentCategory',
 								'strGarmentSegment',
-								'strDesignPattern',
 								'strMeasurementName');
 
 

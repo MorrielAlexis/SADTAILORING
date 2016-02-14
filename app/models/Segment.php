@@ -11,18 +11,18 @@ class Segment extends Eloquent {
 								'boolIsActive');
 
 	
-	public function segment() {
+	// public function segment() {
 
-		return $this->belongsTo('Category', 'strGarmentCategoryID');
-	}
+	// 	return $this->belongsTo('Category', 'strGarmentCategoryID');
+	// }
 
-	public function measurement() {
+	// public function measurement() {
 
-		return $this->hasMany('MeasurementHead', 'strMeasurementID');
-	}
+	// 	return $this->hasMany('MeasurementHead', 'strMeasurementID');
+	// }
 
-	public function pattern() {
+	// public function pattern() {
 
-		return $this->hasMany('Pattern', 'strDesignPatternID');
-	}
+	// 	return $this->hasMany('Pattern', 'strDesignPatternID');
+	// }
 }
