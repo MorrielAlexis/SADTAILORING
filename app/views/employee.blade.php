@@ -81,6 +81,7 @@
    		    	<span class="card-title"><h5><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
+            <div class="col s12 m12 l12 overflow-x">
       			<table class = "centered" align = "center" border = "1">
        				<thead>
           			<tr>
@@ -247,6 +248,7 @@
             @endforeach
           </tbody>
           </table>
+          </div>
           
             <!-- <Modal Structure for Add Employee> -->
     			  <div id="newemp" class="modal modal-fixed-footer">

@@ -59,6 +59,9 @@ Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarment
 
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
 
+<<<<<<< HEAD
+Route::post('/addCustPrivIndiv', array('uses' => 'CustomerController@addCustPrivIndiv'));
+=======
 Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
 
 Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));
@@ -72,13 +75,22 @@ Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@e
 Route::post('/delMeasurementCategory', array('uses' => 'MeasurementController@delCategory'));
 
 Route::post('/addCustPrivIndiv', array('uses' => 'GarmentsController@addCustPrivIndiv'));
+>>>>>>> 105a192e96866117887fc9f7633af428d2187900
 
-Route::post('/editCustPrivIndiv', array('uses' => 'GarmentsController@editCustPrivIndiv'));
+Route::post('/editCustPrivIndiv', array('uses' => 'CustomerController@editCustPrivIndiv'));
 
-Route::post('/addCustCompany', array('uses' => 'GarmentsController@addCustCompany'));
+Route::post('/delCustPrivIndiv', array('uses' => 'CustomerController@delCustPrivIndiv'));
 
+<<<<<<< HEAD
+Route::post('/addCustCompany', array('uses' => 'CustomerController@addCustCompany'));
+
+Route::post('/editCustCompany', array('uses' => 'CustomerController@editCustCompany'));
+
+Route::post('/delCustCompany', array('uses' => 'CustomerController@delCustCompany'));
+=======
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
 
+<<<<<<< HEAD
 Route::post('/addDesignPattern', array('uses' => 'DesignPatternController@addPattern'));
 
 Route::post('/editDesignPattern', 'DesignPatternController@editPattern');
@@ -86,3 +98,6 @@ Route::post('/editDesignPattern', 'DesignPatternController@editPattern');
 Route::post('/delDesignPattern', 'DesignPatternController@delPattern');
 
 Route::post('/reactDesignPattern', 'DesignPatternController@reactPattern');
+=======
+>>>>>>> 105a192e96866117887fc9f7633af428d2187900
+>>>>>>> 4a5bbb8a2d5eb24bfedb2149d8b6d4151efc0810

@@ -5,7 +5,8 @@ class PrivateIndividual extends Eloquent {
 	// public $incrementing = false;
 	protected $table = 'tblCustPrivateIndividual';
 	protected $primaryKey = 'strCustPrivIndivID';
-	protected $fillable = array('strCustPrivFName',
+	protected $fillable = array('strCustPrivIndivID',
+								'strCustPrivFName',
 								'strCustPrivLName',
 								'strCustPrivAddress',
 								'strCustPrivLandlineNumber',
