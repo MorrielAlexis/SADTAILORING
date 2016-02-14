@@ -74,7 +74,7 @@
             </tbody>
             </table>
 
-    			<div id="addRole" class="modal">
+    			<div id="addRole" class="modal modal-fixed-footer">
             <font color = "teal" size = "+3" back ></h5><center> Add Employee Role </h5></center></font>
               <div class="modal-content">
               <p>

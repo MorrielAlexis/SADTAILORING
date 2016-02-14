@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblFabricType extends Migration {
+class tblFabricType extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class TblFabricType extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblFabricType', function(Blueprint $table){
+		Schema::create('tblFabricType', function(Blueprint $table){
 			$table->string('strFabricTypeID')->primary();
 			$table->string('strFabricTypeName');
 			$table->text('textFabricTypeDesc');

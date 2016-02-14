@@ -79,3 +79,7 @@ Route::post('/addCustCompany', array('uses' => 'GarmentsController@addCustCompan
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
 
+Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addfabricType'));
+
+Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editfabricType'));
+
