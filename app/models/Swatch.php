@@ -5,7 +5,7 @@ class Swatch extends Eloquent {
 	protected $table = 'tblSwatches';
 	protected $primaryKey = 'strSwatchID';
 	protected $fillable = array('strSwatchID',
-								'strFabricTypeName',
+								'strSwatchFabricTypeName',
 								'strSwatchName',
 								'strSwatchCode',
 								'strSwatchImageLink',

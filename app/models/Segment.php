@@ -6,12 +6,20 @@ class Segment extends Eloquent {
 	protected $primaryKey = 'strGarmentSegmentID';
 	protected $fillable = array('strGarmentSegmentID',
 								'strCategory',
-								'strSegmentName',
-								'txtSegmentDesc',
+								'strGarmentSegmentName',
+								'txtGarmentSegmentDesc',
 								'boolIsActive');
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> ed36e718164fdf63abb6791326faaa931857412d
+	/*
+	public function segment() {
 
 	
 	// public function segment() {
+
 
 	// 	return $this->belongsTo('Category', 'strGarmentCategoryID');
 	// }
@@ -22,7 +30,10 @@ class Segment extends Eloquent {
 	// }
 
 	// public function pattern() {
+		return $this->hasMany('Pattern', 'strDesignPatternID');
+	}*/
 
 	// 	return $this->hasMany('Pattern', 'strDesignPatternID');
 	// }
+
 }

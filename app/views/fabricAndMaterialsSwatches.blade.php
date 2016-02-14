@@ -12,7 +12,42 @@
     <div class="row">
       <div class="col s12 m12 l6">
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSwatches">ADD NEW SWATCH</button>
+        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL SWATCHES</button>
       </div>
+    </div>
+  </div>
+
+  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ALL SWATCHES</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+            <th date-field="Swatch ID">Swatch ID</th>
+            <th data-field="fabric type Name">Fabric Type Name</th>
+            <th data-field="SwatchName">Swatch Name</th>
+            <th data-field="SwatchCode">Swatch Code</th>
+            <th data-field="Image">Image</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td>Swatch ID</td>
+              <td>Fabric Type Name</td>
+              <td>Swatch Name</td>
+              <td>Swatch Code</td>
+              <td>Image</td>
+              <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 

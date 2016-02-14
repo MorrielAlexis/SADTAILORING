@@ -24,6 +24,7 @@ class EmployeeController extends BaseController{
 
 		return View::make('employee')
 					->with('employee', $employee)
+					->with('employee2', $employee)
 					->with('roles', $roles)
 					->with('newID', $newID);
 	}
@@ -115,6 +116,17 @@ class EmployeeController extends BaseController{
 		$employee = Employee::find($id);
 
 		$employee->boolIsActive = 0;
+
+		$employee->save();
+		return Redirect::to('/employee');
+	}
+
+	public function reactEmployee()
+	{	
+		$id = Input::get('reactID');
+		$employee = Employee::find($id);
+
+		$employee->boolIsActive = 1;
 
 		$employee->save();
 		return Redirect::to('/employee');

@@ -13,7 +13,48 @@
     <div class="row">
       <div class="col s12 m12 l6">
        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCom">ADD COMPANY Customer</button>
+       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL CUSTOMERS</button>
       </div>
+    </div>
+  </div>
+
+  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ALL EMPLOYEES</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+            <th data-field="id">Company ID</th>
+            <th data-field="name">Company Name</th>
+            <th data-field="address">Address</th>
+            <th data-field="contact">Contact Person</th>
+            <th data-field="comEmail">Company Email Address</th>
+            <th data-field="cellphone">Cellphone No.</th>
+            <th data-field="Landline">Telephone No.</th>
+            <th data-field="fax">Fax No.</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Company ID</td>
+            <td>Company Name</td>
+            <td>Address</td>
+            <td>Contact Person</td>
+            <td>Company Email Address</td>
+            <td>Cellphone No.</td>
+            <td>Telephone No.</td>                  
+            <td>Fax No.</td>
+            <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 

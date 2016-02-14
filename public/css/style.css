@@ -105,3 +105,15 @@
         #slide-out > li ul li :hover{
             background: white;
         }
+
+        .modal{
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            left: 0;
+            top: 0;
+            overflow: auto; /* Enable scroll if needed */
+        }
+
+        #huehue{
+            /*pag iisipan ko pa kung pano ko maaadjust yung content huehue*/
+        }

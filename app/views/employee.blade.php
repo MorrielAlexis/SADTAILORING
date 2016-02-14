@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div id="huehue">
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -11,9 +12,68 @@
   <div class="row">
     <div class="col s12 m12 l6">
        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#newemp">ADD NEW EMPLOYEE</button>
+       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL EMPLOYEES</button>
      </div>
    </div>
   </div>
+
+  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ALL EMPLOYEES</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+            <th data-field="id">Employee ID</th>
+            <th data-field="firstname">First Name</th>
+            <th data-field="lastname">Last Name</th>          
+            <th data-field="Age">Age</th>
+            <th data-field="Sex">Sex</th>
+            <th data-field="address">Address</th>
+            <th data-field="Role">Role</th>
+            <th data-field="cellphone">Cellphone No.</th>
+            <th data-field="Landline">Phone No.</th>
+            <th data-field="email">Email Address</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @foreach($employee2 as $employee2)
+          @if($employee2->boolIsActive == 0)
+            <tr>
+                  <td>{{ $employee2->strEmployeeID }}</td>
+                  <td>{{ $employee2->strEmpFName }}</td>
+                  <td>{{ $employee2->strEmpLName }}</td>
+                  <td>{{ $employee2->strEmpAge }} </td>
+                  <td>
+                    @if($employee2->strSex == 'M') Male
+                    @else Female
+                    @endif
+                  </td>
+                  <td>{{ $employee2->strEmpAddress }} </td>
+                  <td>{{ $employee2->strEmpRoleName}}</td>                  
+                  <td>{{ $employee2->strCellNo }}</td> 
+                  <td>{{ $employee2->strPhoneNo }}</td>
+                  <td>{{ $employee2->strEmailAdd }}</td>
+                  <td>
+                  <form action="/reactEmployee" method="POST">
+                  <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactID" name="reactID">
+                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  </form>
+                </td>
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
 
     <div class="row">
     	<div class="col s12 m12 l12">
@@ -21,6 +81,7 @@
    		    	<span class="card-title"><h5><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
+            <div class="col s12 m12 l12 overflow-x">
       			<table class = "centered" align = "center" border = "1">
        				<thead>
           			<tr>
@@ -187,6 +248,7 @@
             @endforeach
           </tbody>
           </table>
+          </div>
           
             <!-- <Modal Structure for Add Employee> -->
     			  <div id="newemp" class="modal modal-fixed-footer">
@@ -258,6 +320,7 @@
                       </div>
                 </form>
             <!-- <End for Add Employee> -->
+</div>
 @stop
 
 
@@ -282,18 +345,4 @@
     });
     </script>
 
-    <script>
-      $(document).ready(function(){
-        $("#send").click(function(e){
-          
-          var firstName = $("#addFirstName").val();
-          var lastName = $("#addLastName").val();
-          var role = $("#addRoles").val();
-          var sex = $("#addSex").val();
-              
-          if(firstName == '' || lastName == '' || sex == null || role == null)
-              e.preventDefault();
-       });
-      });
-    </script>
 @stop

@@ -12,7 +12,40 @@
     <div class="row">
       <div class="col s12 m12 l6">
           <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addDesign">ADD DESIGN PATTERN</button>
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW DESIGN PATTERNS</button>
       </div>
+    </div>
+  </div>
+
+  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ALL DESIGN PATTERNS</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+            <th data-field= "Catalog ID">Design Pattern ID</th>
+            <th data-field="Garment Name">Segment Name </th>
+            <th data-field="Pattern Name">Pattern Name</th>
+            <th data-field="Pattern Image">Pattern Image</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td>Design Pattern ID</td>
+              <td>Segment Name</td>
+              <td>Pattern Name</td>
+              <td>Pattern Image</td>
+              <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 

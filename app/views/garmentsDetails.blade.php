@@ -10,9 +10,42 @@
        <div class="row">
         <div class="col s12 m12 l6">
            <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSegment">ADD NEW SEGMENT</button>
+           <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW SEGMENTS</button>
          </div>
       </div>
      </div>
+
+  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ALL SEGMENTS</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+            <th data-field="id">Garment Details ID</th>
+            <th data-field="name">Category Name</th>
+            <th data-field="name">Segment Name</th>
+            <th data-field="address">Segment Description</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td>Segment ID</td>
+              <td>Category Name</td>
+              <td>Segment Name</td>
+              <td>Segment Description</td>
+              <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
 
 
     <div class="row">
@@ -33,18 +66,22 @@
 
               <tbody>
                 @foreach($segment as $segment)
+                @if($segment->boolIsActive)
                 <tr>
               		<td>{{ $segment->strGarmentSegmentID }}</td>
               		<td>{{ $segment->strGarmentCategoryName }}</td>
-                  <td>{{ $segment->strSegmentName }}</td>
-              		<td>{{ $segment->txtSegmentDesc }}</td>
-              		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{ $segment->strGarmentSegmentID }}">EDIT</button>
-                      
-                      <div id="{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
+                  <td>{{ $segment->strGarmentSegmentName }}</td>
+              		<td>{{ $segment->txtGarmentSegmentDesc }}</td>
+              		<td>
+                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button>
+                  <td>
+                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>                 
+
+                      <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center> Edit Segment Details </center></h5></font> 
                         <div class="modal-content">
                           <p>  
-                          <form action="editGarmentSegment" method="POST">
+                          <form action="/editGarmentSegment" method="POST">
                           <div class="input-field">
                             <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="text" class="validate" readonly>
                             <label for="garment_details_id">Garment Details ID: </label>
@@ -62,14 +99,14 @@
                                 @endforeach
                             </select>    
                           </div>   
-
+                        
                           <div class="input-field">
-                            <input value="{{ $segment->strSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validate">
+                            <input value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validate">
                             <label for="segment_name">Segment Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{ $segment->txtSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
+                            <input value="{{ $segment->txtGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
                             <label for="segment_description"Segment Description: </label>
                           </div>
                           </p>
@@ -80,8 +117,52 @@
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                         </div>
                       </form>
+                    </div>
+                    <!--***********************************************************-->
+                      <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
+                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <div class="modal-content">
+                          <p>  
+                          <form action="/delGarmentSegment" method="POST">
+                          <div class="input-field">
+                            <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="text" class="validate" readonly>
+                            <label for="garment_details_id">Garment Details ID: </label>
+                          </div>
+
+                          <div class="input-field">                                                    
+                              <select>
+                              <option disabled>Pick a category</option>
+                                @foreach($category as $id=>$name)
+                                    @if($segment->strCategory == $id)
+                                      <option selected value="{{ $id }}" disabled>{{ $name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>    
+                          </div>   
+
+                          <div class="input-field">
+                            <input value="{{ $segment->strGarmentSegmentName }}"type="text" class="validate" readonly>
+                            <label for="segment_name">Segment Name: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input value="{{ $segment->txtGarmentSegmentDesc }}" type="text" class="validate" readonly>
+                            <label for="segment_description">Segment Description: </label>
+                          </div>
+                          </p>
+                        </div>
+
+                        <div class="modal-footer">
+                          <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">GO</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                        </div>
+                      </form>
+                    </div>
+                      <!--***********************************************************-->
+
                       </td>
                     <tr>
+                    @endif
                   @endforeach
                 </tbody>
               </table>
