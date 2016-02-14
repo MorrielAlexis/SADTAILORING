@@ -61,3 +61,10 @@ Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarment
 
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
 
+Route::post('/addCustPrivIndiv', array('uses' => 'GarmentsController@addCustPrivIndiv'));
+
+Route::post('/editCustPrivIndiv', array('uses' => 'GarmentsController@editCustPrivIndiv'));
+
+Route::post('/addCustCompany', array('uses' => 'GarmentsController@addCustCompany'));
+
+Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));

@@ -32,22 +32,23 @@
                   <th data-field="fname">First Name</th>
                   <th data-field="lname">Last Name</th>
                   <th data-field="address">Address</th>
-                  <th data-field="Landline">Telephone No.</th>
-                  <th data-field="cellphone">Cellphone No.</th>
                   <th data-field="email">Email Address</th>
+                  <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="Landline">Telephone No.</th>
 
                 </tr>
               </thead>
 
-              <tbody>
-                <tr>            
-                  <td>2013-04227-MN-0</td>
-                  <td>Marc Joseph</td>
-                  <td>Delim</td>
-                  <td>Marikina</td>                  
-                  <td>6551837</td>
-                  <td>09351610917</td> 
-                  <td>marcjosephdelim@gmail.com</td> 
+              <tbody>           
+                  @foreach($privindiv as $privindiv)
+                <tr>
+                  <td>{{ $privindiv->strCustPrivIndivID }}</td>
+                  <td>{{ $privindiv->strCustFName }}</td>
+                  <td>{{ $privindiv->strCustLName }}</td>
+                  <td>{{ $privindiv->strCustAddress }} </td>
+                  <td>{{ $privindiv->strCustEmailAddress}}</td>                  
+                  <td>{{ $privindiv->strCustPhoneNumber }}</td> 
+                  <td>{{ $privindiv->strCustLandlineNumber }}</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCusIndi">EDIT</button>
 
                     <div id="editCusIndi" class="modal">
@@ -70,24 +71,37 @@
                           <label for="last_name"> Last Name </label>
                         </div>
 
+                        <div class="input-field">                                                    
+                              <select name='editSex'>
+                              <option disabled>Sex</option>
+                                  @if($employee->strSex == "M")
+                                    <option selected value="{{$employee->strSex}}">Male</option>
+                                    <option value="F">Female</option>
+                                  @else
+                                    <option value="M">Male</option>
+                                    <option selected value="{{$employee->strSex}}">Female</option>
+                                  @endif
+                            </select>    
+                          </div>
+
                         <div class="input-field">
                           <input id="editAddresss" name = "editAddress" value = "editAddress" type="text" class="validate">
                           <label for="address"> Address: </label>
                         </div>
-                      
+
                         <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "editPhone" type="text" class="validate">
-                          <label for="tel"> Telephone Number: </label>
+                          <input id="editEmail" name = "editEmail" value = "editEmail" type="text" class="validate">
+                          <label for="email"> Email Address: </label>
                         </div>
 
                         <div class="input-field">
                           <input id="editCel" name = "editCel" value = "editCel" type="text" class="validate">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
-                        
+                      
                         <div class="input-field">
-                          <input id="editEmail" name = "editEmail" value = "editEmail" type="text" class="validate">
-                          <label for="email"> Email Address: </label>
+                          <input id="editPhone" name = "editPhone" value = "editPhone" type="text" class="validate">
+                          <label for="tel"> Telephone Number: </label>
                         </div>
 
                       </div>
@@ -124,24 +138,32 @@
                   <label for="last_name"> Last Name </label>
                 </div>
 
+                <div class="input-field">                                                    
+                              <select name='addSex' id='addSex' required>
+                              <option selected disabled>Sex</option>
+                                      <option value="M">Male</option>
+                                      <option value="F">Female</option>
+                            </select>    
+                      </div>
+
                 <div class="input-field">
                   <input id="addAddresss" name = "addAddress" type="text" class="validate">
                   <label for="address"> Address: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addPhone" name = "addPhone" type="text" class="validate">
-                  <label for="tel"> Telephone Number: </label>
+                  <input id="addEmail" name = "addEmail" type="text" class="validate">
+                  <label for="email"> Email Address: </label>
                 </div>
 
                 <div class="input-field">
                   <input id="addCel" name = "addCel" type="text" class="validate">
                   <label for="cellphone"> Cellphone Number: </label>
-                </div>                     
+                </div>
 
                 <div class="input-field">
-                  <input id="addEmail" name = "addEmail" type="text" class="validate">
-                  <label for="email"> Email Address: </label>
+                  <input id="addPhone" name = "addPhone" type="text" class="validate">
+                  <label for="tel"> Telephone Number: </label>
                 </div>
 
                 </div>
