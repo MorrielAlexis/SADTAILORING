@@ -57,10 +57,6 @@ Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarment
 
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ed36e718164fdf63abb6791326faaa931857412d
 Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
 
 Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));

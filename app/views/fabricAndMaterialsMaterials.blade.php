@@ -298,6 +298,92 @@
             </table>
       </div>
     </li>
+
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">filter_drama</i><h5>HOOK & EYE</h5>
+      </div>
+      <div class="collapsible-body">
+          <table class = "centered" align = "center" border = "1">
+              <thead>
+                <tr>
+                  <th date-field="Hook and Eye ID">Hook and Eye ID</th>
+                  <th data-field="Hook and Eye Name">Hook and Eye Name</th>
+                  <th data-field="Hook and Eye Size">Hook and Eye Size</th>
+                  <th data-field="Hook and Eye Color">Hook and Eye Color</th>
+                  <th data-field="Hook and Eye">Hook and Eye</th>
+                  <th data-field="Image">Image</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>001</td>
+                  <td>Hook and Eye Name</td>
+                  <td>Hook and Eye Size</td>
+                  <td>Hook and Eye Color</td>
+                  <td>Hook and Eye</td>
+                  <td>image</td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editHookEye">EDIT</button>
+                      
+                    <div id="editHookEye" class="modal modal-fixed-footer">
+                      <font color = "teal" ><center><h5>Edit Hook and Eye</h5></center></font> 
+
+                      <div class="modal-content">
+
+                        <div class="input-field">
+                          <input id="editHookEyeID" name = "editHookeyeID" value = "editHookEyeID" readonly = "readonly" type="text" class="validate">
+                          <label for="HookEye_ID"> Hook and Eye ID </label>
+                        </div>
+                  
+                        <div class="input-field">
+                          <input id="editHookEyeName" name = "editHookEyeName" value = "editHookEyeName" type="text" class="validate">
+                          <label for="HookEye_Name"> Hook and Eye Name </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editHookEyeSize" name = "editHookEyeSize" value = "editHookEyeSize" type="text" class="validate">
+                          <label for="HookEye_Size"> Hook and Eye Size </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editHookEyeColor" name = "editHookEyeColor" value = "editHookEyeColor" type="text" class="validate">
+                          <label for="Hookeye_Color"> Hook and Eye Color </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="Hook and Eye" type="text" class="validate">
+                          <label for="Hook and Eye"> Hook and Eye </label>
+                        </div>
+                
+                        <div class="file-field input-field">
+                          <div class="btn">
+                            <span>Upload Image</span>
+                            <input type="file">
+                          </div>
+
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                          </div>
+
+                        </div>
+
+                        <br><br> 
+
+                      </div>    
+
+                      <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                      </div>
+
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </li>
   </ul>
 </div>
 
@@ -316,4 +402,4 @@
 
 @stop
 
-	
+  
