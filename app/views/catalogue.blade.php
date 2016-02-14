@@ -31,7 +31,7 @@
             <thead>
           		<tr>
                 <th data-field= "Catalogue ID">Catalogue ID</th>
-                <th data-field="Catalogue Category">Category</th>
+                <th data-field="Catalogue Category">Catalogue Category</th>
              		 <th data-field="Catalogue Name">Catalogue Name</th>
                 <th data-field="Description">Description</th>
                 <th data-field="Image">Image</th>

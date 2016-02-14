@@ -32,64 +32,66 @@
                   <th data-field="fname">First Name</th>
                   <th data-field="lname">Last Name</th>
                   <th data-field="address">Address</th>
-                  <th data-field="Landline">Telephone No.</th>
-                  <th data-field="cellphone">Cellphone No.</th>
                   <th data-field="email">Email Address</th>
+                  <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="Landline">Telephone No.</th>
 
                 </tr>
               </thead>
 
-              <tbody>
-                <tr>            
-                  <td>2013-04227-MN-0</td>
-                  <td>Marc Joseph</td>
-                  <td>Delim</td>
-                  <td>Marikina</td>                  
-                  <td>6551837</td>
-                  <td>09351610917</td> 
-                  <td>marcjosephdelim@gmail.com</td> 
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCusIndi">EDIT</button>
+              <tbody>           
+                  @foreach($individual as $individual)
+                  @if($individual->boolIsActive == 1)
+                <tr>
+                  <td>{{ $individual->strCustPrivIndivID }}</td>
+                  <td>{{ $individual->strCustFName }}</td>
+                  <td>{{ $individual->strCustLName }}</td>
+                  <td>{{ $individual->strCustAddress }} </td>
+                  <td>{{ $individual->strCustEmailAddress}}</td>                  
+                  <td>{{ $individual->strCustPhoneNumber }}</td> 
+                  <td>{{ $individual->strCustLandlineNumber }}</td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button>
 
-                    <div id="editCusIndi" class="modal">
-                      <div class = "label"><font color = "teal" size = "+3" back >&nbsp Edit Customer Profile </font> </div>
-                        
+                    <div id="edit{{$individual->strCustPrivIndivID}}" class="modal">
                       <div class="modal-content">
-
+                      <div class = "label"><font color = "teal" size = "+3" back >Edit Customer Profile </font> </div>
+                        <p>
+                          <form action="/editCustPrivIndiv" method="POST">
                         <div class="input-field">                 
-                          <input value="editIndiID" id="editIndiID" name="editIndiID" type="text" class="validate" readonly = "readonly">
+                          <input value="{{$individual->strCustFName}}" id="editIndiID" name="editIndiID" type="text" class="validate" readonly = "readonly">
                           <label for="indi_id">Individual ID: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editFName" name = "editFName" value = "editFName" type="text" class="validate">
+                          <input id="editFName" name = "editFName" value = "{{$individual->strCustFName}}" type="text" class="validate">
                           <label for="first_name"> First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editLName" name = "editLName" value = "editLName" type="text" class="validate">
+                          <input id="editLName" name = "editLName" value = "{{$individual->strCustLName}}" type="text" class="validate">
                           <label for="last_name"> Last Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddresss" name = "editAddress" value = "editAddress" type="text" class="validate">
+                          <input id="editAddresss" name = "editAddress" value = "{{$individual->strCustAddress}}" type="text" class="validate">
                           <label for="address"> Address: </label>
-                        </div>
-                      
-                        <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "editPhone" type="text" class="validate">
-                          <label for="tel"> Telephone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editCel" name = "editCel" value = "editCel" type="text" class="validate">
-                          <label for="cellphone"> Cellphone Number: </label>
-                        </div>
-                        
-                        <div class="input-field">
-                          <input id="editEmail" name = "editEmail" value = "editEmail" type="text" class="validate">
+                          <input id="editEmail" name = "editEmail" value = "{{$individual->strCustEmailAddress}}" type="text" class="validate">
                           <label for="email"> Email Address: </label>
                         </div>
 
+                        <div class="input-field">
+                          <input id="editCel" name = "editCel" value = "{{$individual->strCustPhoneNumber}}" type="text" class="validate">
+                          <label for="cellphone"> Cellphone Number: </label>
+                        </div>
+                      
+                        <div class="input-field">
+                          <input id="editPhone" name = "editPhone" value = "{{$individual->strCustLandlineNumber}}" type="text" class="validate">
+                          <label for="tel"> Telephone Number: </label>
+                        </div>
+                        </p>
                       </div>
 
 
@@ -97,20 +99,24 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>     
                       </div>
-
+                    </form>
                     </div>
                  </td> 
                 </tr>
+                @endif
+                @endforeach
               </tbody>
             </table>
              
 
             <div id="addCusIndi" class="modal">
-              <div class = "label"><font color = "teal" size = "+3" back >&nbsp Add Customer Profile </font> </div>
+              <div class = "label"><font color = "teal" size = "+3" back >Add Customer Profile </font> </div>
               <div class="modal-content">
+                <p>
 
+                <form action="/addCustPrivIndiv" method="POST" id="addCustPrivIndiv" name="addCustPrivIndiv">
                 <div class="input-field">                 
-                  <input value = "addIndiID" id="addIndiID" name="addIndiID" type="text" class="validate" readonly = "readonly">
+                  <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="validate" readonly = "readonly">
                   <label for="indi_id">Individual ID: </label>
                 </div>
 
@@ -130,27 +136,27 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addPhone" name = "addPhone" type="text" class="validate">
-                  <label for="tel"> Telephone Number: </label>
+                  <input id="addEmail" name = "addEmail" type="text" class="validate">
+                  <label for="email"> Email Address: </label>
                 </div>
 
                 <div class="input-field">
                   <input id="addCel" name = "addCel" type="text" class="validate">
                   <label for="cellphone"> Cellphone Number: </label>
-                </div>                     
-
-                <div class="input-field">
-                  <input id="addEmail" name = "addEmail" type="text" class="validate">
-                  <label for="email"> Email Address: </label>
                 </div>
 
+                <div class="input-field">
+                  <input id="addPhone" name = "addPhone" type="text" class="validate">
+                  <label for="tel"> Telephone Number: </label>
+                </div>
+                </p>
                 </div>
 
               <div class="modal-footer">
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>      
               </div>
-
+            </form>
             </div>
           </div>            
         </div>
@@ -165,6 +171,4 @@
     $('.modal-trigger').leanModal();
     });
     </script>
-
-  	 
 @stop
