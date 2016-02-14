@@ -1,18 +1,19 @@
 @extends('layouts.master')
 
 @section('content')
-
+  
+  
 
   <p><h4 style="lightpink">Measurements</h4></p>
   <div class="row">
     
     <!--Measurement Tabs-->
-    <div class="col s12">
+    <div class="col s12" id="measurements" name="measurements">
       <ul class="tabs">
         <li class="tab col s3"><a style="color:teal" href="#tabCategory"><b>Category</b></a></li>
         <li class="tab col s3"><a style="color:teal" href="#tabDetails"><b>Details</b></a></li>
       </ul>
-    </div>
+    
     
     <!--Tab Contents-->
     <!--Measurement Category-->
@@ -44,122 +45,194 @@
                 <tr>
                   <th data-field = "MeasurementID"> Measurement ID </th>
                   <th data-field="Garmentcategory">Garment Category</th>
-                  <th data-field="SegmentName">Segment Name</th>
+                  <th data-field="Garmentcategory">Segment</th>
                   <th data-field="MeasurementName">Measurement Name</th>
                 </tr>
               </thead>
+
               <tbody>
-                <tr>
-                  <td>001</td>
-                  <td>Uniform</td>
-                  <td>Blouse</td>
-                  <td>Bust</td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editMeasurementInfo">EDIT</button>
-                  
-                    <div id="editMeasurementInfo" class="modal modal-fixed-footer">
+                @foreach($head as $head)
+                @if($head->boolIsActive == 1)
+                <tr>   
+                  <td>{{ $head->strMeasurementID }}</td>
+                  <td>{{ $head->strGarmentCategoryName }}</td>
+                  <td>{{ $head->strGarmentSegmentName }}</td>
+                  <td>{{ $head->strMeasurementDetailName }}</td>
+                  <td>
+                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$head->strMeasurementID}}">EDIT</button>
+                  <td>
+                  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$head->strMeasurementID}}">DELETE</button>
+
+                    <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font> 
                       <div class="modal-content"> 
                         <p>
-
+                        <form action="/editMeasurementCategory" method="POST">
                         <div class="input-field">
-                          <input value="editMeasurementID "id="editMeasurementID" name="editMeasurementID" type="text" class="validate" readonly>
+                          <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="text" class="validate" readonly>
                           <label for="measurement_id">Measurement ID: </label>
                         </div>
 
-                        <div class="input-field">
-                          <select>
-                            <option value="" disabled selected> Select A Garment Category:</option>
-                            <option value="1">Uniform</option>
-                            <option value="2">Gowns</option>
-                          </select>
-                          <label> Garment Category </label>
+                        <div class="input-field">                                                    
+                          <select name='editCategory'>
+                             <option disabled>Pick a category</option>
+                                @foreach($category as $id=>$name)
+                                  @if($head->strCategoryName == $id)
+                                    <option selected value="{{ $id }}">{{ $name }}</option>
+                                  @else
+                                    <option value="{{ $id }}">{{ $name }}</option>
+                                  @endif
+                                @endforeach
+                          </select>    
+                        </div>       
+                        
+                        <div class="input-field">                                                    
+                          <select name='editSegment'>
+                            <option disabled>Pick a segment</option>
+                              @foreach($segment as $id=>$name)
+                                @if($head->strSegmentName == $id)
+                                  <option selected value="{{ $id }}">{{ $name }}</option>
+                                @else
+                                  <option value="{{ $id }}">{{ $name }}</option>
+                                @endif
+                              @endforeach
+                          </select>    
                         </div>     
-    
 
-                        <div class="input-field">
-                          <select>
-                            <option value="" disabled selected> Select a Segment </option>
-                            <option value="1">Blouse</option>
-                            <option value="2">Pants</option>
-                          </select>
-                          <label>Segment Name</label>
-                        </div>    
-  
-
-                        <div class="input-field">
-                          <select>
-                            <option value="" disabled selected> Select Measurement Name </option>
-                            <option value="1">Bust</option>
-                            <option value="2">Sleeve</option>
-                          </select>
-                          <label>Measurement Name</label>
-                        </div>    
-                        </p>
-                      </div>
-
+                        <div class="input-field">                                                    
+                          <select name='editDetail'>
+                            <option disabled>Pick a detail</option>
+                              @foreach($detailList as $id=>$name)
+                                @if($head->strMeasurementName == $id)
+                                  <option selected value="{{ $id }}">{{ $name }}</option>
+                                @else
+                                  <option value="{{ $id }}">{{ $name }}</option>
+                                 @endif
+                              @endforeach
+                          </select>    
+                        </div>   
+                         </p>
+                      </div>         
                       <div class="modal-footer">
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+                        <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
-                      </div>  
+                      </div>
+                    </form>
                     </div>
+                      
+                  <!--*****************************************************-->
+                   <div id="del{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
+                      <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font> 
+                      <div class="modal-content"> 
+                        <p>
+                        <form action="/delMeasurementCategory" method="POST">
+                        <div class="input-field">
+                          <input value="{{ $head->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="text" class="validate" readonly>
+                          <label for="measurement_id">Measurement ID: </label>
+                        </div>
+
+                        <div class="input-field">                                                    
+                          <select>
+                             <option disabled>Pick a category</option>
+                                @foreach($category as $id=>$name)
+                                  @if($head->strCategoryName == $id)
+                                    <option selected value="{{ $id }}" disabled>{{ $name }}</option>
+                                  @endif
+                                @endforeach
+                          </select>    
+                        </div>        
+                        
+                        <div class="input-field">                                                    
+                          <select>
+                            <option disabled>Pick a segment</option>
+                              @foreach($segment as $id=>$name)
+                                @if($head->strSegmentName == $id)
+                                  <option selected value="{{ $id }}" disabled>{{ $name }}</option>
+                                @endif
+                              @endforeach
+                          </select>    
+                        </div>     
+
+                        <div class="input-field">                                                    
+                          <select>
+                            <option disabled>Pick a detail</option>
+                              @foreach($detailList as $id=>$name)
+                                @if($head->strMeasurementName == $id)
+                                  <option selected value="{{ $id }}" disabled>{{ $name }}</option>
+                                 @endif
+                              @endforeach
+                          </select>    
+                        </div>   
+                         </p>
+                         
+                      </div>         
+                      <div class="modal-footer">
+                        <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">GO</button>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                      </div>
+                    </form>
+                    </div>          
+
+                  <!--*****************************************************-->   
                   </td>
                 </tr>
+                @endif
+                @endforeach
               </tbody>
             </table>
 
+             <!--add-->
             <div id="addMeasurementInfo" class="modal modal-fixed-footer">
               <font color = "teal"> <center><h5>Add Measurement Information </h5></center></font> 
               <div class="modal-content">
                 <p>
-
+                <form action="/addMeasurementCategory" method="POST">
                 <div class="input-field">
-                  <input value="addMeasurementID "id="addMeasurementID" name="addMeasurementID" type="text" class="validate" readonly>
+                  <input value="{{$categoryNewID}}" id="addMeasurementID" name="addMeasurementID" type="text" class="validate" readonly>
                   <label for="measurement_id">Measurement ID: </label>
                 </div>
    
                 <div class="input-field">
-                  <select>
-                    <option value="" disabled selected> Select a Garment Category</option>
-                    <option value="1">Uniform</option>
-                    <option value="2">Gowns</option>
-                  </select>
-                  <label> Garment Category</label>
-                </div> 
+                  <select name='addCategory' id='addCategory' required>
+                    <option selected disabled>Pick a category</option>
+                      @foreach($category as $id=>$name)
+                        <option value="{{ $id }}">{{ $name }}</option>
+                      @endforeach
+                  </select>   
+                </div>   
 
                 <div class="input-field">
-                  <select>
-                    <option value="" disabled selected> Select a Segment </option>
-                    <option value="1">Blouse</option>
-                    <option value="2">Pants</option>
-                  </select>
-                  <label>Segment Name</label>
+                  <select name='addSegment' id='addSegment' required>
+                    <option selected disabled>Pick a segment</option>
+                      @foreach($segment as $id=>$name)
+                        <option value="{{ $id }}">{{ $name }}</option>
+                      @endforeach
+                  </select>   
                 </div>    
-  
+
                 <div class="input-field">
-                  <select>
-                    <option value="" disabled selected> Select a Measurement Name</option>
-                    <option value="1">Sleever</option>
-                    <option value="2">Collar</option>
-                  </select>
-                  <label>Measurement Name</label>
-                </div>  
-                </p>
+                  <select name='addDetail' id='addDetail' required>
+                    <option selected disabled>Pick a detail</option>
+                      @foreach($detailList as $id=>$name)
+                        <option value="{{ $id }}">{{ $name }}</option>
+                      @endforeach
+                  </select>   
+                </div>    
+                
               </div>
-            
+            </p>
               <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+                <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
               </div>
-            </div>
-            
+            </form>
+            </div>        
           </div>
         </div>
        </div> 
       </div>  
     </div>
-
-  
-    </div>
+  </div>
     <!--END OF MEASUREMENT CATEGORY-->
 
     <div id="tabDetails" class="hue col s12">
@@ -193,82 +266,88 @@
                   <th data-field="description">Measurement Description</th>
                 </tr>
               </thead>
+
               <tbody>
+                @foreach($detail as $detail)
                 <tr>
-                  <td>MEAPART001</td>
-                  <td>Measurement Name</td>
-                  <td>Measurement Description</td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editMeasurementPart">EDIT</button>
+                  <td>{{ $detail->strMeasurementDetailID }}</td>
+                  <td>{{ $detail->strMeasurementDetailName }}</td>
+                  <td>{{ $detail->strMeasurementDetailDesc }}</td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{ $detail->strMeasurementDetailID }}">EDIT</button>
                        
-                    <div id="editMeasurementPart" class="modal modal-fixed-footer">
+                    <div id="{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5> Edit Measurement Part</h5></center></font> 
                       <div class="modal-content">
                         <p>
-
+                        <form action="/editMeasurementDetail" method="POST">
                         <div class="input-field">
-                          <input value="editMeasurementPartID "id="editMeasurementPartID" name="editMeasurementPartID" type="text" class="validate" readonly>
+                          <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text" class="validate" readonly>
                           <label for="measurement_id">Measurement ID: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editMeasurementName" value = "editMeasurementName" name = "editMeasurementName" type="text" class="validate">
+                          <input value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
                           <label for="measurement_name"> Measurement Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editMeasurementDesc" value = "editMeasurementDesc" name = "editMeasurementDesc" type="text" class="validate">
+                          <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validate">
                           <label for="measurement_desc">Measurement Description: </label>
                         </div>
                         </p>
                       </div>
 
                       <div class="modal-footer">
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+                        <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                       </div>
+                    </form>
                     </div>
-
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
           
             <div id="addMeasurementPart" class="modal modal-fixed-footer">
               <font color = "teal"><h5><center> Add New Measurement Part </center></h5></font> 
               <div class="modal-content">
+              <form action="/addMeasurementDetail" method="POST">
                 <p>
 
                 <div class="input-field">
-                  <input value="addMeasurementPartID "id="addMeasurementPartID" name="addMeasurementPartID" type="text" class="validate" readonly>
+                  <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text" class="validate" readonly>
                   <label for="measurement_id">Measurement ID: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addMeasurementName" name= "addMeasurementName" type="text" class="validate">
+                  <input id="addDetailName" name= "addDetailName" type="text" class="validate" required>
                   <label for="measurement_name"> Measurement Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addMeasurementDesc" name ="addMeasurementDesc" type="text" class="validate">
+                  <input id="addDetailDesc" name ="addDetailDesc" type="text" class="validate">
                   <label for="measurement_desc">Measurement Description: </label>
                 </div>
                 </p>
               </div>
 
               <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+                <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
               </div>
             </div>
+          </form>
+
           </div>
         </div>
       </div>
     </div>      
     </div>
-
+  </div>
   </div>
 
-@stop
+  @stop
 
 @section('scripts')
     <script>
@@ -288,5 +367,14 @@
       $('select').material_select();
       });
     </script>
+
+    <script>
+    $(document).ready(function(){
+        var actTab = {{$actTab;}};
+        console.log(actTab);
+        $('ul.tabs').tabs('select_tab', actTab);
+    });
+    </script>
+
 
 @stop

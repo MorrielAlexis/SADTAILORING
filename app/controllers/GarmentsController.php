@@ -50,13 +50,9 @@ class GarmentsController extends BaseController{
 		return View::make('designPattern');
 	}
 
-	public function measurements()
-	{
-		return View::make('measurements');
-	}
-
 	public function addGarmentCategory()
-	{
+	{	
+		//dd(Input::get('addGarmentName'));
 		$garment = Category::create(array(
 			'strGarmentCategoryID' => Input::get('addGarmentID'),
 			'strGarmentCategoryName' => Input::get('addGarmentName'),
@@ -84,8 +80,8 @@ class GarmentsController extends BaseController{
 		$segment = Segment::create(array(
 			'strGarmentSegmentID' => Input::get('addSegmentID'),
 			'strCategory' => Input::get('addCategory'),
-			'strSegmentName' => Input::get('addSegmentName'),
-			'txtSegmentDesc' => Input::get('addSegmentDesc')
+			'strGarmentSegmentName' => Input::get('addSegmentName'),
+			'txtGarmentSegmentDesc' => Input::get('addSegmentDesc')
 			));
 
 		$segment->save();
@@ -98,8 +94,19 @@ class GarmentsController extends BaseController{
 		$segment = Segment::find($id);
 
 		$segment->strCategory = Input::get('editCategory');	
-		$segment->strSegmentName = Input::get('editSegmentName');	
-		$segment->txtSegmentDesc = Input::get('editSegmentDesc');
+		$segment->strGarmentSegmentName = Input::get('editSegmentName');	
+		$segment->txtGarmentSegmentDesc = Input::get('editSegmentDesc');
+
+		$segment->save();
+		return Redirect::to('/garmentsDetails');
+	}
+
+	public function delGarmentSegment()
+	{
+		$id = Input::get('delSegmentID');
+		$segment = Segment::find($id);
+
+		$segment->boolIsActive = 0;
 
 		$segment->save();
 		return Redirect::to('/garmentsDetails');

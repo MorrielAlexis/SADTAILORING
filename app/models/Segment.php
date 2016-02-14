@@ -6,11 +6,11 @@ class Segment extends Eloquent {
 	protected $primaryKey = 'strGarmentSegmentID';
 	protected $fillable = array('strGarmentSegmentID',
 								'strCategory',
-								'strSegmentName',
-								'txtSegmentDesc',
+								'strGarmentSegmentName',
+								'txtGarmentSegmentDesc',
 								'boolIsActive');
 
-	
+	/*
 	public function segment() {
 
 		return $this->belongsTo('Category', 'strGarmentCategoryID');
@@ -24,5 +24,5 @@ class Segment extends Eloquent {
 	public function pattern() {
 
 		return $this->hasMany('Pattern', 'strDesignPatternID');
-	}
+	}*/
 }
