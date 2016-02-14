@@ -16,8 +16,11 @@ class CustomerController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$individual = PrivateIndividual::all();
-		
-		return View::make('customerIndividual')->with('individual', $individual)->with('newID', $newID);
+
+		return View::make('customerIndividual')
+					->with('individual', $individual)
+					->with('individual2', $individual)
+					->with('newID', $newID);
 	}
 
 	public function company()
@@ -34,21 +37,23 @@ class CustomerController extends BaseController{
 		
 		$company = Company::all();
 
-		return View::make('customerCompany')->with('company', $company)->with('newID', $newID);
+		return View::make('customerCompany')
+				->with('company', $company)
+				->with('company2', $company)
+				->with('newID', $newID);
 	}
 
 	public function addCustPrivIndiv()
-	{	
-
+	{
 		$individual = PrivateIndividual::create(array(
 			'strCustPrivIndivID' => Input::get('addIndiID'),
-			'strCustFName' => Input::get('addFName'),		
-			'strCustLName' => Input::get('addLName'),
-			'strSex' => Input::get('addSex'),
-			'strCustAddress' => Input::get('addAddress'),
-			'strCustEmailAddress' => Input::get('addEmail'),			
-			'strCustPhoneNumber' => Input::get('addCel'), 
-			'strCustLandlineNumber' => Input::get('addPhone')
+			'strCustPrivFName' => Input::get('addFName'),		
+			'strCustPrivLName' => Input::get('addLName'),
+			'strCustPrivAddress' => Input::get('addAddress'),
+			'strCustPrivLandlineNumber' => Input::get('addPhone'),						
+			'strCustPrivCPNumber' => Input::get('addCel'), 
+			'strCustPrivEmailAddress' => Input::get('addEmail'),
+			'boolIsActive' => 1
 			));
 
 		$individual->save();
@@ -57,16 +62,37 @@ class CustomerController extends BaseController{
 
 	public function editCustPrivIndiv()
 	{
-		$id = Input::get('editCustPrivIndivID');
+		$id = Input::get('editIndiID');
 		$individual = PrivateIndividual::find($id);
 
-		$individual->strCustFName = Input::get('editFName');	
-		$individual->strCustLName = Input::get('editLName');
-		$individual->strSex = Input::get('editAddress');
-		$individual->strCustAddress = Input::get('editAddress');
-		$individual->strCustEmailAddress = Input::get('editEmail');			
-		$individual->strCustPhoneNumber = Input::get('editCel');
-		$individual->strCustLandlineNumber = Input::get('editPhone');
+		$individual->strCustPrivFName = Input::get('editFName');	
+		$individual->strCustPrivLName = Input::get('editLName');
+		$individual->strCustPrivAddress = Input::get('editAddress');
+		$individual->strCustPrivEmailAddress = Input::get('editEmail');			
+		$individual->strCustPrivCPNumber = Input::get('editCel');
+		$individual->strCustPrivLandlineNumber = Input::get('editPhone');
+
+		$individual->save();
+		return Redirect::to('/customerIndividual');
+	}
+
+	public function delCustPrivIndiv()
+	{
+		$id = Input::get('delIndivID');
+		$individual = PrivateIndividual::find($id);
+
+		$individual->boolIsActive = 0;
+
+		$individual->save();
+		return Redirect::to('/customerIndividual');
+	}
+
+	public function reactCustPrivIndiv()
+	{
+		$id = Input::get('reactID');
+		$individual = PrivateIndividual::find($id);
+
+		$individual->boolIsActive = 1;
 
 		$individual->save();
 		return Redirect::to('/customerIndividual');
@@ -91,7 +117,7 @@ class CustomerController extends BaseController{
 		return Redirect::to('/customerCompany');
 	}
 
-	public function editcustCompany()
+	public function editCustCompany()
 	{
 		$id = Input::get('editComID');
 		$company = Company::find($id);
@@ -103,6 +129,28 @@ class CustomerController extends BaseController{
 		$company->strCustCompanyTelNumber = Input::get('editPhone');			
 		$company->strCustCompanyCPNumber = Input::get('editCel');
 		$company->strCustCompanyFaxNumber = Input::get('editFax');
+
+		$company->save();
+		return Redirect::to('/customerCompany');
+	}
+
+	public function delCustCompany()
+	{
+		$id = Input::get('delCompanyID');
+		$company = Company::find($id);
+
+		$company->boolIsActive = 0;
+
+		$company->save();
+		return Redirect::to('/customerCompany');
+	}
+
+	public function reactCustCompany()
+	{
+		$id = Input::get('reactID');
+		$company = Company::find($id);
+
+		$company->boolIsActive = 1;
 
 		$company->save();
 		return Redirect::to('/customerCompany');

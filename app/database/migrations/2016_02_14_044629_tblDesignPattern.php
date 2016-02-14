@@ -9,7 +9,7 @@ class TblDesignPattern extends Migration {
 	 * Run the migrations.
 	 *
 	 * @return void
-	 */[]
+	 */
 	public function up()
 	{
 		Schema::create('tblDesignPattern', function(Blueprint $table){

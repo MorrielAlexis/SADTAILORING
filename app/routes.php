@@ -27,7 +27,7 @@ Route::get('/garments', 'GarmentsController@category');
 
 Route::get('/garmentsDetails', 'GarmentsController@details');
 
-Route::get('/designPattern', 'GarmentsController@designPattern');
+Route::get('/designPattern', 'DesignPatternController@pattern');
 
 Route::get('/measurements', 'MeasurementController@measurements');
 
@@ -59,6 +59,8 @@ Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarment
 
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
 
+Route::post('/addCustPrivIndiv', array('uses' => 'CustomerController@addCustPrivIndiv'));
+
 Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
 
 Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));
@@ -71,15 +73,47 @@ Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@e
 
 Route::post('/delMeasurementCategory', array('uses' => 'MeasurementController@delCategory'));
 
+<<<<<<< HEAD
 Route::post('/addCustPrivIndiv', array('uses' => 'GarmentsController@addCustPrivIndiv'));
+=======
+Route::post('/addCustPrivIndiv', array('uses' => 'CustomerController@addCustPrivIndiv'));
+>>>>>>> 00b459109940f51f3850ec02db5ddea1dff4ca3e
 
-Route::post('/editCustPrivIndiv', array('uses' => 'GarmentsController@editCustPrivIndiv'));
+Route::post('/editCustPrivIndiv', array('uses' => 'CustomerController@editCustPrivIndiv'));
 
-Route::post('/addCustCompany', array('uses' => 'GarmentsController@addCustCompany'));
+Route::post('/delCustPrivIndiv', array('uses' => 'CustomerController@delCustPrivIndiv'));
+
+<<<<<<< HEAD
+=======
+Route::post('/reactCustPrivIndiv', array('uses' => 'CustomerController@reactCustPrivIndiv'));
+
+>>>>>>> 00b459109940f51f3850ec02db5ddea1dff4ca3e
+Route::post('/addCustCompany', array('uses' => 'CustomerController@addCustCompany'));
+
+Route::post('/editCustCompany', array('uses' => 'CustomerController@editCustCompany'));
+
+Route::post('/delCustCompany', array('uses' => 'CustomerController@delCustCompany'));
+<<<<<<< HEAD
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
 
+<<<<<<< HEAD
 Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addfabricType'));
 
 Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editfabricType'));
 
+=======
+
+=======
+
+Route::post('/reactCustCompany', array('uses' => 'CustomerController@reactCustCompany'));
+
+Route::post('/addDesignPattern', array('uses' => 'DesignPatternController@addPattern'));
+
+Route::post('/editDesignPattern', array('uses' => 'DesignPatternController@editPattern'));
+
+Route::post('/delDesignPattern', array('uses' => 'DesignPatternController@delPattern'));
+
+Route::post('/reactDesignPattern', array('uses' => 'DesignPatternController@reactPattern'));
+>>>>>>> 00b459109940f51f3850ec02db5ddea1dff4ca3e
+>>>>>>> 102aa51d7756df89bbe6cd3d5ab854bb38337965
