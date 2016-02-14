@@ -16,6 +16,7 @@ class TblGarmentCategory extends Migration {
 			$table->string('strGarmentCategoryID')->primary();
 			$table->string('strGarmentCategoryName');
 			$table->text('txtGarmentCategoryDesc');
+			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
 	}

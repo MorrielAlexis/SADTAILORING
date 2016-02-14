@@ -25,6 +25,7 @@ class TblCustCompany extends Migration {
 			$table->string('strCustCompanyTelNumber');
 			$table->string('strCustCompanyCPNumber');
 			$table->string('strCustCompanyFaxNumber');
+			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMeasurementDetail extends Migration {
+class TblFabricType extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class TblMeasurementDetail extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblMeasurementDetail', function(Blueprint $table){
-			$table->string('strMeasurementDetailID')->primary();
-			$table->string('strMeasurementDetailName');
-			$table->string('strMeasurementDetailDesc');
+		Schema::create('TblFabricType', function(Blueprint $table){
+			$table->string('strFabricTypeID')->primary();
+			$table->string('strFabricTypeName');
+			$table->text('textFabricTypeDesc');
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
@@ -28,7 +28,7 @@ class TblMeasurementDetail extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblMeasurementDetail');
+		Schema::dropIfExists('TblFabricType');
 	}
 
 }

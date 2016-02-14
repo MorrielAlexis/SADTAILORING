@@ -43,10 +43,8 @@
                 <tr>
                   <th date-field= "Thread ID">Thread ID</th>
                   <th data-field="Thread Name">Thread Name</th>
-                  <th data-field="Thread Size">Thread Size</th>
                   <th data-field="Thread Color">Thread Color</th>
-                  <th data-field="Thread">Thread</th>
-                  <th data-field="Image">Image</th>
+                  <th data-field="ThreadImage">Image</th>
                 </tr>
               </thead>
 
@@ -54,10 +52,8 @@
                 <tr>
                   <td>001</td>
                   <td>Thread Name</td>
-                  <td>Thread Size</td>
                   <td>Thread Color</td>
-                  <td>Thread</td>
-                  <td>image</td>
+                  <td>Image</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editThread">EDIT</button>
                       
                     <div id="editThread" class="modal modal-fixed-footer">
@@ -75,26 +71,21 @@
                           <label for="Thread_Name"> Thread Name </label>
                         </div>
 
-                        <div class="input-field">
+                        <!-- <div class="input-field">
                           <input id="editThreadSize" name = "editThreadSize" value = "editThreadSize" type="text" class="validate">
                           <label for="Thread_Size"> Thread Size </label>
                         </div>
-
+ -->
                         <div class="input-field">
                           <input id="editThreadColor" name = "editThreadColor" value = "editThreadColor" type="text" class="validate">
                           <label for="Thread_Color"> Thread Color </label>
                         </div>
 
-                        <div class="input-field">
-                          <input id="Thread" type="text" class="validate">
-                          <label for="Thread"> Thread </label>
-                        </div>
-                
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
                             <input type="file">
-                          </div>
+                        </div>
 
                           <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">
@@ -128,22 +119,17 @@
                   <label for="Thread_Name"> Thread Name </label>
                 </div>
 
-                <div class="input-field">
+                <!-- <div class="input-field">
                   <input id="addThreadSize" name = "addThreadSize" type="text" class="validate">
                   <label for="Thread_Size"> Thread Size </label>
-                </div>
+                </div> -->
 
                 <div class="input-field">
                   <input id="addThreadColor" name = "addThreadColor" type="text" class="validate">
                   <label for="Thread_Color"> Thread Color </label>
                 </div>
 
-
-                <div class="input-field">
-                  <input id="addThread" name = "addThread" type="text" class="validate">
-                  <label for="Thread"> Thread </label>
-                </div>
-                
+          
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>Upload Image</span>
@@ -199,9 +185,7 @@
                   <th date-field= "Needle ID">Needle ID</th>
                   <th data-field="Needle Name">Needle Name</th>
                   <th data-field="Needle Size">Needle Size</th>
-                  <th data-field="Needle Color">Needle Color</th>
-                  <th data-field="Needle">Needle</th>
-                  <th data-field="Image">Image</th>
+                  <th data-field="Needle Image">Image</th>
                 </tr>
               </thead>
 
@@ -210,9 +194,7 @@
                   <td>001</td>
                   <td>Needle Name</td>
                   <td>Needle Size</td>
-                  <td>Needle Color</td>
-                  <td>Needle</td>
-                  <td>image</td>
+                  <td>image link</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editNeedle">EDIT</button>
                       
                     <div id="editNeedle" class="modal modal-fixed-footer">
@@ -235,16 +217,7 @@
                           <label for="Needle_Size"> Needle Size </label>
                         </div>
 
-                        <div class="input-field">
-                          <input id="editNeedleColor" name = "editNeedleColor" value = "editNeedleColor" type="text" class="validate">
-                          <label for="Needle_Color"> Needle Color </label>
-                        </div>
-
-                        <div class="input-field">
-                          <input id="Needle" type="text" class="validate">
-                          <label for="Needle"> Needle </label>
-                        </div>
-                
+                                   
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
@@ -288,17 +261,6 @@
                   <label for="Needle_Size"> Needle Size </label>
                 </div>
 
-                <div class="input-field">
-                  <input id="addNeedleColor" name = "addNeedleColor" type="text" class="validate">
-                  <label for="Needle_Color"> Needle Color </label>
-                </div>
-
-
-                <div class="input-field">
-                  <input id="addNeedle" name = "addNeedle" type="text" class="validate">
-                  <label for="Needle"> Needle </label>
-                </div>
-                
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>Upload Image</span>
@@ -353,8 +315,7 @@
                   <th data-field="Button Name">Button Name</th>
                   <th data-field="Button Size">Button Size</th>
                   <th data-field="Button Color">Button Color</th>
-                  <th data-field="Button">Button</th>
-                  <th data-field="Image">Image</th>
+                  <th data-field="ButtonImage">Button Image Link</th>
                 </tr>
               </thead>
 
@@ -364,7 +325,6 @@
                   <td>Button Name</td>
                   <td>Button Size</td>
                   <td>Button Color</td>
-                  <td>Button</td>
                   <td>image</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editButton">EDIT</button>
                       
@@ -393,17 +353,12 @@
                           <label for="Button_Color"> Button Color </label>
                         </div>
 
-                        <div class="input-field">
-                          <input id="Button" type="text" class="validate">
-                          <label for="Button"> Button </label>
-                        </div>
-                
+                                      
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
                             <input type="file">
                           </div>
-
                           <div class="file-path-wrapper">
                             <input class="file-path validate" type="text">
                           </div>
@@ -446,12 +401,6 @@
                   <label for="Button_Color"> Button Color </label>
                 </div>
 
-
-                <div class="input-field">
-                  <input id="addButton" name = "addButton" type="text" class="validate">
-                  <label for="Button"> Button </label>
-                </div>
-                
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>Upload Image</span>

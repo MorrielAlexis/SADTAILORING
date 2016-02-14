@@ -17,6 +17,7 @@ class TblDesignPattern extends Migration {
 			$table->string('strSegmentName')->index();//fk
 			$table->string('strPatternName');
 			$table->string('strPatternImage');
+			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
 

@@ -17,6 +17,7 @@ class TblMeasurementHeader extends Migration {
 			$table->string('strGarmentCategoryName')->index();//fk
 			$table->string('strGarmentSegmentName')->index();//fk
 			$table->string('strMeasurementName')->index();//fk
+			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
 

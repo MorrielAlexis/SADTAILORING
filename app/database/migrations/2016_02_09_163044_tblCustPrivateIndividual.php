@@ -25,6 +25,7 @@ class TblCustPrivateIndividual extends Migration {
 			$table->string('strCustPrivLandlineNumber');
 			$table->string('strCustPrivCPNumber');		
 			$table->string('strCustPrivEmailAddress');
+			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
 

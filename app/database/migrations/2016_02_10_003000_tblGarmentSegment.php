@@ -17,6 +17,7 @@ class TblGarmentSegment extends Migration {
 			$table->string('strCategory')->index();//fk
 			$table->string('strSegmentName');
 			$table->text('txtSegmentDesc');
+			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
 
