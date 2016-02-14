@@ -10,7 +10,10 @@ class Segment extends Eloquent {
 								'txtGarmentSegmentDesc',
 								'boolIsActive');
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> ed36e718164fdf63abb6791326faaa931857412d
 	/*
 	public function segment() {
 
@@ -27,8 +30,6 @@ class Segment extends Eloquent {
 	// }
 
 	// public function pattern() {
-
-<<<<<<< HEAD
 		return $this->hasMany('Pattern', 'strDesignPatternID');
 	}*/
 
