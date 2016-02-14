@@ -14,7 +14,7 @@ class TblSwatches extends Migration {
 	{
 		Schema::create('TblSwatches', function(Blueprint $table){
 			$table->string('strSwatchID')->primary();
-			$table->string('strFabricTypeName')->index();
+			$table->string('strSwatchFabricTypeName')->index();
 			$table->string('strSwatchName');
 			$table->string('strSwatchCode');
 			$table->string('strSwatchImageLink');
@@ -24,7 +24,7 @@ class TblSwatches extends Migration {
 
 		Schema::table('TblSwatches', function(Blueprint $table){
 
-			$table->foreign('strFabricTypeName')->references('strFabricTypeID')->on('tblFabricType');
+			$table->foreign('strSwatchFabricTypeName')->references('strFabricTypeID')->on('tblFabricType');
 		});
 	}
 
@@ -38,7 +38,7 @@ class TblSwatches extends Migration {
 		Schema::dropIfExists('TblSwatches');
 
 		Schema::table('TblSwatches', function($table){
-			$table->dropColumn('strFabricTypeName');
+			$table->dropColumn('strSwatchFabricTypeName');
 		});
 	}
 
