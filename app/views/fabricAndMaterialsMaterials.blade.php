@@ -2,43 +2,20 @@
 
 @section('content')
 
-
-  <p><h4 style="lightpink">Materials</h4></p>
-  <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a style="color:teal" href="#tabThread"><b>Threads</b></a></li>
-        <li class="tab col s3"><a style="color:teal" href="#tabNeedle"><b>Needles</b></a></li>
-        <li class="tab col s3"><a style="color:teal" href="#tabButton"><b>Buttons</b></a></li>
-        <li class="tab col s3"><a style="color:teal" href="#tabZipper"><b>Zippers</b></a></li>
-        <li class="tab col s3"><a style="color:teal" href="#tabHook"><b>Hook & Eye</b></a></li>
-      </ul>
-    </div>
-
-  <div id="tabThread" class="hue col s12">
-
-    <div class="main-wrapper">
-      <div class="row">
-        <div class="col s12 m12 l12">
-          <span class="page-title"><h4>Thread</h4></span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addThread">ADD Thread</button>
-        </div>      
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card-panel">
-         <span class="card-title"><h5><center>Thread</center></h5></span>
-          <div class="divider"></div>
-          <div class="card-content">
+<div>
+<h4>MATERIALS</h4>
+<div class="divider"></div>
+<div style="height:50px"></div>
+  <!--Collapsible-->
+  <ul class="collapsible popout" data-collapsible="accordion">
     
-            <table class = "centered" align = "center" border = "1">
+    <!--THREADS-->
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">filter_drama</i><h5>THREAD</h5>
+      </div>
+      <div class="collapsible-body">
+        <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Thread ID">Thread ID</th>
@@ -104,82 +81,12 @@
                 </tr>
               </tbody>
             </table>
-
-            <div id="addThread" class="modal modal-fixed-footer">
-              <font color = "teal"><h5><center>Add Thread </center></h5></font> 
-              <div class="modal-content">
-
-                <div class="input-field">
-                  <input id="addThreadID" name = "addThreadID" value = "addThreadID" readonly = "readonly" type="text" class="validate">
-                  <label for="Thread_ID"> Thread ID: </label>
-                </div>
-                  
-                <div class="input-field">
-                  <input id="addThreadName" name = "addThreadName" type="text" class="validate">
-                  <label for="Thread_Name"> Thread Name </label>
-                </div>
-
-                <!-- <div class="input-field">
-                  <input id="addThreadSize" name = "addThreadSize" type="text" class="validate">
-                  <label for="Thread_Size"> Thread Size </label>
-                </div> -->
-
-                <div class="input-field">
-                  <input id="addThreadColor" name = "addThreadColor" type="text" class="validate">
-                  <label for="Thread_Color"> Thread Color </label>
-                </div>
-
-          
-                <div class="file-field input-field">
-                  <div class="btn">
-                    <span>Upload Image</span>
-                    <input type="file">
-                  </div>
-
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
-                </div>
-                <br><br> 
-              </div>
-               
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
-              </div>
-
-            </div>    
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
-       <!--  <Tab for Needles> -->
-  <div id="tabNeedle" class="hue col s12">
-    <div class="main-wrapper">
-      <div class="row">
-        <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Needle</h4></span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addNeedle">ADD Needle</button>
-        </div>      
-      </div>
-    </div>
-
-
-
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card-panel">
-          <span class="card-title"><h5><center>Needle</center></h5></span>
-          <div class="divider"></div>
-          <div class="card-content">
-    
-            <table class = "centered" align = "center" border = "1">
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>NEEDLES</h5></div>
+      <div class="collapsible-body">
+        <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Needle ID">Needle ID</th>
@@ -241,74 +148,12 @@
                 </tr>
               </tbody>
             </table>
-
-            <div id="addNeedle" class="modal modal-fixed-footer">
-              <font color = "teal"><h5><center>Add Needle </center></h5></font> 
-              <div class="modal-content">
-
-                <div class="input-field">
-                  <input id="addNeedleID" name = "addNeedleID" value = "addNeedleID" readonly = "readonly" type="text" class="validate">
-                  <label for="Needle_ID"> Needle ID: </label>
-                </div>
-                  
-                <div class="input-field">
-                  <input id="addNeedleName" name = "addNeedleName" type="text" class="validate">
-                  <label for="Needle_Name"> Needle Name </label>
-                </div>
-
-                <div class="input-field">
-                  <input id="addNeedleSize" name = "addNeedleSize" type="text" class="validate">
-                  <label for="Needle_Size"> Needle Size </label>
-                </div>
-
-                <div class="file-field input-field">
-                  <div class="btn">
-                    <span>Upload Image</span>
-                    <input type="file">
-                  </div>
-
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
-                </div>
-                <br><br> 
-              </div>
-               
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
-              </div>
-
-            </div>    
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
-
-  <div id="tabButton" class="hue col s12">
-    <div class="main-wrapper">
-      <div class="row">
-        <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Button</h4></span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addButton">ADD Button</button>
-        </div>      
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card-panel">
-          <span class="card-title"><h5><center>Button</center></h5></span>
-          <div class="divider"></div>
-            <div class="card-content">
-    
-              <table class = "centered" align = "center" border = "1">
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>BUTTONS</h5></div>
+      <div class="collapsible-body">
+        <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Button ID">Button ID</th>
@@ -376,79 +221,12 @@
                 </tr>
               </tbody>
             </table>
-
-            <div id="addButton" class="modal modal-fixed-footer">
-              <font color = "teal"><h5><center>Add Button </center></h5></font> 
-              <div class="modal-content">
-
-                <div class="input-field">
-                  <input id="addButtonID" name = "addButtonID" value = "addButtonID" readonly = "readonly" type="text" class="validate">
-                  <label for="Button_ID"> Button ID: </label>
-                </div>
-                  
-                <div class="input-field">
-                  <input id="addButtonName" name = "addButtonName" type="text" class="validate">
-                  <label for="Button_Name"> Button Name </label>
-                </div>
-
-                <div class="input-field">
-                  <input id="addButtonSize" name = "addButtonSize" type="text" class="validate">
-                  <label for="Button_Size"> Button Size </label>
-                </div>
-
-                <div class="input-field">
-                  <input id="addButtonColor" name = "addButtonColor" type="text" class="validate">
-                  <label for="Button_Color"> Button Color </label>
-                </div>
-
-                <div class="file-field input-field">
-                  <div class="btn">
-                    <span>Upload Image</span>
-                    <input type="file">
-                  </div>
-
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
-                </div>
-                <br><br> 
-              </div>
-                            
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
-              </div>
-
-            </div>    
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
-
-  <div id="tabZipper" class="hue col s12">
-    <div class="main-wrapper">
-      <div class="row">
-        <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Zipper</h4></span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addZipper">ADD Zipper</button>
-        </div>      
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card-panel">
-        <span class="card-title"><h5><center>Zipper</center></h5></span>
-          <div class="divider"></div>
-          <div class="card-content">
-    
-            <table class = "centered" align = "center" border = "1">
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>ZIPPERS</h5></div>
+      <div class="collapsible-body">
+        <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Zipper ID">Zipper ID</th>
@@ -518,79 +296,15 @@
                 </tr>
               </tbody>
             </table>
-
-            <div id="addZipper" class="modal modal-fixed-footer">
-              <font color = "teal"><h5><center>Add Zipper </center></h5></font> 
-              <div class="modal-content">
-
-                <div class="input-field">
-                  <input id="addZipperID" name = "addZipperID" value = "addZipperID" readonly = "readonly" type="text" class="validate">
-                  <label for="Zipper_ID"> Zipper ID: </label>
-                </div>
-                  
-                <div class="input-field">
-                  <input id="addZipperName" name = "addZipperName" type="text" class="validate">
-                  <label for="Zipper_Name"> Zipper Name </label>
-                </div>
-
-                <div class="input-field">
-                  <input id="addZipperSize" name = "addZipperSize" type="text" class="validate">
-                  <label for="Zipper_Size"> Zipper Size </label>
-                </div>
-
-                <div class="input-field">
-                  <input id="addZipperColor" name = "addZipperColor" type="text" class="validate">
-                  <label for="Zipper_Color"> Zipper Color </label>
-                </div>
-              
-                <div class="file-field input-field">
-                  <div class="btn">
-                    <span>Upload Image</span>
-                    <input type="file">
-                  </div>
-
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
-                </div>
-                <br><br> 
-              </div>
-                         
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
-              </div>
-
-            </div>    
-          </div>
-        </div>
       </div>
-    </div>
-   </div>
+    </li>
 
-  <div id="tabHook" class="hue col s12"> 
-    <div class="main-wrapper">
-      <div class="row">
-        <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Hook and Eye</h4></span>
-        </div>
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">filter_drama</i><h5>HOOK & EYE</h5>
       </div>
-
-      <div class="row">
-        <div class="col s12 m12 l6">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addHookEye">ADD Hook and Eye</button>
-        </div>      
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <div class="card-panel">
-          <span class="card-title"><h5><center>Hook and Eye</center></h5></span>
-          <div class="divider"></div>
-          <div class="card-content">
-    
-            <table class = "centered" align = "center" border = "1">
+      <div class="collapsible-body">
+          <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
                   <th date-field="Hook and Eye ID">Hook and Eye ID</th>
@@ -668,80 +382,24 @@
                 </tr>
               </tbody>
             </table>
-
-            <div id="addHookEye" class="modal modal-fixed-footer">
-              <font color = "teal"><h5><center>Add Hook and Eye </center></h5></font> 
-              <div class="modal-content">
-
-                <div class="input-field">
-                  <input id="addHookEyeID" name = "addHookEyeID" value = "addHookEyeID" readonly = "readonly" type="text" class="validate">
-                  <label for="HookEye_ID"> Hook and Eye ID </label>
-                </div>
-                  
-                <div class="input-field">
-                  <input id="addHookEyeName" name = "addHookEyeName" type="text" class="validate">
-                  <label for="HookEye_Name"> Hook and Eye Name </label>
-                </div>
-
-                <div class="input-field">
-                  <input id="addHookEyeSize" name = "addHookEyeSize" type="text" class="validate">
-                  <label for="HookEye_Size"> Hook and Eye Size </label>
-                </div>
-
-                <div class="input-field">
-                  <input id="addHookEyeColor" name = "addHookEyeColor" type="text" class="validate">
-                  <label for="HookEye_Color"> Hook and Eye Color </label>
-                </div>
-
-
-                <div class="input-field">
-                  <input id="addHookEye" name = "addHookEye" type="text" class="validate">
-                  <label for="Hook and Eye"> Hook and Eye </label>
-                </div>
-                
-                <div class="file-field input-field">
-                  <div class="btn">
-                    <span>Upload Image</span>
-                    <input type="file">
-                  </div>
-
-                  <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                  </div>
-                </div>
-              </div>
-              <br><br> 
-               
-              <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
-              </div>
-
-            </div>    
-          </div>
-        </div>
       </div>
-    </div>
+    </li>
+  </ul>
+</div>
 
-  </div>
-  </div>
 
 @stop
 
 @section('scripts')
     <script>
-     $(document).ready(function)({
-	     	$('ul.tabs').tabs();
-  			});
-    </script>
-
-    <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
+   $(document).ready(function(){
+    $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    });
+  });
+        
     </script>
 
 @stop
 
-	
+  
