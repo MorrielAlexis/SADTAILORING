@@ -44,62 +44,97 @@
                   @if($individual->boolIsActive == 1)
                 <tr>
                   <td>{{ $individual->strCustPrivIndivID }}</td>
-                  <td>{{ $individual->strCustFName }}</td>
-                  <td>{{ $individual->strCustLName }}</td>
-                  <td>{{ $individual->strCustAddress }} </td>
-                  <td>{{ $individual->strCustEmailAddress}}</td>                  
-                  <td>{{ $individual->strCustPhoneNumber }}</td> 
-                  <td>{{ $individual->strCustLandlineNumber }}</td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button>
+                  <td>{{ $individual->strCustPrivFName }}</td>
+                  <td>{{ $individual->strCustPrivLName }}</td>
+                  <td>{{ $individual->strCustPrivAddress }} </td>
+                  <td>{{ $individual->strCustPrivEmailAddress}}</td>                  
+                  <td>{{ $individual->strCustPrivCPNumber }}</td> 
+                  <td>{{ $individual->strCustPrivLandlineNumber }}</td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button>
 
-                    <div id="edit{{$individual->strCustPrivIndivID}}" class="modal">
+
+                    <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
                       <div class = "label"><font color = "teal" size = "+3" back >Edit Customer Profile </font> </div>
                         <p>
                           <form action="/editCustPrivIndiv" method="POST">
                         <div class="input-field">                 
-                          <input value="{{$individual->strCustFName}}" id="editIndiID" name="editIndiID" type="text" class="validate" readonly = "readonly">
+                          <input value="{{$individual->strCustPrivIndivID}}" id="editIndiID" name="editIndiID" type="text" class="validate" readonly>
                           <label for="indi_id">Individual ID: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editFName" name = "editFName" value = "{{$individual->strCustFName}}" type="text" class="validate">
+                          <input id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate">
                           <label for="first_name"> First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editLName" name = "editLName" value = "{{$individual->strCustLName}}" type="text" class="validate">
+                          <input id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate">
                           <label for="last_name"> Last Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddresss" name = "editAddress" value = "{{$individual->strCustAddress}}" type="text" class="validate">
+                          <input id="editAddresss" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate">
                           <label for="address"> Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editEmail" name = "editEmail" value = "{{$individual->strCustEmailAddress}}" type="text" class="validate">
+                          <input id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validate">
                           <label for="email"> Email Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editCel" name = "editCel" value = "{{$individual->strCustPhoneNumber}}" type="text" class="validate">
+                          <input id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
                       
                         <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "{{$individual->strCustLandlineNumber}}" type="text" class="validate">
+                          <input id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validate">
                           <label for="tel"> Telephone Number: </label>
                         </div>
                         </p>
                       </div>
 
-
                       <div class="modal-footer">
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>     
+                        <button type="submit" class="waves-effect waves-green btn-flat">Update</button> 
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>    
                       </div>
                     </form>
+                    </div>
+
+                    <div id="del{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
+                      <div class="modal-content">
+                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <p>
+                         <form action="/delCustPrivIndiv" method="POST">
+                          <div class="input-field">
+                            <label for="first_name">Individual ID: </label>
+                            <input value="{{$individual->strCustPrivIndivID}}" id="delIndivID" name="delIndivID" type="text" class="validate" readonly>
+                          </div>
+
+                          <div class="input-field">
+                            <label for="first_name">First Name: </label>
+                            <input value="{{$individual->strCustPrivFName}}" id="delIndivFName" name="delIndivFName" type="text" class="validate" readonly>
+                          </div>
+
+                          <div class="input-field">
+                            <input value="{{$individual->strCustPrivLName}}" id="delIndivLName" name="delIndivLName" type="text" class="validate" readonly>
+                            <label for="LastName">Last Name: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <label for="first_name">Address: </label>
+                            <input value="{{$individual->strCustPrivAddress}}" id="delIndivAddress" name="delIndivAddress" type="text" class="validate" readonly>
+                          </div>
+                        </p>
+                      </div>
+
+                          <div class="modal-footer">
+                          <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                          </div> 
+                        </form>
                     </div>
                  </td> 
                 </tr>
@@ -109,14 +144,14 @@
             </table>
              
 
-            <div id="addCusIndi" class="modal">
+            <div id="addCusIndi" class="modal modal-fixed-footer">
               <div class = "label"><font color = "teal" size = "+3" back >Add Customer Profile </font> </div>
               <div class="modal-content">
                 <p>
 
-                <form action="/addCustPrivIndiv" method="POST" id="addCustPrivIndiv" name="addCustPrivIndiv">
+                <form action="/addCustPrivIndiv" method="POST">
                 <div class="input-field">                 
-                  <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="validate" readonly = "readonly">
+                  <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="validate" readonly>
                   <label for="indi_id">Individual ID: </label>
                 </div>
 
@@ -153,8 +188,8 @@
                 </div>
 
               <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>      
+                <button type="submit" class="waves-effect waves-green btn-flat">Save</button> 
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>     
               </div>
             </form>
             </div>

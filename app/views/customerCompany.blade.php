@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card-panel">
-          <span class="card-title"><h5>Customer Profile - (Company)</h5></span>
+          <span class="card-title"><h5><center>Customer Profile - (Company)</center></h5></span>
           <div class="divider"></div>
           <div class="card-content">
 
@@ -50,60 +50,92 @@
                   <td>{{ $company->strCustCompanyCPNumber }}</td> 
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCom">EDIT</button>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$company->strCustCompanyId}}">EDIT</button></td>       
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$company->strCustCompanyId}}">DELETE</button>
 
-                    <div id="editCom" class="modal">
-                      <div class = "label"><font color = "teal" size = "+3" back >&nbsp Edit Company Profile </font> </div>
-                        
+
+                    <div id="edit{{$company->strCustCompanyId}}" class="modal">
                       <div class="modal-content">
-
+                      <div class = "label"><font color = "teal" size = "+3" back >Edit Company Profile </font> </div>
+                        <p>
+                        <form action="/editCustCompany" method="POST">
                         <div class="input-field">                 
-                          <input value="editComID" id="editComID" name="editComID" type="text" class="validate" readonly = "readonly">
+                          <input value="{{$company->strCustCompanyID}}" id="editComID" name="editComID" type="text" class="validate" readonly>
                           <label for="company_id">Company ID: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editComName" name = "editComName" value = "editComName" type="text" class="validate">
+                          <input id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate">
                           <label for="company_name"> Company Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddress" name = "editAddress" value = "editAddress" type="text" class="validate">
+                          <input id="editAddress" name = "editAddress" value = "{{$company->strCustCompanyAddress}}" type="text" class="validate">
                           <label for="address"> Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editConPerson" name = "editConPerson" value = "editConPerson" type="text" class="validate">
+                          <input id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
                           <label for="company_name"> Contact Person: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editComEmailAdd" name = "editComEmailAddress" value = "editComEmailAddress" type="text" class="validate">
+                          <input id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validate">
                           <label for="com_email_address"> Company Email Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editCel" name = "editCel" value = "editCel" type="text" class="validate">
+                          <input id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validate">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "editPhone" type="text" class="validate">
+                          <input id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validate">
                           <label for="tel"> Telephone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editFax" name = "editFax" value = "editFax" type="text" class="validate">
+                          <input id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validate">
                           <label for="fax"> Fax Number: </label>
                         </div>
+                        </p>
                       </div>
 
                       <div class="modal-footer">
-                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</a>  
+                         <button type="submit" class="waves-effect waves-green btn-flat">Update</button>  
                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>   
                       </div>
-
+                    </form>
                    </div>
+
+                   <div id="el{d{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
+                      <div class="modal-content">
+                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <p>
+                         <form action="/delCustCompany" method="POST">
+                          <div class="input-field">
+                            <label for="first_name">Company ID: </label>
+                            <input value="{{$company->strCustCompanyID}}" id="delCompanyID" name="delCompanyID" type="text" class="validate" readonly>
+                          </div>
+
+                          <div class="input-field">
+                            <label for="first_name">Company Name: </label>
+                            <input value="{{$company->strCustCompanyName}}" id="delCompanyName" name="delCompanyName" type="text" class="validate" readonly>
+                          </div>
+
+                          <div class="input-field">
+                            <input value="{{$company->strCustContactPerson}}" id="delConPerson" name="delConPerson" type="text" class="validate" readonly>
+                            <label for="LastName">Contact Person: </label>
+                          </div>
+                        </p>
+                      </div>
+
+                         <div class="modal-footer">
+                          <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                          </div> 
+                        </form>
+                      </div>
                   </td>                  
                 </tr>
                 @endif
@@ -112,12 +144,14 @@
             </table>
     
             <div id="addCom" class="modal">
-              <h5><font color = "teal"><center>&nbsp Add Company Profile </center> </font> </h5>
+              <h5><font color = "teal"><center>Add Company Profile </center> </font> </h5>
                         
               <div class="modal-content">
+                <p>
 
+                <form action="/addCustCompany" method="POST">
               <div class="input-field">                 
-                <input value="addComID" id="addComID" name="addComID" type="text" class="validate" readonly = "readonly">
+                <input value="{{$newID}}" id="addComID" name="addComID" type="text" class="validate" readonly>
                 <label for="company_id">Company ID: </label>
               </div>
 
@@ -155,13 +189,14 @@
                 <input id="addFax" name = "addFax" type="text" class="validate">
                 <label for="fax"> Fax Number: </label>
               </div>
+                </p>
             </div>
 
             <div class="modal-footer">
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>  
+              <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
             </div>
-
+            </form>
           </div>         
         </div>
        </div>  
