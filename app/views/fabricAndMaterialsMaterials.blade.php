@@ -455,8 +455,7 @@
                   <th data-field="Zipper Name">Zipper Name</th>
                   <th data-field="Zipper Size">Zipper Size</th>
                   <th data-field="Zipper Color">Zipper Color</th>
-                  <th data-field="Zipper">Zipper</th>
-                  <th data-field="Image">Image</th>
+                  <th data-field="ZipperImage">Zipper Image</th>
                 </tr>
               </thead>
 
@@ -466,8 +465,7 @@
                   <td>Zipper Name</td>
                   <td>Zipper Size</td>
                   <td>Zipper Color</td>
-                  <td>Zipper</td>
-                  <td>image</td>
+                  <td>image link</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editZipper">EDIT</button>
                       
                     <div id="editZipper" class="modal modal-fixed-footer">
@@ -495,11 +493,7 @@
                           <label for="Zipper_Color"> Zipper Color </label>
                         </div>
 
-                        <div class="input-field">
-                          <input id="Zipper" type="text" class="validate">
-                          <label for="Zipper"> Zipper </label>
-                        </div>
-                
+                 
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
@@ -548,13 +542,7 @@
                   <input id="addZipperColor" name = "addZipperColor" type="text" class="validate">
                   <label for="Zipper_Color"> Zipper Color </label>
                 </div>
-
-
-                <div class="input-field">
-                  <input id="addZipper" name = "addZipper" type="text" class="validate">
-                  <label for="Zipper"> Zipper </label>
-                </div>
-                
+              
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>Upload Image</span>
