@@ -2,7 +2,7 @@
 
 class MeasurementHead extends Eloquent {
 
-	public $incrementing = false;
+	// public $incrementing = false;
 	protected $table = 'tblMeasurementHeader';
 	protected $primaryKey = 'strMeasurementID';
 	protected $fillable = array('strGarmentCategory',

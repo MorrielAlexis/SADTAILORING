@@ -2,7 +2,7 @@
 
 class Company extends Eloquent {
 
-	public $incrementing = false;
+	// public $incrementing = false;
 	protected $table = 'tblCustCompany';
 	protected $primaryKey = 'strCustCompanyID';
 	protected $fillable = array('strCustCompanyName',
