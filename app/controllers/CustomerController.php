@@ -16,8 +16,11 @@ class CustomerController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$individual = PrivateIndividual::all();
-		
-		return View::make('customerIndividual')->with('individual', $individual)->with('newID', $newID);
+
+		return View::make('customerIndividual')
+					->with('individual', $individual)
+					->with('individual2', $individual)
+					->with('newID', $newID);
 	}
 
 	public function company()
@@ -34,7 +37,10 @@ class CustomerController extends BaseController{
 		
 		$company = Company::all();
 
-		return View::make('customerCompany')->with('company', $company)->with('newID', $newID);
+		return View::make('customerCompany')
+				->with('company', $company)
+				->with('company2', $company)
+				->with('newID', $newID);
 	}
 
 	public function addCustPrivIndiv()
@@ -76,6 +82,17 @@ class CustomerController extends BaseController{
 		$individual = PrivateIndividual::find($id);
 
 		$individual->boolIsActive = 0;
+
+		$individual->save();
+		return Redirect::to('/customerIndividual');
+	}
+
+	public function reactCustPrivIndiv()
+	{
+		$id = Input::get('reactID');
+		$individual = PrivateIndividual::find($id);
+
+		$individual->boolIsActive = 1;
 
 		$individual->save();
 		return Redirect::to('/customerIndividual');
@@ -123,6 +140,17 @@ class CustomerController extends BaseController{
 		$company = Company::find($id);
 
 		$company->boolIsActive = 0;
+
+		$company->save();
+		return Redirect::to('/customerCompany');
+	}
+
+	public function reactCustCompany()
+	{
+		$id = Input::get('reactID');
+		$company = Company::find($id);
+
+		$company->boolIsActive = 1;
 
 		$company->save();
 		return Redirect::to('/customerCompany');

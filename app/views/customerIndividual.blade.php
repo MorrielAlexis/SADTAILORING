@@ -10,8 +10,8 @@
 
       <div class="row">
         <div class="col s12 m12 l6">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCusIndi">ADD INDIVIDUAL Customer</button>
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL EMPLOYEES</button>
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCusIndi">ADD INDIVIDUAL CUSTOMER</button>
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE CUSTOMERS </button>
         </div>      
       </div>
     </div>
@@ -19,7 +19,7 @@
   <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ALL EMPLOYEES</h4>
+      <h4>INACTIVE CUSTOMERS(IND)</h4>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -34,16 +34,25 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>Individual ID</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Address</td>
-            <td>Email Address</td>
-            <td>Cellphone No.</td>
-            <td>Telephone No.</td>                  
-            <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+          @foreach($individual2 as $individual2)
+            @if($individual2->boolIsActive == 0)
+            <tr>
+              <td>{{ $individual2->strCustPrivIndivID }}</td>
+              <td>{{ $individual2->strCustPrivFName }}</td>
+              <td>{{ $individual2->strCustPrivLName }}</td>
+              <td>{{ $individual2->strCustPrivAddress }} </td>
+              <td>{{ $individual2->strCustPrivEmailAddress}}</td>                  
+              <td>{{ $individual2->strCustPrivCPNumber }}</td> 
+              <td>{{ $individual2->strCustPrivLandlineNumber }}</td>       
+              <td>          
+              <form action="/reactCustPrivIndiv" method="POST">
+              <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactID" name="reactID">
+              <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+              </form>
+            </td>
           </tr>
+          @endif
+          @endforeach
         </tbody>
       </table>
     </div>

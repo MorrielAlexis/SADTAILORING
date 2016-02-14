@@ -37,17 +37,26 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>Company ID</td>
-            <td>Company Name</td>
-            <td>Address</td>
-            <td>Contact Person</td>
-            <td>Company Email Address</td>
-            <td>Cellphone No.</td>
-            <td>Telephone No.</td>                  
-            <td>Fax No.</td>
-            <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+          @foreach($company2 as $company2)
+                  @if($company2->boolIsActive == 0)
+                <tr>
+                  <td>{{ $company2->strCustCompanyID }}</td>
+                  <td>{{ $company2->strCustCompanyName }}</td>
+                  <td>{{ $company2->strCustCompanyAddress }}</td>
+                  <td>{{ $company2->strCustContactPerson }} </td>
+                  <td>{{ $company2->strCustCompanyEmailAddress}}</td>                  
+                  <td>{{ $company2->strCustCompanyCPNumber }}</td> 
+                  <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
+                  <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
+            <td>
+                  <form action="/reactCustCompany" method="POST">
+                  <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
+                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  </form>
+              </td>
           </tr>
+          @endif
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -91,11 +100,11 @@
                   <td>{{ $company->strCustCompanyCPNumber }}</td> 
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$company->strCustCompanyId}}">EDIT</button></td>       
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$company->strCustCompanyId}}">DELETE</button>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>       
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$company->strCustCompanyID}}">DELETE</button>
 
 
-                    <div id="edit{{$company->strCustCompanyId}}" class="modal">
+                    <div id="edit{{$company->strCustCompanyId}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
                       <div class = "label"><font color = "teal" size = "+3" back >Edit Company Profile </font> </div>
                         <p>
@@ -148,8 +157,8 @@
                       </div>
                     </form>
                    </div>
-
-                   <div id="el{d{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
+                    <!-- DELETE -->
+                   <div id="del{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
@@ -184,12 +193,10 @@
               </tbody>
             </table>
     
-            <div id="addCom" class="modal">
-              <h5><font color = "teal"><center>Add Company Profile </center> </font> </h5>
-                        
+            <div id="addCom" class="modal modal-fixed-footer">
+              <h5><font color = "teal"><center>Add Company Profile </center> </font> </h5>                      
               <div class="modal-content">
                 <p>
-
                 <form action="/addCustCompany" method="POST">
               <div class="input-field">                 
                 <input value="{{$newID}}" id="addComID" name="addComID" type="text" class="validate" readonly>
@@ -230,15 +237,16 @@
                 <input id="addFax" name = "addFax" type="text" class="validate">
                 <label for="fax"> Fax Number: </label>
               </div>
-                </p>
-            </div>
+              </p>
+              </div>
 
             <div class="modal-footer">
               <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
             </div>
             </form>
-          </div>         
+          </div>     
+          
         </div>
        </div>  
     </div> 
