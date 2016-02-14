@@ -38,19 +38,32 @@
         </thead>
 
         <tbody>
+          @foreach($employee2 as $employee2)
+          @if($employee2->boolIsActive == 0)
             <tr>
-              <td>EmployeeID</td>
-              <td>EmpFe\sfregdfName</td>
-              <td>EmpLwrasgdcxvName</td>
-              <td>EmpAge</td>
-              <td>Sex</td>
-              <td>Empwt agdsvcxAddress</td>
-              <td>EmpRoleName</td>                  
-              <td>CellNo</td> 
-              <td>PhoneNo</td>
-              <td>Emailaskjdfnc aljs,xAdd</td>
-              <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+                  <td>{{ $employee2->strEmployeeID }}</td>
+                  <td>{{ $employee2->strEmpFName }}</td>
+                  <td>{{ $employee2->strEmpLName }}</td>
+                  <td>{{ $employee2->strEmpAge }} </td>
+                  <td>
+                    @if($employee2->strSex == 'M') Male
+                    @else Female
+                    @endif
+                  </td>
+                  <td>{{ $employee2->strEmpAddress }} </td>
+                  <td>{{ $employee2->strEmpRoleName}}</td>                  
+                  <td>{{ $employee2->strCellNo }}</td> 
+                  <td>{{ $employee2->strPhoneNo }}</td>
+                  <td>{{ $employee2->strEmailAdd }}</td>
+                  <td>
+                  <form action="/reactEmployee" method="POST">
+                  <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactID" name="reactID">
+                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  </form>
+                </td>
             </tr>
+            @endif
+            @endforeach
         </tbody>
       </table>
     </div>

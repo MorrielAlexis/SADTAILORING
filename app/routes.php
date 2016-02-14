@@ -49,6 +49,8 @@ Route::post('/editRole', array('uses' => 'EmployeeController@editRole'));
 
 Route::post('/delEmployee', array('uses' => 'EmployeeController@delEmployee'));
 
+Route::post('/reactEmployee', array('uses' => 'EmployeeController@reactEmployee'));
+
 Route::post('/addGarmentCategory', array('uses' => 'GarmentsController@addGarmentCategory'));
 
 Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarmentCategory'));
@@ -56,7 +58,6 @@ Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarm
 Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarmentSegment'));
 
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
-
 
 Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
 
