@@ -57,7 +57,6 @@ Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarment
 
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
 
-<<<<<<< HEAD
 Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
 
 Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));
@@ -69,7 +68,7 @@ Route::post('/addMeasurementCategory', array('uses' => 'MeasurementController@ad
 Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@editCategory'));
 
 Route::post('/delMeasurementCategory', array('uses' => 'MeasurementController@delCategory'));
-=======
+
 Route::post('/addCustPrivIndiv', array('uses' => 'GarmentsController@addCustPrivIndiv'));
 
 Route::post('/editCustPrivIndiv', array('uses' => 'GarmentsController@editCustPrivIndiv'));
@@ -77,4 +76,4 @@ Route::post('/editCustPrivIndiv', array('uses' => 'GarmentsController@editCustPr
 Route::post('/addCustCompany', array('uses' => 'GarmentsController@addCustCompany'));
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
->>>>>>> 9115b1669d877d3404977892f25f716cca305f5e
+
