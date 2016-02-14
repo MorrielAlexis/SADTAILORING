@@ -9,9 +9,10 @@ class Company extends Eloquent {
 								'strCustCompanyAddress',
 								'strCustContactPerson',
 								'strCustCompanyEmailAddress',
-								'strCustPhoneNumber',
-								'strCustLandlineNumber',
-								'strCustFaxNumber');
+								'strCustCompanyTelNumber',
+								'strCustCompanyCPNumber',
+								'strCustCompanyFaxNumber',
+								'boolIsActive');
 
 
 /*	public function company() {

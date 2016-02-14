@@ -20,8 +20,8 @@ class TblCustCompany extends Migration {
 			//$table->string('strCustID')->unique();
 			$table->string('strCustCompanyName');
 			$table->string('strCustCompanyAddress');
-			$table->string('strCustCompanyEmailAddress');
 			$table->string('strCustContactPerson');
+			$table->string('strCustCompanyEmailAddress');
 			$table->string('strCustCompanyTelNumber');
 			$table->string('strCustCompanyCPNumber');
 			$table->string('strCustCompanyFaxNumber');
