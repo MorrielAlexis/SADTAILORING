@@ -9,12 +9,12 @@ class TblDesignPattern extends Migration {
 	 * Run the migrations.
 	 *
 	 * @return void
-	 */
+	 */[]
 	public function up()
 	{
 		Schema::create('tblDesignPattern', function(Blueprint $table){
 			$table->string('strDesignPatternID')->primary();
-			$table->string('strSegmentName')->index();//fk
+			$table->string('strDesignSegmentName')->index();//fk
 			$table->string('strPatternName');
 			$table->string('strPatternImage');
 			$table->boolean('boolIsActive');
@@ -23,7 +23,7 @@ class TblDesignPattern extends Migration {
 
 		Schema::table('tblDesignPattern', function(Blueprint $table){
 
-			$table->foreign('strSegmentName')->references('strGarmentSegmentID')->on('tblGarmentSegment');
+			$table->foreign('strDesignSegmentName')->references('strGarmentSegmentID')->on('tblGarmentSegment');
 		});
 	}
 
@@ -37,7 +37,7 @@ class TblDesignPattern extends Migration {
 		Schema::dropIfExists('tblDesignPattern');
 
 		Schema::table('tblDesignPattern', function($table){
-			$table->dropColumn('strSegment');
+			$table->dropColumn('strDesignSegmentName');
 		});
 	}
 
