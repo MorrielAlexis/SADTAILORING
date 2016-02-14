@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col s12 m12 l6">
        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#newemp">ADD NEW EMPLOYEE</button>
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL EMPLOYEES</button>
+       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE EMPLOYEES</button>
      </div>
    </div>
   </div>
@@ -20,7 +20,7 @@
   <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ALL EMPLOYEES</h4>
+      <h4>INACTIVE EMPLOYEES</h4>
       <table class="centered" border="1">
         <thead>
           <tr>

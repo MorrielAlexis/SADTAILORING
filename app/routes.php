@@ -27,7 +27,7 @@ Route::get('/garments', 'GarmentsController@category');
 
 Route::get('/garmentsDetails', 'GarmentsController@details');
 
-Route::get('/designPattern', 'GarmentsController@designPattern');
+Route::get('/designPattern', 'DesignPatternController@pattern');
 
 Route::get('/measurements', 'MeasurementController@measurements');
 
@@ -79,3 +79,10 @@ Route::post('/addCustCompany', array('uses' => 'GarmentsController@addCustCompan
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
 
+Route::post('/addDesignPattern', array('uses' => 'DesignPatternController@addPattern'));
+
+Route::post('/editDesignPattern', 'DesignPatternController@editPattern');
+
+Route::post('/delDesignPattern', 'DesignPatternController@delPattern');
+
+Route::post('/reactDesignPattern', 'DesignPatternController@reactPattern');
