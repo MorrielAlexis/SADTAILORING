@@ -91,9 +91,9 @@ Route::post('/delCustCompany', array('uses' => 'CustomerController@delCustCompan
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
 
-Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addfabricType'));
+Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addFabricType'));
 
-Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editfabricType'));
+Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editFabricType'));
 
 Route::post('/reactCustCompany', array('uses' => 'CustomerController@reactCustCompany'));
 
