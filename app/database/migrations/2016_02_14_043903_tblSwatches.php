@@ -12,7 +12,7 @@ class TblSwatches extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblSwatches', function(Blueprint $table){
+		Schema::create('tblSwatches', function(Blueprint $table){
 			$table->string('strSwatchID')->primary();
 			$table->string('strSwatchFabricTypeName')->index();
 			$table->string('strSwatchName');
@@ -22,7 +22,7 @@ class TblSwatches extends Migration {
 			$table->timestamps();
 		});
 
-		Schema::table('TblSwatches', function(Blueprint $table){
+		Schema::table('tblSwatches', function(Blueprint $table){
 
 			$table->foreign('strSwatchFabricTypeName')->references('strFabricTypeID')->on('tblFabricType');
 		});

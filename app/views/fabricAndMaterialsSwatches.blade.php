@@ -24,21 +24,23 @@
       <table class="centered" border="1">
         <thead>
           <tr>
-            <th date-field="Swatch ID">Swatch ID</th>
-            <th data-field="fabric type Name">Fabric Type Name</th>
+            <th date-field="Swatch ID">Swatch ID </th>
+            <th data-field="Swatch fabric type Name">Swatch Fabric Type Name</th>
             <th data-field="SwatchName">Swatch Name</th>
             <th data-field="SwatchCode">Swatch Code</th>
-            <th data-field="Image">Image</th>
+            <th data-field="SwatchImage">Image</th>
           </tr>
         </thead>
 
         <tbody>
+            @foreach($swatch as $swatch)
+              @if($swatch->boolIsActive == 1)
             <tr>
-              <td>Swatch ID</td>
-              <td>Fabric Type Name</td>
-              <td>Swatch Name</td>
-              <td>Swatch Code</td>
-              <td>Image</td>
+              <td>{{ $swatch->strSwatchID }}</td>
+              <td>{{ $swatch->strSwatchFabricTypeName }}</td>
+              <td>{{ $swatch->strSwatchName }}</td>
+              <td>{{ $swatch->strSwatchCode }}</td>
+              <td>{{ $swatch->strSwatchImageLink }}</td>
               <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
             </tr>
         </tbody>
@@ -63,10 +65,10 @@
        				 <thead>
           				<tr>
                     <th date-field="Swatch ID">Swatch ID</th>
-              			<th data-field="fabric type Name">Fabric Type Name</th>
+              			<th data-field="Swatch fabric type Name">Swatch Fabric Type Name</th>
              		  	<th data-field="SwatchName">Swatch Name</th>
                     <th data-field="SwatchCode">Swatch Code</th>
-              			<th data-field="Image">Image</th>
+              			<th data-field="SwatchImage">Image</th>
               			</tr>
                 </thead>
 
@@ -90,7 +92,7 @@
                           </div>
 
                           <div class="input-field">
-                            <select>
+                            <select name='editSwatches'>
                               <option value="" disabled selected>Select Fabric Type</option>
                               <option value="1">Fabric 1</option>
                               <option value="2">Fabric 2</option>
@@ -138,23 +140,25 @@
 
               </div>
 
+           <!--    <Modal Structure for Add swatches> -->
               <div id="addSwatches" class="modal modal-fixed-footer">
+                <form action="/addSwatch" method="POST" id="addSwatch" name="addSwatch">
                 <font color = "teal"><center><h5> Add Swatch </h5></center></font> 
                 <div class="modal-content">
                   <p>
 
                   <div class="input-field">
-                    <input value = "addSwatchID" id="addSwatchID" name= "addSwatchID" type="text" readonly = "readonly" class="validate">
+                    <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly = "readonly" class="validate">
                     <label for="swatch_id">Swatch ID: </label>
                   </div>
 
                   <div class="input-field">
-                    <select>
-                      <option value="" disabled selected>Select Fabric</option>
-                      <option value="1">Fabric 1</option>
-                      <option value="2">Fabric 2</option>
+                    <select name='addSwatch' id='addSwatch' required>
+                      <option  selected disable>Select Swatch Fabric Type Name</option>
+                       @foreach($swatch as $id=>$name)
+                      <option value="{{ $id }}">{{ $name }}</option>
+                      @endforeach
                     </select>
-                    <label>Fabric Type Name: </label>
                   </div>  
 
                   <div class="input-field">
@@ -182,7 +186,7 @@
                 </div>
 
                 <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+                  <button type="submit" id="send" name="send" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                 </div>
               </div>

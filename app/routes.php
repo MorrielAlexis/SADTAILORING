@@ -22,7 +22,7 @@ Route::get('/garmentsDetails', 'GarmentsController@details');
 Route::get('/designPattern', 'DesignPatternController@pattern');
 Route::get('/measurements', 'MeasurementController@measurements');
 Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabricType');
-Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatches');
+Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatch');
 Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
 Route::get('/catalogue', 'CatalogueController@catalogue');
 ////////////////ROUTES FOR VIEWS////////////////GET ROUTES///////////////////////

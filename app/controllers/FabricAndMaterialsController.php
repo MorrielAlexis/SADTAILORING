@@ -21,14 +21,54 @@ class FabricAndMaterialsController extends BaseController{
 		return View::make('fabricAndMaterialsFabricType')->with('fabricType', $fabricType)->with('newID', $newID);
 	}
 
-	public function swatches()
+	public function swatch()
 	{
-		return View::make('fabricAndMaterialsSwatches');
+
+		$ids = DB::table('tblSwatches')
+			->select('strSwatchID')
+			->orderBy('created_at', 'desc')
+			->orderBy('strSwatchID', 'desc')
+			->take(1)
+			->get();
+
+		$ID = $ids["0"]->strSwatchID;
+		$newID = $this->smartCounter($ID);	
+
+		$fabricType =  Role::lists('strFabricTypeName', 'strFabricTypeID'); 		
+		
+		$swatch = DB::table('tblSwatches')
+            ->join('tblFabricType', 'tblSwatches.strSwatchFabricTypeName', '=', 'tblFabricType.strFabricTypeID')
+            ->select('tblSwatches.*', 'tblFabricType.strFabricTypeName')
+            ->get();
+
+		return View::make('fabricAndMaterialsSwatches')
+					->with('swatch', $swatch)
+					->with('swatch2', $swatch)
+					->with('fabricType', $fabricType)
+					->with('newID', $newID);
+
+		
 	}
 
 	public function materials()
 	{
 		return View::make('fabricAndMaterialsMaterials');
+	}
+
+	public function addSwatch()
+	{	
+
+		$swatch = Swatch::create(array(
+			'strSwatchID' => Input::get('addSwatchID'),
+			'strSwatchFabricTypeName' => Input::get('addSwatchFabricTypeName'),		
+			'strSwatchName' => Input::get('addSwatchName'),
+			'strSwatchCode' => Input::get('addSwatchCode'),
+			'strSwatchImageLink' => Input::get('addSwatchImageLink'),
+			'boolIsActive' => 1
+			));
+
+		$swatch->save();
+		return Redirect::to('/fabricAndMaterialsMaterials');
 	}
 
 	public function addFabricType()
