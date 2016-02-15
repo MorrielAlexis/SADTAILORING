@@ -103,7 +103,7 @@
                               </div>
 
                               <div class="input-field">
-                                <select name='editFabric'>
+                                <select required  name='editFabric'>
                                   <option value="" disabled>Select Fabric Type</option>
                                   @foreach($fabricType as $id=>$name)
                                     @if($swatch->strSwatchFabricTypeName == $id)
@@ -116,7 +116,7 @@
                               </div>  
 
                               <div class="input-field">
-                                <input value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validate">
+                                <input required value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validate">
                                 <label for="swatch_name">Swatch Name: </label>
                               </div>    
 
@@ -222,7 +222,7 @@
                     </div>  
 
                     <div class="input-field">
-                      <input id="addSwatchName" name="addSwatchName" type="text" class="validate">
+                      <input required id="addSwatchName" name="addSwatchName" type="text" class="validate">
                       <label for="swatch_name">Swatch Name: </label>
                     </div>    
 
@@ -260,13 +260,6 @@
 @stop
 
 @section('scripts')
-    <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-
     <script>
       $(document).ready(function(){
       $('select').material_select();

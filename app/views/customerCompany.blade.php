@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-	@section('content')
+@section('content')
 
 
   <div class="main-wrapper">
@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate">
+                          <input id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
                           <label for="company_name"> Company Name: </label>
                         </div>
 
@@ -155,7 +155,7 @@
 
                       <div class="modal-footer">
                          <button type="submit" class="waves-effect waves-green btn-flat">Update</button>  
-                         <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>   
+                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>   
                       </div>
                     </form>
                    </div>
@@ -184,7 +184,7 @@
 
                          <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
                       </div>
@@ -250,7 +250,7 @@
 
             <div class="modal-footer">
               <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
-              <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
             </div>
             </form>
           </div>     
@@ -260,16 +260,8 @@
     </div> 
     @stop
 
-    @section('scripts')
-      <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-      </script>
-
-  	 
-    @stop                             
+@section('scripts')	 
+@stop                             
 		
  
 	

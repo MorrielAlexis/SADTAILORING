@@ -69,7 +69,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -132,11 +132,11 @@
 
                           <div class="input-field">
                             <label for="first_name">Employee First Name: </label>
-                            <input value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
+                            <input required value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
+                            <input required  value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
                             <label for="LastName">Employee Last Name: </label>
                           </div>
 
@@ -151,7 +151,7 @@
                           </div>  
 
                           <div class="input-field">                                                    
-                            <select name='editRoles'>
+                            <select required name='editRoles'>
                               <option disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
                                     @if($employee->strRole == $id)
@@ -164,7 +164,7 @@
                           </div>   
 
                           <div class="input-field">                                                    
-                            <select name='editSex'>
+                            <select required name='editSex'>
                               <option disabled>Sex</option>
                                   @if($employee->strSex == "M")
                                     <option selected value="{{$employee->strSex}}">Male</option>
@@ -195,7 +195,7 @@
 
                         <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">UPDATE</button>
-                          <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
                       </form>
                     </div> 
@@ -239,7 +239,7 @@
 
                         <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
                       </form>
                     </div>
@@ -254,11 +254,7 @@
             <div class = "clearfix">
 
             </div>
-           
-
-
-          
-          
+                
             <!-- <Modal Structure for Add Employee> -->
     			<div id="newemp" class="modal modal-fixed-footer">
             <form action="/addEmployee" method="POST" id="addEmployee" name="addEmployee">
@@ -272,12 +268,12 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addFirstName" name="addFirstName" type="text" class="validate" required>
+                    <input required id="addFirstName" name="addFirstName" type="text" class="validate" required>
                     <label for="first_name">First Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addLastName" name="addLastName" type="text" class="validate" required>
+                    <input required id="addLastName" name="addLastName" type="text" class="validate" required>
                     <label for="last_name">Last Name: </label>
                   </div>
 
@@ -328,7 +324,7 @@
 
               <div class="modal-footer">
                 <button type="submit" id="send" name="send" class="modal-action  waves-effect waves-green btn-flat">ADD</button>
-                <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CANCEL</a>
+                <a href="#!" class="modal-action model-close waves-effect waves-green btn-flat">CANCEL</a>
               </div>
             </form>
           </div>
@@ -360,8 +356,6 @@
       });
 
       $('select').material_select();
-
-      $('.modal-trigger').leanModal();
 
     });
     </script>
