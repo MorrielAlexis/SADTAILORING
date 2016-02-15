@@ -46,16 +46,17 @@
                     <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
                     <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
                   </form>
+                </td>
               </tr>
               @endif
               @endforeach
           </tbody>
         </table>
-    </div>
+      </div>
 
        <!--MODAL FOOTER -->
         <div class="modal-footer">
-          <a href="#!" class="modal-action waves-effect waves-green btn-flat">CLOSE</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
         </div>  
   </div>
 
@@ -118,13 +119,13 @@
 
 
                       <div class="input-field">
-                        <input value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validate">
+                        <input required pattern="[A-Za-z\' ]+"value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validate">
                         <label for="Catalogue_Name"> Catalogue Name </label>
                       </div>
 
                       <div class="input-field">
-                        <input value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validate">
-                        <label for="Category_Desc">Category Description </label>
+                        <input required pattern="[A-Za-z\' ]+" value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validate">
+                        <label for="Category_Desc">Catalogue Description </label>
                       </div>
 
                       <div class="file-field input-field">
@@ -179,26 +180,13 @@
                         <input value="{{ $catalogue->strCatalogueName }}" type="text" class="validate" readonly>
                         <label for="catalogue_name"> CATALOGUE NAME: </label>
                       </div>
-
-                      <div class="file-field input-field">
-                          <div class="btn">
-                            <span>Upload Image</span>
-                            <input type="file">
-                           </div>
-
-                          <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                          </div>
-                      </div>
-                  </p> 
-                </div>
-
+                    </div>
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                         <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
- 
+                    
                  </div>
               </td>
             </tr>
@@ -229,20 +217,20 @@
 
               <div class="input-field">
                 <select id="addCategory" name="addCategory">
-                  <option disabled selected>Pick a category</option>
                     @foreach($category as $id=>$name)
                       <option value="{{$id}}">{{$name}}</option>
                     @endforeach   
                 </select>
+                <label>Category</label>
               </div>      
 
               <div class="input-field">
-                <input id="addCatalogueName" name = "addCatalogueName" type="text" class="validate" required>
+                <input pattern="[A-Za-z\' ]+" id="addCatalogueName" name = "addCatalogueName" type="text" class="validate" required>
                 <label for="Catalogue_Name"> Catalogue Name </label>
               </div>
 
               <div class="input-field">
-                <input id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validate">
+                <input required pattern="[A-Za-z\' ]+" id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validate">
                 <label for="Category_Desc">Category Description </label>
               </div>
 
@@ -253,7 +241,7 @@
                 </div>
 
                 <div class="file-path-wrapper">
-                  <input id="path" name="path" class="file-path validate" type="text">
+                  <input id="addImage" name="addImage" class="file-path validate" type="text">
                 </div>
               </div>
 
@@ -263,7 +251,7 @@
             
             <div class="modal-footer">                  
               <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-              <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>                    
+              <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>                    
             </div>
           </form>
           </div>
@@ -275,12 +263,11 @@
 
 @section('scripts')
     <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal({
-          dismissible: false
-        });
-      });
+      function clearData(){
+          document.getElementById('addCatalogueName').value = "";
+          document.getElementById('addCatalogueDesc').value = "";
+          document.getElementById('addImage').value = "";
+      }
     </script>
 
      <script>

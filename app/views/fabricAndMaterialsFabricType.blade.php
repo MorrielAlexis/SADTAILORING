@@ -56,12 +56,12 @@
                         </div>
 
                         <div class="input-field">
-                          <input required value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validate">
+                          <input required pattern="[A-Za-z\' ]+" value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validate">
                           <label for="fabrictype_name">Fabric Type Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input required value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
+                          <input required pattern="[A-Za-z\' ]+" value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
                           <label for="fabrictype_description">Fabric Desription: </label>
                         </div>  
                         </p>
@@ -96,12 +96,12 @@
                   </div>
 
                   <div class="input-field">
-                    <input required id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validate">
+                    <input required pattern="[A-Za-z\' ]+" id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validate">
                     <label for="fabrictype_name">Fabric Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required="" id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validate">
+                    <input required pattern="[A-Za-z\' ]+" id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validate">
                     <label for="fabrictype_description">Fabric Desription: </label>
                   </div>
 
@@ -110,7 +110,7 @@
 
                   <div class="modal-footer">
                     <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                    <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                   </div>
                 </form>
     	       </div><!-- addFabricType  -->
@@ -124,4 +124,13 @@
 @stop
 
 @section('scripts')
+    <script>
+      function clearData(){
+          document.getElementById('addFabricTypeDesc').value = "";
+          document.getElementById('addFabricTypeName').value = "";
+
+      }
+    </script>
+
+
 @stop

@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z'\]\s+" id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z\'., ]+" id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
                           <label for="company_name"> Company Name: </label>
                         </div>
 
@@ -127,7 +127,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input required pattern="[A-Za-z'\]\s+" id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
+                          <input required pattern="[A-Za-z\' ]+" id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
                           <label for="company_name"> Contact Person: </label>
                         </div>
 
@@ -212,7 +212,7 @@
               </div>
 
               <div class="input-field">
-                <input required pattern="[A-Za-z'\]\s+" id="addComName" name = "addComName" type="text" class="validate">
+                <input required pattern="[A-Za-z\'., ]+" id="addComName" name = "addComName" type="text" class="validate">
                 <label for="company_name"> Company Name: </label>
               </div>
 
@@ -222,7 +222,7 @@
               </div>
 
               <div class="input-field">
-                <input required pattern="[A-Za-z'\]\s+" id="addConPerson" name = "addConPerson" type="text" class="validate">
+                <input required pattern="[A-Za-z\' ]+" id="addConPerson" name = "addConPerson" type="text" class="validate">
                 <label for="company_name"> Contact Person: </label>
               </div>
 

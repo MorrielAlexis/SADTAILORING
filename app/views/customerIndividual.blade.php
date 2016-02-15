@@ -60,15 +60,7 @@
 
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-<<<<<<< HEAD
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-=======
-<<<<<<< HEAD
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-=======
-      <a href="#!" class="modal-action modal-close  waves-effect waves-green btn-flat">CLOSE</a>
->>>>>>> cc47cd69b4da68da96e9ef39a8e6bb01df59ce94
->>>>>>> 58c46d8bf1ea16d25819388528a95e64f96b86a4
     </div>
   </div>
     
@@ -124,12 +116,12 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z]+" id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z ]+" id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
                           <label for="first_name"> First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z'\]\s+" id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z\' ]+" id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
                           <label for="last_name"> Last Name </label>
                         </div>
 
@@ -221,12 +213,12 @@
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[A-Za-z]+" id="addFName" name = "addFName" type="text" class="validate" required>
+                  <input pattern="[A-Za-z ]+" id="addFName" name = "addFName" type="text" class="validate" required>
                   <label for="first_name"> First Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[A-Za-z'\]\s+" id="addLName" name = "addLName" type="text" class="validate" required>
+                  <input pattern="[A-Za-z\' ]+" id="addLName" name = "addLName" type="text" class="validate" required>
                   <label for="last_name"> Last Name </label>
                 </div>
 
