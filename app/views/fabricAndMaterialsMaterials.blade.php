@@ -18,13 +18,9 @@
         <i class="material-icons">filter_drama</i><h5>THREAD</h5>
       </div>
       <div class="collapsible-body">
-<<<<<<< HEAD
-        <div>
-        <table class = "centered" align = "center" border = "1">
-=======
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
->>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
+
               <thead>
                 <tr>
                   <th date-field= "Thread ID">Thread ID</th>
@@ -87,24 +83,16 @@
                   </td>
                 </tr>
               </tbody>
-<<<<<<< HEAD
-            </table>
+        </table>
+        <div class = "clearfix">
+
+        </div>
           </div>
       </div>
     </li>
 
     <!--NEEDLES-->
-=======
-        </table>
-        </div>
 
-        <div class = "clearfix">
-
-        </div>
-      </div>
-    </li>
-
->>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>NEEDLES</h5></div>
       <div class="collapsible-body">
@@ -182,10 +170,8 @@
       </div>
     </li>
 
-<<<<<<< HEAD
+
     <!--BUTTONS-->
-=======
->>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>BUTTONS</h5></div>
       <div class="collapsible-body">
@@ -269,10 +255,7 @@
       </div>
     </li>
 
-<<<<<<< HEAD
     <!--ZIPPERS-->
-=======
->>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>ZIPPERS</h5></div>
       <div class="collapsible-body">

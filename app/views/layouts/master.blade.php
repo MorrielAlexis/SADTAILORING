@@ -13,11 +13,7 @@
 
     <body>
 
-<<<<<<< HEAD
-      <header>
-=======
       <header> 
->>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
       </header>
 
       <nav id="slide-out" class="side-nav fixed" style="position fixed; top: 0; padding-top:0px; margin-top:0px;"> 
@@ -116,6 +112,7 @@
         </ul>
       </nav>
 
+
       <main>
 		    @yield('content')
       </main>
@@ -127,7 +124,7 @@
         $(document).ready(function(){
 	 		  $('.button-collapse').sideNav({
 		      menuWidth: 240, // Default is 240
-		      edge: 'left', // Choose the horizontal origin
+		      edge: 'right', // Choose the horizontal origin
 		      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         });
         $('.collapsible').collapsible();
