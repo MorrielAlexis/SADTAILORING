@@ -22,7 +22,7 @@ Route::get('/garmentsDetails', 'GarmentsController@details');
 Route::get('/designPattern', 'DesignPatternController@pattern');
 Route::get('/measurements', 'MeasurementController@measurements');
 Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabricType');
-Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatches');
+Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatch');
 Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
 Route::get('/catalogue', 'CatalogueController@catalogue');
 ////////////////ROUTES FOR VIEWS////////////////GET ROUTES///////////////////////
@@ -70,3 +70,6 @@ Route::post('/reactDesignPattern', array('uses' => 'DesignPatternController@reac
 //////////////////////CRUD FOR CATALOGUE//////////////////////
 Route::post('/addCatalogue', array('uses' => 'CatalogueController@addCatalogue'));
 Route::post('/editCatalogue', array('uses' => 'CatalogueController@editCatalogue'));
+//////////////////////CRUD FOR SWATCHES//////////////////////
+Route::post('/addSwatch', array('uses' => 'FabricAndMaterialsController@addSwatch'));
+Route::post('/editSwatch', array('uses' => 'FabricAndMaterialsController@editSwatch'));
