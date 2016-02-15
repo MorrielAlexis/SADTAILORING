@@ -53,7 +53,7 @@
                               </div>
 
                               <div class="input-field">
-                                <input value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validate">
+                                <input required value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validate">
                                 <label for="garment_name">Garment Name: </label>
                               </div>
 
@@ -66,7 +66,7 @@
 
                           <div class="modal-footer">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                            <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                           </div>
                         </form>
                       </div>
@@ -96,7 +96,7 @@
                     </div>
 
                     <div class="input-field">
-                      <input id="addGarmentName" name="addGarmentName" type="text" class="validate">
+                      <input required id="addGarmentName" name="addGarmentName" type="text" class="validate">
                       <label for="garment_name">Garment Name: </label>
                     </div>
 
@@ -109,7 +109,7 @@
 
                 <div class="modal-footer">
                   <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                  <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
               </form>
             </div>
@@ -121,13 +121,6 @@
 @stop
 
 @section('scripts')
-    <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-
     <script>
     $('.dropdown-button').dropdown({
       inDuration: 300,

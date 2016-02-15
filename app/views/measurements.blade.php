@@ -74,7 +74,7 @@
                                   </div>
 
                                   <div class="input-field">                                                    
-                                    <select name='editCategory'>
+                                    <select required name='editCategory'>
                                       <option disabled>Pick a category</option>
                                       @foreach($category as $id=>$name)
                                         @if($head->strCategoryName == $id)
@@ -87,7 +87,7 @@
                                   </div>       
                         
                                   <div class="input-field">                                                    
-                                    <select name='editSegment'>
+                                    <select required name='editSegment'>
                                       <option disabled>Pick a segment</option>
                                       @foreach($segment as $id=>$name)
                                         @if($head->strSegmentName == $id)
@@ -100,7 +100,7 @@
                                   </div>     
 
                                   <div class="input-field">                                                    
-                                    <select name='editDetail'>
+                                    <select required name='editDetail'>
                                       <option disabled>Pick a detail</option>
                                       @foreach($detailList as $id=>$name)
                                         @if($head->strMeasurementName == $id)
@@ -116,7 +116,7 @@
 
                               <div class="modal-footer">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
                             </form>
                           </div>
@@ -170,7 +170,7 @@
 
                               <div class="modal-footer">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                                <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                               </div>
                             </form>
                           </div>          
@@ -232,7 +232,7 @@
 
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                       </div>
                     </form>
                   </div>        
@@ -295,7 +295,7 @@
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
+                                    <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
                                     <label for="measurement_name"> Measurement Name: </label>
                                   </div>
 
@@ -308,7 +308,7 @@
 
                               <div class="modal-footer">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
                             </form>
                           </div>
@@ -336,7 +336,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input id="addDetailName" name= "addDetailName" type="text" class="validate" required>
+                            <input required id="addDetailName" name= "addDetailName" type="text" class="validate" required>
                             <label for="measurement_name"> Measurement Name: </label>
                           </div>
 
@@ -349,7 +349,7 @@
 
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
                   </div>          
@@ -369,13 +369,7 @@
         $('ul.tabs').tabs();
         });
     </script>
-        <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-    
+    x
     <script>
       $(document).ready(function(){
       $('select').material_select();

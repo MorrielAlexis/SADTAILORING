@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="input-field">                                                    
-                          <select name='editSegment'>
+                          <select name='editSegment' required>
                             <option disabled>Pick a segment</option>
                               @foreach($segment as $id=>$name)
                                   @if($pattern->strDesignSegmentName == $id)
@@ -110,7 +110,7 @@
                         </div>   
 
                         <div class="input-field">
-                          <input value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
+                          <input requiredvalue = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
                           <label for="pattern_name">Pattern Name: </label>
                         </div>
 
@@ -130,7 +130,7 @@
                       <!-- DELETE DESIGN PATTERN -->
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
                  </div>   
@@ -175,7 +175,7 @@
  
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>              
 
@@ -205,7 +205,7 @@
                 </div>
 
                 <div class="input-field">
-                  <select id="addSegment" name="addSegment">
+                  <select required id="addSegment" name="addSegment">
                     <option disabled selected>Choose a segment:</option>
                         @foreach($segment as $id=>$name)
                           <option value="{{ $id }}">{{ $name }}</option>
@@ -215,7 +215,7 @@
                 </div>   
 
                 <div class="input-field">
-                  <input id="addPatternName" name= "addPatternName" type="text" class="validate">
+                  <input required id="addPatternName" name= "addPatternName" type="text" class="validate">
                   <label for="pattern_name">Pattern Name: </label>
                 </div>
 
@@ -235,7 +235,7 @@
 
               <div class="modal-footer">
                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
               </div>
               </form>
             </div>	
@@ -248,13 +248,6 @@
 @stop
 
 @section('scripts')
-    <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-
      <script>
       $(document).ready(function(){
       $('select').material_select();
