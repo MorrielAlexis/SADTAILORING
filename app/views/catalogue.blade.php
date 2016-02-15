@@ -12,8 +12,51 @@
     <div class="row">
       <div class="col s12 m12 l6">
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCatalogue">ADD DESIGN</button>
+        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE CATALOGUE DESIGNS</button>
       </div>
     </div>
+  </div>
+
+<!-- MODAL: VIEW ALL DESIGN IN CATALOGUE-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>INACTIVE CATALOGUE DESIGNS</h4>
+        <table class="centered" border="1">
+
+          <thead>
+            <tr>
+              <th data-field= "Catalogue ID">Catalogue ID</th>
+              <th data-field="Catalogue Category">Catalogue Category</th>
+              <th data-field="Catalogue Name">Catalogue Name</th>
+              <th data-field="Description">Description</th>
+              <th data-field="Image">Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($catalogue2 as $catalogue2)
+            @if($catalogue2->boolIsActive == 0)
+              <tr>
+                <td>{{ $catalogue2->strCatalogueID }}</td>
+                <td>{{ $catalogue2->strCatalogueCategory }}</td>
+                <td>{{ $catalogue2->strCatalogueName }}</td>
+                <td>{{ $catalogue2->strCatalogueDesc }}</td>
+                <td>Click here to view image</td>
+                <td>
+                  <form action="/reactCatalogueDesign" method="POST">
+                    <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
+                    <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  </form>
+              </tr>
+              @endif
+              @endforeach
+          </tbody>
+        </table>
+    </div>
+
+       <!--MODAL FOOTER -->
+        <div class="modal-footer">
+          <a href="#!" class="modal-action waves-effect waves-green btn-flat">CLOSE</a>
+        </div>  
   </div>
 
 
@@ -33,27 +76,29 @@
           		<tr>
                 <th data-field= "Catalogue ID">Catalogue ID</th>
                 <th data-field="Catalogue Category">Catalogue Category</th>
-             		 <th data-field="Catalogue Name">Catalogue Name</th>
+             		<th data-field="Catalogue Name">Catalogue Name</th>
                 <th data-field="Description">Description</th>
                 <th data-field="Image">Image</th>
               </tr>
-            </thead
+            </thead>
 
             <tbody>
               @foreach($catalogue as $catalogue)
+              @if($catalogue->boolIsActive == 1)
               <tr>
                 <td>{{ $catalogue->strCatalogueID }}</td>
                 <td>{{ $catalogue->strGarmentCategoryName }}</td>
               	<td>{{ $catalogue->strCatalogueName }}</td>
               	<td>{{ $catalogue->strCatalogueDesc }}</td>
                 <td>Click here to view image </td>
-              	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button>
-                        
+              	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
+                <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$catalogue->strCatalogueID}}">DELETE</button>
+
                   <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
                     <font color = "teal" ><center><h5>Edit Catalogue Details</h5></center></font> 
                     <div class="modal-content">
                       <p>
-                      <form action="/editCatalogue" method="POST">
+                      <form action="/editCatalogueDesign" method="POST">
                       <div class="input-field">
                         <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="validate" readonly>
                       </div>
@@ -70,6 +115,7 @@
                             @endforeach
                         </select>
                       </div>      
+
 
                       <div class="input-field">
                         <input value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validate">
@@ -101,15 +147,71 @@
                       <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
                       <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                     </div>
-                  </div>
-                </form>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
+                  </form>
+                </div>
 
-          </div>
+
+
+            <!-- DELETE DESIGN IN CATALOGUE -->
+            <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">
+              <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
+                 <div class="modal-content">
+                  <p>
+                    <form action="/delCatalogueDesign" method="POST">
+                      <div class="input-field">
+                        <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" text="text" readonly class="validate" >
+                        <label for="catalogue_id">CATALOGUE ID: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <select name="editCategory">
+                          <option disabled>Pick a Category</option>
+                            @foreach($category as $id=>$name)
+                              @if($catalogue->strCatalogueCategory == $id)
+                              <option selected value="{{ $id }}" disabled>{{ $name }}</option>
+                              @endif
+                            @endforeach
+                        </select>
+                      </div>
+
+
+                      <div class="input-field">
+                        <input value="{{ $catalogue->strCatalogueName }}" type="text" class="validate" readonly>
+                        <label for="catalogue_name"> CATALOGUE NAME: </label>
+                      </div>
+
+                      <div class="file-field input-field">
+                          <div class="btn">
+                            <span>Upload Image</span>
+                            <input type="file">
+                           </div>
+
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                          </div>
+                      </div>
+                  </p> 
+                </div>
+
+                      <div class="modal-footer">
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
+                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                      </div>
+                    </form>
+ 
+                 </div>
+              </td>
+            </tr>
+            @endif
+            @endforeach 
+
+          </tbody>
+        </table>  
+      </div>  
+
+
+
+            <!-- ADD DESIGN IN CATALOGUE -->
 
           <div class = "clearfix">
 
@@ -119,7 +221,7 @@
             <font color = "teal"><h5><center>Add Catalogue </center></h5></font> 
             <div class="modal-content">
               <p>
-              <form action='/addCatalogue' method="POST">
+              <form action='/addCatalogueDesign' method="POST">
               <div class="input-field">
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="validate" readonly>
                 <label for="Catalogue_id">Catalogue ID: </label>

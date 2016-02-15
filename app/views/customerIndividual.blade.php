@@ -60,7 +60,11 @@
 
     <!--MODAL FOOTER-->
     <div class="modal-footer">
+<<<<<<< HEAD
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+=======
+      <a href="#!" class="modal-action modal-close  waves-effect waves-green btn-flat">CLOSE</a>
+>>>>>>> cc47cd69b4da68da96e9ef39a8e6bb01df59ce94
     </div>
   </div>
     
