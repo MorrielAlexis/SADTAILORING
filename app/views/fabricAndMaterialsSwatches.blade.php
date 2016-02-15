@@ -40,9 +40,12 @@
               <td>{{ $swatch2->strFabricTypeName }}</td>
               <td>{{ $swatch2->strSwatchName }}</td>
               <td>{{ $swatch2->strSwatchCode }}</td>
-              <td>{{ $swatch2->strSwatchImageLink }}</td>
+              <td>Click here to view image</td>
               <td>
-              <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+              <form action="/reactSwatch" method="POST">
+              <input type="hidden" id="reactID" name="reactID" value="{{ $swatch2->strSwatchID }}">
+              <button type="submit"class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button></td>
+              </form>
             </tr>
         </tbody>
         @endif
@@ -77,13 +80,15 @@
 
               	<tbody>
                   @foreach($swatch as $swatch)
+                    @if($swatch->boolIsActive == 1)
                   <tr>
                     <td>{{ $swatch->strSwatchID }}</td>
                     <td>{{ $swatch->strFabricTypeName }}</td>
                     <td>{{ $swatch->strSwatchName }}</td>
                     <td>{{ $swatch->strSwatchCode }}</td>
-                    <td>{{ $swatch->strSwatchImageLink }}</td>
+                    <td>Click here to view image</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
@@ -137,8 +142,50 @@
                         </div>
                         </form>
                       </div> 
+                    <!--*******************************************-->
+                    <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
+                        <font color = "teal"> <center><h5>Are you sure you want to delete?</h5></center></font> 
+                        <div class="modal-content">
+                          <p>
+                          <form action="/delSwatch" method="POST">
+                          <div class="input-field">
+                            <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="validate">
+                            <label for="swatch_id">Swatch ID: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <select>
+                              <option value="" disabled>Select Fabric Type</option>
+                                @foreach($fabricType as $id=>$name)
+                                  @if($swatch->strSwatchFabricTypeName == $id)
+                                    <option value="{{$id}}" selected disabled>{{$name}}</option>
+                                  @endif
+                                @endforeach
+                            </select>
+                          </div>  
+
+                          <div class="input-field">
+                            <input value="{{$swatch->strSwatchName}}" type="text" class="validate" readonly>
+                            <label for="swatch_name">Swatch Name: </label>
+                          </div>    
+
+                          <div class="input-field">
+                            <input value="{{$swatch->strSwatchCode}}" type="text" class="validate" readonly>
+                            <label for="swatch_code">Swatch Code: </label>
+                          </div>
+
+                          </p>
+                        </div>
+                  
+                        <div class="modal-footer">
+                          <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                        </div>
+                        </form>
+                      </div>
                     </td> 
                   </tr>     
+                    @endif
                   @endforeach               
                 </tbody>
               </table>
