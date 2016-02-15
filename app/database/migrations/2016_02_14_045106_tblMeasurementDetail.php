@@ -15,7 +15,7 @@ class TblMeasurementDetail extends Migration {
 		Schema::create('TblMeasurementDetail', function(Blueprint $table){
 			$table->string('strMeasurementDetailID')->primary();
 			$table->string('strMeasurementDetailName');
-			$table->string('strMeasurementDetailDesc');
+			$table->string('strMeasurementDetailDesc', 255);
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});

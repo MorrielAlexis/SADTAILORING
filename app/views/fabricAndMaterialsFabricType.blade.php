@@ -71,7 +71,7 @@
                         <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
-
+                      </form>
                     </div> <!-- editFabricType  -->    
                     </td>
                   </tr>
@@ -86,10 +86,10 @@
               </div>
           
               <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
+                <form action="/addFabricType" method="POST">
                 <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
                 <div class="modal-content">
-                <p>
-                <form action="/addFabricType" method="POST">
+                <p>           
                   <div class="input-field">
                     <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="validate" readonly>
                     <label for="fabrictype_id">Fabric ID: </label>
@@ -105,19 +105,22 @@
                     <label for="fabrictype_description">Fabric Desription: </label>
                   </div>
 
-                  </p>
+                </p>
                 </div>
 
-                <div class="modal-footer">
-                  <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                </div>
-                    
+                  <div class="modal-footer">
+                    <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                  </div>
+                </form>
     	       </div><!-- addFabricType  -->
             </div> <!-- card-content  --> 
         </div>  <!-- card-panel -->
       </div> <!-- col s12 m12 l12 --> 
   </div>     <!-- row --> 
+
+
+
 @stop
 
 @section('scripts')

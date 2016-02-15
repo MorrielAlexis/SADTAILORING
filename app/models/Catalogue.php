@@ -8,7 +8,7 @@ class Catalogue extends Eloquent{
 	protected $fillable = array('strCatalogueID',
 								'strCatalogueCategory',
 								'strCatalogueName',
-								'txtCatalogueDesc',
+								'strCatalogueDesc',
 								'strCatalogueImage',
 								'boolIsActive');
 

@@ -262,7 +262,7 @@
     			<div id="newemp" class="modal modal-fixed-footer">
             <form action="/addEmployee" method="POST" id="addEmployee" name="addEmployee">
               <div class="modal-content">
-                <font color = "teal"><h5><center>ADD NEW EMPLOYEE</center><</h5></font>
+                <font color = "teal"><h5><center>ADD NEW EMPLOYEE</center></h5></font>
                 <p>
 
                   <div class="input-field">

@@ -6,7 +6,7 @@ class Category extends Eloquent {
 	protected $primaryKey = 'strGarmentCategoryID';
 	protected $fillable = array('strGarmentCategoryID',
 								'strGarmentCategoryName',
-								'txtGarmentCategoryDesc',
+								'strGarmentCategoryDesc',
 								'boolIsActive');
 
 /*

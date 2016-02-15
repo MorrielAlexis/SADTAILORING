@@ -7,7 +7,7 @@ class Segment extends Eloquent {
 	protected $fillable = array('strGarmentSegmentID',
 								'strCategory',
 								'strGarmentSegmentName',
-								'txtGarmentSegmentDesc',
+								'strGarmentSegmentDesc',
 								'boolIsActive');
 
 	/*

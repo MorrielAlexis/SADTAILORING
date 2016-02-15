@@ -5,14 +5,14 @@ class MeasurementHead extends Eloquent {
 	// public $incrementing = false;
 	protected $table = 'tblMeasurementHeader';
 	protected $primaryKey = 'strMeasurementID';
-<<<<<<< HEAD
+
 	protected $fillable = array('strMeasurementID',
 								'strCategoryName',
 								'strSegmentName',
-=======
+
 	protected $fillable = array('strGarmentCategory',
 								'strGarmentSegment',
->>>>>>> 9115b1669d877d3404977892f25f716cca305f5e
+
 								'strMeasurementName');
 
 
