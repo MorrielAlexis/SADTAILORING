@@ -63,7 +63,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -212,7 +212,7 @@
               </div>
 
               <div class="input-field">
-                <input id="addComName" name = "addComName" type="text" class="validate">
+                <input required id="addComName" name = "addComName" type="text" class="validate">
                 <label for="company_name"> Company Name: </label>
               </div>
 

@@ -45,7 +45,7 @@
 
                <form action="/reactSwatch" method="POST">
                   <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactID" name="reactID">
-              <button type="type" class="modal-trigger waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+              <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
 
               </form>
             </tr>
