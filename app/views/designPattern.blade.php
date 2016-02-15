@@ -118,7 +118,7 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file">
+                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
@@ -134,15 +134,22 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 38422f8d3939863941b9dc9696e519920cc48422
                  </div>  
 
 
                  <!-- DELETE DESIGN PATTERN --> 
+<<<<<<< HEAD
+                 </div>   
+=======
 
                  </div>   
                  
 
+>>>>>>> 38422f8d3939863941b9dc9696e519920cc48422
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
@@ -167,9 +174,27 @@
                         <div class="input-field">
                           <input value = "{{ $pattern->strPatternName }}" type="text" class="validate" readonly>
                           <label for="pattern_name">Pattern Name: </label>
+<<<<<<< HEAD
+                        </div>
+
+                        <div class="file-field input-field">
+                          <div class="btn">
+                            <span>Upload Image</span>
+                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*> 
+                          </div>
+
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                          </div>
+                        </div>
+                        </p>
+                      </div>               
+ 
+=======
                         </div>           
                       </p>
                     </div>
+>>>>>>> 38422f8d3939863941b9dc9696e519920cc48422
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
@@ -209,7 +234,10 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
+<<<<<<< HEAD
+=======
 
+>>>>>>> 38422f8d3939863941b9dc9696e519920cc48422
                 </div>   
 
                 <div class="input-field">
