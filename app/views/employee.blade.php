@@ -136,7 +136,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z'\]\s+" value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
+                            <input required pattern="[A-Za-z\s'\]+" value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
                             <label for="LastName">Employee Last Name: </label>
                           </div>
 
@@ -274,7 +274,7 @@
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[A-Za-z'\]\s+" id="addLastName" name="addLastName" type="text" class="validate" required>
+                    <input required pattern="[A-Za-z\s'\]+" id="addLastName" name="addLastName" type="text" class="validate" required>
                     <label for="last_name">Last Name: </label>
                   </div>
 

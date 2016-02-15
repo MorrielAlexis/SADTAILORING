@@ -69,7 +69,6 @@ class EmployeeController extends BaseController{
 
 	public function addRole()
 	{	
-		dd(Input::get('addRoleDescription'));
 		$role = Role::create(array(
 			'strEmpRoleID' => Input::get('addRoleID'),
 			'strEmpRoleName' => Input::get('addRoleName'),
