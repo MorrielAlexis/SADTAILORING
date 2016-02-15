@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-      <div class="col s12 m12 l6">
+      <div class="col s12 m12 l12">
           <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addDesign">ADD DESIGN PATTERN</button>
           <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE DESIGN PATTERNS</button>
       </div>
@@ -172,7 +172,7 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file">
+                            <input type="file"> 
                           </div>
 
                           <div class="file-path-wrapper">
@@ -221,7 +221,10 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
+<<<<<<< HEAD
+=======
             
+>>>>>>> 58c46d8bf1ea16d25819388528a95e64f96b86a4
                 </div>   
 
                 <div class="input-field">
@@ -232,7 +235,7 @@
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>Upload Image</span>
-                    <input type="file">
+                    <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                   </div>
 
                   <div class="file-path-wrapper">
@@ -255,7 +258,7 @@
     </div>
   </div>
 
-@stop
+@stop 
 
 @section('scripts')
      <script>
