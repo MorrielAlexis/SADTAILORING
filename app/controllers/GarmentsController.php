@@ -41,6 +41,7 @@ class GarmentsController extends BaseController{
 
 		return View::make('garmentsDetails')
 					->with('segment', $segment)
+					->with('segment2', $segment)
 					->with('category', $category)
 					->with('newID', $newID);
 	}
@@ -77,11 +78,13 @@ class GarmentsController extends BaseController{
 
 	public function addGarmentSegment()
 	{	
+		dd(Input::get('addSegmentName'));
 		$segment = Segment::create(array(
 			'strGarmentSegmentID' => Input::get('addSegmentID'),
 			'strCategory' => Input::get('addCategory'),
 			'strGarmentSegmentName' => Input::get('addSegmentName'),
-			'txtGarmentSegmentDesc' => Input::get('addSegmentDesc')
+			'strGarmentSegmentDesc' => Input::get('addSegmentDesc'),
+			'boolIsActive' => 1
 			));
 
 		$segment->save();
@@ -107,6 +110,17 @@ class GarmentsController extends BaseController{
 		$segment = Segment::find($id);
 
 		$segment->boolIsActive = 0;
+
+		$segment->save();
+		return Redirect::to('/garmentsDetails');
+	}
+
+	public function reactGarmentSegment()
+	{
+		$id = Input::get('reactID');
+		$segment = Segment::find($id);
+
+		$segment->boolIsActive = 1;
 
 		$segment->save();
 		return Redirect::to('/garmentsDetails');

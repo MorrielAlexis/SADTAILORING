@@ -16,10 +16,9 @@
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ALL SEGMENTS</h4>
+      <h4>INACTIVE SEGMENTS</h4>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -31,13 +30,21 @@
         </thead>
 
         <tbody>
+            @foreach($segment2 as $segment2)
+            @if($segment2->boolIsActive == 0)
             <tr>
-              <td>Segment ID</td>
-              <td>Category Name</td>
-              <td>Segment Name</td>
-              <td>Segment Description</td>
-              <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+              <td>{{ $segment2->strGarmentSegmentID }}</td>
+              <td>{{ $segment2->strGarmentCategoryName }}</td>
+              <td>{{ $segment2->strGarmentSegmentName }}</td>
+              <td>{{ $segment2->strGarmentSegmentDesc }}</td>
+              <td>
+              <form action="/reactGarmentSegment" method="POST">
+              <input type="hidden" id="reactID" name="reactID" value="{{$segment2->strGarmentSegmentID}}">
+              <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button></td>
+              </form>
             </tr>
+            @endif
+            @endforeach
         </tbody>
       </table>
     </div>
@@ -68,7 +75,7 @@
 
                 <tbody>
                   @foreach($segment as $segment)
-                  @if($segment->boolIsActive)
+                  @if($segment->boolIsActive == 1)
                   <tr>
               		  <td>{{ $segment->strGarmentSegmentID }}</td>
               		  <td>{{ $segment->strGarmentCategoryName }}</td>

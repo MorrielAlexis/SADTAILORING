@@ -60,7 +60,15 @@
 
     <!--MODAL FOOTER-->
     <div class="modal-footer">
+<<<<<<< HEAD
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+=======
+<<<<<<< HEAD
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+=======
+      <a href="#!" class="modal-action modal-close  waves-effect waves-green btn-flat">CLOSE</a>
+>>>>>>> cc47cd69b4da68da96e9ef39a8e6bb01df59ce94
+>>>>>>> 58c46d8bf1ea16d25819388528a95e64f96b86a4
     </div>
   </div>
     
@@ -109,39 +117,39 @@
                       <div class="modal-content">
                       <div class = "label"><font color = "teal" size = "+3" back >Edit Customer Profile </font> </div>
                         <p>
-                          <form action="/editCustPrivIndiv" method="POST">
+                        <form action="/editCustPrivIndiv" method="POST">
                         <div class="input-field">                 
                           <input value="{{$individual->strCustPrivIndivID}}" id="editIndiID" name="editIndiID" type="text" class="validate" readonly>
                           <label for="indi_id">Individual ID: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z]+" id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
                           <label for="first_name"> First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z'\]\s+" id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
                           <label for="last_name"> Last Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddresss" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate">
+                          <input id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate">
                           <label for="address"> Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validate">
+                          <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validate">
                           <label for="email"> Email Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate">
+                          <input pattern="[^1-9][^0-8]+\d{9}" id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
                       
                         <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validate">
+                          <input pattern="[0-9]{7}" id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validate">
                           <label for="tel"> Telephone Number: </label>
                         </div>
                         </p>
@@ -213,12 +221,12 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addFName" name = "addFName" type="text" class="validate" required>
+                  <input pattern="[A-Za-z]+" id="addFName" name = "addFName" type="text" class="validate" required>
                   <label for="first_name"> First Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addLName" name = "addLName" type="text" class="validate" required>
+                  <input pattern="[A-Za-z'\]\s+" id="addLName" name = "addLName" type="text" class="validate" required>
                   <label for="last_name"> Last Name </label>
                 </div>
 
@@ -228,17 +236,17 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addEmail" name = "addEmail" type="text" class="validate">
+                  <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addEmail" name = "addEmail" type="text" class="validate">
                   <label for="email"> Email Address: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addCel" name = "addCel" type="text" class="validate">
+                  <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate">
                   <label for="cellphone"> Cellphone Number: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addPhone" name = "addPhone" type="text" class="validate">
+                  <input pattern="[0-9]{7}" id="addPhone" name = "addPhone" type="text" class="validate">
                   <label for="tel"> Telephone Number: </label>
                 </div>
                 </p>
@@ -246,7 +254,7 @@
 
               <div class="modal-footer">
                 <button type="submit" class="waves-effect waves-green btn-flat">Save</button> 
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>     
+                <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>     
               </div>
             </form>
             </div>
@@ -257,4 +265,15 @@
     @stop
 
 @section('scripts')
+    <script>
+      function clearData(){
+          document.getElementById("addFName").value = "";
+          document.getElementById("addLName").value = "";
+          document.getElementById("addAge").value = "";
+          document.getElementById("addCel").value = "";
+          document.getElementById("addPhone").value = "";
+          document.getElementById("addEmail").value = "";
+      }
+
+    </script>
 @stop

@@ -132,11 +132,11 @@
 
                           <div class="input-field">
                             <label for="first_name">Employee First Name: </label>
-                            <input required value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
+                            <input required pattern="[A-Za-z]+"value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
                           </div>
 
                           <div class="input-field">
-                            <input required  value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
+                            <input required pattern="[A-Za-z'\]\s+" value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
                             <label for="LastName">Employee Last Name: </label>
                           </div>
 
@@ -146,13 +146,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validate">
+                            <input pattern="[0-9]{1,2}" value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validate">
                             <label for="Age">Age: </label>
                           </div>  
 
                           <div class="input-field">                                                    
                             <select required name='editRoles'>
-                              <option disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
                                     @if($employee->strRole == $id)
                                       <option selected value="{{ $id }}">{{ $name }}</option>
@@ -161,6 +160,7 @@
                                     @endif
                                 @endforeach
                             </select>    
+                            <label >Role</label>
                           </div>   
 
                           <div class="input-field">                                                    
@@ -174,20 +174,21 @@
                                     <option selected value="{{$employee->strSex}}">Female</option>
                                   @endif
                             </select>    
+                            <label>Sex</label>
                           </div>   
 
                           <div class="input-field">
-                            <input value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validate">
+                            <input pattern="[^1-9][^0-8]+\d{9}" value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validate">
                             <label for="cellphone_number">Cellphone Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validate">
+                            <input pattern="[0-9]{7}" value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validate">
                             <label for="landline_number">Landline Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
+                            <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
                             <label for="email">Email Address: </label>
                           </div>
                           </p>
@@ -239,7 +240,7 @@
 
                         <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
                       </form>
                     </div>

@@ -53,7 +53,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -109,6 +109,7 @@
                           </select>    
                         </div>   
 
+
                         <div class="input-field">
                           <input requiredvalue = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
                           <label for="pattern_name">Pattern Name: </label>
@@ -125,16 +126,23 @@
                           </div>
                         </div>
                         </p>
+                        <br><br>
                       </div>
                   
-                      <!-- DELETE DESIGN PATTERN -->
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
+<<<<<<< HEAD
+                 </div>  
+
+
+                 <!-- DELETE DESIGN PATTERN --> 
+=======
                  </div>   
                  
+>>>>>>> 32d618f33876649d91d0e752162fc1de7c69f33f
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
@@ -176,7 +184,7 @@
  
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>              
 
@@ -189,6 +197,7 @@
             </table>
 
             </div>
+
 
             <div class = "clearfix">
 
@@ -212,6 +221,10 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 58c46d8bf1ea16d25819388528a95e64f96b86a4
                 </div>   
 
                 <div class="input-field">
