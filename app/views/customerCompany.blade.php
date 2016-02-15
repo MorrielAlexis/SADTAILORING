@@ -250,7 +250,7 @@
 
             <div class="modal-footer">
               <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
-              <button type="submit" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>
+              <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>
             </div>
             </form>
           </div>     

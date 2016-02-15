@@ -54,12 +54,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
+                            <input required pattern="[A-Za-z]\s+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
                             <label for="role_name">Role Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
+                            <input pattern="[A-Za-z]\s+" value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
                             <label for="role_description">Role Description: </label>
                           </div>  
                         </p>    
@@ -94,12 +94,12 @@
                   </div>
                         
                   <div class="input-field">
-                    <input required id="addRoleName" name="addRoleName" type="text" class="validate">
+                    <input required pattern="[A-Za-z\s]+" id="addRoleName" name="addRoleName" type="text" class="validate">
                     <label for="role_name">Role Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addRoleDescription" name="addRoleDescription" type="text" class="validate">
+                    <input pattern="[A-Za-z\s]+" id="addRoleDescription" name="addRoleDescription" type="text" class="validate">
                     <label for="role_description">Role Description: </label>
                   </div>
                 </p>
@@ -107,7 +107,7 @@
 
                 <div class="modal-footer">
                   <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                  <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
             </form>
           </div>
@@ -119,5 +119,12 @@
 @stop
 
 @section('scripts')
+  <script>
+      function clearData(){
+          document.getElementById("addRoleDescription").value = "";
+          document.getElementById("addRoleName").value = "";
+      }
+
+    </script>
 
 @stop
