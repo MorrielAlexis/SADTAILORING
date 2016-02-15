@@ -15,7 +15,7 @@
 
       <header></header>
 
-      <nav id="slide-out" class="side-nav fixed"> 
+      <nav id="slide-out" class="side-nav fixed" style="position fixed; top: 0; padding-top:0px; margin-top:0px;"> 
         <ul id="ul">
           <li id="admin" class="admin-background">
             <div class="row">
@@ -44,7 +44,7 @@
               <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">dashboard</i><b>Dashboard</b></a></li>
               <div class="divider"></div>
               <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">settings</i><b>Maintenance</b></a>
-                <div class="collapsible-body">
+                <div class="collapsible-body" position = "fixed" style = "display: block;">
   		            <ul>
                     <li class="no-padding">
                       <ul class="collapsible collapsible-accordion">
@@ -136,13 +136,13 @@
         });
 
 
-        
+
   $(document).ready(function(){
     $('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
   });
-        
+          
       </script>
 
         @yield('scripts')
