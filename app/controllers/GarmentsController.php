@@ -53,7 +53,6 @@ class GarmentsController extends BaseController{
 
 	public function addGarmentCategory()
 	{	
-		//dd(Input::get('addGarmentName'));
 		$garment = Category::create(array(
 			'strGarmentCategoryID' => Input::get('addGarmentID'),
 			'strGarmentCategoryName' => Input::get('addGarmentName'),
@@ -78,7 +77,7 @@ class GarmentsController extends BaseController{
 
 	public function addGarmentSegment()
 	{	
-		dd(Input::get('addSegmentName'));
+
 		$segment = Segment::create(array(
 			'strGarmentSegmentID' => Input::get('addSegmentID'),
 			'strCategory' => Input::get('addCategory'),
