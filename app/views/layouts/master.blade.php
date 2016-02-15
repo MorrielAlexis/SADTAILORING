@@ -84,7 +84,7 @@
                           </div>
   		                  </li>
 
-  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Materials & Fabrics</b></a>
+  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Fabrics & Materials</b></a>
                           <div class="collapsible-body">
   				                  <ul> 	
                               <li><a style="color:black" class="waves-effect waves-teal" href="/fabricAndMaterialsFabricType">Fabric Types</a></li>
