@@ -13,7 +13,8 @@
 
     <body>
 
-      <header></header>
+      <header> 
+      </header>
 
       <nav id="slide-out" class="side-nav fixed" style="position fixed; top: 0; padding-top:0px; margin-top:0px;"> 
         <ul id="ul">
