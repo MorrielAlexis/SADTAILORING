@@ -3,11 +3,11 @@
 @section('content')
 
 <div>
-<h4>MATERIALS</h4>
-<div class="divider"></div>
-<div style="padding-top:10px; padding-bottom:20px; margin-left:20px;">
-  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMaterial">ADD Material</button>
-</div>
+  <h4>MATERIALS</h4>
+  <div class="divider"></div>
+  <div style="padding-top:10px; padding-bottom:20px; margin-left:20px;">
+    <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMaterial">ADD Material</button>
+  </div>
 
   <!--Collapsible-->
   <ul class="collapsible popout" data-collapsible="accordion">
@@ -28,7 +28,7 @@
                   <th data-field="Thread Color">Thread Color</th>
                   <th data-field="ThreadImage">Image</th>
                   <th>
-                    <div align="right" style="margin-right:70px;"><a href="#addThread" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:70px;"><a href="#addThread" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -105,7 +105,7 @@
                   <th data-field="Needle Size">Needle Size</th>
                   <th data-field="Needle Image">Image</th>
                   <th>
-                    <div align="right" style="margin-right:70px;"><a href="#addNeedle" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:70px;"><a href="#addNeedle" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -185,7 +185,7 @@
                   <th data-field="Button Color">Button Color</th>
                   <th data-field="ButtonImage">Button Image Link</th>
                   <th>
-                    <div align="right" style="margin-right:40px;"><a href="#addButton" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:40px;"><a href="#addButton" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -269,7 +269,7 @@
                   <th data-field="Zipper Color">Zipper Color</th>
                   <th data-field="ZipperImage">Zipper Image</th>
                   <th>
-                    <div align="right" style="margin-right:45px;"><a href="#addZipper" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:45px;"><a href="#addZipper" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -359,7 +359,7 @@
                   <th data-field="Hook and Eye">Hook and Eye</th>
                   <th data-field="Image">Image</th>
                   <th>
-                    <div align="right" style="margin-right:30px;"><a href="#addHookEye" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:30px;"><a href="#addHookEye" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -400,7 +400,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="Hook and Eye" type="text" class="validate">
+                          <input id="editHookandEye" name = "editHookandEye" type="text" class="validate">
                           <label for="Hook and Eye"> Hook and Eye </label>
                         </div>
                 
@@ -438,72 +438,230 @@
       </div>
     </li>
   </ul>
-</div>
+
 
   <!--MODAL: add Thread-->
   <div id="addThread" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD THREAD</h4>
+
+      <div class="input-field">
+          <input id="addThreadID" name = "addThreadID" value = "addThreadID" readonly = "readonly" type="text" class="validate">
+          <label for="Thread_ID"> Thread ID: </label>
+      </div>
+                  
+      <div class="input-field">
+        <input id="addThreadName" name = "addThreadName" type="text" class="validate">
+        <label for="Thread_Name"> Thread Name </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addThreadColor" name = "addThreadColor" type="text" class="validate">
+        <label for="Thread_Color"> Thread Color </label>
+      </div>
+
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Upload Image</span>
+          <input type="file">
+        </div>
+
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+        
         
     </div>
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CANCEL</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">SAVE</a>
     </div>
   </div>
 
   <!--MODAL: add Needle-->
   <div id="addNeedle" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD THREAD</h4>
+      <h4>ADD NEEDLE</h4>
+      <div class="input-field">
+        <input id="addNeedleID" name = "addNeedleID" value = "addNeedleID" readonly = "readonly" type="text" class="validate">
+        <label for="Needle_ID"> Needle ID: </label>
+      </div>
+                  
+      <div class="input-field">
+        <input id="addNeedleName" name = "addNeedleName"  type="text" class="validate">
+        <label for="Needle_Name"> Needle Name </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addNeedleSize" name = "addNeedleSize" type="text" class="validate">
+        <label for="Needle_Size"> Needle Size </label>
+      </div>
+                                  
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Upload Image</span>
+          <input type="file">
+        </div>
+
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
       
     </div>
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CANCEL</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">SAVE</a>
     </div>
   </div>
 
   <!--MODAL: add Button-->
   <div id="addButton" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD THREAD</h4>
+      <h4>ADD Button</h4>
+
+      <div class="input-field">
+        <input id="addButtonID" name = "addButtonID" value = "addButtonID" readonly = "readonly" type="text" class="validate">
+        <label for="Button_ID"> Button ID: </label>
+      </div>
+                  
+      <div class="input-field">
+        <input id="addButtonName" name = "addButtonName" type="text" class="validate">
+        <label for="Button_Name"> Button Name </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addButtonSize" name = "addButtonSize" type="text" class="validate">
+        <label for="Button_Size"> Button Size </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addButtonColor" name = "addButtonColor" type="text" class="validate">
+        <label for="Button_Color"> Button Color </label>
+      </div>
+                                     
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Upload Image</span>
+          <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
       
     </div>
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CANCEL</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">SAVE</a>
     </div>
   </div>
 
   <!--MODAL: add Zipper-->
   <div id="addZipper" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD THREAD</h4>
+      <h4>ADD ZIPPER</h4>
+
+      <div class="input-field">
+        <input id="addZipperID" name = "addZipperID" value = "addZipperID" readonly = "readonly" type="text" class="validate">
+        <label for="Zipper_ID"> Zipper ID: </label>
+      </div>
+                  
+      <div class="input-field">
+        <input id="addZipperName" name = "addZipperName" type="text" class="validate">
+        <label for="Zipper_Name"> Zipper Name </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addZipperSize" name = "addZipperSize" type="text" class="validate">
+        <label for="Zipper_Size"> Zipper Size </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addZipperColor" name = "addZipperColor" type="text" class="validate">
+        <label for="Zipper_Color"> Zipper Color </label>
+      </div>
+
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Upload Image</span>
+          <input type="file">
+        </div>
+
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+
+      </div>
       
     </div>
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CANCEL</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">SAVE</a>
     </div>
   </div>
 
   <!--MODAL: add HookEye-->
   <div id="addHookEye" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD THREAD</h4>
+      <h4>ADD HOOK AND EYE</h4>
+
+      <div class="input-field">
+        <input id="addHookEyeID" name = "addHookeyeID" value = "addHookEyeID" readonly = "readonly" type="text" class="validate">
+        <label for="HookEye_ID"> Hook and Eye ID </label>
+      </div>
+                  
+      <div class="input-field">
+        <input id="addHookEyeName" name = "addHookEyeName" type="text" class="validate">
+        <label for="HookEye_Name"> Hook and Eye Name </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addHookEyeSize" name = "addHookEyeSize" type="text" class="validate">
+        <label for="HookEye_Size"> Hook and Eye Size </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addHookEyeColor" name = "addHookEyeColor" type="text" class="validate">
+        <label for="Hookeye_Color"> Hook and Eye Color </label>
+      </div>
+
+      <div class="input-field">
+        <input id="addHookandEye" name = "addHookandEye" type="text" class="validate">
+        <label for="Hook and Eye"> Hook and Eye </label>
+      </div>
+                
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Upload Image</span>
+          <input type="file">
+        </div>
+
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+
+      </div>
       
-    </div>
+   </div>
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CANCEL</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">SAVE</a>
     </div>
   </div>
+  
+</div>
 
 
 @stop
