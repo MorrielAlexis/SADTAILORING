@@ -63,7 +63,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -155,7 +155,7 @@
 
                       <div class="modal-footer">
                          <button type="submit" class="waves-effect waves-green btn-flat">Update</button>  
-                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>   
+                         <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>   
                       </div>
                     </form>
                    </div>
@@ -184,7 +184,7 @@
 
                          <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
                       </div>
@@ -250,7 +250,7 @@
 
             <div class="modal-footer">
               <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+              <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
             </div>
             </form>
           </div>     

@@ -5,7 +5,10 @@
 <div>
 <h4>MATERIALS</h4>
 <div class="divider"></div>
-<div style="height:50px"></div>
+<div style="padding-top:10px; padding-bottom:20px; margin-left:20px;">
+  <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMaterial">ADD Material</button>
+</div>
+
   <!--Collapsible-->
   <ul class="collapsible popout" data-collapsible="accordion">
     
@@ -15,13 +18,18 @@
         <i class="material-icons">filter_drama</i><h5>THREAD</h5>
       </div>
       <div class="collapsible-body">
-        <table class = "centered" align = "center" border = "1">
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
+
               <thead>
                 <tr>
                   <th date-field= "Thread ID">Thread ID</th>
                   <th data-field="Thread Name">Thread Name</th>
                   <th data-field="Thread Color">Thread Color</th>
                   <th data-field="ThreadImage">Image</th>
+                  <th>
+                    <div align="right" style="margin-right:70px;"><a href="#addThread" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                  </th>
                 </tr>
               </thead>
 
@@ -48,11 +56,6 @@
                           <label for="Thread_Name"> Thread Name </label>
                         </div>
 
-                        <!-- <div class="input-field">
-                          <input id="editThreadSize" name = "editThreadSize" value = "editThreadSize" type="text" class="validate">
-                          <label for="Thread_Size"> Thread Size </label>
-                        </div>
- -->
                         <div class="input-field">
                           <input id="editThreadColor" name = "editThreadColor" value = "editThreadColor" type="text" class="validate">
                           <label for="Thread_Color"> Thread Color </label>
@@ -72,27 +75,38 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
                   </td>
                 </tr>
               </tbody>
-            </table>
+        </table>
+        <div class = "clearfix">
+
+        </div>
+          </div>
       </div>
     </li>
+
+    <!--NEEDLES-->
+
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>NEEDLES</h5></div>
       <div class="collapsible-body">
-        <table class = "centered" align = "center" border = "1">
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Needle ID">Needle ID</th>
                   <th data-field="Needle Name">Needle Name</th>
                   <th data-field="Needle Size">Needle Size</th>
                   <th data-field="Needle Image">Image</th>
+                  <th>
+                    <div align="right" style="margin-right:70px;"><a href="#addNeedle" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                  </th>
                 </tr>
               </thead>
 
@@ -139,21 +153,30 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
                   </td>
                 </tr>
               </tbody>
-            </table>
+        </table>
+        </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
+
+
+    <!--BUTTONS-->
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>BUTTONS</h5></div>
       <div class="collapsible-body">
-        <table class = "centered" align = "center" border = "1">
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Button ID">Button ID</th>
@@ -161,6 +184,9 @@
                   <th data-field="Button Size">Button Size</th>
                   <th data-field="Button Color">Button Color</th>
                   <th data-field="ButtonImage">Button Image Link</th>
+                  <th>
+                    <div align="right" style="margin-right:40px;"><a href="#addButton" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                  </th>
                 </tr>
               </thead>
 
@@ -212,21 +238,29 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
                   </td>
                 </tr>
               </tbody>
-            </table>
+        </table>
+        </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
+
+    <!--ZIPPERS-->
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>ZIPPERS</h5></div>
       <div class="collapsible-body">
-        <table class = "centered" align = "center" border = "1">
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Zipper ID">Zipper ID</th>
@@ -234,6 +268,9 @@
                   <th data-field="Zipper Size">Zipper Size</th>
                   <th data-field="Zipper Color">Zipper Color</th>
                   <th data-field="ZipperImage">Zipper Image</th>
+                  <th>
+                    <div align="right" style="margin-right:45px;"><a href="#addZipper" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                  </th>
                 </tr>
               </thead>
 
@@ -287,24 +324,32 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
                   </td>
                 </tr>
               </tbody>
-            </table>
+        </table>
+
+        </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
 
+    <!--HOOK&EYE-->
     <li>
       <div class="collapsible-header">
         <i class="material-icons">filter_drama</i><h5>HOOK & EYE</h5>
       </div>
       <div class="collapsible-body">
-          <table class = "centered" align = "center" border = "1">
+          <div class="col s12 m12 l12 overflow-x">
+          <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field="Hook and Eye ID">Hook and Eye ID</th>
@@ -313,6 +358,9 @@
                   <th data-field="Hook and Eye Color">Hook and Eye Color</th>
                   <th data-field="Hook and Eye">Hook and Eye</th>
                   <th data-field="Image">Image</th>
+                  <th>
+                    <div align="right" style="margin-right:30px;"><a href="#addHookEye" class="btn-floating btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                  </th>
                 </tr>
               </thead>
 
@@ -373,8 +421,8 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
@@ -382,10 +430,80 @@
                 </tr>
               </tbody>
             </table>
+            </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
   </ul>
 </div>
+
+  <!--MODAL: add Thread-->
+  <div id="addThread" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ADD THREAD</h4>
+        
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
+  <!--MODAL: add Needle-->
+  <div id="addNeedle" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ADD THREAD</h4>
+      
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
+  <!--MODAL: add Button-->
+  <div id="addButton" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ADD THREAD</h4>
+      
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
+  <!--MODAL: add Zipper-->
+  <div id="addZipper" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ADD THREAD</h4>
+      
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
+  <!--MODAL: add HookEye-->
+  <div id="addHookEye" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>ADD THREAD</h4>
+      
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
 
 
 @stop
@@ -396,6 +514,8 @@
     $('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
+
+      $('.modal-trigger').leanModal();
   });
         
     </script>
