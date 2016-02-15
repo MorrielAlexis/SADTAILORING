@@ -106,7 +106,7 @@
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$company->strCustCompanyID}}">DELETE</button>
 
 
-                    <div id="edit{{$company->strCustCompanyId}}" class="modal modal-fixed-footer">
+                    <div id="edit{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
                       <div class = "label"><font color = "teal" size = "+3" back >Edit Company Profile </font> </div>
                         <p>

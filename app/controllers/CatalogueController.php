@@ -15,6 +15,8 @@ class CatalogueController extends BaseController{
 		$ID = $ids["0"]->strCatalogueID;
 		$newID = $this->smartCounter($ID);	
 
+		$category = Category::lists('strGarmentCategoryName', 'strGarmentCategoryID');
+
 		$catalogue = DB::table('tblCatalogue')
 				->join('tblGarmentCategory', 'tblCatalogue.strCatalogueCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
 				->select('tblCatalogue.*', 'tblGarmentCategory.strGarmentCategoryName')
@@ -23,7 +25,23 @@ class CatalogueController extends BaseController{
 
 		return View::make('catalogue')
 					->with('catalogue', $catalogue)
-					->with('newID', $newID);
+					->with('newID', $newID)
+					->with('category', $category);
+	}
+
+	public function addCatalogue()
+	{
+		$catalogue = Catalogue::create(array(
+			'strCatalogueID' => Input::get('addCatalogueID'),
+			'strCatalogueCategory' => Input::get('addCategory'),
+			'strCatalogueName' => Input::get('addCatalogueName'),
+			'txtCatalogueDesc' => Input::get('addCatalogueDesc'),
+			'strCatalogueImage' => '',
+			'boolIsActive' => 1
+			));
+
+		$catalogue->save();
+		return Redirect::to('/catalogue');
 	}
 
 	public function smartCounter($id)

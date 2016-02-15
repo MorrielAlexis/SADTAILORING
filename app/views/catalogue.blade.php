@@ -124,12 +124,12 @@
               </div>
 
               <div class="input-field">
-                <select>
-                  <option value="" disabled selected>Catalogue Category</option>
-                  <option value="1">Gown</option>
-                  <option value="2">Uniform</option>
+                <select id="addCategory" name="addCategory">
+                  <option disabled selected>Pick a category</option>
+                    @foreach($category as $id=>$name)
+                      <option value="{{$id}}">{{$name}}</option>
+                    @endforeach   
                 </select>
-                <label> Catalogue Category</label>
               </div>      
 
               <div class="input-field">
@@ -158,7 +158,7 @@
             </div> 
             
             <div class="modal-footer">                  
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+              <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>                    
             </div>
           </form>

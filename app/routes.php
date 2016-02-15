@@ -67,3 +67,5 @@ Route::post('/addDesignPattern', array('uses' => 'DesignPatternController@addPat
 Route::post('/editDesignPattern', array('uses' => 'DesignPatternController@editPattern'));
 Route::post('/delDesignPattern', array('uses' => 'DesignPatternController@delPattern'));
 Route::post('/reactDesignPattern', array('uses' => 'DesignPatternController@reactPattern'));
+//////////////////////CRUD FOR CATALOGUE//////////////////////
+Route::post('/addCatalogue', array('uses' => 'CatalogueController@addCatalogue'));
