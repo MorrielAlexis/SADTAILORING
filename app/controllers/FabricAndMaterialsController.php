@@ -113,6 +113,7 @@ class FabricAndMaterialsController extends BaseController{
 		return Redirect::to('/fabricAndMaterialsSwatches');
 	}
 
+
 	public function delSwatch()
 	{
 		$id = Input::get('delSwatchID');
@@ -134,6 +135,9 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->save();
 		return Redirect::to('/fabricAndMaterialsSwatches');
 	}
+
+
+
 
 	public function smartCounter($id)
 	{	

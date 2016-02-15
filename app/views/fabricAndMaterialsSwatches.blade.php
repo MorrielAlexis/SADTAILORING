@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSwatches">ADD NEW SWATCH</button>
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL SWATCHES</button>
+        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE SWATCHES</button>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ALL SWATCHES</h4>
+      <h4>INACTIVE SWATCHES</h4>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -42,14 +42,16 @@
               <td>{{ $swatch2->strSwatchCode }}</td>
               <td>Click here to view image</td>
               <td>
-              <form action="/reactSwatch" method="POST">
-                <input type="hidden" id="reactID" name="reactID" value="{{ $swatch2->strSwatchID }}">
-                <button type="submit"class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button></td>
+
+               <form action="/reactSwatch" method="POST">
+                  <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactID" name="reactID">
+              <button type="type" class="modal-trigger waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+
               </form>
             </tr>
-        </tbody>
         @endif
         @endforeach
+        </tbody>
       </table>
     </div>
   
@@ -89,6 +91,7 @@
                     <td>Click here to view image</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
+
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
@@ -196,10 +199,12 @@
 
             </div>
 
+
                 <!--    <Modal Structure for Add swatches> -->
             <div id="addSwatches" class="modal modal-fixed-footer">
               <font color = "teal"><center><h5> Add Swatch </h5></center></font>
               <form action="/addSwatch" method="POST" id="addSwatch" name="addSwatch"> 
+
                 <div class="modal-content">
                   <p>
 
