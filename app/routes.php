@@ -70,3 +70,8 @@ Route::post('/reactDesignPattern', array('uses' => 'DesignPatternController@reac
 //////////////////////CRUD FOR CATALOGUE//////////////////////
 Route::post('/addCatalogue', array('uses' => 'CatalogueController@addCatalogue'));
 Route::post('/editCatalogue', array('uses' => 'CatalogueController@editCatalogue'));
+//////////////////////CRUD FOR SWATCHES//////////////////////
+Route::post('/addSwatch', array('uses' => 'FabricAndMaterialsController@addSwatch'));
+Route::post('/editSwatch', array('uses' => 'FabricAndMaterialsController@editSwatch'));
+Route::post('/delSwatch', array('uses' => 'FabricAndMaterialsController@delSwatch'));
+Route::post('/reactSwatch', array('uses' => 'FabricAndMaterialsController@reactSwatch'));

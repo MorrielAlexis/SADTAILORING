@@ -135,7 +135,7 @@
               </div>      
 
               <div class="input-field">
-                <input id="addCatalogueName" name = "addCatalogueName" type="text" class="validate">
+                <input id="addCatalogueName" name = "addCatalogueName" type="text" class="validate" required>
                 <label for="Catalogue_Name"> Catalogue Name </label>
               </div>
 
@@ -151,7 +151,7 @@
                 </div>
 
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
+                  <input id="path" name="path" class="file-path validate" type="text">
                 </div>
               </div>
 
@@ -175,7 +175,9 @@
     <script>
       $(document).ready(function(){
       // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
+      $('.modal-trigger').leanModal({
+          dismissible: false
+        });
       });
     </script>
 

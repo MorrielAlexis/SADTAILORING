@@ -34,7 +34,7 @@ class FabricAndMaterialsController extends BaseController{
 		$ID = $ids["0"]->strSwatchID;
 		$newID = $this->smartCounter($ID);	
 
-		$fabricType =  Role::lists('strFabricTypeName', 'strFabricTypeID'); 		
+		$fabricType =  FabricType::lists('strFabricTypeName', 'strFabricTypeID'); 		
 		
 		$swatch = DB::table('tblSwatches')
             ->join('tblFabricType', 'tblSwatches.strSwatchFabricTypeName', '=', 'tblFabricType.strFabricTypeID')
@@ -60,15 +60,15 @@ class FabricAndMaterialsController extends BaseController{
 
 		$swatch = Swatch::create(array(
 			'strSwatchID' => Input::get('addSwatchID'),
-			'strSwatchFabricTypeName' => Input::get('addSwatchFabricTypeName'),		
+			'strSwatchFabricTypeName' => Input::get('addFabric'),		
 			'strSwatchName' => Input::get('addSwatchName'),
 			'strSwatchCode' => Input::get('addSwatchCode'),
-			'strSwatchImageLink' => Input::get('addSwatchImageLink'),
+			'strSwatchImageLink' =>'',
 			'boolIsActive' => 1
 			));
 
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/fabricAndMaterialsSwatches');
 	}
 
 	public function addFabricType()
@@ -98,7 +98,42 @@ class FabricAndMaterialsController extends BaseController{
 		return Redirect::to('/fabricAndMaterialsFabricType');
 	}
 
+	public function editSwatch()
+	{	
+		$id = Input::get('editSwatchID');
+		$swatch = Swatch::find($id);
 
+		$swatch->strSwatchID = Input::get('editSwatchID');
+		$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
+		$swatch->strSwatchName = Input::get('editSwatchName');
+		$swatch->strSwatchCode = Input::get('editSwatchCode');
+		$swatch->strSwatchImageLink ='';
+
+		$swatch->save();
+		return Redirect::to('/fabricAndMaterialsSwatches');
+	}
+
+	public function delSwatch()
+	{
+		$id = Input::get('delSwatchID');
+		$swatch = Swatch::find($id);
+
+		$swatch->boolIsActive = 0;
+
+		$swatch->save();
+		return Redirect::to('/fabricAndMaterialsSwatches');
+	}
+
+	public function reactSwatch()
+	{
+		$id = Input::get('reactID');
+		$swatch = Swatch::find($id);
+
+		$swatch->boolIsActive = 1;
+
+		$swatch->save();
+		return Redirect::to('/fabricAndMaterialsSwatches');
+	}
 
 	public function smartCounter($id)
 	{	

@@ -18,8 +18,13 @@
         <i class="material-icons">filter_drama</i><h5>THREAD</h5>
       </div>
       <div class="collapsible-body">
+<<<<<<< HEAD
         <div>
         <table class = "centered" align = "center" border = "1">
+=======
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
+>>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
               <thead>
                 <tr>
                   <th date-field= "Thread ID">Thread ID</th>
@@ -55,11 +60,6 @@
                           <label for="Thread_Name"> Thread Name </label>
                         </div>
 
-                        <!-- <div class="input-field">
-                          <input id="editThreadSize" name = "editThreadSize" value = "editThreadSize" type="text" class="validate">
-                          <label for="Thread_Size"> Thread Size </label>
-                        </div>
- -->
                         <div class="input-field">
                           <input id="editThreadColor" name = "editThreadColor" value = "editThreadColor" type="text" class="validate">
                           <label for="Thread_Color"> Thread Color </label>
@@ -87,16 +87,29 @@
                   </td>
                 </tr>
               </tbody>
+<<<<<<< HEAD
             </table>
           </div>
       </div>
     </li>
 
     <!--NEEDLES-->
+=======
+        </table>
+        </div>
+
+        <div class = "clearfix">
+
+        </div>
+      </div>
+    </li>
+
+>>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>NEEDLES</h5></div>
       <div class="collapsible-body">
-        <table class = "centered" align = "center" border = "1">
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Needle ID">Needle ID</th>
@@ -160,15 +173,24 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+        </table>
+        </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
 
+<<<<<<< HEAD
     <!--BUTTONS-->
+=======
+>>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>BUTTONS</h5></div>
       <div class="collapsible-body">
-        <table class = "centered" align = "center" border = "1">
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Button ID">Button ID</th>
@@ -238,15 +260,24 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+        </table>
+        </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
 
+<<<<<<< HEAD
     <!--ZIPPERS-->
+=======
+>>>>>>> 5a05ebcd1c1ab16a15b6ba66db899a9ea19fac87
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>ZIPPERS</h5></div>
       <div class="collapsible-body">
-        <table class = "centered" align = "center" border = "1">
+        <div class="col s12 m12 l12 overflow-x">
+        <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field= "Zipper ID">Zipper ID</th>
@@ -318,7 +349,13 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+        </table>
+
+        </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
 
@@ -328,7 +365,8 @@
         <i class="material-icons">filter_drama</i><h5>HOOK & EYE</h5>
       </div>
       <div class="collapsible-body">
-          <table class = "centered" align = "center" border = "1">
+          <div class="col s12 m12 l12 overflow-x">
+          <table class = "centered" border = "1">
               <thead>
                 <tr>
                   <th date-field="Hook and Eye ID">Hook and Eye ID</th>
@@ -409,6 +447,11 @@
                 </tr>
               </tbody>
             </table>
+            </div>
+
+        <div class = "clearfix">
+
+        </div>
       </div>
     </li>
   </ul>
