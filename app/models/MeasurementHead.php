@@ -9,10 +9,8 @@ class MeasurementHead extends Eloquent {
 	protected $fillable = array('strMeasurementID',
 								'strCategoryName',
 								'strSegmentName',
-
-	protected $fillable = array('strGarmentCategory',
+								'strGarmentCategory',
 								'strGarmentSegment',
-
 								'strMeasurementName');
 
 

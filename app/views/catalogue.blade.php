@@ -45,36 +45,39 @@
                 <td>{{ $catalogue->strCatalogueID }}</td>
                 <td>{{ $catalogue->strGarmentCategoryName }}</td>
               	<td>{{ $catalogue->strCatalogueName }}</td>
-              	<td>{{ $catalogue->txtCatalogueDesc }}</td>
+              	<td>{{ $catalogue->strCatalogueDesc }}</td>
                 <td>Click here to view image </td>
-              	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCatalogue">EDIT</button>
+              	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button>
                         
-                  <div id="editCatalogue" class="modal modal-fixed-footer">
+                  <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
                     <font color = "teal" ><center><h5>Edit Catalogue Details</h5></center></font> 
                     <div class="modal-content">
                       <p>
-
+                      <form action="/editCatalogue" method="POST">
                       <div class="input-field">
-                        <input value="editCatalogueID" id="editCatalogueID" name="editCatalogueID" type="text" class="validate" readonly = "readonly">
-                        <label for="catalogue_id">Catalogue ID: </label>
+                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="validate" readonly>
                       </div>
 
                       <div class="input-field">
-                        <select>
-                          <option value="" disabled selected>Catalogue Category</option>
-                          <option value="1">Gowns</option>
-                          <option value="2">Tuxedo</option>
+                        <select id="editCategory" name="editCategory"> 
+                          <option value="" disabled >Catalogue Category</option>
+                            @foreach($category as $id=>$name)
+                              @if($catalogue->strCatalogueCategory == $id)
+                                <option value="{{$id}}" selected>{{$name}}</option>
+                              @else
+                                <option value="{{$id}}">{{$name}}</option>
+                              @endif
+                            @endforeach
                         </select>
-                        <label> Catalogue Category</label>
                       </div>      
 
                       <div class="input-field">
-                        <input id="editCatalogueName" name = "editCatalogueName"  value = "editCatalogueName" type="text" class="validate">
+                        <input value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validate">
                         <label for="Catalogue_Name"> Catalogue Name </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="editCategoryDesc" name = "editCategoryDesc" value = "editCategoryDesc" type="text" class="validate">
+                        <input value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validate">
                         <label for="Category_Desc">Category Description </label>
                       </div>
 
@@ -95,12 +98,11 @@
 
                   
                     <div class="modal-footer">
-                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
+                      <button type="submit" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</button>
                       <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
                     </div>
                   </div>
-
-
+                </form>
                 </td>
               </tr>
               @endforeach
@@ -138,7 +140,7 @@
               </div>
 
               <div class="input-field">
-                <input id="addCategoryDesc" name="addCategoryDesc" type="text" class="validate">
+                <input id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validate">
                 <label for="Category_Desc">Category Description </label>
               </div>
 

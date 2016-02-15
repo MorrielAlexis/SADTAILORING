@@ -39,7 +39,7 @@
               <tr>
                 <td>{{ $role->strEmpRoleID }}</td>
                 <td>{{ $role->strEmpRoleName }}</td>
-                <td>{{ $role->txtEmpRoleDesc }}</td>
+                <td>{{ $role->strEmpRoleDesc }}</td>
                 <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$role->strEmpRoleID}}">EDIT</button>
                  		
                   <div id="{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
@@ -59,7 +59,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$role->txtEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
+                            <input value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
                             <label for="role_description">Role Description: </label>
                           </div>  
                         </p>    

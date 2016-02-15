@@ -69,10 +69,11 @@ class EmployeeController extends BaseController{
 
 	public function addRole()
 	{	
+		dd(Input::get('addRoleDescription'));
 		$role = Role::create(array(
 			'strEmpRoleID' => Input::get('addRoleID'),
 			'strEmpRoleName' => Input::get('addRoleName'),
-			'txtEmpRoleDesc' => Input::get('addRoleDescription')
+			'strEmpRoleDesc' => Input::get('addRoleDescription')
 			));
 
 		$role->save();
@@ -104,7 +105,7 @@ class EmployeeController extends BaseController{
 		$role = Role::find($id);
 
 		$role->strEmpRoleName = Input::get('editRoleName');	
-		$role->txtEmpRoleDesc = Input::get('editRoleDescription');
+		$role->strEmpRoleDesc = Input::get('editRoleDescription');
 
 		$role->save();
 		return Redirect::to('/employeeRole');

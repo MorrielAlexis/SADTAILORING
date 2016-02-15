@@ -56,7 +56,7 @@ class GarmentsController extends BaseController{
 		$garment = Category::create(array(
 			'strGarmentCategoryID' => Input::get('addGarmentID'),
 			'strGarmentCategoryName' => Input::get('addGarmentName'),
-			'txtGarmentCategoryDesc' => Input::get('addGarmentDesc')
+			'strGarmentCategoryDesc' => Input::get('addGarmentDesc')
 			));
 
 		$garment->save();
@@ -69,7 +69,7 @@ class GarmentsController extends BaseController{
 		$garments = Category::find($id);
 
 		$garments->strGarmentCategoryName = Input::get('editGarmentName');	
-		$garments->txtGarmentCategoryDesc = Input::get('editGarmentDescription');
+		$garments->strGarmentCategoryDesc = Input::get('editGarmentDescription');
 
 		$garments->save();
 		return Redirect::to('/garments');
@@ -95,7 +95,7 @@ class GarmentsController extends BaseController{
 
 		$segment->strCategory = Input::get('editCategory');	
 		$segment->strGarmentSegmentName = Input::get('editSegmentName');	
-		$segment->txtGarmentSegmentDesc = Input::get('editSegmentDesc');
+		$segment->strGarmentSegmentDesc = Input::get('editSegmentDesc');
 
 		$segment->save();
 		return Redirect::to('/garmentsDetails');

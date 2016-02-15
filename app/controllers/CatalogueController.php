@@ -1,3 +1,4 @@
+
 <?php
 
 class CatalogueController extends BaseController{
@@ -30,15 +31,31 @@ class CatalogueController extends BaseController{
 	}
 
 	public function addCatalogue()
-	{
+	{	
 		$catalogue = Catalogue::create(array(
 			'strCatalogueID' => Input::get('addCatalogueID'),
 			'strCatalogueCategory' => Input::get('addCategory'),
 			'strCatalogueName' => Input::get('addCatalogueName'),
-			'txtCatalogueDesc' => Input::get('addCatalogueDesc'),
+			'strCatalogueDesc' => Input::get('addCatalogueDesc'),
 			'strCatalogueImage' => '',
 			'boolIsActive' => 1
 			));
+
+		$catalogue->save();
+		return Redirect::to('/catalogue');
+	}
+
+	public function editCatalogue()
+	{	
+		$id = Input::get('editCatalogueID');
+		$catalogue = Catalogue::find($id);
+
+		$catalogue->strCatalogueID = Input::get('editCatalogueID');
+		$catalogue->strCatalogueCategory = Input::get('editCategory');
+		$catalogue->strCatalogueName = Input::get('editCatalogueName');
+		$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
+		$catalogue->strCatalogueImage = '';
+		$catalogue->boolIsActive = 1;
 
 		$catalogue->save();
 		return Redirect::to('/catalogue');

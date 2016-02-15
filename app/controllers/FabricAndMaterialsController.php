@@ -37,7 +37,7 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType = FabricType::create(array(
 			'strFabricTypeID' => Input::get('addFabricTypeID'),
 			'strFabricTypeName' => Input::get('addFabricTypeName'),
-			'textFabricTypeDesc' => Input::get('addFabricTypeDesc'),
+			'strFabricTypeDesc' => Input::get('addFabricTypeDesc'),
 			'boolIsActive' => 1
 			));
 
@@ -52,7 +52,7 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('editFabricTypeID');
 		$fabricType = FabricType::find($id);
 		$fabricType->strFabricTypeName = Input::get('editFabricTypeName');	
-		$fabricType->textFabricTypeDesc = Input::get('editFabricTypeDesc');
+		$fabricType->strFabricTypeDesc = Input::get('editFabricTypeDesc');
 
 		$fabricType->save();
 		return Redirect::to('/fabricAndMaterialsFabricType');

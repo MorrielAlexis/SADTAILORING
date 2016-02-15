@@ -37,7 +37,7 @@
                   <tr>
                     <td>{{ $category->strGarmentCategoryID }}</td>
                     <td>{{ $category->strGarmentCategoryName }}</td>
-                    <td>{{ $category->txtGarmentCategoryDesc }}</td>
+                    <td>{{ $category->strGarmentCategoryDesc }}</td>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{ $category->strGarmentCategoryID }}">EDIT</button>
               
                       <!-- Modal Structure for Edit Garment Category> -->
@@ -58,7 +58,7 @@
                               </div>
 
                               <div class="input-field">
-                                <input value= "{{ $category->txtGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+                                <input value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
                                 <label for="garment_description">Garment Desription: </label>
                               </div>
                             </p>

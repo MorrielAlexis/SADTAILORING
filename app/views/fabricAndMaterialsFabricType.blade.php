@@ -42,7 +42,7 @@
                   <tr>
               		  <td>{{ $fabricType->strFabricTypeID }}</td>
               		  <td>{{ $fabricType->strFabricTypeName }}</td>
-              		  <td>{{ $fabricType->textFabricTypeDesc}}</td>
+              		  <td>{{ $fabricType->strFabricTypeDesc}}</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$fabricType->strFabricTypeID}}">EDIT</button>
               	
                     <div id="{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input value = "{{ $fabricType->textFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
+                          <input value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
                           <label for="fabrictype_description">Fabric Desription: </label>
                         </div>  
                         </p>

@@ -73,7 +73,7 @@
               		  <td>{{ $segment->strGarmentSegmentID }}</td>
               		  <td>{{ $segment->strGarmentCategoryName }}</td>
                     <td>{{ $segment->strGarmentSegmentName }}</td>
-              		  <td>{{ $segment->txtGarmentSegmentDesc }}</td>
+              		  <td>{{ $segment->strGarmentSegmentDesc }}</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>                 
 
@@ -107,7 +107,7 @@
                               </div>
 
                               <div class="input-field">
-                                <input value="{{ $segment->txtGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
+                                <input value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
                                 <label for="segment_description"Segment Description: </label>
                               </div>
                             </p>
@@ -148,7 +148,7 @@
                               </div>
 
                               <div class="input-field">
-                                <input value="{{ $segment->txtGarmentSegmentDesc }}" type="text" class="validate" readonly>
+                                <input value="{{ $segment->strGarmentSegmentDesc }}" type="text" class="validate" readonly>
                                 <label for="segment_description">Segment Description: </label>
                               </div>
                             </p>
