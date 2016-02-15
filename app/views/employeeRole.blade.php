@@ -23,7 +23,9 @@
    			<div class="divider"></div>
 
     		<div class="card-content">
-      		<table class = "centered" align = "center" border = "1">
+          <div class="col s12 m12 l12 overflow-x">
+         
+      		<table class = "centered" border = "1">
        			<thead>
           		<tr>
               	<th data-field="id">Role ID</th>
@@ -74,6 +76,12 @@
             @endforeach
             </tbody>
           </table>
+          </div>
+
+          <div class = "clearfix">
+
+          </div>
+        
 
     			<div id="addRole" class="modal">
             <font color = "teal" size = "+3" back ></h5><center> Add Employee Role </center></h5></font>

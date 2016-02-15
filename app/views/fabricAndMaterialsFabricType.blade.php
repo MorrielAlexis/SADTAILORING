@@ -26,6 +26,8 @@
    				<div class="divider"> </div>
             <div class="card-content"><!-- card-content  --> 
 
+              <div class="col s12 m12 l12 overflow-x">
+
        				<table class = "centered" align = "center" border = "1">
                 <thead>
                   <tr>
@@ -74,6 +76,12 @@
                   </tr>
                 </tbody>
               </table>
+
+              </div>
+
+              <div class = "clearfix">
+
+              </div>
           
               <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
                 <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 

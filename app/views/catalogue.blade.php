@@ -26,6 +26,8 @@
         <div class="divider"></div>
               
         <div class="card-content">
+
+          <div class="col s12 m12 l12 overflow-x">
     
       		<table class = "centered" align = "center" border = "1">
             <thead>
@@ -103,6 +105,12 @@
               </tr>
             </tbody>
           </table>
+
+          </div>
+
+          <div class = "clearfix">
+
+          </div>
 
           <div id="addCatalogue" class="modal modal-fixed-footer">
             <font color = "teal"><h5><center>Add Catalogue </center></h5></font> 

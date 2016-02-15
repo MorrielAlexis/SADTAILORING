@@ -64,6 +64,7 @@
         <div class="divider"></div>
 
     		<div class="card-content"> 
+            <div class="col s12 m12 l12 overflow-x">
       			<table class = "centered" align = "center" border = "1">
        				<thead>
           			<tr>
@@ -185,6 +186,12 @@
                 @endforeach               
               </tbody>
             </table>
+
+            </div>
+
+            <div class = "clearfix">
+
+            </div>
            
 
             <div id="addDesign" class="modal modal-fixed-footer">

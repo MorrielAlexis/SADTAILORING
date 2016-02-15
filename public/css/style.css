@@ -46,7 +46,7 @@
         }
 
         .tab{
-            background: aquamarine;
+            background: teal;
             border: teal;
         }
 
@@ -114,6 +114,6 @@
             overflow: auto; /* Enable scroll if needed */
         }
 
-        #huehue{
-            /*pag iisipan ko pa kung pano ko maaadjust yung content huehue*/
+        .overflow-x {
+        overflow-x: auto;
         }

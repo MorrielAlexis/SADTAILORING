@@ -74,12 +74,13 @@
 
 
     <div class="row">
-    	<div class="col s12 m12 l12 overflow-x">
+    	<div class="col s12 m12 l12">
     		<div class="card-panel">
    		    <span class="card-title"><h5><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
-      			<table class = "centered" align = "center" border = "1">
+            <div class="col s12 m12 l12 overflow-x">
+      			<table class = "centered" border = "1">
        				<thead>
           			<tr>
                   <th data-field="id">Employee ID</th>
@@ -247,6 +248,14 @@
                 @endforeach
               </tbody>
             </table>
+            </div>
+
+            <div class = "clearfix">
+
+            </div>
+           
+
+
           
           
             <!-- <Modal Structure for Add Employee> -->
@@ -322,12 +331,15 @@
               </div>
             </form>
           </div>
-            <!-- <End for Add Employee> -->
           
-        </div>
+            <!-- <End for Add Employee> -->
+
+            </div>
         </div>
       </div>
-    </div>
+     </div>
+          
+        
 
 @stop
 

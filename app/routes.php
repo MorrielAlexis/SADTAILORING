@@ -73,32 +73,23 @@ Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@e
 
 Route::post('/delMeasurementCategory', array('uses' => 'MeasurementController@delCategory'));
 
-<<<<<<< HEAD
 Route::post('/addCustPrivIndiv', array('uses' => 'GarmentsController@addCustPrivIndiv'));
-=======
+
 Route::post('/addCustPrivIndiv', array('uses' => 'CustomerController@addCustPrivIndiv'));
->>>>>>> 00b459109940f51f3850ec02db5ddea1dff4ca3e
 
 Route::post('/editCustPrivIndiv', array('uses' => 'CustomerController@editCustPrivIndiv'));
 
 Route::post('/delCustPrivIndiv', array('uses' => 'CustomerController@delCustPrivIndiv'));
 
-<<<<<<< HEAD
-=======
 Route::post('/reactCustPrivIndiv', array('uses' => 'CustomerController@reactCustPrivIndiv'));
 
->>>>>>> 00b459109940f51f3850ec02db5ddea1dff4ca3e
 Route::post('/addCustCompany', array('uses' => 'CustomerController@addCustCompany'));
 
 Route::post('/editCustCompany', array('uses' => 'CustomerController@editCustCompany'));
 
 Route::post('/delCustCompany', array('uses' => 'CustomerController@delCustCompany'));
-<<<<<<< HEAD
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
-
-
-=======
 
 Route::post('/reactCustCompany', array('uses' => 'CustomerController@reactCustCompany'));
 
@@ -109,4 +100,4 @@ Route::post('/editDesignPattern', array('uses' => 'DesignPatternController@editP
 Route::post('/delDesignPattern', array('uses' => 'DesignPatternController@delPattern'));
 
 Route::post('/reactDesignPattern', array('uses' => 'DesignPatternController@reactPattern'));
->>>>>>> 00b459109940f51f3850ec02db5ddea1dff4ca3e
+

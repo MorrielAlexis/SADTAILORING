@@ -57,6 +57,7 @@
    		    	<span class="card-title"><h5><center>Swatches Details</h5></center></span>
             <div class="divider"></div>
             <div class="card-content">
+              <div class="col s12 m12 l12 overflow-x">
    
       				<table class = "centered" align = "center" border = "1">
        				 <thead>
@@ -130,6 +131,12 @@
                   </tr>                    
                 </tbody>
               </table>
+
+              </div>
+
+              <div class = "clearfix">
+
+              </div>
 
               <div id="addSwatches" class="modal modal-fixed-footer">
                 <font color = "teal"><center><h5> Add Swatch </h5></center></font> 

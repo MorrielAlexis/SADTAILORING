@@ -74,6 +74,8 @@
           <div class="divider"></div>
           <div class="card-content">
 
+           <div class="col s12 m12 l12 overflow-x"> 
+
             <table class = "centered" align = "center" border = "1">
               <thead>
                 <tr>
@@ -192,6 +194,12 @@
                 @endforeach    
               </tbody>
             </table>
+
+            </div>
+
+            <div class = "clearfix">
+
+            </div>  
     
             <div id="addCom" class="modal modal-fixed-footer">
               <h5><font color = "teal"><center>Add Company Profile </center> </font> </h5>                      
