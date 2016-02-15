@@ -122,14 +122,14 @@
                               </div>    
 
                               <div class="input-field">
-                                <input value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validate">
+                                <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validate">
                                 <label for="swatch_code">Swatch Code: </label>
                               </div>
 
                               <div class="file-field input-field">
                                 <div class="btn">
                                   <span>Upload Image</span>
-                                  <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                                  <input required type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
@@ -228,14 +228,14 @@
                     </div>    
 
                     <div class="input-field">
-                      <input id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
+                      <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
                       <label for="swatch_code">Swatch Code: </label>
                     </div>
 
                     <div class="file-field input-field">
                       <div class="btn">
                         <span>Upload Image</span>
-                        <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                        <input required type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                       </div>
 
                       <div class="file-path-wrapper">
