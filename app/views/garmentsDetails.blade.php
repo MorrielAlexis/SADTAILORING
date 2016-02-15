@@ -9,7 +9,7 @@
     </div>
 
     <div class="row">
-      <div class="col s12 m12 l6">
+      <div class="col s12 m12 l12">
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSegment">ADD NEW SEGMENT</button>
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW SEGMENTS</button>
       </div>
