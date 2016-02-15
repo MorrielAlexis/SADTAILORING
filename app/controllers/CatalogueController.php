@@ -31,7 +31,7 @@ class CatalogueController extends BaseController{
 	}
 
 	public function addCatalogue()
-	{	
+	{	dd(public_path(Input::get('path')));
 		$catalogue = Catalogue::create(array(
 			'strCatalogueID' => Input::get('addCatalogueID'),
 			'strCatalogueCategory' => Input::get('addCategory'),
