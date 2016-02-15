@@ -295,12 +295,12 @@
                                   </div>
 
                                   <div class="input-field">
-                                    <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
+                                    <input required pattern="[A-Za-z\s]+" value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
                                     <label for="measurement_name"> Measurement Name: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validate">
+                                    <input pattern="[A-Za-z\s]+" value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validate">
                                     <label for="measurement_desc">Measurement Description: </label>
                                   </div>
                                 </p>
@@ -336,12 +336,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input required id="addDetailName" name= "addDetailName" type="text" class="validate" required>
+                            <input required pattern="[A-Za-z\s]+" id="addDetailName" name= "addDetailName" type="text" class="validate" required>
                             <label for="measurement_name"> Measurement Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input id="addDetailDesc" name ="addDetailDesc" type="text" class="validate">
+                            <input pattern="[A-Za-z\s]+" id="addDetailDesc" name ="addDetailDesc" type="text" class="validate">
                             <label for="measurement_desc">Measurement Description: </label>
                           </div>
                         </p>
@@ -349,7 +349,7 @@
 
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                       </div>
                     </form>
                   </div>          
@@ -383,6 +383,13 @@
         $('ul.tabs').tabs('select_tab', actTab);
     });
     </script>
+    
+    <script>
+      function clearData(){
+          document.getElementById('addDetailDesc').value = "";
+          document.getElementById('addDetailName').value = "";
 
+      }
+    </script>
 
 @stop

@@ -178,17 +178,17 @@
                           </div>   
 
                           <div class="input-field">
-                            <input pattern="[^1-9][^0-8]+\d{9}" value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validate">
+                            <input required pattern="[^1-9][^0-8]+\d{9}" value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validate">
                             <label for="cellphone_number">Cellphone Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input pattern="[0-9]{7}" value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validate">
+                            <input required pattern="[0-9]{7}" value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validate">
                             <label for="landline_number">Landline Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
+                            <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
                             <label for="email">Email Address: </label>
                           </div>
                           </p>
@@ -306,17 +306,17 @@
                   </div>   
                    
                   <div class="input-field">
-                    <input pattern="[^1-9][^0-8]+\d{9}" id="addCellNo" name="addCellNo" type="text" class="validate">
+                    <input required pattern="[^1-9][^0-8]+\d{9}" id="addCellNo" name="addCellNo" type="text" class="validate">
                     <label for="cellphone_number">Cellphone Number: </label>
                   </div>
 
                   <div class="input-field">
-                    <input pattern="[0-9]{7}" id="addPhoneNo" name="addPhoneNo" type="text" class="validate">
+                    <input required pattern="[0-9]{7}" id="addPhoneNo" name="addPhoneNo" type="text" class="validate">
                     <label for="landline_number">Landline Number: </label>
                   </div>
 
                   <div class="input-field">
-                    <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addEmail" name="addEmail" type="email" class="validate">
+                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addEmail" name="addEmail" type="email" class="validate">
                     <label for="email" data-error="wrong" data-success="right">Email Address: </label>
                   </div>
 
