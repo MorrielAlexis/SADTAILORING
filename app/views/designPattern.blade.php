@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <!--MODAL: VIEW ALL DESIGNN PATTERNS-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>INACTIVE DESIGN PATTERNS</h4>
