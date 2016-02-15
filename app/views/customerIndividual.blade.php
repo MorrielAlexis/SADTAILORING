@@ -116,12 +116,12 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate">
+                          <input id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
                           <label for="first_name"> First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate">
+                          <input id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
                           <label for="last_name"> Last Name </label>
                         </div>
 
@@ -149,7 +149,7 @@
 
                       <div class="modal-footer">
                         <button type="submit" class="waves-effect waves-green btn-flat">Update</button> 
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>    
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>    
                       </div>
                     </form>
                     </div>
@@ -183,7 +183,7 @@
 
                           <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
                     </div>
@@ -213,17 +213,17 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addFName" name = "addFName" type="text" class="validate">
+                  <input id="addFName" name = "addFName" type="text" class="validate" required>
                   <label for="first_name"> First Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addLName" name = "addLName" type="text" class="validate">
+                  <input id="addLName" name = "addLName" type="text" class="validate" required>
                   <label for="last_name"> Last Name </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addAddresss" name = "addAddress" type="text" class="validate">
+                  <input id="addAddress" name = "addAddress" type="text" class="validate">
                   <label for="address"> Address: </label>
                 </div>
 
@@ -246,7 +246,7 @@
 
               <div class="modal-footer">
                 <button type="submit" class="waves-effect waves-green btn-flat">Save</button> 
-                <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>     
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>     
               </div>
             </form>
             </div>
@@ -257,10 +257,4 @@
     @stop
 
 @section('scripts')
-    <script>
-    $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-    });
-    </script>
 @stop

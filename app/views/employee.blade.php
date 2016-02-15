@@ -69,7 +69,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -132,11 +132,11 @@
 
                           <div class="input-field">
                             <label for="first_name">Employee First Name: </label>
-                            <input value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
+                            <input required value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
+                            <input required  value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
                             <label for="LastName">Employee Last Name: </label>
                           </div>
 
@@ -151,7 +151,7 @@
                           </div>  
 
                           <div class="input-field">                                                    
-                            <select name='editRoles'>
+                            <select required name='editRoles'>
                               <option disabled>Pick a role</option>
                                 @foreach($roles as $id=>$name)
                                     @if($employee->strRole == $id)
@@ -164,7 +164,7 @@
                           </div>   
 
                           <div class="input-field">                                                    
-                            <select name='editSex'>
+                            <select required name='editSex'>
                               <option disabled>Sex</option>
                                   @if($employee->strSex == "M")
                                     <option selected value="{{$employee->strSex}}">Male</option>
@@ -195,7 +195,7 @@
 
                         <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">UPDATE</button>
-                          <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
                       </form>
                     </div> 
@@ -239,7 +239,7 @@
 
                         <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
                       </form>
                     </div>
@@ -254,11 +254,7 @@
             <div class = "clearfix">
 
             </div>
-           
-
-
-          
-          
+                
             <!-- <Modal Structure for Add Employee> -->
     			<div id="newemp" class="modal modal-fixed-footer">
             <form action="/addEmployee" method="POST" id="addEmployee" name="addEmployee">
@@ -272,12 +268,12 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addFirstName" name="addFirstName" type="text" class="validate" required>
+                    <input required pattern="[A-Za-z]+" id="addFirstName" name="addFirstName" type="text" class="validate" required>
                     <label for="first_name">First Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addLastName" name="addLastName" type="text" class="validate" required>
+                    <input required pattern="[A-Za-z'\]\s+" id="addLastName" name="addLastName" type="text" class="validate" required>
                     <label for="last_name">Last Name: </label>
                   </div>
 
@@ -287,39 +283,39 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addAge" name="addAge" type="text" class="validate">
+                    <input pattern="[0-9]{1,2}" id="addAge" name="addAge" type="text" class="validate">
                     <label for="Age">Age: </label>
                   </div>  
 
                   <div class="input-field">
                     <select name='addRoles' id='addRoles' required>
-                      <option selected disabled>Pick a role</option>
                       @foreach($roles as $id=>$name)
-                      <option value="{{ $id }}">{{ $name }}</option>
+                        <option value="{{ $id }}" selected>{{ $name }}</option>
                       @endforeach
                     </select>   
+                    <label>Role</label>
                   </div>      
 
                   <div class="input-field">
-                    <select name='addSex' id='addSex' required>
-                      <option selected disabled>Sex</option>
+                    <select value="" name='addSex' id='addSex' required>
                       <option value="M">Male</option>
                       <option value="F">Female</option>
                     </select>    
+                    <label >Sex</label>
                   </div>   
                    
                   <div class="input-field">
-                    <input id="addCellNo" name="addCellNo" type="text" class="validate">
+                    <input pattern="[^1-9][^0-8]+\d{9}" id="addCellNo" name="addCellNo" type="text" class="validate">
                     <label for="cellphone_number">Cellphone Number: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addPhoneNo" name="addPhoneNo" type="text" class="validate">
+                    <input pattern="[0-9]{7}" id="addPhoneNo" name="addPhoneNo" type="text" class="validate">
                     <label for="landline_number">Landline Number: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addEmail" name="addEmail" type="email" class="validate">
+                    <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addEmail" name="addEmail" type="email" class="validate">
                     <label for="email" data-error="wrong" data-success="right">Email Address: </label>
                   </div>
 
@@ -327,8 +323,8 @@
               </div>
 
               <div class="modal-footer">
-                <button type="submit" id="send" name="send" class="modal-action  waves-effect waves-green btn-flat">ADD</button>
-                <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CANCEL</a>
+                <button type="submit" id="send" name="send" class="modal-action waves-effect waves-green btn-flat">ADD</button>
+                <button type="button" onclick="clearData()" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button>
               </div>
             </form>
           </div>
@@ -361,9 +357,20 @@
 
       $('select').material_select();
 
-      $('.modal-trigger').leanModal();
-
     });
+    </script>
+  
+    <script>
+      function clearData(){
+          document.getElementById("addFirstName").value = "";
+          document.getElementById("addLastName").value = "";
+          document.getElementById("addAddress").value = "";
+          document.getElementById("addAge").value = "";
+          document.getElementById("addCellNo").value = "";
+          document.getElementById("addPhoneNo").value = "";
+          document.getElementById("addEmail").value = "";
+      }
+
     </script>
 
 @stop

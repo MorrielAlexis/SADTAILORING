@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="input-field">                                                    
-                          <select name='editSegment'>
+                          <select name='editSegment' required>
                             <option disabled>Pick a segment</option>
                               @foreach($segment as $id=>$name)
                                   @if($pattern->strDesignSegmentName == $id)
@@ -111,7 +111,7 @@
 
 
                         <div class="input-field">
-                          <input value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
+                          <input requiredvalue = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
                           <label for="pattern_name">Pattern Name: </label>
                         </div>
 
@@ -131,13 +131,18 @@
                   
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
+<<<<<<< HEAD
                  </div>  
 
 
                  <!-- DELETE DESIGN PATTERN --> 
+=======
+                 </div>   
+                 
+>>>>>>> 32d618f33876649d91d0e752162fc1de7c69f33f
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
@@ -179,7 +184,7 @@
  
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>              
 
@@ -210,17 +215,18 @@
                 </div>
 
                 <div class="input-field">
-                  <select id="addSegment" name="addSegment">
+                  <select required id="addSegment" name="addSegment">
                     <option disabled selected>Choose a segment:</option>
                         @foreach($segment as $id=>$name)
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
-
+                  @endif
+                @endforeach  
                 </div>   
 
                 <div class="input-field">
-                  <input id="addPatternName" name= "addPatternName" type="text" class="validate">
+                  <input required id="addPatternName" name= "addPatternName" type="text" class="validate">
                   <label for="pattern_name">Pattern Name: </label>
                 </div>
 
@@ -240,7 +246,7 @@
 
               <div class="modal-footer">
                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
               </div>
               </form>
             </div>	
@@ -253,13 +259,6 @@
 @stop
 
 @section('scripts')
-    <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-
      <script>
       $(document).ready(function(){
       $('select').material_select();

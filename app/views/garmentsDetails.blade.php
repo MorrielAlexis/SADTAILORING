@@ -44,7 +44,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -89,7 +89,7 @@
                               </div>
 
                               <div class="input-field">                                                    
-                                <select name="editCategory" id="editCategory">
+                                <select required name="editCategory" id="editCategory">
                                   <option disabled>Pick a category</option>
                                   @foreach($category as $id=>$name)
                                     @if($segment->strCategory == $id)
@@ -102,7 +102,7 @@
                               </div>   
                         
                               <div class="input-field">
-                                <input value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validate">
+                                <input required value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validate">
                                 <label for="segment_name">Segment Name: </label>
                               </div>
 
@@ -115,7 +115,7 @@
 
                           <div class="modal-footer">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                            <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
                         </form>
                       </div>
@@ -156,7 +156,7 @@
 
                           <div class="modal-footer">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                            <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
                         </form>
                       </div>
@@ -196,7 +196,7 @@
                       </div>  
 
                       <div class="input-field">
-                        <input id="addSegmentName" name= "addSegmentName" type="text" class="validate">
+                        <input required id="addSegmentName" name= "addSegmentName" type="text" class="validate">
                         <label for="segment_name">Segment Name: </label>
                       </div>
 
@@ -209,7 +209,7 @@
 
                   <div class="modal-footer">
                     <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                    <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                   </div>
                 </form>
               </div>
@@ -220,13 +220,6 @@
 @stop
 
 @section('scripts')
-    <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-
     <script>
       $(document).ready(function(){
       $('select').material_select();

@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validate">
+                          <input required value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validate">
                           <label for="fabrictype_name">Fabric Type Name: </label>
                         </div>
 
@@ -69,7 +69,7 @@
 
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                       </form>
                     </div> <!-- editFabricType  -->    
@@ -96,7 +96,7 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validate">
+                    <input required id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validate">
                     <label for="fabrictype_name">Fabric Name: </label>
                   </div>
 
@@ -110,7 +110,7 @@
 
                   <div class="modal-footer">
                     <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                    <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                   </div>
                 </form>
     	       </div><!-- addFabricType  -->
@@ -124,11 +124,4 @@
 @stop
 
 @section('scripts')
-    <script>
-      $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-      });
-    </script>
-
 @stop
