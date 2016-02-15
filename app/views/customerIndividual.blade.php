@@ -261,7 +261,7 @@
     @stop
 
 @section('scripts')
-<script>
+    <script>
       function clearData(){
           document.getElementById("addFName").value = "";
           document.getElementById("addLName").value = "";

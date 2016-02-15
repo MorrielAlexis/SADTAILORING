@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z'\]\s+" id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
                           <label for="company_name"> Company Name: </label>
                         </div>
 
@@ -127,27 +127,27 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
+                          <input pattern="[A-Za-z'\]\s+" id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
                           <label for="company_name"> Contact Person: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validate">
+                          <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validate">
                           <label for="com_email_address"> Company Email Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validate">
+                          <input pattern="[^1-9][^0-8]+\d{9}"  id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validate">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validate">
+                          <input pattern="[0-9]{7}" id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validate">
                           <label for="tel"> Telephone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validate">
+                          <input pattern="[0-9]{7}" id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validate">
                           <label for="fax"> Fax Number: </label>
                         </div>
                         </p>
@@ -212,7 +212,7 @@
               </div>
 
               <div class="input-field">
-                <input required id="addComName" name = "addComName" type="text" class="validate">
+                <input required pattern="[A-Za-z'\]\s+" id="addComName" name = "addComName" type="text" class="validate">
                 <label for="company_name"> Company Name: </label>
               </div>
 
@@ -222,27 +222,27 @@
               </div>
 
               <div class="input-field">
-                <input id="addConPerson" name = "addConPerson" type="text" class="validate">
+                <input pattern="[A-Za-z'\]\s+" id="addConPerson" name = "addConPerson" type="text" class="validate">
                 <label for="company_name"> Contact Person: </label>
               </div>
 
               <div class="input-field">
-                <input id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
+                <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
                 <label for="com_email_address"> Company Email Address: </label>
               </div>
 
               <div class="input-field">
-                <input id="addCel" name = "addCel" type="text" class="validate">
+                <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate">
                 <label for="cellphone"> Cellphone Number: </label>
               </div>
 
               <div class="input-field">
-                <input id="addPhone" name = "addPhone" type="text" class="validate">
+                <input pattern="[0-9]{7}" id="addPhone" name = "addPhone" type="text" class="validate">
                 <label for="tel"> Telephone Number: </label>
               </div>
 
               <div class="input-field">
-                <input id="addFax" name = "addFax" type="text" class="validate">
+                <input pattern="[0-9]{7}" id="addFax" name = "addFax" type="text" class="validate">
                 <label for="fax"> Fax Number: </label>
               </div>
               </p>
@@ -250,7 +250,7 @@
 
             <div class="modal-footer">
               <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+              <button type="submit" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>
             </div>
             </form>
           </div>     
@@ -261,6 +261,18 @@
     @stop
 
 @section('scripts')	 
+    <script>
+      function clearData(){
+          document.getElementById("addComName").value = "";
+          document.getElementById("addConPerson").value = "";
+          document.getElementById("addAddress").value = "";
+          document.getElementById("addCel").value = "";
+          document.getElementById("addPhone").value = "";
+          document.getElementById("addComEmailAdd").value = "";
+          document.getElementById("addFax").value = "";
+      }
+
+    </script>
 @stop                             
 		
  
