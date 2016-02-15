@@ -52,6 +52,7 @@ Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarm
 Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarmentSegment'));
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
 Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
+Route::post('/reactGarmentSegment', array('uses' => 'GarmentsController@reactGarmentSegment'));
 //////////////////////CRUD FOR MEASUREMENT DETAIL//////////////////////
 Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));
 Route::post('/editMeasurementDetail', array('uses' => 'MeasurementController@editDetail'));
