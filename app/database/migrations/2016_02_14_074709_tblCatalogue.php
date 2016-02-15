@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblCatalogue extends Migration {
+class tblCatalogue extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class TblCatalogue extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblCatalogue', function(Blueprint $table){
+		Schema::create('tblCatalogue', function(Blueprint $table){
 			$table->string('strCatalogueID')->primary();
 			$table->string('strCatalogueCategory')->index();
 			$table->string('strCatalogueName');

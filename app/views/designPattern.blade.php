@@ -53,7 +53,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -130,7 +130,7 @@
                       <!-- DELETE DESIGN PATTERN -->
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
                  </div>   
@@ -176,7 +176,7 @@
  
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>              
 
@@ -212,8 +212,7 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
-                  @endif
-                @endforeach  
+            
                 </div>   
 
                 <div class="input-field">
