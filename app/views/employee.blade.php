@@ -75,7 +75,7 @@
 
     <div class="row">
     	<div class="col s12 m12 l12">
-    		<div class="card-panel">
+    		<div style = "left: 0%; right: 0%; width: 100%;" class="card-panel">
    		    <span class="card-title"><h5><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
