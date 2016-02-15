@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSwatches">ADD NEW SWATCH</button>
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL SWATCHES</button>
+        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE SWATCHES</button>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ALL SWATCHES</h4>
+      <h4>INACTIVE SWATCHES</h4>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -42,11 +42,14 @@
               <td>{{ $swatch2->strSwatchCode }}</td>
               <td>{{ $swatch2->strSwatchImageLink }}</td>
               <td>
-              <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#">REACTIVATE</button></td>
+               <form action="/reactSwatch" method="POST">
+                  <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactID" name="reactID">
+              <button type="type" class="modal-trigger waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+              </form>
             </tr>
-        </tbody>
         @endif
         @endforeach
+        </tbody>
       </table>
     </div>
   
@@ -84,6 +87,9 @@
                     <td>{{ $swatch->strSwatchCode }}</td>
                     <td>{{ $swatch->strSwatchImageLink }}</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button>
+                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$swatch->strSwatchID}}">DELETE</button>
+
+
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
@@ -148,6 +154,75 @@
               <div class = "clearfix">
 
               </div>
+
+
+               <!--  <Modal for Delete Swatch> -->
+                  <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
+                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                         <div class="modal-content">
+                        <p>
+                         <form action="/delSwatch" method="POST">
+                         <div class="input-field">
+                            <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="validate">
+                            <label for="swatch_id">Swatch ID: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <select name='editFabric'>
+                              <option value="" disabled>Select Fabric Type</option>
+                                @foreach($fabricType as $id=>$name)
+                                  @if($swatch->strSwatchFabricTypeName == $id)
+                                    <option value="{{$id}}" selected>{{$name}}</option>
+                                  @else
+                                    <option value="{{$id}}">{{$name}}</option>
+                                  @endif
+                                @endforeach
+                            </select>
+                          </div>  
+
+                          <div class="input-field">
+                            <input value="{{$swatch->strSwatchName}}" id="delSwatchName" name = "delSwatchName" type="text" class="validate">
+                            <label for="swatch_name">Swatch Name: </label>
+                          </div>    
+
+                          <div class="input-field">
+                            <input value="{{$swatch->strSwatchCode}}" id="delSwatchCode" name = "delSwatchCode" type="text" class="validate">
+                            <label for="swatch_code">Swatch Code: </label>
+                          </div>
+
+                          <div class="file-field input-field">
+                            <div class="btn">
+                              <span>Upload Image</span>
+                              <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text">
+                            </div>
+                          </div>
+                          </p>
+                          <br><br>
+                        </div>
+                        </p>
+                      
+
+                      <div class="modal-footer">
+                          <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">GO</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                      </div> 
+                     </form>
+                    </div>
+                 </td> 
+                </tr>
+              </tbody>
+            </table>
+
+            </div>
+
+            <div class = "clearfix">
+
+            </div>
+
+
 
            <!--    <Modal Structure for Add swatches> -->
               <div id="addSwatches" class="modal modal-fixed-footer">

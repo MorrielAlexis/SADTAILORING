@@ -114,6 +114,31 @@ class FabricAndMaterialsController extends BaseController{
 	}
 
 
+	public function delSwatch()
+	{
+		$id = Input::get('delSwatchID');
+		$swatch = Swatch::find($id);
+
+		$swatch->boolIsActive = 0;
+
+		$swatch->save();
+		return Redirect::to('/fabricAndMaterialsSwatches');
+	}
+
+	public function reactSwatch()
+	{
+		$id = Input::get('reactID');
+		$swatch = Swatch::find($id);
+
+		$swatch->boolIsActive = 1;
+
+		$swatch->save();
+		return Redirect::to('/fabricAndMaterialsSwatches');
+	}
+
+
+
+
 	public function smartCounter($id)
 	{	
 
