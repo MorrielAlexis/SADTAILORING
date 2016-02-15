@@ -134,6 +134,7 @@
                       </div>
                     </form>
                  </div>   
+                 
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
@@ -211,7 +212,8 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
-
+                  @endif
+                @endforeach  
                 </div>   
 
                 <div class="input-field">
