@@ -118,6 +118,11 @@
         overflow-x: auto;
         }
 
+        .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active {
+        background-color: transparent;
+        
+        }
+
        
 
 
