@@ -13,7 +13,10 @@
 
     <body>
 
-      <header> 
+      <header>
+        <div align = "right">
+          <font size = "+3" color = "white" style="margin-right:20px">Tailoring Management System</font>
+        </div>
       </header>
 
       <nav id="slide-out" class="side-nav fixed" style="position fixed; top: 0; padding-top:0px; margin-top:0px;"> 

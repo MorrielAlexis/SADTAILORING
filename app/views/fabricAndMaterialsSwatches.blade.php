@@ -129,7 +129,7 @@
                               <div class="file-field input-field">
                                 <div class="btn">
                                   <span>Upload Image</span>
-                                  <input type="file">
+                                  <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                 </div>
                                 <div class="file-path-wrapper">
                                   <input class="file-path validate" type="text">
@@ -235,7 +235,7 @@
                     <div class="file-field input-field">
                       <div class="btn">
                         <span>Upload Image</span>
-                        <input type="file">
+                        <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                       </div>
 
                       <div class="file-path-wrapper">
