@@ -15,7 +15,7 @@ class TblEmployeeRole extends Migration {
 		Schema::create('tblEmployeeRole', function(Blueprint $table){
 			$table->string('strEmpRoleID')->primary();
 			$table->string('strEmpRoleName');
-			$table->text('txtEmpRoleDesc');
+			$table->string('strEmpRoleDesc', 255);
 			$table->timestamps();
 			$table->boolean('boolIsActive');
 

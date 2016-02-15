@@ -6,7 +6,7 @@ class FabricType extends Eloquent {
 	protected $primaryKey = 'strFabricTypeID';
 	protected $fillable = array('strFabricTypeID',
 								 'strFabricTypeName',
-								 'textFabricTypeDesc',
+								 'strFabricTypeDesc',
 								 'boolIsActive');
 	
 }
