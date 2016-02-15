@@ -25,8 +25,9 @@ class CatalogueController extends BaseController{
 				->get();
 
 		return View::make('catalogue')
-					->with('catalogue', $catalogue)
 					->with('newID', $newID)
+					->with('catalogue', $catalogue)
+					->with('catalogue2', $catalogue)
 					->with('category', $category);
 	}
 
@@ -55,6 +56,29 @@ class CatalogueController extends BaseController{
 		$catalogue->strCatalogueName = Input::get('editCatalogueName');
 		$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
 		$catalogue->strCatalogueImage = '';
+		$catalogue->boolIsActive = 1;
+
+		$catalogue->save();
+		return Redirect::to('/catalogue');
+	}
+
+	public function delCatalogue()
+	{
+		$id = Input::get('delCatalogueID');
+		$catalogue = Catalogue::find($id);
+
+		$catalogue->boolIsActive = 0;
+
+		$catalogue->save();
+		return Redirect::to('/catalogue');
+	}
+
+
+	public function reactCatalogue()
+	{
+		$id = Input::get('reactID');
+		$catalogue = Catalogue::find($id);
+
 		$catalogue->boolIsActive = 1;
 
 		$catalogue->save();

@@ -12,7 +12,7 @@ class TblCatalogue extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblCatalogue', function(Blueprint $table){
+		Schema::create('tblCatalogue', function(Blueprint $table){
 			$table->string('strCatalogueID')->primary();
 			$table->string('strCatalogueCategory')->index();
 			$table->string('strCatalogueName');
@@ -23,7 +23,7 @@ class TblCatalogue extends Migration {
 		});
 
 
-		Schema::table('TblCatalogue', function(Blueprint $table){
+		Schema::table('tblCatalogue', function(Blueprint $table){
 
 			$table->foreign('strCatalogueCategory')->references('strGarmentCategoryID')->on('tblGarmentCategory');
 			});

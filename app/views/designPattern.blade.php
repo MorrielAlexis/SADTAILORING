@@ -109,6 +109,7 @@
                           </select>    
                         </div>   
 
+
                         <div class="input-field">
                           <input value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
                           <label for="pattern_name">Pattern Name: </label>
@@ -125,15 +126,18 @@
                           </div>
                         </div>
                         </p>
+                        <br><br>
                       </div>
                   
-                      <!-- DELETE DESIGN PATTERN -->
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
                         <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
-                 </div>   
+                 </div>  
+
+
+                 <!-- DELETE DESIGN PATTERN --> 
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
@@ -188,6 +192,7 @@
             </table>
 
             </div>
+
 
             <div class = "clearfix">
 

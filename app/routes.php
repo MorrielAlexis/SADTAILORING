@@ -68,8 +68,10 @@ Route::post('/editDesignPattern', array('uses' => 'DesignPatternController@editP
 Route::post('/delDesignPattern', array('uses' => 'DesignPatternController@delPattern'));
 Route::post('/reactDesignPattern', array('uses' => 'DesignPatternController@reactPattern'));
 //////////////////////CRUD FOR CATALOGUE//////////////////////
-Route::post('/addCatalogue', array('uses' => 'CatalogueController@addCatalogue'));
-Route::post('/editCatalogue', array('uses' => 'CatalogueController@editCatalogue'));
+Route::post('/addCatalogueDesign', array('uses' => 'CatalogueController@addCatalogue'));
+Route::post('/editCatalogueDesign', array('uses' => 'CatalogueController@editCatalogue'));
+Route::post('/delCatalogueDesign', array('uses' => 'CatalogueController@delCatalogue'));
+Route::post('/reactCatalogueDesign', array('uses' => 'CatalogueController@reactCatalogue'));
 //////////////////////CRUD FOR SWATCHES//////////////////////
 Route::post('/addSwatch', array('uses' => 'FabricAndMaterialsController@addSwatch'));
 Route::post('/editSwatch', array('uses' => 'FabricAndMaterialsController@editSwatch'));
