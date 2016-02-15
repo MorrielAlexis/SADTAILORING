@@ -4,7 +4,8 @@
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
-      <span class="page-title"><h4>Employees</h4></span>
+        <span class="page-title"><h4>Employees</h4></span>
+      </div>
     </div>
 
     <div class="row">
@@ -75,7 +76,7 @@
 
     <div class="row">
     	<div class="col s12 m12 l12">
-    		<div style = "left: 0%; right: 0%; width: 100%;" class="card-panel">
+    		<div class="card-panel">
    		    <span class="card-title"><h5><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
