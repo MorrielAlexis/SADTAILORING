@@ -118,7 +118,7 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file">
+                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
@@ -134,15 +134,11 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
-<<<<<<< HEAD
                  </div>  
 
 
                  <!-- DELETE DESIGN PATTERN --> 
-=======
                  </div>   
-                 
->>>>>>> 32d618f33876649d91d0e752162fc1de7c69f33f
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
@@ -172,7 +168,7 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file"> 
+                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*> 
                           </div>
 
                           <div class="file-path-wrapper">
@@ -221,10 +217,6 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
-<<<<<<< HEAD
-=======
-            
->>>>>>> 58c46d8bf1ea16d25819388528a95e64f96b86a4
                 </div>   
 
                 <div class="input-field">
