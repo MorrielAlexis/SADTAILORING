@@ -38,42 +38,44 @@
                 </thead>
 
                 <tbody>
+                   @foreach($fabricType as $fabricType)
                   <tr>
-              		  <td>id</td>
-              		  <td>Linen</td>
-              		  <td>Hot and silky. For formal events.</td>
-              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editFabricType">EDIT</button>
+              		  <td>{{ $fabricType->strFabricTypeID }}</td>
+              		  <td>{{ $fabricType->strFabricTypeName }}</td>
+              		  <td>{{ $fabricType->textFabricTypeDesc}}</td>
+              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$fabricType->strFabricTypeID}}">EDIT</button>
               	
-                    <div id="editFabricType" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
+                    <div id="{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
                       <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center></font> 
                       <div class="modal-content">
                         <p>
-
+                        <form action="/editFabricType" method="POST">
                         <div class="input-field">
-                          <input value = "editFabricID" id="editFabricID" name = "editFabricID" readonly = "readonly" type="text" class="validate">
-                          <label for="fabric_id">Fabric ID: </label>
+                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="validate" readonly="">
+                          <label for="fabric_typeId">Fabric Type ID: </label>
                         </div>
 
                         <div class="input-field">
-                          <input value = "editFabricName" id="editFabricName" name = "editFabricName" type="text" class="validate">
-                          <label for="fabric_name">Fabric Name: </label>
+                          <input value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validate">
+                          <label for="fabrictype_name">Fabric Type Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input value = "editFabricDescription" id="editFabricDescription" name = "editFabricDescription" type="text" class="validate">
-                          <label for="fabric_description">Fabric Desription: </label>
+                          <input value = "{{ $fabricType->textFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
+                          <label for="fabrictype_description">Fabric Desription: </label>
                         </div>  
                         </p>
                       </div>
 
                       <div class="modal-footer">
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</a>
+                        <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
 
                     </div> <!-- editFabricType  -->    
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
               </table>
 
@@ -86,28 +88,28 @@
               <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
                 <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
                 <div class="modal-content">
-                  <p>
-
+                <p>
+                <form action="/addFabricType" method="POST">
                   <div class="input-field">
-                    <input value = "addFabricID" id="addFabricID" name = "addFabricID" readonly = "readonly" type="text" class="validate">
-                    <label for="fabric_id">Fabric ID: </label>
+                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="validate" readonly>
+                    <label for="fabrictype_id">Fabric ID: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addFabricName" name = "addFabricName" type="text" class="validate">
-                    <label for="fabric_name">Fabric Name: </label>
+                    <input id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validate">
+                    <label for="fabrictype_name">Fabric Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addFabricDescription" name = "addFabricDescription" type="text" class="validate">
-                    <label for="fabric_description">Fabric Desription: </label>
+                    <input id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validate">
+                    <label for="fabrictype_description">Fabric Desription: </label>
                   </div>
 
                   </p>
                 </div>
 
                 <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+                  <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
                     

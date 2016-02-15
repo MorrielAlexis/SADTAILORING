@@ -83,9 +83,14 @@
           </div>
         
 
+<<<<<<< HEAD
+    			<div id="addRole" class="modal modal-fixed-footer">
+            <font color = "teal" size = "+3" back ></h5><center> Add Employee Role </h5></center></font>
+=======
     			<div id="addRole" class="modal">
             <font color = "teal" size = "+3" back ></h5><center> Add Employee Role </center></h5></font>
             <form action="/addRole" method="POST">
+>>>>>>> 102aa51d7756df89bbe6cd3d5ab854bb38337965
               <div class="modal-content">
                 <p>
                   <div class="input-field">

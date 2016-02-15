@@ -91,6 +91,18 @@ Route::post('/delCustCompany', array('uses' => 'CustomerController@delCustCompan
 
 Route::post('/editCustCompany', array('uses' => 'GarmentsController@editCustCompany'));
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addfabricType'));
+
+Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editfabricType'));
+
+=======
+
+=======
+
+>>>>>>> 403756678f948cfdc72aec2ca57ff4cd06db271a
 Route::post('/reactCustCompany', array('uses' => 'CustomerController@reactCustCompany'));
 
 Route::post('/addDesignPattern', array('uses' => 'DesignPatternController@addPattern'));
@@ -100,4 +112,9 @@ Route::post('/editDesignPattern', array('uses' => 'DesignPatternController@editP
 Route::post('/delDesignPattern', array('uses' => 'DesignPatternController@delPattern'));
 
 Route::post('/reactDesignPattern', array('uses' => 'DesignPatternController@reactPattern'));
+<<<<<<< HEAD
 
+=======
+>>>>>>> 00b459109940f51f3850ec02db5ddea1dff4ca3e
+>>>>>>> 102aa51d7756df89bbe6cd3d5ab854bb38337965
+>>>>>>> 403756678f948cfdc72aec2ca57ff4cd06db271a
