@@ -58,7 +58,7 @@
                               </div>
 
                               <div class="input-field">
-                                <input value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+                                <input required value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
                                 <label for="garment_description">Garment Desription: </label>
                               </div>
                             </p>

@@ -134,15 +134,15 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
-<<<<<<< HEAD
+
                  </div>  
 
 
                  <!-- DELETE DESIGN PATTERN --> 
-=======
+
                  </div>   
                  
->>>>>>> 32d618f33876649d91d0e752162fc1de7c69f33f
+
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">

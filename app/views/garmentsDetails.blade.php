@@ -114,7 +114,7 @@
                               </div>
 
                               <div class="input-field">
-                                <input value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
+                                <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
                                 <label for="segment_description"Segment Description: </label>
                               </div>
                             </p>
@@ -208,7 +208,7 @@
                       </div>
 
                       <div class="input-field">
-                        <input id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
+                        <input required id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
                         <label for="segment_description">Segment Description: </label>
                       </div>
                     </p>

@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
+                          <input required value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
                           <label for="fabrictype_description">Fabric Desription: </label>
                         </div>  
                         </p>
@@ -101,7 +101,7 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validate">
+                    <input required="" id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validate">
                     <label for="fabrictype_description">Fabric Desription: </label>
                   </div>
 
