@@ -2,7 +2,6 @@
 
 @section('content')
 
-
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -41,12 +40,13 @@
             </thead>
 
             <tbody>
+              @foreach($catalogue as $catalogue)
               <tr>
-                <td>001</td>
-                <td>Gown</td>
-              	<td>Promenade Dress</td>
-              	<td>Short, simple and elegant.</td>
-                <td>image</td>
+                <td>{{ $catalogue->strCatalogueID }}</td>
+                <td>{{ $catalogue->strGarmentCategoryName }}</td>
+              	<td>{{ $catalogue->strCatalogueName }}</td>
+              	<td>{{ $catalogue->txtCatalogueDesc }}</td>
+                <td>Click here to view image </td>
               	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editCatalogue">EDIT</button>
                         
                   <div id="editCatalogue" class="modal modal-fixed-footer">
@@ -103,6 +103,7 @@
 
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
 
@@ -116,9 +117,9 @@
             <font color = "teal"><h5><center>Add Catalogue </center></h5></font> 
             <div class="modal-content">
               <p>
-
+              <form action='/addCatalogue' method="POST">
               <div class="input-field">
-                <input value="addCatalogueID" id="addCatalogueID" name="addCatalogueID" type="text" class="validate" readonly = "readonly">
+                <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="validate" readonly>
                 <label for="Catalogue_id">Catalogue ID: </label>
               </div>
 
@@ -160,8 +161,8 @@
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>                    
             </div>
+          </form>
           </div>
-
         </div>	
       </div>
     </div>

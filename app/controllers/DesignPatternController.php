@@ -20,6 +20,7 @@ class DesignPatternController extends BaseController{
 		$pattern = DB::table('tblDesignPattern')
 				->join('tblGarmentSegment', 'tblDesignPattern.strDesignSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
 				->select('tblDesignPattern.*', 'tblGarmentSegment.strGarmentSegmentName')
+				->orderBy('strDesignPatternID')
 				->get();
 
 		return View::make('designPattern')
