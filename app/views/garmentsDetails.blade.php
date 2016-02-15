@@ -44,7 +44,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -114,8 +114,8 @@
                           </div>
 
                           <div class="modal-footer">
-                            <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
+                            <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
                         </form>
                       </div>
@@ -155,8 +155,8 @@
                           </div>
 
                           <div class="modal-footer">
-                            <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">GO</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
+                            <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
                         </form>
                       </div>
@@ -208,8 +208,8 @@
                   </div>
 
                   <div class="modal-footer">
-                    <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                    <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
+                    <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
                   </div>
                 </form>
               </div>

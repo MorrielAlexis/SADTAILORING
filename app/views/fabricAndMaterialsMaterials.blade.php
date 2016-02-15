@@ -75,8 +75,8 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
@@ -153,8 +153,8 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
@@ -238,8 +238,8 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
@@ -324,8 +324,8 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
@@ -421,8 +421,8 @@
                       </div>    
 
                       <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</a>
+                        <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                       </div>
 
                     </div>
@@ -449,7 +449,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -462,7 +462,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -475,7 +475,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -488,7 +488,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
@@ -501,7 +501,7 @@
   
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" class="modal-action  waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 

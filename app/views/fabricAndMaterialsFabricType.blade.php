@@ -68,8 +68,8 @@
                       </div>
 
                       <div class="modal-footer">
-                        <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
+                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                       </form>
                     </div> <!-- editFabricType  -->    
@@ -109,8 +109,8 @@
                 </div>
 
                   <div class="modal-footer">
-                    <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                    <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
+                    <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
                   </div>
                 </form>
     	       </div><!-- addFabricType  -->

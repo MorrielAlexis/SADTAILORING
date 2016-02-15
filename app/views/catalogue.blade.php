@@ -37,7 +37,7 @@
                 <th data-field="Description">Description</th>
                 <th data-field="Image">Image</th>
               </tr>
-            </thead>
+            </thead
 
             <tbody>
               @foreach($catalogue as $catalogue)
@@ -98,8 +98,8 @@
 
                   
                     <div class="modal-footer">
-                      <button type="submit" class="modal-action modal-close waves-effect waves-green btn btn-flat">UPDATE</button>
-                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                      <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
+                      <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
                     </div>
                   </div>
                 </form>
@@ -160,8 +160,8 @@
             </div> 
             
             <div class="modal-footer">                  
-              <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>                    
+              <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
+              <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a>                    
             </div>
           </form>
           </div>
