@@ -124,7 +124,7 @@
                       </div>
 
                       <div class="input-field">
-                        <input required pattern="[A-Za-z\' ]+" value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validate">
+                        <input  value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validate">
                         <label for="Category_Desc">Catalogue Description </label>
                       </div>
 
