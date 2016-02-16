@@ -146,7 +146,7 @@
                   
                     <div class="modal-footer">
                       <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
-                      <a href="#!" class="modal-action  waves-effect waves-green btn btn-flat">CANCEL</a>  
+                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
                     </div>
                   </form>
                 </div>
@@ -183,7 +183,7 @@
                     </div>
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
                     
@@ -199,12 +199,13 @@
 
 
 
-            <!-- ADD DESIGN IN CATALOGUE -->
+           
 
           <div class = "clearfix">
 
           </div>
 
+             <!-- ADD DESIGN IN CATALOGUE -->
           <div id="addCatalogue" class="modal modal-fixed-footer">
             <font color = "teal"><h5><center>Add Catalogue </center></h5></font> 
             <div class="modal-content">
@@ -225,12 +226,12 @@
               </div>      
 
               <div class="input-field">
-                <input pattern="[A-Za-z\' ]+" id="addCatalogueName" name = "addCatalogueName" type="text" class="validate" required>
+                <input pattern="[A-Za-z\s]+" id="addCatalogueName" name = "addCatalogueName" type="text" class="validate" required>
                 <label for="Catalogue_Name"> Catalogue Name </label>
               </div>
 
               <div class="input-field">
-                <input required pattern="[A-Za-z\' ]+" id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validate">
+                <input required pattern="[A-Za-z\s]+" id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validate">
                 <label for="Category_Desc">Category Description </label>
               </div>
 

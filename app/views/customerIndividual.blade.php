@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate">
+                          <input id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate" required>
                           <label for="address"> Address: </label>
                         </div>
 
@@ -136,7 +136,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[^1-9][^0-8]+\d{9}" id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate">
+                          <input pattern="[^1-9][^0-8]+\d{9}" id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate" required>
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
                       
@@ -223,7 +223,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addAddress" name = "addAddress" type="text" class="validate">
+                  <input id="addAddress" name = "addAddress" type="text" class="validate" required>
                   <label for="address"> Address: </label>
                 </div>
 
@@ -233,7 +233,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate">
+                  <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate" required>
                   <label for="cellphone"> Cellphone Number: </label>
                 </div>
 

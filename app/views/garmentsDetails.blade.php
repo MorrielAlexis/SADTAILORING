@@ -114,11 +114,10 @@
                               </div>
 
                               <div class="input-field">
-<<<<<<< HEAD
+
                                 <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
-=======
                                 <input pattern="[A-Za-z\s]+" value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
->>>>>>> f11da501909bd92fdddb9682a98a5377638ba3e0
+
                                 <label for="segment_description"Segment Description: </label>
                               </div>
                             </p>
@@ -212,11 +211,11 @@
                       </div>
 
                       <div class="input-field">
-<<<<<<< HEAD
+
                         <input required id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
-=======
+
                         <input pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
->>>>>>> f11da501909bd92fdddb9682a98a5377638ba3e0
+
                         <label for="segment_description">Segment Description: </label>
                       </div>
                     </p>

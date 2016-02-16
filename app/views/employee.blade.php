@@ -196,7 +196,7 @@
 
                         <div class="modal-footer">
                           <button type="submit" class="waves-effect waves-green btn-flat">UPDATE</button>
-                          <a href="#!" class=" modal-action model-close waves-effect waves-green btn-flat">Cancel</a>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
                       </form>
                     </div> 
