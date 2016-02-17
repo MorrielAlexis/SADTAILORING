@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSegment">ADD NEW SEGMENT</button>
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW SEGMENTS</button>
+        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE SEGMENTS</button>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
       <table class = "table centered data-reactSegment" align = "center" border = "1">
         <thead>
           <tr>
-            <th data-field="id">Garment Details ID</th>
+            <!--<th data-field="id">Garment Details ID</th>-->
             <th data-field="name">Category Name</th>
             <th data-field="name">Segment Name</th>
             <th data-field="address">Segment Description</th>
@@ -34,7 +34,7 @@
             @foreach($segment2 as $segment2)
             @if($segment2->boolIsActive == 0)
             <tr>
-              <td>{{ $segment2->strGarmentSegmentID }}</td>
+              <!--<td>{{ $segment2->strGarmentSegmentID }}</td>-->
               <td>{{ $segment2->strGarmentCategoryName }}</td>
               <td>{{ $segment2->strGarmentSegmentName }}</td>
               <td>{{ $segment2->strGarmentSegmentDesc }}</td>
@@ -68,7 +68,7 @@
       				<table class = "table centered data-garmentsDetails" align = "center" border = "1">
        			    <thead>
           				<tr>
-              			<th data-field="id">Garment Details ID</th>
+              			<!--<th data-field="id">Garment Details ID</th>-->
              		   	<th data-field="name">Category Name</th>
                     <th data-field="name">Segment Name</th>
               			<th data-field="address">Segment Description</th>
@@ -81,7 +81,7 @@
                   @foreach($segment as $segment)
                   @if($segment->boolIsActive == 1)
                   <tr>
-              		  <td>{{ $segment->strGarmentSegmentID }}</td>
+              		  <!--<td>{{ $segment->strGarmentSegmentID }}</td>-->
               		  <td>{{ $segment->strGarmentCategoryName }}</td>
                     <td>{{ $segment->strGarmentSegmentName }}</td>
               		  <td>{{ $segment->strGarmentSegmentDesc }}</td>
@@ -95,8 +95,7 @@
                             <p>  
                           
                               <div class="input-field">
-                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="text" class="validate" readonly>
-                                <label for="garment_details_id">Garment Details ID: </label>
+                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden">
                               </div>
 
                               <div class="input-field">                                                    
@@ -139,8 +138,7 @@
                             <p>  
                           
                               <div class="input-field">
-                                <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="text" class="validate" readonly>
-                                <label for="garment_details_id">Garment Details ID: </label>
+                                <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">
                               </div>
 
                               <div class="input-field">                                                    
@@ -186,8 +184,7 @@
                   <div class="modal-content">
                     <p>
                       <div class="input-field">
-                        <input value="{{ $newID }}" id="addSegmentID" name="addSegmentID" type="text" class="validate" readonly>
-                        <label for="garment_details_id">Garment Segment ID: </label>
+                        <input value="{{ $newID }}" id="addSegmentID" name="addSegmentID" type="hidden">
                       </div>
 
                       <div class="input-field">

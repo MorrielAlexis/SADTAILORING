@@ -24,7 +24,7 @@
       <table class="centered" border="1">
         <thead>
           <tr>
-            <th date-field="Swatch ID">Swatch ID </th>
+            <!--<th date-field="Swatch ID">Swatch ID </th>-->
             <th data-field="Swatch fabric type Name">Swatch Fabric Type Name</th>
             <th data-field="SwatchName">Swatch Name</th>
             <th data-field="SwatchCode">Swatch Code</th>
@@ -37,7 +37,7 @@
             @foreach($swatch2 as $swatch2)
               @if($swatch2->boolIsActive == 0)
             <tr>
-              <td>{{ $swatch2->strSwatchID }}</td>
+              <!--<td>{{ $swatch2->strSwatchID }}</td>-->
               <td>{{ $swatch2->strFabricTypeName }}</td>
               <td>{{ $swatch2->strSwatchName }}</td>
               <td>{{ $swatch2->strSwatchCode }}</td>
@@ -73,7 +73,7 @@
       				<table class = "table centered data-swatches" align = "center" border = "1">
        				 <thead>
           				<tr>
-                    <th date-field="Swatch ID">Swatch ID</th>
+                    <!--<th date-field="Swatch ID">Swatch ID</th>-->
               			<th data-field="Swatch fabric type Name">Swatch Fabric Type Name</th>
              		  	<th data-field="SwatchName">Swatch Name</th>
                     <th data-field="SwatchCode">Swatch Code</th>
@@ -88,7 +88,7 @@
                   @foreach($swatch as $swatch)
                     @if($swatch->boolIsActive == 1)
                   <tr>
-                    <td>{{ $swatch->strSwatchID }}</td>
+                    <!--<td>{{ $swatch->strSwatchID }}</td>-->
                     <td>{{ $swatch->strFabricTypeName }}</td>
                     <td>{{ $swatch->strSwatchName }}</td>
                     <td>{{ $swatch->strSwatchCode }}</td>
@@ -102,9 +102,8 @@
                         <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
                           <div class="modal-content">
                             <p>
-                              <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="validate">
-                                <label for="swatch_id">Swatch ID: </label>
+                             <div class="input-field">
+                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
                               </div>
 
                               <div class="input-field">
@@ -157,12 +156,11 @@
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="validate">
-                                <label for="swatch_id">Swatch ID: </label>
+                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="hidden">
                               </div>
 
                               <div class="input-field">
-                                  <input type="text" value="{{$swatch->strSwatchFabricTypeName}}" readonly>
+                                  <input type="text" value="{{$swatch->strFabricTypeName}}" readonly>
                                   <label>Fabric Type</label>
                               </div>  
 
@@ -207,9 +205,8 @@
                 <div class="modal-content">
                   <p>
 
-                    <div class="input-field">
-                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly class="validate">
-                      <label for="swatch_id">Swatch ID: </label>
+                   <div class="input-field">
+                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">
                     </div>
 
                     <div class="input-field">

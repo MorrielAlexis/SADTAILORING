@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col s12 m12 l6">
       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addGCategory">ADD GARMENT CATEGORY</button>
-      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL GARMENTS</button>
+      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE GARMENTS</button>
      </div>
    </div>
   </div>
@@ -21,8 +21,7 @@
       <table class = "centered" align = "center" border = "1">
         <thead>
           <tr>
-            <th data-field="id">Garment Details ID</th>
-            <th data-field="name">Category Name</th>
+            <!--<th data-field="id">Garment Details ID</th>-->
             <th data-field="name">Category Name</th>
             <th data-field="address">Category Description</th>
             <th>Reactivate</th>
@@ -33,7 +32,7 @@
             @foreach($category2 as $category2)
             @if($category2->boolIsActive == 0)
             <tr>
-              <td>{{ $category2->strGarmentCategoryID }}</td>
+              <!--<td>{{ $category2->strGarmentCategoryID }}</td>-->
               <td>{{ $category2->strGarmentCategoryName }}</td>
               <td>{{ $category2->strGarmentCategoryName }}</td>
               <td>{{ $category2->strGarmentCategoryDesc }}</td>
@@ -69,7 +68,7 @@
             <table class = "table centered data-garments" align = "center" border = "1">
               <thead>
                   <tr>
-                    <th data-field="id">Garment ID</th>
+                    <!--<th data-field="id">Garment ID</th>-->
                     <th data-field="garmentName">Garment Name</th>
                     <th data-field="garmentDescription">Garment Description</th>
                     <th data-field="Edit">Edit</th>
@@ -81,7 +80,7 @@
                 @foreach($category as $category)
                   @if($category->boolIsActive == 1)
                   <tr>
-                    <td>{{ $category->strGarmentCategoryID }}</td>
+                    <!--<td>{{ $category->strGarmentCategoryID }}</td>-->
                     <td>{{ $category->strGarmentCategoryName }}</td>
                     <td>{{ $category->strGarmentCategoryDesc }}</td>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
@@ -94,9 +93,8 @@
                           <div class="modal-content">
                             <p> 
                             
-                              <div class="input-field">
-                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="text" class="validate" readonly>
-                                <label for="garment_id">Garment ID: </label>
+                             <div class="input-field">
+                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
                               </div>
 
                               <div class="input-field">
@@ -127,8 +125,7 @@
                             <p> 
                             
                               <div class="input-field">
-                                <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="text" class="validate" readonly>
-                                <label for="garment_id">Garment ID: </label>
+                                <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="hidden">
                               </div>
 
                               <div class="input-field">
@@ -172,8 +169,7 @@
 
                   <p>               
                     <div class="input-field">
-                      <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="text" class="validate" readonly>
-                      <label for="garment_id">Garment ID: </label>
+                      <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="hidden">
                     </div>
 
                     <div class="input-field">
