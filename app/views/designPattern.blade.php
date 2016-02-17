@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL DESIGNN PATTERNS-->
+  <!--MODAL: VIEW ALL DESIGN PATTERNS-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>INACTIVE DESIGN PATTERNS</h4>
@@ -82,7 +82,7 @@
               		<td>{{ $pattern->strDesignPatternID }}</td>
                   <td>{{ $pattern->strGarmentSegmentName }}</td>
               		<td>{{ $pattern->strPatternName }}</td>
-                  <td>Click here to view image</td>
+                  <td><img src="{{URL::asset('$pattern->strPatternImage')}}"></td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
                       
@@ -90,7 +90,8 @@
                       <font color = "teal"><center><h5> Edit Design Pattern Details</h5></center></font>
                       <div class="modal-content">
                         <p>
-                        <form action="/editDesignPattern" method="POST">
+
+                        <form action="editDesignPattern" method="POST">
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="text" readonly class="validate">
                           <label for="pattern_id">Pattern ID: </label>

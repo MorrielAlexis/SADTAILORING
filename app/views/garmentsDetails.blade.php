@@ -116,9 +116,7 @@
                               <div class="input-field">
 
                                 <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
-                                <input pattern="[A-Za-z\s]+" value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
-
-                                <label for="segment_description"Segment Description: </label>
+                               <label for="segment_description">Segment Description:</label>
                               </div>
                             </p>
                           </div>

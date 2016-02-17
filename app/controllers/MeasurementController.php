@@ -47,6 +47,7 @@ class MeasurementController extends BaseController{
 
 		return View::make('measurements')
 					->with('head', $head)
+					->with('head2', $head)
 					->with('detail', $detail)
 					->with('categoryNewID', $categoryNewID)
 					->with('detailNewID', $detailNewID)
@@ -99,7 +100,7 @@ class MeasurementController extends BaseController{
 	public function editCategory()
 	{
 		$id = Input::get('editMeasurementID');
-		$category = tblMeasurementHeader::find($id);
+		$category = MeasurementHead::find($id);
 
 		$category->strCategoryName = Input::get('editCategory');	
 		$category->strSegmentName= Input::get('editSegment');	
@@ -119,6 +120,19 @@ class MeasurementController extends BaseController{
 		$head->save();
 		return Redirect::to('/measurements');
 	}
+
+
+	public function reactCategory()
+	{
+		$id = Input::get('reactID');
+		$head = MeasurementHead::find($id);
+
+		$head->boolIsActive = 1;
+
+		$head->save();
+		return Redirect::to('/measurements');
+	}
+
 
 	public function smartCounter($id)
 	{	

@@ -60,6 +60,7 @@ Route::post('/editMeasurementDetail', array('uses' => 'MeasurementController@edi
 Route::post('/addMeasurementCategory', array('uses' => 'MeasurementController@addCategory'));
 Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@editCategory'));
 Route::post('/delMeasurementCategory', array('uses' => 'MeasurementController@delCategory'));
+Route::post('/reactMeasurementCategory', array('uses' => 'MeasurementController@reactCategory'));
 //////////////////////CRUD FOR FABRIC TYPE//////////////////////
 Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addFabricType'));
 Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editFabricType'));

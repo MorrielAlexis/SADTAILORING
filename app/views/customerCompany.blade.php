@@ -245,6 +245,7 @@
                 <input pattern="[0-9]{7}" id="addFax" name = "addFax" type="text" class="validate">
                 <label for="fax"> Fax Number: </label>
               </div>
+              <br>
               </p>
               </div>
 

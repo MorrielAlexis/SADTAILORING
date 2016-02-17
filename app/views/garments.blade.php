@@ -58,10 +58,8 @@
                               </div>
 
                               <div class="input-field">
-
-                                <input required value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
-
-                                <input pattern="[A-Za-z\s]+" value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+                      
+                               <input  value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
 
                                 <label for="garment_description">Garment Desription: </label>
                               </div>
@@ -105,7 +103,7 @@
                     </div>
 
                     <div class="input-field">
-                      <input pattern="[A-Za-z\s]+" id="addGarmentDesc" name="addGarmentDesc" type="text" class="validate">
+                      <input  id="addGarmentDesc" name="addGarmentDesc" type="text" class="validate">
                       <label for="garment_description">Garment Desription: </label>
                     </div>
                   </p>

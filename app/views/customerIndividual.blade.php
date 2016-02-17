@@ -241,6 +241,7 @@
                   <input pattern="[0-9]{7}" id="addPhone" name = "addPhone" type="text" class="validate">
                   <label for="tel"> Telephone Number: </label>
                 </div>
+                <br>
                 </p>
                 </div>
 
@@ -261,10 +262,11 @@
       function clearData(){
           document.getElementById("addFName").value = "";
           document.getElementById("addLName").value = "";
-          document.getElementById("addAge").value = "";
+          document.getElementById("addAddress").value = "";
+          document.getElementById("addEmail").value = "";
           document.getElementById("addCel").value = "";
           document.getElementById("addPhone").value = "";
-          document.getElementById("addEmail").value = "";
+          
       }
 
     </script>

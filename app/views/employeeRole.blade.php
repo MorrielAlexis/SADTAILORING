@@ -54,12 +54,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
+                            <input pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
                             <label for="role_name">Role Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
+                            <input  value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
                             <label for="role_description">Role Description: </label>
                           </div>  
                         </p>    
