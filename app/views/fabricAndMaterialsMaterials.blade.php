@@ -15,7 +15,7 @@
     <!--THREADS-->
     <li>
       <div class="collapsible-header">
-        <i class="material-icons">filter_drama</i><h5>THREAD</h5>
+        <i class="material-icons">filter_drama</i><h5>THREADS</h5>
       </div>
       <div class="collapsible-body">
         <div class="col s12 m12 l12 overflow-x">

@@ -49,6 +49,7 @@
         .tab{
             background: aquamarine;
             border: teal;
+            border-radius: 4px;
         }
 
         .tab:hover{

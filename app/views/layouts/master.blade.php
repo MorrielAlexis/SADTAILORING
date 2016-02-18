@@ -65,8 +65,8 @@
   		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Employee</b></a>
                           <div class="collapsible-body">
   				                  <ul> 	
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/employee">Employee Profile</a></li>
                               <li><a style="color:black" class="waves-effect waves-teal" href="/employeeRole">Position Roles</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="/employee">Employee Profile</a></li>
                               <div class="divider"></div>
   				                  </ul>
   			                   </div>
@@ -77,7 +77,7 @@
   				                  <ul> 	
                               <li><a style="color:black" class="waves-effect waves-teal" href="/garments">Category</a></li>
                               <li><a style="color:black" class="waves-effect waves-teal" href="/garmentsDetails">Segment</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/designPattern">Design Pattern</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="/designPattern">Segment Pattern</a></li>
                               <li><a style="color:black" class="waves-effect waves-teal" href="/measurements">Measurements</a></li> 
                               <div class="divider"></div>
   				                  </ul>
