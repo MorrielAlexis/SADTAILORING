@@ -51,7 +51,8 @@ class EmployeeController extends BaseController{
 
 		$employee = Employee::create(array(
 			'strEmployeeID' => Input::get('addEmpID'),
-			'strEmpFName' => Input::get('addFirstName'),		
+			'strEmpFName' => Input::get('addFirstName'),	
+			'strEmpMName' => Input::get('addMiddleName'),	
 			'strEmpLName' => Input::get('addLastName'),
 			'strEmpAge' => Input::get('addAge'),
 			'strSex' => Input::get('addSex'),
@@ -85,7 +86,8 @@ class EmployeeController extends BaseController{
 		$employee = Employee::find($id);
 
 		$employee->strEmpFName = Input::get('editFirstName');	
-		$employee->strEmpLName = Input::get('editLastName');		
+		$employee->strEmpLName = Input::get('editLastName');	
+		$employee->strEmpMName = Input::get('editMiddleName');	
 		$employee->strEmpAge = Input::get('editAge');
 		$employee->strSex = Input::get('editSex');
 		$employee->strEmpAddress = Input::get('editAddress');
