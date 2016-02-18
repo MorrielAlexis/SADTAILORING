@@ -25,6 +25,7 @@
           <tr>
             <th data-field="id">Employee ID</th>
             <th data-field="firstname">First Name</th>
+            <th data-field="middlename">Middle Name</th>
             <th data-field="lastname">Last Name</th>          
             <th data-field="Age">Age</th>
             <th data-field="Sex">Sex</th>
@@ -42,6 +43,7 @@
             <tr>
                   <td>{{ $employee2->strEmployeeID }}</td>
                   <td>{{ $employee2->strEmpFName }}</td>
+                  <td>{{ $employee2->strEmpMName }}</td>
                   <td>{{ $employee2->strEmpLName }}</td>
                   <td>{{ $employee2->strEmpAge }} </td>
                   <td>
@@ -86,6 +88,7 @@
           			<tr>
                   <th data-field="id">Employee ID</th>
                   <th data-field="firstname">First Name</th>
+                  <th data-field="middlename">Middle Name</th>
                   <th data-field="lastname">Last Name</th>          
                   <th data-field="Age">Age</th>
                   <th data-field="Sex">Sex</th>
@@ -103,6 +106,7 @@
                 <tr>
               		<td>{{ $employee->strEmployeeID }}</td>
                   <td>{{ $employee->strEmpFName }}</td>
+                  <td>{{ $employee->strEmpMName }}</td>
                   <td>{{ $employee->strEmpLName }}</td>
                   <td>{{ $employee->strEmpAge }} </td>
                   <td>
@@ -131,8 +135,13 @@
                           </div>
 
                           <div class="input-field">
-                            <label for="first_name">Employee First Name: </label>
                             <input required pattern="[A-Za-z ]+"value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
+                            <label for="first_name">Employee First Name: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required pattern="[A-Za-z ]+"value="{{$employee->strEmpMName}}" id="editMiddleName" name="editMiddleName" type="text" class="validate">
+                            <label for="middle_name">Employee Middle Name: </label>
                           </div>
 
                           <div class="input-field">
@@ -214,8 +223,13 @@
                             </div>
 
                             <div class="input-field">
-                              <label for="first_name">Employee First Name: </label>
                               <input value="{{$employee->strEmpFName}}" id="delFirstName" name="delFirstName" type="text" class="validate" readonly>
+                              <label for="first_name">Employee First Name: </label>
+                            </div>
+
+                            <div class="input-field">
+                              <input value="{{$employee->strEmpMName}}" id="delMiddleName" name="delMiddleName" type="text" class="validate" readonly>
+                              <label for="middle_name">Employee Middle Name: </label>
                             </div>
 
                             <div class="input-field">
@@ -271,6 +285,11 @@
                   <div class="input-field">
                     <input required pattern="[A-Za-z ]+" id="addFirstName" name="addFirstName" type="text" class="validate" required>
                     <label for="first_name">*First Name: </label>
+                  </div>
+
+                  <div class="input-field">
+                    <input required pattern="[A-Za-z ]+" id="addMiddleName" name="addMiddleName" type="text" class="validate" required>
+                    <label for="middle_name">*Middle Name: </label>
                   </div>
 
                   <div class="input-field">
@@ -364,6 +383,7 @@
     <script>
       function clearData(){
           document.getElementById("addFirstName").value = "";
+          document.getElementById("addMiddleName").value = "";
           document.getElementById("addLastName").value = "";
           document.getElementById("addAddress").value = "";
           document.getElementById("addAge").value = "";
