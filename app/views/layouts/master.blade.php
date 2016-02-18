@@ -30,12 +30,12 @@
 
               <div>
                 <ul id="profile-dropdown" class="dropdown-content">
-                  <li><a href="#"><i class="mdi-action-face-unlock"> Profile</i></a></li>
-                  <li><a href="#"><i class="mdi-action-settings"> Settings</i></a></li>
-                  <li><a href="#"><i class="mdi-communication-live-help"> Help</i></a></li>
+                  <li><a href="#"><i class="mdi-action-face-unlock" style="font-size:15px; margin-top:20px;margin-left:0px;"> Profile</i></a></li>
+                  <li><a href="#"><i class="mdi-action-settings" style="font-size:15px; margin-top:20px;margin-left:0px;"> Utils</i></a></li>
+                  <li><a href="#"><i class="mdi-communication-live-help"style="font-size:15px; margin-top:20px;margin-left:0px;"> Help</i></a></li>
                   <li class="divider"></li>
-                  <li><a href="#"><i class="mdi-action-lock-outline"> Lock</i></a></li>
-                  <li><a href="#"><i class="mdi-hardware-keyboard-tab"> Logout</i></a></li>
+                  <li><a href="#"><i class="mdi-action-lock-outline"style="font-size:15px;margin-top:20px;margin-left:0px;"> Lock</i></a></li>
+                  <li><a href="#"><i class="mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
                 </ul>
                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><span class="user">Admin</span><i class="mdi-navigation-arrow-drop-down right"></i></a>
               </div>
