@@ -31,16 +31,23 @@ class DesignPatternController extends BaseController{
 	}
 
 	public function addPattern()
-	{
+	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/designPatterns';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$pattern = DesignPattern::create(array(
 			'strDesignPatternID' => Input::get('addPatternID'),
 			'strDesignSegmentName' => Input::get('addSegment'),
 			'strPatternName' => Input::get('addPatternName'),
-			'strPatternImage' => '',
+			'strPatternImage' => 'designPatterns/'.$fileName,
 			'boolIsActive' => 1
-			));
+			));		
 
 		$pattern->save();
+
 		return Redirect::to('/designPattern');
 	}
 

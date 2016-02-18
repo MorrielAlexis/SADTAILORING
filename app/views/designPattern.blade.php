@@ -82,7 +82,7 @@
               		<td>{{ $pattern->strDesignPatternID }}</td>
                   <td>{{ $pattern->strGarmentSegmentName }}</td>
               		<td>{{ $pattern->strPatternName }}</td>
-                  <td><img src="{{URL::asset('$pattern->strPatternImage')}}"></td>
+                  <td><img src="{{URL::asset($pattern->strPatternImage)}}"></td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
                       
@@ -91,7 +91,7 @@
                       <div class="modal-content">
                         <p>
 
-                        <form action="editDesignPattern" method="POST">
+                        <form action="editDesignPattern" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="text" readonly class="validate">
                           <label for="pattern_id">Pattern ID: </label>
@@ -152,7 +152,7 @@
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
                         <p>
-                        <form action="/delDesignPattern" method="POST">
+                        <form action="/delDesignPattern" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="text" readonly class="validate">
                           <label for="pattern_id">Pattern ID: </label>
@@ -215,7 +215,7 @@
               <font color = "teal" ><center><h5> Add Design Pattern </h5></center></font> 
               <div class="modal-content">
                 <p>
-                <form action="/addDesignPattern" method="POST">
+                <form action="/addDesignPattern" method="POST" enctype="multipart/form-data">
                 <div class="input-field">
                   <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="text" readonly class="validate">
                   <label for="pattern_id">Pattern ID: </label>
@@ -239,11 +239,11 @@
                 <div class="file-field input-field">
                   <div class="btn">
                     <span>Upload Image</span>
-                    <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                    <input id="addImg" name="addImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                   </div>
-
+                
                   <div class="file-path-wrapper">
-                    <input id="addImage" name="addImage" class="file-path validate" type="text">
+                    <input id="addImage" name="addImage" class="file-path validate" type="text" readonly="readonly">
                   </div>
                 </div>
                 <br>
