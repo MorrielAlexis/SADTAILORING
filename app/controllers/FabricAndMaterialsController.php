@@ -57,13 +57,12 @@ class FabricAndMaterialsController extends BaseController{
 
 	public function addSwatch()
 	{	
-
 		$swatch = Swatch::create(array(
 			'strSwatchID' => Input::get('addSwatchID'),
 			'strSwatchFabricTypeName' => Input::get('addFabric'),		
 			'strSwatchName' => Input::get('addSwatchName'),
 			'strSwatchCode' => Input::get('addSwatchCode'),
-			'strSwatchImageLink' =>'',
+			'strSwatchImageLink' => Input::get('addImage'),
 			'boolIsActive' => 1
 			));
 

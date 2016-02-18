@@ -53,12 +53,14 @@
                               </div>
 
                               <div class="input-field">
-                                <input required value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validate">
+                                <input required pattern="[A-Za-z\s]+" value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validate">
                                 <label for="garment_name">Garment Name: </label>
                               </div>
 
                               <div class="input-field">
-                                <input value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+                      
+                               <input  value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+
                                 <label for="garment_description">Garment Desription: </label>
                               </div>
                             </p>
@@ -96,12 +98,12 @@
                     </div>
 
                     <div class="input-field">
-                      <input required id="addGarmentName" name="addGarmentName" type="text" class="validate">
+                      <input required pattern="[A-Za-z\s]+" pattern="[A-Za-z\s]+" id="addGarmentName" name="addGarmentName" type="text" class="validate">
                       <label for="garment_name">Garment Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input id="addGarmentDesc" name="addGarmentDesc" type="text" class="validate">
+                      <input  id="addGarmentDesc" name="addGarmentDesc" type="text" class="validate">
                       <label for="garment_description">Garment Desription: </label>
                     </div>
                   </p>
@@ -109,7 +111,7 @@
 
                 <div class="modal-footer">
                   <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                  <vutton type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                 </div>
               </form>
             </div>
@@ -138,5 +140,12 @@
       $(document).ready(function(){
       $('select').material_select();
       });
+    </script>
+
+    <script>
+      function clearData(){
+          document.getElementById("addGarmentDesc").value = "";
+          document.getElementById("addGarmentName").value = "";
+      }
     </script>
 @stop

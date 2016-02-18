@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL DESIGNN PATTERNS-->
+  <!--MODAL: VIEW ALL DESIGN PATTERNS-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>INACTIVE DESIGN PATTERNS</h4>
@@ -82,7 +82,7 @@
               		<td>{{ $pattern->strDesignPatternID }}</td>
                   <td>{{ $pattern->strGarmentSegmentName }}</td>
               		<td>{{ $pattern->strPatternName }}</td>
-                  <td>Click here to view image</td>
+                  <td><img src="{{URL::asset('$pattern->strPatternImage')}}"></td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
                       
@@ -90,7 +90,8 @@
                       <font color = "teal"><center><h5> Edit Design Pattern Details</h5></center></font>
                       <div class="modal-content">
                         <p>
-                        <form action="/editDesignPattern" method="POST">
+
+                        <form action="editDesignPattern" method="POST">
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="text" readonly class="validate">
                           <label for="pattern_id">Pattern ID: </label>
@@ -111,14 +112,14 @@
 
 
                         <div class="input-field">
-                          <input requiredvalue = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
+                          <input required pattern="[A-Za-z\s]+" value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
                           <label for="pattern_name">Pattern Name: </label>
                         </div>
 
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file">
+                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
@@ -134,15 +135,19 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
-<<<<<<< HEAD
+
                  </div>  
 
 
                  <!-- DELETE DESIGN PATTERN --> 
-=======
+
+                 </div>   
+
+
                  </div>   
                  
->>>>>>> 32d618f33876649d91d0e752162fc1de7c69f33f
+
+
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
@@ -167,12 +172,13 @@
                         <div class="input-field">
                           <input value = "{{ $pattern->strPatternName }}" type="text" class="validate" readonly>
                           <label for="pattern_name">Pattern Name: </label>
+
                         </div>
 
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file"> 
+                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"> 
                           </div>
 
                           <div class="file-path-wrapper">
@@ -180,14 +186,15 @@
                           </div>
                         </div>
                         </p>
-                      </div>               
- 
+                      </div>              
+
+
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
+                    
                     </form>              
-
                     </div>
                   </td>
                 </tr>   
@@ -221,14 +228,11 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                         @endforeach
                   </select>
-<<<<<<< HEAD
-=======
-            
->>>>>>> 58c46d8bf1ea16d25819388528a95e64f96b86a4
+
                 </div>   
 
                 <div class="input-field">
-                  <input required id="addPatternName" name= "addPatternName" type="text" class="validate">
+                  <input required pattern="[A-Za-z\s]+" id="addPatternName" name= "addPatternName" type="text" class="validate">
                   <label for="pattern_name">Pattern Name: </label>
                 </div>
 
@@ -239,20 +243,19 @@
                   </div>
 
                   <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                    <input id="addImage" name="addImage" class="file-path validate" type="text">
                   </div>
                 </div>
-
+                <br>
                 </p>
               </div>
 
               <div class="modal-footer">
                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
               </div>
               </form>
             </div>	
-
         </div>
       </div>
     </div>
@@ -267,4 +270,12 @@
       });
     </script>
     
+    <script>
+      function clearData(){
+        document.getElementById('addPatternName').value = "";
+        document.getElementById('addImage').value = "";
+      }
+
+    </script>
+
 @stop

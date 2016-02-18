@@ -11,7 +11,8 @@ class MeasurementHead extends Eloquent {
 								'strSegmentName',
 								'strGarmentCategory',
 								'strGarmentSegment',
-								'strMeasurementName');
+								'strMeasurementName',
+								'boolIsActive');
 
 
 	public function category() {

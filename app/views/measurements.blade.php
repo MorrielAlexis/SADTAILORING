@@ -27,11 +27,54 @@
             </div>
 
             <div class="row">
-              <div class="col s12 m12 l6">
+              <div class="col s12 m12 l12">
                 <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
+                <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE MEASUREMENT INFO</button>
               </div>
             </div>
           </div>
+
+
+          <!--MODAL: VIEW INACTIVE MEASUREMENT INFO-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>INACTIVE MEASUREMENT INFO</h4>
+      <table class="centered" border="1">
+        <thead>
+          <tr>
+              <th data-field = "MeasurementID"> Measurement ID </th>
+              <th data-field="Garmentcategory">Garment Category</th>
+              <th data-field="Garmentcategory">Segment</th>
+              <th data-field="MeasurementName">Measurement Name</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            @foreach($head2 as $head2)
+            @if($head2->boolIsActive == 0)
+                <tr>
+                 <td>{{ $head2->strMeasurementID }}</td>
+                 <td>{{ $head2->strGarmentCategoryName }}</td>
+                 <td>{{ $head2->strGarmentSegmentName }}</td>
+                 <td>{{ $head2->strMeasurementDetailName }}</td>
+                  <td>
+                  <form action="/reactMeasurementCategory" method="POST">
+                  <input type="hidden" value="{{ $head2->strMeasurementID }}" id="reactID" name="reactID">
+                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  </form>
+                </td>
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
 
           <div class="row">
             <div class="col s12 m12 l12">
@@ -192,10 +235,10 @@
                     <!--add-->
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
                     <font color = "teal"> <center><h5>Add Measurement Information </h5></center></font> 
-                    <form action="/addMeasurementCategory" method="POST">
+                    
                       <div class="modal-content">
                         <p>
-
+                          <form action="/addMeasurementCategory" method="POST">
                           <div class="input-field">
                             <input value="{{$categoryNewID}}" id="addMeasurementID" name="addMeasurementID" type="text" class="validate" readonly>
                             <label for="measurement_id">Measurement ID: </label>
@@ -295,7 +338,7 @@
                                   </div>
 
                                   <div class="input-field">
-                                    <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
+                                    <input required pattern="[A-Za-z\s]+" value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
                                     <label for="measurement_name"> Measurement Name: </label>
                                   </div>
 
@@ -336,12 +379,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input required id="addDetailName" name= "addDetailName" type="text" class="validate" required>
+                            <input required pattern="[A-Za-z\s]+"  id="addDetailName" name= "addDetailName" type="text" class="validate" >
                             <label for="measurement_name"> Measurement Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input id="addDetailDesc" name ="addDetailDesc" type="text" class="validate">
+                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validate">
                             <label for="measurement_desc">Measurement Description: </label>
                           </div>
                         </p>
@@ -349,7 +392,7 @@
 
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                       </div>
                     </form>
                   </div>          
@@ -383,6 +426,13 @@
         $('ul.tabs').tabs('select_tab', actTab);
     });
     </script>
+    
+    <script>
+      function clearData(){
+          document.getElementById('addDetailDesc').value = "";
+          document.getElementById('addDetailName').value = "";
 
+      }
+    </script>
 
 @stop

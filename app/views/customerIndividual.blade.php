@@ -60,15 +60,7 @@
 
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-<<<<<<< HEAD
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-=======
-<<<<<<< HEAD
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-=======
-      <a href="#!" class="modal-action modal-close  waves-effect waves-green btn-flat">CLOSE</a>
->>>>>>> cc47cd69b4da68da96e9ef39a8e6bb01df59ce94
->>>>>>> 58c46d8bf1ea16d25819388528a95e64f96b86a4
     </div>
   </div>
     
@@ -124,17 +116,17 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z]+" id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z ]+" id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
                           <label for="first_name"> First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z'\]\s+" id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z\' ]+" id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
                           <label for="last_name"> Last Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate">
+                          <input id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate" required>
                           <label for="address"> Address: </label>
                         </div>
 
@@ -144,7 +136,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[^1-9][^0-8]+\d{9}" id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate">
+                          <input pattern="[^1-9][^0-8]+\d{9}" id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate" required>
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
                       
@@ -221,17 +213,17 @@
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[A-Za-z]+" id="addFName" name = "addFName" type="text" class="validate" required>
+                  <input pattern="[A-Za-z ]+" id="addFName" name = "addFName" type="text" class="validate" required>
                   <label for="first_name"> First Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[A-Za-z'\]\s+" id="addLName" name = "addLName" type="text" class="validate" required>
+                  <input pattern="[A-Za-z\' ]+" id="addLName" name = "addLName" type="text" class="validate" required>
                   <label for="last_name"> Last Name </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addAddress" name = "addAddress" type="text" class="validate">
+                  <input id="addAddress" name = "addAddress" type="text" class="validate" required>
                   <label for="address"> Address: </label>
                 </div>
 
@@ -241,7 +233,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate">
+                  <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate" required>
                   <label for="cellphone"> Cellphone Number: </label>
                 </div>
 
@@ -249,6 +241,7 @@
                   <input pattern="[0-9]{7}" id="addPhone" name = "addPhone" type="text" class="validate">
                   <label for="tel"> Telephone Number: </label>
                 </div>
+                <br>
                 </p>
                 </div>
 
@@ -269,10 +262,11 @@
       function clearData(){
           document.getElementById("addFName").value = "";
           document.getElementById("addLName").value = "";
-          document.getElementById("addAge").value = "";
+          document.getElementById("addAddress").value = "";
+          document.getElementById("addEmail").value = "";
           document.getElementById("addCel").value = "";
           document.getElementById("addPhone").value = "";
-          document.getElementById("addEmail").value = "";
+          
       }
 
     </script>

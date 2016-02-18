@@ -117,27 +117,27 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z'\]\s+" id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
+                          <input pattern="[A-Za-z\'., ]+" id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
                           <label for="company_name"> Company Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddress" name = "editAddress" value = "{{$company->strCustCompanyAddress}}" type="text" class="validate">
+                          <input required id="editAddress" name = "editAddress" value = "{{$company->strCustCompanyAddress}}" type="text" class="validate">
                           <label for="address"> Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z'\]\s+" id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
+                          <input required pattern="[A-Za-z\' ]+" id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
                           <label for="company_name"> Contact Person: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validate">
+                          <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validate">
                           <label for="com_email_address"> Company Email Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[^1-9][^0-8]+\d{9}"  id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validate">
+                          <input required="" pattern="[^1-9][^0-8]+\d{9}"  id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validate">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
 
@@ -212,27 +212,27 @@
               </div>
 
               <div class="input-field">
-                <input required pattern="[A-Za-z'\]\s+" id="addComName" name = "addComName" type="text" class="validate">
+                <input required pattern="[A-Za-z\'., ]+" id="addComName" name = "addComName" type="text" class="validate">
                 <label for="company_name"> Company Name: </label>
               </div>
 
               <div class="input-field">
-                <input id="addAddress" name = "addAddress" type="text" class="validate">
+                <input required="" id="addAddress" name = "addAddress" type="text" class="validate">
                 <label for="address"> Address: </label>
               </div>
 
               <div class="input-field">
-                <input pattern="[A-Za-z'\]\s+" id="addConPerson" name = "addConPerson" type="text" class="validate">
+                <input required pattern="[A-Za-z\' ]+" id="addConPerson" name = "addConPerson" type="text" class="validate">
                 <label for="company_name"> Contact Person: </label>
               </div>
 
               <div class="input-field">
-                <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
+                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
                 <label for="com_email_address"> Company Email Address: </label>
               </div>
 
               <div class="input-field">
-                <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate">
+                <input required pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate">
                 <label for="cellphone"> Cellphone Number: </label>
               </div>
 
@@ -245,6 +245,7 @@
                 <input pattern="[0-9]{7}" id="addFax" name = "addFax" type="text" class="validate">
                 <label for="fax"> Fax Number: </label>
               </div>
+              <br>
               </p>
               </div>
 

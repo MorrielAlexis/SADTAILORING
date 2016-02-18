@@ -117,12 +117,12 @@
                               </div>  
 
                               <div class="input-field">
-                                <input required value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validate">
+                                <input required pattern="[A-Za-z\' ]+" value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validate">
                                 <label for="swatch_name">Swatch Name: </label>
                               </div>    
 
                               <div class="input-field">
-                                <input value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validate">
+                                <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validate">
                                 <label for="swatch_code">Swatch Code: </label>
                               </div>
 
@@ -215,20 +215,20 @@
 
                     <div class="input-field">
                       <select name='addFabric' id='addFabric' required>
-                        <option  selected disable>Select Swatch Fabric Type Name</option>
-                        @foreach($fabricType as $id=>$name)
-                        <option value="{{ $id }}">{{ $name }}</option>
-                        @endforeach
+                          @foreach($fabricType as $id=>$name)
+                          <option value="{{ $id }}">{{ $name }}</option>
+                          @endforeach
                       </select>
+                      <label>Fabric Type</label>
                     </div>  
 
                     <div class="input-field">
-                      <input required id="addSwatchName" name="addSwatchName" type="text" class="validate">
+                      <input required pattern="[A-Za-z\' ]+" id="addSwatchName" name="addSwatchName" type="text" class="validate">
                       <label for="swatch_name">Swatch Name: </label>
                     </div>    
 
                     <div class="input-field">
-                      <input id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
+                      <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
                       <label for="swatch_code">Swatch Code: </label>
                     </div>
 
@@ -239,7 +239,7 @@
                       </div>
 
                       <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+                        <input readonly id="addImage" name="addImage" class="file-path validate" type="text">
                       </div>
                     </div>
                     <br>
@@ -248,8 +248,8 @@
                 </div>
 
                 <div class="modal-footer">
-                  <button type="submit" id="send" name="send" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</button>
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                  <button type="submit" id="send" name="send" class=" modal-action waves-effect waves-green btn-flat">ADD</button>
+                  <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                 </div>           
               </form>
             </div>
@@ -265,5 +265,13 @@
       $(document).ready(function(){
       $('select').material_select();
       });
+    </script>
+
+    <script>
+      function clearData(){
+        document.getElementById('addSwatchName').value = "";
+        document.getElementById('addSwatchCode').value = "";
+        document.getElementById('addImage').value = "";
+      }
     </script>
 @stop

@@ -109,13 +109,14 @@
                               </div>   
                         
                               <div class="input-field">
-                                <input required value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validate">
+                                <input required pattern="[A-Za-z\s]+" value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validate">
                                 <label for="segment_name">Segment Name: </label>
                               </div>
 
                               <div class="input-field">
-                                <input value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
-                                <label for="segment_description"Segment Description: </label>
+
+                                <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
+                               <label for="segment_description">Segment Description:</label>
                               </div>
                             </p>
                           </div>
@@ -203,12 +204,16 @@
                       </div>  
 
                       <div class="input-field">
-                        <input required id="addSegmentName" name= "addSegmentName" type="text" class="validate">
+                        <input pattern="[A-Za-z\s]+" required id="addSegmentName" name= "addSegmentName" type="text" class="validate">
                         <label for="segment_name">Segment Name: </label>
                       </div>
 
                       <div class="input-field">
-                        <input id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
+
+                        <input required id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
+
+                        <input pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
+
                         <label for="segment_description">Segment Description: </label>
                       </div>
                     </p>
@@ -216,7 +221,7 @@
 
                   <div class="modal-footer">
                     <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                    <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                   </div>
                 </form>
               </div>
@@ -232,5 +237,12 @@
       $('select').material_select();
       });
     </script>}
+    
+    <script>
+      function clearData(){
+            document.getElementById("addSegmentDesc").value = "";
+            document.getElementById("addSegmentName").value = "";
+        }
+    </script>
 
 @stop
