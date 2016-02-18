@@ -8,7 +8,7 @@ class Swatch extends Eloquent {
 								'strSwatchFabricTypeName',
 								'strSwatchName',
 								'strSwatchCode',
-								'strSwatchImageLink',
+								'strSwatchImage',
 								'boolIsActive');
 
 

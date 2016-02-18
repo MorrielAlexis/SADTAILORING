@@ -32,14 +32,19 @@ class CatalogueController extends BaseController{
 	}
 
 	public function addCatalogue()
-	// 	dd(public_path(Input::get('path')));
-	{
+	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/imgCatalogue';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$catalogue = Catalogue::create(array(
 			'strCatalogueID' => Input::get('addCatalogueID'),
 			'strCatalogueCategory' => Input::get('addCategory'),
 			'strCatalogueName' => Input::get('addCatalogueName'),
 			'strCatalogueDesc' => Input::get('addCatalogueDesc'),
-			'strCatalogueImage' => '',
+			'strCatalogueImage' => 'imgCatalogue/'.$fileName ,
 			'boolIsActive' => 1
 			));
 
@@ -51,12 +56,18 @@ class CatalogueController extends BaseController{
 	{	
 		$id = Input::get('editCatalogueID');
 		$catalogue = Catalogue::find($id);
+		
+		$file = Input::get('editImage');
+		$destinationPath = 'public/imgCatalogue';
+		$extension = Input::file('editImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('editImg')->move($destinationPath, $fileName);
 
 		$catalogue->strCatalogueID = Input::get('editCatalogueID');
 		$catalogue->strCatalogueCategory = Input::get('editCategory');
 		$catalogue->strCatalogueName = Input::get('editCatalogueName');
 		$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
-		$catalogue->strCatalogueImage = '';
+		$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
 		$catalogue->boolIsActive = 1;
 
 		$catalogue->save();

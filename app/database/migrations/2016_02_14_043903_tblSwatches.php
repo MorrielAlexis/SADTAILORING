@@ -17,7 +17,7 @@ class TblSwatches extends Migration {
 			$table->string('strSwatchFabricTypeName')->index();
 			$table->string('strSwatchName');
 			$table->string('strSwatchCode');
-			$table->string('strSwatchImageLink');
+			$table->string('strSwatchImage');
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});
@@ -38,7 +38,7 @@ class TblSwatches extends Migration {
 		Schema::dropIfExists('TblSwatches');
 
 		Schema::table('TblSwatches', function($table){
-			$table->dropColumn('strSwatchFabricTypeName');
+			$table->dropColumn('strSwatchFabricTypeName');	
 		});
 	}
 

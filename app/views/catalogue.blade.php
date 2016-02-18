@@ -40,7 +40,7 @@
                 <td>{{ $catalogue2->strCatalogueCategory }}</td>
                 <td>{{ $catalogue2->strCatalogueName }}</td>
                 <td>{{ $catalogue2->strCatalogueDesc }}</td>
-                <td>Click here to view image</td>
+                <td><img src="{{URL::asset($catalogue2->strCatalogueImage)}}"></td>
                 <td>
                   <form action="/reactCatalogueDesign" method="POST">
                     <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
@@ -91,7 +91,7 @@
                 <td>{{ $catalogue->strGarmentCategoryName }}</td>
               	<td>{{ $catalogue->strCatalogueName }}</td>
               	<td>{{ $catalogue->strCatalogueDesc }}</td>
-                <td>Click here to view image </td>
+                <td><img src="{{URL::asset($catalogue->strCatalogueImage)}}"></td>
               	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
                 <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$catalogue->strCatalogueID}}">DELETE</button>
 
@@ -99,7 +99,7 @@
                     <font color = "teal" ><center><h5>Edit Catalogue Details</h5></center></font> 
                     <div class="modal-content">
                       <p>
-                      <form action="/editCatalogueDesign" method="POST">
+                      <form action="/editCatalogueDesign" method="POST" enctype="multipart/form-data">
                       <div class="input-field">
                         <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="validate" readonly>
                       </div>
@@ -131,11 +131,11 @@
                       <div class="file-field input-field">
                         <div class="btn">
                           <span>Upload Image</span>
-                          <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                          <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                         </div>
 
                         <div class="file-path-wrapper">
-                          <input class="file-path validate" type="text">
+                          <input id="editImage" name="editImage" class="file-path validate" type="text">
                         </div>
                       </div>
 
@@ -210,7 +210,7 @@
             <font color = "teal"><h5><center>Add Catalogue </center></h5></font> 
             <div class="modal-content">
               <p>
-              <form action='/addCatalogueDesign' method="POST">
+              <form action='/addCatalogueDesign' method="POST" enctype="multipart/form-data">
               <div class="input-field">
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="validate" readonly>
                 <label for="Catalogue_id">Catalogue ID: </label>
@@ -236,15 +236,15 @@
               </div>
 
               <div class="file-field input-field">
-                <div class="btn">
-                  <span>Upload Image</span>
-                  <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                  <div class="btn">
+                    <span>Upload Image</span>
+                    <input id="addImg" name="addImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                  </div>
+                
+                  <div class="file-path-wrapper">
+                    <input id="addImage" name="addImage" class="file-path validate" type="text" readonly="readonly">
+                  </div>
                 </div>
-
-                <div class="file-path-wrapper">
-                  <input id="addImage" name="addImage" class="file-path validate" type="text">
-                </div>
-              </div>
 
               </p>
               <br><br>

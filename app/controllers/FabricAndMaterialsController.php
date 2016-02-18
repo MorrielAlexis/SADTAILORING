@@ -57,12 +57,18 @@ class FabricAndMaterialsController extends BaseController{
 
 	public function addSwatch()
 	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/imgSwatches';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$swatch = Swatch::create(array(
 			'strSwatchID' => Input::get('addSwatchID'),
 			'strSwatchFabricTypeName' => Input::get('addFabric'),		
 			'strSwatchName' => Input::get('addSwatchName'),
 			'strSwatchCode' => Input::get('addSwatchCode'),
-			'strSwatchImageLink' => Input::get('addImage'),
+			'strSwatchImage' => 'imgSwatches/'.$fileName,
 			'boolIsActive' => 1
 			));
 
@@ -87,7 +93,7 @@ class FabricAndMaterialsController extends BaseController{
 
 
 	public function editFabricType()
-	{
+	{	
 		$id = Input::get('editFabricTypeID');
 		$fabricType = FabricType::find($id);
 		$fabricType->strFabricTypeName = Input::get('editFabricTypeName');	
@@ -102,11 +108,17 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('editSwatchID');
 		$swatch = Swatch::find($id);
 
+		$file = Input::get('editImage');
+		$destinationPath = 'public/imgSwatches';
+		$extension = Input::file('editImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('editImg')->move($destinationPath, $fileName);
+
 		$swatch->strSwatchID = Input::get('editSwatchID');
 		$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
 		$swatch->strSwatchName = Input::get('editSwatchName');
 		$swatch->strSwatchCode = Input::get('editSwatchCode');
-		$swatch->strSwatchImageLink ='';
+		$swatch->strSwatchImage = 'imgSwatches/'.$fileName;
 
 		$swatch->save();
 		return Redirect::to('/fabricAndMaterialsSwatches');

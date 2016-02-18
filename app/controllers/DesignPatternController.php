@@ -33,7 +33,7 @@ class DesignPatternController extends BaseController{
 	public function addPattern()
 	{	
 		$file = Input::get('addImage');
-		$destinationPath = 'public/designPatterns';
+		$destinationPath = 'public/imgDesignPatterns';
 		$extension = Input::file('addImg')->getClientOriginalExtension();
 		$fileName = $file;
 		Input::file('addImg')->move($destinationPath, $fileName);
@@ -42,7 +42,7 @@ class DesignPatternController extends BaseController{
 			'strDesignPatternID' => Input::get('addPatternID'),
 			'strDesignSegmentName' => Input::get('addSegment'),
 			'strPatternName' => Input::get('addPatternName'),
-			'strPatternImage' => 'designPatterns/'.$fileName,
+			'strPatternImage' => 'imgDesignPatterns/'.$fileName,
 			'boolIsActive' => 1
 			));		
 
@@ -56,8 +56,15 @@ class DesignPatternController extends BaseController{
 		$id = Input::get('editPatternID');
 		$pattern = DesignPattern::find($id);
 
+		$file = Input::get('editImage');
+		$destinationPath = 'public/designPatterns';
+		$extension = Input::file('editImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('editImg')->move($destinationPath, $fileName);
+
 		$pattern->strDesignSegmentName = Input::get('editSegment');
 		$pattern->strPatternName = Input::get('editPatternName');
+		$pattern->strPatternImage = 'designPatterns/'.$fileName;
 
 		$pattern->save();
 		return Redirect::to('/designPattern');

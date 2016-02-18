@@ -40,7 +40,7 @@
               <td>{{ $swatch2->strFabricTypeName }}</td>
               <td>{{ $swatch2->strSwatchName }}</td>
               <td>{{ $swatch2->strSwatchCode }}</td>
-              <td>Click here to view image</td>
+              <td><img src="{{URL::asset($swatch2->strSwatchImage)}}"></td>
               <td>
 
                <form action="/reactSwatch" method="POST">
@@ -88,14 +88,14 @@
                     <td>{{ $swatch->strFabricTypeName }}</td>
                     <td>{{ $swatch->strSwatchName }}</td>
                     <td>{{ $swatch->strSwatchCode }}</td>
-                    <td>Click here to view image</td>
+                    <td><img src="{{URL::asset($swatch->strSwatchImage)}}"></td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
 
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
-                        <form action="/editSwatch" method="POST">
+                        <form action="/editSwatch" method="POST" enctype="multipart/form-data">
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
@@ -129,10 +129,11 @@
                               <div class="file-field input-field">
                                 <div class="btn">
                                   <span>Upload Image</span>
-                                  <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                                  <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                 </div>
+                              
                                 <div class="file-path-wrapper">
-                                  <input class="file-path validate" type="text">
+                                  <input id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
                                 </div>
                               </div>
                             </p>
@@ -203,7 +204,7 @@
                 <!--    <Modal Structure for Add swatches> -->
             <div id="addSwatches" class="modal modal-fixed-footer">
               <font color = "teal"><center><h5> Add Swatch </h5></center></font>
-              <form action="/addSwatch" method="POST" id="addSwatch" name="addSwatch"> 
+              <form action="/addSwatch" method="POST" id="addSwatch" name="addSwatch" enctype="multipart/form-data"> 
 
                 <div class="modal-content">
                   <p>
@@ -235,13 +236,14 @@
                     <div class="file-field input-field">
                       <div class="btn">
                         <span>Upload Image</span>
-                        <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                        <input id="addImg" name="addImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                       </div>
-
+                    
                       <div class="file-path-wrapper">
-                        <input readonly id="addImage" name="addImage" class="file-path validate" type="text">
+                        <input id="addImage" name="addImage" class="file-path validate" type="text" readonly="readonly">
                       </div>
                     </div>
+
                     <br>
                     <br>
                   </p>  

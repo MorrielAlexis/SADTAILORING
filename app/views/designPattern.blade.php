@@ -38,7 +38,7 @@
                   <td>{{ $pattern2->strDesignPatternID }}</td>
                   <td>{{ $pattern2->strGarmentSegmentName }}</td>
                   <td>{{ $pattern2->strPatternName }}</td>
-                  <td>Click here to view image</td>
+                  <td><img src="{{URL::asset($pattern2->strPatternImage)}}"></td>
                   <td>
                   <form action="/reactDesignPattern" method="POST">
                   <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactID" name="reactID">
@@ -119,11 +119,11 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
-
+                        
                           <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
                           </div>
                         </div>
                         </p>
@@ -172,18 +172,6 @@
                         <div class="input-field">
                           <input value = "{{ $pattern->strPatternName }}" type="text" class="validate" readonly>
                           <label for="pattern_name">Pattern Name: </label>
-
-                        </div>
-
-                        <div class="file-field input-field">
-                          <div class="btn">
-                            <span>Upload Image</span>
-                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*"> 
-                          </div>
-
-                          <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                          </div>
                         </div>
                         </p>
                       </div>              
@@ -246,6 +234,7 @@
                     <input id="addImage" name="addImage" class="file-path validate" type="text" readonly="readonly">
                   </div>
                 </div>
+                
                 <br>
                 </p>
               </div>
