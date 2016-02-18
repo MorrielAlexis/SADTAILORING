@@ -26,6 +26,7 @@
           <tr>
             <th data-field="id">Indivual ID</th>
             <th data-field="fname">First Name</th>
+            <th data-field= "mname">Middle Name </th>
             <th data-field="lname">Last Name</th>
             <th data-field="address">Address</th>
             <th data-field="email">Email Address</th>
@@ -40,6 +41,7 @@
             <tr>
               <td>{{ $individual2->strCustPrivIndivID }}</td>
               <td>{{ $individual2->strCustPrivFName }}</td>
+              <td>{{ $individual2->strCustPrivMName }}</td>
               <td>{{ $individual2->strCustPrivLName }}</td>
               <td>{{ $individual2->strCustPrivAddress }} </td>
               <td>{{ $individual2->strCustPrivEmailAddress}}</td>                  
@@ -81,6 +83,7 @@
                 <tr>
                   <th data-field="id">Indivual ID</th>
                   <th data-field="fname">First Name</th>
+                  <th data-field="mname">Middle Name</th>
                   <th data-field="lname">Last Name</th>
                   <th data-field="address">Address</th>
                   <th data-field="email">Email Address</th>
@@ -96,6 +99,7 @@
                 <tr>
                   <td>{{ $individual->strCustPrivIndivID }}</td>
                   <td>{{ $individual->strCustPrivFName }}</td>
+                  <td>{{ $individual->strCustPrivMName }}</td>
                   <td>{{ $individual->strCustPrivLName }}</td>
                   <td>{{ $individual->strCustPrivAddress }} </td>
                   <td>{{ $individual->strCustPrivEmailAddress}}</td>                  
@@ -118,6 +122,11 @@
                         <div class="input-field">
                           <input pattern="[A-Za-z ]+" id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
                           <label for="first_name"> First Name: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input pattern="[A-Za-z ]+" id="editMName" name = "editMName" value = "{{$individual->strCustPrivMName}}" type="text" class="validate" required>
+                          <label for="middle_name"> Middle Name: </label>
                         </div>
 
                         <div class="input-field">
@@ -169,6 +178,11 @@
                             <input value="{{$individual->strCustPrivFName}}" id="delIndivFName" name="delIndivFName" type="text" class="validate" readonly>
                           </div>
 
+                           <div class="input-field">
+                            <label for="middle_name">Middle Name: </label>
+                            <input value="{{$individual->strCustPrivMName}}" id="delIndivMName" name="delIndivMName" type="text" class="validate" readonly>
+                          </div>
+
                           <div class="input-field">
                             <input value="{{$individual->strCustPrivLName}}" id="delIndivLName" name="delIndivLName" type="text" class="validate" readonly>
                             <label for="LastName">Last Name: </label>
@@ -218,6 +232,11 @@
                 </div>
 
                 <div class="input-field">
+                  <input pattern="[A-Za-z ]+" id="addMName" name = "addMName" type="text" class="validate" required>
+                  <label for="middle_name"> Middle Name: </label>
+                </div>
+
+                <div class="input-field">
                   <input pattern="[A-Za-z\' ]+" id="addLName" name = "addLName" type="text" class="validate" required>
                   <label for="last_name"> Last Name </label>
                 </div>
@@ -261,6 +280,7 @@
     <script>
       function clearData(){
           document.getElementById("addFName").value = "";
+          document.getElementById("addMName").value = "";
           document.getElementById("addLName").value = "";
           document.getElementById("addAddress").value = "";
           document.getElementById("addEmail").value = "";

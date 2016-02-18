@@ -7,6 +7,7 @@ class Employee extends Eloquent {
 	protected $primaryKey = 'strEmployeeID';
 	protected $fillable = array('strEmployeeID',
 								'strEmpFName',
+								'strEmpMName',
 								'strEmpLName',
 								'strEmpAge',
 								'strSex',

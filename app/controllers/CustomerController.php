@@ -48,6 +48,7 @@ class CustomerController extends BaseController{
 		$individual = PrivateIndividual::create(array(
 			'strCustPrivIndivID' => Input::get('addIndiID'),
 			'strCustPrivFName' => Input::get('addFName'),		
+			'strCustPrivMName' => Input::get('addMName'),
 			'strCustPrivLName' => Input::get('addLName'),
 			'strCustPrivAddress' => Input::get('addAddress'),
 			'strCustPrivLandlineNumber' => Input::get('addPhone'),						
@@ -65,7 +66,8 @@ class CustomerController extends BaseController{
 		$id = Input::get('editIndiID');
 		$individual = PrivateIndividual::find($id);
 
-		$individual->strCustPrivFName = Input::get('editFName');	
+		$individual->strCustPrivFName = Input::get('editFName');
+		$individual->strCustPrivMName = Input::get('editMName');	
 		$individual->strCustPrivLName = Input::get('editLName');
 		$individual->strCustPrivAddress = Input::get('editAddress');
 		$individual->strCustPrivEmailAddress = Input::get('editEmail');			

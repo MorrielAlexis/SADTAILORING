@@ -19,6 +19,7 @@ class TblCustPrivateIndividual extends Migration {
 			//$table->string('strCustID')->unique();
 			$table->string('strCustPrivFName');
 			$table->string('strCustPrivLName');
+			$table->string('strCustPrivMName');
 			// $table->string('strPrivSex');
 			$table->string('strCustPrivAddress');
 			$table->string('strCustPrivLandlineNumber');

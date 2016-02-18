@@ -7,6 +7,7 @@ class PrivateIndividual extends Eloquent {
 	protected $primaryKey = 'strCustPrivIndivID';
 	protected $fillable = array('strCustPrivIndivID',
 								'strCustPrivFName',
+								'strCustPrivMName', 
 								'strCustPrivLName',
 								'strCustPrivAddress',
 								'strCustPrivLandlineNumber',

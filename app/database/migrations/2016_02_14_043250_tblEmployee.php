@@ -16,6 +16,7 @@ class TblEmployee extends Migration {
 		Schema::create('tblEmployee', function(Blueprint $table){
 			$table->string('strEmployeeID')->primary();
 			$table->string('strEmpFName');
+			$table->string('strEmpMName');
 			$table->string('strEmpLName');
 			$table->string('strEmpAge');
 			$table->string('strSex');
