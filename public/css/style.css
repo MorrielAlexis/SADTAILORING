@@ -32,6 +32,12 @@
             background: white;
         }
 
+        img{
+            height: 50px;
+            width: 50px;
+
+        }
+
     	body{
             font-family: 'Century Gothic';
     	}
