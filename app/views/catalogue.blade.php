@@ -40,7 +40,7 @@
                 <td>{{ $catalogue2->strCatalogueCategory }}</td>
                 <td>{{ $catalogue2->strCatalogueName }}</td>
                 <td>{{ $catalogue2->strCatalogueDesc }}</td>
-                <td><img src="{{URL::asset($catalogue2->strCatalogueImage)}}"></td>
+                <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue2->strCatalogueImage)}}"></td>
                 <td>
                   <form action="/reactCatalogueDesign" method="POST">
                     <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
@@ -91,7 +91,7 @@
                 <td>{{ $catalogue->strGarmentCategoryName }}</td>
               	<td>{{ $catalogue->strCatalogueName }}</td>
               	<td>{{ $catalogue->strCatalogueDesc }}</td>
-                <td><img src="{{URL::asset($catalogue->strCatalogueImage)}}"></td>
+                <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue->strCatalogueImage)}}"></td>
               	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
                 <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$catalogue->strCatalogueID}}">DELETE</button>
 
@@ -269,6 +269,12 @@
           document.getElementById('addCatalogueDesc').value = "";
           document.getElementById('addImage').value = "";
       }
+    </script>
+
+     <script>
+      $(document).ready(function(){
+    $('.materialboxed').materialbox();
+     });
     </script>
 
      <script>
