@@ -19,12 +19,12 @@ class TblCustPrivateIndividual extends Migration {
 			//$table->string('strCustID')->unique();
 			$table->string('strCustPrivFName');
 			$table->string('strCustPrivLName');
-			$table->string('strCustPrivMName');
+			$table->string('strCustPrivMName')->nullable()->change();
 			// $table->string('strPrivSex');
 			$table->string('strCustPrivAddress');
-			$table->string('strCustPrivLandlineNumber');
+			$table->string('strCustPrivLandlineNumber')->nullable()->change();
 			$table->string('strCustPrivCPNumber');		
-			$table->string('strCustPrivEmailAddress');
+			$table->string('strCustPrivEmailAddress')->nullable()->change();
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});

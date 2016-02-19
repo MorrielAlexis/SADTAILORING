@@ -15,7 +15,7 @@ class TblGarmentCategory extends Migration {
 		Schema::create('tblGarmentCategory', function(Blueprint $table){
 			$table->string('strGarmentCategoryID')->primary();
 			$table->string('strGarmentCategoryName');
-			$table->string('strGarmentCategoryDesc', 255);
+			$table->string('strGarmentCategoryDesc', 255)->nullable()->change();
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});

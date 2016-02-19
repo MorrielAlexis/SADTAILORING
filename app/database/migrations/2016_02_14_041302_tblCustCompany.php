@@ -20,10 +20,10 @@ class TblCustCompany extends Migration {
 			$table->string('strCustCompanyName');
 			$table->string('strCustCompanyAddress');
 			$table->string('strCustContactPerson');
-			$table->string('strCustCompanyEmailAddress');
-			$table->string('strCustCompanyTelNumber');
+			$table->string('strCustCompanyEmailAddress')->nullable()->change();
+			$table->string('strCustCompanyTelNumber')->nullable()->change();
 			$table->string('strCustCompanyCPNumber');
-			$table->string('strCustCompanyFaxNumber');
+			$table->string('strCustCompanyFaxNumber')->nullable()->change();
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});

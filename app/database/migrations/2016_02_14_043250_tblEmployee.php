@@ -16,15 +16,15 @@ class TblEmployee extends Migration {
 		Schema::create('tblEmployee', function(Blueprint $table){
 			$table->string('strEmployeeID')->primary();
 			$table->string('strEmpFName');
-			$table->string('strEmpMName');
+			$table->string('strEmpMName')->nullable()->change();
 			$table->string('strEmpLName');
 			$table->string('strEmpAge');
 			$table->string('strSex');
 			$table->string('strEmpAddress');
 			$table->string('strRole')->index();//fk
 			$table->string('strCellNo');
-			$table->string('strPhoneNo');
-			$table->string('strEmailAdd');
+			$table->string('strPhoneNo')->nullable()->change();
+			$table->string('strEmailAdd')->nullable()->change();
 			$table->boolean('boolIsActive');
 			//$table->datetime('dtUpdatedAt');
 			$table->timestamps();

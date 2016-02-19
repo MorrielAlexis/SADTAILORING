@@ -16,7 +16,7 @@ class tblCatalogue extends Migration {
 			$table->string('strCatalogueID')->primary();
 			$table->string('strCatalogueCategory')->index();
 			$table->string('strCatalogueName');
-			$table->string('strCatalogueDesc', 255);
+			$table->string('strCatalogueDesc', 255)->nullable()->change();
 			$table->string('strCatalogueImage');
 			$table->boolean('boolIsActive');
 			$table->timestamps();
