@@ -38,7 +38,7 @@
                   <td>{{ $pattern2->strDesignPatternID }}</td>
                   <td>{{ $pattern2->strGarmentSegmentName }}</td>
                   <td>{{ $pattern2->strPatternName }}</td>
-                  <td><img src="{{URL::asset($pattern2->strPatternImage)}}"></td>
+                  <td><img class="materialboxed" width="650" src="{{URL::asset($pattern2->strPatternImage)}}"></td>
                   <td>
                   <form action="/reactDesignPattern" method="POST">
                   <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactID" name="reactID">
@@ -82,7 +82,7 @@
               		<td>{{ $pattern->strDesignPatternID }}</td>
                   <td>{{ $pattern->strGarmentSegmentName }}</td>
               		<td>{{ $pattern->strPatternName }}</td>
-                  <td><img src="{{URL::asset($pattern->strPatternImage)}}"></td>
+                  <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($pattern->strPatternImage)}}"></td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
                       
@@ -258,6 +258,13 @@
       $('select').material_select();
       });
     </script>
+
+    <script>
+      $(document).ready(function(){
+    $('.materialboxed').materialbox();
+     });
+    </script>>
+
     
     <script>
       function clearData(){
