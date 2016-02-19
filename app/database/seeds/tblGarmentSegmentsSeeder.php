@@ -10,11 +10,9 @@ class tblGarmentSegmentsSeeder extends Seeder{
 			array(
 
 				'strGarmentSegmentID' => 'SEGM001',
-				'strCategory' => '',
-				
+				'strCategory' => 'GARM001',		
 				'strGarmentSegmentName' =>'Skirt',
 				'strGarmentSegmentDesc' => 'Pangibabang kasuotan sa babae.',
-
 				'boolIsActive' => '1'
 
 			),
@@ -22,7 +20,7 @@ class tblGarmentSegmentsSeeder extends Seeder{
 			array(
 
 				'strGarmentSegmentID' => 'SEGM002',
-				'strCategory' => '',
+				'strCategory' => 'GARM002',
 				'strGarmentSegmentName' =>'Coat',
 				'strGarmentSegmentDesc' => 'Upper part wear for men.',
 				'boolIsActive' => '1'

@@ -10,10 +10,8 @@ class tblGarmentCategoriesSeeder extends Seeder{
 			array(
 
 				'strGarmentCategoryID' => 'GARM001',
-				'strGarmentCategoryName' => 'Uniforms',
-				
+				'strGarmentCategoryName' => 'Uniforms',				
 				'strGarmentCategoryDesc' =>'Custom made uniforms for male and female.',
-
 				'boolIsActive' => '1'
 
 			),

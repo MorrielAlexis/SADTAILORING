@@ -11,8 +11,8 @@ class tblCustPrivateIndividualsSeeder extends Seeder{
 
 				'strCustPrivIndivID' => 'CUSTP001',
 				'strCustPrivFName' => 'Melody',
-				'strCustPrivLName' => 'Reyes',
-				'strCustPrivMName' => 'Legaspi',
+				'strCustPrivMName' => 'Reyes',
+				'strCustPrivLName' => 'Legaspi'
 				'strCustPrivAddress' =>'Cainta, Rizal',
 				'strCustPrivLandlineNumber' => '0467892',
 				'strCustPrivCPNumber' => '09156789678',
@@ -25,8 +25,8 @@ class tblCustPrivateIndividualsSeeder extends Seeder{
 
 				'strCustPrivIndivID' => 'CUSTP002',
 				'strCustPrivFName' => 'Rachel',
-				'strCustPrivLName' => 'Atian',
-				'strCustPrivMName' => 'Nayre',
+				'strCustPrivMName' => 'Atian',
+				'strCustPrivLName' => 'Nayre',
 				'strCustPrivAddress' =>'Signal Village, Taguig City',
 				'strCustPrivLandlineNumber' => '0723456',
 				'strCustPrivCPNumber' => '09198761290',
