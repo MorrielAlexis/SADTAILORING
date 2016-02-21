@@ -135,27 +135,27 @@
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z ]+"value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validate">
+                            <input required value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validateFirst">
                             <label for="first_name">Employee First Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z ]+"value="{{$employee->strEmpMName}}" id="editMiddleName" name="editMiddleName" type="text" class="validate">
+                            <input required value="{{$employee->strEmpMName}}" id="editMiddleName" name="editMiddleName" type="text" class="validateMiddle">
                             <label for="middle_name">Employee Middle Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z\' ]+" value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validate">
+                            <input required value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validateLast">
                             <label for="LastName">Employee Last Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpAddress}}" id="editAddress" name="editAddress" type="text" class="validate">
+                            <input required value="{{$employee->strEmpAddress}}" id="editAddress" name="editAddress" type="text" class="validateAddress">
                             <label for="Address">Address: </label>
                           </div>
 
                           <div class="input-field">
-                            <input pattern="[0-9]{1,2}" value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validate">
+                            <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge">
                             <label for="Age">Age: </label>
                           </div>  
 
@@ -187,17 +187,17 @@
                           </div>   
 
                           <div class="input-field">
-                            <input required pattern="[^1-9][^0-8]+\d{9}" value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validate">
+                            <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell">
                             <label for="cellphone_number">Cellphone Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[0-9]{7}" value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validate">
+                            <input value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validatePhone">
                             <label for="landline_number">Landline Number: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
+                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
                             <label for="email">Email Address: </label>
                           </div>
                           </p>
@@ -270,9 +270,9 @@
 
             </div>
                 
-            <!-- <Modal Structure for Add Employee> -->
+          <!-- <Modal Structure for Add Employee> -->
     			<div id="newemp" class="modal modal-fixed-footer">
-            <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" name="addEmployee">
+            <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" class="employee-form" name="addEmployee">
               <div class="modal-content">
                 <font color = "teal"><h5><center>ADD NEW EMPLOYEE</center></h5></font>
                 <p>
@@ -283,28 +283,28 @@
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[A-Za-z ]+" id="addFirstName" name="addFirstName" type="text" class="validate" required>
+                    <input required id="addFirstName" name="addFirstName" type="text" class="validateFirst">
                     <label for="first_name">*First Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[A-Za-z ]+" id="addMiddleName" name="addMiddleName" type="text" class="validate" required>
+                    <input required id="addMiddleName" name="addMiddleName" type="text" class="validateMiddle">
                     <label for="middle_name">*Middle Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[A-Za-z\' ]+" id="addLastName" name="addLastName" type="text" class="validate" required>
+                    <input required id="addLastName" name="addLastName" type="text" class="validateLast">
                     <label for="last_name">*Last Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addAddress" name="addAddress" type="text" class="validate">
-                    <label for="Address">Address: </label>
+                    <input required id="addAddress" name="addAddress" type="text" class="validateAddress">
+                    <label for="Address">*Address: </label>
                   </div>
 
                   <div class="input-field">
-                    <input pattern="[0-9]{1,2}" id="addAge" name="addAge" type="text" class="validate">
-                    <label for="Age">Age: </label>
+                    <input required id="addAge" name="addAge" type="text" class="validateAge">
+                    <label for="Age">*Age: </label>
                   </div>  
 
                   <div class="input-field">
@@ -325,17 +325,17 @@
                   </div>   
                    
                   <div class="input-field">
-                    <input required pattern="[^1-9][^0-8]+\d{9}" id="addCellNo" name="addCellNo" type="text" class="validate">
-                    <label for="cellphone_number">Cellphone Number: </label>
+                    <input required id="addCellNo" name="addCellNo" type="text" class="validateCell">
+                    <label for="cellphone_number">*Cellphone Number: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[0-9]{7}" id="addPhoneNo" name="addPhoneNo" type="text" class="validate">
+                    <input id="addPhoneNo" name="addPhoneNo" type="text" class="validatePhone">
                     <label for="landline_number">Landline Number: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addEmail" name="addEmail" type="email" class="validate">
+                    <input id="addEmail" name="addEmail" type="email" class="validate">
                     <label for="email" data-error="wrong" data-success="right">Email Address: </label>
                   </div>
 
@@ -391,6 +391,113 @@
           document.getElementById("addPhoneNo").value = "";
           document.getElementById("addEmail").value = "";
       }
+
+    </script>
+
+    <script type="text/javascript">
+      $('.validateFirst').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateFirst').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });      
+
+      $('.validateMiddle').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateMiddle').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateLast').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateLast').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateAddress').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Validate Blank
+      $('.validateAddress').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Validate Numbers
+      $('.validateAge').on('input', function() {
+        var input=$(this);
+        var re = /^[0-9]/;
+        var is_email=re.test(input.val());
+        if(is_email){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateAge').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+      $('.validateAge').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCell').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+      //Validate Blank
+      $('.validateCell').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+       $('.validatePhone').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
 
     </script>
 

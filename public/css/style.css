@@ -7,6 +7,26 @@
         	padding-left: 0;
       		}
     	}
+
+        /*REAL TIME INPUT VALIDATION*/
+        .error{
+            display: none;
+            margin-left: 10px;
+        }       
+
+        .error_show{
+            color: red;
+            margin-left: 10px;
+        }
+
+        input.invalid, textarea.invalid{
+            border: 2px solid red;
+        }
+
+        input.valid, textarea.valid{
+            border: 2px solid yellow;
+        }
+        /*END REAL TIME INPUT VALIDATION STYLE*/
     
         *{
             font-family: 'Century Gothic';

@@ -27,6 +27,13 @@ Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@material
 Route::get('/catalogue', 'CatalogueController@catalogue');
 ////////////////ROUTES FOR VIEWS////////////////GET ROUTES///////////////////////
 
+/////////////////////ROUTES FOR VALIDATION (AJAX)//////////////////////////////////////////////
+Route::post('/checkEmployee', array('uses' => 'AjaxController@checkEmployeeInput'));
+
+
+
+
+
 //////////////////////CRUD FOR CUSTOMER INDIVIDUAL//////////////////////
 Route::post('/addCustPrivIndiv', array('uses' => 'CustomerController@addCustPrivIndiv'));
 Route::post('/editCustPrivIndiv', array('uses' => 'CustomerController@editCustPrivIndiv'));
