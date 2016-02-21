@@ -50,7 +50,7 @@
                       <font color = "teal" ><center><h5>Edit Thread</h5></center></font> 
 
                       <div class="modal-content">
-                      <form action="/editThread" method="POST">
+                      <form action="/editThread" method="POST" enctype="multipart/form-data"> 
                         <div class="input-field">
                           <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" readonly = "readonly" type="text" class="validate">
                           <label for="Thread_ID"> Thread ID: </label>
@@ -69,11 +69,11 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file" id="addImage" name="addImage" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
-                            <input class="file-path validate" id="addImg" name="addImg"type="text">
+                            <input value="{{$thread->strMaterialThreadImage}}" class="file-path validate" id="editThreadImage" name="editThreadImage" type="text">
                           </div>
                           <br><br>
                         </div> 
@@ -209,7 +209,7 @@
                       <font color = "teal" ><center><h5>Edit Needle</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action="/editNeedle" method="POST">
+                        <form action="/editNeedle" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" readonly = "readonly" type="text" class="validate">
                           <label for="Needle_ID"> Needle ID </label>
@@ -229,11 +229,11 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input value="{{$needle->strMaterialNeedleImage}}" class="file-path validate" id="editNeedleImage" name="editNeedleImage" type="text">
                           </div>
                           <br><br> 
                         </div>
@@ -366,7 +366,7 @@
                       <font color = "teal" ><center><h5>Edit Button</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action="/editButton" method="POST">
+                        <form action="/editButton" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" readonly = "readonly" type="text" class="validate">
                           <label for="Button_ID"> Button ID </label>
@@ -391,10 +391,10 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
                           <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input value="{{$button->strMaterialButtonImage}}" class="file-path validate" id="editButtonImage" name="editButtonImage" type="text">
                           </div>
                         </div>
                         <br><br> 
@@ -535,7 +535,7 @@
                       <font color = "teal" ><center><h5>Edit Zipper</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action="/editZipper" method="POST">
+                        <form action="/editZipper" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input id="editZipperID" name = "editZipperID" value = "{{$zipper->strMaterialZipperID}}" readonly = "readonly" type="text" class="validate">
                           <label for="Zipper_ID"> Zipper ID </label>
@@ -560,11 +560,11 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file"accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input value="{{$zipper->strMaterialZipperImage}}" class="file-path validate" id="editZipperImage" name="editZipperImage" type="text">
                           </div>
 
                         </div>
@@ -708,9 +708,9 @@
                       <font color = "teal" ><center><h5>Edit Hook and Eye</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action ="/editHook" method="POST">
+                        <form action ="/editHook" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                          <input id="editHookEyeID" name = "editHookeyeID" value = "{{$hook->strMaterialHookID}}" readonly = "readonly" type="text" class="validate">
+                          <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" readonly = "readonly" type="text" class="validate">
                           <label for="HookEye_ID"> Hook and Eye ID </label>
                         </div>
                   
@@ -732,11 +732,11 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file"accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input value="{{$hook->strMaterialHookImage}}" id="editHookImage" name="editHookImage" class="file-path validate" type="text">
                           </div>
 
                         </div>

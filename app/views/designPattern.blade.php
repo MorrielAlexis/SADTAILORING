@@ -123,7 +123,7 @@
                           </div>
                         
                           <div class="file-path-wrapper">
-                            <input id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
+                            <input value="{{$pattern->strPatternImage}}" id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
                           </div>
                         </div>
                         </p>

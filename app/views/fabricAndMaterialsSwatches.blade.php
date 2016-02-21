@@ -133,7 +133,7 @@
                                 </div>
                               
                                 <div class="file-path-wrapper">
-                                  <input id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
+                                  <input value="{{$swatch->strSwatchImage}}" id="editSwatchImage" name="editSwatchImage" class="file-path validate" type="text" readonly="readonly">
                                 </div>
                               </div>
                             </p>
