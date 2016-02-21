@@ -23,12 +23,13 @@
 
             <div class = "col s12 m12 l12 overflow-x">
 
-            <table class = "centered" align = "center" border = "1">
+            <table class = "table centered data-garments" align = "center" border = "1">
               <thead>
                   <tr>
                     <th data-field="id">Garment ID</th>
                     <th data-field="garmentName">Garment Name</th>
                     <th data-field="garmentDescription">Garment Description</th>
+                    <th data-field="Edit">Action</th>
                   </tr>
               </thead>
 
@@ -188,5 +189,15 @@
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
+    </script>
+
+             <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-garments').DataTable();
+
+      } );
     </script>
 @stop

@@ -69,7 +69,7 @@
         <div class="card-content">
             <div class="col s12 m12 l12 overflow-x">
    
-      				<table class = "centered" align = "center" border = "1">
+      				<table class = "table centered data-swatches" align = "center" border = "1">
        				 <thead>
           				<tr>
                     <th date-field="Swatch ID">Swatch ID</th>
@@ -77,6 +77,9 @@
              		  	<th data-field="SwatchName">Swatch Name</th>
                     <th data-field="SwatchCode">Swatch Code</th>
               			<th data-field="SwatchImage">Image</th>
+                    <th data-field="Edit">Action</th>
+                     <th data-field="Edit">Action</th>
+
               		</tr>
                 </thead>
 
@@ -283,5 +286,16 @@
         document.getElementById('addSwatchCode').value = "";
         document.getElementById('addImage').value = "";
       }
+    </script>
+
+
+         <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-swatches').DataTable();
+
+      } );
     </script>
 @stop

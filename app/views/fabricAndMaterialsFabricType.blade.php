@@ -28,12 +28,14 @@
 
               <div class="col s12 m12 l12 overflow-x">
 
-       				<table class = "centered" align = "center" border = "1">
+       				<table class = "table centered data-fabricType" align = "center" border = "1">
                 <thead>
                   <tr>
               		  <th data-field="fabricID">Fabric Type ID</th>
                     <th data-field="fabricName">Fabric Type Name</th>
               		  <th data-field="fabricDescription">Fabric Description</th>
+                    <th data-field="Edit">Action</th>
+
               	  </tr>
                 </thead>
 
@@ -132,5 +134,14 @@
       }
     </script>
 
+        <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-fabricType').DataTable();
+
+      } );
+    </script>
 
 @stop

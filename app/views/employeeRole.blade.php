@@ -25,12 +25,13 @@
     		<div class="card-content">
           <div class="col s12 m12 l12 overflow-x">
          
-      		<table class = "centered" border = "1">
+      		<table class = "table centered data-role" border = "1">
        			<thead>
           		<tr>
               	<th data-field="id">Role ID</th>
              		 <th data-field="name">Role Name</th>
               	<th data-field="address">Role Description</th>
+                 <th data-field="Edit">Action</th>
               </tr>
             </thead>
 
@@ -126,5 +127,16 @@
       }
 
     </script>
+
+       <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-role').DataTable();
+
+      } );
+    </script>
+
 
 @stop

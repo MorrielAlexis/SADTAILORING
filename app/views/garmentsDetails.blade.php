@@ -26,6 +26,7 @@
             <th data-field="name">Category Name</th>
             <th data-field="name">Segment Name</th>
             <th data-field="address">Segment Description</th>
+
           </tr>
         </thead>
 
@@ -63,13 +64,15 @@
    				<div class="divider"></div>
     			<div class="card-content">
               <div class="col s12 m12 l12 overflow-x">
-      				<table class = "centered" align = "center" border = "1">
+      				<table class = "table centered data-garmentsDetails" align = "center" border = "1">
        			    <thead>
           				<tr>
               			<th data-field="id">Garment Details ID</th>
              		   	<th data-field="name">Category Name</th>
                     <th data-field="name">Segment Name</th>
               			<th data-field="address">Segment Description</th>
+                    <th data-field="Edit">Action</th>
+                    <th data-field="Edit">Action</th>
               			</tr>
                 </thead>
 
@@ -81,8 +84,11 @@
               		  <td>{{ $segment->strGarmentCategoryName }}</td>
                     <td>{{ $segment->strGarmentSegmentName }}</td>
               		  <td>{{ $segment->strGarmentSegmentDesc }}</td>
-              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>                 
+              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button> </td>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>  </td>
+                    </tr>
+
+                              
 
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center> Edit Segment Details </center></h5></font>
@@ -171,7 +177,7 @@
                       <!--***********************************************************-->
 
                     </td>
-                  <tr>
+                  
                   @endif
                   @endforeach
                 </tbody>
@@ -243,6 +249,17 @@
             document.getElementById("addSegmentDesc").value = "";
             document.getElementById("addSegmentName").value = "";
         }
+    </script>
+
+
+         <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-garmentsDetails').DataTable();
+
+      } );
     </script>
 
 @stop

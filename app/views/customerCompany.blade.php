@@ -22,7 +22,7 @@
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ALL EMPLOYEES</h4>
-      <table class="centered" border="1">
+      <table class="table centered data-reactcustCompany" border="1">
         <thead>
           <tr>
             <th data-field="id">Company ID</th>
@@ -33,6 +33,7 @@
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Telephone No.</th>
             <th data-field="fax">Fax No.</th>
+            <th data-field="Edit">Edit</th>
           </tr>
         </thead>
 
@@ -76,7 +77,7 @@
 
            <div class="col s12 m12 l12 overflow-x"> 
 
-            <table class = "centered" align = "center" border = "1">
+            <table class = "table centered data-custCompany" align = "center" border = "1">
               <thead>
                 <tr>
                   <th data-field="id">Company ID</th>
@@ -87,6 +88,8 @@
                   <th data-field="cellphone">Cellphone No.</th>
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="fax">Fax No.</th>
+                  <th data-field="Edit">Edit</th>
+                  <th data-field="Delete">Delete</th>
                 </tr>
               </thead>
 
@@ -350,13 +353,30 @@
       });
 
 
+    </script>
 
+      <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
 
+      $(document).ready(function() {
 
+          $('.data-custCompany').DataTable();
 
-
+      } );
 
     </script>
+
+      <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-reactcustCompany').DataTable();
+
+      } );
+
+    </script>
+
 @stop                             
 		
  
