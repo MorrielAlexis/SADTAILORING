@@ -43,7 +43,7 @@
               <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch2->strSwatchImage)}}"></td>
               <td>
 
-               <form action="/reactSwatch" method="POST">
+               <form action="{{URL::to('reactSwatch')}}" method="POST">
                   <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactID" name="reactID">
               <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
 
@@ -95,7 +95,7 @@
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
-                        <form action="/editSwatch" method="POST" enctype="multipart/form-data">
+                        <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
@@ -149,7 +149,7 @@
                       <!--*******************************************-->
                       <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Are you sure you want to delete?</h5></center></font> 
-                        <form action="/delSwatch" method="POST">
+                        <form action="{{URL::to('delSwatch')}}" method="POST">
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
@@ -204,7 +204,7 @@
                 <!--    <Modal Structure for Add swatches> -->
             <div id="addSwatches" class="modal modal-fixed-footer">
               <font color = "teal"><center><h5> Add Swatch </h5></center></font>
-              <form action="/addSwatch" method="POST" id="addSwatch" name="addSwatch" enctype="multipart/form-data"> 
+              <form action="{{URL::to('addSwatch')}}" method="POST" id="addSwatch" name="addSwatch" enctype="multipart/form-data"> 
 
                 <div class="modal-content">
                   <p>

@@ -57,7 +57,7 @@
                   <td>{{ $employee2->strPhoneNo }}</td>
                   <td>{{ $employee2->strEmailAdd }}</td>
                   <td>
-                  <form action="/reactEmployee" method="POST">
+                  <form action="{{URL::to('reactEmployee')}}" method="POST">
                   <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactID" name="reactID">
                   <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
                   </form>
@@ -124,7 +124,7 @@
                             
                     <!-- <Modal Structure for Edit Employee>   -->
                     <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
-                      <form action="/editEmployee" method="POST">
+                      <form action="{{URL::to('editEmployee')}}" method="POST">
                         <div class="modal-content">
                           <font color = "teal"><h5><center>Edit Employee Information </center></h5></font> 
                           <p>
@@ -212,7 +212,7 @@
 
                     <!-- Modal for (SOFT) delete Employee -->
                     <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
-                      <form action="/delEmployee" method="POST">
+                      <form action="{{URL::to('delEmployee')}}" method="POST">
                         <div class="modal-content">
                           <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                           <p>
@@ -272,7 +272,7 @@
                 
             <!-- <Modal Structure for Add Employee> -->
     			<div id="newemp" class="modal modal-fixed-footer">
-            <form action="/addEmployee" method="POST" id="addEmployee" name="addEmployee">
+            <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" name="addEmployee">
               <div class="modal-content">
                 <font color = "teal"><h5><center>ADD NEW EMPLOYEE</center></h5></font>
                 <p>

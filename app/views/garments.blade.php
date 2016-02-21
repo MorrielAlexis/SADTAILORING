@@ -43,7 +43,7 @@
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center>Edit Garment Category </center></h5></font>
-                        <form action="/editGarmentCategory" method="POST">
+                        <form action="{{URL::to('editGarmentCategory')}}" method="POST">
                           <div class="modal-content">
                             <p> 
                             
@@ -87,7 +87,7 @@
          <!--    <Modal for Add Garment Category> -->
             <div id="addGCategory" class="modal modal-fixed-footer">
               <font color = "teal"><h5><center> Add A Garment Category </center></h5></font>
-              <form action="/addGarmentCategory" method="POST" id="addGarmentCategory" name="addGarmentCategory"> 
+              <form action="{{URL::to('addGarmentCategory')}}" method="POST" id="addGarmentCategory" name="addGarmentCategory"> 
 
                 <div class="modal-content">
 

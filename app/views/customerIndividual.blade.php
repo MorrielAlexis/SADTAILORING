@@ -48,7 +48,7 @@
               <td>{{ $individual2->strCustPrivCPNumber }}</td> 
               <td>{{ $individual2->strCustPrivLandlineNumber }}</td>       
               <td>          
-              <form action="/reactCustPrivIndiv" method="POST">
+              <form action="{{URL::to('reactCustPrivIndiv')}}" method="POST">
               <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactID" name="reactID">
               <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
               </form>
@@ -113,7 +113,7 @@
                       <div class="modal-content">
                       <div class = "label"><font color = "teal" size = "+3" back >Edit Customer Profile </font> </div>
                         <p>
-                        <form action="/editCustPrivIndiv" method="POST">
+                        <form action="{{URL::to('editCustPrivIndiv')}}" method="POST">
                         <div class="input-field">                 
                           <input value="{{$individual->strCustPrivIndivID}}" id="editIndiID" name="editIndiID" type="text" class="validate" readonly>
                           <label for="indi_id">Individual ID: </label>
@@ -167,7 +167,7 @@
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
-                         <form action="/delCustPrivIndiv" method="POST">
+                         <form action="{{URL::to('delCustPrivIndiv')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Individual ID: </label>
                             <input value="{{$individual->strCustPrivIndivID}}" id="delIndivID" name="delIndivID" type="text" class="validate" readonly>
@@ -220,7 +220,7 @@
               <div class="modal-content">
                 <p>
 
-                <form action="/addCustPrivIndiv" method="POST">
+                <form action="{{URL::to('addCustPrivIndiv')}}" method="POST">
                 <div class="input-field">                 
                   <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="validate" readonly>
                   <label for="indi_id">Individual ID: </label>

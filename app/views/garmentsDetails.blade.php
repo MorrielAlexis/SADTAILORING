@@ -38,7 +38,7 @@
               <td>{{ $segment2->strGarmentSegmentName }}</td>
               <td>{{ $segment2->strGarmentSegmentDesc }}</td>
               <td>
-              <form action="/reactGarmentSegment" method="POST">
+              <form action="{{URL::to('reactGarmentSegment')}}" method="POST">
               <input type="hidden" id="reactID" name="reactID" value="{{$segment2->strGarmentSegmentID}}">
               <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button></td>
               </form>
@@ -86,7 +86,7 @@
 
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center> Edit Segment Details </center></h5></font>
-                        <form action="/editGarmentSegment" method="POST"> 
+                        <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
                           <div class="modal-content">
                             <p>  
                           
@@ -130,7 +130,7 @@
                     <!--***********************************************************-->
                       <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font>
-                        <form action="/delGarmentSegment" method="POST"> 
+                        <form action="{{URL::to('delGarmentSegment')}}" method="POST"> 
                           <div class="modal-content">
                             <p>  
                           
@@ -186,7 +186,7 @@
 
     			    <div id="addSegment" class="modal modal-fixed-footer">
                 <font color = "teal"><h5><center>ADD SEGMENT</center></h5> </font> 
-                <form action="/addGarmentSegment" method="POST">
+                <form action="{{URL::to('addGarmentSegment')}}" method="POST">
                   <div class="modal-content">
                     <p>
                       <div class="input-field">
