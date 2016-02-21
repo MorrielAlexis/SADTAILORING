@@ -59,7 +59,7 @@
                  <td>{{ $head2->strGarmentSegmentName }}</td>
                  <td>{{ $head2->strMeasurementDetailName }}</td>
                   <td>
-                  <form action="/reactMeasurementCategory" method="POST">
+                  <form action="{{URL::to('reactMeasurementCategory')}}" method="POST">
                   <input type="hidden" value="{{ $head2->strMeasurementID }}" id="reactID" name="reactID">
                   <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
                   </form>
@@ -108,7 +108,7 @@
 
                           <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                             <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
-                            <form action="/editMeasurementCategory" method="POST"> 
+                            <form action="/{{URL::to('editMeasurementCategory')}}" method="POST"> 
                               <div class="modal-content"> 
                                 <p>
                                 
@@ -168,7 +168,7 @@
                           <!--*****************************************************-->
                           <div id="del{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                             <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
-                            <form action="/delMeasurementCategory" method="POST"> 
+                            <form action="{{URL::to('delMeasurementCategory')}}" method="POST"> 
                               <div class="modal-content"> 
                                 <p>
                         
@@ -239,7 +239,7 @@
                     
                       <div class="modal-content">
                         <p>
-                          <form action="/addMeasurementCategory" method="POST">
+                          <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
                           <div class="input-field">
                             <input value="{{$categoryNewID}}" id="addMeasurementID" name="addMeasurementID" type="text" class="validate" readonly>
                             <label for="measurement_id">Measurement ID: </label>
@@ -330,7 +330,7 @@
                        
                           <div id="{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                             <font color = "teal"><center><h5> Edit Measurement Part</h5></center></font>
-                            <form action="/editMeasurementDetail" method="POST"> 
+                            <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
                               <div class="modal-content">
                                 <p>
                                   <div class="input-field">
@@ -370,7 +370,7 @@
           
                   <div id="addMeasurementPart" class="modal modal-fixed-footer">
                     <font color = "teal"><h5><center> Add New Measurement Part </center></h5></font> 
-                    <form action="/addMeasurementDetail" method="POST">
+                    <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
                       <div class="modal-content">
                         <p>
 

@@ -55,8 +55,8 @@
   		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Customer Profile</b></a>
   			                   <div class="collapsible-body">
   				                  <ul>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/customerIndividual">Individual</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/customerCompany">Company</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('customerIndividual')}}">Individual</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('customerCompany')}}">Company</a></li>
   					                 <div class="divider"></div>
   				                  </ul>
   			                   </div>
@@ -65,8 +65,8 @@
   		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Employee</b></a>
                           <div class="collapsible-body">
   				                  <ul> 	
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/employeeRole">Position Roles</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/employee">Employee Profile</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('employeeRole')}}">Position Roles</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('employee')}}">Employee Profile</a></li>
                               <div class="divider"></div>
   				                  </ul>
   			                   </div>
@@ -75,10 +75,10 @@
   		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Garments</b></a>
                           <div class="collapsible-body">
   				                  <ul> 	
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/garments">Category</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/garmentsDetails">Segment</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/designPattern">Segment Pattern</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/measurements">Measurements</a></li> 
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('garments')}}">Category</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('garmentsDetails')}}">Segment</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('designPattern')}}">Segment Pattern</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('measurements')}}">Measurements</a></li> 
                               <div class="divider"></div>
   				                  </ul>
                           </div>
@@ -87,15 +87,15 @@
   		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Fabrics & Materials</b></a>
                           <div class="collapsible-body">
   				                  <ul> 	
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/fabricAndMaterialsFabricType">Fabric Types</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/fabricAndMaterialsSwatches">Swatches</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="/fabricAndMaterialsMaterials">Materials</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('fabricAndMaterialsFabricType')}}">Fabric Types</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('fabricAndMaterialsSwatches')}}">Swatches</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('fabricAndMaterialsMaterials')}}">Materials</a></li>
                               <div class="divider"></div>
                             </ul>
                           </div>
                         </li>
 
-  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal" href="/catalogue"><b>Catalogue</b></a></li>
+  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal" href="{{URL::to('catalogue')}}"><b>Catalogue</b></a></li>
                       </ul>
                     </li>
                   </ul>

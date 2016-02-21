@@ -49,7 +49,7 @@
                       <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center></font> 
                       <div class="modal-content">
                         <p>
-                        <form action="/editFabricType" method="POST">
+                        <form action="{{URL::to('editFabricType')}}" method="POST">
                         <div class="input-field">
                           <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="validate" readonly="">
                           <label for="fabric_typeId">Fabric Type ID: </label>
@@ -86,7 +86,7 @@
               </div>
           
               <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
-                <form action="/addFabricType" method="POST">
+                <form action="{{URL::to('addFabricType')}}" method="POST">
                 <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
                 <div class="modal-content">
                 <p>           

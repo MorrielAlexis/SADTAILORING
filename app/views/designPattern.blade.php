@@ -40,7 +40,7 @@
                   <td>{{ $pattern2->strPatternName }}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($pattern2->strPatternImage)}}"></td>
                   <td>
-                  <form action="/reactDesignPattern" method="POST">
+                  <form action="{{URL::to('reactDesignPattern')}}" method="POST">
                   <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactID" name="reactID">
                   <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
                   </form>
@@ -91,7 +91,7 @@
                       <div class="modal-content">
                         <p>
 
-                        <form action="editDesignPattern" method="POST" enctype="multipart/form-data">
+                        <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="text" readonly class="validate">
                           <label for="pattern_id">Pattern ID: </label>
@@ -152,7 +152,7 @@
                       <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                       <div class="modal-content">
                         <p>
-                        <form action="/delDesignPattern" method="POST" enctype="multipart/form-data">
+                        <form action="{{URL::to('delDesignPattern')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="text" readonly class="validate">
                           <label for="pattern_id">Pattern ID: </label>
@@ -203,7 +203,7 @@
               <font color = "teal" ><center><h5> Add Design Pattern </h5></center></font> 
               <div class="modal-content">
                 <p>
-                <form action="/addDesignPattern" method="POST" enctype="multipart/form-data">
+                <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
                 <div class="input-field">
                   <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="text" readonly class="validate">
                   <label for="pattern_id">Pattern ID: </label>

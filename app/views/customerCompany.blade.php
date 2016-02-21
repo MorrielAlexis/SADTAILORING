@@ -49,7 +49,7 @@
                   <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
             <td>
-                  <form action="/reactCustCompany" method="POST">
+                  <form action="{{URL::to('reactCustCompany')}}" method="POST">
                   <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
                   <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
                   </form>
@@ -110,7 +110,7 @@
                       <div class="modal-content">
                       <div class = "label"><font color = "teal" size = "+3" back >Edit Company Profile </font> </div>
                         <p>
-                        <form action="/editCustCompany" method="POST">
+                        <form action="{{URL::to('editCustCompany')}}" method="POST">
                         <div class="input-field">                 
                           <input value="{{$company->strCustCompanyID}}" id="editComID" name="editComID" type="text" class="validate" readonly>
                           <label for="company_id">Company ID: </label>
@@ -164,7 +164,7 @@
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
-                         <form action="/delCustCompany" method="POST">
+                         <form action="{{URL::to('delCustCompany')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Company ID: </label>
                             <input value="{{$company->strCustCompanyID}}" id="delCompanyID" name="delCompanyID" type="text" class="validate" readonly>
@@ -205,7 +205,7 @@
               <h5><font color = "teal"><center>Add Company Profile </center> </font> </h5>                      
               <div class="modal-content">
                 <p>
-                <form action="/addCustCompany" method="POST">
+                <form action="{{URL::to('addCustCompany')}}" method="POST">
               <div class="input-field">                 
                 <input value="{{$newID}}" id="addComID" name="addComID" type="text" class="validate" readonly>
                 <label for="company_id">Company ID: </label>

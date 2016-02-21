@@ -43,7 +43,7 @@
                 <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$role->strEmpRoleID}}">EDIT</button>
                  		
                   <div id="{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
-                    <form action="/editRole" method="POST">
+                    <form action="{{URL::to('editRole')}}" method="POST">
                       <div class="modal-content">
                         <font color = "teal" size = "+3" back ><center><h5> Edit Role Details </h5></center></font>
                         <p>
@@ -84,7 +84,7 @@
         
     			<div id="addRole" class="modal">
             <font color = "teal" size = "+3" back ></h5><center> Add Employee Role </center></h5></font>
-            <form action="/addRole" method="POST">
+            <form action="{{URL::to('addRole')}}" method="POST">
 
               <div class="modal-content">
                 <p>
