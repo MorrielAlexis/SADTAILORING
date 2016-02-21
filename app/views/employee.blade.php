@@ -155,7 +155,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge">
+                            <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge" maxlength="3">
                             <label for="Age">Age: </label>
                           </div>  
 
@@ -187,7 +187,7 @@
                           </div>   
 
                           <div class="input-field">
-                            <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell">
+                            <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell" maxlength="11">
                             <label for="cellphone_number">Cellphone Number: </label>
                           </div>
 
