@@ -117,37 +117,37 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z\'., ]+" id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validate" required>
+                          <input required id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validateComName">
                           <label for="company_name"> Company Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input required id="editAddress" name = "editAddress" value = "{{$company->strCustCompanyAddress}}" type="text" class="validate">
+                          <input required id="editAddress" name = "editAddress" value = "{{$company->strCustCompanyAddress}}" type="text" class="validateAddress">
                           <label for="address"> Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input required pattern="[A-Za-z\' ]+" id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validate">
+                          <input required id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validateConPerson">
                           <label for="company_name"> Contact Person: </label>
                         </div>
 
                         <div class="input-field">
-                          <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validate">
+                          <input id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validate">
                           <label for="com_email_address"> Company Email Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input required="" pattern="[^1-9][^0-8]+\d{9}"  id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validate">
+                          <input required id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validateCell">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[0-9]{7}" id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validate">
+                          <input id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validatePhone">
                           <label for="tel"> Telephone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[0-9]{7}" id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validate">
+                          <input id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validateFax">
                           <label for="fax"> Fax Number: </label>
                         </div>
                         </p>
@@ -212,37 +212,37 @@
               </div>
 
               <div class="input-field">
-                <input required pattern="[A-Za-z\'., ]+" id="addComName" name = "addComName" type="text" class="validate">
+                <input required id="addComName" name = "addComName" type="text" class="validateComName">
                 <label for="company_name"> Company Name: </label>
               </div>
 
               <div class="input-field">
-                <input required="" id="addAddress" name = "addAddress" type="text" class="validate">
+                <input required id="addAddress" name = "addAddress" type="text" class="validateAddress">
                 <label for="address"> Address: </label>
               </div>
 
               <div class="input-field">
-                <input required pattern="[A-Za-z\' ]+" id="addConPerson" name = "addConPerson" type="text" class="validate">
+                <input required id="addConPerson" name = "addConPerson" type="text" class="validateConPerson">
                 <label for="company_name"> Contact Person: </label>
               </div>
 
               <div class="input-field">
-                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
+                <input id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validate">
                 <label for="com_email_address"> Company Email Address: </label>
               </div>
 
               <div class="input-field">
-                <input required pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate">
+                <input required id="addCel" name = "addCel" type="text" class="validateCell">
                 <label for="cellphone"> Cellphone Number: </label>
               </div>
 
               <div class="input-field">
-                <input pattern="[0-9]{7}" id="addPhone" name = "addPhone" type="text" class="validate">
+                <input  id="addPhone" name = "addPhone" type="text" class="validatePhone">
                 <label for="tel"> Telephone Number: </label>
               </div>
 
               <div class="input-field">
-                <input pattern="[0-9]{7}" id="addFax" name = "addFax" type="text" class="validate">
+                <input id="addFax" name = "addFax" type="text" class="validateFax">
                 <label for="fax"> Fax Number: </label>
               </div>
               <br>
@@ -272,6 +272,89 @@
           document.getElementById("addComEmailAdd").value = "";
           document.getElementById("addFax").value = "";
       }
+
+    </script>
+
+    <script type="text/javascript">
+      $('.validateComName').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateComName').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateAddress').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Validate Blank
+      $('.validateAddress').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });     
+
+      $('.validateConPerson').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateConPerson').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCell').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+      //Validate Blank
+      $('.validateCell').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+       $('.validatePhone').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+       $('.validateFax').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+
+
+
+
+
+
 
     </script>
 @stop                             

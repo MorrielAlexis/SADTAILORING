@@ -53,13 +53,13 @@
                               </div>
 
                               <div class="input-field">
-                                <input required pattern="[A-Za-z\s]+" value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validate">
+                                <input required value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validateGarmentName">
                                 <label for="garment_name">Garment Name: </label>
                               </div>
 
                               <div class="input-field">
                       
-                               <input  value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+                               <input  value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validateGarmentDesc">
 
                                 <label for="garment_description">Garment Desription: </label>
                               </div>
@@ -98,12 +98,12 @@
                     </div>
 
                     <div class="input-field">
-                      <input required pattern="[A-Za-z\s]+" pattern="[A-Za-z\s]+" id="addGarmentName" name="addGarmentName" type="text" class="validate">
+                      <input required id="addGarmentName" name="addGarmentName" type="text" class="validateGarmentName">
                       <label for="garment_name">Garment Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input  id="addGarmentDesc" name="addGarmentDesc" type="text" class="validate">
+                      <input  id="addGarmentDesc" name="addGarmentDesc" type="text" class="validateGarmentDesc">
                       <label for="garment_description">Garment Desription: </label>
                     </div>
                   </p>
@@ -147,5 +147,46 @@
           document.getElementById("addGarmentDesc").value = "";
           document.getElementById("addGarmentName").value = "";
       }
+    </script>
+
+    <script type="text/javascript">
+      $('.validateGarmentName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateGarmentName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\D/, ''));
+      });     
+
+      $('.validateGarmentName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-z]/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateGarmentDesc').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-z]/;
+        var is_desc=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateGarmentDesc').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-z]/;
+        var is_desc=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
     </script>
 @stop
