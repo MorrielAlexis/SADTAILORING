@@ -5,14 +5,14 @@
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Design Pattern</h4></span>
+        <span class="page-title"><h4>Segment Pattern</h4></span>
       </div>
     </div>
 
     <div class="row">
       <div class="col s12 m12 l12">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addDesign">ADD DESIGN PATTERN</button>
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE DESIGN PATTERNS</button>
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addDesign">ADD SEGMENT PATTERN</button>
+          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE SEGMENT PATTERNS</button>
       </div>
     </div>
   </div>
@@ -20,11 +20,11 @@
   <!--MODAL: VIEW ALL DESIGN PATTERNS-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE DESIGN PATTERNS</h4>
+      <h4>INACTIVE SEGMENT PATTERNS</h4>
       <table class="centered" border="1">
         <thead>
           <tr>
-            <th data-field= "Catalog ID">Design Pattern ID</th>
+            <th data-field= "Catalog ID">Segment Pattern ID</th>
             <th data-field="Garment Name">Segment Name </th>
             <th data-field="Pattern Name">Pattern Name</th>
             <th data-field="Pattern Image">Pattern Image</th>
@@ -60,7 +60,7 @@
   <div class="row">
     <div class="col s12 m12 l12">
     	<div class="card-panel">
-        <span class="card-title"><h5><center>Design Pattern Details</center></h5></span>
+        <span class="card-title"><h5><center>Segment Pattern Details</center></h5></span>
         <div class="divider"></div>
 
     		<div class="card-content"> 
@@ -68,7 +68,7 @@
       			<table class = "centered" align = "center" border = "1">
        				<thead>
           			<tr>
-                  <th data-field= "Catalog ID">Design Pattern ID</th>
+                  <th data-field= "Catalog ID">Segment Pattern ID</th>
               		<th data-field="Garment Name">Segment Name </th>
              		  <th data-field="Pattern Name">Pattern Name</th>
               		<th data-field="Pattern Image">Pattern Image</th>
@@ -99,15 +99,15 @@
 
                         <div class="input-field">                                                    
                           <select name='editSegment' required>
-                            <option disabled>Pick a segment</option>
-                              @foreach($segment as $id=>$name)
-                                  @if($pattern->strDesignSegmentName == $id)
-                                    <option selected value="{{ $id }}">{{ $name }}</option>
-                                  @else
-                                    <option value="{{ $id }}">{{ $name }}</option>
+                              @foreach($segment2 as $seg)
+                                  @if($pattern->strDesignSegmentName == $seg->strGarmentSegmentID && $seg->boolIsActive == 1)
+                                    <option selected value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
+                                  @elseif($seg->boolIsActive == 1)
+                                    <option value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
                                   @endif
                               @endforeach
                           </select>    
+                          <label>Segment</label>
                         </div>   
 
 
@@ -159,15 +159,10 @@
                         </div>
 
                         <div class="input-field">                                                    
-                          <select name='editSegment'>
-                            <option disabled>Pick a segment</option>
-                              @foreach($segment as $id=>$name)
-                                  @if($pattern->strDesignSegmentName == $id)
-                                    <option selected value="{{ $id }}" disabled>{{ $name }}</option>
-                                  @endif
-                              @endforeach
-                          </select>    
+                            <input type="text" value="{{$pattern->strGarmentSegmentName}}" readonly>
+                          <label>Segment</label>
                         </div>   
+  
 
                         <div class="input-field">
                           <input value = "{{ $pattern->strPatternName }}" type="text" class="validate" readonly>
@@ -200,7 +195,7 @@
            
 
             <div id="addDesign" class="modal modal-fixed-footer">
-              <font color = "teal" ><center><h5> Add Design Pattern </h5></center></font> 
+              <font color = "teal" ><center><h5> Add Segment Pattern </h5></center></font> 
               <div class="modal-content">
                 <p>
                 <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
@@ -211,12 +206,13 @@
 
                 <div class="input-field">
                   <select required id="addSegment" name="addSegment">
-                    <option disabled selected>Choose a segment:</option>
-                        @foreach($segment as $id=>$name)
-                          <option value="{{ $id }}">{{ $name }}</option>
+                        @foreach($segment as $segment)
+                          @if($segment->boolIsActive == 1)
+                            <option value="{{ $segment->strGarmentSegmentID }}">{{ $segment->strGarmentSegmentName }}</option>
+                          @endif
                         @endforeach
                   </select>
-
+                  <label>Segment</label>
                 </div>   
 
                 <div class="input-field">

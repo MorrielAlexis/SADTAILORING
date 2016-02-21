@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -161,16 +162,16 @@
 
                           <div class="input-field">                                                    
                             <select required name='editRoles'>
-                                @foreach($roles as $id=>$name)
-                                    @if($employee->strRole == $id)
-                                      <option selected value="{{ $id }}">{{ $name }}</option>
-                                    @else
-                                      <option value="{{ $id }}">{{ $name }}</option>
+                                @foreach($roles as $role)
+                                    @if($employee->strRole == $role->strEmpRoleID AND $role->boolIsActive == 1)
+                                      <option selected value="{{ $role->strEmpRoleID }}">{{ $role->strEmpRoleName }}</option>
+                                    @elseif($role->boolIsActive == 1)
+                                      <option value="{{ $role->strEmpRoleID }}">{{ $role->strEmpRoleName }}</option>
                                     @endif
                                 @endforeach
                             </select>    
                             <label >Role</label>
-                          </div>   
+                          </div> 
 
                           <div class="input-field">                                                    
                             <select required name='editSex'>
@@ -237,17 +238,8 @@
                               <label for="LastName">Employee Last Name: </label>
                             </div>
 
-                            <div class="input-field">                                                    
-                              <select name='editRoles'>
-                                <option disabled>Pick a role</option>
-                                  @foreach($roles as $id=>$name)
-                                    @if($employee->strRole == $id)
-                                      <option selected value="{{ $id }}" disabled>{{ $name }}</option>
-                                    @else
-                                      <option value="{{ $id }}" disabled>{{ $name }}</option>
-                                    @endif
-                                  @endforeach
-                              </select>    
+                            <div class="input-field">       
+                                <input type="text" value="{{$employee->strEmpRoleName}}" readonly>                                                                               
                             </div>
                           </p> 
                         </div>   
@@ -309,8 +301,10 @@
 
                   <div class="input-field">
                     <select name='addRoles' id='addRoles' required>
-                      @foreach($roles as $id=>$name)
-                        <option value="{{ $id }}" selected>{{ $name }}</option>
+                      @foreach($roles2 as $roles2)
+                        @if($roles2->boolIsActive == 1)
+                          <option value="{{ $roles2->strEmpRoleID }}" selected>{{ $roles2->strEmpRoleName }}</option>
+                        @endif
                       @endforeach
                     </select>   
                     <label>Role</label>

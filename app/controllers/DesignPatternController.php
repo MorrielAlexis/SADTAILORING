@@ -15,7 +15,7 @@ class DesignPatternController extends BaseController{
 		$ID = $ids["0"]->strDesignPatternID;
 		$newID = $this->smartCounter($ID);	
 
-		$segment = Segment::lists('strGarmentSegmentName', 'strGarmentSegmentID');
+		$segment = Segment::all();
 
 		$pattern = DB::table('tblDesignPattern')
 				->join('tblGarmentSegment', 'tblDesignPattern.strDesignSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
@@ -27,7 +27,8 @@ class DesignPatternController extends BaseController{
 						->with('newID', $newID)
 						->with('pattern', $pattern)
 						->with('pattern2', $pattern)
-						->with('segment', $segment);
+						->with('segment', $segment)
+						->with('segment2', $segment);
 	}
 
 	public function addPattern()

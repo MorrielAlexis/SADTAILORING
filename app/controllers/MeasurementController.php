@@ -24,9 +24,9 @@ class MeasurementController extends BaseController{
             ->orderBy('created_at')
             ->get();
 
-        $category =  Category::lists('strGarmentCategoryName', 'strGarmentCategoryID'); 	
-        $segment =  Segment::lists('strGarmentSegmentName', 'strGarmentSegmentID'); 	
-        $detailList =  MeasurementDetail::lists('strMeasurementDetailName', 'strMeasurementDetailID'); 	 
+        $category =  Category::all(); 	
+        $segment =  Segment::all(); 	
+        $detailList =  MeasurementDetail::all(); 	 
 		////////////////MEASUREMENT HEAD////////////////
 
 		////////////////MEASUREMENT DETAILS////////////////
@@ -43,8 +43,6 @@ class MeasurementController extends BaseController{
 		$detail = MeasurementDetail::all();
 		////////////////MEASUREMENT DETAILS////////////////
 
-		$actTab = 'tabDetails';
-
 		return View::make('measurements')
 					->with('head', $head)
 					->with('head2', $head)
@@ -54,7 +52,9 @@ class MeasurementController extends BaseController{
 					->with('category', $category)
 					->with('segment', $segment)
 					->with('detailList', $detailList)
-					->with('actTab', $actTab);
+					->with('category2', $category)
+					->with('segment2', $segment)
+					->with('detailList2', $detailList);
 		
 	}
 
@@ -110,6 +110,28 @@ class MeasurementController extends BaseController{
 		return Redirect::to('/measurements');
 	}
 
+	public function delDetail()
+	{
+		$id = Input::get('delDetailID');
+		$detail = MeasurementDetail::find($id);
+
+		$count = DB::table('tblMeasurementHeader')
+            ->join('tblMeasurementDetail', 'tblMeasurementHeader.strMeasurementName', '=', 'tblMeasurementDetail.strMeasurementDetailID')
+            ->select('tblMeasurementDetail.*')
+            ->where('tblMeasurementDetail.strMeasurementDetailID','=', $id)
+            ->count();
+
+        if($count == 0){
+        	$detail->boolIsActive = 0;
+        	$detail->save();
+        	return Redirect::to('/measurements');
+        }else{
+        	return Redirect::to('/measurements');
+        }
+	
+		return Redirect::to('/measurements');
+	}
+
 	public function delCategory()
 	{
 		$id = Input::get('delMeasurementID');
@@ -120,7 +142,6 @@ class MeasurementController extends BaseController{
 		$head->save();
 		return Redirect::to('/measurements');
 	}
-
 
 	public function reactCategory()
 	{

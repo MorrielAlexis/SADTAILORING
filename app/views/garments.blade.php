@@ -34,14 +34,16 @@
 
               <tbody>
                 @foreach($category as $category)
+                  @if($category->boolIsActive == 1)
                   <tr>
                     <td>{{ $category->strGarmentCategoryID }}</td>
                     <td>{{ $category->strGarmentCategoryName }}</td>
                     <td>{{ $category->strGarmentCategoryDesc }}</td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{ $category->strGarmentCategoryID }}">EDIT</button>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button>
+                      <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button>
               
                       <!-- Modal Structure for Edit Garment Category> -->
-                      <div id="{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
+                      <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center>Edit Garment Category </center></h5></font>
                         <form action="{{URL::to('editGarmentCategory')}}" method="POST">
                           <div class="modal-content">
@@ -72,8 +74,41 @@
                           </div>
                         </form>
                       </div>
+                      <!--///////////////////////DELETE/////////////////////-->
+                      <div id="del{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
+                        <font color = "teal"><h5><center>Are you sure you want to delete? </center></h5></font>
+                        <form action="{{URL::to('delGarmentCategory')}}" method="POST">
+                          <div class="modal-content">
+                            <p> 
+                            
+                              <div class="input-field">
+                                <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="text" class="validate" readonly>
+                                <label for="garment_id">Garment ID: </label>
+                              </div>
+
+                              <div class="input-field">
+                                <input required pattern="[A-Za-z\s]+" value="{{ $category->strGarmentCategoryName }}" type="text" class="validate" readonly>
+                                <label for="garment_name">Garment Name: </label>
+                              </div>
+
+                              <div class="input-field">
+                      
+                               <input  value= "{{ $category->strGarmentCategoryDesc }}" type="text" class="validate" readonly>
+
+                                <label for="garment_description">Garment Desription: </label>
+                              </div>
+                            </p>
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                          </div>
+                        </form>
+                      </div>
                    </td>
                   </tr>
+                  @endif
                 @endforeach
               </tbody>
             </table>

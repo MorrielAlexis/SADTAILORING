@@ -1,6 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
+
+
+  @if (Session::has('message'))
+
+    @endif
+
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
@@ -36,13 +42,15 @@
 
             <tbody>
               @foreach($role as $role)
+              @if($role->boolIsActive == 1)
               <tr>
                 <td>{{ $role->strEmpRoleID }}</td>
                 <td>{{ $role->strEmpRoleName }}</td>
                 <td>{{ $role->strEmpRoleDesc }}</td>
-                <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#{{$role->strEmpRoleID}}">EDIT</button>
+                <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$role->strEmpRoleID}}">EDIT</button>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$role->strEmpRoleID}}">DELETE</button>
                  		
-                  <div id="{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
+                  <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                     <form action="{{URL::to('editRole')}}" method="POST">
                       <div class="modal-content">
                         <font color = "teal" size = "+3" back ><center><h5> Edit Role Details </h5></center></font>
@@ -71,8 +79,42 @@
                       </div>
                     </form>
                   </div>
+                  <!---/////////////////DELETE ROLE//////////////////////-->
+                  <div id="del{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
+                    <form action="{{URL::to('delRole')}}" method="POST">
+                      <div class="modal-content">
+                        <font color = "teal" size = "+3" back ><center><h5> Are you sure you want to delete? </h5></center></font>
+                        <p>
+                  
+                          <div class="input-field">
+                            <input value="{{$role->strEmpRoleID}}" id="delRoleID" name="delRoleID" type="text" class="validate" readonly>
+                            <label for="role_id">Role ID: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" type="text" class="validate" readonly>
+                            <label for="role_name">Role Name: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input  value="{{$role->strEmpRoleDesc}}" type="text" class="validate" readonly>
+                            <label for="role_description">Role Description: </label>
+                          </div>  
+                        </p>    
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                      </div>
+                    </form>
+                  </div>
+
+
+
                 </td>
               </tr>
+              @endif
             @endforeach
             </tbody>
           </table>
@@ -124,7 +166,6 @@
           document.getElementById("addRoleDescription").value = "";
           document.getElementById("addRoleName").value = "";
       }
-
     </script>
 
 @stop

@@ -32,7 +32,7 @@ class GarmentsController extends BaseController{
 		$ID = $ids["0"]->strGarmentSegmentID;
 		$newID = $this->smartCounter($ID);	
 
-		$category =  Category::lists('strGarmentCategoryName', 'strGarmentCategoryID');
+		$category =  Category::all();
 
 		$segment = DB::table('tblGarmentSegment')
             ->join('tblGarmentCategory', 'tblGarmentSegment.strCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
@@ -43,6 +43,7 @@ class GarmentsController extends BaseController{
 					->with('segment', $segment)
 					->with('segment2', $segment)
 					->with('category', $category)
+					->with('category2', $category)
 					->with('newID', $newID);
 	}
 
@@ -56,7 +57,8 @@ class GarmentsController extends BaseController{
 		$garment = Category::create(array(
 			'strGarmentCategoryID' => Input::get('addGarmentID'),
 			'strGarmentCategoryName' => Input::get('addGarmentName'),
-			'strGarmentCategoryDesc' => Input::get('addGarmentDesc')
+			'strGarmentCategoryDesc' => Input::get('addGarmentDesc'),
+			'boolIsActive' => 1
 			));
 
 		$garment->save();
@@ -74,6 +76,33 @@ class GarmentsController extends BaseController{
 		$garments->save();
 		return Redirect::to('/garments');
 	}	
+
+	public function delGarmentCategory()
+	{
+		$id = Input::get('delGarmentID');
+		$category = Category::find($id);
+
+		$count = DB::table('tblGarmentSegment')
+            ->join('tblGarmentCategory', 'tblGarmentSegment.strCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
+            ->select('tblGarmentCategory.*')
+            ->where('tblGarmentCategory.strGarmentCategoryID','=', $id)
+            ->count();
+
+        $count2 = DB::table('tblMeasurementHeader')
+            ->join('tblGarmentCategory', 'tblMeasurementHeader.strCategoryName', '=', 'tblGarmentCategory.strGarmentCategoryID')
+            ->select('tblGarmentCategory.*')
+            ->where('tblGarmentCategory.strGarmentCategoryID','=', $id)
+            ->count();
+
+        if ($count == 0 && $count2 == 0) {
+        	$category->boolIsActive = 0;
+        	$category->save();
+        	return Redirect::to('/garments');
+        } else {
+        	return Redirect::to('/garments');
+        }
+
+	}
 
 	public function addGarmentSegment()
 	{	
@@ -104,14 +133,30 @@ class GarmentsController extends BaseController{
 	}
 
 	public function delGarmentSegment()
-	{
+	{	
 		$id = Input::get('delSegmentID');
 		$segment = Segment::find($id);
 
-		$segment->boolIsActive = 0;
+		$count = DB::table('tblDesignPattern')
+            ->join('tblGarmentSegment', 'tblDesignPattern.strDesignSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
+            ->select('tblGarmentSegment.*')
+            ->where('tblGarmentSegment.strGarmentSegmentID','=', $id)
+            ->count();
 
-		$segment->save();
-		return Redirect::to('/garmentsDetails');
+        $count2 = DB::table('tblMeasurementHeader')
+            ->join('tblGarmentSegment', 'tblMeasurementHeader.strSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
+            ->select('tblGarmentSegment.*')
+            ->where('tblGarmentSegment.strGarmentSegmentID','=', $id)
+            ->count();
+
+		if ($count == 0 && $count2 == 0) {
+        	$segment->boolIsActive = 0;
+        	$segment->save();
+        	return Redirect::to('/garmentsDetails');
+        } else {
+        	return Redirect::to('/garmentsDetails');
+        }
+
 	}
 
 	public function reactGarmentSegment()

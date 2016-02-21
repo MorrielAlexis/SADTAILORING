@@ -15,8 +15,10 @@ class EmployeeController extends BaseController{
 		$ID = $ids["0"]->strEmployeeID;
 		$newID = $this->smartCounter($ID);	
 
-		$roles =  Role::lists('strEmpRoleName', 'strEmpRoleID'); 		
-		
+		$roles =  DB::table('tblEmployeeRole')
+					->select('strEmpRoleID', 'strEmpRoleName', 'boolIsActive')
+					->get();
+
 		$employee = DB::table('tblEmployee')
             ->join('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
             ->select('tblEmployee.*', 'tblEmployeeRole.strEmpRoleName')
@@ -25,6 +27,7 @@ class EmployeeController extends BaseController{
 		return View::make('employee')
 					->with('employee', $employee)
 					->with('employee2', $employee)
+					->with('roles2', $roles)
 					->with('roles', $roles)
 					->with('newID', $newID);
 	}
@@ -121,6 +124,28 @@ class EmployeeController extends BaseController{
 
 		$employee->save();
 		return Redirect::to('/employee');
+	}
+
+	public function delRole()
+	{	
+		$id = Input::get('delRoleID');
+		$role = Role::find($id);			
+
+		$count = DB::table('tblEmployeeRole')
+            ->join('tblEmployee', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
+            ->select('tblEmployeeRole.*')
+            ->where('tblEmployeeRole.strEmpRoleID','=', $id)
+            ->count();
+
+        if($count == 0){
+        	$role->boolIsActive = 0;
+        	$role->save();
+        	return Redirect::to('/employeeRole');
+        }else{	
+        	return Redirect::to('/employeeRole')->with('message', 'There are employees still assigned to this role!');
+        }
+
+        
 	}
 
 	public function reactEmployee()

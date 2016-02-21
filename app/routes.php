@@ -52,9 +52,11 @@ Route::post('/reactEmployee', array('uses' => 'EmployeeController@reactEmployee'
 //////////////////////CRUD FOR ROLE//////////////////////
 Route::post('/addRole', array('uses' =>'EmployeeController@addRole'));
 Route::post('/editRole', array('uses' => 'EmployeeController@editRole'));
+Route::post('/delRole', array('uses' => 'EmployeeController@delRole'));
 //////////////////////CRUD FOR GARMENT CATEGORY//////////////////////
 Route::post('/addGarmentCategory', array('uses' => 'GarmentsController@addGarmentCategory'));
 Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarmentCategory'));
+Route::post('/delGarmentCategory', array('uses' => 'GarmentsController@delGarmentCategory'));
 //////////////////////CRUD FOR GARMENT SEGMENT//////////////////////
 Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarmentSegment'));
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
@@ -63,6 +65,7 @@ Route::post('/reactGarmentSegment', array('uses' => 'GarmentsController@reactGar
 //////////////////////CRUD FOR MEASUREMENT DETAIL//////////////////////
 Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));
 Route::post('/editMeasurementDetail', array('uses' => 'MeasurementController@editDetail'));
+Route::post('/delMeasurementDetail', array('uses' => 'MeasurementController@delDetail'));
 //////////////////////CRUD FOR MEASUREMENT CATEGORY//////////////////////
 Route::post('/addMeasurementCategory', array('uses' => 'MeasurementController@addCategory'));
 Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@editCategory'));

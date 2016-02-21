@@ -97,15 +97,15 @@
 
                               <div class="input-field">                                                    
                                 <select required name="editCategory" id="editCategory">
-                                  <option disabled>Pick a category</option>
-                                  @foreach($category as $id=>$name)
-                                    @if($segment->strCategory == $id)
-                                      <option selected value="{{ $id }}">{{ $name }}</option>
-                                    @else
-                                      <option value="{{ $id }}">{{ $name }}</option>
+                                  @foreach($category2 as $cat)
+                                    @if($segment->strCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
+                                      <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                                    @elseif($cat->boolIsActive == 1)
+                                      <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                                     @endif
                                   @endforeach
                                 </select>    
+                                <label></label>
                               </div>   
                         
                               <div class="input-field">
@@ -140,14 +140,7 @@
                               </div>
 
                               <div class="input-field">                                                    
-                                <select>
-                                  <option disabled>Pick a category</option>
-                                  @foreach($category as $id=>$name)
-                                    @if($segment->strCategory == $id)
-                                      <option selected value="{{ $id }}" disabled>{{ $name }}</option>
-                                    @endif
-                                  @endforeach
-                                </select>    
+                                  <input type="text" value="{{$segment->strGarmentCategoryName}}">
                               </div>   
 
                               <div class="input-field">
@@ -196,11 +189,11 @@
 
                       <div class="input-field">
                         <select name='addCategory' id='addCategory' required>
-                              <option selected disabled>Pick a category</option>
-                                @foreach($category as $id=>$name)
-                                <option value="{{ $id }}">{{ $name }}</option>
-                                @endforeach
+                          @foreach($category as $category)
+                          <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
+                          @endforeach
                         </select> 
+                        <label >Category</label>
                       </div>  
 
                       <div class="input-field">
@@ -210,9 +203,7 @@
 
                       <div class="input-field">
 
-                        <input required id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
-
-                        <input pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
+                        <input required pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
 
                         <label for="segment_description">Segment Description: </label>
                       </div>
