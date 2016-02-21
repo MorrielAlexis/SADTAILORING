@@ -231,11 +231,18 @@ class FabricAndMaterialsController extends BaseController{
 
 		///////////THREADS/////////////
 	public function addThread()
-	{
+	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/imgMaterialThreads';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$thread = MaterialThread::create(array(
 			'strMaterialThreadID' => Input::get('addThreadID'),
 			'strMaterialThreadName' => Input::get('addThreadName'),
 			'strMaterialThreadColor' => Input::get('addThreadColor'),
+			'strMaterialThreadImage' => 'imgMaterialThreads/'.$fileName,
 			'boolIsActive' => 1
 			));
 
@@ -278,11 +285,18 @@ class FabricAndMaterialsController extends BaseController{
 
 		///////////NEEDLES////////////
 	public function addNeedle()
-	{
+	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/imgMaterialNeedles';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$needle = MaterialNeedle::create(array(
 			'strMaterialNeedleID' => Input::get('addNeedleID'),
 			'strMaterialNeedleName' => Input::get('addNeedleName'),
 			'strMaterialNeedleSize' => Input::get('addNeedleSize'),
+			'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
 			'boolIsActive' => 1
 			));
 
@@ -325,12 +339,19 @@ class FabricAndMaterialsController extends BaseController{
 
 		///////////BUTTON////////////
 	public function addButton()
-	{
+	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/imgMaterialButtons';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$button = MaterialButton::create(array(
 			'strMaterialButtonID' => Input::get('addButtonID'),
 			'strMaterialButtonName' => Input::get('addButtonName'),
 			'strMaterialButtonSize' => Input::get('addButtonSize'),
 			'strMaterialButtonColor' => Input::get('addButtonColor'),
+			'strMaterialButtonImage' => 'imgMaterialButtons/'.$fileName,
 			'boolIsActive' => 1
 			));
 
@@ -374,12 +395,19 @@ class FabricAndMaterialsController extends BaseController{
 
 		///////////ZIPPER////////////
 	public function addZipper()
-	{
+	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/imgMaterialZippers';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$zipper = MaterialZipper::create(array(
 			'strMaterialZipperID' => Input::get('addZipperID'),
 			'strMaterialZipperName' => Input::get('addZipperName'),
 			'strMaterialZipperSize' => Input::get('addZipperSize'),
 			'strMaterialZipperColor' => Input::get('addZipperColor'),
+			'strMaterialZipperImage' => 'imgMaterialZippers/'.$fileName,
 			'boolIsActive' => 1
 			));
 
@@ -423,12 +451,19 @@ class FabricAndMaterialsController extends BaseController{
 
 		///////////HOOK AND EYE////////////
 	public function addHook()
-	{
+	{	
+		$file = Input::get('addImage');
+		$destinationPath = 'public/imgMaterialHooks';
+		$extension = Input::file('addImg')->getClientOriginalExtension();
+		$fileName = $file;
+		Input::file('addImg')->move($destinationPath, $fileName);
+
 		$hook = MaterialHookAndEye::create(array(
 			'strMaterialHookID' => Input::get('addHookID'),
 			'strMaterialHookName' => Input::get('addHookName'),
 			'strMaterialHookSize' => Input::get('addHookSize'),
 			'strMaterialHookColor' => Input::get('addHookColor'),
+			'strMaterialHookImage' => 'imgMaterialHooks/'.$fileName,
 			'boolIsActive' => 1
 			));
 

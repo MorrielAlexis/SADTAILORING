@@ -41,8 +41,8 @@
                   <td>{{ $thread->strMaterialThreadID }}</td>
                   <td>{{ $thread->strMaterialThreadName }}</td>
                   <td>{{ $thread->strMaterialThreadColor }}</td>
-                  <td>Image</td> 
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button> 
+                  <td><img class="materialboxed" width="650" src="{{URL::asset($thread->strMaterialThreadImage)}}"></td> 
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $thread->strMaterialThreadID }}">DELETE</button>
                       
                     <!--EDIT THREADS-->
@@ -69,11 +69,11 @@
                         <div class="file-field input-field">
                           <div class="btn">
                             <span>Upload Image</span>
-                            <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            <input type="file" id="addImage" name="addImage" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
 
                           <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
+                            <input class="file-path validate" id="addImg" name="addImg"type="text">
                           </div>
                           <br><br>
                         </div> 
@@ -86,15 +86,10 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-              </table>
+                 
 
                       <!--DELETE THREADS-->
-                <div id="del{{$thread->strMaterialThreadID}}" class="modal modal-fixed-footer">
+                <div id="del{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
@@ -122,6 +117,12 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+            </table>
 
                 <!--VIEW INACTIVE THREADS-->
           <div id="inactiveThread" class="modal modal-fixed-footer">
@@ -144,7 +145,7 @@
                         <td>{{ $thread2->strMaterialThreadID }}</td>
                         <td>{{ $thread2->strMaterialThreadName }}</td>
                         <td>{{ $thread2->strMaterialThreadColor }}</td>
-                        <td>Image</td>    
+                        <td><img src="{{URL::asset($thread2->strMaterialThreadImage)}}"></td>    
                         <td>          
                         <form action="/reactThread" method="POST">
                         <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactID" name="reactID">
@@ -200,7 +201,7 @@
                   <td>{{$needle->strMaterialNeedleID}}</td>
                   <td>{{$needle->strMaterialNeedleName}}</td>
                   <td>{{$needle->strMaterialNeedleSize}}</td>
-                  <td>image link</td>
+                  <td><img class="materialboxed" width="650" src="{{URL::asset($needle->strMaterialNeedleImage)}}"></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$needle->strMaterialNeedleID}}">EDIT</button>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$needle->strMaterialNeedleID}}">DELETE</button>
                       
@@ -245,13 +246,7 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-        </table>
-        </div>
+                  
 
         <div id="del{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -281,6 +276,12 @@
                           </div> 
                         </form>
                     </div>
+                    </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+        </table>
 
   <div id="inactiveNeedle" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -301,7 +302,7 @@
               <td>{{ $needle2->strMaterialNeedleID }}</td>
               <td>{{ $needle2->strMaterialNeedleName }}</td>
               <td>{{ $needle2->strMaterialNeedleSize }}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($needle2->strMaterialNeedleImage)}}"> </td>      
               <td>          
               <form action="/reactNeedle" method="POST">
               <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactID" name="reactID">
@@ -335,7 +336,7 @@
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
 
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveButton">VIEW INACTIVE BUTTONS/button>
+        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveButton">VIEW INACTIVE BUTTONS</button>
               <thead>
                 <tr>
                   <th date-field= "Button ID">Button ID</th>
@@ -357,7 +358,7 @@
                   <td>{{$button->strMaterialButtonName}}</td>
                   <td>{{$button->strMaterialButtonSize}}</td>
                   <td>{{$button->strMaterialButtonColor}}</td>
-                  <td>image</td>
+                  <td><img class="materialboxed" width="650" src="{{URL::asset($button->strMaterialButtonImage)}}"></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$button->strMaterialButtonID}}">EDIT</button>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$button->strMaterialButtonID}}">DELETE</button>
                       
@@ -406,13 +407,7 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-        </table>
-        </div>
+                 
 
         <div id="del{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -447,6 +442,13 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+              @endif
+              @endforeach
+            </tbody>
+        </table>
+
 
   <div id="inactiveButton" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -458,7 +460,8 @@
             <th data-field="Button Name">Button Name</th>
             <th data-field= "Button Size">Button Size </th>
             <th data-field= "Button Color">Button Color </th>
-            <th data-field="Image">Image</th>          </tr>
+            <th data-field="Image">Image</th>          
+          </tr>
         </thead>
 
         <tbody>
@@ -469,7 +472,7 @@
               <td>{{ $button2->strMaterialButtonName }}</td>
               <td>{{ $button2->strMaterialButtonSize }}</td>
               <td>{{ $button2->strMaterialButtonColor }}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($button2->strMaterialButtonImage)}}"> </td>      
               <td>          
               <form action="/reactButton" method="POST">
               <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactID" name="reactID">
@@ -524,7 +527,7 @@
                   <td>{{$zipper->strMaterialZipperName}}</td>
                   <td>{{$zipper->strMaterialZipperSize}}</td>
                   <td>{{$zipper->strMaterialZipperColor}}</td>
-                  <td>image link</td>
+                  <td><img class="materialboxed" width="650" src="{{URL::asset($zipper->strMaterialZipperImage)}}"></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$zipper->strMaterialZipperID}}">EDIT</button>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$zipper->strMaterialZipperID}}">DELETE</button>
                       
@@ -575,14 +578,7 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-        </table>
-
-        </div>
+                  
 
         <div id="del{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -617,6 +613,13 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+        </table>
+
 
   <div id="inactiveZipper" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -628,7 +631,8 @@
             <th data-field="Zipper Name">Zipper Name</th>
             <th data-field= "Zipper Size">Zipper Size </th>
             <th data-field= "Zipper Color">Zipper Color </th>
-            <th data-field="Image">Image</th>          </tr>
+            <th data-field="Image">Image</th>          
+          </tr>
         </thead>
 
         <tbody>
@@ -639,7 +643,7 @@
               <td>{{ $zipper2->strMaterialZipperName }}</td>
               <td>{{ $zipper2->strMaterialZipperSize }}</td>
               <td>{{ $zipper2->strMaterialZipperColor }}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($zipper2->strMaterialZipperImage)}}"> </td>      
               <td>          
               <form action="/reactZipper" method="POST">
               <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactID" name="reactID">
@@ -696,7 +700,7 @@
                   <td>{{$hook->strMaterialHookName}}</td>
                   <td>{{$hook->strMaterialHookSize}}</td>
                   <td>{{$hook->strMaterialHookColor}}</td>
-                  <td>image</td>
+                  <td><img class="materialboxed" width="650" src="{{URL::asset($hook->strMaterialHookImage)}}"></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
                       
@@ -747,13 +751,7 @@
                       </div>
                   </form>
                     </div>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-            </table>
-            </div>
+                  
 
             <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -788,6 +786,13 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+            </table>
+
 
   <div id="inactiveHook" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -811,7 +816,7 @@
               <td>{{$hook2->strMaterialHookName}}</td>
               <td>{{$hook2->strMaterialHookSize}}</td>
               <td>{{$hook2->strMaterialHookColor}}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($hook2->strMaterialHookImage)}}"> </td>      
               <td>          
               <form action="/reactHook" method="POST">
               <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactID" name="reactID">
@@ -843,7 +848,7 @@
   <div id="addThread" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD THREAD</h4>
-      <form action="/addThread" method="POST">
+      <form action="/addThread" method="POST" enctype="multipart/form-data">
       <div class="input-field">
           <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" readonly = "readonly" type="text" class="validate">
           <label for="Thread_ID"> Thread ID: </label>
@@ -862,11 +867,11 @@
       <div class="file-field input-field">
         <div class="btn">
           <span>Upload Image</span>
-          <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+          <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
 
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
+          <input class="file-path validate" id="addImage" name="addImage" type="text">
         </div>
       </div>
         
@@ -875,7 +880,7 @@
     <!--MODAL FOOTER-->
     <div class="modal-footer">
       <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
     </div>
         </form>
   </div>
@@ -884,7 +889,7 @@
   <div id="addNeedle" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD NEEDLE</h4>
-      <form action="/addNeedle" method="POST">
+      <form action="/addNeedle" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" readonly = "readonly" type="text" class="validate">
         <label for="Needle_ID"> Needle ID: </label>
@@ -903,11 +908,11 @@
       <div class="file-field input-field">
         <div class="btn">
           <span>Upload Image</span>
-          <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+          <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
 
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
+          <input class="file-path validate" id="addImage" name="addImage" type="text">
         </div>
       </div>
       
@@ -925,7 +930,7 @@
   <div id="addButton" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD Button</h4>
-      <form action="/addButton" method="POST">
+      <form action="/addButton" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" readonly = "readonly" type="text" class="validate">
         <label for="Button_ID"> Button ID: </label>
@@ -949,10 +954,10 @@
       <div class="file-field input-field">
         <div class="btn">
           <span>Upload Image</span>
-          <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+          <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
+          <input class="file-path validate" id="addImage" name="addImage" type="text">
         </div>
       </div>
       
@@ -970,7 +975,7 @@
   <div id="addZipper" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD ZIPPER</h4>
-      <form action="/addZipper" method="POST">
+      <form action="/addZipper" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" readonly = "readonly" type="text" class="validate">
         <label for="Zipper_ID"> Zipper ID: </label>
@@ -994,11 +999,11 @@
       <div class="file-field input-field">
         <div class="btn">
           <span>Upload Image</span>
-          <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+          <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
 
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
+          <input class="file-path validate" id="addImage" name="addImage" type="text">
         </div>
 
       </div>
@@ -1017,7 +1022,7 @@
   <div id="addHookEye" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD HOOK AND EYE</h4>
-      <form action="/addHook" method="POST">
+      <form action="/addHook" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" readonly = "readonly" type="text" class="validate">
         <label for="HookEye_ID"> Hook and Eye ID </label>
@@ -1041,11 +1046,11 @@
       <div class="file-field input-field">
         <div class="btn">
           <span>Upload Image</span>
-          <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+          <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
 
         <div class="file-path-wrapper">
-          <input class="file-path validate" type="text">
+          <input class="file-path validate" id="addImage" name="addImage" type="text">
         </div>
 
       </div>
@@ -1065,16 +1070,6 @@
 @stop
 
 @section('scripts')
-    <script>
-   $(document).ready(function(){
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
-
-      $('.modal-trigger').leanModal();
-  });
-        
-    </script>
 
 @stop
 
