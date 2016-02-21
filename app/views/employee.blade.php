@@ -21,7 +21,7 @@
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>INACTIVE EMPLOYEES</h4>
-      <table class="centered" border="1">
+      <table class="table centered data-reactEmployee" border="1">
         <thead>
           <tr>
             <th data-field="id">Employee ID</th>
@@ -35,6 +35,7 @@
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Phone No.</th>
             <th data-field="email">Email Address</th>
+             <th data-field="Edit">Action</th>
           </tr>
         </thead>
 
@@ -84,7 +85,8 @@
    				<div class="divider"></div>
     			<div class="card-content">
             <div class="col s12 m12 l12 overflow-x">
-      			<table class = "centered" border = "1">
+
+      			<table class = "table centered data-employee" border = "1">
        				<thead>
           			<tr>
                   <th data-field="id">Employee ID</th>
@@ -98,6 +100,8 @@
                   <th data-field="cellphone">Cellphone No.</th>
                   <th data-field="Landline">Phone No.</th>
                   <th data-field="email">Email Address</th>
+                  <th data-field="Edit">Action</th>
+                  <th data-field="Delete">Action</th>
               	</tr>
               </thead>
 
@@ -156,7 +160,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge">
+                            <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge" maxlength="3">
                             <label for="Age">Age: </label>
                           </div>  
 
@@ -188,7 +192,7 @@
                           </div>   
 
                           <div class="input-field">
-                            <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell">
+                            <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell" maxlength="11">
                             <label for="cellphone_number">Cellphone Number: </label>
                           </div>
 
@@ -198,7 +202,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
+                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
                             <label for="email">Email Address: </label>
                           </div>
                           </p>
@@ -330,7 +334,7 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addEmail" name="addEmail" type="email" class="validate">
+                    <input id="addEmail" name="addEmail" type="email" class="validateEmail">
                     <label for="email" data-error="wrong" data-success="right">Email Address: </label>
                   </div>
 
@@ -482,9 +486,6 @@
         $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
       });
 
-
-      
-
       //Validate Blank
       $('.validateCell').blur('input', function() {
         var input=$(this);
@@ -495,10 +496,39 @@
 
        $('.validatePhone').keyup(function() {
         var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        
+        $(this).val(numbers.replace(/\D/, ''));  
+      });
+
+      $('.validateEmail').on('input', function() {
+        var input=$(this);
+        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        var is_email=re.test(input.val());
+        if(is_email){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
       });
 
     </script>
 
+    <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-employee').DataTable();
+
+      } );
+
+    </script>
+
+
+    <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-reactEmployee').DataTable();
+
+      } );
+
+    </script>
 @stop

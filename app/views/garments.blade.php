@@ -23,12 +23,13 @@
 
             <div class = "col s12 m12 l12 overflow-x">
 
-            <table class = "centered" align = "center" border = "1">
+            <table class = "table centered data-garments" align = "center" border = "1">
               <thead>
                   <tr>
                     <th data-field="id">Garment ID</th>
                     <th data-field="garmentName">Garment Name</th>
                     <th data-field="garmentDescription">Garment Description</th>
+                    <th data-field="Edit">Action</th>
                   </tr>
               </thead>
 
@@ -55,13 +56,13 @@
                               </div>
 
                               <div class="input-field">
-                                <input required pattern="[A-Za-z\s]+" value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validate">
+                                <input required value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validateGarmentName">
                                 <label for="garment_name">Garment Name: </label>
                               </div>
 
                               <div class="input-field">
                       
-                               <input  value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validate">
+                               <input  value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validateGarmentDesc">
 
                                 <label for="garment_description">Garment Desription: </label>
                               </div>
@@ -133,12 +134,12 @@
                     </div>
 
                     <div class="input-field">
-                      <input required pattern="[A-Za-z\s]+" pattern="[A-Za-z\s]+" id="addGarmentName" name="addGarmentName" type="text" class="validate">
+                      <input required id="addGarmentName" name="addGarmentName" type="text" class="validateGarmentName">
                       <label for="garment_name">Garment Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input  id="addGarmentDesc" name="addGarmentDesc" type="text" class="validate">
+                      <input  id="addGarmentDesc" name="addGarmentDesc" type="text" class="validateGarmentDesc">
                       <label for="garment_description">Garment Desription: </label>
                     </div>
                   </p>
@@ -182,5 +183,55 @@
           document.getElementById("addGarmentDesc").value = "";
           document.getElementById("addGarmentName").value = "";
       }
+    </script>
+
+    <script type="text/javascript">
+      $('.validateGarmentName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateGarmentName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateGarmentName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateGarmentDesc').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateGarmentDesc').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+ 
+
+    </script>
+
+             <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-garments').DataTable();
+
+      } );
     </script>
 @stop

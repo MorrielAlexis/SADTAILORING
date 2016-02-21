@@ -28,6 +28,7 @@
             <th data-field="Garment Name">Segment Name </th>
             <th data-field="Pattern Name">Pattern Name</th>
             <th data-field="Pattern Image">Pattern Image</th>
+
           </tr>
         </thead>
 
@@ -65,13 +66,15 @@
 
     		<div class="card-content"> 
             <div class="col s12 m12 l12 overflow-x">
-      			<table class = "centered" align = "center" border = "1">
+      			<table class = "table centered data-segmentPattern" align = "center" border = "1">
        				<thead>
           			<tr>
                   <th data-field= "Catalog ID">Segment Pattern ID</th>
               		<th data-field="Garment Name">Segment Name </th>
              		  <th data-field="Pattern Name">Pattern Name</th>
               		<th data-field="Pattern Image">Pattern Image</th>
+                  <th data-field="Edit">Action</th>
+                  <th data-field="Edit">Action</th>
               	</tr>
               </thead>
 
@@ -112,7 +115,7 @@
 
 
                         <div class="input-field">
-                          <input required pattern="[A-Za-z\s]+" value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
+                          <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
                           <label for="pattern_name">Pattern Name: </label>
                         </div>
 
@@ -216,7 +219,7 @@
                 </div>   
 
                 <div class="input-field">
-                  <input required pattern="[A-Za-z\s]+" id="addPatternName" name= "addPatternName" type="text" class="validate">
+                  <input required id="addPatternName" name= "addPatternName" type="text" class="validatePatternName">
                   <label for="pattern_name">Pattern Name: </label>
                 </div>
 
@@ -268,6 +271,40 @@
         document.getElementById('addImage').value = "";
       }
 
+    </script>
+
+<<<<<<< HEAD
+    <script type="text/javascript">
+      $('.validatePatternName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validatePatternName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validatePatternName').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+=======
+         <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-segmentPattern').DataTable();
+
+      } );
     </script>
 
 @stop

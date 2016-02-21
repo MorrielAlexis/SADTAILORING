@@ -69,7 +69,7 @@
         <div class="card-content">
             <div class="col s12 m12 l12 overflow-x">
    
-      				<table class = "centered" align = "center" border = "1">
+      				<table class = "table centered data-swatches" align = "center" border = "1">
        				 <thead>
           				<tr>
                     <th date-field="Swatch ID">Swatch ID</th>
@@ -77,6 +77,9 @@
              		  	<th data-field="SwatchName">Swatch Name</th>
                     <th data-field="SwatchCode">Swatch Code</th>
               			<th data-field="SwatchImage">Image</th>
+                    <th data-field="Edit">Action</th>
+                     <th data-field="Edit">Action</th>
+
               		</tr>
                 </thead>
 
@@ -117,12 +120,12 @@
                               </div>  
 
                               <div class="input-field">
-                                <input required pattern="[A-Za-z\' ]+" value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validate">
+                                <input required value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validateSwatchName">
                                 <label for="swatch_name">Swatch Name: </label>
                               </div>    
 
                               <div class="input-field">
-                                <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validate">
+                                <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validateSwatchCode">
                                 <label for="swatch_code">Swatch Code: </label>
                               </div>
 
@@ -224,12 +227,12 @@
                     </div>  
 
                     <div class="input-field">
-                      <input required pattern="[A-Za-z\' ]+" id="addSwatchName" name="addSwatchName" type="text" class="validate">
+                      <input required id="addSwatchName" name="addSwatchName" type="text" class="validateSwatchName">
                       <label for="swatch_name">Swatch Name: </label>
                     </div>    
 
                     <div class="input-field">
-                      <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
+                      <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validateSwatchCode">
                       <label for="swatch_code">Swatch Code: </label>
                     </div>
 
@@ -283,5 +286,55 @@
         document.getElementById('addSwatchCode').value = "";
         document.getElementById('addImage').value = "";
       }
+    </script>
+
+<<<<<<< HEAD
+    <script type="text/javascript">
+      $('.validateSwatchName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateSwatchName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateSwatchName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateSwatchCode').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateSwatchCode').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+=======
+
+         <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-swatches').DataTable();
+
+      } );
     </script>
 @stop

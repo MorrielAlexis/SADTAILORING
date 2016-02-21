@@ -8,6 +8,7 @@
 
       {{ HTML::style('css/materialize.min.css') }}
       {{ HTML::style('css/style.css') }}
+      {{ HTML::style('css/jquery.dataTables.min.css') }}
 
     </head>
 
@@ -122,6 +123,7 @@
 
       {{ HTML::script('js/jquery-2.1.4.min.js') }}
       {{ HTML::script('js/materialize.min.js') }}
+      {{ HTML::script('js/jquery.dataTables.min.js')}}
       
       <script>
         $(document).ready(function(){

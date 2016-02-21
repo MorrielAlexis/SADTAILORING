@@ -85,13 +85,15 @@
                 <div class="card-content">
  
                   <div class="col s12 m12 l12 overflow-x">
-                  <table class = "centered" align = "center" border = "1">
+                  <table class = "table centered data-measHead" align = "center" border = "1">
                     <thead>
                       <tr>
                         <th data-field = "MeasurementID"> Measurement ID </th>
                         <th data-field="Garmentcategory">Garment Category</th>
                         <th data-field="Garmentcategory">Segment</th>
                         <th data-field="MeasurementName">Measurement Name</th>
+                        <th data-field="MeasurementName">Action</th>
+                        <th data-field="MeasurementName">Action</th>
                       </tr>
                     </thead>
 
@@ -296,12 +298,13 @@
                 <div class="divider"></div>
                 <div class="card-content">
                   <div class="col s12 m12 l12 overflow-x">
-                  <table class = "centered" align = "center" border = "1">
+                  <table class = "table centered data-measDet" align = "center" border = "1">
                     <thead>
                       <tr>
                         <th data-field="id">Measurement Part ID</th>
                         <th data-field="name">Measurement Name</th>
                         <th data-field="description">Measurement Description</th>
+                         <th data-field="action">Action</th>
                       </tr>
                     </thead>
 
@@ -325,12 +328,12 @@
                                   </div>
 
                                   <div class="input-field">
-                                    <input required pattern="[A-Za-z\s]+" value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
+                                    <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
                                     <label for="measurement_name"> Measurement Name: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validate">
+                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
                                     <label for="measurement_desc">Measurement Description: </label>
                                   </div>
                                 </p>
@@ -396,12 +399,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z\s]+"  id="addDetailName" name= "addDetailName" type="text" class="validate" >
+                            <input required id="addDetailName" name= "addDetailName" type="text" class="validateDetailName" >
                             <label for="measurement_name"> Measurement Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validate">
+                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
                             <label for="measurement_desc">Measurement Description: </label>
                           </div>
                         </p>
@@ -442,6 +445,65 @@
           document.getElementById('addDetailName').value = "";
 
       }
+    </script>
+
+<<<<<<< HEAD
+    <script type="text/javascript">
+      $('.validateDetailName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateDetailName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateDetailName').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateDetailDesc').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateDetailDesc').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+
+=======
+
+         <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-measHead').DataTable();
+
+      } );
+    </script>
+
+        <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-measDet').DataTable();
+
+      } );
     </script>
 
 @stop

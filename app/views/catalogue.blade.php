@@ -72,7 +72,7 @@
 
           <div class="col s12 m12 l12 overflow-x">
     
-      		<table class = "centered" align = "center" border = "1">
+      		<table class = "table centered data-catalogue" align = "center" border = "1">
             <thead>
           		<tr>
                 <th data-field= "Catalogue ID">Catalogue ID</th>
@@ -80,6 +80,8 @@
              		<th data-field="Catalogue Name">Catalogue Name</th>
                 <th data-field="Description">Description</th>
                 <th data-field="Image">Image</th>
+                <th data-field="Edit">Action</th>
+                 <th data-field="Edit">Action</th>
               </tr>
             </thead>
 
@@ -119,12 +121,12 @@
 
 
                       <div class="input-field">
-                        <input required pattern="[A-Za-z\' ]+"value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validate">
+                        <input required value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validateCatalogueName">
                         <label for="Catalogue_Name"> Catalogue Name </label>
                       </div>
 
                       <div class="input-field">
-                        <input  value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validate">
+                        <input  required value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validateCatalogueDesc">
                         <label for="Category_Desc">Catalogue Description </label>
                       </div>
 
@@ -226,12 +228,12 @@
               </div>      
 
               <div class="input-field">
-                <input pattern="[A-Za-z\s]+" id="addCatalogueName" name = "addCatalogueName" type="text" class="validate" required>
+                <input required id="addCatalogueName" name = "addCatalogueName" type="text" class="validateCatalogueName">
                 <label for="Catalogue_Name"> Catalogue Name </label>
               </div>
 
               <div class="input-field">
-                <input required pattern="[A-Za-z\s]+" id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validate">
+                <input required id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validateCatalogueDesc">
                 <label for="Category_Desc">Category Description </label>
               </div>
 
@@ -283,4 +285,54 @@
       });
     </script>
 
+<<<<<<< HEAD
+    <script type="text/javascript">
+      $('.validateCatalogueName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateCatalogueName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateCatalogueName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateCatalogueDesc').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCatalogueDesc').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+    </script>
+
+=======
+           <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-catalogue').DataTable();
+
+      } );
+    </script>
 @stop

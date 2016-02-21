@@ -28,12 +28,14 @@
 
               <div class="col s12 m12 l12 overflow-x">
 
-       				<table class = "centered" align = "center" border = "1">
+       				<table class = "table centered data-fabricType" align = "center" border = "1">
                 <thead>
                   <tr>
               		  <th data-field="fabricID">Fabric Type ID</th>
                     <th data-field="fabricName">Fabric Type Name</th>
               		  <th data-field="fabricDescription">Fabric Description</th>
+                    <th data-field="Edit">Action</th>
+
               	  </tr>
                 </thead>
 
@@ -56,12 +58,12 @@
                         </div>
 
                         <div class="input-field">
-                          <input required pattern="[A-Za-z\' ]+" value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validate">
+                          <input required value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validateTypeName">
                           <label for="fabrictype_name">Fabric Type Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input required pattern="[A-Za-z\' ]+" value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validate">
+                          <input required value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validateTypeDesc">
                           <label for="fabrictype_description">Fabric Desription: </label>
                         </div>  
                         </p>
@@ -96,12 +98,12 @@
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[A-Za-z\' ]+" id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validate">
+                    <input required id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validateTypeName">
                     <label for="fabrictype_name">Fabric Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[A-Za-z\' ]+" id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validate">
+                    <input required id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validateTypeDesc">
                     <label for="fabrictype_description">Fabric Desription: </label>
                   </div>
 
@@ -132,5 +134,54 @@
       }
     </script>
 
+<<<<<<< HEAD
+    <script type="text/javascript">
+      $('.validateTypeName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateTypeName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateTypeName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateTypeDesc').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateTypeDesc').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+
+=======
+        <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-fabricType').DataTable();
+
+      } );
+    </script>
 
 @stop
