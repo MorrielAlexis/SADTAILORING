@@ -3,7 +3,7 @@
 class MaterialNeedle extends Eloquent {
 
 	protected $table = 'tblMaterialNeedle';
-	protected $primaryKey = 'strMaterialThreadID';
+	protected $primaryKey = 'strMaterialNeedleID';
 	protected $fillable = array('strMaterialNeedleID',
 								'strMaterialNeedleName',
 								'strMaterialNeedleSize',

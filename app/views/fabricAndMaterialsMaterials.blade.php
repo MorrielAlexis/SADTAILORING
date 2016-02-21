@@ -42,7 +42,7 @@
                   <td>{{ $thread->strMaterialThreadName }}</td>
                   <td>{{ $thread->strMaterialThreadColor }}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($thread->strMaterialThreadImage)}}"></td> 
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button> 
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $thread->strMaterialThreadID }}">DELETE</button>
                       
                     <!--EDIT THREADS-->
@@ -86,15 +86,10 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-              </table>
+                 
 
                       <!--DELETE THREADS-->
-                <div id="del{{$thread->strMaterialThreadID}}" class="modal modal-fixed-footer">
+                <div id="del{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
@@ -122,6 +117,12 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+            </table>
 
                 <!--VIEW INACTIVE THREADS-->
           <div id="inactiveThread" class="modal modal-fixed-footer">
@@ -144,7 +145,7 @@
                         <td>{{ $thread2->strMaterialThreadID }}</td>
                         <td>{{ $thread2->strMaterialThreadName }}</td>
                         <td>{{ $thread2->strMaterialThreadColor }}</td>
-                        <td>Image</td>    
+                        <td><img src="{{URL::asset($thread2->strMaterialThreadImage)}}"></td>    
                         <td>          
                         <form action="/reactThread" method="POST">
                         <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactID" name="reactID">
@@ -245,13 +246,7 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-        </table>
-        </div>
+                  
 
         <div id="del{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -281,6 +276,12 @@
                           </div> 
                         </form>
                     </div>
+                    </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+        </table>
 
   <div id="inactiveNeedle" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -301,7 +302,7 @@
               <td>{{ $needle2->strMaterialNeedleID }}</td>
               <td>{{ $needle2->strMaterialNeedleName }}</td>
               <td>{{ $needle2->strMaterialNeedleSize }}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($needle2->strMaterialNeedleImage)}}"> </td>      
               <td>          
               <form action="/reactNeedle" method="POST">
               <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactID" name="reactID">
@@ -406,13 +407,7 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-        </table>
-        </div>
+                 
 
         <div id="del{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -447,6 +442,13 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+              @endif
+              @endforeach
+            </tbody>
+        </table>
+
 
   <div id="inactiveButton" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -458,7 +460,8 @@
             <th data-field="Button Name">Button Name</th>
             <th data-field= "Button Size">Button Size </th>
             <th data-field= "Button Color">Button Color </th>
-            <th data-field="Image">Image</th>          </tr>
+            <th data-field="Image">Image</th>          
+          </tr>
         </thead>
 
         <tbody>
@@ -469,7 +472,7 @@
               <td>{{ $button2->strMaterialButtonName }}</td>
               <td>{{ $button2->strMaterialButtonSize }}</td>
               <td>{{ $button2->strMaterialButtonColor }}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($button2->strMaterialButtonImage)}}"> </td>      
               <td>          
               <form action="/reactButton" method="POST">
               <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactID" name="reactID">
@@ -575,14 +578,7 @@
 
                     </div>
                   </form>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-        </table>
-
-        </div>
+                  
 
         <div id="del{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -617,6 +613,13 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+        </table>
+
 
   <div id="inactiveZipper" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -628,7 +631,8 @@
             <th data-field="Zipper Name">Zipper Name</th>
             <th data-field= "Zipper Size">Zipper Size </th>
             <th data-field= "Zipper Color">Zipper Color </th>
-            <th data-field="Image">Image</th>          </tr>
+            <th data-field="Image">Image</th>          
+          </tr>
         </thead>
 
         <tbody>
@@ -639,7 +643,7 @@
               <td>{{ $zipper2->strMaterialZipperName }}</td>
               <td>{{ $zipper2->strMaterialZipperSize }}</td>
               <td>{{ $zipper2->strMaterialZipperColor }}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($zipper2->strMaterialZipperImage)}}"> </td>      
               <td>          
               <form action="/reactZipper" method="POST">
               <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactID" name="reactID">
@@ -747,13 +751,7 @@
                       </div>
                   </form>
                     </div>
-                  </td>
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-            </table>
-            </div>
+                  
 
             <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -788,6 +786,13 @@
                           </div> 
                         </form>
                     </div>
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+            </table>
+
 
   <div id="inactiveHook" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -811,7 +816,7 @@
               <td>{{$hook2->strMaterialHookName}}</td>
               <td>{{$hook2->strMaterialHookSize}}</td>
               <td>{{$hook2->strMaterialHookColor}}</td>
-              <td>Image </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($hook2->strMaterialHookImage)}}"> </td>      
               <td>          
               <form action="/reactHook" method="POST">
               <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactID" name="reactID">
@@ -1065,15 +1070,6 @@
 @stop
 
 @section('scripts')
-    <script>
-   $(document).ready(function(){
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
-
-  });
-        
-    </script>
 
 @stop
 
