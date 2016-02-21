@@ -78,7 +78,7 @@
 
             <div class="col s12 m12 l12 overflow-x">
     
-            <table class = "centered" align = "center" border = "1">
+            <table class = "table centered data-custInd" align = "center" border = "1">
               <thead>
                 <tr>
                   <th data-field="id">Indivual ID</th>
@@ -89,6 +89,8 @@
                   <th data-field="email">Email Address</th>
                   <th data-field="cellphone">Cellphone No.</th>
                   <th data-field="Landline">Telephone No.</th>
+                   <th data-field="Edit">Action</th>
+                    <th data-field="Delete">Action</th>
 
                 </tr>
               </thead>
@@ -382,10 +384,15 @@
         $(this).val(numbers.replace(/\D/, ''));
       });     
 
+    </script>
 
+          <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
 
+      $(document).ready(function() {
 
+          $('.data-custInd').DataTable();
 
-
+      } );
     </script>
 @stop

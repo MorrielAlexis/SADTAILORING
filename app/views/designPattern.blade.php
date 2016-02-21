@@ -28,6 +28,7 @@
             <th data-field="Garment Name">Segment Name </th>
             <th data-field="Pattern Name">Pattern Name</th>
             <th data-field="Pattern Image">Pattern Image</th>
+
           </tr>
         </thead>
 
@@ -65,13 +66,15 @@
 
     		<div class="card-content"> 
             <div class="col s12 m12 l12 overflow-x">
-      			<table class = "centered" align = "center" border = "1">
+      			<table class = "table centered data-segmentPattern" align = "center" border = "1">
        				<thead>
           			<tr>
                   <th data-field= "Catalog ID">Design Pattern ID</th>
               		<th data-field="Garment Name">Segment Name </th>
              		  <th data-field="Pattern Name">Pattern Name</th>
               		<th data-field="Pattern Image">Pattern Image</th>
+                  <th data-field="Edit">Action</th>
+                  <th data-field="Edit">Action</th>
               	</tr>
               </thead>
 
@@ -274,6 +277,7 @@
 
     </script>
 
+<<<<<<< HEAD
     <script type="text/javascript">
       $('.validatePatternName').on('input', function() {
         var input=$(this);
@@ -296,6 +300,15 @@
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
+=======
+         <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-segmentPattern').DataTable();
+
+      } );
     </script>
 
 @stop

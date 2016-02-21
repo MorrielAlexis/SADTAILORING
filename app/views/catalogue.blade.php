@@ -72,7 +72,7 @@
 
           <div class="col s12 m12 l12 overflow-x">
     
-      		<table class = "centered" align = "center" border = "1">
+      		<table class = "table centered data-catalogue" align = "center" border = "1">
             <thead>
           		<tr>
                 <th data-field= "Catalogue ID">Catalogue ID</th>
@@ -80,6 +80,8 @@
              		<th data-field="Catalogue Name">Catalogue Name</th>
                 <th data-field="Description">Description</th>
                 <th data-field="Image">Image</th>
+                <th data-field="Edit">Action</th>
+                 <th data-field="Edit">Action</th>
               </tr>
             </thead>
 
@@ -283,6 +285,7 @@
       });
     </script>
 
+<<<<<<< HEAD
     <script type="text/javascript">
       $('.validateCatalogueName').on('input', function() {
         var input=$(this);
@@ -322,4 +325,14 @@
 
     </script>
 
+=======
+           <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-catalogue').DataTable();
+
+      } );
+    </script>
 @stop

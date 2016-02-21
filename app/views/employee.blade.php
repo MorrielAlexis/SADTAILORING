@@ -20,7 +20,7 @@
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>INACTIVE EMPLOYEES</h4>
-      <table class="centered" border="1">
+      <table class="table centered data-reactEmployee" border="1">
         <thead>
           <tr>
             <th data-field="id">Employee ID</th>
@@ -34,6 +34,7 @@
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Phone No.</th>
             <th data-field="email">Email Address</th>
+             <th data-field="Edit">Action</th>
           </tr>
         </thead>
 
@@ -83,7 +84,8 @@
    				<div class="divider"></div>
     			<div class="card-content">
             <div class="col s12 m12 l12 overflow-x">
-      			<table class = "centered" border = "1">
+
+      			<table class = "table centered data-employee" border = "1">
        				<thead>
           			<tr>
                   <th data-field="id">Employee ID</th>
@@ -97,6 +99,8 @@
                   <th data-field="cellphone">Cellphone No.</th>
                   <th data-field="Landline">Phone No.</th>
                   <th data-field="email">Email Address</th>
+                  <th data-field="Edit">Action</th>
+                  <th data-field="Delete">Action</th>
               	</tr>
               </thead>
 
@@ -511,4 +515,26 @@
 
     </script>
 
+    <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-employee').DataTable();
+
+      } );
+
+    </script>
+
+
+    <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-reactEmployee').DataTable();
+
+      } );
+
+    </script>
 @stop

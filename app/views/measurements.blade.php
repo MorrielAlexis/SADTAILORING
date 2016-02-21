@@ -85,13 +85,15 @@
                 <div class="card-content">
  
                   <div class="col s12 m12 l12 overflow-x">
-                  <table class = "centered" align = "center" border = "1">
+                  <table class = "table centered data-measHead" align = "center" border = "1">
                     <thead>
                       <tr>
                         <th data-field = "MeasurementID"> Measurement ID </th>
                         <th data-field="Garmentcategory">Garment Category</th>
                         <th data-field="Garmentcategory">Segment</th>
                         <th data-field="MeasurementName">Measurement Name</th>
+                        <th data-field="MeasurementName">Action</th>
+                        <th data-field="MeasurementName">Action</th>
                       </tr>
                     </thead>
 
@@ -311,12 +313,13 @@
                 <div class="divider"></div>
                 <div class="card-content">
                   <div class="col s12 m12 l12 overflow-x">
-                  <table class = "centered" align = "center" border = "1">
+                  <table class = "table centered data-measDet" align = "center" border = "1">
                     <thead>
                       <tr>
                         <th data-field="id">Measurement Part ID</th>
                         <th data-field="name">Measurement Name</th>
                         <th data-field="description">Measurement Description</th>
+                         <th data-field="action">Action</th>
                       </tr>
                     </thead>
 
@@ -436,6 +439,7 @@
       }
     </script>
 
+<<<<<<< HEAD
     <script type="text/javascript">
       $('.validateDetailName').on('input', function() {
         var input=$(this);
@@ -473,6 +477,25 @@
       }); 
 
 
+=======
+
+         <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-measHead').DataTable();
+
+      } );
+    </script>
+
+        <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          $('.data-measDet').DataTable();
+
+      } );
     </script>
 
 @stop
