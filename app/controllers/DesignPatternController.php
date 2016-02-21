@@ -56,15 +56,21 @@ class DesignPatternController extends BaseController{
 		$id = Input::get('editPatternID');
 		$pattern = DesignPattern::find($id);
 
-		$file = Input::get('editImage');
-		$destinationPath = 'public/designPatterns';
-		$extension = Input::file('editImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('editImg')->move($destinationPath, $fileName);
+		if(Input::get('editImage') == $pattern->strPatternImage){
+			$pattern->strDesignSegmentName = Input::get('editSegment');
+			$pattern->strPatternName = Input::get('editPatternName');
+		}else{
+			$file = Input::get('editImage');
+			$destinationPath = 'public/imgDesignPatterns';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
 
-		$pattern->strDesignSegmentName = Input::get('editSegment');
-		$pattern->strPatternName = Input::get('editPatternName');
-		$pattern->strPatternImage = 'designPatterns/'.$fileName;
+			$pattern->strDesignSegmentName = Input::get('editSegment');
+			$pattern->strPatternName = Input::get('editPatternName');
+			$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
+		}
+			
 
 		$pattern->save();
 		return Redirect::to('/designPattern');

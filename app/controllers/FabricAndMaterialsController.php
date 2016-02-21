@@ -163,17 +163,23 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('editSwatchID');
 		$swatch = Swatch::find($id);
 
-		$file = Input::get('editImage');
-		$destinationPath = 'public/imgSwatches';
-		$extension = Input::file('editImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('editImg')->move($destinationPath, $fileName);
+		if(Input::get('editSwatchImage') == $swatch->strSwatchImage){
+			$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
+			$swatch->strSwatchName = Input::get('editSwatchName');
+			$swatch->strSwatchCode = Input::get('editSwatchCode');
+		}else{
 
-		$swatch->strSwatchID = Input::get('editSwatchID');
-		$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
-		$swatch->strSwatchName = Input::get('editSwatchName');
-		$swatch->strSwatchCode = Input::get('editSwatchCode');
-		$swatch->strSwatchImage = 'imgSwatches/'.$fileName;
+			$file = Input::get('editSwatchImage');
+			$destinationPath = 'public/imgSwatches';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
+
+			$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
+			$swatch->strSwatchName = Input::get('editSwatchName');
+			$swatch->strSwatchCode = Input::get('editSwatchCode');
+			$swatch->strSwatchImage = 'imgSwatches/'.$fileName;
+		}
 
 		$swatch->save();
 		return Redirect::to('/fabricAndMaterialsSwatches');
@@ -254,8 +260,21 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('editThreadID');
 		$thread = MaterialThread::find($id);
-		$thread->strMaterialThreadName = Input::get('editThreadName');
-		$thread->strMaterialThreadColor = Input::get('editThreadColor');
+
+		if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
+			$thread->strMaterialThreadName = Input::get('editThreadName');
+			$thread->strMaterialThreadColor = Input::get('editThreadColor');	
+		}else{
+			$file = Input::get('editThreadImage');
+			$destinationPath = 'public/imgMaterialThreads';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
+
+			$thread->strMaterialThreadName = Input::get('editThreadName');
+			$thread->strMaterialThreadColor = Input::get('editThreadColor');
+			$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
+		}
 
 		$thread->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -308,8 +327,22 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('editNeedleID');
 		$needle= MaterialNeedle::find($id);
-		$needle->strMaterialNeedleName = Input::get('editNeedleName');
-		$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
+
+		if(Input::get('editNeedleImage') == $needle->strMaterialNeedleImage){
+			$needle->strMaterialNeedleName = Input::get('editNeedleName');
+			$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
+		}else{
+			$file = Input::get('editNeedleImage');
+			$destinationPath = 'public/imgMaterialNeedles';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
+
+			$needle->strMaterialNeedleName = Input::get('editNeedleName');
+			$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
+			$needle->strMaterialNeedleImage = 'imgMaterialNeedles/'.$fileName;
+		}
+
 
 		$needle->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -363,9 +396,24 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('editButtonID');
 		$button= MaterialButton::find($id);
-		$button->strMaterialButtonName = Input::get('editButtonName');
-		$button->strMaterialButtonSize = Input::get('editButtonSize');
-		$button->strMaterialButtonColor = Input::get('editButtonColor');
+
+		if(Input::get('editButtonImage') == $button->strMaterialButtonImage){
+			$button->strMaterialButtonName = Input::get('editButtonName');
+			$button->strMaterialButtonSize = Input::get('editButtonSize');
+			$button->strMaterialButtonColor = Input::get('editButtonColor');
+		}else{
+			$file = Input::get('editButtonImage');
+			$destinationPath = 'public/imgMaterialButtons';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
+
+			$button->strMaterialButtonName = Input::get('editButtonName');
+			$button->strMaterialButtonSize = Input::get('editButtonSize');
+			$button->strMaterialButtonColor = Input::get('editButtonColor');
+			$button->strMaterialButtonImage = 'imgMaterialButtons/'.$fileName; 
+		}
+	
 
 		$button->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -419,9 +467,23 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('editZipperID');
 		$zipper= MaterialZipper::find($id);
-		$zipper->strMaterialZipperName = Input::get('editZipperName');
-		$zipper->strMaterialZipperSize = Input::get('editZipperSize');
-		$zipper->strMaterialZipperColor = Input::get('editZipperColor');
+
+		if (Input::get('editZipperImage') == $zipper->strMaterialZipperImage) {
+			$zipper->strMaterialZipperName = Input::get('editZipperName');
+			$zipper->strMaterialZipperSize = Input::get('editZipperSize');
+			$zipper->strMaterialZipperColor = Input::get('editZipperColor');
+		} else {
+			$file = Input::get('editZipperImage');
+			$destinationPath = 'public/imgMaterialZippers';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
+
+			$zipper->strMaterialZipperName = Input::get('editZipperName');
+			$zipper->strMaterialZipperSize = Input::get('editZipperSize');
+			$zipper->strMaterialZipperColor = Input::get('editZipperColor');
+			$zipper->strMaterialZipperImage = 'imgMaterialZippers/'.$fileName;
+		}	
 
 		$zipper->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -474,11 +536,25 @@ class FabricAndMaterialsController extends BaseController{
 	public function editHook()
 	{
 		$id = Input::get('editHookID');
-		$hook= MaterialHookAndEye::find($id);
-		$hook->strMaterialHookName = Input::get('editHookName');
-		$hook->strMaterialHookSize = Input::get('editHookSize');
-		$hook->strMaterialHookColor = Input::get('editHookColor');
+		$hook = MaterialHookAndEye::find($id);
 
+		if (Input::get('editHookImage') == $hook->strMaterialHookImage) {
+			$hook->strMaterialHookName = Input::get('editHookName');
+			$hook->strMaterialHookSize = Input::get('editHookSize');
+			$hook->strMaterialHookColor = Input::get('editHookColor');
+		} else {
+			$file = Input::get('editHookImage');
+			$destinationPath = 'public/imgMaterialHooks';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
+
+			$hook->strMaterialHookName = Input::get('editHookName');
+			$hook->strMaterialHookSize = Input::get('editHookSize');
+			$hook->strMaterialHookColor = Input::get('editHookColor');
+			$hook->strMaterialHookImage = 'imgMaterialHooks/'.$fileName;
+		}
+		
 		$hook->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
 	}

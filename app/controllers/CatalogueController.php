@@ -57,18 +57,24 @@ class CatalogueController extends BaseController{
 		$id = Input::get('editCatalogueID');
 		$catalogue = Catalogue::find($id);
 		
-		$file = Input::get('editImage');
-		$destinationPath = 'public/imgCatalogue';
-		$extension = Input::file('editImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('editImg')->move($destinationPath, $fileName);
+		if (Input::get('editImage') == $catalogue->strCatalogueImage) {
+			$catalogue->strCatalogueID = Input::get('editCatalogueID');
+			$catalogue->strCatalogueCategory = Input::get('editCategory');
+			$catalogue->strCatalogueName = Input::get('editCatalogueName');
+			$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
+		} else {
+			$file = Input::get('editImage');
+			$destinationPath = 'public/imgCatalogue';
+			$extension = Input::file('editImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('editImg')->move($destinationPath, $fileName);
 
-		$catalogue->strCatalogueID = Input::get('editCatalogueID');
-		$catalogue->strCatalogueCategory = Input::get('editCategory');
-		$catalogue->strCatalogueName = Input::get('editCatalogueName');
-		$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
-		$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
-		$catalogue->boolIsActive = 1;
+			$catalogue->strCatalogueID = Input::get('editCatalogueID');
+			$catalogue->strCatalogueCategory = Input::get('editCategory');
+			$catalogue->strCatalogueName = Input::get('editCatalogueName');
+			$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
+			$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
+		}		
 
 		$catalogue->save();
 		return Redirect::to('/catalogue');

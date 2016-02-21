@@ -135,7 +135,7 @@
                         </div>
 
                         <div class="file-path-wrapper">
-                          <input id="editImage" name="editImage" class="file-path validate" type="text">
+                          <input value="{{$catalogue->strCatalogueImage}}" id="editImage" name="editImage" class="file-path validate" type="text">
                         </div>
                       </div>
 
