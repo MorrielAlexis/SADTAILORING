@@ -120,37 +120,37 @@
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z ]+" id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validate" required>
+                          <input required id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validateFirst">
                           <label for="first_name"> First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z ]+" id="editMName" name = "editMName" value = "{{$individual->strCustPrivMName}}" type="text" class="validate" required>
+                          <input  required id="editMName" name = "editMName" value = "{{$individual->strCustPrivMName}}" type="text" class="validateMiddle">
                           <label for="middle_name"> Middle Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[A-Za-z\' ]+" id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validate" required>
+                          <input required id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validateLast">
                           <label for="last_name"> Last Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validate" required>
+                          <input required id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validateAddress">
                           <label for="address"> Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validate">
+                          <input id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validate">
                           <label for="email"> Email Address: </label>
                         </div>
 
                         <div class="input-field">
-                          <input pattern="[^1-9][^0-8]+\d{9}" id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validate" required>
+                          <input required id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validateCell">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
                       
                         <div class="input-field">
-                          <input pattern="[0-9]{7}" id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validate">
+                          <input id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validatePhone">
                           <label for="tel"> Telephone Number: </label>
                         </div>
                         </p>
@@ -227,37 +227,37 @@
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[A-Za-z ]+" id="addFName" name = "addFName" type="text" class="validate" required>
+                  <input required id="addFName" name = "addFName" type="text" class="validateFirst">
                   <label for="first_name"> First Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[A-Za-z ]+" id="addMName" name = "addMName" type="text" class="validate" required>
+                  <input required id="addMName" name = "addMName" type="text" class="validateMiddle">
                   <label for="middle_name"> Middle Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[A-Za-z\' ]+" id="addLName" name = "addLName" type="text" class="validate" required>
+                  <input required id="addLName" name = "addLName" type="text" class="validateLast">
                   <label for="last_name"> Last Name </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addAddress" name = "addAddress" type="text" class="validate" required>
+                  <input id="addAddress" name = "addAddress" type="text" class="validateAddress">
                   <label for="address"> Address: </label>
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="addEmail" name = "addEmail" type="text" class="validate">
+                  <input id="addEmail" name = "addEmail" type="text" class="validate">
                   <label for="email"> Email Address: </label>
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[^1-9][^0-8]+\d{9}" id="addCel" name = "addCel" type="text" class="validate" required>
+                  <input required id="addCel" name = "addCel" type="text" class="validateCell">
                   <label for="cellphone"> Cellphone Number: </label>
                 </div>
 
                 <div class="input-field">
-                  <input pattern="[0-9]{7}" id="addPhone" name = "addPhone" type="text" class="validate">
+                  <input id="addPhone" name = "addPhone" type="text" class="validatePhone">
                   <label for="tel"> Telephone Number: </label>
                 </div>
                 <br>
@@ -288,6 +288,96 @@
           document.getElementById("addPhone").value = "";
           
       }
+
+    </script>
+
+    <script type="text/javascript">
+      $('.validateFirst').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateFirst').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });      
+
+      $('.validateMiddle').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateMiddle').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateLast').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateLast').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateAddress').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Validate Blank
+      $('.validateAddress').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCell').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+      //Validate Blank
+      $('.validateCell').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+       $('.validatePhone').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });     
+
+
+
+
+
 
     </script>
 @stop
