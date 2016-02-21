@@ -109,13 +109,13 @@
                               </div>   
                         
                               <div class="input-field">
-                                <input required pattern="[A-Za-z\s]+" value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validate">
+                                <input required value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validateSegName">
                                 <label for="segment_name">Segment Name: </label>
                               </div>
 
                               <div class="input-field">
 
-                                <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validate">
+                                <input value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validateSegDesc">
                                <label for="segment_description">Segment Description:</label>
                               </div>
                             </p>
@@ -204,15 +204,13 @@
                       </div>  
 
                       <div class="input-field">
-                        <input pattern="[A-Za-z\s]+" required id="addSegmentName" name= "addSegmentName" type="text" class="validate">
+                        <input required id="addSegmentName" name= "addSegmentName" type="text" class="validateSegName">
                         <label for="segment_name">Segment Name: </label>
                       </div>
 
                       <div class="input-field">
 
-                        <input required id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
-
-                        <input pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
+                        <input id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validateSegDesc">
 
                         <label for="segment_description">Segment Description: </label>
                       </div>
@@ -243,6 +241,45 @@
             document.getElementById("addSegmentDesc").value = "";
             document.getElementById("addSegmentName").value = "";
         }
+    </script>
+
+    <script type="text/javascript">
+      $('.validateSegName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateSegName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateSegName').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateSegDesc').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateSegDesc').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+
     </script>
 
 @stop

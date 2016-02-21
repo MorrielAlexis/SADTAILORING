@@ -117,12 +117,12 @@
                               </div>  
 
                               <div class="input-field">
-                                <input required pattern="[A-Za-z\' ]+" value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validate">
+                                <input required value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validateSwatchName">
                                 <label for="swatch_name">Swatch Name: </label>
                               </div>    
 
                               <div class="input-field">
-                                <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validate">
+                                <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validateSwatchCode">
                                 <label for="swatch_code">Swatch Code: </label>
                               </div>
 
@@ -224,12 +224,12 @@
                     </div>  
 
                     <div class="input-field">
-                      <input required pattern="[A-Za-z\' ]+" id="addSwatchName" name="addSwatchName" type="text" class="validate">
+                      <input required id="addSwatchName" name="addSwatchName" type="text" class="validateSwatchName">
                       <label for="swatch_name">Swatch Name: </label>
                     </div>    
 
                     <div class="input-field">
-                      <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validate">
+                      <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validateSwatchCode">
                       <label for="swatch_code">Swatch Code: </label>
                     </div>
 
@@ -283,5 +283,44 @@
         document.getElementById('addSwatchCode').value = "";
         document.getElementById('addImage').value = "";
       }
+    </script>
+
+    <script type="text/javascript">
+      $('.validateSwatchName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateSwatchName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateSwatchName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateSwatchCode').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateSwatchCode').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
     </script>
 @stop

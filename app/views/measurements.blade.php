@@ -339,12 +339,12 @@
                                   </div>
 
                                   <div class="input-field">
-                                    <input required pattern="[A-Za-z\s]+" value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validate">
+                                    <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
                                     <label for="measurement_name"> Measurement Name: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validate">
+                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
                                     <label for="measurement_desc">Measurement Description: </label>
                                   </div>
                                 </p>
@@ -380,12 +380,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z\s]+"  id="addDetailName" name= "addDetailName" type="text" class="validate" >
+                            <input required id="addDetailName" name= "addDetailName" type="text" class="validateDetailName" >
                             <label for="measurement_name"> Measurement Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validate">
+                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
                             <label for="measurement_desc">Measurement Description: </label>
                           </div>
                         </p>
@@ -434,6 +434,45 @@
           document.getElementById('addDetailName').value = "";
 
       }
+    </script>
+
+    <script type="text/javascript">
+      $('.validateDetailName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validateDetailName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateDetailName').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateDetailDesc').on('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateDetailDesc').blur('input', function() {
+        var input=$(this);
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+
     </script>
 
 @stop

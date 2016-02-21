@@ -112,7 +112,7 @@
 
 
                         <div class="input-field">
-                          <input required pattern="[A-Za-z\s]+" value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validate">
+                          <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
                           <label for="pattern_name">Pattern Name: </label>
                         </div>
 
@@ -220,7 +220,7 @@
                 </div>   
 
                 <div class="input-field">
-                  <input required pattern="[A-Za-z\s]+" id="addPatternName" name= "addPatternName" type="text" class="validate">
+                  <input required id="addPatternName" name= "addPatternName" type="text" class="validatePatternName">
                   <label for="pattern_name">Pattern Name: </label>
                 </div>
 
@@ -271,6 +271,30 @@
         document.getElementById('addPatternName').value = "";
         document.getElementById('addImage').value = "";
       }
+
+    </script>
+
+    <script type="text/javascript">
+      $('.validatePatternName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag Number
+      $('.validatePatternName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validatePatternName').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
 
     </script>
 

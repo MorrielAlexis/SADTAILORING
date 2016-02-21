@@ -197,7 +197,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validate">
+                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
                             <label for="email">Email Address: </label>
                           </div>
                           </p>
@@ -336,7 +336,7 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addEmail" name="addEmail" type="email" class="validate">
+                    <input id="addEmail" name="addEmail" type="email" class="validateEmail">
                     <label for="email" data-error="wrong" data-success="right">Email Address: </label>
                   </div>
 
@@ -488,9 +488,6 @@
         $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
       });
 
-
-      
-
       //Validate Blank
       $('.validateCell').blur('input', function() {
         var input=$(this);
@@ -501,8 +498,15 @@
 
        $('.validatePhone').keyup(function() {
         var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        
+        $(this).val(numbers.replace(/\D/, ''));  
+      });
+
+      $('.validateEmail').on('input', function() {
+        var input=$(this);
+        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        var is_email=re.test(input.val());
+        if(is_email){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
       });
 
     </script>

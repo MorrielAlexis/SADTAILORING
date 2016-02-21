@@ -57,12 +57,12 @@
                         </div>
                   
                         <div class="input-field">
-                          <input id="editThreadName" name = "editThreadName" value = "{{ $thread->strMaterialThreadName }}" type="text" class="validate">
+                          <input id="editThreadName" name = "editThreadName" value = "{{ $thread->strMaterialThreadName }}" type="text" class="validateName">
                           <label for="Thread_Name"> Thread Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editThreadColor" name = "editThreadColor" value = "{{ $thread->strMaterialThreadColor }}" type="text" class="validate">
+                          <input id="editThreadColor" name = "editThreadColor" value = "{{ $thread->strMaterialThreadColor }}" type="text" class="validateColor">
                           <label for="Thread_Color"> Thread Color </label>
                         </div>
 
@@ -216,12 +216,12 @@
                         </div>
                   
                         <div class="input-field">
-                          <input id="editNeedleName" name = "editNeedleName" value = "{{$needle->strMaterialNeedleName}}" type="text" class="validate">
+                          <input id="editNeedleName" name = "editNeedleName" value = "{{$needle->strMaterialNeedleName}}" type="text" class="validateName">
                           <label for="Needle_Name"> Needle Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editNeedleSize" name = "editNeedleSize" value = "{{$needle->strMaterialNeedleSize}}" type="text" class="validate">
+                          <input id="editNeedleSize" name = "editNeedleSize" value = "{{$needle->strMaterialNeedleSize}}" type="text" class="validateSize">
                           <label for="Needle_Size"> Needle Size </label>
                         </div>
 
@@ -373,17 +373,17 @@
                         </div>
                   
                         <div class="input-field">
-                          <input id="editButtonName" name = "editButtonName" value = "{{$button->strMaterialButtonName}}" type="text" class="validate">
+                          <input id="editButtonName" name = "editButtonName" value = "{{$button->strMaterialButtonName}}" type="text" class="validateName">
                           <label for="Button_Name"> Button Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editButtonSize" name = "editButtonSize" value = "{{$button->strMaterialButtonSize}}" type="text" class="validate">
+                          <input id="editButtonSize" name = "editButtonSize" value = "{{$button->strMaterialButtonSize}}" type="text" class="validateSize">
                           <label for="Button_Size"> Button Size </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editButtonColor" name = "editButtonColor" value = "{{$button->strMaterialButtonColor}}" type="text" class="validate">
+                          <input id="editButtonColor" name = "editButtonColor" value = "{{$button->strMaterialButtonColor}}" type="text" class="validateColor">
                           <label for="Button_Color"> Button Color </label>
                         </div>
 
@@ -542,17 +542,17 @@
                         </div>
                   
                         <div class="input-field">
-                          <input id="editZipperName" name = "editZipperName" value = "{{$zipper->strMaterialZipperName}}" type="text" class="validate">
+                          <input id="editZipperName" name = "editZipperName" value = "{{$zipper->strMaterialZipperName}}" type="text" class="validateName">
                           <label for="Zipper_Name"> Zipper Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editZipperSize" name = "editZipperSize" value = "{{$zipper->strMaterialZipperSize}}" type="text" class="validate">
+                          <input id="editZipperSize" name = "editZipperSize" value = "{{$zipper->strMaterialZipperSize}}" type="text" class="validateSize">
                           <label for="Zipper_Size"> Zipper Size </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editZipperColor" name = "editZipperColor" value = "{{$zipper->strMaterialZipperColor}}" type="text" class="validate">
+                          <input id="editZipperColor" name = "editZipperColor" value = "{{$zipper->strMaterialZipperColor}}" type="text" class="validateColor">
                           <label for="Zipper_Color"> Zipper Color </label>
                         </div>
 
@@ -715,17 +715,17 @@
                         </div>
                   
                         <div class="input-field">
-                          <input id="editHookEyeName" name = "editHookEyeName" value = "{{$hook->strMaterialHookName}}" type="text" class="validate">
+                          <input id="editHookEyeName" name = "editHookEyeName" value = "{{$hook->strMaterialHookName}}" type="text" class="validateName">
                           <label for="HookEye_Name"> Hook and Eye Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editHookEyeSize" name = "editHookEyeSize" value = "{{$hook->strMaterialHookSize}}" type="text" class="validate">
+                          <input id="editHookEyeSize" name = "editHookEyeSize" value = "{{$hook->strMaterialHookSize}}" type="text" class="validateSize">
                           <label for="HookEye_Size"> Hook and Eye Size </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editHookEyeColor" name = "editHookEyeColor" value = "{{$hook->strMaterialHookColor}}" type="text" class="validate">
+                          <input id="editHookEyeColor" name = "editHookEyeColor" value = "{{$hook->strMaterialHookColor}}" type="text" class="validateColor">
                           <label for="Hookeye_Color"> Hook and Eye Color </label>
                         </div>
                 
@@ -855,12 +855,12 @@
       </div>
                   
       <div class="input-field">
-        <input id="addThreadName" name = "addThreadName" type="text" class="validate">
+        <input id="addThreadName" name = "addThreadName" type="text" class="validateName">
         <label for="Thread_Name"> Thread Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addThreadColor" name = "addThreadColor" type="text" class="validate">
+        <input id="addThreadColor" name = "addThreadColor" type="text" class="validateColor">
         <label for="Thread_Color"> Thread Color </label>
       </div>
 
@@ -896,12 +896,12 @@
       </div>
                   
       <div class="input-field">
-        <input id="addNeedleName" name = "addNeedleName"  type="text" class="validate">
+        <input id="addNeedleName" name = "addNeedleName"  type="text" class="validateName">
         <label for="Needle_Name"> Needle Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addNeedleSize" name = "addNeedleSize" type="text" class="validate">
+        <input id="addNeedleSize" name = "addNeedleSize" type="text" class="validateSize">
         <label for="Needle_Size"> Needle Size </label>
       </div>
                                   
@@ -937,17 +937,17 @@
       </div>
                   
       <div class="input-field">
-        <input id="addButtonName" name = "addButtonName" type="text" class="validate">
+        <input id="addButtonName" name = "addButtonName" type="text" class="validateName">
         <label for="Button_Name"> Button Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addButtonSize" name = "addButtonSize" type="text" class="validate">
+        <input id="addButtonSize" name = "addButtonSize" type="text" class="validateSize">
         <label for="Button_Size"> Button Size </label>
       </div>
 
       <div class="input-field">
-        <input id="addButtonColor" name = "addButtonColor" type="text" class="validate">
+        <input id="addButtonColor" name = "addButtonColor" type="text" class="validateColor">
         <label for="Button_Color"> Button Color </label>
       </div>
                                      
@@ -982,17 +982,17 @@
       </div>
                   
       <div class="input-field">
-        <input id="addZipperName" name = "addZipperName" type="text" class="validate">
+        <input id="addZipperName" name = "addZipperName" type="text" class="validateName">
         <label for="Zipper_Name"> Zipper Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addZipperSize" name = "addZipperSize" type="text" class="validate">
+        <input id="addZipperSize" name = "addZipperSize" type="text" class="validateSize">
         <label for="Zipper_Size"> Zipper Size </label>
       </div>
 
       <div class="input-field">
-        <input id="addZipperColor" name = "addZipperColor" type="text" class="validate">
+        <input id="addZipperColor" name = "addZipperColor" type="text" class="validateColor">
         <label for="Zipper_Color"> Zipper Color </label>
       </div>
 
@@ -1029,17 +1029,17 @@
       </div>
                   
       <div class="input-field">
-        <input id="addHookEyeName" name = "addHookName" type="text" class="validate">
+        <input id="addHookEyeName" name = "addHookName" type="text" class="validateName">
         <label for="HookEye_Name"> Hook and Eye Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addHookEyeSize" name = "addHookSize" type="text" class="validate">
+        <input id="addHookEyeSize" name = "addHookSize" type="text" class="validateSize">
         <label for="HookEye_Size"> Hook and Eye Size </label>
       </div>
 
       <div class="input-field">
-        <input id="addHookEyeColor" name = "addHookColor" type="text" class="validate">
+        <input id="addHookEyeColor" name = "addHookColor" type="text" class="validateColor">
         <label for="Hookeye_Color"> Hook and Eye Color </label>
       </div>
                 
@@ -1070,7 +1070,74 @@
 @stop
 
 @section('scripts')
+  <script type="text/javascript">
+      $('.validateName').on('input', function() {
+          var input=$(this);
+          var re=/^[a-zA-Z," "]+$/;
+          var is_name=re.test(input.val());
+          if(is_name){input.removeClass("invalid").addClass("valid");}
+          else{input.removeClass("valid").addClass("invalid");}
+        });
 
+      //Kapag Number
+      $('.validateName').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateSize').on('input', function() {
+          var input=$(this);
+          var re=/^[a-zA-Z," "]+$/;
+          var is_name=re.test(input.val());
+          if(is_name){input.removeClass("invalid").addClass("valid");}
+          else{input.removeClass("valid").addClass("invalid");}
+        });
+
+      //Kapag Number
+      $('.validateSize').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateSize').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      $('.validateColor').on('input', function() {
+          var input=$(this);
+          var re=/^[a-zA-Z," "]+$/;
+          var is_name=re.test(input.val());
+          if(is_name){input.removeClass("invalid").addClass("valid");}
+          else{input.removeClass("valid").addClass("invalid");}
+        });
+
+      //Kapag Number
+      $('.validateColor').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      $('.validateColor').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z," "]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+  </script>
 @stop
 
   

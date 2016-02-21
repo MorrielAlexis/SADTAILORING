@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validate">
+                          <input id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validateEmail">
                           <label for="email"> Email Address: </label>
                         </div>
 
@@ -247,7 +247,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addEmail" name = "addEmail" type="text" class="validate">
+                  <input id="addEmail" name = "addEmail" type="text" class="validateEmail">
                   <label for="email"> Email Address: </label>
                 </div>
 
@@ -346,6 +346,14 @@
         var input=$(this);
         var is_name=input.val();
         if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateEmail').on('input', function() {
+        var input=$(this);
+        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        var is_email=re.test(input.val());
+        if(is_email){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 

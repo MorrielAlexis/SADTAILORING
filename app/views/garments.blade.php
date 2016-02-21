@@ -152,7 +152,7 @@
     <script type="text/javascript">
       $('.validateGarmentName').on('input', function() {
         var input=$(this);
-        var re=/^[a-z," "]+$/;
+        var re=/^[a-zA-Z," "]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -161,12 +161,12 @@
       //Kapag Number
       $('.validateGarmentName').keyup(function() {
         var name = $(this).val();
-        $(this).val(name.replace(/\D/, ''));
+        $(this).val(name.replace(/\d/, ''));
       });     
 
       $('.validateGarmentName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-z]/;
+        var re=/^[a-zA-Z," "]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -174,19 +174,18 @@
 
       $('.validateGarmentDesc').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-z]/;
-        var is_desc=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
       $('.validateGarmentDesc').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-z]/;
-        var is_desc=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
+        var is_desc=input.val();
+        if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
+ 
 
     </script>
 @stop
