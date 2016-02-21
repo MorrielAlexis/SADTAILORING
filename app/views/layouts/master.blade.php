@@ -49,28 +49,28 @@
               <div class="divider"></div>
               <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">settings</i><b>Maintenance</b></a> 
                 <div class="collapsible-body" position = "fixed" style = "display: block;">
-  		            <ul>
+                  <ul>
                     <li class="no-padding">
                       <ul class="collapsible collapsible-accordion">
-  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Customer Profile</b></a>
-  			                   <div class="collapsible-body">
-  				                  <ul>
+                        <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Customer Profile</b></a>
+                           <div class="collapsible-body">
+                            <ul>
                               <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('customerIndividual')}}">Individual</a></li>
                               <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('customerCompany')}}">Company</a></li>
-  					                 <div class="divider"></div>
-  				                  </ul>
-  			                   </div>
-  		                  </li>
+          	                 <div class="divider"></div>
+                            </ul>
+                           </div>
+                        </li>
 
-  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Employee</b></a>
+                        <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Employee</b></a>
                           <div class="collapsible-body">
-  				                  <ul> 	
+                            <ul> 	
                               <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('employeeRole')}}">Position Roles</a></li>
                               <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('employee')}}">Employee Profile</a></li>
                               <div class="divider"></div>
-  				                  </ul>
-  			                   </div>
-  		                  </li>
+                            </ul>
+                           </div>
+                        </li>
 
   		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Garments</b></a>
                           <div class="collapsible-body">

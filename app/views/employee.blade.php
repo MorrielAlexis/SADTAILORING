@@ -303,7 +303,7 @@
                   </div>
 
                   <div class="input-field">
-                    <input required id="addAge" name="addAge" type="text" class="validateAge">
+                    <input required id="addAge" name="addAge" type="text" class="validateAge" maxlength="3">
                     <label for="Age">*Age: </label>
                   </div>  
 
@@ -325,8 +325,9 @@
                   </div>   
                    
                   <div class="input-field">
-                    <input required id="addCellNo" name="addCellNo" type="text" class="validateCell">
+                    <input required id="addCellNo" name="addCellNo" type="text" class="validateCell" maxlength="11">
                     <label for="cellphone_number">*Cellphone Number: </label>
+                    <span id="left"></span>
                   </div>
 
                   <div class="input-field">
@@ -484,7 +485,11 @@
       $('.validateCell').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
       });
+
+
+      
 
       //Validate Blank
       $('.validateCell').blur('input', function() {
@@ -497,6 +502,7 @@
        $('.validatePhone').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
+        
       });
 
     </script>
