@@ -8,7 +8,7 @@ class MaterialHookAndEye extends Eloquent {
 								'strMaterialHookName',
 								'strMaterialHookSize',
 								'strMaterialHookColor',
-								'strMaterialHooknImage',
+								'strMaterialHookImage',
 								'boolIsActive');
 
 
