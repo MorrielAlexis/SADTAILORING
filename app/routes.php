@@ -58,6 +58,7 @@ Route::post('/reactRole', array('uses' => 'EmployeeController@reactRole'));
 Route::post('/addGarmentCategory', array('uses' => 'GarmentsController@addGarmentCategory'));
 Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarmentCategory'));
 Route::post('/delGarmentCategory', array('uses' => 'GarmentsController@delGarmentCategory'));
+Route::post('/reactGarmentCategory', array('uses' => 'GarmentsController@reactGarmentCategory'));
 //////////////////////CRUD FOR GARMENT SEGMENT//////////////////////
 Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarmentSegment'));
 Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));

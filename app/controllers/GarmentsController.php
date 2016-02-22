@@ -159,6 +159,17 @@ class GarmentsController extends BaseController{
 
 	}
 
+	public function reactGarmentCategory()
+	{
+		$id = Input::get('reactID');
+		$category = Category::find($id);
+
+		$category->boolIsActive = 1;
+
+		$category->save();
+		return Redirect::to('/garments');
+	}
+
 	public function reactGarmentSegment()
 	{
 		$id = Input::get('reactID');

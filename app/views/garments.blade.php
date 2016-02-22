@@ -10,9 +10,52 @@
     <div class="row">
       <div class="col s12 m12 l6">
       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addGCategory">ADD GARMENT CATEGORY</button>
+      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL GARMENTS</button>
      </div>
    </div>
   </div>
+
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>INACTIVE GARMENTS</h4>
+      <table class = "centered" align = "center" border = "1">
+        <thead>
+          <tr>
+            <th data-field="id">Garment Details ID</th>
+            <th data-field="name">Category Name</th>
+            <th data-field="name">Category Name</th>
+            <th data-field="address">Category Description</th>
+            <th>Reactivate</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            @foreach($category2 as $category2)
+            @if($category2->boolIsActive == 0)
+            <tr>
+              <td>{{ $category2->strGarmentCategoryID }}</td>
+              <td>{{ $category2->strGarmentCategoryName }}</td>
+              <td>{{ $category2->strGarmentCategoryName }}</td>
+              <td>{{ $category2->strGarmentCategoryDesc }}</td>
+              <td>
+                <form action="{{URL::to('reactGarmentCategory')}}" method="POST">
+                  <input type="hidden" id="reactID" name="reactID" value="{{$category2->strGarmentCategoryID}}">
+                  <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+                </form>
+              </td>
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
+
 
     <div class="row">
       <div class="col s12 m12 l12">
