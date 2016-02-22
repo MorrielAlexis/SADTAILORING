@@ -164,7 +164,7 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>    
                       </div>
                     </form>
-                    </div>
+                  </div>
 
                     <div id="del{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -196,11 +196,11 @@
                             <input value="{{$individual->strCustPrivAddress}}" id="delIndivAddress" name="delIndivAddress" type="text" class="validate" readonly>
                           </div>
                         </p>
-                      </div>
+                        </div>
 
                           <div class="modal-footer">
-                          <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                            <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
                     </div>

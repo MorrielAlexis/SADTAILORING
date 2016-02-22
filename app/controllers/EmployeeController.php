@@ -167,7 +167,7 @@ class EmployeeController extends BaseController{
 		$id = Input::get('reactID');
 		$role = Role::find($id);
 
-        $role->boolIsActive = 0;
+        $role->boolIsActive = 1;
 
         $role->save();
         return Redirect::to('/employeeRole');

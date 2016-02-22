@@ -125,17 +125,9 @@
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$employee->strEmployeeID}}">DELETE</button></td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$employee->strEmployeeID}}">DELETE</button>
                   
-                </tr>
-                @endif
-                @endforeach
-              </tbody>
-            </table>
-            
-    
-
-                    <!-- <Modal Structure for Edit Employee>   -->
+               <!-- <Modal Structure for Edit Employee>   -->
                     <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
                       <form action="{{URL::to('editEmployee')}}" method="POST">
                         <div class="modal-content">
@@ -262,6 +254,11 @@
                         </div>                  
                       </form>
                     </div>
+                  </tr>
+                @endif
+                @endforeach
+              </tbody>
+            </table>
               </div>
         
 
