@@ -42,7 +42,7 @@
                 <td>{{ $catalogue2->strCatalogueDesc }}</td>
                 <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue2->strCatalogueImage)}}"></td>
                 <td>
-                  <form action="/reactCatalogueDesign" method="POST">
+                  <form action="{{URL::to('reactCatalogueDesign')}}" method="POST">
                     <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
                     <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
                   </form>
@@ -101,7 +101,7 @@
                     <font color = "teal" ><center><h5>Edit Catalogue Details</h5></center></font> 
                     <div class="modal-content">
                       <p>
-                      <form action="/editCatalogueDesign" method="POST" enctype="multipart/form-data">
+                      <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
                       <div class="input-field">
                         <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="validate" readonly>
                       </div>
@@ -160,7 +160,7 @@
               <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
                  <div class="modal-content">
                   <p>
-                    <form action="/delCatalogueDesign" method="POST">
+                    <form action="{{URL::to('delCatalogueDesign')}}" method="POST">
                       <div class="input-field">
                         <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" text="text" readonly class="validate" >
                         <label for="catalogue_id">CATALOGUE ID: </label>
@@ -212,7 +212,7 @@
             <font color = "teal"><h5><center>Add Catalogue </center></h5></font> 
             <div class="modal-content">
               <p>
-              <form action='/addCatalogueDesign' method="POST" enctype="multipart/form-data">
+              <form action='{{URL::to('addCatalogueDesign')}}' method="POST" enctype="multipart/form-data">
               <div class="input-field">
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="validate" readonly>
                 <label for="Catalogue_id">Catalogue ID: </label>
@@ -233,7 +233,7 @@
               </div>
 
               <div class="input-field">
-                <input required id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validateCatalogueDesc">
+                <input  id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validateCatalogueDesc">
                 <label for="Category_Desc">Category Description </label>
               </div>
 
@@ -285,7 +285,6 @@
       });
     </script>
 
-<<<<<<< HEAD
     <script type="text/javascript">
       $('.validateCatalogueName').on('input', function() {
         var input=$(this);
@@ -325,7 +324,7 @@
 
     </script>
 
-=======
+
            <!--DATA TABLE SCRIPT-->
     <script type="text/javascript">
 
