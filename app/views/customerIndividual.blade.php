@@ -152,7 +152,7 @@
                         </div>
                       
                         <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validatePhone">
+                          <input id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validatePhone" maxlength="10">
                           <label for="tel"> Telephone Number: </label>
                         </div>
                         </p>
@@ -259,7 +259,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addPhone" name = "addPhone" type="text" class="validatePhone">
+                  <input id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10">
                   <label for="tel"> Telephone Number: </label>
                 </div>
                 <br>
@@ -383,6 +383,12 @@
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
       });     
+
+      $('.validatePhone').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
+      }); 
 
     </script>
 
