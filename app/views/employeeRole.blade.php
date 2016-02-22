@@ -49,8 +49,8 @@
                 <td>{{ $role->strEmpRoleName }}</td>
                 <td>{{ $role->strEmpRoleDesc }}</td>
                 <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$role->strEmpRoleID}}">EDIT</button>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$role->strEmpRoleID}}">DELETE</button>
-                 		
+                    <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$role->strEmpRoleID}}">DELETE</button>
+                </td>	
                   <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                     <form action="{{URL::to('editRole')}}" method="POST">
                       <div class="modal-content">
@@ -110,17 +110,12 @@
                       </div>
                     </form>
                   </div>
-
-
-
-                </td>
               </tr>
               @endif
             @endforeach
             </tbody>
           </table>
-          </div>
-
+        </div>
           <div class = "clearfix">
 
           </div>

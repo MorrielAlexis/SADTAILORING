@@ -76,7 +76,8 @@ class EmployeeController extends BaseController{
 		$role = Role::create(array(
 			'strEmpRoleID' => Input::get('addRoleID'),
 			'strEmpRoleName' => Input::get('addRoleName'),
-			'strEmpRoleDesc' => Input::get('addRoleDescription')
+			'strEmpRoleDesc' => Input::get('addRoleDescription'),
+			'boolIsActive' => 1
 			));
 
 		$role->save();
@@ -127,25 +128,24 @@ class EmployeeController extends BaseController{
 	}
 
 	public function delRole()
-	{	
+	{
 		$id = Input::get('delRoleID');
-		$role = Role::find($id);			
+		$role = Role::find($id);
 
-		$count = DB::table('tblEmployeeRole')
-            ->join('tblEmployee', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
+		$count = DB::table('tblEmployee')
+            ->join('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
             ->select('tblEmployeeRole.*')
             ->where('tblEmployeeRole.strEmpRoleID','=', $id)
             ->count();
 
-        if($count == 0){
+        if ($count == 0) {
         	$role->boolIsActive = 0;
         	$role->save();
         	return Redirect::to('/employeeRole');
-        }else{	
-        	return Redirect::to('/employeeRole')->with('message', 'There are employees still assigned to this role!');
+        } else {
+        	return Redirect::to('/employeeRole');
         }
 
-        
 	}
 
 	public function reactEmployee()
