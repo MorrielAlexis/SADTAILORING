@@ -352,7 +352,7 @@
        $('.validateCell').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
       });
 
        $('.validatePhone').keyup(function() {
@@ -363,7 +363,7 @@
        $('.validatePhone').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
+        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
       }); 
 
        $('.validateFax').keyup(function() {
