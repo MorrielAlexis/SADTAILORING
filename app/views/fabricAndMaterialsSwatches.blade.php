@@ -95,7 +95,7 @@
                     <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch->strSwatchImage)}}"></td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
-
+    
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
