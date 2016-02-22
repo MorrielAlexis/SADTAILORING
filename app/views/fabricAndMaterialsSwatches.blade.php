@@ -29,6 +29,7 @@
             <th data-field="SwatchName">Swatch Name</th>
             <th data-field="SwatchCode">Swatch Code</th>
             <th data-field="SwatchImage">Image</th>
+            <th data-field="reactSwatch">Reactivate</th>
           </tr>
         </thead>
 
@@ -77,8 +78,8 @@
              		  	<th data-field="SwatchName">Swatch Name</th>
                     <th data-field="SwatchCode">Swatch Code</th>
               			<th data-field="SwatchImage">Image</th>
-                    <th data-field="Edit">Action</th>
-                     <th data-field="Edit">Action</th>
+                    <th data-field="Edit">Edit</th>
+                    <th data-field="Edit">Delete</th>
 
               		</tr>
                 </thead>
@@ -93,7 +94,7 @@
                     <td>{{ $swatch->strSwatchCode }}</td>
                     <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch->strSwatchImage)}}"></td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button></td>
 
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
@@ -108,7 +109,6 @@
 
                               <div class="input-field">
                                 <select required  name='editFabric'>
-                                  <option value="" disabled>Select Fabric Type</option>
                                   @foreach($fabricType as $id=>$name)
                                     @if($swatch->strSwatchFabricTypeName == $id)
                                       <option value="{{$id}}" selected>{{$name}}</option>
@@ -117,6 +117,7 @@
                                     @endif
                                   @endforeach
                                 </select>
+                                  <label>Fabric Type</label>
                               </div>  
 
                               <div class="input-field">
@@ -161,14 +162,8 @@
                               </div>
 
                               <div class="input-field">
-                                <select>
-                                  <option value="" disabled>Select Fabric Type</option>
-                                    @foreach($fabricType as $id=>$name)
-                                    @if($swatch->strSwatchFabricTypeName == $id)
-                                      <option value="{{$id}}" selected disabled>{{$name}}</option>
-                                    @endif
-                                    @endforeach
-                                </select>
+                                  <input type="text" value="{{$swatch->strSwatchFabricTypeName}}" readonly>
+                                  <label>Fabric Type</label>
                               </div>  
 
                               <div class="input-field">
@@ -190,7 +185,6 @@
                           </div>
                         </form>
                       </div>
-                    </td> 
                   </tr>     
                     @endif
                   @endforeach               
@@ -288,7 +282,6 @@
       }
     </script>
 
-<<<<<<< HEAD
     <script type="text/javascript">
       $('.validateSwatchName').on('input', function() {
         var input=$(this);
@@ -325,8 +318,7 @@
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
-
-=======
+      </script>
 
          <!--DATA TABLE SCRIPT-->
     <script type="text/javascript">
