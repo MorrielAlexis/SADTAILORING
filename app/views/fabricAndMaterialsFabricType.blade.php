@@ -16,7 +16,44 @@
     </div>
   </div> <!-- End of Main Wrapper  --> 
 
-  
+   <!--**********VIEW INACTIVE FABRICS**********-->
+            <div id="inactiveFabric" class="modal modal-fixed-footer">
+              <div class="modal-content">
+                <h4>INACTIVE FABRICS</h4>
+                <table class="centered" border="1">
+                  <thead>
+                    <tr>
+                      <th data-field="fabricID">Fabric Type ID</th>
+                      <th data-field="fabricName">Fabric TypeName</th>
+                      <th data-field="fabricDesc">Fabric Description</th>     
+                      <th>Reactivate</th>   
+                  </thead>
+
+                  <tbody>
+                    @foreach($fabricType2 as $fabricType2)
+                    @if($fabricType2->boolIsActive == 0)
+                      <tr>
+                        <td>{{ $fabricType2->strFabricTypeID }}</td>
+                        <td>{{ $fabricType2->strFabricTypeName }}</td>
+                        <td>{{ $fabricType2->strFabricTypeDesc }}</td>
+                        <td>
+                          <form action="{{URL::to('reactFabricType')}}" method="POST">
+                            <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactID" name="reactID">
+                            <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                          </form>
+                        </td>
+                      </tr>
+                      @endif
+                      @endforeach
+                  </tbody>
+                </table>
+              </div>
+
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+        </div>
+      </div>
+
 
   <div class="row"> <!-- row -->
 
@@ -43,12 +80,13 @@
 
                 <tbody>
                    @foreach($fabricType as $fabricType)
+                   @if($fabricType->boolIsActive == 1)
                   <tr>
               		  <td>{{ $fabricType->strFabricTypeID }}</td>
               		  <td>{{ $fabricType->strFabricTypeName }}</td>
               		  <td>{{ $fabricType->strFabricTypeDesc}}</td>
-              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$fabricType->strFabricTypeID}}">DELETE</button>
+              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button></td>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$fabricType->strFabricTypeID}}">DELETE</button></td>
               	
                     <div id="edit{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
                       <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center></font> 
@@ -78,17 +116,7 @@
                       </div>
                       </form>
                     </div> <!-- editFabricType  -->    
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-
-              </div>
-
-              <div class = "clearfix">
-
-              </div>
+                  
 
               <!--**********DELETE***********-->
               <div id="del{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer">
@@ -119,39 +147,16 @@
                           </div> 
                         </form>
                     </div>
-          
-
-            <!--**********VIEW INACTIVE FABRICS**********-->
-            <div id="inactiveFabric" class="modal modal-fixed-footer">
-              <div class="modal-content">
-                <h4>INACTIVE FABRICS</h4>
-                <table class="centered" border="1">
-                  <thead>
-                    <tr>
-                      <th data-field="fabricID">Fabric Type ID</th>
-                      <th data-field="fabricName">Fabric TypeName</th>
-                      <th data-field="fabricDesc">Fabric Description</th>        
-                  </thead>
-
-                  <tbody>
-                    @foreach($fabricType2 as $fabricType2)
-                    @if($fabricType2->boolIsActive == 0)
-                      <tr>
-                            <td>{{ $fabricType2->strFabricTypeID }}</td>
-                            <td>{{ $fabricType2->strFabricTypeName }}</td>
-                            <td>{{ $fabricType2->strFabricTypeDesc }}</td>
-                            <td>
-                            <form action="{{URL::to('reactFabricType')}}" method="POST">
-                            <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactID" name="reactID">
-                            <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
-                            </form>
-                          </td>
-                      </tr>
-                      @endif
-                      @endforeach
-                  </tbody>
-                </table>
+                    </tr>
+                    @endif
+                  @endforeach
+                </tbody>
+              </table>
               </div>
+
+              <div class = "clearfix">
+
+              </div>  
 
             <!--********ADD******-->
               <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
@@ -238,7 +243,7 @@
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
-
+      </script>
         <!--DATA TABLE SCRIPT-->
     <script type="text/javascript">
 
