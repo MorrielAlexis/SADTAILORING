@@ -18,7 +18,10 @@ class FabricAndMaterialsController extends BaseController{
 
 		$fabricType = FabricType::all();
 
-		return View::make('fabricAndMaterialsFabricType')->with('fabricType', $fabricType)->with('newID', $newID);
+		return View::make('fabricAndMaterialsFabricType')
+					->with('fabricType', $fabricType)
+					->with('fabricType2', $fabricType)
+					->with('newID', $newID);
 	}
 
 	public function swatch()
@@ -230,6 +233,29 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType = FabricType::find($id);
 		$fabricType->strFabricTypeName = Input::get('editFabricTypeName');	
 		$fabricType->strFabricTypeDesc = Input::get('editFabricTypeDesc');
+
+		$fabricType->save();
+		return Redirect::to('/fabricAndMaterialsFabricType');
+	}
+
+
+	public function delFabricType()
+	{
+		$id = Input::get('delFabricID');
+		$fabricType = FabricType::find($id);
+
+		$fabricType->boolIsActive = 0;
+
+		$fabricType->save();
+		return Redirect::to('/fabricAndMaterialsFabricType');
+	}
+
+	public function reactFabricType()
+	{
+		$id = Input::get('reactID');
+		$fabricType = FabricType::find($id);
+
+		$fabricType->boolIsActive = 1;
 
 		$fabricType->save();
 		return Redirect::to('/fabricAndMaterialsFabricType');

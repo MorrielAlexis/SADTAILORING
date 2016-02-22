@@ -75,6 +75,8 @@ Route::post('/reactMeasurementCategory', array('uses' => 'MeasurementController@
 //////////////////////CRUD FOR FABRIC TYPE//////////////////////
 Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addFabricType'));
 Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editFabricType'));
+Route::post('/delFabricType', array('uses' => 'FabricAndMaterialsController@delFabricType'));
+Route::post('/reactFabricType', array('uses' => 'FabricAndMaterialsController@reactFabricType'));
 //////////////////////CRUD FOR DESIGN PATTERN//////////////////////
 Route::post('/addDesignPattern', array('uses' => 'DesignPatternController@addPattern'));
 Route::post('/editDesignPattern', array('uses' => 'DesignPatternController@editPattern'));
