@@ -148,7 +148,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input required id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validateCell">
+                          <input required id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validateCell" maxlength="11">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
                       
@@ -255,7 +255,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input required id="addCel" name = "addCel" type="text" class="validateCell">
+                  <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11">
                   <label for="cellphone"> Cellphone Number: </label>
                 </div>
 
@@ -378,6 +378,12 @@
         var is_name=input.val();
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
+      });
+
+       $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
       });
 
        $('.validatePhone').keyup(function() {
