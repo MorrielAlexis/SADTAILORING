@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input required id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validateCell">
+                          <input required id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validateCell" maxlength="11">
                           <label for="cellphone"> Cellphone Number: </label>
                         </div>
 
@@ -235,7 +235,7 @@
               </div>
 
               <div class="input-field">
-                <input required id="addCel" name = "addCel" type="text" class="validateCell">
+                <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11">
                 <label for="cellphone"> Cellphone Number: </label>
               </div>
 
