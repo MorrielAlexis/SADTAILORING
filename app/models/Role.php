@@ -6,7 +6,8 @@ class Role extends Eloquent {
 	protected $primaryKey = 'strEmpRoleID';
 	protected $fillable = array('strEmpRoleID',
 								'strEmpRoleName',
-								'strEmpRoleDesc');
+								'strEmpRoleDesc',
+								'boolIsActive');
 
 	
 	public function employees() {

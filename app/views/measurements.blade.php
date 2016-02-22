@@ -180,15 +180,15 @@
                                   </div>
 
                                   <div class="input-field">                                                    
-                                    <input type="text" value="$head->strGarmentCategoryName"> 
+                                    <input type="text" value="{{$head->strGarmentCategoryName}}"> 
                                   </div>        
                         
                                   <div class="input-field">                                                    
-                                    <input type="text" value="$head->strGarmentSegmentName"> 
+                                    <input type="text" value="{{$head->strGarmentSegmentName}}"> 
                                   </div>     
 
                                   <div class="input-field">                                                    
-                                    <input type="text" value="$head->strMeasurementDetailName"> 
+                                    <input type="text" value="{{$head->strMeasurementDetailName}}"> 
                                   </div>   
                                 </p>                         
                               </div>
@@ -311,6 +311,7 @@
 
                     <tbody>
                       @foreach($detail as $detail)
+                      @if($detail->boolIsActive == 1)
                       <tr>
                         <td>{{ $detail->strMeasurementDetailID }}</td>
                         <td>{{ $detail->strMeasurementDetailName }}</td>
@@ -377,6 +378,7 @@
                             </form>
                           </div>
                       </tr>
+                      @endif
                       @endforeach
                     </tbody>
                   </table>
