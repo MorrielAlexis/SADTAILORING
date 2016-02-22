@@ -197,7 +197,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validatePhone">
+                            <input value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validatePhone" maxlength="10">
                             <label for="landline_number">Landline Number: </label>
                           </div>
 
@@ -329,7 +329,7 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addPhoneNo" name="addPhoneNo" type="text" class="validatePhone">
+                    <input id="addPhoneNo" name="addPhoneNo" type="text" class="validatePhone" maxlength="10">
                     <label for="landline_number">Landline Number: </label>
                   </div>
 
@@ -498,6 +498,13 @@
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));  
       });
+
+       $('.validatePhone').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
+      }); 
+
 
       $('.validateEmail').on('input', function() {
         var input=$(this);
