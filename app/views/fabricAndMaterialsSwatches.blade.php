@@ -94,7 +94,7 @@
                     <td>{{ $swatch->strSwatchCode }}</td>
                     <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch->strSwatchImage)}}"></td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button></td>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
 
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
@@ -185,6 +185,7 @@
                           </div>
                         </form>
                       </div>
+                    </td>
                   </tr>     
                     @endif
                   @endforeach               

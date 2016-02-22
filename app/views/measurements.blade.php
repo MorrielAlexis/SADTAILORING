@@ -106,7 +106,7 @@
                         <td>{{ $head->strGarmentSegmentName }}</td>
                         <td>{{ $head->strMeasurementDetailName }}</td>
                         <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$head->strMeasurementID}}">DELETE</button></td>
+                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$head->strMeasurementID}}">DELETE</button>
 
                           <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                             <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
@@ -201,6 +201,7 @@
                           </div>          
 
                           <!--*****************************************************-->   
+                        </td>
                       </tr>
                       @endif
                       @endforeach

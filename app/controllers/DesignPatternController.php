@@ -57,8 +57,6 @@ class DesignPatternController extends BaseController{
 		$id = Input::get('editPatternID');
 		$pattern = DesignPattern::find($id);
 
-		dd(Input::get('editSegment'));
-
 		if(Input::get('editImage') == $pattern->strPatternImage){
 			$pattern->strDesignSegmentName = Input::get('editSegment');
 			$pattern->strPatternName = Input::get('editPatternName');

@@ -38,7 +38,7 @@
 
             <tbody>
               @foreach($role2 as $role2)
-              @if($role2->boolIsActive == 1)
+              @if($role2->boolIsActive == 0)
               <tr>
                 <td>{{ $role2->strEmpRoleID }}</td>
                 <td>{{ $role2->strEmpRoleName }}</td>

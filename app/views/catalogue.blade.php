@@ -95,7 +95,7 @@
               	<td>{{ $catalogue->strCatalogueDesc }}</td>
                 <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue->strCatalogueImage)}}"></td>
               	<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
-                <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$catalogue->strCatalogueID}}">DELETE</button></td>
+                <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$catalogue->strCatalogueID}}">DELETE</button>
 
                   <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
                     <font color = "teal" ><center><h5>Edit Catalogue Details</h5></center></font> 
@@ -153,8 +153,6 @@
                   </form>
                 </div>
 
-
-
             <!-- DELETE DESIGN IN CATALOGUE -->
             <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">
               <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
@@ -183,12 +181,14 @@
                         <label for="catalogue_name"> CATALOGUE NAME: </label>
                       </div>
                     </div>
+
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>                 
                  </div>
+                 </td>
             </tr>
             @endif
             @endforeach 

@@ -86,7 +86,7 @@
                     <td>{{ $segment->strGarmentSegmentName }}</td>
               		  <td>{{ $segment->strGarmentSegmentDesc }}</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button> </td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>  </td>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>
        
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center> Edit Segment Details </center></h5></font>
@@ -166,6 +166,7 @@
                         </form>
                       </div>
                       <!--***********************************************************-->
+                    </td>
                     </tr>
                   @endif
                   @endforeach

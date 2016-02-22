@@ -87,7 +87,7 @@
               		<td>{{ $pattern->strPatternName }}</td>
                   <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($pattern->strPatternImage)}}"></td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button></td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
                       
                     <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5> Edit Design Pattern Details</h5></center></font>
@@ -181,6 +181,7 @@
                     
                     </form>              
                     </div>
+                  </td>
                 </tr>   
                 @endif
                 @endforeach               
