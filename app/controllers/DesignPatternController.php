@@ -35,17 +35,27 @@ class DesignPatternController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgDesignPatterns';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
 
-		$pattern = DesignPattern::create(array(
+		if($file == '' || $file == null){
+			$pattern = DesignPattern::create(array(
+			'strDesignPatternID' => Input::get('addPatternID'),
+			'strDesignSegmentName' => Input::get('addSegment'),
+			'strPatternName' => Input::get('addPatternName'),
+			'boolIsActive' => 1
+			));		
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
+
+			$pattern = DesignPattern::create(array(
 			'strDesignPatternID' => Input::get('addPatternID'),
 			'strDesignSegmentName' => Input::get('addSegment'),
 			'strPatternName' => Input::get('addPatternName'),
 			'strPatternImage' => 'imgDesignPatterns/'.$fileName,
 			'boolIsActive' => 1
-			));		
+			));	
+		}
 
 		$pattern->save();
 

@@ -35,11 +35,21 @@ class CatalogueController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgCatalogue';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
 
-		$catalogue = Catalogue::create(array(
+		if($file == '' || $file == null){
+			$catalogue = Catalogue::create(array(
+			'strCatalogueID' => Input::get('addCatalogueID'),
+			'strCatalogueCategory' => Input::get('addCategory'),
+			'strCatalogueName' => Input::get('addCatalogueName'),
+			'strCatalogueDesc' => Input::get('addCatalogueDesc'),
+			'boolIsActive' => 1
+			));
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
+
+			$catalogue = Catalogue::create(array(
 			'strCatalogueID' => Input::get('addCatalogueID'),
 			'strCatalogueCategory' => Input::get('addCategory'),
 			'strCatalogueName' => Input::get('addCatalogueName'),
@@ -47,7 +57,8 @@ class CatalogueController extends BaseController{
 			'strCatalogueImage' => 'imgCatalogue/'.$fileName ,
 			'boolIsActive' => 1
 			));
-
+		}
+		
 		$catalogue->save();
 		return Redirect::to('/catalogue');
 	}

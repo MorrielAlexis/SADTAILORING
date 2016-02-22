@@ -144,11 +144,21 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgSwatches';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
 
-		$swatch = Swatch::create(array(
+		if($file == '' || $file == null){
+			$swatch = Swatch::create(array(
+			'strSwatchID' => Input::get('addSwatchID'),
+			'strSwatchFabricTypeName' => Input::get('addFabric'),		
+			'strSwatchName' => Input::get('addSwatchName'),
+			'strSwatchCode' => Input::get('addSwatchCode'),
+			'boolIsActive' => 1
+			));
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
+
+			$swatch = Swatch::create(array(
 			'strSwatchID' => Input::get('addSwatchID'),
 			'strSwatchFabricTypeName' => Input::get('addFabric'),		
 			'strSwatchName' => Input::get('addSwatchName'),
@@ -156,6 +166,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strSwatchImage' => 'imgSwatches/'.$fileName,
 			'boolIsActive' => 1
 			));
+		}	
 
 		$swatch->save();
 		return Redirect::to('/fabricAndMaterialsSwatches');
