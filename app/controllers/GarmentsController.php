@@ -17,7 +17,7 @@ class GarmentsController extends BaseController{
 
 		$category = Category::all();
 
-		return View::make('garments')->with('category', $category)->with('newID', $newID);
+		return View::make('garments')->with('category', $category)->with('category2', $category)->with('newID', $newID);
 	}
 
 	public function details()
