@@ -19,14 +19,14 @@
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>INACTIVE SEGMENTS</h4>
-      <table class="centered" border="1">
+      <table class = "table centered data-reactSegment" align = "center" border = "1">
         <thead>
           <tr>
             <th data-field="id">Garment Details ID</th>
             <th data-field="name">Category Name</th>
             <th data-field="name">Segment Name</th>
             <th data-field="address">Segment Description</th>
-
+            <th>Reactivate</th>
           </tr>
         </thead>
 
@@ -39,10 +39,11 @@
               <td>{{ $segment2->strGarmentSegmentName }}</td>
               <td>{{ $segment2->strGarmentSegmentDesc }}</td>
               <td>
-              <form action="{{URL::to('reactGarmentSegment')}}" method="POST">
-              <input type="hidden" id="reactID" name="reactID" value="{{$segment2->strGarmentSegmentID}}">
-              <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button></td>
-              </form>
+                <form action="{{URL::to('reactGarmentSegment')}}" method="POST">
+                  <input type="hidden" id="reactID" name="reactID" value="{{$segment2->strGarmentSegmentID}}">
+                  <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+                </form>
+              </td>
             </tr>
             @endif
             @endforeach
@@ -71,9 +72,9 @@
              		   	<th data-field="name">Category Name</th>
                     <th data-field="name">Segment Name</th>
               			<th data-field="address">Segment Description</th>
-                    <th data-field="Edit">Action</th>
-                    <th data-field="Edit">Action</th>
-              			</tr>
+                    <th data-field="Edit">Edit</th>
+                    <th data-field="Delete">Delete</th>
+              		</tr>
                 </thead>
 
                 <tbody>
@@ -86,10 +87,7 @@
               		  <td>{{ $segment->strGarmentSegmentDesc }}</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button> </td>
                     <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>  </td>
-                    </tr>
-
-                              
-
+       
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center> Edit Segment Details </center></h5></font>
                         <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
@@ -168,9 +166,7 @@
                         </form>
                       </div>
                       <!--***********************************************************-->
-
-                    </td>
-                  
+                    </tr>
                   @endif
                   @endforeach
                 </tbody>
@@ -208,12 +204,7 @@
                       </div>
 
                       <div class="input-field">
-
-<<<<<<< HEAD
-                        <input required pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validate">
-=======
-                        <input id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validateSegDesc">
->>>>>>> 0cc7f4c13c97c5e11f64e2c8efab3f86de50b982
+                        <input required pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validateSegDesc">
 
                         <label for="segment_description">Segment Description: </label>
                       </div>
@@ -246,7 +237,6 @@
         }
     </script>
 
-<<<<<<< HEAD
     <script type="text/javascript">
       $('.validateSegName').on('input', function() {
         var input=$(this);
@@ -282,16 +272,15 @@
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
-
-
-=======
-
+      </script>
          <!--DATA TABLE SCRIPT-->
+
     <script type="text/javascript">
 
       $(document).ready(function() {
-
           $('.data-garmentsDetails').DataTable();
+          $('.data-reactSegment').DataTable();
+          
 
       } );
     </script>
