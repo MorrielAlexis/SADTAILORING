@@ -73,8 +73,8 @@
               		<th data-field="Garment Name">Segment Name </th>
              		  <th data-field="Pattern Name">Pattern Name</th>
               		<th data-field="Pattern Image">Pattern Image</th>
-                  <th data-field="Edit">Action</th>
-                  <th data-field="Edit">Action</th>
+                  <th data-field="Edit">Edit</th>
+                  <th data-field="Edit">Delete</th>
               	</tr>
               </thead>
 
@@ -87,7 +87,7 @@
               		<td>{{ $pattern->strPatternName }}</td>
                   <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($pattern->strPatternImage)}}"></td>
               		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button></td>
                       
                     <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <font color = "teal"><center><h5> Edit Design Pattern Details</h5></center></font>
@@ -101,7 +101,7 @@
                         </div>
 
                         <div class="input-field">                                                    
-                          <select name='editSegment' required>
+                          <select id="editSegment" name="editSegment">
                               @foreach($segment2 as $seg)
                                   @if($pattern->strDesignSegmentName == $seg->strGarmentSegmentID && $seg->boolIsActive == 1)
                                     <option selected value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
@@ -112,7 +112,6 @@
                           </select>    
                           <label>Segment</label>
                         </div>   
-
 
                         <div class="input-field">
                           <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
@@ -182,7 +181,6 @@
                     
                     </form>              
                     </div>
-                  </td>
                 </tr>   
                 @endif
                 @endforeach               
@@ -273,7 +271,6 @@
 
     </script>
 
-<<<<<<< HEAD
     <script type="text/javascript">
       $('.validatePatternName').on('input', function() {
         var input=$(this);
@@ -295,8 +292,7 @@
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
-
-=======
+    </script>
          <!--DATA TABLE SCRIPT-->
     <script type="text/javascript">
 

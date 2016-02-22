@@ -105,8 +105,8 @@
                         <td>{{ $head->strGarmentCategoryName }}</td>
                         <td>{{ $head->strGarmentSegmentName }}</td>
                         <td>{{ $head->strMeasurementDetailName }}</td>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$head->strMeasurementID}}">EDIT</button>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$head->strMeasurementID}}">DELETE</button>
+                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
+                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$head->strMeasurementID}}">DELETE</button></td>
 
                           <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                             <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
@@ -201,7 +201,6 @@
                           </div>          
 
                           <!--*****************************************************-->   
-                        </td>
                       </tr>
                       @endif
                       @endforeach
@@ -304,7 +303,8 @@
                         <th data-field="id">Measurement Part ID</th>
                         <th data-field="name">Measurement Name</th>
                         <th data-field="description">Measurement Description</th>
-                         <th data-field="action">Action</th>
+                        <th data-field="action">Edit</th>
+                        <th data-field="action">Delete</th>
                       </tr>
                     </thead>
 
@@ -314,8 +314,8 @@
                         <td>{{ $detail->strMeasurementDetailID }}</td>
                         <td>{{ $detail->strMeasurementDetailName }}</td>
                         <td>{{ $detail->strMeasurementDetailDesc }}</td>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $detail->strMeasurementDetailID }}">DELETE</button>
+                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
+                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $detail->strMeasurementDetailID }}">DELETE</button></td>
 
                           <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                             <font color = "teal"><center><h5> Edit Measurement Part</h5></center></font>
@@ -375,7 +375,6 @@
                               </div>
                             </form>
                           </div>
-                        </td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -447,7 +446,6 @@
       }
     </script>
 
-<<<<<<< HEAD
     <script type="text/javascript">
       $('.validateDetailName').on('input', function() {
         var input=$(this);
@@ -484,26 +482,17 @@
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
-
-=======
-
+</script>
          <!--DATA TABLE SCRIPT-->
     <script type="text/javascript">
 
       $(document).ready(function() {
-
-          $('.data-measHead').DataTable();
-
-      } );
-    </script>
-
-        <script type="text/javascript">
-
-      $(document).ready(function() {
-
           $('.data-measDet').DataTable();
+          $('.data-measHead').DataTable();
+          
 
       } );
     </script>
+
 
 @stop
