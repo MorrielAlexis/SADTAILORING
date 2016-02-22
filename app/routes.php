@@ -53,6 +53,7 @@ Route::post('/reactEmployee', array('uses' => 'EmployeeController@reactEmployee'
 Route::post('/addRole', array('uses' =>'EmployeeController@addRole'));
 Route::post('/editRole', array('uses' => 'EmployeeController@editRole'));
 Route::post('/delRole', array('uses' => 'EmployeeController@delRole'));
+Route::post('/reactRole', array('uses' => 'EmployeeController@reactRole'));
 //////////////////////CRUD FOR GARMENT CATEGORY//////////////////////
 Route::post('/addGarmentCategory', array('uses' => 'GarmentsController@addGarmentCategory'));
 Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarmentCategory'));

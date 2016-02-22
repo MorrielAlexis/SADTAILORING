@@ -35,7 +35,7 @@
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Phone No.</th>
             <th data-field="email">Email Address</th>
-             <th data-field="Edit">Action</th>
+             <th data-field="Edit">Reactivate</th>
           </tr>
         </thead>
 

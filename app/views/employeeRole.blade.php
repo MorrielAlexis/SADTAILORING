@@ -17,10 +17,50 @@
     <div class="row">
       <div class="col s12 m12 l6">
        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addRole">ADD A NEW ROLE</button>
+      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE ROLES</button>
       </div>
     </div>
   </div>
 
+  <!--MODAL: VIEW ALL ROLES-->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>INACTIVE ROLE</h4>
+      <table class = "table centered data-reactRole" align = "center" border = "1">
+            <thead>
+              <tr>
+                <th data-field="id">Role ID</th>
+                 <th data-field="name">Role Name</th>
+                <th data-field="address">Role Description</th>
+                 <th data-field="Edit">Reactivate</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              @foreach($role2 as $role2)
+              @if($role2->boolIsActive == 1)
+              <tr>
+                <td>{{ $role2->strEmpRoleID }}</td>
+                <td>{{ $role2->strEmpRoleName }}</td>
+                <td>{{ $role2->strEmpRoleDesc }}</td>
+                <td>
+                  <form action="{{URL::to('reactRole')}}" method="POST">
+                    <input type="hidden" value="{{ $role2->strEmpRoleID }}" id="reactID" name="reactID">
+                    <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  </form>
+                </td>
+            </tr>
+            @endif
+            @endforeach
+        </tbody>
+      </table>
+    </div>
+  
+    <!--MODAL FOOTER-->
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+    </div>
+  </div>
 
   <div class="row">
     <div class="col s12 m12 l12">
@@ -170,6 +210,7 @@
       $(document).ready(function() {
 
           $('.data-role').DataTable();
+          $('.data-reactRole').DataTable();
 
       } );
     </script>

@@ -29,7 +29,8 @@
                     <th data-field="id">Garment ID</th>
                     <th data-field="garmentName">Garment Name</th>
                     <th data-field="garmentDescription">Garment Description</th>
-                    <th data-field="Edit">Action</th>
+                    <th data-field="Edit">Edit</th>
+                    <th>Delete</th>
                   </tr>
               </thead>
 
@@ -40,8 +41,8 @@
                     <td>{{ $category->strGarmentCategoryID }}</td>
                     <td>{{ $category->strGarmentCategoryName }}</td>
                     <td>{{ $category->strGarmentCategoryDesc }}</td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button>
-                      <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
+                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button></td>
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
@@ -107,7 +108,6 @@
                           </div>
                         </form>
                       </div>
-                   </td>
                   </tr>
                   @endif
                 @endforeach

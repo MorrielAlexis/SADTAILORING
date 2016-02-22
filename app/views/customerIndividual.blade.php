@@ -21,7 +21,7 @@
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>INACTIVE CUSTOMERS(IND)</h4>
-      <table class="centered" border="1">
+      <table class = "table centered data-custInd" align = "center" border = "1">
         <thead>
           <tr>
             <th data-field="id">Indivual ID</th>
@@ -32,6 +32,7 @@
             <th data-field="email">Email Address</th>
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Telephone No.</th>
+            <th data-field="React">Reactivate</th>
           </tr>
         </thead>
 
@@ -48,11 +49,11 @@
               <td>{{ $individual2->strCustPrivCPNumber }}</td> 
               <td>{{ $individual2->strCustPrivLandlineNumber }}</td>       
               <td>          
-              <form action="{{URL::to('reactCustPrivIndiv')}}" method="POST">
-              <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactID" name="reactID">
-              <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
-              </form>
-            </td>
+                <form action="{{URL::to('reactCustPrivIndiv')}}" method="POST">
+                  <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactID" name="reactID">
+                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                </form>
+              </td>
           </tr>
           @endif
           @endforeach
@@ -89,8 +90,8 @@
                   <th data-field="email">Email Address</th>
                   <th data-field="cellphone">Cellphone No.</th>
                   <th data-field="Landline">Telephone No.</th>
-                   <th data-field="Edit">Action</th>
-                    <th data-field="Delete">Action</th>
+                  <th data-field="Edit">Edit</th>
+                  <th data-field="Delete">Delete</th>
 
                 </tr>
               </thead>
@@ -108,7 +109,7 @@
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
                   <td>{{ $individual->strCustPrivLandlineNumber }}</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
 
 
                     <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">

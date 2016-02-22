@@ -33,7 +33,7 @@
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Telephone No.</th>
             <th data-field="fax">Fax No.</th>
-            <th data-field="Edit">Edit</th>
+            <th data-field="react">Reactivate</th>
           </tr>
         </thead>
 
@@ -105,9 +105,9 @@
                   <td>{{ $company->strCustCompanyCPNumber }}</td> 
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>       
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$company->strCustCompanyID}}">DELETE</button>
-
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$company->strCustCompanyID}}">DELETE</button></td>
+                  
 
                     <div id="edit{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
@@ -190,8 +190,7 @@
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
-                      </div>
-                  </td>                  
+                      </div>                  
                 </tr>
                 @endif
                 @endforeach    

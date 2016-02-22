@@ -46,7 +46,10 @@ class EmployeeController extends BaseController{
 
 		$role = Role::all();
 
-		return View::make('employeeRole')->with('role', $role)->with('newID', $newID);
+		return View::make('employeeRole')
+				->with('role', $role)
+				->with('role2', $role)
+				->with('newID', $newID);
 	}
 
 	public function addEmployee()
@@ -157,6 +160,17 @@ class EmployeeController extends BaseController{
 
 		$employee->save();
 		return Redirect::to('/employee');
+	}
+
+	public function reactRole()
+	{
+		$id = Input::get('reactID');
+		$role = Role::find($id);
+
+        $role->boolIsActive = 0;
+
+        $role->save();
+        return Redirect::to('/employeeRole');
 	}
 
 	public function smartCounter($id)
