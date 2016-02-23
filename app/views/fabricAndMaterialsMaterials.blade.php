@@ -50,7 +50,7 @@
                       <font color = "teal" ><center><h5>Edit Thread</h5></center></font> 
 
                       <div class="modal-content">
-                      <form action="/editThread" method="POST" enctype="multipart/form-data"> 
+                      <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
                         <div class="input-field">
                           <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" readonly = "readonly" type="text" class="validate">
                           <label for="Thread_ID"> Thread ID: </label>
@@ -93,7 +93,7 @@
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
-                         <form action="/delThread" method="POST">
+                         <form action="{{URL::to('delThread')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Thread ID: </label>
                             <input value="{{$thread->strMaterialThreadID}}" id="delThreadID" name="delThreadID" type="text" class="validate" readonly>
@@ -147,7 +147,7 @@
                         <td>{{ $thread2->strMaterialThreadColor }}</td>
                         <td><img src="{{URL::asset($thread2->strMaterialThreadImage)}}"></td>    
                         <td>          
-                        <form action="/reactThread" method="POST">
+                        <form action="{{URL::to('reactThread')}}" method="POST">
                         <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactID" name="reactID">
                         <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
                         </form>
@@ -209,7 +209,7 @@
                       <font color = "teal" ><center><h5>Edit Needle</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action="/editNeedle" method="POST" enctype="multipart/form-data">
+                        <form action="{{URL::to('editNeedle')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" readonly = "readonly" type="text" class="validate">
                           <label for="Needle_ID"> Needle ID </label>
@@ -252,7 +252,7 @@
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
-                         <form action="/delNeedle" method="POST">
+                         <form action="{{URL::to('delNeedle')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Needle ID: </label>
                             <input value="{{$needle->strMaterialNeedleID}}" id="delNeedleID" name="delNeedleID" type="text" class="validate" readonly>
@@ -304,7 +304,7 @@
               <td>{{ $needle2->strMaterialNeedleSize }}</td>
               <td><img class="materialboxed" width="650" src="{{URL::asset($needle2->strMaterialNeedleImage)}}"> </td>      
               <td>          
-              <form action="/reactNeedle" method="POST">
+              <form action="{{URL::to('reactNeedle')}}" method="POST">
               <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactID" name="reactID">
               <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
               </form>
@@ -366,7 +366,7 @@
                       <font color = "teal" ><center><h5>Edit Button</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action="/editButton" method="POST" enctype="multipart/form-data">
+                        <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" readonly = "readonly" type="text" class="validate">
                           <label for="Button_ID"> Button ID </label>
@@ -413,7 +413,7 @@
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
-                         <form action="/delButton" method="POST">
+                         <form action="{{URL::to('delButton')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Button ID: </label>
                             <input value="{{$button->strMaterialButtonID}}" id="delButtonID" name="delButtonID" type="text" class="validate" readonly>
@@ -474,7 +474,7 @@
               <td>{{ $button2->strMaterialButtonColor }}</td>
               <td><img class="materialboxed" width="650" src="{{URL::asset($button2->strMaterialButtonImage)}}"> </td>      
               <td>          
-              <form action="/reactButton" method="POST">
+              <form action="{{URL::to('reactButton')}}" method="POST">
               <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactID" name="reactID">
               <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
               </form>
@@ -535,7 +535,7 @@
                       <font color = "teal" ><center><h5>Edit Zipper</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action="/editZipper" method="POST" enctype="multipart/form-data">
+                        <form action="{{URL::to('editZipper')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input id="editZipperID" name = "editZipperID" value = "{{$zipper->strMaterialZipperID}}" readonly = "readonly" type="text" class="validate">
                           <label for="Zipper_ID"> Zipper ID </label>
@@ -584,7 +584,7 @@
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
-                         <form action="/delZipper" method="POST">
+                         <form action="{{URL::to('delZipper')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Zipper ID: </label>
                             <input value="{{$zipper->strMaterialZipperID}}" id="delZipperID" name="delZipperID" type="text" class="validate" readonly>
@@ -645,7 +645,7 @@
               <td>{{ $zipper2->strMaterialZipperColor }}</td>
               <td><img class="materialboxed" width="650" src="{{URL::asset($zipper2->strMaterialZipperImage)}}"> </td>      
               <td>          
-              <form action="/reactZipper" method="POST">
+              <form action="{{URL::to('reactZipper')}}" method="POST">
               <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactID" name="reactID">
               <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
               </form>
@@ -708,7 +708,7 @@
                       <font color = "teal" ><center><h5>Edit Hook and Eye</h5></center></font> 
 
                       <div class="modal-content">
-                        <form action ="/editHook" method="POST" enctype="multipart/form-data">
+                        <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
                           <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" readonly = "readonly" type="text" class="validate">
                           <label for="HookEye_ID"> Hook and Eye ID </label>
@@ -757,7 +757,7 @@
                       <div class="modal-content">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
                         <p>
-                         <form action="/delHook" method="POST">
+                         <form action="{{URL::to('delHook')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Hook and Eye ID: </label>
                             <input value="{{$hook->strMaterialHookID}}" id="delHookID" name="delHookID" type="text" class="validate" readonly>
@@ -818,7 +818,7 @@
               <td>{{$hook2->strMaterialHookColor}}</td>
               <td><img class="materialboxed" width="650" src="{{URL::asset($hook2->strMaterialHookImage)}}"> </td>      
               <td>          
-              <form action="/reactHook" method="POST">
+              <form action="{{URL::to('reactHook')}}" method="POST">
               <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactID" name="reactID">
               <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
               </form>
@@ -848,7 +848,7 @@
   <div id="addThread" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD THREAD</h4>
-      <form action="/addThread" method="POST" enctype="multipart/form-data">
+      <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
           <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" readonly = "readonly" type="text" class="validate">
           <label for="Thread_ID"> Thread ID: </label>
@@ -889,7 +889,7 @@
   <div id="addNeedle" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD NEEDLE</h4>
-      <form action="/addNeedle" method="POST" enctype="multipart/form-data">
+      <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" readonly = "readonly" type="text" class="validate">
         <label for="Needle_ID"> Needle ID: </label>
@@ -930,7 +930,7 @@
   <div id="addButton" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD Button</h4>
-      <form action="/addButton" method="POST" enctype="multipart/form-data">
+      <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" readonly = "readonly" type="text" class="validate">
         <label for="Button_ID"> Button ID: </label>
@@ -975,7 +975,7 @@
   <div id="addZipper" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD ZIPPER</h4>
-      <form action="/addZipper" method="POST" enctype="multipart/form-data">
+      <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" readonly = "readonly" type="text" class="validate">
         <label for="Zipper_ID"> Zipper ID: </label>
@@ -1022,7 +1022,7 @@
   <div id="addHookEye" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>ADD HOOK AND EYE</h4>
-      <form action="/addHook" method="POST" enctype="multipart/form-data">
+      <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" readonly = "readonly" type="text" class="validate">
         <label for="HookEye_ID"> Hook and Eye ID </label>

@@ -150,7 +150,7 @@
                         </div>
 
                         <div class="input-field">
-                          <input id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validateFax">
+                          <input id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validateFax" maxlength="9" minlength="9">
                           <label for="fax"> Fax Number: </label>
                         </div>
                         </p>
@@ -234,17 +234,17 @@
               </div>
 
               <div class="input-field">
-                <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11">
+                <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11" minlength="11">
                 <label for="cellphone"> Cellphone Number: </label>
               </div>
 
               <div class="input-field">
-                <input  id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10">
+                <input  id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10" minlength="10">
                 <label for="tel"> Telephone Number: </label>
               </div>
 
               <div class="input-field">
-                <input id="addFax" name = "addFax" type="text" class="validateFax">
+                <input id="addFax" name = "addFax" type="text" class="validateFax" maxlength="9" minlength="9">
                 <label for="fax"> Fax Number: </label>
               </div>
               <br>
@@ -370,6 +370,12 @@
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
       });
+
+       $('.validateFax').keyup(function() {
+      var numbers = $(this).val();
+      $(this).val(numbers.replace(/\D/, ''));
+      $(this).val($(this).val().replace(/(\d{2})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
+      }); 
 
 
     </script>
