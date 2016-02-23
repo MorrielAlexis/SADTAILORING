@@ -31,7 +31,7 @@
 
         <tbody>
             @foreach($category2 as $category2)
-            @if($category->boolIsActive == 0)
+            @if($category2->boolIsActive == 0)
             <tr>
               <td>{{ $category2->strGarmentCategoryID }}</td>
               <td>{{ $category2->strGarmentCategoryName }}</td>
