@@ -10,9 +10,10 @@
     <!--Measurement Tabs-->
       <div class="col s12" id="measurements" name="measurements">
         <ul class="tabs">
-          <li class="tab col s3"><a style="color:teal" href="#tabDetails"><b>Details</b></a></li>
+          <li id="detailTab" class="tab col s3"><a style="color:teal" href="#tabDetails"><b>Details</b></a></li>
           <div style="border: 1px solid white" class="divider"></div>
-          <li class="tab col s3"><a style="color:teal" href="#tabCategory"><b>Category</b></a></li>
+          <li id="categoryTab" class="tab col s3"><a style="color:teal" href="#tabCategory"><b>Category</b></a></li>
+          <div class="indicator white" style="z-index:1"></div>
         </ul>
     
     
