@@ -95,7 +95,12 @@
                             <p>  
                           
                               <div class="input-field">
+<<<<<<< HEAD
+                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="text" class="" readonly>
+                                <label for="garment_details_id">Garment Details ID: </label>
+=======
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
                               </div>
 
                               <div class="input-field">                                                    
@@ -113,13 +118,13 @@
                         
                               <div class="input-field">
                                 <input required value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validateSegName">
-                                <label for="segment_name">Segment Name: </label>
+                                <label for="segment_name">*Segment Name: </label>
                               </div>
 
                               <div class="input-field">
 
-                                <input value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validateSegDesc">
-                               <label for="segment_description">Segment Description:</label>
+                                <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validateSegDesc">
+                               <label for="segment_description">*Segment Description:</label>
                               </div>
                             </p>
                           </div>
@@ -130,7 +135,7 @@
                           </div>
                         </form>
                       </div>
-                    <!--***********************************************************-->
+                    <!--***************************Soft Delete********************************-->
                       <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font>
                         <form action="{{URL::to('delGarmentSegment')}}" method="POST"> 
@@ -138,7 +143,12 @@
                             <p>  
                           
                               <div class="input-field">
+<<<<<<< HEAD
+                                <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="text" class="" readonly>
+                                <label for="garment_details_id">Garment Details ID: </label>
+=======
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
                               </div>
 
                               <div class="input-field">                                                    
@@ -198,13 +208,13 @@
 
                       <div class="input-field">
                         <input required id="addSegmentName" name= "addSegmentName" type="text" class="validateSegName">
-                        <label for="segment_name">Segment Name: </label>
+                        <label for="segment_name">*Segment Name: </label>
                       </div>
 
                       <div class="input-field">
                         <input required pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validateSegDesc">
 
-                        <label for="segment_description">Segment Description: </label>
+                        <label for="segment_description">*Segment Description: </label>
                       </div>
                     </p>
                   </div>
