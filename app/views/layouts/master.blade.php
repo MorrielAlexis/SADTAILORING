@@ -36,7 +36,7 @@
                   <li><a href="#"><i class="mdi-communication-live-help"style="font-size:15px; margin-top:20px;margin-left:0px;"> Help</i></a></li>
                   <li class="divider"></li>
                   <li><a href="#"><i class="mdi-action-lock-outline"style="font-size:15px;margin-top:20px;margin-left:0px;"> Lock</i></a></li>
-                  <li><a href="#{{URL::to('/login')}}"><i class="mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
+                  <li><a href="#"><i class="mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
                 </ul>
                 <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><span class="user">Admin</span><i class="mdi-navigation-arrow-drop-down right"></i></a>
               </div>
