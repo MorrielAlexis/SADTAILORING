@@ -103,7 +103,7 @@
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="validate">
+                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="">
                                 <label for="swatch_id">Swatch ID: </label>
                               </div>
 
@@ -117,17 +117,17 @@
                                     @endif
                                   @endforeach
                                 </select>
-                                  <label>Fabric Type</label>
+                                  <label>*Fabric Type</label>
                               </div>  
 
                               <div class="input-field">
                                 <input required value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validateSwatchName">
-                                <label for="swatch_name">Swatch Name: </label>
+                                <label for="swatch_name">*Swatch Name: </label>
                               </div>    
 
                               <div class="input-field">
                                 <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validateSwatchCode">
-                                <label for="swatch_code">Swatch Code: </label>
+                                <label for="swatch_code">*Swatch Code: </label>
                               </div>
 
                               <div class="file-field input-field">
@@ -150,14 +150,14 @@
                           </div>
                         </form>
                       </div> 
-                      <!--*******************************************-->
+                      <!--******************Soft Delete*************************-->
                       <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                         <font color = "teal"> <center><h5>Are you sure you want to delete?</h5></center></font> 
                         <form action="{{URL::to('delSwatch')}}" method="POST">
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="validate">
+                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="">
                                 <label for="swatch_id">Swatch ID: </label>
                               </div>
 
@@ -167,12 +167,12 @@
                               </div>  
 
                               <div class="input-field">
-                                <input value="{{$swatch->strSwatchName}}" type="text" class="validate" readonly>
+                                <input value="{{$swatch->strSwatchName}}" type="text" class="" readonly>
                                 <label for="swatch_name">Swatch Name: </label>
                               </div>    
 
                               <div class="input-field">
-                                <input value="{{$swatch->strSwatchCode}}" type="text" class="validate" readonly>
+                                <input value="{{$swatch->strSwatchCode}}" type="text" class="" readonly>
                                 <label for="swatch_code">Swatch Code: </label>
                               </div>
 
@@ -208,7 +208,7 @@
                   <p>
 
                     <div class="input-field">
-                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly class="validate">
+                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly class="">
                       <label for="swatch_id">Swatch ID: </label>
                     </div>
 
@@ -218,17 +218,17 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                           @endforeach
                       </select>
-                      <label>Fabric Type</label>
+                      <label>*Fabric Type</label>
                     </div>  
 
                     <div class="input-field">
                       <input required id="addSwatchName" name="addSwatchName" type="text" class="validateSwatchName">
-                      <label for="swatch_name">Swatch Name: </label>
+                      <label for="swatch_name">*Swatch Name: </label>
                     </div>    
 
                     <div class="input-field">
                       <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validateSwatchCode">
-                      <label for="swatch_code">Swatch Code: </label>
+                      <label for="swatch_code">*Swatch Code: </label>
                     </div>
 
                     <div class="file-field input-field">

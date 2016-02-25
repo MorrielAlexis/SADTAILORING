@@ -103,7 +103,7 @@
                       <p>
                       <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
                       <div class="input-field">
-                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="validate" readonly>
+                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" readonly>
                       </div>
 
                       <div class="input-field">
@@ -122,12 +122,12 @@
 
                       <div class="input-field">
                         <input required value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validateCatalogueName">
-                        <label for="Catalogue_Name"> Catalogue Name </label>
+                        <label for="Catalogue_Name"> *Catalogue Name </label>
                       </div>
 
                       <div class="input-field">
                         <input  required value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validateCatalogueDesc">
-                        <label for="Category_Desc">Catalogue Description </label>
+                        <label for="Category_Desc">*Catalogue Description </label>
                       </div>
 
                       <div class="file-field input-field">
@@ -160,7 +160,7 @@
                   <p>
                     <form action="{{URL::to('delCatalogueDesign')}}" method="POST">
                       <div class="input-field">
-                        <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" text="text" readonly class="validate" >
+                        <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" text="text" readonly class="" >
                         <label for="catalogue_id">CATALOGUE ID: </label>
                       </div>
 
@@ -208,7 +208,7 @@
               <p>
               <form action='{{URL::to('addCatalogueDesign')}}' method="POST" enctype="multipart/form-data">
               <div class="input-field">
-                <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="validate" readonly>
+                <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="" readonly>
                 <label for="Catalogue_id">Catalogue ID: </label>
               </div>
 
@@ -223,12 +223,12 @@
 
               <div class="input-field">
                 <input required id="addCatalogueName" name = "addCatalogueName" type="text" class="validateCatalogueName">
-                <label for="Catalogue_Name"> Catalogue Name </label>
+                <label for="Catalogue_Name"> *Catalogue Name </label>
               </div>
 
               <div class="input-field">
                 <input  id="addCatalogueDesc" name="addCatalogueDesc" type="text" class="validateCatalogueDesc">
-                <label for="Category_Desc">Category Description </label>
+                <label for="Category_Desc">*Category Description </label>
               </div>
 
               <div class="file-field input-field">

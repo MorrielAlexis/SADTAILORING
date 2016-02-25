@@ -115,7 +115,7 @@
                                 <p>
                                 
                                   <div class="input-field">
-                                    <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="text" class="validate" readonly>
+                                    <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="text" class="" readonly>
                                     <label for="measurement_id">Measurement ID: </label>
                                   </div>
 
@@ -129,7 +129,7 @@
                                         @endif
                                       @endforeach
                                     </select>    
-                                    <label>Category</label>
+                                    <label>*Category</label>
                                   </div>       
                         
                                   <div class="input-field">                                                    
@@ -142,7 +142,7 @@
                                         @endif
                                       @endforeach
                                     </select>    
-                                    <label>Segment</label>
+                                    <label>*Segment</label>
                                   </div>     
 
                                   <div class="input-field">                                                    
@@ -155,7 +155,7 @@
                                         @endif
                                       @endforeach
                                     </select>   
-                                    <label>Detail</label> 
+                                    <label>*Detail</label> 
                                   </div>   
                                 </p>
                               </div> 
@@ -175,7 +175,7 @@
                                 <p>
                         
                                   <div class="input-field">
-                                    <input value="{{ $head->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="text" class="validate" readonly>
+                                    <input value="{{ $head->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="text" class="" readonly>
                                     <label for="measurement_id">Measurement ID: </label>
                                   </div>
 
@@ -234,7 +234,7 @@
                                   @endif
                                 @endforeach
                             </select>   
-                            <label>Category</label>
+                            <label>*Category</label>
                           </div>   
 
                           <div class="input-field">
@@ -245,7 +245,7 @@
                                   @endif
                                 @endforeach
                             </select>   
-                            <label>Segment</label>
+                            <label>*Segment</label>
                           </div>    
 
                           <div class="input-field">
@@ -256,7 +256,7 @@
                                   @endif
                                 @endforeach
                             </select>  
-                            <label>Detail</label>
+                            <label>*Detail</label>
                           </div>
                         </p>                       
                       </div>
@@ -325,18 +325,18 @@
                               <div class="modal-content">
                                 <p>
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text" class="validate" readonly>
+                                    <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text" class="" readonly>
                                     <label for="measurement_id">Measurement ID: </label>
                                   </div>
 
                                   <div class="input-field">
                                     <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
-                                    <label for="measurement_name"> Measurement Name: </label>
+                                    <label for="measurement_name"> *Measurement Name: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
-                                    <label for="measurement_desc">Measurement Description: </label>
+                                    <input required value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
+                                    <label for="measurement_desc">*Measurement Description: </label>
                                   </div>
                                 </p>
                               </div>
@@ -396,18 +396,18 @@
                         <p>
 
                           <div class="input-field">
-                            <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text" class="validate" readonly>
+                            <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text" class="" readonly>
                             <label for="measurement_id">Measurement ID: </label>
                           </div>
 
                           <div class="input-field">
                             <input required id="addDetailName" name= "addDetailName" type="text" class="validateDetailName" >
-                            <label for="measurement_name"> Measurement Name: </label>
+                            <label for="measurement_name"> *Measurement Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
-                            <label for="measurement_desc">Measurement Description: </label>
+                            <input required id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
+                            <label for="measurement_desc">*Measurement Description: </label>
                           </div>
                         </p>
                       </div>

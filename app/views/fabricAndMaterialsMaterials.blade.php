@@ -52,18 +52,18 @@
                       <div class="modal-content">
                       <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
                         <div class="input-field">
-                          <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" readonly = "readonly" type="text" class="validate">
+                          <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" readonly = "readonly" type="text" class="">
                           <label for="Thread_ID"> Thread ID: </label>
                         </div>
                   
                         <div class="input-field">
                           <input id="editThreadName" name = "editThreadName" value = "{{ $thread->strMaterialThreadName }}" type="text" class="validateName">
-                          <label for="Thread_Name"> Thread Name </label>
+                          <label for="Thread_Name"> *Thread Name </label>
                         </div>
 
                         <div class="input-field">
                           <input id="editThreadColor" name = "editThreadColor" value = "{{ $thread->strMaterialThreadColor }}" type="text" class="validateColor">
-                          <label for="Thread_Color"> Thread Color </label>
+                          <label for="Thread_Color"> *Thread Color </label>
                         </div>
 
                         <div class="file-field input-field">
@@ -96,7 +96,7 @@
                          <form action="{{URL::to('delThread')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Thread ID: </label>
-                            <input value="{{$thread->strMaterialThreadID}}" id="delThreadID" name="delThreadID" type="text" class="validate" readonly>
+                            <input value="{{$thread->strMaterialThreadID}}" id="delThreadID" name="delThreadID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
@@ -211,18 +211,18 @@
                       <div class="modal-content">
                         <form action="{{URL::to('editNeedle')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                          <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" readonly = "readonly" type="text" class="validate">
+                          <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" readonly = "readonly" type="text" class="">
                           <label for="Needle_ID"> Needle ID </label>
                         </div>
                   
                         <div class="input-field">
-                          <input id="editNeedleName" name = "editNeedleName" value = "{{$needle->strMaterialNeedleName}}" type="text" class="validateName">
-                          <label for="Needle_Name"> Needle Name </label>
+                          <input required id="editNeedleName" name = "editNeedleName" value = "{{$needle->strMaterialNeedleName}}" type="text" class="validateName">
+                          <label for="Needle_Name"> *Needle Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editNeedleSize" name = "editNeedleSize" value = "{{$needle->strMaterialNeedleSize}}" type="text" class="validateSize">
-                          <label for="Needle_Size"> Needle Size </label>
+                          <input required id="editNeedleSize" name = "editNeedleSize" value = "{{$needle->strMaterialNeedleSize}}" type="text" class="validateSize">
+                          <label for="Needle_Size"> *Needle Size </label>
                         </div>
 
                                    
@@ -255,7 +255,7 @@
                          <form action="{{URL::to('delNeedle')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Needle ID: </label>
-                            <input value="{{$needle->strMaterialNeedleID}}" id="delNeedleID" name="delNeedleID" type="text" class="validate" readonly>
+                            <input value="{{$needle->strMaterialNeedleID}}" id="delNeedleID" name="delNeedleID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
@@ -368,23 +368,23 @@
                       <div class="modal-content">
                         <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                          <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" readonly = "readonly" type="text" class="validate">
+                          <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" readonly = "readonly" type="text" class="">
                           <label for="Button_ID"> Button ID </label>
                         </div>
                   
                         <div class="input-field">
-                          <input id="editButtonName" name = "editButtonName" value = "{{$button->strMaterialButtonName}}" type="text" class="validateName">
-                          <label for="Button_Name"> Button Name </label>
+                          <input required id="editButtonName" name = "editButtonName" value = "{{$button->strMaterialButtonName}}" type="text" class="validateName">
+                          <label for="Button_Name"> *Button Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editButtonSize" name = "editButtonSize" value = "{{$button->strMaterialButtonSize}}" type="text" class="validateSize">
-                          <label for="Button_Size"> Button Size </label>
+                          <input required id="editButtonSize" name = "editButtonSize" value = "{{$button->strMaterialButtonSize}}" type="text" class="validateSize">
+                          <label for="Button_Size"> *Button Size </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editButtonColor" name = "editButtonColor" value = "{{$button->strMaterialButtonColor}}" type="text" class="validateColor">
-                          <label for="Button_Color"> Button Color </label>
+                          <input required id="editButtonColor" name = "editButtonColor" value = "{{$button->strMaterialButtonColor}}" type="text" class="validateColor">
+                          <label for="Button_Color"> *Button Color </label>
                         </div>
 
                                       
@@ -416,7 +416,7 @@
                          <form action="{{URL::to('delButton')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Button ID: </label>
-                            <input value="{{$button->strMaterialButtonID}}" id="delButtonID" name="delButtonID" type="text" class="validate" readonly>
+                            <input value="{{$button->strMaterialButtonID}}" id="delButtonID" name="delButtonID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
@@ -537,23 +537,23 @@
                       <div class="modal-content">
                         <form action="{{URL::to('editZipper')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                          <input id="editZipperID" name = "editZipperID" value = "{{$zipper->strMaterialZipperID}}" readonly = "readonly" type="text" class="validate">
+                          <input id="editZipperID" name = "editZipperID" value = "{{$zipper->strMaterialZipperID}}" readonly = "readonly" type="text" class="">
                           <label for="Zipper_ID"> Zipper ID </label>
                         </div>
                   
                         <div class="input-field">
-                          <input id="editZipperName" name = "editZipperName" value = "{{$zipper->strMaterialZipperName}}" type="text" class="validateName">
-                          <label for="Zipper_Name"> Zipper Name </label>
+                          <input required id="editZipperName" name = "editZipperName" value = "{{$zipper->strMaterialZipperName}}" type="text" class="validateName">
+                          <label for="Zipper_Name"> *Zipper Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editZipperSize" name = "editZipperSize" value = "{{$zipper->strMaterialZipperSize}}" type="text" class="validateSize">
-                          <label for="Zipper_Size"> Zipper Size </label>
+                          <input required id="editZipperSize" name = "editZipperSize" value = "{{$zipper->strMaterialZipperSize}}" type="text" class="validateSize">
+                          <label for="Zipper_Size"> *Zipper Size </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editZipperColor" name = "editZipperColor" value = "{{$zipper->strMaterialZipperColor}}" type="text" class="validateColor">
-                          <label for="Zipper_Color"> Zipper Color </label>
+                          <input required id="editZipperColor" name = "editZipperColor" value = "{{$zipper->strMaterialZipperColor}}" type="text" class="validateColor">
+                          <label for="Zipper_Color"> *Zipper Color </label>
                         </div>
 
                  
@@ -587,7 +587,7 @@
                          <form action="{{URL::to('delZipper')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Zipper ID: </label>
-                            <input value="{{$zipper->strMaterialZipperID}}" id="delZipperID" name="delZipperID" type="text" class="validate" readonly>
+                            <input value="{{$zipper->strMaterialZipperID}}" id="delZipperID" name="delZipperID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
@@ -710,23 +710,23 @@
                       <div class="modal-content">
                         <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                          <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" readonly = "readonly" type="text" class="validate">
+                          <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" readonly = "readonly" type="text" class="">
                           <label for="HookEye_ID"> Hook and Eye ID </label>
                         </div>
                   
                         <div class="input-field">
-                          <input id="editHookEyeName" name = "editHookEyeName" value = "{{$hook->strMaterialHookName}}" type="text" class="validateName">
-                          <label for="HookEye_Name"> Hook and Eye Name </label>
+                          <input required id="editHookEyeName" name = "editHookEyeName" value = "{{$hook->strMaterialHookName}}" type="text" class="validateName">
+                          <label for="HookEye_Name"> *Hook and Eye Name </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editHookEyeSize" name = "editHookEyeSize" value = "{{$hook->strMaterialHookSize}}" type="text" class="validateSize">
-                          <label for="HookEye_Size"> Hook and Eye Size </label>
+                          <input required id="editHookEyeSize" name = "editHookEyeSize" value = "{{$hook->strMaterialHookSize}}" type="text" class="validateSize">
+                          <label for="HookEye_Size"> *Hook and Eye Size </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editHookEyeColor" name = "editHookEyeColor" value = "{{$hook->strMaterialHookColor}}" type="text" class="validateColor">
-                          <label for="Hookeye_Color"> Hook and Eye Color </label>
+                          <input required id="editHookEyeColor" name = "editHookEyeColor" value = "{{$hook->strMaterialHookColor}}" type="text" class="validateColor">
+                          <label for="Hookeye_Color"> *Hook and Eye Color </label>
                         </div>
                 
                         <div class="file-field input-field">
@@ -760,7 +760,7 @@
                          <form action="{{URL::to('delHook')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Hook and Eye ID: </label>
-                            <input value="{{$hook->strMaterialHookID}}" id="delHookID" name="delHookID" type="text" class="validate" readonly>
+                            <input value="{{$hook->strMaterialHookID}}" id="delHookID" name="delHookID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
@@ -850,18 +850,18 @@
       <h4>ADD THREAD</h4>
       <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
-          <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" readonly = "readonly" type="text" class="validate">
+          <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" readonly = "readonly" type="text" class="">
           <label for="Thread_ID"> Thread ID: </label>
       </div>
                   
       <div class="input-field">
-        <input id="addThreadName" name = "addThreadName" type="text" class="validateName">
-        <label for="Thread_Name"> Thread Name </label>
+        <input required id="addThreadName" name = "addThreadName" type="text" class="validateName">
+        <label for="Thread_Name"> *Thread Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addThreadColor" name = "addThreadColor" type="text" class="validateColor">
-        <label for="Thread_Color"> Thread Color </label>
+        <input required id="addThreadColor" name = "addThreadColor" type="text" class="validateColor">
+        <label for="Thread_Color"> *Thread Color </label>
       </div>
 
       <div class="file-field input-field">
@@ -891,18 +891,18 @@
       <h4>ADD NEEDLE</h4>
       <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
-        <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" readonly = "readonly" type="text" class="validate">
+        <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" readonly = "readonly" type="text" class="">
         <label for="Needle_ID"> Needle ID: </label>
       </div>
                   
       <div class="input-field">
-        <input id="addNeedleName" name = "addNeedleName"  type="text" class="validateName">
-        <label for="Needle_Name"> Needle Name </label>
+        <input required id="addNeedleName" name = "addNeedleName"  type="text" class="validateName">
+        <label for="Needle_Name"> *Needle Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addNeedleSize" name = "addNeedleSize" type="text" class="validateSize">
-        <label for="Needle_Size"> Needle Size </label>
+        <input required  id="addNeedleSize" name = "addNeedleSize" type="text" class="validateSize">
+        <label for="Needle_Size"> *Needle Size </label>
       </div>
                                   
       <div class="file-field input-field">
@@ -932,23 +932,23 @@
       <h4>ADD Button</h4>
       <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
-        <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" readonly = "readonly" type="text" class="validate">
+        <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" readonly = "readonly" type="text" class="">
         <label for="Button_ID"> Button ID: </label>
       </div>
                   
       <div class="input-field">
-        <input id="addButtonName" name = "addButtonName" type="text" class="validateName">
-        <label for="Button_Name"> Button Name </label>
+        <input required  id="addButtonName" name = "addButtonName" type="text" class="validateName">
+        <label for="Button_Name"> *Button Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addButtonSize" name = "addButtonSize" type="text" class="validateSize">
-        <label for="Button_Size"> Button Size </label>
+        <input required id="addButtonSize" name = "addButtonSize" type="text" class="validateSize">
+        <label for="Button_Size"> *Button Size </label>
       </div>
 
       <div class="input-field">
-        <input id="addButtonColor" name = "addButtonColor" type="text" class="validateColor">
-        <label for="Button_Color"> Button Color </label>
+        <input required id="addButtonColor" name = "addButtonColor" type="text" class="validateColor">
+        <label for="Button_Color"> *Button Color </label>
       </div>
                                      
       <div class="file-field input-field">
@@ -977,23 +977,23 @@
       <h4>ADD ZIPPER</h4>
       <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
-        <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" readonly = "readonly" type="text" class="validate">
+        <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" readonly = "readonly" type="text" class="">
         <label for="Zipper_ID"> Zipper ID: </label>
       </div>
                   
       <div class="input-field">
-        <input id="addZipperName" name = "addZipperName" type="text" class="validateName">
-        <label for="Zipper_Name"> Zipper Name </label>
+        <input required id="addZipperName" name = "addZipperName" type="text" class="validateName">
+        <label for="Zipper_Name"> *Zipper Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addZipperSize" name = "addZipperSize" type="text" class="validateSize">
-        <label for="Zipper_Size"> Zipper Size </label>
+        <input required id="addZipperSize" name = "addZipperSize" type="text" class="validateSize">
+        <label for="Zipper_Size"> *Zipper Size </label>
       </div>
 
       <div class="input-field">
-        <input id="addZipperColor" name = "addZipperColor" type="text" class="validateColor">
-        <label for="Zipper_Color"> Zipper Color </label>
+        <input required id="addZipperColor" name = "addZipperColor" type="text" class="validateColor">
+        <label for="Zipper_Color"> *Zipper Color </label>
       </div>
 
       <div class="file-field input-field">
@@ -1024,23 +1024,23 @@
       <h4>ADD HOOK AND EYE</h4>
       <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
-        <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" readonly = "readonly" type="text" class="validate">
+        <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" readonly = "readonly" type="text" class="">
         <label for="HookEye_ID"> Hook and Eye ID </label>
       </div>
                   
       <div class="input-field">
-        <input id="addHookEyeName" name = "addHookName" type="text" class="validateName">
-        <label for="HookEye_Name"> Hook and Eye Name </label>
+        <input required id="addHookEyeName" name = "addHookName" type="text" class="validateName">
+        <label for="HookEye_Name"> *Hook and Eye Name </label>
       </div>
 
       <div class="input-field">
-        <input id="addHookEyeSize" name = "addHookSize" type="text" class="validateSize">
-        <label for="HookEye_Size"> Hook and Eye Size </label>
+        <input required id="addHookEyeSize" name = "addHookSize" type="text" class="validateSize">
+        <label for="HookEye_Size"> *Hook and Eye Size </label>
       </div>
 
       <div class="input-field">
-        <input id="addHookEyeColor" name = "addHookColor" type="text" class="validateColor">
-        <label for="Hookeye_Color"> Hook and Eye Color </label>
+        <input required id="addHookEyeColor" name = "addHookColor" type="text" class="validateColor">
+        <label for="Hookeye_Color"> *Hook and Eye Color </label>
       </div>
                 
       <div class="file-field input-field">

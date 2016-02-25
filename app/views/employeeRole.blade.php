@@ -98,18 +98,18 @@
                         <p>
                   
                           <div class="input-field">
-                            <input value="{{$role->strEmpRoleID}}" id="editRoleID" name="editRoleID" type="text" class="validate" readonly>
+                            <input value="{{$role->strEmpRoleID}}" id="editRoleID" name="editRoleID" type="text" class="" readonly>
                             <label for="role_id">Role ID: </label>
                           </div>
 
                           <div class="input-field">
-                            <input pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
-                            <label for="role_name">Role Name: </label>
+                            <input required pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
+                            <label for="role_name">*Role Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input  value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
-                            <label for="role_description">Role Description: </label>
+                            <input required value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
+                            <label for="role_description">*Role Description: </label>
                           </div>  
                         </p>    
                       </div>
@@ -128,17 +128,17 @@
                         <p>
                   
                           <div class="input-field">
-                            <input value="{{$role->strEmpRoleID}}" id="delRoleID" name="delRoleID" type="text" class="validate" readonly>
+                            <input value="{{$role->strEmpRoleID}}" id="delRoleID" name="delRoleID" type="text" class="" readonly>
                             <label for="role_id">Role ID: </label>
                           </div>
 
                           <div class="input-field">
-                            <input pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" type="text" class="validate" readonly>
+                            <input pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" type="text" class="" readonly>
                             <label for="role_name">Role Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input  value="{{$role->strEmpRoleDesc}}" type="text" class="validate" readonly>
+                            <input  value="{{$role->strEmpRoleDesc}}" type="text" class="" readonly>
                             <label for="role_description">Role Description: </label>
                           </div>  
                         </p>    
@@ -167,18 +167,18 @@
               <div class="modal-content">
                 <p>
                   <div class="input-field">
-                    <input value="{{$newID}}" id="addRoleID" name="addRoleID" type="text" class="validate" readonly>
+                    <input value="{{$newID}}" id="addRoleID" name="addRoleID" type="text" class="" readonly>
                     <label for="role_id">Role ID: </label>
                   </div>
                         
                   <div class="input-field">
                     <input required pattern="[A-Za-z\s]+" id="addRoleName" name="addRoleName" type="text" class="validate">
-                    <label for="role_name">Role Name: </label>
+                    <label for="role_name">*Role Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input pattern="[A-Za-z\s]+" id="addRoleDescription" name="addRoleDescription" type="text" class="validate">
-                    <label for="role_description">Role Description: </label>
+                    <input required pattern="[A-Za-z\s]+" id="addRoleDescription" name="addRoleDescription" type="text" class="validate">
+                    <label for="role_description">*Role Description: </label>
                   </div>
                 </p>
               </div>

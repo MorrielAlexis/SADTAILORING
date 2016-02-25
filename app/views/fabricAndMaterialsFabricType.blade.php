@@ -94,18 +94,18 @@
                         <p>
                         <form action="{{URL::to('editFabricType')}}" method="POST">
                         <div class="input-field">
-                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="validate" readonly="">
+                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="" readonly="">
                           <label for="fabric_typeId">Fabric Type ID: </label>
                         </div>
 
                         <div class="input-field">
                           <input required value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validateTypeName">
-                          <label for="fabrictype_name">Fabric Type Name: </label>
+                          <label for="fabrictype_name">*Fabric Type Name: </label>
                         </div>
 
                         <div class="input-field">
                           <input required value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validateTypeDesc">
-                          <label for="fabrictype_description">Fabric Desription: </label>
+                          <label for="fabrictype_description">*Fabric Desription: </label>
                         </div>  
                         </p>
                       </div>
@@ -126,7 +126,7 @@
                          <form action="{{URL::to('delFabricType')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Fabric Type ID: </label>
-                            <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="text" class="validate" readonly>
+                            <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
@@ -165,18 +165,18 @@
                 <div class="modal-content">
                 <p>           
                   <div class="input-field">
-                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="validate" readonly>
+                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="" readonly>
                     <label for="fabrictype_id">Fabric ID: </label>
                   </div>
 
                   <div class="input-field">
                     <input required id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validateTypeName">
-                    <label for="fabrictype_name">Fabric Name: </label>
+                    <label for="fabrictype_name">*Fabric Name: </label>
                   </div>
 
                   <div class="input-field">
                     <input required id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validateTypeDesc">
-                    <label for="fabrictype_description">Fabric Desription: </label>
+                    <label for="fabrictype_description">*Fabric Desription: </label>
                   </div>
 
                 </p>
