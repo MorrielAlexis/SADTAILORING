@@ -102,14 +102,14 @@
                         <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
                           <div class="modal-content">
                             <p>
-<<<<<<< HEAD
+ 
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="">
                                 <label for="swatch_id">Swatch ID: </label>
-=======
+
                              <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                               </div>
 
                               <div class="input-field">
@@ -162,12 +162,12 @@
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
-<<<<<<< HEAD
+ 
                                 <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="">
                                 <label for="swatch_id">Swatch ID: </label>
-=======
+
                                 <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                               </div>
 
                               <div class="input-field">
@@ -216,14 +216,14 @@
                 <div class="modal-content">
                   <p>
 
-<<<<<<< HEAD
+ 
                     <div class="input-field">
                       <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly class="">
                       <label for="swatch_id">Swatch ID: </label>
-=======
+
                    <div class="input-field">
                       <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                     </div>
 
                     <div class="input-field">

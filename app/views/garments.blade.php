@@ -93,14 +93,14 @@
                           <div class="modal-content">
                             <p> 
                             
-<<<<<<< HEAD
+ 
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="text" class="" readonly>
                                 <label for="garment_id">Garment ID: </label>
-=======
+
                              <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                               </div>
 
                               <div class="input-field">
@@ -131,12 +131,12 @@
                             <p> 
                             
                               <div class="input-field">
-<<<<<<< HEAD
+ 
                                 <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="text" class="" readonly>
                                 <label for="garment_id">Garment ID: </label>
-=======
+
                                 <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                               </div>
 
                               <div class="input-field">
@@ -180,12 +180,12 @@
 
                   <p>               
                     <div class="input-field">
-<<<<<<< HEAD
+ 
                       <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="text" class="" readonly>
                       <label for="garment_id">Garment ID: </label>
-=======
+
                       <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                     </div>
 
                     <div class="input-field">

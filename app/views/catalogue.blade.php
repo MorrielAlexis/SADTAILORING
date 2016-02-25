@@ -164,12 +164,12 @@
                   <p>
                     <form action="{{URL::to('delCatalogueDesign')}}" method="POST">
                       <div class="input-field">
-<<<<<<< HEAD
+
                         <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" text="text" readonly class="" >
                         <label for="catalogue_id">CATALOGUE ID: </label>
-=======
+
                         <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                       </div>
 
                       <div class="input-field">
@@ -214,12 +214,12 @@
               <p>
               <form action='{{URL::to('addCatalogueDesign')}}' method="POST" enctype="multipart/form-data">
               <div class="input-field">
-<<<<<<< HEAD
+ 
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="" readonly>
                 <label for="Catalogue_id">Catalogue ID: </label>
-=======
+
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
               </div>
 
               <div class="input-field">

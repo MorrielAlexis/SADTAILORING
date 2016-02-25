@@ -95,12 +95,12 @@
                             <p>  
                           
                               <div class="input-field">
-<<<<<<< HEAD
+ 
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="text" class="" readonly>
                                 <label for="garment_details_id">Garment Details ID: </label>
-=======
+
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                               </div>
 
                               <div class="input-field">                                                    
@@ -143,12 +143,12 @@
                             <p>  
                           
                               <div class="input-field">
-<<<<<<< HEAD
+ 
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="text" class="" readonly>
                                 <label for="garment_details_id">Garment Details ID: </label>
-=======
+
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+ 
                               </div>
 
                               <div class="input-field">                                                    
