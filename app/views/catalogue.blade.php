@@ -335,6 +335,7 @@
       $(document).ready(function() {
 
           $('.data-catalogue').DataTable();
+          $('select').material_select();
 
       } );
     </script>

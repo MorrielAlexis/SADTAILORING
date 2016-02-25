@@ -288,7 +288,7 @@
       $(document).ready(function() {
           $('.data-garmentsDetails').DataTable();
           $('.data-reactSegment').DataTable();
-          
+          $('select').material_select();
 
       } );
     </script>

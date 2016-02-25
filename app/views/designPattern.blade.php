@@ -330,6 +330,7 @@
       $(document).ready(function() {
 
           $('.data-segmentPattern').DataTable();
+          $('select').material_select();
 
       } );
     </script>

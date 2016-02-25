@@ -413,7 +413,9 @@
       $(document).ready(function() {
 
           $('.data-custInd').DataTable();
+           $('select').material_select();
 
       } );
+
     </script>
 @stop

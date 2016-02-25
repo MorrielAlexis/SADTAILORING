@@ -534,6 +534,7 @@
       $(document).ready(function() {
 
           $('.data-reactEmployee').DataTable();
+          $('select').material_select();
 
       } );
 

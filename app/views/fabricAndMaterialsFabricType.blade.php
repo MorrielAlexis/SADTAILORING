@@ -263,6 +263,7 @@
       $(document).ready(function() {
 
           $('.data-fabricType').DataTable();
+          $('select').material_select();
 
       } );
     </script>

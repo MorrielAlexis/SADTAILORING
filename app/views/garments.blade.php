@@ -286,6 +286,7 @@
       $(document).ready(function() {
 
           $('.data-garments').DataTable();
+          $('select').material_select();
 
       } );
     </script>

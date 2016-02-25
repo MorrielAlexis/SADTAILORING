@@ -211,6 +211,7 @@
 
           $('.data-role').DataTable();
           $('.data-reactRole').DataTable();
+          $('select').material_select();
 
       } );
     </script>

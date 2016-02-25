@@ -417,6 +417,7 @@
       $(document).ready(function() {
 
           $('.data-reactcustCompany').DataTable();
+          $('select').material_select();
 
       } );
 

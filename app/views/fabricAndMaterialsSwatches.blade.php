@@ -341,6 +341,7 @@
       $(document).ready(function() {
 
           $('.data-swatches').DataTable();
+          $('select').material_select();
 
       } );
     </script>

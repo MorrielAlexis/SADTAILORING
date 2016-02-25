@@ -408,6 +408,8 @@
       $(document).ready(function() {
           $('.data-measDet').DataTable();
           $('.data-measHead').DataTable();
+          $('select').material_select();
+
           
 
       } );
