@@ -120,7 +120,6 @@
                         </tr>
                       </tbody>
                     </table>
-
                   </div>
 
                   <div class = "clearfix">
@@ -139,40 +138,41 @@
                           </div>
 
                           <div class="input-field">                                                    
-                                    <select required name='addCategory'>
-                                      <option value="" disabled selected>Choose your Category</option>
-                                      <option value="1">Uniform</option>
-                                      <option value="2">Tuxedo</option>
-                                      <option value="3">Gowns</option>                                        
-                                    </select>    
-                                    <label>Category</label>
-                                  </div>       
+                            <select required name='addCategory'>
+                              <option value="" disabled selected>Choose your Category</option>
+                              <option value="1">Uniform</option>
+                              <option value="2">Tuxedo</option>
+                              <option value="3">Gowns</option>                                        
+                            </select>    
+                            <label>Category</label>
+                          </div>       
+                
+                          <div class="input-field">                                                    
+                            <select required name='addSegment'>
                         
-                                  <div class="input-field">                                                    
-                                    <select required name='addSegment'>
-                                
-                                      <option value="" disabled selected>Choose your Segment</option>
-                                      <option value="1">Long Sleeve</option>
-                                      <option value="2">Coat</option>
-                                      <option value="3">Pants</option>
-                                       
-                                    </select>    
-                                    <label>Segment</label>
-                                  </div>     
-
-                                  <div class="input-field">                                                    
-                                      
-                                    <select multiple name='addMeasurementTaken' id='addMeasurementTaken' required>
+                              <option value="" disabled selected>Choose your Segment</option>
+                              <option value="1">Long Sleeve</option>
+                              <option value="2">Coat</option>
+                              <option value="3">Pants</option>
                                
-                                      <option value="" disabled selected>Choose Measurement</option>
-                                      <option value="1">Shoulder</option>
-                                      <option value="2">Chest</option>
-                                      <option value="3">Hip</option>
-                                      <option value="3">Waist</option>
-                                       
-                                    </select>   
-                                    <label>Measurement Taken</label> 
-                                  </div>
+                            </select>    
+                            <label>Segment</label>
+                          </div>     
+
+                          <div class="input-field">                                                    
+                              
+                            <select multiple name='addMeasurementTaken' id='addMeasurementTaken' required>
+                       
+                              <option value="" disabled selected>Choose Measurement</option>
+                              <option value="1">Shoulder</option>
+                              <option value="2">Chest</option>
+                              <option value="3">Hip</option>
+                              <option value="3">Waist</option>
+                               
+                            </select>   
+                            <label>Measurement Taken</label> 
+                          </div>
+                         
                         </p>                       
                       </div>
 
@@ -246,12 +246,12 @@
 
                                   <div class="input-field">
                                     <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
-                                    <label for="measurement_name"> Measurement Name: </label>
+                                    <label for="measurement_name"> *Measurement Name: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
-                                    <label for="measurement_desc">Measurement Description: </label>
+                                    <input required value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
+                                    <label for="measurement_desc">*Measurement Description: </label>
                                   </div>
                                 </p>
                               </div>
@@ -317,12 +317,12 @@
 
                           <div class="input-field">
                             <input required id="addDetailName" name= "addDetailName" type="text" class="validateDetailName" >
-                            <label for="measurement_name"> Measurement Name: </label>
+                            <label for="measurement_name"> *Measurement Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
-                            <label for="measurement_desc">Measurement Description: </label>
+                            <input required id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
+                            <label for="measurement_desc">*Measurement Description: </label>
                           </div>
                         </p>
                       </div>
