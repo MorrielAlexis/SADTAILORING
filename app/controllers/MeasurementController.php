@@ -42,8 +42,8 @@ class MeasurementController extends BaseController{
 
 		$detail = MeasurementDetail::all();
 		////////////////MEASUREMENT DETAILS////////////////
-
-		return View::make('measurements')
+		// dito magbabago
+		return View::make('measurements') 
 					->with('head', $head)
 					->with('head2', $head)
 					->with('detail', $detail)
