@@ -54,14 +54,24 @@ class GarmentsController extends BaseController{
 
 	public function addGarmentCategory()
 	{	
-		$garment = Category::create(array(
+		$garm = Category::get();
+		$isAdded = FALSE;
+
+		foreach($garm as $garm)
+			if(strcmp($garm->strGarmentCategoryName, Input::get('addGarmentName')))
+				$isAdded = TRUE;
+
+		if(!$isAdded){
+			$garment = Category::create(array(
 			'strGarmentCategoryID' => Input::get('addGarmentID'),
 			'strGarmentCategoryName' => Input::get('addGarmentName'),
 			'strGarmentCategoryDesc' => Input::get('addGarmentDesc'),
 			'boolIsActive' => 1
 			));
 
-		$garment->save();
+			$garment->save();
+		}
+		
 		return Redirect::to('/garments');
 	}
 
@@ -106,16 +116,25 @@ class GarmentsController extends BaseController{
 
 	public function addGarmentSegment()
 	{	
+		$seg = Segment::all();
+		$isAdded = FALSE;
 
-		$segment = Segment::create(array(
-			'strGarmentSegmentID' => Input::get('addSegmentID'),
-			'strCategory' => Input::get('addCategory'),
-			'strGarmentSegmentName' => Input::get('addSegmentName'),
-			'strGarmentSegmentDesc' => Input::get('addSegmentDesc'),
-			'boolIsActive' => 1
-			));
+		foreach ($seg as $seg)
+			if(strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) & strcasecmp($seg->strCategory, Input::get('addCategory')))
+				$isAdded = TRUE;
 
-		$segment->save();
+		if(!$isAdded){
+			$segment = Segment::create(array(
+				'strGarmentSegmentID' => Input::get('addSegmentID'),
+				'strCategory' => Input::get('addCategory'),
+				'strGarmentSegmentName' => Input::get('addSegmentName'),
+				'strGarmentSegmentDesc' => Input::get('addSegmentDesc'),
+				'boolIsActive' => 1
+				));
+
+			$segment->save();
+		}
+
 		return Redirect::to('/garmentsDetails');
 	}
 

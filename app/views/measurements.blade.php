@@ -217,7 +217,6 @@
                   <table class = "table centered data-measDet" align = "center" border = "1">
                     <thead>
                       <tr>
-                        <th data-field="id">Measurement Part ID</th>
                         <th data-field="name">Measurement Name</th>
                         <th data-field="description">Measurement Description</th>
                         <th data-field="action">Edit</th>
@@ -229,7 +228,6 @@
                       @foreach($detail as $detail)
                       @if($detail->boolIsActive == 1)
                       <tr>
-                        <td>{{ $detail->strMeasurementDetailID }}</td>
                         <td>{{ $detail->strMeasurementDetailName }}</td>
                         <td>{{ $detail->strMeasurementDetailDesc }}</td>
                         <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>

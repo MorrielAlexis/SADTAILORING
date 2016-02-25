@@ -59,15 +59,25 @@ class MeasurementController extends BaseController{
 	}
 
 	public function addDetail()
-	{
-		$detail = MeasurementDetail::create(array(
+	{	
+		$det = MeasurementDetail::all();
+		$isAdded = FALSE;
+
+		foreach ($det as $det)
+			if(strcasecmp($det->strMeasurementDetailName, Input::get('addDetailName')))
+				$isAdded = TRUE;
+
+		if(!$isAdded){
+			$detail = MeasurementDetail::create(array(
 			'strMeasurementDetailID' => Input::get('addDetailID'),
 			'strMeasurementDetailName' => Input::get('addDetailName'),
 			'strMeasurementDetailDesc' => Input::get('addDetailDesc'),
 			'boolIsActive' => 1
 			));
 
-		$detail->save();
+			$detail->save();
+		}
+		
 		return Redirect::to('/measurements');
 	}
 

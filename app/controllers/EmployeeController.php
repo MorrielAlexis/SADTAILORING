@@ -77,14 +77,24 @@ class EmployeeController extends BaseController{
 
 	public function addRole()
 	{	
-		$role = Role::create(array(
+		$rol = Role::all();
+		$isAdded = FALSE;
+
+		foreach ($rol as $rol)
+			if(strcasecmp($rol->strEmpRoleName, Input::get('addRoleName')))
+				$isAdded = TRUE;
+
+		if(!$isAdded){
+			$role = Role::create(array(
 			'strEmpRoleID' => Input::get('addRoleID'),
 			'strEmpRoleName' => Input::get('addRoleName'),
 			'strEmpRoleDesc' => Input::get('addRoleDescription'),
 			'boolIsActive' => 1
 			));
 
-		$role->save();
+			$role->save();
+		}
+		
 		return Redirect::to('/employeeRole');
 	}
 

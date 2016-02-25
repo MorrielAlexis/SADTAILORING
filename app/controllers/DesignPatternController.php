@@ -40,7 +40,18 @@ class DesignPatternController extends BaseController{
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgDesignPatterns';
 
-		if($file == '' || $file == null){
+		$pat = DesignPattern::all();
+		$isAdded = FALSE;
+
+		foreach ($pat as $pat) 
+			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory')) && strcasecmp($pat->strDesignSegmentName, Input::get('addSegment')) && strcasecmp($pat->strPatternName, Input::get('addPatternName')))
+				$isAdded = TRUE;
+
+
+		//dd(Input::get('addCategory'), Input::get('addSegment'), Input::get('addPatternName'));
+
+		if(!$isAdded){
+			if($file == '' || $file == null){
 			$pattern = DesignPattern::create(array(
 			'strDesignPatternID' => Input::get('addPatternID'),
 			'strDesignCategory' => Input::get('addCategory'),
@@ -48,22 +59,24 @@ class DesignPatternController extends BaseController{
 			'strPatternName' => Input::get('addPatternName'),
 			'boolIsActive' => 1
 			));		
-		}else{
-			$extension = Input::file('addImg')->getClientOriginalExtension();
-			$fileName = $file;
-			Input::file('addImg')->move($destinationPath, $fileName);
+			}else{
+				$extension = Input::file('addImg')->getClientOriginalExtension();
+				$fileName = $file;
+				Input::file('addImg')->move($destinationPath, $fileName);
 
-			$pattern = DesignPattern::create(array(
-			'strDesignPatternID' => Input::get('addPatternID'),
-			'strDesignCategory' => Input::get('addCategory'),
-			'strDesignSegmentName' => Input::get('addSegment'),
-			'strPatternName' => Input::get('addPatternName'),
-			'strPatternImage' => 'imgDesignPatterns/'.$fileName,
-			'boolIsActive' => 1
-			));	
+				$pattern = DesignPattern::create(array(
+				'strDesignPatternID' => Input::get('addPatternID'),
+				'strDesignCategory' => Input::get('addCategory'),
+				'strDesignSegmentName' => Input::get('addSegment'),
+				'strPatternName' => Input::get('addPatternName'),
+				'strPatternImage' => 'imgDesignPatterns/'.$fileName,
+				'boolIsActive' => 1
+				));	
+			}
+
+			$pattern->save();
 		}
-
-		$pattern->save();
+		
 
 		return Redirect::to('/designPattern');
 	}
