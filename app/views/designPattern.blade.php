@@ -24,7 +24,8 @@
       <table class="centered" border="1">
         <thead>
           <tr>
-            <th data-field= "Catalog ID">Segment Pattern ID</th>
+            <!--<th data-field= "Catalog ID">Segment Pattern ID</th>-->
+            <th data-field="Category Name">Category Name </th>
             <th data-field="Garment Name">Segment Name </th>
             <th data-field="Pattern Name">Pattern Name</th>
             <th data-field="Pattern Image">Pattern Image</th>
@@ -36,7 +37,8 @@
             @foreach($pattern2 as $pattern2)
             @if($pattern2->boolIsActive == 0)
                 <tr>
-                  <td>{{ $pattern2->strDesignPatternID }}</td>
+                  <!--<td>{{ $pattern2->strDesignPatternID }}</td>-->
+                  <td>{{ $pattern2->strGarmentCategoryName }}</td>
                   <td>{{ $pattern2->strGarmentSegmentName }}</td>
                   <td>{{ $pattern2->strPatternName }}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($pattern2->strPatternImage)}}"></td>
@@ -69,7 +71,8 @@
       			<table class = "table centered data-segmentPattern" align = "center" border = "1">
        				<thead>
           			<tr>
-                  <th data-field= "Catalog ID">Segment Pattern ID</th>
+                  <!--<th data-field= "Catalog ID">Segment Pattern ID</th>-->
+                  <th data-field="Category Name">Category Name </th>
               		<th data-field="Garment Name">Segment Name </th>
              		  <th data-field="Pattern Name">Pattern Name</th>
               		<th data-field="Pattern Image">Pattern Image</th>
@@ -82,7 +85,8 @@
                 @foreach($pattern as $pattern)
                 @if($pattern->boolIsActive == 1)
                 <tr>
-              		<td>{{ $pattern->strDesignPatternID }}</td>
+              		<!--<td>{{ $pattern->strDesignPatternID }}</td>-->
+                  <td>{{ $pattern->strGarmentCategoryName }}</td>
                   <td>{{ $pattern->strGarmentSegmentName }}</td>
               		<td>{{ $pattern->strPatternName }}</td>
                   <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($pattern->strPatternImage)}}"></td>
@@ -96,9 +100,21 @@
 
                         <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                          <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="text" readonly class="validate">
-                          <label for="pattern_id">Pattern ID: </label>
+                          <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
                         </div>
+
+                        <div class="input-field">                                                    
+                          <select required name='editCategory'>
+                            @foreach($category2 as $cat)
+                              @if($pattern->strDesignCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
+                                <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                              @elseif($cat->boolIsActive == 1)
+                                <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                              @endif
+                            @endforeach
+                          </select>    
+                          <label>Category</label>
+                        </div>  
 
                         <div class="input-field">                                                    
                           <select id="editSegment" name="editSegment">
@@ -156,9 +172,13 @@
                         <p>
                         <form action="{{URL::to('delDesignPattern')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
-                          <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="text" readonly class="validate">
-                          <label for="pattern_id">Pattern ID: </label>
+                          <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="hidden">
                         </div>
+
+                        <div class="input-field">                                                    
+                            <input type="text" value="{{$pattern->strGarmentCategoryName}}" readonly>
+                          <label>Category</label>
+                        </div> 
 
                         <div class="input-field">                                                    
                             <input type="text" value="{{$pattern->strGarmentSegmentName}}" readonly>
@@ -202,9 +222,19 @@
                 <p>
                 <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
                 <div class="input-field">
-                  <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="text" readonly class="validate">
-                  <label for="pattern_id">Pattern ID: </label>
+                  <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="hidden">
                 </div>
+
+                <div class="input-field">
+                  <select name='addCategory' id='addCategory' required>
+                      @foreach($category as $category)
+                        @if($category->boolIsActive == 1)
+                          <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
+                        @endif
+                      @endforeach
+                  </select>   
+                  <label>Category</label>
+                </div>  
 
                 <div class="input-field">
                   <select required id="addSegment" name="addSegment">

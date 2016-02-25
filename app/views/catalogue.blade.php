@@ -25,7 +25,7 @@
 
           <thead>
             <tr>
-              <th data-field= "Catalogue ID">Catalogue ID</th>
+              <!--<th data-field= "Catalogue ID">Catalogue ID</th>-->
               <th data-field="Catalogue Category">Catalogue Category</th>
               <th data-field="Catalogue Name">Catalogue Name</th>
               <th data-field="Description">Description</th>
@@ -36,8 +36,8 @@
             @foreach($catalogue2 as $catalogue2)
             @if($catalogue2->boolIsActive == 0)
               <tr>
-                <td>{{ $catalogue2->strCatalogueID }}</td>
-                <td>{{ $catalogue2->strCatalogueCategory }}</td>
+                <!--<td>{{ $catalogue2->strCatalogueID }}</td>-->
+                <td>{{ $catalogue2->strGarmentCategoryName }}</td>
                 <td>{{ $catalogue2->strCatalogueName }}</td>
                 <td>{{ $catalogue2->strCatalogueDesc }}</td>
                 <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue2->strCatalogueImage)}}"></td>
@@ -75,7 +75,7 @@
       		<table class = "table centered data-catalogue" align = "center" border = "1">
             <thead>
           		<tr>
-                <th data-field= "Catalogue ID">Catalogue ID</th>
+                <!--<th data-field= "Catalogue ID">Catalogue ID</th>-->
                 <th data-field="Catalogue Category">Catalogue Category</th>
              		<th data-field="Catalogue Name">Catalogue Name</th>
                 <th data-field="Description">Description</th>
@@ -89,7 +89,7 @@
               @foreach($catalogue as $catalogue)
               @if($catalogue->boolIsActive == 1)
               <tr>
-                <td>{{ $catalogue->strCatalogueID }}</td>
+                <!--<td>{{ $catalogue->strCatalogueID }}</td>-->
                 <td>{{ $catalogue->strGarmentCategoryName }}</td>
               	<td>{{ $catalogue->strCatalogueName }}</td>
               	<td>{{ $catalogue->strCatalogueDesc }}</td>
@@ -103,7 +103,11 @@
                       <p>
                       <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
                       <div class="input-field">
+<<<<<<< HEAD
                         <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" readonly>
+=======
+                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
                       </div>
 
                       <div class="input-field">
@@ -160,25 +164,27 @@
                   <p>
                     <form action="{{URL::to('delCatalogueDesign')}}" method="POST">
                       <div class="input-field">
+<<<<<<< HEAD
                         <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" text="text" readonly class="" >
                         <label for="catalogue_id">CATALOGUE ID: </label>
+=======
+                        <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
                       </div>
 
                       <div class="input-field">
-                        <select name="editCategory">
-                          <option disabled>Pick a Category</option>
-                            @foreach($category as $id=>$name)
-                              @if($catalogue->strCatalogueCategory == $id)
-                              <option selected value="{{ $id }}" disabled>{{ $name }}</option>
-                              @endif
-                            @endforeach
-                        </select>
+                        <input value="{{ $catalogue->strGarmentCategoryName }}" type="text" class="validate" readonly>
+                        <label for="catalogue_name"> CATALOGUE CATEGORY: </label>
                       </div>
-
 
                       <div class="input-field">
                         <input value="{{ $catalogue->strCatalogueName }}" type="text" class="validate" readonly>
                         <label for="catalogue_name"> CATALOGUE NAME: </label>
+                      </div>
+
+                      <div class="input-field">
+                        <input value="{{ $catalogue->strCatalogueDesc }}" type="text" class="validate" readonly>
+                        <label for="catalogue_name"> CATALOGUE DESCRIPTION: </label>
                       </div>
                     </div>
 
@@ -208,8 +214,12 @@
               <p>
               <form action='{{URL::to('addCatalogueDesign')}}' method="POST" enctype="multipart/form-data">
               <div class="input-field">
+<<<<<<< HEAD
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="" readonly>
                 <label for="Catalogue_id">Catalogue ID: </label>
+=======
+                <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
               </div>
 
               <div class="input-field">

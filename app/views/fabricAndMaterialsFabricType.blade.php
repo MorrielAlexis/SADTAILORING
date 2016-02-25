@@ -23,7 +23,7 @@
                 <table class="centered" border="1">
                   <thead>
                     <tr>
-                      <th data-field="fabricID">Fabric Type ID</th>
+                      <!--<th data-field="fabricID">Fabric Type ID</th>-->
                       <th data-field="fabricName">Fabric TypeName</th>
                       <th data-field="fabricDesc">Fabric Description</th>     
                       <th>Reactivate</th>   
@@ -33,7 +33,7 @@
                     @foreach($fabricType2 as $fabricType2)
                     @if($fabricType2->boolIsActive == 0)
                       <tr>
-                        <td>{{ $fabricType2->strFabricTypeID }}</td>
+                        <!--<td>{{ $fabricType2->strFabricTypeID }}</td>-->
                         <td>{{ $fabricType2->strFabricTypeName }}</td>
                         <td>{{ $fabricType2->strFabricTypeDesc }}</td>
                         <td>
@@ -69,7 +69,7 @@
        				<table class = "table centered data-fabricType" align = "center" border = "1">
                 <thead>
                   <tr>
-              		  <th data-field="fabricID">Fabric Type ID</th>
+              		  <!--<th data-field="fabricID">Fabric Type ID</th>-->
                     <th data-field="fabricName">Fabric Type Name</th>
               		  <th data-field="fabricDescription">Fabric Description</th>
                     <th data-field="Edit">Action</th>
@@ -82,7 +82,7 @@
                    @foreach($fabricType as $fabricType)
                    @if($fabricType->boolIsActive == 1)
                   <tr>
-              		  <td>{{ $fabricType->strFabricTypeID }}</td>
+              		  <!--<td>{{ $fabricType->strFabricTypeID }}</td>-->
               		  <td>{{ $fabricType->strFabricTypeName }}</td>
               		  <td>{{ $fabricType->strFabricTypeDesc}}</td>
               		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button></td>
@@ -94,8 +94,12 @@
                         <p>
                         <form action="{{URL::to('editFabricType')}}" method="POST">
                         <div class="input-field">
+<<<<<<< HEAD
                           <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="" readonly="">
                           <label for="fabric_typeId">Fabric Type ID: </label>
+=======
+                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
                         </div>
 
                         <div class="input-field">
@@ -125,8 +129,12 @@
                         <p>
                          <form action="{{URL::to('delFabricType')}}" method="POST">
                           <div class="input-field">
+<<<<<<< HEAD
                             <label for="first_name">Fabric Type ID: </label>
                             <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="text" class="" readonly>
+=======
+                            <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
                           </div>
 
                           <div class="input-field">
@@ -164,9 +172,14 @@
                 <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
                 <div class="modal-content">
                 <p>           
+<<<<<<< HEAD
                   <div class="input-field">
                     <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="" readonly>
                     <label for="fabrictype_id">Fabric ID: </label>
+=======
+                 <div class="input-field">
+                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="hidden">
+>>>>>>> daa8166192366910383034471522dbb013250a5b
                   </div>
 
                   <div class="input-field">

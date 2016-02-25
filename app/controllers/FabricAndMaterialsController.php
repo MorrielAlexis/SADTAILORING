@@ -277,17 +277,26 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgMaterialThreads';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
-
+		if($file == '' || $file == null){
 		$thread = MaterialThread::create(array(
+			'strMaterialThreadID' => Input::get('addThreadID'),
+			'strMaterialThreadName' => Input::get('addThreadName'),
+			'strMaterialThreadColor' => Input::get('addThreadColor'),
+			'boolIsActive' => 1
+			));
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
+
+			$thread = MaterialThread::create(array(
 			'strMaterialThreadID' => Input::get('addThreadID'),
 			'strMaterialThreadName' => Input::get('addThreadName'),
 			'strMaterialThreadColor' => Input::get('addThreadColor'),
 			'strMaterialThreadImage' => 'imgMaterialThreads/'.$fileName,
 			'boolIsActive' => 1
 			));
+		}
 
 		$thread ->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -344,17 +353,26 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgMaterialNeedles';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
+		if($file == '' || $file == null){
+			$needle = MaterialNeedle::create(array(
+				'strMaterialNeedleID' => Input::get('addNeedleID'),
+				'strMaterialNeedleName' => Input::get('addNeedleName'),
+				'strMaterialNeedleSize' => Input::get('addNeedleSize'),
+				'boolIsActive' => 1
+				));
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
 
-		$needle = MaterialNeedle::create(array(
-			'strMaterialNeedleID' => Input::get('addNeedleID'),
-			'strMaterialNeedleName' => Input::get('addNeedleName'),
-			'strMaterialNeedleSize' => Input::get('addNeedleSize'),
-			'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
-			'boolIsActive' => 1
-			));
+			$needle = MaterialNeedle::create(array(
+				'strMaterialNeedleID' => Input::get('addNeedleID'),
+				'strMaterialNeedleName' => Input::get('addNeedleName'),
+				'strMaterialNeedleSize' => Input::get('addNeedleSize'),
+				'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
+				'boolIsActive' => 1
+				));
+		}
 
 		$needle ->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -412,18 +430,28 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgMaterialButtons';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
-
-		$button = MaterialButton::create(array(
+		if($file == '' || $file == null){
+			$button = MaterialButton::create(array(
 			'strMaterialButtonID' => Input::get('addButtonID'),
 			'strMaterialButtonName' => Input::get('addButtonName'),
 			'strMaterialButtonSize' => Input::get('addButtonSize'),
 			'strMaterialButtonColor' => Input::get('addButtonColor'),
-			'strMaterialButtonImage' => 'imgMaterialButtons/'.$fileName,
 			'boolIsActive' => 1
 			));
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
+
+			$button = MaterialButton::create(array(
+				'strMaterialButtonID' => Input::get('addButtonID'),
+				'strMaterialButtonName' => Input::get('addButtonName'),
+				'strMaterialButtonSize' => Input::get('addButtonSize'),
+				'strMaterialButtonColor' => Input::get('addButtonColor'),
+				'strMaterialButtonImage' => 'imgMaterialButtons/'.$fileName,
+				'boolIsActive' => 1
+				));
+		}
 
 		$button ->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -483,18 +511,28 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgMaterialZippers';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
-
-		$zipper = MaterialZipper::create(array(
+		if($filw == '' || $file == null){
+			$zipper = MaterialZipper::create(array(
 			'strMaterialZipperID' => Input::get('addZipperID'),
 			'strMaterialZipperName' => Input::get('addZipperName'),
 			'strMaterialZipperSize' => Input::get('addZipperSize'),
 			'strMaterialZipperColor' => Input::get('addZipperColor'),
-			'strMaterialZipperImage' => 'imgMaterialZippers/'.$fileName,
 			'boolIsActive' => 1
 			));
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
+
+			$zipper = MaterialZipper::create(array(
+				'strMaterialZipperID' => Input::get('addZipperID'),
+				'strMaterialZipperName' => Input::get('addZipperName'),
+				'strMaterialZipperSize' => Input::get('addZipperSize'),
+				'strMaterialZipperColor' => Input::get('addZipperColor'),
+				'strMaterialZipperImage' => 'imgMaterialZippers/'.$fileName,
+				'boolIsActive' => 1
+				));
+			}
 
 		$zipper ->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
@@ -553,18 +591,28 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgMaterialHooks';
-		$extension = Input::file('addImg')->getClientOriginalExtension();
-		$fileName = $file;
-		Input::file('addImg')->move($destinationPath, $fileName);
-
-		$hook = MaterialHookAndEye::create(array(
+		if($file == '' || $file == null){
+			$hook = MaterialHookAndEye::create(array(
 			'strMaterialHookID' => Input::get('addHookID'),
 			'strMaterialHookName' => Input::get('addHookName'),
 			'strMaterialHookSize' => Input::get('addHookSize'),
 			'strMaterialHookColor' => Input::get('addHookColor'),
-			'strMaterialHookImage' => 'imgMaterialHooks/'.$fileName,
 			'boolIsActive' => 1
 			));
+		}else{
+			$extension = Input::file('addImg')->getClientOriginalExtension();
+			$fileName = $file;
+			Input::file('addImg')->move($destinationPath, $fileName);
+
+			$hook = MaterialHookAndEye::create(array(
+				'strMaterialHookID' => Input::get('addHookID'),
+				'strMaterialHookName' => Input::get('addHookName'),
+				'strMaterialHookSize' => Input::get('addHookSize'),
+				'strMaterialHookColor' => Input::get('addHookColor'),
+				'strMaterialHookImage' => 'imgMaterialHooks/'.$fileName,
+				'boolIsActive' => 1
+				));
+		}
 
 		$hook ->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
