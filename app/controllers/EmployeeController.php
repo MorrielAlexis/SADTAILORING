@@ -65,6 +65,7 @@ class EmployeeController extends BaseController{
 			'strEmpAddress' => Input::get('addAddress'),			
 			'strRole' => Input::get('addRoles'), 
 			'strCellNo' => Input::get('addCellNo'),
+			'strCellNoAlt' => Input::get('addCellNoAlt'),
 			'strPhoneNo' => Input::get('addPhoneNo'),
 			'strEmailAdd' => Input::get('addEmail'),
 			'boolIsActive' => 1
@@ -100,6 +101,7 @@ class EmployeeController extends BaseController{
 		$employee->strEmpAddress = Input::get('editAddress');
 		$employee->strRole = Input::get('editRoles');
 		$employee->strCellNo = Input::get('editCellNo');
+		$employee->strCellNoAlt = Input::get('editCellNoAlt');
 		$employee->strPhoneNo = Input::get('editPhoneNo');
 		$employee->strEmailAdd = Input::get('editEmail');
 

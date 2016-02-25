@@ -10,21 +10,24 @@ class tblEmployeeRolesSeeder extends Seeder{
 
 				'strEmpRoleID' => 'ROLE001',
 				'strEmpRoleName' => 'Production Manager',
-				'strEmpRoleDesc' => 'In charge in overall production of transaction.'
+				'strEmpRoleDesc' => 'In charge in overall production of transaction.',
+				'boolIsActive' => 1
 			),
 
 			array(
 
 				'strEmpRoleID' => 'ROLE002',
 				'strEmpRoleName' => 'Sewer',
-				'strEmpRoleDesc' => 'In charge the manufacturing of garments.'
+				'strEmpRoleDesc' => 'In charge the manufacturing of garments.',
+				'boolIsActive' => 1
 			),
 
 			array(
 
 				'strEmpRoleID' => 'ROLE003',
 				'strEmpRoleName' => 'Cutter',
-				'strEmpRoleDesc' => 'In charge in pattern making of garments.'
+				'strEmpRoleDesc' => 'In charge in pattern making of garments.',
+				'boolIsActive' => 1
 			)
 			
 		);

@@ -89,6 +89,7 @@
                   <th data-field="address">Address</th>
                   <th data-field="email">Email Address</th>
                   <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="cellphone">Cellphone No. (alt) </th>
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="Edit">Edit</th>
                   <th data-field="Delete">Delete</th>
@@ -107,6 +108,7 @@
                   <td>{{ $individual->strCustPrivAddress }} </td>
                   <td>{{ $individual->strCustPrivEmailAddress}}</td>                  
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
+                  <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
                   <td>{{ $individual->strCustPrivLandlineNumber }}</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
@@ -152,6 +154,11 @@
                           <label for="cellphone"> *Cellphone Number: </label>
                         </div>
                       
+                        <div class="input-field">
+                          <input id="editCelAlt" name = "editCelAlt" value = "{{$individual->strCustPrivCPNumberAlt}}" type="text" class="validateCellAlt" maxlength="11">
+                          <label for="cellphone"> *Cellphone Number: (alternate)</label>
+                        </div>
+
                         <div class="input-field">
                           <input id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validatePhone" maxlength="10">
                           <label for="tel"> Telephone Number: </label>
@@ -257,6 +264,11 @@
                 <div class="input-field">
                   <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11">
                   <label for="cellphone"> *Cellphone Number: </label>
+                </div>
+
+                <div class="input-field">
+                  <input id="addCelAlt" name = "addCelAlt" type="text" class="validateCellAlt" maxlength="11">
+                  <label for="cellphone"> Cellphone Number: (alternate)</label>
                 </div>
 
                 <div class="input-field">
@@ -380,6 +392,18 @@
         $(this).val(numbers.replace(/\D/, ''));
       });
 
+      $('.validateCellAlt').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCellAlt').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
       //Validate Blank
       $('.validateCell').blur('input', function() {
         var input=$(this);
@@ -389,6 +413,12 @@
       });
 
        $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
+      });
+
+      $('.validateCellAlt').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
         $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))

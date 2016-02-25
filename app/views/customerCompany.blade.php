@@ -31,6 +31,7 @@
             <th data-field="contact">Contact Person</th>
             <th data-field="comEmail">Company Email Address</th>
             <th data-field="cellphone">Cellphone No.</th>
+            <th data-field="cellphone">Cellphone No. (alt)</th>
             <th data-field="Landline">Telephone No.</th>
             <th data-field="fax">Fax No.</th>
             <th data-field="react">Reactivate</th>
@@ -46,7 +47,8 @@
                   <td>{{ $company2->strCustCompanyAddress }}</td>
                   <td>{{ $company2->strCustContactPerson }} </td>
                   <td>{{ $company2->strCustCompanyEmailAddress}}</td>                  
-                  <td>{{ $company2->strCustCompanyCPNumber }}</td> 
+                  <td>{{ $company2->strCustCompanyCPNumber }}</td>
+                  <td>{{ $company2->strCustCompanyCPNumberAlt }}</td>  
                   <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
             <td>
@@ -86,6 +88,7 @@
                   <th data-field="contact">Contact Person</th>
                   <th data-field="comEmail">Company Email Address</th>
                   <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="cellphone">Cellphone No. (alt)</th>
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="fax">Fax No.</th>
                   <th data-field="Edit">Edit</th>
@@ -103,6 +106,7 @@
                   <td>{{ $company->strCustContactPerson }} </td>
                   <td>{{ $company->strCustCompanyEmailAddress}}</td>                  
                   <td>{{ $company->strCustCompanyCPNumber }}</td> 
+                  <td>{{ $company->strCustCompanyCPNumberAlt }}</td> 
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
@@ -142,6 +146,11 @@
                         <div class="input-field">
                           <input required id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validateCell" maxlength="11">
                           <label for="cellphone"> *Cellphone Number: </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input id="editCelAlt" name = "editCelAlt" value = "{{$company->strCustCompanyCPNumberAlt}}" type="text" class="validateCellAlt" maxlength="11">
+                          <label for="cellphone"> Cellphone Number: (alternate)</label>
                         </div>
 
                         <div class="input-field">
@@ -259,6 +268,11 @@
               </div>
 
               <div class="input-field">
+                <input id="addCelAlt" name = "addCelAlt" type="text" class="validateCellAlt" maxlength="11" minlength="11">
+                <label for="cellphone"> Cellphone Number: (alternate)</label>
+              </div>
+
+              <div class="input-field">
                 <input  id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10" minlength="10">
                 <label for="tel"> *Telephone Number: </label>
               </div>
@@ -361,6 +375,18 @@
         $(this).val(numbers.replace(/\D/, ''));
       });
 
+      $('.validateCellAlt').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCellAlt').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
       //Validate Blank
       $('.validateCell').blur('input', function() {
         var input=$(this);
@@ -370,6 +396,12 @@
       });
 
        $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
+      });
+
+       $('.validateCellAlt').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
         $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))

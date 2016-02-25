@@ -23,6 +23,7 @@ class TblEmployee extends Migration {
 			$table->string('strEmpAddress');
 			$table->string('strRole')->index();//fk
 			$table->string('strCellNo');
+			$table->string('strCellNoAlt')->nullable();
 			$table->string('strPhoneNo')->nullable()->change();
 			$table->string('strEmailAdd')->nullable()->change();
 			$table->boolean('boolIsActive');
