@@ -141,11 +141,21 @@ class FabricAndMaterialsController extends BaseController{
 
       /////////SWATCHES/////////////
 	public function addSwatch()
-	{	
+	{		
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgSwatches';
 
-		if($file == '' || $file == null){
+		$swa = Swatch::all();
+		$isAdded = FALSE;
+
+		foreach ($swa as $swa)
+			if(strcasecmp($swa->strSwatchFabricTypeName, Input::get('addFabric')) && 
+			   strcasecmp($swa->strSwatchName, Input::get('addSwatchName')) &&
+			   strcasecmp($swa->strSwatchCode, Input::get('addSwatchCode')))
+			   		$isAdded = TRUE;
+
+		if(!$isAdded){
+			if($file == '' || $file == null){
 			$swatch = Swatch::create(array(
 			'strSwatchID' => Input::get('addSwatchID'),
 			'strSwatchFabricTypeName' => Input::get('addFabric'),		
@@ -153,22 +163,24 @@ class FabricAndMaterialsController extends BaseController{
 			'strSwatchCode' => Input::get('addSwatchCode'),
 			'boolIsActive' => 1
 			));
-		}else{
-			$extension = Input::file('addImg')->getClientOriginalExtension();
-			$fileName = $file;
-			Input::file('addImg')->move($destinationPath, $fileName);
+			}else{
+				$extension = Input::file('addImg')->getClientOriginalExtension();
+				$fileName = $file;
+				Input::file('addImg')->move($destinationPath, $fileName);
 
-			$swatch = Swatch::create(array(
-			'strSwatchID' => Input::get('addSwatchID'),
-			'strSwatchFabricTypeName' => Input::get('addFabric'),		
-			'strSwatchName' => Input::get('addSwatchName'),
-			'strSwatchCode' => Input::get('addSwatchCode'),
-			'strSwatchImage' => 'imgSwatches/'.$fileName,
-			'boolIsActive' => 1
-			));
-		}	
+				$swatch = Swatch::create(array(
+				'strSwatchID' => Input::get('addSwatchID'),
+				'strSwatchFabricTypeName' => Input::get('addFabric'),		
+				'strSwatchName' => Input::get('addSwatchName'),
+				'strSwatchCode' => Input::get('addSwatchCode'),
+				'strSwatchImage' => 'imgSwatches/'.$fileName,
+				'boolIsActive' => 1
+				));
+			}	
 
-		$swatch->save();
+			$swatch->save();
+		}
+		
 		return Redirect::to('/fabricAndMaterialsSwatches');
 	}
 
