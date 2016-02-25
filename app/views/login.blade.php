@@ -10,10 +10,10 @@
 	</head>
 
 	<body background="img/fashion.jpg">
-		<p></p>
+		<p></p><br><br><br><br>
        <div id="login-page" class="row">
 
-    		<div class="col s4 push-s4 z-depth-6 card-panel">
+    		<div class="col s3 push-s5 z-depth-4 card-panel">
 	    	  <form class="login-form">
 	      		  	<div class="row">
 	        			<div class="input-field col s12 center">
@@ -38,12 +38,30 @@
 	       				</div>
 	       			</div>
 
+	       			
+          			<div class="col s12">
+		       			<p>
+  							<input type="checkbox" class="filled-in" id="filled-in-box"/>
+  							<label for="filled-in-box">Remember Me</label>
+						</p>
+  					</div>
+	       			
 	       			<div class="row">
 	       				<div class="input-field col s12">
-	           				<a href="/index" class="btn waves-effect waves-light col s12">Login</a>
+	           				<a href="{{URL::to('/index')}}" class="btn waves-effect waves-light col s12">Login</a>
          				</div>
          			</div>
          			<p></p>
+
+         			<div class = "row">
+         				<div class = "col s12">
+         					<button href = "#" class="btn-flat waves-effect waves-light col s6"><font color = teal size = "-2">Register now!</font></button>
+         					<button href = "#" class="btn-flat waves-effect waves-light col s6"><font color = teal size = "-2">Forgot Password?</font></button>
+         				</div>
+         				<!-- <div class = "col s6">
+         					<a class="btn-flat waves-effect waves-light">Forgot Password?</a>
+         				</div> -->
+         			</div>
 	    		</form>
 	    	</div>
 	    </div>
