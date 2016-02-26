@@ -16,8 +16,8 @@
 
     <div class="row">
       <div class="col s12 m12 l6">
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addRole">ADD A NEW ROLE</button>
-      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE ROLES</button>
+       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new role to the table" href="#addRole">ADD A NEW ROLE</button>
+      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted roles from the table" href="#modal1">VIEW INACTIVE ROLES</button>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
   <!--MODAL: VIEW ALL ROLES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE ROLE</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Roles</center> </font> </h5>
       <table class = "table centered data-reactRole" align = "center" border = "1">
             <thead>
               <tr>
@@ -46,7 +46,7 @@
                 <td>
                   <form action="{{URL::to('reactRole')}}" method="POST">
                     <input type="hidden" value="{{ $role2->strEmpRoleID }}" id="reactID" name="reactID">
-                    <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of position to the table">REACTIVATE</button>
                   </form>
                 </td>
             </tr>
@@ -65,7 +65,7 @@
   <div class="row">
     <div class="col s12 m12 l12">
     	<div class="card-panel">
-        <span class="card-title"><h5><center>Roles</center></h5></span>
+        <span class="card-title"><h5 style="color:#1b5e20"><center>Roles</center></h5></span>
    			<div class="divider"></div>
 
     		<div class="card-content">
@@ -88,13 +88,13 @@
                 <td>{{ $role->strEmpRoleID }}</td>
                 <td>{{ $role->strEmpRoleName }}</td>
                 <td>{{ $role->strEmpRoleDesc }}</td>
-                <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$role->strEmpRoleID}}">EDIT</button>
-                    <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$role->strEmpRoleID}}">DELETE</button>
+                <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of role" href="#edit{{$role->strEmpRoleID}}">EDIT</button>
+                    <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete role from table" href="#del{{$role->strEmpRoleID}}">DELETE</button>
                 </td>	
                   <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                     <form action="{{URL::to('editRole')}}" method="POST">
                       <div class="modal-content">
-                        <font color = "teal" size = "+3" back ><center><h5> Edit Role Details </h5></center></font>
+                        <h5><font color = "#1b5e20"><center>Edit role</center> </font> </h5>
                         <p>
                   
                           <div class="input-field">
@@ -124,7 +124,7 @@
                   <div id="del{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                     <form action="{{URL::to('delRole')}}" method="POST">
                       <div class="modal-content">
-                        <font color = "teal" size = "+3" back ><center><h5> Are you sure you want to delete? </h5></center></font>
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                         <p>
                   
                           <div class="input-field">
@@ -161,7 +161,7 @@
           </div>
         
     			<div id="addRole" class="modal">
-            <font color = "teal" size = "+3" back ></h5><center> Add Employee Role </center></h5></font>
+            <h5><font color = "#1b5e20"><center>Add a Role</center> </font> </h5>
             <form action="{{URL::to('addRole')}}" method="POST">
 
               <div class="modal-content">
@@ -192,7 +192,6 @@
         </div>
       </div>
     </div>
-  </div>
 
 @stop
 
@@ -215,5 +214,11 @@
       } );
     </script>
 
+      <!--TOOLTIP SCRIPT-->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 50});
+  }); 
+  </script>
 
 @stop

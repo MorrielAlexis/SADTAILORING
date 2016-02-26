@@ -4,15 +4,15 @@
   
   
 
-  <p><h4 style="lightpink">Measurements</h4></p>
-    <div class="row">
+ <!--<p><h4 style="lightpink">Measurements</h4></p>-->
+    <div class="row" style="padding:20px">
     
     <!--Measurement Tabs-->
       <div class="col s12" id="measurements" name="measurements">
         <ul class="tabs">
-          <li class="tab col s3"><a style="color:teal" href="#tabDetails"><b>Details</b></a></li>
+          <li class="tab col s3"><a style="color:black; padding-top:5px" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Contains parts being measured" href="#tabDetails"><b>Details</b></a></li>
           <div style="border: 1px solid white" class="divider"></div>
-          <li class="tab col s3"><a style="color:teal" href="#tabCategory"><b>Category</b></a></li>
+          <li class="tab col s3"><a style="color:black; padding-top:5px" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Contains measurement detail about a particular garment" href="#tabCategory"><b>Category</b></a></li>
         </ul>
     
     
@@ -29,8 +29,8 @@
 
             <div class="row">
               <div class="col s12 m12 l12">
-                <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
-                <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE MEASUREMENT INFO</button>
+                <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new measurement information to the table" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
+                <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted measurement information from the table" href="#modal1">VIEW INACTIVE MEASUREMENT INFO</button>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@
           <!--MODAL: VIEW INACTIVE MEASUREMENT INFO-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE MEASUREMENT INFO</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Measurement Information</center> </font> </h5>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -61,7 +61,7 @@
                   <td>
                   <form action="{{URL::to('reactMeasurementCategory')}}" method="POST">
                   <input type="hidden" value="{{ $head2->strMeasurementID }}" id="reactID" name="reactID">
-                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns measuremennt information to the table">REACTIVATE</button>
                   </form>
                 </td>
             </tr>
@@ -105,11 +105,11 @@
                         <td>{{ $head->strGarmentCategoryName }}</td>
                         <td>{{ $head->strGarmentSegmentName }}</td>
                         <td>{{ $head->strMeasurementDetailName }}</td>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$head->strMeasurementID}}">DELETE</button>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement information" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete measurement information from the table" href="#del{{$head->strMeasurementID}}">DELETE</button>
 
                           <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
-                            <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
+                            <h5><font color = "#1b5e20"><center>Edit Measurement Information</center> </font> </h5>
                             <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
                               <div class="modal-content"> 
                                 <p>
@@ -169,7 +169,7 @@
                       
                           <!--*****************************************************-->
                           <div id="del{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
-                            <font color = "teal"><center><h5> Are you sure you want to delete? </h5></center></font>
+                            <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                             <form action="{{URL::to('delMeasurementCategory')}}" method="POST"> 
                               <div class="modal-content"> 
                                 <p>
@@ -216,7 +216,7 @@
 
                     <!--add-->
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
-                    <font color = "teal"> <center><h5>Add Measurement Information </h5></center></font> 
+                    <h5><font color = "#1b5e20"><center>Add Measurement Information</center> </font> </h5> 
                     
                       <div class="modal-content">
                         <p>
@@ -286,7 +286,7 @@
 
             <div class="row">
               <div class="col s12 m12 l6">
-                <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMeasurementPart">ADD NEW PART</button>
+                <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new measurement detail to the table" href="#addMeasurementPart">ADD NEW PART</button>
               </div>
             </div>
           </div>
@@ -316,11 +316,11 @@
                         <td>{{ $detail->strMeasurementDetailID }}</td>
                         <td>{{ $detail->strMeasurementDetailName }}</td>
                         <td>{{ $detail->strMeasurementDetailDesc }}</td>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
-                        <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $detail->strMeasurementDetailID }}">DELETE</button></td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement detail" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DELETE</button></td>
 
                           <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <font color = "teal"><center><h5> Edit Measurement Part</h5></center></font>
+                            <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
                             <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
                               <div class="modal-content">
                                 <p>
@@ -350,7 +350,7 @@
                           <!--///////////////////////DELETE/////////////-->
 
                           <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
+                            <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                             <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
                               <div class="modal-content">
                                 <p>
@@ -390,7 +390,7 @@
                   </div>
           
                   <div id="addMeasurementPart" class="modal modal-fixed-footer">
-                    <font color = "teal"><h5><center> Add New Measurement Part </center></h5></font> 
+                    <h5><font color = "#1b5e20"><center>Add Measurement Part</center> </font> </h5>
                     <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
                       <div class="modal-content">
                         <p>

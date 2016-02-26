@@ -10,8 +10,8 @@
 
     <div class="row">
       <div class="col s12 m12 l6">
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addFabricType">ADD FABRIC TYPE</button>
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveFabric">VIEW INACTIVE FABRICS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new fabric type to the table" href="#addFabricType">ADD FABRIC TYPE</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted fabric types from the table" href="#inactiveFabric">VIEW INACTIVE FABRICS</button>
       </div>
     </div>
   </div> <!-- End of Main Wrapper  --> 
@@ -19,7 +19,7 @@
    <!--**********VIEW INACTIVE FABRICS**********-->
             <div id="inactiveFabric" class="modal modal-fixed-footer">
               <div class="modal-content">
-                <h4>INACTIVE FABRICS</h4>
+                <h5><font color = "#1b5e20"><center>Inactive Fabric Types</center> </font> </h5>
                 <table class="centered" border="1">
                   <thead>
                     <tr>
@@ -39,7 +39,7 @@
                         <td>
                           <form action="{{URL::to('reactFabricType')}}" method="POST">
                             <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactID" name="reactID">
-                            <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                            <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of fabric type to the table">REACTIVATE</button>
                           </form>
                         </td>
                       </tr>
@@ -60,7 +60,7 @@
     	<div class="col s12 m12 l12">  <!-- col s12 m12 l12 -->
 
     		<div class="card-panel">  <!-- card-panel -->
-   		    <span class="card-title"><h5><center>Fabric Type</center></h5></span>
+   		    <span class="card-title"><h5 style="color:#1b5e20"><center>Fabric Type</center></h5></span>
    				<div class="divider"> </div>
             <div class="card-content"><!-- card-content  --> 
 
@@ -85,11 +85,11 @@
               		  <td>{{ $fabricType->strFabricTypeID }}</td>
               		  <td>{{ $fabricType->strFabricTypeName }}</td>
               		  <td>{{ $fabricType->strFabricTypeDesc}}</td>
-              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button></td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$fabricType->strFabricTypeID}}">DELETE</button></td>
+              		  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of fabric type" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete fabric type from the table" href="#del{{$fabricType->strFabricTypeID}}">DELETE</button></td>
               	
                     <div id="edit{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
-                      <font color = "teal"><center><h5> Edit Fabric Type Details</h5></center></font> 
+                      <h5><font color = "#1b5e20"><center>Edit Fabric Type</center> </font> </h5>
                       <div class="modal-content">
                         <p>
                         <form action="{{URL::to('editFabricType')}}" method="POST">
@@ -121,7 +121,7 @@
               <!--**********DELETE***********-->
               <div id="del{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                         <p>
                          <form action="{{URL::to('delFabricType')}}" method="POST">
                           <div class="input-field">
@@ -161,7 +161,7 @@
             <!--********ADD******-->
               <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
                 <form action="{{URL::to('addFabricType')}}" method="POST">
-                <font color = "teal"><center><h5> Add Fabric Type</h5></center></font> 
+                <h5><font color = "#1b5e20"><center>Add Fabric Type</center> </font> </h5> 
                 <div class="modal-content">
                 <p>           
                   <div class="input-field">

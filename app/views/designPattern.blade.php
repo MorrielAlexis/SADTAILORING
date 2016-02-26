@@ -11,8 +11,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addDesign">ADD SEGMENT PATTERN</button>
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE SEGMENT PATTERNS</button>
+          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new segment pattern to the table" href="#addDesign">ADD SEGMENT PATTERN</button>
+          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted patterns from the table" href="#modal1">VIEW INACTIVE SEGMENT PATTERNS</button>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <!--MODAL: VIEW ALL DESIGN PATTERNS-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE SEGMENT PATTERNS</h4>
+     <h5><font color = "#1b5e20"><center>Inactive Segment Pattern</center> </font> </h5>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -43,7 +43,7 @@
                   <td>
                   <form action="{{URL::to('reactDesignPattern')}}" method="POST">
                   <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactID" name="reactID">
-                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of segment pattern to the table">REACTIVATE</button>
                   </form>
             </tr>
             @endif
@@ -61,7 +61,7 @@
   <div class="row">
     <div class="col s12 m12 l12">
     	<div class="card-panel">
-        <span class="card-title"><h5><center>Segment Pattern Details</center></h5></span>
+        <span class="card-title"><h5 style="color:#1b5e20"><center>Segment Pattern Details</center></h5></span>
         <div class="divider"></div>
 
     		<div class="card-content"> 
@@ -86,11 +86,11 @@
                   <td>{{ $pattern->strGarmentSegmentName }}</td>
               		<td>{{ $pattern->strPatternName }}</td>
                   <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($pattern->strPatternImage)}}"></td>
-              		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
+              		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of pattern" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete pattern from table" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
                       
                     <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <font color = "teal"><center><h5> Edit Design Pattern Details</h5></center></font>
+                      <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>
                       <div class="modal-content">
                         <p>
 
@@ -119,7 +119,7 @@
                         </div>
 
                         <div class="file-field input-field">
-                          <div class="btn">
+                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                             <span>Upload Image</span>
                             <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
@@ -151,7 +151,7 @@
 
 
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <font color = "teal"><center><h5>Are you sure you want to delete?</h5></center></font>
+                      <h5><font color = "#1b5e20"><center>Are you sure want to delete?</center> </font> </h5>
                       <div class="modal-content">
                         <p>
                         <form action="{{URL::to('delDesignPattern')}}" method="POST" enctype="multipart/form-data">
@@ -197,7 +197,7 @@
            
 
             <div id="addDesign" class="modal modal-fixed-footer">
-              <font color = "teal" ><center><h5> Add Segment Pattern </h5></center></font> 
+              <h5><font color = "#1b5e20"><center>Add a Segment Pattern</center> </font> </h5> 
               <div class="modal-content">
                 <p>
                 <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
@@ -223,7 +223,7 @@
                 </div>
 
                 <div class="file-field input-field">
-                  <div class="btn">
+                  <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                     <span>Upload Image</span>
                     <input id="addImg" name="addImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                   </div>

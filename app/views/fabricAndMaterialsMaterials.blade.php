@@ -6,7 +6,7 @@
   <h4>MATERIALS</h4>
   <div class="divider"></div>
   <div style="padding-top:10px; padding-bottom:20px; margin-left:20px;">
-    <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMaterial">ADD Material</button>
+    <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new material to the list" href="#addMaterial">ADD Material</button>
   </div>
 </div>
   <!--Collapsible-->
@@ -17,10 +17,10 @@
       <div class="collapsible-header">
         <i class="material-icons">filter_drama</i><h5>THREADS</h5>
       </div>
-      <div class="collapsible-body">
+      <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveThread">VIEW INACTIVE THREADS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted thread details from the table" href="#inactiveThread">VIEW INACTIVE THREADS</button>
 
                <thead>
                 <tr>
@@ -29,7 +29,7 @@
                   <th data-field="Thread Color">Thread Color</th>
                   <th data-field="ThreadImage">Image</th>
                   <th>
-                    <div align="right" style="margin-right:70px;"><a href="#addThread" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:70px;"><a href="#addThread" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new thread detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -42,12 +42,12 @@
                   <td>{{ $thread->strMaterialThreadName }}</td>
                   <td>{{ $thread->strMaterialThreadColor }}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($thread->strMaterialThreadImage)}}"></td> 
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $thread->strMaterialThreadID }}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit thread details" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete thread details from the table" href="#del{{ $thread->strMaterialThreadID }}">DELETE</button>
                       
                     <!--EDIT THREADS-->
                     <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
-                      <font color = "teal" ><center><h5>Edit Thread</h5></center></font> 
+                      <h5><font color = "#1b5e20"><center>Edit Thread</center> </font> </h5> 
 
                       <div class="modal-content">
                       <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="file-field input-field">
-                          <div class="btn">
+                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                             <span>Upload Image</span>
                             <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
@@ -91,7 +91,7 @@
                       <!--DELETE THREADS-->
                 <div id="del{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                         <p>
                          <form action="{{URL::to('delThread')}}" method="POST">
                           <div class="input-field">
@@ -127,7 +127,7 @@
                 <!--VIEW INACTIVE THREADS-->
           <div id="inactiveThread" class="modal modal-fixed-footer">
              <div class="modal-content">
-              <h4>INACTIVE THREADS</h4>
+             <h5><font color = "#1b5e20"><center>Inactive Threads</center> </font> </h5>
                 <table class="centered" border="1">
                   <thead>
                 <tr>
@@ -149,7 +149,7 @@
                         <td>          
                         <form action="{{URL::to('reactThread')}}" method="POST">
                         <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactID" name="reactID">
-                        <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                        <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of thread to the table">REACTIVATE</button>
                         </form>
                       </td>
                     </tr>
@@ -178,10 +178,10 @@
       <div class="collapsible-header">
         <i class="material-icons">filter_drama</i><h5>NEEDLES</h5>
       </div>
-      <div class="collapsible-body">
+      <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveNeedle">VIEW INACTIVE NEEDLES</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted needle details from the table" href="#inactiveNeedle">VIEW INACTIVE NEEDLES</button>
               <thead>
                 <tr>
                   <th date-field= "Needle ID">Needle ID</th>
@@ -189,7 +189,7 @@
                   <th data-field="Needle Size">Needle Size</th>
                   <th data-field="Needle Image">Image</th>
                   <th>
-                    <div align="right" style="margin-right:70px;"><a href="#addNeedle" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:70px;"><a href="#addNeedle" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new needle detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -202,11 +202,11 @@
                   <td>{{$needle->strMaterialNeedleName}}</td>
                   <td>{{$needle->strMaterialNeedleSize}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($needle->strMaterialNeedleImage)}}"></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$needle->strMaterialNeedleID}}">EDIT</button>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$needle->strMaterialNeedleID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit needle detail" href="#edit{{$needle->strMaterialNeedleID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">DELETE</button>
                       
                     <div id="edit{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
-                      <font color = "teal" ><center><h5>Edit Needle</h5></center></font> 
+                      <h5><font color = "#1b5e20"><center>Edit Needle</center> </font> </h5> 
 
                       <div class="modal-content">
                         <form action="{{URL::to('editNeedle')}}" method="POST" enctype="multipart/form-data">
@@ -227,7 +227,7 @@
 
                                    
                         <div class="file-field input-field">
-                          <div class="btn">
+                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                             <span>Upload Image</span>
                             <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
@@ -250,7 +250,7 @@
 
         <div id="del{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                         <p>
                          <form action="{{URL::to('delNeedle')}}" method="POST">
                           <div class="input-field">
@@ -285,7 +285,7 @@
 
   <div id="inactiveNeedle" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE NEEDLES</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Needles</center> </font> </h5>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -306,7 +306,7 @@
               <td>          
               <form action="{{URL::to('reactNeedle')}}" method="POST">
               <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactID" name="reactID">
-              <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+              <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of needle to the table">REACTIVATE</button>
               </form>
             </td>
           </tr>
@@ -332,11 +332,11 @@
     <!--BUTTONS-->
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>BUTTONS</h5></div>
-      <div class="collapsible-body">
+      <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
 
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveButton">VIEW INACTIVE BUTTONS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted button details from the table" href="#inactiveButton">VIEW INACTIVE BUTTONS</button>
               <thead>
                 <tr>
                   <th date-field= "Button ID">Button ID</th>
@@ -345,7 +345,7 @@
                   <th data-field="Button Color">Button Color</th>
                   <th data-field="ButtonImage">Button Image Link</th>
                   <th>
-                    <div align="right" style="margin-right:40px;"><a href="#addButton" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:40px;"><a href="#addButton" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new button detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -359,11 +359,11 @@
                   <td>{{$button->strMaterialButtonSize}}</td>
                   <td>{{$button->strMaterialButtonColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($button->strMaterialButtonImage)}}"></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$button->strMaterialButtonID}}">EDIT</button>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$button->strMaterialButtonID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit button detail" href="#edit{{$button->strMaterialButtonID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete button detail from the table" href="#del{{$button->strMaterialButtonID}}">DELETE</button>
                       
                     <div id="edit{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
-                      <font color = "teal" ><center><h5>Edit Button</h5></center></font> 
+                      <h5><font color = "#1b5e20"><center>Edit Button</center> </font> </h5> 
 
                       <div class="modal-content">
                         <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data">
@@ -389,7 +389,7 @@
 
                                       
                         <div class="file-field input-field">
-                          <div class="btn">
+                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                             <span>Upload Image</span>
                             <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
@@ -411,7 +411,7 @@
 
         <div id="del{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                         <p>
                          <form action="{{URL::to('delButton')}}" method="POST">
                           <div class="input-field">
@@ -452,7 +452,7 @@
 
   <div id="inactiveButton" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE BUTTONS</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Buttons</center> </font> </h5>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -476,7 +476,7 @@
               <td>          
               <form action="{{URL::to('reactButton')}}" method="POST">
               <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactID" name="reactID">
-              <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of button to the table">REACTIVATE</button>
               </form>
             </td>
           </tr>
@@ -501,11 +501,11 @@
     <!--ZIPPERS-->
     <li>
       <div class="collapsible-header"><i class="material-icons">filter_drama</i><h5>ZIPPERS</h5></div>
-      <div class="collapsible-body">
+      <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
 
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveZipper">VIEW INACTIVE ZIPPERS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted zipper details from the table" href="#inactiveZipper">VIEW INACTIVE ZIPPERS</button>
               <thead>
                 <tr>
                   <th date-field= "Zipper ID">Zipper ID</th>
@@ -514,7 +514,7 @@
                   <th data-field="Zipper Color">Zipper Color</th>
                   <th data-field="ZipperImage">Zipper Image</th>
                   <th>
-                    <div align="right" style="margin-right:45px;"><a href="#addZipper" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:45px;"><a href="#addZipper" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new zipper detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -528,11 +528,11 @@
                   <td>{{$zipper->strMaterialZipperSize}}</td>
                   <td>{{$zipper->strMaterialZipperColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($zipper->strMaterialZipperImage)}}"></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$zipper->strMaterialZipperID}}">EDIT</button>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$zipper->strMaterialZipperID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit zipper detail" href="#edit{{$zipper->strMaterialZipperID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete zipper detail from the table" href="#del{{$zipper->strMaterialZipperID}}">DELETE</button>
                       
                     <div id="edit{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
-                      <font color = "teal" ><center><h5>Edit Zipper</h5></center></font> 
+                      <h5><font color = "#1b5e20"><center>Edit Zipper</center> </font> </h5>
 
                       <div class="modal-content">
                         <form action="{{URL::to('editZipper')}}" method="POST" enctype="multipart/form-data">
@@ -558,7 +558,7 @@
 
                  
                         <div class="file-field input-field">
-                          <div class="btn">
+                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                             <span>Upload Image</span>
                             <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
@@ -582,7 +582,7 @@
 
         <div id="del{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                         <p>
                          <form action="{{URL::to('delZipper')}}" method="POST">
                           <div class="input-field">
@@ -623,7 +623,7 @@
 
   <div id="inactiveZipper" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE ZIPPERS</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Zippers</center> </font> </h5>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -647,7 +647,7 @@
               <td>          
               <form action="{{URL::to('reactZipper')}}" method="POST">
               <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactID" name="reactID">
-              <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of zippers to the table">REACTIVATE</button>
               </form>
             </td>
           </tr>
@@ -674,11 +674,11 @@
       <div class="collapsible-header">
         <i class="material-icons">filter_drama</i><h5>HOOK & EYE</h5>
       </div>
-      <div class="collapsible-body">
+      <div class="collapsible-body" style="background:white">
           <div class="col s12 m12 l12 overflow-x">
           <table class = "centered" border = "1">
 
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#inactiveHook">VIEW INACTIVE THREADS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted hook and eye details from the table" href="#inactiveHook">VIEW INACTIVE THREADS</button>
               <thead>
                 <tr>
                   <th date-field="Hook and Eye ID">Hook and Eye ID</th>
@@ -687,7 +687,7 @@
                   <th data-field="Hook and Eye Color">Hook and Eye Color</th>
                   <th data-field="Image">Image</th>
                   <th>
-                    <div align="right" style="margin-right:30px;"><a href="#addHookEye" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:30px;"><a href="#addHookEye" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new hook and eye detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -701,11 +701,11 @@
                   <td>{{$hook->strMaterialHookSize}}</td>
                   <td>{{$hook->strMaterialHookColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($hook->strMaterialHookImage)}}"></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit hook and eye detail" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete hook and eye detail from the table" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
                       
                     <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
-                      <font color = "teal" ><center><h5>Edit Hook and Eye</h5></center></font> 
+                      <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>
 
                       <div class="modal-content">
                         <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
@@ -730,7 +730,7 @@
                         </div>
                 
                         <div class="file-field input-field">
-                          <div class="btn">
+                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                             <span>Upload Image</span>
                             <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                           </div>
@@ -755,7 +755,7 @@
 
             <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                         <p>
                          <form action="{{URL::to('delHook')}}" method="POST">
                           <div class="input-field">
@@ -796,7 +796,7 @@
 
   <div id="inactiveHook" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE HOOK AND EYES</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Hook and Eyes</center> </font> </h5>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -820,7 +820,7 @@
               <td>          
               <form action="{{URL::to('reactHook')}}" method="POST">
               <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactID" name="reactID">
-              <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of hook and eye to the table">REACTIVATE</button>
               </form>
             </td>
           </tr>
@@ -847,7 +847,7 @@
   <!--MODAL: add Thread-->
   <div id="addThread" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD THREAD</h4>
+      <h5><font color = "#1b5e20"><center>Add Thread</center> </font> </h5>
       <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
           <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" readonly = "readonly" type="text" class="validate">
@@ -865,7 +865,7 @@
       </div>
 
       <div class="file-field input-field">
-        <div class="btn">
+        <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
           <span>Upload Image</span>
           <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
@@ -888,7 +888,7 @@
   <!--MODAL: add Needle-->
   <div id="addNeedle" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD NEEDLE</h4>
+      <h5><font color = "#1b5e20"><center>Add Needle</center> </font> </h5>
       <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" readonly = "readonly" type="text" class="validate">
@@ -906,7 +906,7 @@
       </div>
                                   
       <div class="file-field input-field">
-        <div class="btn">
+        <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
           <span>Upload Image</span>
           <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
@@ -929,7 +929,7 @@
   <!--MODAL: add Button-->
   <div id="addButton" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD Button</h4>
+      <h5><font color = "#1b5e20"><center>Add ButtonAdd</center> </font> </h5>
       <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" readonly = "readonly" type="text" class="validate">
@@ -952,7 +952,7 @@
       </div>
                                      
       <div class="file-field input-field">
-        <div class="btn">
+        <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
           <span>Upload Image</span>
           <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
@@ -974,7 +974,7 @@
   <!--MODAL: add Zipper-->
   <div id="addZipper" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD ZIPPER</h4>
+      <h5><font color = "#1b5e20"><center>Add Zipper</center> </font> </h5>
       <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" readonly = "readonly" type="text" class="validate">
@@ -997,7 +997,7 @@
       </div>
 
       <div class="file-field input-field">
-        <div class="btn">
+        <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
           <span>Upload Image</span>
           <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
@@ -1021,7 +1021,7 @@
   <!--MODAL: add HookEye-->
   <div id="addHookEye" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ADD HOOK AND EYE</h4>
+     <h5><font color = "#1b5e20"><center>Add Hook and Eye</center> </font> </h5>
       <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
         <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" readonly = "readonly" type="text" class="validate">
@@ -1044,7 +1044,7 @@
       </div>
                 
       <div class="file-field input-field">
-        <div class="btn">
+        <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
           <span>Upload Image</span>
           <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>

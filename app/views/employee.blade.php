@@ -11,8 +11,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#newemp">ADD NEW EMPLOYEE</button>
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE EMPLOYEES</button>
+       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new employee to the table" href="#newemp">ADD NEW EMPLOYEE</button>
+       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted employee from the table" href="#modal1">VIEW INACTIVE EMPLOYEES</button>
      </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE EMPLOYEES</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Employees</center> </font> </h5>
       <table class="table centered data-reactEmployee" border="1">
         <thead>
           <tr>
@@ -61,7 +61,7 @@
                   <td>
                   <form action="{{URL::to('reactEmployee')}}" method="POST">
                   <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactID" name="reactID">
-                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
                   </form>
                 </td>
             </tr>
@@ -81,7 +81,7 @@
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    <span class="card-title"><h5><center>Employee Profile</center></h5></span>
+   		    <span class="card-title"><h5 style="color:#1b5e20"><center>Employee Profile</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
             <div class="col s12 m12 l12 overflow-x">
@@ -124,14 +124,14 @@
                   <td>{{ $employee->strCellNo }}</td> 
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
-              		<td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$employee->strEmployeeID}}">DELETE</button>
+              		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of employee" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete employee from table" href="#del{{$employee->strEmployeeID}}">DELETE</button>
                   
                <!-- <Modal Structure for Edit Employee>   -->
                     <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
                       <form action="{{URL::to('editEmployee')}}" method="POST">
                         <div class="modal-content">
-                          <font color = "teal"><h5><center>Edit Employee Information </center></h5></font> 
+                          <h5><font color = "#1b5e20"><center>Edit Employee Profile</center> </font> </h5> 
                           <p>
 
                           <div class="input-field">
@@ -219,7 +219,7 @@
                     <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
                       <form action="{{URL::to('delEmployee')}}" method="POST">
                         <div class="modal-content">
-                          <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                          <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                           <p>
                     
                             <div class="input-field">
@@ -270,7 +270,7 @@
     			<div id="newemp" class="modal modal-fixed-footer">
             <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" class="employee-form" name="addEmployee">
               <div class="modal-content">
-                <font color = "teal"><h5><center>ADD NEW EMPLOYEE</center></h5></font>
+                <h5><font color = "#1b5e20"><center>Add an Employee</center> </font> </h5>
                 <p>
 
                   <div class="input-field">
@@ -538,4 +538,11 @@
       } );
 
     </script>
+
+      <!--TOOLTIP SCRIPT-->
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 50});
+  }); 
+</script>
 @stop

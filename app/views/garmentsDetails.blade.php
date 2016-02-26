@@ -10,15 +10,15 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSegment">ADD NEW SEGMENT</button>
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW SEGMENTS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new segment to the table" href="#addSegment">ADD NEW SEGMENT</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted segments from the table" href="#modal1">VIEW SEGMENTS</button>
       </div>
     </div>
   </div>
 
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE SEGMENTS</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Garment Segments</center> </font> </h5>
       <table class = "table centered data-reactSegment" align = "center" border = "1">
         <thead>
           <tr>
@@ -41,7 +41,7 @@
               <td>
                 <form action="{{URL::to('reactGarmentSegment')}}" method="POST">
                   <input type="hidden" id="reactID" name="reactID" value="{{$segment2->strGarmentSegmentID}}">
-                  <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of segment to the table">REACTIVATE</button>
                 </form>
               </td>
             </tr>
@@ -61,7 +61,7 @@
     <div class="row">
     	<div class="col s12 m12 l12">
     		<div class="card-panel">
-   		    <span class="card-title"><h5><center>Garment Segments</center></h5></span>
+   		    <span class="card-title"><h5 style="color:#1b5e20"><center>Garment Segments</center></h5></span>
    				<div class="divider"></div>
     			<div class="card-content">
               <div class="col s12 m12 l12 overflow-x">
@@ -85,11 +85,11 @@
               		  <td>{{ $segment->strGarmentCategoryName }}</td>
                     <td>{{ $segment->strGarmentSegmentName }}</td>
               		  <td>{{ $segment->strGarmentSegmentDesc }}</td>
-              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button> </td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>
+              		  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of segment" href="#edit{{ $segment->strGarmentSegmentID }}">EDIT</button> </td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete segment from table" href="#del{{ $segment->strGarmentSegmentID }}">DELETE</button>
        
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
-                        <font color = "teal"><h5><center> Edit Segment Details </center></h5></font>
+                        <h5><font color = "#1b5e20"><center>Edit Garment Segment</center> </font> </h5>
                         <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
                           <div class="modal-content">
                             <p>  
@@ -133,7 +133,7 @@
                       </div>
                     <!--***********************************************************-->
                       <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font>
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                         <form action="{{URL::to('delGarmentSegment')}}" method="POST"> 
                           <div class="modal-content">
                             <p>  
@@ -181,7 +181,7 @@
 
 
     			    <div id="addSegment" class="modal modal-fixed-footer">
-                <font color = "teal"><h5><center>ADD SEGMENT</center></h5> </font> 
+                <h5><font color = "#1b5e20"><center>Add Garment Segment</center> </font> </h5> 
                 <form action="{{URL::to('addGarmentSegment')}}" method="POST">
                   <div class="modal-content">
                     <p>

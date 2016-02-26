@@ -2,26 +2,25 @@
 
 @section('content')
 
-
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
-      <span class="page-title"><h4>Customers</h4></span>
+      <span class="page-title"><h4>Customer Company</h4></span>
       </div>
     </div>
 
     <div class="row">
       <div class="col s12 m12 l12">
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCom">ADD COMPANY Customer</button>
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW ALL CUSTOMERS</button>
+       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new company to the table" href="#addCom">ADD COMPANY Customer</button>
+       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted companies from the table" href="#modal1">VIEW ALL INACTIVE CUSTOMERS</button>
       </div>
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL EMPLOYEES-->
+  <!--MODAL: VIEW ALL COMPANIES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>ALL EMPLOYEES</h4>
+     <h5><font color = "#1b5e20"><center>Inactive Customers</center> </font> </h5>
       <table class="table centered data-reactcustCompany" border="1">
         <thead>
           <tr>
@@ -52,7 +51,7 @@
             <td>
                   <form action="{{URL::to('reactCustCompany')}}" method="POST">
                   <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
-                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
                   </form>
               </td>
           </tr>
@@ -71,7 +70,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card-panel">
-          <span class="card-title"><h5><center>Customer Profile - (Company)</center></h5></span>
+          <span class="card-title"><h5 style="color:#1b5e20"><center>Customer Profile - (Company)</center></h5></span>
           <div class="divider"></div>
           <div class="card-content">
 
@@ -105,13 +104,13 @@
                   <td>{{ $company->strCustCompanyCPNumber }}</td> 
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$company->strCustCompanyID}}">DELETE</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of customer" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete customer from table" href="#del{{$company->strCustCompanyID}}">DELETE</button></td>
                   
 
                     <div id="edit{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                      <div class = "label"><font color = "teal" size = "+3" back >Edit Company Profile </font> </div>
+                     <h5><font color = "#1b5e20"><center>Edit Company Profile </center> </font> </h5>
                         <p>
                         <form action="{{URL::to('editCustCompany')}}" method="POST">
                         <div class="input-field">                 
@@ -165,7 +164,7 @@
                     <!-- DELETE -->
                    <div id="del{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color="#1b5e20"><center>Are you sure you want to delete?</center></font></h5> 
                         <p>
                          <form action="{{URL::to('delCustCompany')}}" method="POST">
                           <div class="input-field">
@@ -204,7 +203,7 @@
             </div>  
     
             <div id="addCom" class="modal modal-fixed-footer">
-              <h5><font color = "teal"><center>Add Company Profile </center> </font> </h5>                      
+              <h5><font color = "#1b5e20"><center>Add Individual Profile </center> </font> </h5>                      
               <div class="modal-content">
                 <p>
                 <form action="{{URL::to('addCustCompany')}}" method="POST">
@@ -402,9 +401,13 @@
 
     </script>
 
-@stop                             
-		
- 
-	
+  <!--TOOLTIP SCRIPT-->
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 50});
+  });	
+</script>
 
+@stop                             
+    
 

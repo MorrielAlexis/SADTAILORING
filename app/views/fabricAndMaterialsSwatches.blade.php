@@ -11,8 +11,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addSwatches">ADD NEW SWATCH</button>
-        <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE SWATCHES</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new swatch to the table" href="#addSwatches">ADD NEW SWATCH</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted swatches from the table" href="#modal1">VIEW INACTIVE SWATCHES</button>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
   <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE SWATCHES</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Fabric Swatches</center> </font> </h5>
       <table class="centered" border="1">
         <thead>
           <tr>
@@ -46,7 +46,7 @@
 
                <form action="{{URL::to('reactSwatch')}}" method="POST">
                   <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactID" name="reactID">
-              <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of fabric swatch to the table">REACTIVATE</button>
 
               </form>
             </tr>
@@ -65,7 +65,7 @@
   <div class="row">
     <div class="col s12 m12 l12">
     	<div class="card-panel">
-        <span class="card-title"><h5><center>Swatches Details</center></h5></span>
+        <span class="card-title"><h5 style="color:#1b5e20"><center>Swatches Details</center></h5></span>
         <div class="divider"></div>
         <div class="card-content">
             <div class="col s12 m12 l12 overflow-x">
@@ -93,12 +93,12 @@
                     <td>{{ $swatch->strSwatchName }}</td>
                     <td>{{ $swatch->strSwatchCode }}</td>
                     <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch->strSwatchImage)}}"></td>
-              		  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
+              		  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit swatch detail" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete swatch from the table" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
     
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
-                        <font color = "teal"> <center><h5>Edit Swatches Details</h5></center></font> 
+                       <h5><font color = "#1b5e20"><center>Edit Fabric Swatch</center> </font> </h5>
                         <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
                           <div class="modal-content">
                             <p>
@@ -131,7 +131,7 @@
                               </div>
 
                               <div class="file-field input-field">
-                                <div class="btn">
+                                <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                                   <span>Upload Image</span>
                                   <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                 </div>
@@ -152,7 +152,7 @@
                       </div> 
                       <!--*******************************************-->
                       <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
-                        <font color = "teal"> <center><h5>Are you sure you want to delete?</h5></center></font> 
+                       <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                         <form action="{{URL::to('delSwatch')}}" method="POST">
                           <div class="modal-content">
                             <p>
@@ -201,7 +201,7 @@
 
                 <!--    <Modal Structure for Add swatches> -->
             <div id="addSwatches" class="modal modal-fixed-footer">
-              <font color = "teal"><center><h5> Add Swatch </h5></center></font>
+             <h5><font color = "#1b5e20"><center>Add Fabric Swatch</center> </font> </h5>
               <form action="{{URL::to('addSwatch')}}" method="POST" id="addSwatch" name="addSwatch" enctype="multipart/form-data"> 
 
                 <div class="modal-content">
@@ -232,7 +232,7 @@
                     </div>
 
                     <div class="file-field input-field">
-                      <div class="btn">
+                      <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                         <span>Upload Image</span>
                         <input id="addImg" name="addImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                       </div>
