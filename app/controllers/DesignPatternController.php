@@ -43,13 +43,14 @@ class DesignPatternController extends BaseController{
 		$pat = DesignPattern::all();
 		$isAdded = FALSE;
 
-		foreach ($pat as $pat) 
-			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory')) && strcasecmp($pat->strDesignSegmentName, Input::get('addSegment')) && strcasecmp($pat->strPatternName, Input::get('addPatternName')))
-				$isAdded = TRUE;
-
-
-		//dd(Input::get('addCategory'), Input::get('addSegment'), Input::get('addPatternName'));
-
+		foreach ($pat as $pat){
+			if((strcasecmp($pat->strDesignSegmentName, Input::get('addSegment')) == 0) &&
+				strcasecmp($pat->strDesignCategory, Input::get('addCategory')) == 0 &&
+				strcasecmp($pat->strPatternName, Input::get('addPatternName'))){
+					$isAdded = TRUE;
+			}				
+		}
+		
 		if(!$isAdded){
 			if($file == '' || $file == null){
 			$pattern = DesignPattern::create(array(

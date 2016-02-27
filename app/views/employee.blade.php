@@ -24,7 +24,6 @@
       <table class="table centered data-reactEmployee" border="1">
         <thead>
           <tr>
-            <th data-field="id">Employee ID</th>
             <th data-field="firstname">First Name</th>
             <th data-field="middlename">Middle Name</th>
             <th data-field="lastname">Last Name</th>          
@@ -43,7 +42,6 @@
           @foreach($employee2 as $employee2)
           @if($employee2->boolIsActive == 0)
             <tr>
-                  <td>{{ $employee2->strEmployeeID }}</td>
                   <td>{{ $employee2->strEmpFName }}</td>
                   <td>{{ $employee2->strEmpMName }}</td>
                   <td>{{ $employee2->strEmpLName }}</td>
@@ -89,7 +87,6 @@
       			<table class = "table centered data-employee" border = "1">
        				<thead>
           			<tr>
-                  <th data-field="id">Employee ID</th>
                   <th data-field="firstname">First Name</th>
                   <th data-field="middlename">Middle Name</th>
                   <th data-field="lastname">Last Name</th>          
@@ -110,7 +107,6 @@
                 @foreach($employee as $employee)
                   @if($employee->boolIsActive == 1)
                 <tr>
-              		<td>{{ $employee->strEmployeeID }}</td>
                   <td>{{ $employee->strEmpFName }}</td>
                   <td>{{ $employee->strEmpMName }}</td>
                   <td>{{ $employee->strEmpLName }}</td>
@@ -212,6 +208,7 @@
                             <input  value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
                             <label for="email">Email Address: </label>
                           </div>
+                          <br>
                           </p>
                         </div>
 

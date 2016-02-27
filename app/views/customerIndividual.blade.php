@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="main-wrapper">
-      @if (Input::get('success'))
+      @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel teal">
@@ -121,7 +121,7 @@
                   <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
                   <td>{{ $individual->strCustPrivLandlineNumber }}</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button>
 
 
                     <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">

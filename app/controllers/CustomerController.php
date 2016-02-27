@@ -77,7 +77,7 @@ class CustomerController extends BaseController{
 		$individual->strCustPrivLandlineNumber = Input::get('editPhone');
 
 		$individual->save();
-		return Redirect::to('/customerIndividual');
+		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
 
 	public function delCustPrivIndiv()
@@ -88,7 +88,7 @@ class CustomerController extends BaseController{
 		$individual->boolIsActive = 0;
 
 		$individual->save();
-		return Redirect::to('/customerIndividual');
+		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
 
 	public function reactCustPrivIndiv()
@@ -99,7 +99,7 @@ class CustomerController extends BaseController{
 		$individual->boolIsActive = 1;
 
 		$individual->save();
-		return Redirect::to('/customerIndividual');
+		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
 
 	public function addCustCompany()

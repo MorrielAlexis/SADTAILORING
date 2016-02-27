@@ -200,7 +200,7 @@
                       <div class="input-field">
                         <select name='addCategory' id='addCategory' required>
                           @foreach($category as $category)
-                          <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
+                            <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
                           @endforeach
                         </select> 
                         <label >Category</label>
