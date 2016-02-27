@@ -59,7 +59,7 @@ class CustomerController extends BaseController{
 			));
 
 		$individual->save();
-		return Redirect::to('/customerIndividual');
+		return Redirect::to('/maintenance/customerIndividual?success=true');
 	}
 
 	public function editCustPrivIndiv()

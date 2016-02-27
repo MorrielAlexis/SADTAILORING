@@ -3,6 +3,16 @@
 
 @section('content')
     <div class="main-wrapper">
+      @if (Input::get('success'))
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel teal">
+              <span class="white-text">Successfully added customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
       <div class="row">
         <div class="col s12 m12 l12">
         <span class="page-title"><h4>Customer Individual</h4></span>
@@ -444,6 +454,10 @@
 
           $('.data-custInd').DataTable();
            $('select').material_select();
+
+        setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
 
       } );
 
