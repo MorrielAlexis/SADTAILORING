@@ -72,7 +72,7 @@ class EmployeeController extends BaseController{
 				'strEmpFName' => Input::get('addFirstName'),	
 				'strEmpMName' => Input::get('addMiddleName'),	
 				'strEmpLName' => Input::get('addLastName'),
-				'strEmpAge' => Input::get('addAge'),
+				'dtEmpBday' => Input::get('adddtEmpBday'),
 				'strSex' => Input::get('addSex'),
 				'strEmpAddress' => Input::get('addAddress'),			
 				'strRole' => Input::get('addRoles'), 
@@ -120,7 +120,7 @@ class EmployeeController extends BaseController{
 		$employee->strEmpFName = Input::get('editFirstName');	
 		$employee->strEmpLName = Input::get('editLastName');	
 		$employee->strEmpMName = Input::get('editMiddleName');	
-		$employee->strEmpAge = Input::get('editAge');
+		$employee->dtEmpBday = Input::get('editdtEmpBday');
 		$employee->strSex = Input::get('editSex');
 		$employee->strEmpAddress = Input::get('editAddress');
 		$employee->strRole = Input::get('editRoles');

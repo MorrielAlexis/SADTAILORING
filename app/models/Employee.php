@@ -9,7 +9,7 @@ class Employee extends Eloquent {
 								'strEmpFName',
 								'strEmpMName',
 								'strEmpLName',
-								'strEmpAge',
+								'dtEmpBday',
 								'strSex',
 								'strEmpAddress',
 								'strRole',

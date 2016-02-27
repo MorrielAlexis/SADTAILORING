@@ -27,7 +27,7 @@
             <th data-field="firstname">First Name</th>
             <th data-field="middlename">Middle Name</th>
             <th data-field="lastname">Last Name</th>          
-            <th data-field="Age">Age</th>
+            <th data-field="dtEmpBday">Date of Birth</th>
             <th data-field="Sex">Sex</th>
             <th data-field="address">Address</th>
             <th data-field="Role">Role</th>
@@ -45,7 +45,7 @@
                   <td>{{ $employee2->strEmpFName }}</td>
                   <td>{{ $employee2->strEmpMName }}</td>
                   <td>{{ $employee2->strEmpLName }}</td>
-                  <td>{{ $employee2->strEmpAge }} </td>
+                  <td>{{ $employee2->dtEmpBday }} </td>
                   <td>
                     @if($employee2->strSex == 'M') Male
                     @else Female
@@ -90,7 +90,7 @@
                   <th data-field="firstname">First Name</th>
                   <th data-field="middlename">Middle Name</th>
                   <th data-field="lastname">Last Name</th>          
-                  <th data-field="Age">Age</th>
+                  <th data-field="dtEmpBday">Date of Birth</th>
                   <th data-field="Sex">Sex</th>
                   <th data-field="address">Address</th>
                   <th data-field="Role">Role</th>
@@ -110,7 +110,7 @@
                   <td>{{ $employee->strEmpFName }}</td>
                   <td>{{ $employee->strEmpMName }}</td>
                   <td>{{ $employee->strEmpLName }}</td>
-                  <td>{{ $employee->strEmpAge }} </td>
+                  <td>{{ $employee->dtEmpBday }} </td>
                   <td>
                     @if($employee->strSex == 'M') Male
                     @else Female
@@ -159,7 +159,7 @@
 
                           <div>
                             <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
-                            <input id="editBirthDate" name="editBirthDate" type="date" class = "datepicker">
+                            <input id="editdtEmpBday" name="editdtEmpBday" type="date" class = "datepicker">
                           </div>  
 
                           <div class="input-field">                                                    
@@ -303,7 +303,7 @@
 
                   <div>
                     <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
-                    <input id="addBirthDate" name="addBirthDate" type="date" class = "datepicker">
+                    <input id="adddtEmpBday" name="adddtEmpBday" type="date" class = "datepicker">
                   </div>
 
                   <div class="input-field">
