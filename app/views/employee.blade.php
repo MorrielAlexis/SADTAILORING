@@ -157,9 +157,9 @@
                             <label for="Address">*Address: </label>
                           </div>
 
-                          <div class="input-field">
-                            <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge" maxlength="3">
-                            <label for="Age">*Age: </label>
+                          <div>
+                            <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
+                            <input id="editBirthDate" name="editBirthDate" type="date" class = "datepicker">
                           </div>  
 
                           <div class="input-field">                                                    
@@ -301,10 +301,10 @@
                     <label for="Address">*Address: </label>
                   </div>
 
-                  <div class="input-field">
-                    <input required id="addAge" name="addAge" type="text" class="validateAge" maxlength="3">
-                    <label for="Age">*Age: </label>
-                  </div>  
+                  <div>
+                    <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
+                    <input id="addBirthDate" name="addBirthDate" type="date" class = "datepicker">
+                  </div>
 
                   <div class="input-field">
                     <select name='addRoles' id='addRoles' required>
@@ -475,13 +475,6 @@
         $(this).val(numbers.replace(/\D/, ''));
       });
 
-      $('.validateAge').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
       $('.validateCell').on('input', function() {
         var input=$(this);
         var is_name=input.val();
@@ -560,5 +553,13 @@
 
       } );
 
+    </script>
+
+    <script type="text/javascript">
+      $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+      });
+        
     </script>
 @stop
