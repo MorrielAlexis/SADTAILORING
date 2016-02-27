@@ -149,7 +149,7 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($swa as $swa)
-			if(strcasecmp($swa->strSwatchFabricTypeName, Input::get('addFabric')) && 
+			if(strcasecmp($swa->strSwatchFabricTypeName, Input::get('addFabric') == 0) && 
 			   strcasecmp($swa->strSwatchName, Input::get('addSwatchName')) &&
 			   strcasecmp($swa->strSwatchCode, Input::get('addSwatchCode')))
 			   		$isAdded = TRUE;

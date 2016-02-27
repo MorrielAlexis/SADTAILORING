@@ -44,7 +44,9 @@ class DesignPatternController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($pat as $pat) 
-			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory')) && strcasecmp($pat->strDesignSegmentName, Input::get('addSegment')) && strcasecmp($pat->strPatternName, Input::get('addPatternName')))
+			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory') == 0) && 
+			   strcasecmp($pat->strDesignSegmentName, Input::get('addSegment') == 0) && 
+			   strcasecmp($pat->strPatternName, Input::get('addPatternName')))
 				$isAdded = TRUE;
 
 

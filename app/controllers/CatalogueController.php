@@ -40,7 +40,7 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($ctlg as $ctlg)
-			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory')) && 
+			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory') == 0) && 
 			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))))
 			   		$isAdded = TRUE;
 

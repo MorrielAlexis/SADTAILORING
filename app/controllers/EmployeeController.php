@@ -54,24 +54,38 @@ class EmployeeController extends BaseController{
 
 	public function addEmployee()
 	{	
+		$emp = Employee::get();
+		$isAdded = FALSE;
 
-		$employee = Employee::create(array(
-			'strEmployeeID' => Input::get('addEmpID'),
-			'strEmpFName' => Input::get('addFirstName'),	
-			'strEmpMName' => Input::get('addMiddleName'),	
-			'strEmpLName' => Input::get('addLastName'),
-			'strEmpAge' => Input::get('addAge'),
-			'strSex' => Input::get('addSex'),
-			'strEmpAddress' => Input::get('addAddress'),			
-			'strRole' => Input::get('addRoles'), 
-			'strCellNo' => Input::get('addCellNo'),
-			'strCellNoAlt' => Input::get('addCellNoAlt'),
-			'strPhoneNo' => Input::get('addPhoneNo'),
-			'strEmailAdd' => Input::get('addEmail'),
-			'boolIsActive' => 1
+		foreach($emp as $emp)
+			if(strcmp($emp->strEmpFName, Input::get('addFirstName')) &&
+			   strcmp($emp->strEmpMName, Input::get('addMiddleName')) &&
+			   strcmp($emp->strEmpLName, Input::get('addLastName')) &&
+			   strcmp($emp->strEmailAdd, Input::get('addEmail')) &&
+			   strcmp($emp->strCellNo, Input::get('addCellNo')) &&
+			   strcmp($emp->strCellNoAlt, Input::get('addCellNoAlt')))
+					$isAdded = TRUE;
+
+		if(!$isAdded){
+			$employee = Employee::create(array(
+				'strEmployeeID' => Input::get('addEmpID'),
+				'strEmpFName' => Input::get('addFirstName'),	
+				'strEmpMName' => Input::get('addMiddleName'),	
+				'strEmpLName' => Input::get('addLastName'),
+				'strEmpAge' => Input::get('addAge'),
+				'strSex' => Input::get('addSex'),
+				'strEmpAddress' => Input::get('addAddress'),			
+				'strRole' => Input::get('addRoles'), 
+				'strCellNo' => Input::get('addCellNo'),
+				'strCellNoAlt' => Input::get('addCellNoAlt'),
+				'strPhoneNo' => Input::get('addPhoneNo'),
+				'strEmailAdd' => Input::get('addEmail'),
+				'boolIsActive' => 1
 			));
 
-		$employee->save();
+			$employee->save();
+		}
+		
 		return Redirect::to('/employee');
 	}
 
