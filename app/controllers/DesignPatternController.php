@@ -50,8 +50,6 @@ class DesignPatternController extends BaseController{
 				$isAdded = TRUE;
 
 
-		//dd(Input::get('addCategory'), Input::get('addSegment'), Input::get('addPatternName'));
-
 		if(!$isAdded){
 			if($file == '' || $file == null){
 			$pattern = DesignPattern::create(array(

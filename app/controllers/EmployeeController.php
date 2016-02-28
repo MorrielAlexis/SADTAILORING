@@ -151,10 +151,20 @@ class EmployeeController extends BaseController{
 		$id = Input::get('editRoleID');
 		$role = Role::find($id);
 
-		$role->strEmpRoleName = Input::get('editRoleName');	
-		$role->strEmpRoleDesc = Input::get('editRoleDescription');
+		$rol = Role::all();
+		$isAdded = FALSE;
 
-		$role->save();
+		foreach ($rol as $rol)
+			if(strcasecmp($rol->strEmpRoleName, Input::get('editRoleName')) == 0)
+					$isAdded = TRUE;
+
+		if(!$isAdded){
+			$role->strEmpRoleName = Input::get('editRoleName');	
+			$role->strEmpRoleDesc = Input::get('editRoleDescription');
+
+			$role->save();
+		}
+
 		return Redirect::to('/employeeRole');
 	}
 
