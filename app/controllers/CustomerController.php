@@ -151,9 +151,9 @@ class CustomerController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach ($comp as $comp) {
-				if(strcasecmp($comp->strCustCompanyName, Input::get('addComName') == 0) && 
-				   strcasecmp($comp->strCustCompanyAddress, Input::get('addAddress') == 0) && 
-				   strcasecmp($comp->strCustContactPerson, Input::get('addConPerson') == 0)){
+				if(strcasecmp($comp->strCustCompanyName, Input::get('addComName')) == 0 && 
+				   strcasecmp($comp->strCustCompanyAddress, Input::get('addAddress')) == 0 && 
+				   strcasecmp($comp->strCustContactPerson, Input::get('addConPerson')) == 0){
 						$isAdded = TRUE;
 				}				
 			}	

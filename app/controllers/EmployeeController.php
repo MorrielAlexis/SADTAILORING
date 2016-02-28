@@ -108,7 +108,7 @@ class EmployeeController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($rol as $rol)
-			if(strcasecmp($rol->strEmpRoleName, Input::get('addRoleName')))
+			if(strcasecmp($rol->strEmpRoleName, Input::get('addRoleName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
