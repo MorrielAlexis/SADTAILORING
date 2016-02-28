@@ -49,7 +49,7 @@ class EmployeeController extends BaseController{
 		return View::make('employeeRole')
 				->with('role', $role)
 				->with('role2', $role)
-				->with('newID', $newID);
+				->with('newID', $newID);	
 	}
 
 	public function addEmployee()
@@ -57,15 +57,28 @@ class EmployeeController extends BaseController{
 		$emp = Employee::get();
 		$isAdded = FALSE;
 
-		foreach($emp as $emp)
-			if(strcmp($emp->strEmpFName, Input::get('addFirstName')) &&
-			   strcmp($emp->strEmpMName, Input::get('addMiddleName')) &&
-			   strcmp($emp->strEmpLName, Input::get('addLastName')) &&
-			   strcmp($emp->strEmailAdd, Input::get('addEmail')) &&
-			   strcmp($emp->strCellNo, Input::get('addCellNo')) &&
-			   strcmp($emp->strCellNoAlt, Input::get('addCellNoAlt')))
-					$isAdded = TRUE;
+		$count = DB::table('tblEmployee')
+            ->select('tblEmployee.strEmailAdd')
+            ->where('tblEmployee.strEmailAdd','=', Input::get('addEmail'))
+            ->count();
 
+        $count2 = DB::table('tblEmployee')
+            ->select('tblEmployee.strCellNo')
+            ->where('tblEmployee.strCellNo','=', Input::get('addCellNo'))
+            ->count();
+            
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach($emp as $emp){
+			if(strcmp($emp->strEmpFName, Input::get('addFirstName')) &&
+				    strcmp($emp->strEmpMName, Input::get('addMiddleName')) &&
+					strcmp($emp->strEmpLName, Input::get('addLastName'))){
+						$isAdded = TRUE;
+				}
+			}
+        }
+		
 		if(!$isAdded){
 			$employee = Employee::create(array(
 				'strEmployeeID' => Input::get('addEmpID'),
