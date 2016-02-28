@@ -53,6 +53,7 @@ class CustomerController extends BaseController{
 			'strCustPrivAddress' => Input::get('addAddress'),
 			'strCustPrivLandlineNumber' => Input::get('addPhone'),						
 			'strCustPrivCPNumber' => Input::get('addCel'), 
+			'strCustPrivCPNumberAlt' => Input::get('addCelAlt'),
 			'strCustPrivEmailAddress' => Input::get('addEmail'),
 			'boolIsActive' => 1
 			));
@@ -72,6 +73,7 @@ class CustomerController extends BaseController{
 		$individual->strCustPrivAddress = Input::get('editAddress');
 		$individual->strCustPrivEmailAddress = Input::get('editEmail');			
 		$individual->strCustPrivCPNumber = Input::get('editCel');
+		$individual->strCustPrivCPNumberAlt = Input::get('editCelAlt');
 		$individual->strCustPrivLandlineNumber = Input::get('editPhone');
 
 		$individual->save();
@@ -110,6 +112,7 @@ class CustomerController extends BaseController{
 			'strCustContactPerson' => Input::get('addConPerson'),
 			'strCustCompanyEmailAddress' => Input::get('addComEmailAddress'),			
 			'strCustCompanyCPNumber' => Input::get('addCel'), 
+			'strCustCompanyCPNumberAlt' => Input::get('addCelAlt'), 
 			'strCustCompanyTelNumber' => Input::get('addPhone'),
 			'strCustCompanyFaxNumber' => Input::get('addFax'),
 			'boolIsActive' => 1
@@ -130,6 +133,7 @@ class CustomerController extends BaseController{
 		$company->strCustCompanyEmailAddress = Input::get('editComEmailAddress');
 		$company->strCustCompanyTelNumber = Input::get('editPhone');			
 		$company->strCustCompanyCPNumber = Input::get('editCel');
+		$company->strCustCompanyCPNumberAlt = Input::get('editCelAlt');
 		$company->strCustCompanyFaxNumber = Input::get('editFax');
 
 		$company->save();

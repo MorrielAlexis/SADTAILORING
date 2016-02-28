@@ -12,6 +12,7 @@ class PrivateIndividual extends Eloquent {
 								'strCustPrivAddress',
 								'strCustPrivLandlineNumber',
 								'strCustPrivCPNumber',
+								'strCustPrivCPNumberAlt',
 								'strCustPrivEmailAddress',
 								'boolIsActive');
 

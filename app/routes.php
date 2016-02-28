@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/index', 'HomeController@goToMain');
 Route::get('/', 'HomeController@showWelcome');
 Route::get('/customerIndividual', 'CustomerController@individual');

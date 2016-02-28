@@ -12,6 +12,7 @@ class Category extends Eloquent {
 /*
 	public function category() {
 
+		return $this->hasMany('DesignPattern', 'strDesignPatternID');
 		return $this->hasMany('Segment', 'strGarmentSegmentID');
 	}
 

@@ -24,7 +24,7 @@
       <table class="centered" border="1">
         <thead>
           <tr>
-            <th date-field="Swatch ID">Swatch ID </th>
+            <!--<th date-field="Swatch ID">Swatch ID </th>-->
             <th data-field="Swatch fabric type Name">Swatch Fabric Type Name</th>
             <th data-field="SwatchName">Swatch Name</th>
             <th data-field="SwatchCode">Swatch Code</th>
@@ -37,7 +37,7 @@
             @foreach($swatch2 as $swatch2)
               @if($swatch2->boolIsActive == 0)
             <tr>
-              <td>{{ $swatch2->strSwatchID }}</td>
+              <!--<td>{{ $swatch2->strSwatchID }}</td>-->
               <td>{{ $swatch2->strFabricTypeName }}</td>
               <td>{{ $swatch2->strSwatchName }}</td>
               <td>{{ $swatch2->strSwatchCode }}</td>
@@ -73,7 +73,7 @@
       				<table class = "table centered data-swatches" align = "center" border = "1">
        				 <thead>
           				<tr>
-                    <th date-field="Swatch ID">Swatch ID</th>
+                    <!--<th date-field="Swatch ID">Swatch ID</th>-->
               			<th data-field="Swatch fabric type Name">Swatch Fabric Type Name</th>
              		  	<th data-field="SwatchName">Swatch Name</th>
                     <th data-field="SwatchCode">Swatch Code</th>
@@ -88,7 +88,7 @@
                   @foreach($swatch as $swatch)
                     @if($swatch->boolIsActive == 1)
                   <tr>
-                    <td>{{ $swatch->strSwatchID }}</td>
+                    <!--<td>{{ $swatch->strSwatchID }}</td>-->
                     <td>{{ $swatch->strFabricTypeName }}</td>
                     <td>{{ $swatch->strSwatchName }}</td>
                     <td>{{ $swatch->strSwatchCode }}</td>
@@ -102,9 +102,14 @@
                         <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
                           <div class="modal-content">
                             <p>
+ 
                               <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="validate">
+                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="">
                                 <label for="swatch_id">Swatch ID: </label>
+
+                             <div class="input-field">
+                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
+ 
                               </div>
 
                               <div class="input-field">
@@ -117,17 +122,17 @@
                                     @endif
                                   @endforeach
                                 </select>
-                                  <label>Fabric Type</label>
+                                  <label>*Fabric Type</label>
                               </div>  
 
                               <div class="input-field">
                                 <input required value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validateSwatchName">
-                                <label for="swatch_name">Swatch Name: </label>
+                                <label for="swatch_name">*Swatch Name: </label>
                               </div>    
 
                               <div class="input-field">
                                 <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validateSwatchCode">
-                                <label for="swatch_code">Swatch Code: </label>
+                                <label for="swatch_code">*Swatch Code: </label>
                               </div>
 
                               <div class="file-field input-field">
@@ -150,29 +155,33 @@
                           </div>
                         </form>
                       </div> 
-                      <!--*******************************************-->
+                      <!--******************Soft Delete*************************-->
                       <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                         <form action="{{URL::to('delSwatch')}}" method="POST">
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="validate">
+ 
+                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="">
                                 <label for="swatch_id">Swatch ID: </label>
+
+                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="hidden">
+ 
                               </div>
 
                               <div class="input-field">
-                                  <input type="text" value="{{$swatch->strSwatchFabricTypeName}}" readonly>
+                                  <input type="text" value="{{$swatch->strFabricTypeName}}" readonly>
                                   <label>Fabric Type</label>
                               </div>  
 
                               <div class="input-field">
-                                <input value="{{$swatch->strSwatchName}}" type="text" class="validate" readonly>
+                                <input value="{{$swatch->strSwatchName}}" type="text" class="" readonly>
                                 <label for="swatch_name">Swatch Name: </label>
                               </div>    
 
                               <div class="input-field">
-                                <input value="{{$swatch->strSwatchCode}}" type="text" class="validate" readonly>
+                                <input value="{{$swatch->strSwatchCode}}" type="text" class="" readonly>
                                 <label for="swatch_code">Swatch Code: </label>
                               </div>
 
@@ -207,9 +216,14 @@
                 <div class="modal-content">
                   <p>
 
+ 
                     <div class="input-field">
-                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly class="validate">
+                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly class="">
                       <label for="swatch_id">Swatch ID: </label>
+
+                   <div class="input-field">
+                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">
+ 
                     </div>
 
                     <div class="input-field">
@@ -218,17 +232,17 @@
                           <option value="{{ $id }}">{{ $name }}</option>
                           @endforeach
                       </select>
-                      <label>Fabric Type</label>
+                      <label>*Fabric Type</label>
                     </div>  
 
                     <div class="input-field">
                       <input required id="addSwatchName" name="addSwatchName" type="text" class="validateSwatchName">
-                      <label for="swatch_name">Swatch Name: </label>
+                      <label for="swatch_name">*Swatch Name: </label>
                     </div>    
 
                     <div class="input-field">
                       <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validateSwatchCode">
-                      <label for="swatch_code">Swatch Code: </label>
+                      <label for="swatch_code">*Swatch Code: </label>
                     </div>
 
                     <div class="file-field input-field">
@@ -327,6 +341,7 @@
       $(document).ready(function() {
 
           $('.data-swatches').DataTable();
+          $('select').material_select();
 
       } );
     </script>

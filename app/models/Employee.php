@@ -14,6 +14,7 @@ class Employee extends Eloquent {
 								'strEmpAddress',
 								'strRole',
 								'strCellNo',
+								'strCellNoAlt',
 								'strPhoneNo',
 								'strEmailAdd',
 								'boolIsActive'

@@ -23,7 +23,7 @@
                 <table class="centered" border="1">
                   <thead>
                     <tr>
-                      <th data-field="fabricID">Fabric Type ID</th>
+                      <!--<th data-field="fabricID">Fabric Type ID</th>-->
                       <th data-field="fabricName">Fabric TypeName</th>
                       <th data-field="fabricDesc">Fabric Description</th>     
                       <th>Reactivate</th>   
@@ -33,7 +33,7 @@
                     @foreach($fabricType2 as $fabricType2)
                     @if($fabricType2->boolIsActive == 0)
                       <tr>
-                        <td>{{ $fabricType2->strFabricTypeID }}</td>
+                        <!--<td>{{ $fabricType2->strFabricTypeID }}</td>-->
                         <td>{{ $fabricType2->strFabricTypeName }}</td>
                         <td>{{ $fabricType2->strFabricTypeDesc }}</td>
                         <td>
@@ -69,7 +69,7 @@
        				<table class = "table centered data-fabricType" align = "center" border = "1">
                 <thead>
                   <tr>
-              		  <th data-field="fabricID">Fabric Type ID</th>
+              		  <!--<th data-field="fabricID">Fabric Type ID</th>-->
                     <th data-field="fabricName">Fabric Type Name</th>
               		  <th data-field="fabricDescription">Fabric Description</th>
                     <th data-field="Edit">Action</th>
@@ -82,7 +82,7 @@
                    @foreach($fabricType as $fabricType)
                    @if($fabricType->boolIsActive == 1)
                   <tr>
-              		  <td>{{ $fabricType->strFabricTypeID }}</td>
+              		  <!--<td>{{ $fabricType->strFabricTypeID }}</td>-->
               		  <td>{{ $fabricType->strFabricTypeName }}</td>
               		  <td>{{ $fabricType->strFabricTypeDesc}}</td>
               		  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of fabric type" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button></td>
@@ -94,18 +94,22 @@
                         <p>
                         <form action="{{URL::to('editFabricType')}}" method="POST">
                         <div class="input-field">
-                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="validate" readonly="">
+
+                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="" readonly="">
                           <label for="fabric_typeId">Fabric Type ID: </label>
+
+                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="hidden">
+
                         </div>
 
                         <div class="input-field">
                           <input required value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validateTypeName">
-                          <label for="fabrictype_name">Fabric Type Name: </label>
+                          <label for="fabrictype_name">*Fabric Type Name: </label>
                         </div>
 
                         <div class="input-field">
                           <input required value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validateTypeDesc">
-                          <label for="fabrictype_description">Fabric Desription: </label>
+                          <label for="fabrictype_description">*Fabric Desription: </label>
                         </div>  
                         </p>
                       </div>
@@ -125,8 +129,12 @@
                         <p>
                          <form action="{{URL::to('delFabricType')}}" method="POST">
                           <div class="input-field">
+
                             <label for="first_name">Fabric Type ID: </label>
-                            <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="text" class="validate" readonly>
+                            <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="text" class="" readonly>
+
+                            <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="hidden">
+
                           </div>
 
                           <div class="input-field">
@@ -164,19 +172,24 @@
                 <h5><font color = "#1b5e20"><center>Add Fabric Type</center> </font> </h5> 
                 <div class="modal-content">
                 <p>           
+
                   <div class="input-field">
-                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="validate" readonly>
+                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="" readonly>
                     <label for="fabrictype_id">Fabric ID: </label>
+
+                 <div class="input-field">
+                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="hidden">
+
                   </div>
 
                   <div class="input-field">
                     <input required id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validateTypeName">
-                    <label for="fabrictype_name">Fabric Name: </label>
+                    <label for="fabrictype_name">*Fabric Name: </label>
                   </div>
 
                   <div class="input-field">
                     <input required id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validateTypeDesc">
-                    <label for="fabrictype_description">Fabric Desription: </label>
+                    <label for="fabrictype_description">*Fabric Desription: </label>
                   </div>
 
                 </p>
@@ -250,6 +263,7 @@
       $(document).ready(function() {
 
           $('.data-fabricType').DataTable();
+          $('select').material_select();
 
       } );
     </script>

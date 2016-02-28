@@ -65,6 +65,7 @@ class EmployeeController extends BaseController{
 			'strEmpAddress' => Input::get('addAddress'),			
 			'strRole' => Input::get('addRoles'), 
 			'strCellNo' => Input::get('addCellNo'),
+			'strCellNoAlt' => Input::get('addCellNoAlt'),
 			'strPhoneNo' => Input::get('addPhoneNo'),
 			'strEmailAdd' => Input::get('addEmail'),
 			'boolIsActive' => 1
@@ -76,14 +77,24 @@ class EmployeeController extends BaseController{
 
 	public function addRole()
 	{	
-		$role = Role::create(array(
+		$rol = Role::all();
+		$isAdded = FALSE;
+
+		foreach ($rol as $rol)
+			if(strcasecmp($rol->strEmpRoleName, Input::get('addRoleName')))
+				$isAdded = TRUE;
+
+		if(!$isAdded){
+			$role = Role::create(array(
 			'strEmpRoleID' => Input::get('addRoleID'),
 			'strEmpRoleName' => Input::get('addRoleName'),
 			'strEmpRoleDesc' => Input::get('addRoleDescription'),
 			'boolIsActive' => 1
 			));
 
-		$role->save();
+			$role->save();
+		}
+		
 		return Redirect::to('/employeeRole');
 	}
 
@@ -100,6 +111,7 @@ class EmployeeController extends BaseController{
 		$employee->strEmpAddress = Input::get('editAddress');
 		$employee->strRole = Input::get('editRoles');
 		$employee->strCellNo = Input::get('editCellNo');
+		$employee->strCellNoAlt = Input::get('editCellNoAlt');
 		$employee->strPhoneNo = Input::get('editPhoneNo');
 		$employee->strEmailAdd = Input::get('editEmail');
 

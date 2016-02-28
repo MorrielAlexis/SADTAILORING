@@ -90,6 +90,7 @@
                   <th data-field="address">Address</th>
                   <th data-field="email">Email Address</th>
                   <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="cellphone">Cellphone No. (alt) </th>
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="Edit">Edit</th>
                   <th data-field="Delete">Delete</th>
@@ -108,6 +109,7 @@
                   <td>{{ $individual->strCustPrivAddress }} </td>
                   <td>{{ $individual->strCustPrivEmailAddress}}</td>                  
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
+                  <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
                   <td>{{ $individual->strCustPrivLandlineNumber }}</td>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of customer" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete customer from table" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
@@ -119,40 +121,45 @@
                         <p>
                         <form action="{{URL::to('editCustPrivIndiv')}}" method="POST">
                         <div class="input-field">                 
-                          <input value="{{$individual->strCustPrivIndivID}}" id="editIndiID" name="editIndiID" type="text" class="validate" readonly>
+                          <input value="{{$individual->strCustPrivIndivID}}" id="editIndiID" name="editIndiID" type="text" class="" readonly>
                           <label for="indi_id">Individual ID: </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editFName" name = "editFName" value = "{{$individual->strCustPrivFName}}" type="text" class="validateFirst">
-                          <label for="first_name"> First Name: </label>
+                          <label for="first_name"> *First Name: </label>
                         </div>
 
                         <div class="input-field">
-                          <input  required id="editMName" name = "editMName" value = "{{$individual->strCustPrivMName}}" type="text" class="validateMiddle">
+                          <input  id="editMName" name = "editMName" value = "{{$individual->strCustPrivMName}}" type="text" class="validateMiddle">
                           <label for="middle_name"> Middle Name: </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editLName" name = "editLName" value = "{{$individual->strCustPrivLName}}" type="text" class="validateLast">
-                          <label for="last_name"> Last Name </label>
+                          <label for="last_name"> *Last Name </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validateAddress">
-                          <label for="address"> Address: </label>
+                          <label for="address"> *Address: </label>
                         </div>
 
                         <div class="input-field">
                           <input id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validateEmail">
-                          <label for="email"> Email Address: </label>
+                          <label for="email"> *Email Address: </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editCel" name = "editCel" value = "{{$individual->strCustPrivCPNumber}}" type="text" class="validateCell" maxlength="11">
-                          <label for="cellphone"> Cellphone Number: </label>
+                          <label for="cellphone"> *Cellphone Number: </label>
                         </div>
                       
+                        <div class="input-field">
+                          <input id="editCelAlt" name = "editCelAlt" value = "{{$individual->strCustPrivCPNumberAlt}}" type="text" class="validateCellAlt" maxlength="11">
+                          <label for="cellphone"> *Cellphone Number: (alternate)</label>
+                        </div>
+
                         <div class="input-field">
                           <input id="editPhone" name = "editPhone" value = "{{$individual->strCustPrivLandlineNumber}}" type="text" class="validatePhone" maxlength="10">
                           <label for="tel"> Telephone Number: </label>
@@ -226,38 +233,43 @@
 
                 <form action="{{URL::to('addCustPrivIndiv')}}" method="POST">
                 <div class="input-field">                 
-                  <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="validate" readonly>
+                  <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="" readonly>
                   <label for="indi_id">Individual ID: </label>
                 </div>
 
                 <div class="input-field">
                   <input required id="addFName" name = "addFName" type="text" class="validateFirst">
-                  <label for="first_name"> First Name: </label>
+                  <label for="first_name"> *First Name: </label>
                 </div>
 
                 <div class="input-field">
-                  <input required id="addMName" name = "addMName" type="text" class="validateMiddle">
+                  <input id="addMName" name = "addMName" type="text" class="validateMiddle">
                   <label for="middle_name"> Middle Name: </label>
                 </div>
 
                 <div class="input-field">
                   <input required id="addLName" name = "addLName" type="text" class="validateLast">
-                  <label for="last_name"> Last Name </label>
+                  <label for="last_name"> *Last Name </label>
                 </div>
 
                 <div class="input-field">
                   <input id="addAddress" name = "addAddress" type="text" class="validateAddress">
-                  <label for="address"> Address: </label>
+                  <label for="address"> *Address: </label>
                 </div>
 
                 <div class="input-field">
-                  <input id="addEmail" name = "addEmail" type="text" class="validateEmail">
-                  <label for="email"> Email Address: </label>
+                  <input required id="addEmail" name = "addEmail" type="text" class="validateEmail">
+                  <label for="email"> *Email Address: </label>
                 </div>
 
                 <div class="input-field">
                   <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11">
-                  <label for="cellphone"> Cellphone Number: </label>
+                  <label for="cellphone"> *Cellphone Number: </label>
+                </div>
+
+                <div class="input-field">
+                  <input id="addCelAlt" name = "addCelAlt" type="text" class="validateCellAlt" maxlength="11">
+                  <label for="cellphone"> Cellphone Number: (alternate)</label>
                 </div>
 
                 <div class="input-field">
@@ -317,12 +329,12 @@
         else{input.removeClass("valid").addClass("invalid");}
       });
 
-      $('.validateMiddle').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
+      // $('.validateMiddle').blur('input', function() {
+      //   var input=$(this);
+      //   var is_name=input.val();
+      //   if(is_name){input.removeClass("invalid").addClass("valid");}
+      //   else{input.removeClass("valid").addClass("invalid");}
+      // });
 
       $('.validateLast').on('input', function() {
         var input=$(this);
@@ -361,6 +373,14 @@
         else{input.removeClass("valid").addClass("invalid");}
       });
 
+       $('.validateEmail').blur('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+
       $('.validateCell').on('input', function() {
         var input=$(this);
         var is_name=input.val();
@@ -369,6 +389,18 @@
       });
 
       $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+      $('.validateCellAlt').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCellAlt').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
       });
@@ -382,6 +414,12 @@
       });
 
        $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
+      });
+
+      $('.validateCellAlt').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
         $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
@@ -406,8 +444,10 @@
       $(document).ready(function() {
 
           $('.data-custInd').DataTable();
+           $('select').material_select();
 
       } );
+
     </script>
 
       <!--TOOLTIP SCRIPT-->

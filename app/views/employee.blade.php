@@ -98,6 +98,7 @@
                   <th data-field="address">Address</th>
                   <th data-field="Role">Role</th>
                   <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="cellphone">Cellphone No. (alt)</th>
                   <th data-field="Landline">Phone No.</th>
                   <th data-field="email">Email Address</th>
                   <th data-field="Edit">Action</th>
@@ -122,6 +123,7 @@
                   <td>{{ $employee->strEmpAddress }} </td>
                   <td>{{ $employee->strEmpRoleName}}</td>                  
                   <td>{{ $employee->strCellNo }}</td> 
+                  <td>{{ $employee->strCellNoAlt }}</td> 
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
               		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of employee" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
@@ -136,32 +138,32 @@
 
                           <div class="input-field">
                             <label for="first_name">Employee ID: </label>
-                            <input value="{{$employee->strEmployeeID}}" id="editEmpID" name="editEmpID" type="text" class="validate" readonly>
+                            <input value="{{$employee->strEmployeeID}}" id="editEmpID" name="editEmpID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
                             <input required value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validateFirst">
-                            <label for="first_name">Employee First Name: </label>
+                            <label for="first_name">*Employee First Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpMName}}" id="editMiddleName" name="editMiddleName" type="text" class="validateMiddle">
+                            <input value="{{$employee->strEmpMName}}" id="editMiddleName" name="editMiddleName" type="text" class="validateMiddle">
                             <label for="middle_name">Employee Middle Name: </label>
                           </div>
 
                           <div class="input-field">
                             <input required value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validateLast">
-                            <label for="LastName">Employee Last Name: </label>
+                            <label for="LastName">*Employee Last Name: </label>
                           </div>
 
                           <div class="input-field">
                             <input required value="{{$employee->strEmpAddress}}" id="editAddress" name="editAddress" type="text" class="validateAddress">
-                            <label for="Address">Address: </label>
+                            <label for="Address">*Address: </label>
                           </div>
 
                           <div class="input-field">
                             <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge" maxlength="3">
-                            <label for="Age">Age: </label>
+                            <label for="Age">*Age: </label>
                           </div>  
 
                           <div class="input-field">                                                    
@@ -193,7 +195,12 @@
 
                           <div class="input-field">
                             <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell" maxlength="11">
-                            <label for="cellphone_number">Cellphone Number: </label>
+                            <label for="cellphone_number">*Cellphone Number: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input value="{{$employee->strCellNoAlt}}" id="editCellNoAlt" name="editCellNoAlt" type="text" class="validateCellAlt" maxlength="11">
+                            <label for="cellphone_number">Cellphone Number: (alternate)</label>
                           </div>
 
                           <div class="input-field">
@@ -202,7 +209,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
+                            <input  value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
                             <label for="email">Email Address: </label>
                           </div>
                           </p>
@@ -224,21 +231,21 @@
                     
                             <div class="input-field">
                               <label for="first_name">Employee ID: </label>
-                              <input value="{{$employee->strEmployeeID}}" id="delEmpID" name="delEmpID" type="text" class="validate" readonly>
+                              <input value="{{$employee->strEmployeeID}}" id="delEmpID" name="delEmpID" type="text" class="" readonly>
                             </div>
 
                             <div class="input-field">
-                              <input value="{{$employee->strEmpFName}}" id="delFirstName" name="delFirstName" type="text" class="validate" readonly>
+                              <input value="{{$employee->strEmpFName}}" id="delFirstName" name="delFirstName" type="text" class="" readonly>
                               <label for="first_name">Employee First Name: </label>
                             </div>
 
                             <div class="input-field">
-                              <input value="{{$employee->strEmpMName}}" id="delMiddleName" name="delMiddleName" type="text" class="validate" readonly>
+                              <input value="{{$employee->strEmpMName}}" id="delMiddleName" name="delMiddleName" type="text" class="" readonly>
                               <label for="middle_name">Employee Middle Name: </label>
                             </div>
 
                             <div class="input-field">
-                              <input value="{{$employee->strEmpLName}}" id="delLastName" name="delLastName" type="text" class="validate" readonly>
+                              <input value="{{$employee->strEmpLName}}" id="delLastName" name="delLastName" type="text" class="" readonly>
                               <label for="LastName">Employee Last Name: </label>
                             </div>
 
@@ -275,7 +282,7 @@
 
                   <div class="input-field">
                     <label for="empID">Employee ID: </label>
-                    <input value="{{$newID}}" id="addEmpID" name="addEmpID" type="text" class="validate" readonly>                      
+                    <input value="{{$newID}}" id="addEmpID" name="addEmpID" type="text" class="" readonly>                      
                   </div>
 
                   <div class="input-field">
@@ -284,8 +291,8 @@
                   </div>
 
                   <div class="input-field">
-                    <input required id="addMiddleName" name="addMiddleName" type="text" class="validateMiddle">
-                    <label for="middle_name">*Middle Name: </label>
+                    <input id="addMiddleName" name="addMiddleName" type="text" class="validateMiddle">
+                    <label for="middle_name">Middle Name: </label>
                   </div>
 
                   <div class="input-field">
@@ -325,6 +332,12 @@
                   <div class="input-field">
                     <input required id="addCellNo" name="addCellNo" type="text" class="validateCell" maxlength="11">
                     <label for="cellphone_number">*Cellphone Number: </label>
+                    <span id="left"></span>
+                  </div>
+
+                  <div class="input-field">
+                    <input id="addCellNoAlt" name="addCellNoAlt" type="text" class="validateCellAlt" maxlength="11">
+                    <label for="cellphone_number">Cellphone Number: (alternate) </label>
                     <span id="left"></span>
                   </div>
 
@@ -415,12 +428,12 @@
         else{input.removeClass("valid").addClass("invalid");}
       });
 
-      $('.validateMiddle').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
+      // $('.validateMiddle').blur('input', function() {
+      //   var input=$(this);
+      //   var is_name=input.val();
+      //   if(is_name){input.removeClass("invalid").addClass("valid");}
+      //   else{input.removeClass("valid").addClass("invalid");}
+      // });
 
       $('.validateLast').on('input', function() {
         var input=$(this);
@@ -486,6 +499,19 @@
         $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
       });
 
+      $('.validateCellAlt').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCellAlt').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
+      });
+
       //Validate Blank
       $('.validateCell').blur('input', function() {
         var input=$(this);
@@ -534,6 +560,7 @@
       $(document).ready(function() {
 
           $('.data-reactEmployee').DataTable();
+          $('select').material_select();
 
       } );
 

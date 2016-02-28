@@ -23,6 +23,7 @@ class TblCustCompany extends Migration {
 			$table->string('strCustCompanyEmailAddress')->nullable()->change();
 			$table->string('strCustCompanyTelNumber')->nullable()->change();
 			$table->string('strCustCompanyCPNumber');
+			$table->string('strCustCompanyCPNumberAlt')->nullable();
 			$table->string('strCustCompanyFaxNumber')->nullable()->change();
 			$table->boolean('boolIsActive');
 			$table->timestamps();

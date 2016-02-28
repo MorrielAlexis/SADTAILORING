@@ -10,9 +10,16 @@
     <!--Measurement Tabs-->
       <div class="col s12" id="measurements" name="measurements">
         <ul class="tabs">
+<<<<<<< HEAD
           <li class="tab col s3"><a style="color:black; padding-top:5px" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Contains parts being measured" href="#tabDetails"><b>Details</b></a></li>
           <div style="border: 1px solid white" class="divider"></div>
           <li class="tab col s3"><a style="color:black; padding-top:5px" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Contains measurement detail about a particular garment" href="#tabCategory"><b>Category</b></a></li>
+=======
+          <li id="detailTab" class="tab col s3"><a style="color:teal" href="#tabDetails"><b>Details</b></a></li>
+          <div style="border: 1px solid white" class="divider"></div>
+          <li id="categoryTab" class="tab col s3"><a style="color:teal" href="#tabCategory"><b>Category</b></a></li>
+          <div class="indicator white" style="z-index:1"></div>
+>>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
         </ul>
     
     
@@ -29,12 +36,17 @@
 
             <div class="row">
               <div class="col s12 m12 l12">
+<<<<<<< HEAD
                 <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new measurement information to the table" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
                 <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted measurement information from the table" href="#modal1">VIEW INACTIVE MEASUREMENT INFO</button>
+=======
+                <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
+>>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
               </div>
             </div>
           </div>
 
+<<<<<<< HEAD
 
           <!--MODAL: VIEW INACTIVE MEASUREMENT INFO-->
   <div id="modal1" class="modal modal-fixed-footer">
@@ -77,12 +89,15 @@
     </div>
   </div>
 
+=======
+>>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
           <div class="row">
             <div class="col s12 m12 l12">
               <div class="card-panel">
                 <span class="card-title"><h5><center>Measurement Category</center></h5></span>
                 <div class="divider"></div>
                 <div class="card-content">
+<<<<<<< HEAD
  
                   <div class="col s12 m12 l12 overflow-x">
                   <table class = "table centered data-measHead" align = "center" border = "1">
@@ -207,14 +222,94 @@
                       @endforeach
                     </tbody>
                   </table>
+=======
+>>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
 
+                  <div class="col s12 m12 l12 overflow-x">
+                    <table class = "table centered data-measHead" align = "center" border = "1">
+                      <thead>
+                        <tr>
+                          <th data-field = "MeasurementID"> Measurement ID </th>
+                          <th data-field="Garmentcategory">Garment Category</th>
+                          <th data-field="Garmentcategory">Segment</th>
+                          <th data-field="MeasurementName">Measurement Name</th>
+                          <th data-field="MeasurementName">Action</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>   
+                          <td>strMeasurementID</td>
+                          <td>strGarmentCategoryName</td>
+                          <td>strGarmentSegmentName</td>
+                          <td>strMeasurementDetailName</td>
+                          <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editMeasurementCat">EDIT</button></td>
+                          
+
+                            <div id="editMeasurementCat" class="modal modal-fixed-footer">
+                              <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
+                              <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
+                                <div class="modal-content"> 
+                                  <p>
+                                  
+                                    <div class="input-field">
+                                      <input value="editMeasurementID" id="editMeasurementID" name="editMeasurementID" type="text" readonly>
+                                      <label for="measurement_id">Measurement ID: </label>
+                                    </div>
+
+                                    <div class="input-field">                                                    
+                                      <select required name='editCategory'>
+                                        <option value="" disabled selected>Choose your Category</option>
+                                        <option value="1">Uniform</option>
+                                        <option value="2">Tuxedo</option>
+                                        <option value="3">Gowns</option>                                        
+                                      </select>    
+                                      <label>Category</label>
+                                    </div>       
+                          
+                                    <div class="input-field">                                                    
+                                      <select required name='editSegment'>
+                                  
+                                        <option value="" disabled selected>Choose your Segment</option>
+                                        <option value="1">Long Sleeve</option>
+                                        <option value="2">Coat</option>
+                                        <option value="3">Pants</option>
+                                         
+                                      </select>    
+                                      <label>Segment</label>
+                                    </div>     
+
+                                    <div class="input-field">                                                    
+                                        
+                                      <select multiple name='editMeasurementTaken' id='editMeasurementTaken' required>
+                                 
+                                        <option value="" disabled selected>Choose Measurement</option>
+                                        <option value="1">Shoulder</option>
+                                        <option value="2">Chest</option>
+                                        <option value="3">Hip</option>
+                                        <option value="3">Waist</option>
+                                         
+                                      </select>   
+                                      <label>Measurement Taken</label> 
+                                    </div>   
+                                  </p>
+                                </div> 
+
+                                <div class="modal-footer">
+                                  <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
+                                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                                </div>
+                              </form>
+                            </div>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
 
                   <div class = "clearfix">
 
                   </div>
 
-                    <!--add-->
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Add Measurement Information</center> </font> </h5> 
                     
@@ -222,42 +317,46 @@
                         <p>
                           <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
                           <div class="input-field">
-                            <input value="{{$categoryNewID}}" id="addMeasurementID" name="addMeasurementID" type="text" class="validate" readonly>
+                            <input value="addMeasurementID" id="addMeasurementID" name="addMeasurementID" type="text" readonly>
                             <label for="measurement_id">Measurement ID: </label>
                           </div>
-   
-                          <div class="input-field">
-                            <select name='addCategory' id='addCategory' required>
-                                @foreach($category as $category)
-                                  @if($category->boolIsActive == 1)
-                                    <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
-                                  @endif
-                                @endforeach
-                            </select>   
+
+                          <div class="input-field">                                                    
+                            <select required name='addCategory'>
+                              <option value="" disabled selected>Choose your Category</option>
+                              <option value="1">Uniform</option>
+                              <option value="2">Tuxedo</option>
+                              <option value="3">Gowns</option>                                        
+                            </select>    
                             <label>Category</label>
-                          </div>   
-
-                          <div class="input-field">
-                            <select name='addSegment' id='addSegment' required>
-                                @foreach($segment as $segment)
-                                  @if($segment->boolIsActive == 1)
-                                    <option value="{{ $segment->strGarmentSegmentID }}">{{ $segment->strGarmentSegmentName }}</option>
-                                  @endif
-                                @endforeach
-                            </select>   
+                          </div>       
+                
+                          <div class="input-field">                                                    
+                            <select required name='addSegment'>
+                        
+                              <option value="" disabled selected>Choose your Segment</option>
+                              <option value="1">Long Sleeve</option>
+                              <option value="2">Coat</option>
+                              <option value="3">Pants</option>
+                               
+                            </select>    
                             <label>Segment</label>
-                          </div>    
+                          </div>     
 
-                          <div class="input-field">
-                            <select name='addDetail' id='addDetail' required>
-                                @foreach($detailList as $detailList)
-                                  @if($detailList->boolIsActive == 1)
-                                    <option value="{{ $detailList->strMeasurementDetailID }}">{{ $detailList->strMeasurementDetailName }}</option>
-                                  @endif
-                                @endforeach
-                            </select>  
-                            <label>Detail</label>
+                          <div class="input-field">                                                    
+                              
+                            <select multiple name='addMeasurementTaken' id='addMeasurementTaken' required>
+                       
+                              <option value="" disabled selected>Choose Measurement</option>
+                              <option value="1">Shoulder</option>
+                              <option value="2">Chest</option>
+                              <option value="3">Hip</option>
+                              <option value="3">Waist</option>
+                               
+                            </select>   
+                            <label>Measurement Taken</label> 
                           </div>
+                         
                         </p>                       
                       </div>
 
@@ -266,11 +365,11 @@
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                       </div>
                     </form>
-                  </div>        
-                </div>
+                  </div> 
+                </div> 
               </div>
-            </div> 
-          </div>  
+            </div>
+          </div>
         </div>
       
         <!--END OF MEASUREMENT CATEGORY-->
@@ -301,7 +400,6 @@
                   <table class = "table centered data-measDet" align = "center" border = "1">
                     <thead>
                       <tr>
-                        <th data-field="id">Measurement Part ID</th>
                         <th data-field="name">Measurement Name</th>
                         <th data-field="description">Measurement Description</th>
                         <th data-field="action">Edit</th>
@@ -313,7 +411,6 @@
                       @foreach($detail as $detail)
                       @if($detail->boolIsActive == 1)
                       <tr>
-                        <td>{{ $detail->strMeasurementDetailID }}</td>
                         <td>{{ $detail->strMeasurementDetailName }}</td>
                         <td>{{ $detail->strMeasurementDetailDesc }}</td>
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement detail" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
@@ -325,18 +422,18 @@
                               <div class="modal-content">
                                 <p>
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text" class="validate" readonly>
+                                    <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text"  readonly>
                                     <label for="measurement_id">Measurement ID: </label>
                                   </div>
 
                                   <div class="input-field">
                                     <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
-                                    <label for="measurement_name"> Measurement Name: </label>
+                                    <label for="measurement_name"> *Measurement Name: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
-                                    <label for="measurement_desc">Measurement Description: </label>
+                                    <input required value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
+                                    <label for="measurement_desc">*Measurement Description: </label>
                                   </div>
                                 </p>
                               </div>
@@ -355,17 +452,17 @@
                               <div class="modal-content">
                                 <p>
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="text" class="validate" readonly>
+                                    <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="text"  readonly>
                                     <label for="measurement_id">Measurement ID: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailName }}" type="text" class="validate" readonly>
+                                    <input value="{{ $detail->strMeasurementDetailName }}" type="text"  readonly>
                                     <label for="measurement_name"> Measurement Name: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailDesc }}"type="text" class="validate" readonly>
+                                    <input value="{{ $detail->strMeasurementDetailDesc }}"type="text"  readonly>
                                     <label for="measurement_desc">Measurement Description: </label>
                                   </div>
                                 </p>
@@ -396,18 +493,18 @@
                         <p>
 
                           <div class="input-field">
-                            <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text" class="validate" readonly>
+                            <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text"  readonly>
                             <label for="measurement_id">Measurement ID: </label>
                           </div>
 
                           <div class="input-field">
                             <input required id="addDetailName" name= "addDetailName" type="text" class="validateDetailName" >
-                            <label for="measurement_name"> Measurement Name: </label>
+                            <label for="measurement_name"> *Measurement Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input  id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
-                            <label for="measurement_desc">Measurement Description: </label>
+                            <input required id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
+                            <label for="measurement_desc">*Measurement Description: </label>
                           </div>
                         </p>
                       </div>
@@ -492,6 +589,8 @@
       $(document).ready(function() {
           $('.data-measDet').DataTable();
           $('.data-measHead').DataTable();
+          $('select').material_select();
+
           
 
       } );

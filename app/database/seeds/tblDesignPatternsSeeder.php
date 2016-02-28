@@ -10,6 +10,7 @@ class tblDesignPatternsSeeder extends Seeder{
 			array(
 
 				'strDesignPatternID' => 'SPAT001',
+				'strDesignCategory' => 'GARM001',
 				'strDesignSegmentName' => 'SEGM001',		
 				'strPatternName' =>'Pencil Cut',
 				'strPatternImage' => '',
@@ -20,7 +21,8 @@ class tblDesignPatternsSeeder extends Seeder{
 			array(
 
 				'strDesignPatternID' => 'SPAT002',
-				'strDesignSegmentName' => 'SEGM002',
+				'strDesignCategory' => 'GARM001',
+				'strDesignSegmentName' => 'SEGM001',
 				'strPatternName' =>'Slim Fit',
 				'strPatternImage' => '',
 				'boolIsActive' => '1'

@@ -36,30 +36,41 @@ class CatalogueController extends BaseController{
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgCatalogue';
 
-		if($file == '' || $file == null){
-			$catalogue = Catalogue::create(array(
-			'strCatalogueID' => Input::get('addCatalogueID'),
-			'strCatalogueCategory' => Input::get('addCategory'),
-			'strCatalogueName' => Input::get('addCatalogueName'),
-			'strCatalogueDesc' => Input::get('addCatalogueDesc'),
-			'boolIsActive' => 1
-			));
-		}else{
-			$extension = Input::file('addImg')->getClientOriginalExtension();
-			$fileName = $file;
-			Input::file('addImg')->move($destinationPath, $fileName);
+		$ctlg = Catalogue::all();
+		$isAdded = FALSE;
 
-			$catalogue = Catalogue::create(array(
-			'strCatalogueID' => Input::get('addCatalogueID'),
-			'strCatalogueCategory' => Input::get('addCategory'),
-			'strCatalogueName' => Input::get('addCatalogueName'),
-			'strCatalogueDesc' => Input::get('addCatalogueDesc'),
-			'strCatalogueImage' => 'imgCatalogue/'.$fileName ,
-			'boolIsActive' => 1
+		foreach ($ctlg as $ctlg)
+			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory')) && 
+			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))))
+			   		$isAdded = TRUE;
+
+		if(!$isAdded){
+			if($file == '' || $file == null){
+				$catalogue = Catalogue::create(array(
+				'strCatalogueID' => Input::get('addCatalogueID'),
+				'strCatalogueCategory' => Input::get('addCategory'),
+				'strCatalogueName' => Input::get('addCatalogueName'),
+				'strCatalogueDesc' => Input::get('addCatalogueDesc'),
+				'boolIsActive' => 1
 			));
+			}else{
+				$extension = Input::file('addImg')->getClientOriginalExtension();
+				$fileName = $file;
+				Input::file('addImg')->move($destinationPath, $fileName);
+
+				$catalogue = Catalogue::create(array(
+				'strCatalogueID' => Input::get('addCatalogueID'),
+				'strCatalogueCategory' => Input::get('addCategory'),
+				'strCatalogueName' => Input::get('addCatalogueName'),
+				'strCatalogueDesc' => Input::get('addCatalogueDesc'),
+				'strCatalogueImage' => 'imgCatalogue/'.$fileName ,
+				'boolIsActive' => 1
+				));
+			}
+			
+			$catalogue->save();
 		}
 		
-		$catalogue->save();
 		return Redirect::to('/catalogue');
 	}
 

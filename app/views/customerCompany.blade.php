@@ -11,8 +11,13 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
+<<<<<<< HEAD
        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new company to the table" href="#addCom">ADD COMPANY Customer</button>
        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted companies from the table" href="#modal1">VIEW ALL INACTIVE CUSTOMERS</button>
+=======
+       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCom">ADD NEW COMPANY</button>
+       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE COMPANY CLIENTS</button>
+>>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
       </div>
     </div>
   </div>
@@ -30,6 +35,7 @@
             <th data-field="contact">Contact Person</th>
             <th data-field="comEmail">Company Email Address</th>
             <th data-field="cellphone">Cellphone No.</th>
+            <th data-field="cellphone">Cellphone No. (alt)</th>
             <th data-field="Landline">Telephone No.</th>
             <th data-field="fax">Fax No.</th>
             <th data-field="react">Reactivate</th>
@@ -45,7 +51,8 @@
                   <td>{{ $company2->strCustCompanyAddress }}</td>
                   <td>{{ $company2->strCustContactPerson }} </td>
                   <td>{{ $company2->strCustCompanyEmailAddress}}</td>                  
-                  <td>{{ $company2->strCustCompanyCPNumber }}</td> 
+                  <td>{{ $company2->strCustCompanyCPNumber }}</td>
+                  <td>{{ $company2->strCustCompanyCPNumberAlt }}</td>  
                   <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
             <td>
@@ -85,6 +92,7 @@
                   <th data-field="contact">Contact Person</th>
                   <th data-field="comEmail">Company Email Address</th>
                   <th data-field="cellphone">Cellphone No.</th>
+                  <th data-field="cellphone">Cellphone No. (alt)</th>
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="fax">Fax No.</th>
                   <th data-field="Edit">Edit</th>
@@ -102,6 +110,7 @@
                   <td>{{ $company->strCustContactPerson }} </td>
                   <td>{{ $company->strCustCompanyEmailAddress}}</td>                  
                   <td>{{ $company->strCustCompanyCPNumber }}</td> 
+                  <td>{{ $company->strCustCompanyCPNumberAlt }}</td> 
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of customer" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
@@ -114,38 +123,43 @@
                         <p>
                         <form action="{{URL::to('editCustCompany')}}" method="POST">
                         <div class="input-field">                 
-                          <input value="{{$company->strCustCompanyID}}" id="editComID" name="editComID" type="text" class="validate" readonly>
+                          <input value="{{$company->strCustCompanyID}}" id="editComID" name="editComID" type="text" class="" readonly>
                           <label for="company_id">Company ID: </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validateComName">
-                          <label for="company_name"> Company Name: </label>
+                          <label for="company_name">*Company Name: </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editAddress" name = "editAddress" value = "{{$company->strCustCompanyAddress}}" type="text" class="validateAddress">
-                          <label for="address"> Address: </label>
+                          <label for="address">*Address: </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validateConPerson">
-                          <label for="company_name"> Contact Person: </label>
+                          <label for="company_name">*Contact Person: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validateEmail">
-                          <label for="com_email_address"> Company Email Address: </label>
+                          <input required id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validateEmail">
+                          <label for="com_email_address">*Company Email Address: </label>
                         </div>
 
                         <div class="input-field">
                           <input required id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validateCell" maxlength="11">
-                          <label for="cellphone"> Cellphone Number: </label>
+                          <label for="cellphone"> *Cellphone Number: </label>
                         </div>
 
                         <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validatePhone" maxlength="10">
-                          <label for="tel"> Telephone Number: </label>
+                          <input id="editCelAlt" name = "editCelAlt" value = "{{$company->strCustCompanyCPNumberAlt}}" type="text" class="validateCellAlt" maxlength="11">
+                          <label for="cellphone"> Cellphone Number: (alternate)</label>
+                        </div>
+
+                        <div class="input-field">
+                          <input required id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validatePhone" maxlength="10">
+                          <label for="tel"> *Telephone Number: </label>
                         </div>
 
                         <div class="input-field">
@@ -169,17 +183,37 @@
                          <form action="{{URL::to('delCustCompany')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Company ID: </label>
-                            <input value="{{$company->strCustCompanyID}}" id="delCompanyID" name="delCompanyID" type="text" class="validate" readonly>
+                            <input value="{{$company->strCustCompanyID}}" id="delCompanyID" name="delCompanyID" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
                             <label for="first_name">Company Name: </label>
-                            <input value="{{$company->strCustCompanyName}}" id="delCompanyName" name="delCompanyName" type="text" class="validate" readonly>
+                            <input value="{{$company->strCustCompanyName}}" id="delCompanyName" name="delCompanyName" type="text" class="" readonly>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$company->strCustContactPerson}}" id="delConPerson" name="delConPerson" type="text" class="validate" readonly>
+                            <input value="{{$company->strCustContactPerson}}" id="delConPerson" name="delConPerson" type="text" class="" readonly>
                             <label for="LastName">Contact Person: </label>
+                          </div>
+
+                            <div class="input-field">
+                            <input required id="delComEmailAddress" name = "delComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="" readonly>
+                            <label for="com_email_address">Company Email Address: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required id="delCel" name = "delCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="" maxlength="11"readonly>
+                            <label for="cellphone"> Cellphone Number: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required id="delPhone" name = "delPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="" maxlength="10" readonly>
+                            <label for="tel"> Telephone Number: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delFax" name = "delFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="" maxlength="9" minlength="9" readonly>
+                            <label for="fax"> Fax Number: </label>
                           </div>
                         </p>
                       </div>
@@ -208,38 +242,43 @@
                 <p>
                 <form action="{{URL::to('addCustCompany')}}" method="POST">
               <div class="input-field">                 
-                <input value="{{$newID}}" id="addComID" name="addComID" type="text" class="validate" readonly>
+                <input value="{{$newID}}" id="addComID" name="addComID" type="text" class="" readonly>
                 <label for="company_id">Company ID: </label>
               </div>
 
               <div class="input-field">
                 <input required id="addComName" name = "addComName" type="text" class="validateComName">
-                <label for="company_name"> Company Name: </label>
+                <label for="company_name"> *Company Name: </label>
               </div>
 
               <div class="input-field">
                 <input required id="addAddress" name = "addAddress" type="text" class="validateAddress">
-                <label for="address"> Address: </label>
+                <label for="address"> *Address: </label>
               </div>
 
               <div class="input-field">
                 <input required id="addConPerson" name = "addConPerson" type="text" class="validateConPerson">
-                <label for="company_name"> Contact Person: </label>
+                <label for="company_name"> *Contact Person: </label>
               </div>
 
               <div class="input-field">
-                <input id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validateEmail">
-                <label for="com_email_address"> Company Email Address: </label>
+                <input required id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validateEmail">
+                <label for="com_email_address"> *Company Email Address: </label>
               </div>
 
               <div class="input-field">
                 <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11" minlength="11">
-                <label for="cellphone"> Cellphone Number: </label>
+                <label for="cellphone"> *Cellphone Number: </label>
+              </div>
+
+              <div class="input-field">
+                <input id="addCelAlt" name = "addCelAlt" type="text" class="validateCellAlt" maxlength="11" minlength="11">
+                <label for="cellphone"> Cellphone Number: (alternate)</label>
               </div>
 
               <div class="input-field">
                 <input  id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10" minlength="10">
-                <label for="tel"> Telephone Number: </label>
+                <label for="tel"> *Telephone Number: </label>
               </div>
 
               <div class="input-field">
@@ -340,6 +379,18 @@
         $(this).val(numbers.replace(/\D/, ''));
       });
 
+      $('.validateCellAlt').on('input', function() {
+        var input=$(this);
+        var is_name=input.val();
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateCellAlt').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
       //Validate Blank
       $('.validateCell').blur('input', function() {
         var input=$(this);
@@ -349,6 +400,12 @@
       });
 
        $('.validateCell').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
+      });
+
+       $('.validateCellAlt').keyup(function() {
         var numbers = $(this).val();
         $(this).val(numbers.replace(/\D/, ''));
         $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
@@ -396,6 +453,7 @@
       $(document).ready(function() {
 
           $('.data-reactcustCompany').DataTable();
+          $('select').material_select();
 
       } );
 

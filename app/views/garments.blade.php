@@ -9,8 +9,13 @@
 
     <div class="row">
       <div class="col s12 m12 l6">
+<<<<<<< HEAD
       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new type of garment to the table" href="#addGCategory">ADD GARMENT CATEGORY</button>
       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted category from the table" href="#modal1">VIEW INACTIVE CATEGORIES</button>
+=======
+      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addGCategory">ADD GARMENT CATEGORY</button>
+      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE GARMENTS</button>
+>>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
      </div>
    </div>
   </div>
@@ -21,8 +26,7 @@
       <table class = "centered" align = "center" border = "1">
         <thead>
           <tr>
-            <th data-field="id">Garment Details ID</th>
-            <th data-field="name">Category Name</th>
+            <!--<th data-field="id">Garment Details ID</th>-->
             <th data-field="name">Category Name</th>
             <th data-field="address">Category Description</th>
             <th>Reactivate</th>
@@ -33,7 +37,7 @@
             @foreach($category2 as $category2)
             @if($category2->boolIsActive == 0)
             <tr>
-              <td>{{ $category2->strGarmentCategoryID }}</td>
+              <!--<td>{{ $category2->strGarmentCategoryID }}</td>-->
               <td>{{ $category2->strGarmentCategoryName }}</td>
               <td>{{ $category2->strGarmentCategoryName }}</td>
               <td>{{ $category2->strGarmentCategoryDesc }}</td>
@@ -69,7 +73,7 @@
             <table class = "table centered data-garments" align = "center" border = "1">
               <thead>
                   <tr>
-                    <th data-field="id">Garment ID</th>
+                    <!--<th data-field="id">Garment ID</th>-->
                     <th data-field="garmentName">Garment Name</th>
                     <th data-field="garmentDescription">Garment Description</th>
                     <th data-field="Edit">Edit</th>
@@ -81,7 +85,7 @@
                 @foreach($category as $category)
                   @if($category->boolIsActive == 1)
                   <tr>
-                    <td>{{ $category->strGarmentCategoryID }}</td>
+                    <!--<td>{{ $category->strGarmentCategoryID }}</td>-->
                     <td>{{ $category->strGarmentCategoryName }}</td>
                     <td>{{ $category->strGarmentCategoryDesc }}</td>
                     <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of category" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
@@ -94,21 +98,26 @@
                           <div class="modal-content">
                             <p> 
                             
+ 
                               <div class="input-field">
-                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="text" class="validate" readonly>
+                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="text" class="" readonly>
                                 <label for="garment_id">Garment ID: </label>
+
+                             <div class="input-field">
+                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
+ 
                               </div>
 
                               <div class="input-field">
                                 <input required value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validateGarmentName">
-                                <label for="garment_name">Garment Name: </label>
+                                <label for="garment_name">*Garment Name: </label>
                               </div>
 
                               <div class="input-field">
                       
-                               <input  value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validateGarmentDesc">
+                               <input required value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validateGarmentDesc">
 
-                                <label for="garment_description">Garment Desription: </label>
+                                <label for="garment_description">*Garment Desription: </label>
                               </div>
                             </p>
                           </div>
@@ -127,18 +136,22 @@
                             <p> 
                             
                               <div class="input-field">
-                                <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="text" class="validate" readonly>
+ 
+                                <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="text" class="" readonly>
                                 <label for="garment_id">Garment ID: </label>
+
+                                <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="hidden">
+ 
                               </div>
 
                               <div class="input-field">
-                                <input required pattern="[A-Za-z\s]+" value="{{ $category->strGarmentCategoryName }}" type="text" class="validate" readonly>
+                                <input required pattern="[A-Za-z\s]+" value="{{ $category->strGarmentCategoryName }}" type="text" class="" readonly>
                                 <label for="garment_name">Garment Name: </label>
                               </div>
 
                               <div class="input-field">
                       
-                               <input  value= "{{ $category->strGarmentCategoryDesc }}" type="text" class="validate" readonly>
+                               <input  value= "{{ $category->strGarmentCategoryDesc }}" type="text" class="" readonly>
 
                                 <label for="garment_description">Garment Desription: </label>
                               </div>
@@ -172,18 +185,22 @@
 
                   <p>               
                     <div class="input-field">
-                      <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="text" class="validate" readonly>
+ 
+                      <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="text" class="" readonly>
                       <label for="garment_id">Garment ID: </label>
+
+                      <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="hidden">
+ 
                     </div>
 
                     <div class="input-field">
                       <input required id="addGarmentName" name="addGarmentName" type="text" class="validateGarmentName">
-                      <label for="garment_name">Garment Name: </label>
+                      <label for="garment_name">*Garment Name: </label>
                     </div>
 
                     <div class="input-field">
-                      <input  id="addGarmentDesc" name="addGarmentDesc" type="text" class="validateGarmentDesc">
-                      <label for="garment_description">Garment Desription: </label>
+                      <input required id="addGarmentDesc" name="addGarmentDesc" type="text" class="validateGarmentDesc">
+                      <label for="garment_description">*Garment Desription: </label>
                     </div>
                   </p>
                 </div>
@@ -274,6 +291,7 @@
       $(document).ready(function() {
 
           $('.data-garments').DataTable();
+          $('select').material_select();
 
       } );
     </script>

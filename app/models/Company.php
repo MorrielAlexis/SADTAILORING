@@ -12,6 +12,7 @@ class Company extends Eloquent {
 								'strCustCompanyEmailAddress',
 								'strCustCompanyTelNumber',
 								'strCustCompanyCPNumber',
+								'strCustCompanyCPNumberAlt',
 								'strCustCompanyFaxNumber',
 								'boolIsActive');
 
