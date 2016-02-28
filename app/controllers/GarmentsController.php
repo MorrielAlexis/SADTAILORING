@@ -119,9 +119,12 @@ class GarmentsController extends BaseController{
 		$seg = Segment::all();
 		$isAdded = FALSE;
 
-		foreach ($seg as $seg)
-			if(strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) & strcasecmp($seg->strCategory, Input::get('addCategory')))
-				$isAdded = TRUE;
+		foreach($seg as $seg){
+			if(strcasecmp($seg->strCategory, Input::get('addCategory')) == 0 &&
+			   strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) == 0){
+					$isAdded = TRUE;
+			}		
+		}
 
 		if(!$isAdded){
 			$segment = Segment::create(array(

@@ -82,7 +82,8 @@ class MeasurementController extends BaseController{
 	}
 
 	public function addCategory()
-	{
+	{	
+		dd(Input::get('addCategory'));
 		$category = MeasurementHead::create(array(
 			'strMeasurementID' => Input::get('addMeasurementID'),
 			'strCategoryName' => Input::get('addCategory'),

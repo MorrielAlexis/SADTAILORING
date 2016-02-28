@@ -120,9 +120,9 @@
                           <select id="editSegment" name="editSegment">
                               @foreach($segment2 as $seg)
                                   @if($pattern->strDesignSegmentName == $seg->strGarmentSegmentID && $seg->boolIsActive == 1)
-                                    <option selected value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
+                                    <option selected value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strDesignCategory }}">{{ $seg->strGarmentSegmentName }}</option>
                                   @elseif($seg->boolIsActive == 1)
-                                    <option value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
+                                    <option value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strDesignCategory }}">{{ $seg->strGarmentSegmentName }}</option>
                                   @endif
                               @endforeach
                           </select>    
@@ -226,7 +226,7 @@
                 </div>
 
                 <div class="input-field">
-                  <select name='addCategory' id='addCategory' required>
+                  <select id="addCategory">
                       @foreach($category as $category)
                         @if($category->boolIsActive == 1)
                           <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
@@ -237,10 +237,10 @@
                 </div>  
 
                 <div class="input-field">
-                  <select required id="addSegment" name="addSegment">
+                  <select id="addSegment">
                         @foreach($segment as $segment)
                           @if($segment->boolIsActive == 1)
-                            <option value="{{ $segment->strGarmentSegmentID }}">{{ $segment->strGarmentSegmentName }}</option>
+                            <option value="{{ $segment->strGarmentSegmentID }}" class="{{ $segment->strCategory }}">{{ $segment->strGarmentSegmentName }}</option>
                           @endif
                         @endforeach
                   </select>
@@ -281,6 +281,65 @@
 @stop 
 
 @section('scripts')
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    
+    <script>
+      // $(document).ready() executes this script AFTER the whole page loads
+      $(document).ready(function () {
+        // Get jQuery object for element with ID as 'category' (first select element)
+        var categoryElement = $('#addCategory');
+
+        // Get jQuery object for element with ID as 'types' (second select element)
+        var typesElement = $('#addSegment');
+
+        // Get children elements of typesElement
+        var typeOptions = typesElement.children();
+
+        // Invoke updateValue() once with initial category value for initial page load
+        updateValue(categoryElement.val());
+
+        // Listen for changes on the categoryElement
+        categoryElement.on('change', function () {
+          // Invoke updateValue() with currently selected category as parameter
+          updateValue(categoryElement.val());
+        });
+
+        // Define default current type
+        var defaultType = '';
+
+        // updateValue function definition
+        function updateValue(category) {
+          // On update, show everything first
+          typeOptions.show();
+
+          // Set default type to empty string for All
+          defaultType = '';
+
+          // If the selected category is all, do not hide anything
+          if (category == 'All') return;
+
+          // Iterate over options (children elements of typesElement)
+          for (var i = 0; i < typeOptions.length; i++) {
+            // Return each child as jQuery object
+            var optionElement = $(typeOptions[i]);
+            console.log(optionElement);
+            // Check class of optionElement, hide it if it's not equal to the current selected category
+            if (!optionElement.hasClass(category)) optionElement.hide();
+
+            // Check class of optionElement if it matches currently selected category AND if defaultType is an empty string,
+            // if the evaluation is true, set defaultType to optionElement value. We do this to set the default value
+            // when we pick another category
+            if (optionElement.hasClass(category) && defaultType == '') defaultType = optionElement.attr('value');
+          }
+
+          // If defaultType is not empty string, set it as typesElement value
+          if (defaultType != '') typesElement.val(defaultType);
+        }
+      });
+    </script>
+
+
      <script>
       $(document).ready(function(){
       $('select').material_select();
@@ -292,7 +351,6 @@
     $('.materialboxed').materialbox();
      });
     </script>
-
     
     <script>
       function clearData(){
@@ -334,5 +392,4 @@
 
       } );
     </script>
-
 @stop
