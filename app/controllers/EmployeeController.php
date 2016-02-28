@@ -71,21 +71,21 @@ class EmployeeController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach($emp as $emp){
-			if(strcmp($emp->strEmpFName, Input::get('addFirstName')) &&
-				    strcmp($emp->strEmpMName, Input::get('addMiddleName')) &&
-					strcmp($emp->strEmpLName, Input::get('addLastName'))){
+			if(strcmp($emp->strEmpFName, Input::get('addFirstName')) == 0 &&
+				    strcmp($emp->strEmpMName, Input::get('addMiddleName')) == 0 &&
+					strcmp($emp->strEmpLName, Input::get('addLastName')) == 0){
 						$isAdded = TRUE;
 				}
 			}
         }
-		
+
 		if(!$isAdded){
 			$employee = Employee::create(array(
 				'strEmployeeID' => Input::get('addEmpID'),
 				'strEmpFName' => Input::get('addFirstName'),	
 				'strEmpMName' => Input::get('addMiddleName'),	
 				'strEmpLName' => Input::get('addLastName'),
-				'dtEmpBday' => Input::get('adddtEmpBday'),
+				'dtEmpBday' => date("Y-m-d", strtotime(Input::get("adddtEmpBday"))),
 				'strSex' => Input::get('addSex'),
 				'strEmpAddress' => Input::get('addAddress'),			
 				'strRole' => Input::get('addRoles'), 

@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="main-wrapper">
-      @if (Input::get('success'))
+      @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel teal">
