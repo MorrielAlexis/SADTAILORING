@@ -150,8 +150,8 @@
                       </div>
 
                           <div class="modal-footer">
-                          <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                            <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                           </div> 
                         </form>
                     </div>
@@ -176,10 +176,10 @@
                   <div class="input-field">
                     <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="" readonly>
                     <label for="fabrictype_id">Fabric ID: </label>
+                  </div>
 
-                 <div class="input-field">
+                  <div class="input-field">
                     <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="hidden">
-
                   </div>
 
                   <div class="input-field">
@@ -191,7 +191,6 @@
                     <input required id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validateTypeDesc">
                     <label for="fabrictype_description">*Fabric Desription: </label>
                   </div>
-
                 </p>
                 </div>
 
