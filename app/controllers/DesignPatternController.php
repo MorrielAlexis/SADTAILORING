@@ -44,8 +44,8 @@ class DesignPatternController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($pat as $pat) 
-			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory') == 0) && 
-			   strcasecmp($pat->strDesignSegmentName, Input::get('addSegment') == 0) && 
+			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory')) == 0 && 
+			   strcasecmp($pat->strDesignSegmentName, Input::get('addSegment')) == 0 && 
 			   strcasecmp($pat->strPatternName, Input::get('addPatternName')) == 0)
 				$isAdded = TRUE;
 
@@ -86,25 +86,38 @@ class DesignPatternController extends BaseController{
 		$id = Input::get('editPatternID');
 		$pattern = DesignPattern::find($id);
 
-		if(Input::get('editImage') == $pattern->strPatternImage){
-			$pattern->strDesignCategory = Input::get('editCategory');
-			$pattern->strDesignSegmentName = Input::get('editSegment');
-			$pattern->strPatternName = Input::get('editPatternName');
-		}else{
-			$file = Input::get('editImage');
-			$destinationPath = 'public/imgDesignPatterns';
-			$extension = Input::file('editImg')->getClientOriginalExtension();
-			$fileName = $file;
-			Input::file('editImg')->move($destinationPath, $fileName);
+		$pat = DesignPattern::all();
+		$isAdded = FALSE;
 
-			$pattern->strDesignCategory = Input::get('editCategory');
-			$pattern->strDesignSegmentName = Input::get('editSegment');
-			$pattern->strPatternName = Input::get('editPatternName');
-			$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
+		foreach ($pat as $pat) 
+			if(strcasecmp($pat->strDesignCategory, Input::get('editCategory')) == 0 && 
+			   strcasecmp($pat->strDesignSegmentName, Input::get('editSegment')) == 0 && 
+			   strcasecmp($pat->strPatternName, Input::get('editPatternName')) == 0)
+				$isAdded = TRUE;
+
+
+		if(!$isAdded){
+			if(Input::get('editImage') == $pattern->strPatternImage){
+				$pattern->strDesignCategory = Input::get('editCategory');
+				$pattern->strDesignSegmentName = Input::get('editSegment');
+				$pattern->strPatternName = Input::get('editPatternName');
+			}else{
+				$file = Input::get('editImage');
+				$destinationPath = 'public/imgDesignPatterns';
+				$extension = Input::file('editImg')->getClientOriginalExtension();
+				$fileName = $file;
+				Input::file('editImg')->move($destinationPath, $fileName);
+
+				$pattern->strDesignCategory = Input::get('editCategory');
+				$pattern->strDesignSegmentName = Input::get('editSegment');
+				$pattern->strPatternName = Input::get('editPatternName');
+				$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
+			}
+				
+
+			$pattern->save();
 		}
-			
 
-		$pattern->save();
 		return Redirect::to('/designPattern');
 	}
 
