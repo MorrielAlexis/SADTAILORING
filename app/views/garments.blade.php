@@ -4,20 +4,22 @@
   <div class="main-wrapper">
     <div class="row">
       <div class="col s12 m12 l12">
-      <span class="page-title"><h4>Garments</h4></span>
+      <span class="page-title"><h4>Garment Categories</h4></span>
     </div>
 
     <div class="row">
       <div class="col s12 m12 l6">
-      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addGCategory">ADD GARMENT CATEGORY</button>
-      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE GARMENTS</button>
+
+      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new type of garment to the table" href="#addGCategory">ADD GARMENT CATEGORY</button>
+      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted category from the table" href="#modal1">VIEW INACTIVE CATEGORIES</button>
+
      </div>
    </div>
   </div>
 
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE GARMENTS</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Garment Categories</center> </font> </h5>
       <table class = "centered" align = "center" border = "1">
         <thead>
           <tr>
@@ -39,7 +41,7 @@
               <td>
                 <form action="{{URL::to('reactGarmentCategory')}}" method="POST">
                   <input type="hidden" id="reactID" name="reactID" value="{{$category2->strGarmentCategoryID}}">
-                  <button type="submit" class="waves-effect waves-light btn btn-small center-text">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of garment category to the table">REACTIVATE</button>
                 </form>
               </td>
             </tr>
@@ -59,7 +61,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card-panel">
-          <span class="card-title"><h5><center>Garments(Category)</center></h5></span>
+          <span class="card-title"><h5 style="color:#1b5e20"><center>Garments(Category)</center></h5></span>
           <div class="divider"></div>
           <div class="card-content">
 
@@ -83,12 +85,12 @@
                     <!--<td>{{ $category->strGarmentCategoryID }}</td>-->
                     <td>{{ $category->strGarmentCategoryName }}</td>
                     <td>{{ $category->strGarmentCategoryDesc }}</td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
-                    <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of category" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete category from the table" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button></td>
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
-                        <font color = "teal"><h5><center>Edit Garment Category </center></h5></font>
+                        <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>
                         <form action="{{URL::to('editGarmentCategory')}}" method="POST">
                           <div class="modal-content">
                             <p> 
@@ -119,7 +121,7 @@
                       </div>
                       <!--///////////////////////DELETE/////////////////////-->
                       <div id="del{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
-                        <font color = "teal"><h5><center>Are you sure you want to delete? </center></h5></font>
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                         <form action="{{URL::to('delGarmentCategory')}}" method="POST">
                           <div class="modal-content">
                             <p> 
@@ -167,7 +169,7 @@
              
          <!--    <Modal for Add Garment Category> -->
             <div id="addGCategory" class="modal modal-fixed-footer">
-              <font color = "teal"><h5><center> Add A Garment Category </center></h5></font>
+              <h5><font color = "#1b5e20"><center>Add Garment Category</center> </font> </h5>
               <form action="{{URL::to('addGarmentCategory')}}" method="POST" id="addGarmentCategory" name="addGarmentCategory"> 
 
                 <div class="modal-content">
@@ -280,4 +282,11 @@
 
       } );
     </script>
+
+          <!--TOOLTIP SCRIPT-->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 50});
+  }); 
+  </script>
 @stop

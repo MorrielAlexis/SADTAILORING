@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'dbtailoring',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'gh05th4ck3r',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -12,24 +12,25 @@
 
     </head>
 
-    <body>
+    <body style="background-color:#b2ff59">
 
-      <header>
-        <div align = "right">
-          <font size = "+3" color = "white" style="margin-right:20px">Tailoring Management System</font>
+    <header>
+        <div class="col s9 right" style="padding-top:7px">
+          <font size = "+2" color = "black" style="margin-right:20px; margin-top:5px;">Tailoring Management System</font>
         </div>
-      </header>
+    </header>
 
-      <nav id="slide-out" class="side-nav fixed" style="position fixed; top: 0; padding-top:0px; margin-top:0px;"> 
+      <nav id="slide-out" class="side-nav fixed" style="position fixed; top: 0; padding-top:0px; margin-top:0px; background:#1b5e20"> 
         <ul id="ul">
-          <li id="admin" class="admin-background">
+          <li id="admin" class="admin-background" align="center">
             <div class="row">
               <div style="height:20px"></div>
-              <div class="col col s4 m4 l4">
-                <img src="img/admin-icon.png" alt="" class="circle responsive-img valign profile-image">
+              <div class="col s12 center">
+                <img src="img/admin-icon.png" alt="" class="circle responsive-img valign profile-image center" style="height:100px; width:100px">
               </div>
+          </li>
 
-              <div>
+              <div class="col s12 center">
                 <ul id="profile-dropdown" class="dropdown-content">
                   <li><a href="#"><i class="mdi-action-face-unlock" style="font-size:15px; margin-top:20px;margin-left:0px;"> Profile</i></a></li>
                   <li><a href="#"><i class="mdi-action-settings" style="font-size:15px; margin-top:20px;margin-left:0px;"> Utils</i></a></li>
@@ -38,79 +39,79 @@
                   <li><a href="#"><i class="mdi-action-lock-outline"style="font-size:15px;margin-top:20px;margin-left:0px;"> Lock</i></a></li>
                   <li><a href="#"><i class="mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
                 </ul>
-                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"><span class="user">Admin</span><i class="mdi-navigation-arrow-drop-down right"></i></a>
+                <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#" data-activates="profile-dropdown"><span class="user" style="color:#cfd8dc"><b>admin<b></span></a>
               </div>
             </div>
-          </li>
 
+          <div style="padding-top:10px"></div>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-              <div class="divider"></div>
-              <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">dashboard</i><b>Dashboard</b></a></li>
-              <div class="divider"></div>
-              <li class="bold"><a class="collapsible-header waves-effect waves-teal {{ Request::is('maintenance/*') ? 'active' : '' }}"><i class="small material-icons">settings</i><b>Maintenance</b></a> 
+             <!-- <div class="divider"></div> -->
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90 "><i class="small material-icons" style="color:#ccff90">dashboard</i><b>Dashboard</b></a></li>
+              <!--<div class="divider"></div>-->
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90"><i class="small material-icons" style="color:#ccff90">settings</i><b>Maintenance</b></a> 
                 <div class="collapsible-body" position = "fixed" style = "display: block;">
                   <ul>
                     <li class="no-padding">
                       <ul class="collapsible collapsible-accordion">
-                        <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal {{ Request::is('maintenance/customerIndividual') || Request::is('maintenance/customerCompany') ? 'active' : '' }}"><b>Customer Profile</b></a>
+                        <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white"><b>Customer Profile</b></a>
                            <div class="collapsible-body">
                             <ul>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('maintenance/customerIndividual')}}">Individual</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('maintenance/customerCompany')}}">Company</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('customerIndividual')}}">Individual</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('customerCompany')}}">Company</a></li>
           	                 <div class="divider"></div>
                             </ul>
                            </div>
                         </li>
 
-                        <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Employee</b></a>
+                        <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white"><b>Employee</b></a>
                           <div class="collapsible-body">
                             <ul> 	
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('employeeRole')}}">Position Roles</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('employee')}}">Employee Profile</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('employeeRole')}}">Position Roles</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('employee')}}">Employee Profile</a></li>
                               <div class="divider"></div>
                             </ul>
                            </div>
                         </li>
 
-  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Garments</b></a>
+  		                  <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white"><b>Garments</b></a>
                           <div class="collapsible-body">
   				                  <ul> 	
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('garments')}}">Category</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('garmentsDetails')}}">Segment</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('designPattern')}}">Segment Pattern</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('measurements')}}">Measurements</a></li> 
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('garments')}}">Category</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('garmentsDetails')}}">Segment</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('designPattern')}}">Segment Pattern</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('measurements')}}">Measurements</a></li> 
                               <div class="divider"></div>
   				                  </ul>
                           </div>
   		                  </li>
 
-  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal"><b>Fabrics & Materials</b></a>
+  		                  <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white"><b>Fabrics & Materials</b></a>
                           <div class="collapsible-body">
   				                  <ul> 	
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('fabricAndMaterialsFabricType')}}">Fabric Types</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('fabricAndMaterialsSwatches')}}">Swatches</a></li>
-                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('fabricAndMaterialsMaterials')}}">Materials</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('fabricAndMaterialsFabricType')}}">Fabric Types</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('fabricAndMaterialsSwatches')}}">Swatches</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('fabricAndMaterialsMaterials')}}">Materials</a></li>
                               <div class="divider"></div>
                             </ul>
                           </div>
                         </li>
 
-  		                  <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal" href="{{URL::to('catalogue')}}"><b>Catalogue</b></a></li>
+  		                  <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white" href="{{URL::to('catalogue')}}"><b>Catalogue</b></a></li>
                       </ul>
                     </li>
                   </ul>
                 </div>
               </li>
     
-              <div class="divider"></div>
-              <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">monetization_on</i><b>Transaction</b></a></li>
-              <div class="divider"></div>
-              <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">assessment</i><b>Queries</b></a></li>
-              <div class="divider"></div>
-              <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">multiline_chart</i><b>Reports</b></a></li>
-              <div class="divider"></div>
-              <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">loyalty</i><b>Utilities</b></a></li>
+              <!--<div class="divider"></div>-->
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90"><i class="small material-icons" style="color:#ccff90">monetization_on</i><b>Transaction</b></a></li>
+              <!--<div class="divider"></div>-->
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90"><i class="small material-icons" style="color:#ccff90">assessment</i><b>Queries</b></a></li>
+              <!--<div class="divider"></div>-->
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90"><i class="small material-icons" style="color:#ccff90">multiline_chart</i><b>Reports</b></a></li>
+              <!--<div class="divider"></div>-->
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90"><i class="small material-icons" style="color:#ccff90">loyalty</i><b>Utilities</b></a></li>
             </ul>
           </li>
         </ul>

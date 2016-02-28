@@ -1,5 +1,5 @@
         header, main, footer {
-      	padding-left: 250px;
+      	padding-left:240px;
     	}
 
     	@media only screen and (max-width : 992px) {
@@ -34,22 +34,22 @@
         }
 
         header{
-            background: teal;
+            background: #689f38;
             width: 100%;
-            height: 60px;
+            height: 50px;
         } 
 
         #slide-out{
             margin-top: 60px;
-            background: white;
+            background: transparent;
         }
 
         #slide-out:hover{
-            background: white;
+            background: transparent;
         }
 
         #slide-out:active{
-            background: white;
+            background: transparent;
         }
 
         img{
@@ -63,7 +63,8 @@
     	}
 
         h4{
-            color: teal;
+            color: black;
+            font-weight: bold;
             margin-left: 20px;
         }
 
@@ -72,43 +73,24 @@
             height: auto;
         }
 
-        tab{
-            color: transparent;
-        }
-
-        #detailTab{
-            background: lavender;
-            border: teal;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 60px;
+        .tab{
+            background: #1a237e;
+            border: gray;
+            border-radius: 4px;
         }   
 
-        #tabDetails{
-            border: 2px solid lavender;
-            background-color: lavender;
-        }
-
-        #categoryTab{
-            background: #bbdefb;
-            border: teal;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 60px;
-        }
-
-        #tabCategory{
-            border: 2px solid #bbdefb;
-            background-color: #bbdefb;
+        .tab:hover{
+            color: #1a237e;
         }
 
         .admin-background{
-            background-image:("admin-background.jpg");
-            color: teal;
-            font-style: bold;
-            height: 100px;
+            background:transparent;
+            color: #1a237e;
+            height: 125px;
         }
 
         .user{
-            color:teal;
+            color:#1a237e;
         }
 
         #admin{
@@ -120,36 +102,36 @@
         }
 
         .small.material-icons{
-            color: teal;
+            color: #1a237e;
         }
 
         #ul{
             list-style-type: none;
-            background: white;
+            background: #1b5e20;
         }
 
         #ul :hover{
-            background: white;
+            background: transparent;
         }
 
         #ul :visited{
-            background: white;
+            background: transparent;
         }
 
         #ul :active{
-            background: white;
+            background: #1b5e20;
         }
 
         #slide-out > li ul li :active{
-            background: white;
+            background: #1b5e20;
         }
 
         #slide-out > li ul li :visited{
-            background: white;
+            background: #1b5e20;
         }
         
         #slide-out > li ul li :hover{
-            background: white;
+            background: #1b5e20;
         }
 
         .modal{
@@ -165,7 +147,7 @@
         }
 
         .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active {
-        background-color: transparent;
+        background: transparent;
         
         }
 

@@ -2,6 +2,7 @@
 @extends('layouts.master')
 
 @section('content')
+
     <div class="main-wrapper">
       @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -21,8 +22,8 @@
 
       <div class="row">
         <div class="col s12 m12 l12">
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCusIndi">ADD INDIVIDUAL CUSTOMER</button>
-          <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE CUSTOMERS </button>
+          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new individual to the table" href="#addCusIndi">ADD INDIVIDUAL CUSTOMER</button>
+          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted individuals from the table" href="#modal1">VIEW INACTIVE CUSTOMERS </button>
         </div>      
       </div>
     </div>
@@ -30,7 +31,7 @@
   <!--MODAL: VIEW ALL EMPLOYEES-->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>INACTIVE CUSTOMERS(IND)</h4>
+      <h5><font color = "#1b5e20"><center>Inactive Customers</center> </font> </h5>
       <table class = "table centered data-custInd" align = "center" border = "1">
         <thead>
           <tr>
@@ -59,7 +60,7 @@
               <td>          
                 <form action="{{URL::to('reactCustPrivIndiv')}}" method="POST">
                   <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactID" name="reactID">
-                  <button type="submit" class="waves-effect waves-green btn btn-small center-text">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
                 </form>
               </td>
           </tr>
@@ -71,7 +72,7 @@
 
     <!--MODAL FOOTER-->
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
+      <a href="#!" style="color:black" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
     
@@ -79,7 +80,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <div class="card-panel">
-          <span class="card-title"><h5><center>List of Individual Customer</center></h5></span>
+          <span class="card-title"><h5 style="color:#1b5e20"><center>Customer Profile - (Individual)</center></h5></span>
           <div class="divider"></div>
 
 
@@ -116,13 +117,13 @@
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
                   <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
                   <td>{{ $individual->strCustPrivLandlineNumber }}</td>
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
-                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of customer" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete customer from table" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
 
 
                     <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                      <div class = "label"><font color = "teal" size = "+3" back >Edit Customer Profile </font> </div>
+                      <h5><font color = "#1b5e20"><center>Edit Individual Profile </center> </font> </h5>
                         <p>
                         <form action="{{URL::to('editCustPrivIndiv')}}" method="POST">
                         <div class="input-field">                 
@@ -173,15 +174,15 @@
                       </div>
 
                       <div class="modal-footer">
-                        <button type="submit" class="waves-effect waves-green btn-flat">Update</button> 
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>    
+                        <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Update</button> 
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>    
                       </div>
                     </form>
                   </div>
 
                     <div id="del{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <font color = "teal"><h5><center>Are you sure you want to delete?</center></h5></font> 
+                        <h5><font color:"#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                         <p>
                          <form action="{{URL::to('delCustPrivIndiv')}}" method="POST">
                           <div class="input-field">
@@ -212,8 +213,8 @@
                         </div>
 
                           <div class="modal-footer">
-                            <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                            <button type="submit" style="color:black" class="modal-action modal-close waves-effect waves-green btn-flat">OK</button>
+                            <a href="#!" style="color:black" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
                     </div>
@@ -232,7 +233,7 @@
              
 
             <div id="addCusIndi" class="modal modal-fixed-footer">
-              <div class = "label"><font color = "teal" size = "+3" back >Add Customer Profile </font> </div>
+              <div class = "label" ><h5><font color = "#1b5e20"><center>Add Individual Profile </center> </font> </h5>
               <div class="modal-content">
                 <p>
 
@@ -457,5 +458,12 @@
 
       } );
 
+    </script>
+
+      <!--TOOLTIP SCRIPT-->
+    <script type="text/javascript">
+         $(document).ready(function(){
+           $('.tooltipped').tooltip({delay: 50});
+          }); 
     </script>
 @stop
