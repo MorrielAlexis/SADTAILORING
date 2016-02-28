@@ -120,7 +120,8 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($seg as $seg)
-			if(strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) & strcasecmp($seg->strCategory, Input::get('addCategory')))
+			if(strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) == 0 && 
+			   strcasecmp($seg->strCategory, Input::get('addCategory')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
