@@ -57,8 +57,8 @@
                         <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white"><b>Customer Profile</b></a>
                            <div class="collapsible-body">
                             <ul>
-                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('customerIndividual')}}">Individual</a></li>
-                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('customerCompany')}}">Company</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('maintenance/customerIndividual')}}">Individual</a></li>
+                              <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('maintenance/customerCompany')}}">Company</a></li>
           	                 <div class="divider"></div>
                             </ul>
                            </div>
