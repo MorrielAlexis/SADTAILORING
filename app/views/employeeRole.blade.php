@@ -29,10 +29,9 @@
       <table class = "table centered data-reactRole" align = "center" border = "1">
             <thead>
               <tr>
-                <th data-field="id">Role ID</th>
-                 <th data-field="name">Role Name</th>
-                <th data-field="address">Role Description</th>
-                 <th data-field="Edit">Reactivate</th>
+                  <th data-field="name">Role Name</th>
+                  <th data-field="address">Role Description</th>
+                  <th data-field="Edit">Reactivate</th>
               </tr>
             </thead>
 
@@ -40,7 +39,6 @@
               @foreach($role2 as $role2)
               @if($role2->boolIsActive == 0)
               <tr>
-                <td>{{ $role2->strEmpRoleID }}</td>
                 <td>{{ $role2->strEmpRoleName }}</td>
                 <td>{{ $role2->strEmpRoleDesc }}</td>
                 <td>
@@ -74,10 +72,9 @@
       		<table class = "table centered data-role" border = "1">
        			<thead>
           		<tr>
-              	<th data-field="id">Role ID</th>
-             		 <th data-field="name">Role Name</th>
-              	<th data-field="address">Role Description</th>
-                 <th data-field="Edit">Action</th>
+             		  <th data-field="name">Role Name</th>
+              	  <th data-field="address">Role Description</th>
+                  <th data-field="Edit">Action</th>
               </tr>
             </thead>
 
@@ -85,7 +82,6 @@
               @foreach($role as $role)
               @if($role->boolIsActive == 1)
               <tr>
-                <td>{{ $role->strEmpRoleID }}</td>
                 <td>{{ $role->strEmpRoleName }}</td>
                 <td>{{ $role->strEmpRoleDesc }}</td>
                 <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of role" href="#edit{{$role->strEmpRoleID}}">EDIT</button>

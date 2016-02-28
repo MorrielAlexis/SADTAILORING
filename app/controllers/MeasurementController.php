@@ -82,16 +82,18 @@ class MeasurementController extends BaseController{
 	}
 
 	public function addCategory()
-	{
-		$category = MeasurementHead::create(array(
-			'strMeasurementID' => Input::get('addMeasurementID'),
-			'strCategoryName' => Input::get('addCategory'),
-			'strSegmentName' => Input::get('addSegment'),
-			'strMeasurementName' => Input::get('addDetail'),
-			'boolIsActive' => 1
+	{	
+			$category = MeasurementHead::create(array(
+				'strMeasurementID' => Input::get('addMeasurementID'),
+				'strCategoryName' => Input::get('addCategory'),
+				'strSegmentName' => Input::get('addSegment'),
+				'strMeasurementName' => Input::get('addDetail'),
+				'boolIsActive' => 1
 			));
 
-		$category->save();
+			$category->save();
+		
+		
 		return Redirect::to('/measurements');
 	}
 

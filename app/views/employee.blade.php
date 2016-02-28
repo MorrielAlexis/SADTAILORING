@@ -24,11 +24,10 @@
       <table class="table centered data-reactEmployee" border="1">
         <thead>
           <tr>
-            <th data-field="id">Employee ID</th>
             <th data-field="firstname">First Name</th>
             <th data-field="middlename">Middle Name</th>
             <th data-field="lastname">Last Name</th>          
-            <th data-field="Age">Age</th>
+            <th data-field="dtEmpBday">Date of Birth</th>
             <th data-field="Sex">Sex</th>
             <th data-field="address">Address</th>
             <th data-field="Role">Role</th>
@@ -43,11 +42,10 @@
           @foreach($employee2 as $employee2)
           @if($employee2->boolIsActive == 0)
             <tr>
-                  <td>{{ $employee2->strEmployeeID }}</td>
                   <td>{{ $employee2->strEmpFName }}</td>
                   <td>{{ $employee2->strEmpMName }}</td>
                   <td>{{ $employee2->strEmpLName }}</td>
-                  <td>{{ $employee2->strEmpAge }} </td>
+                  <td>{{ $employee2->dtEmpBday }} </td>
                   <td>
                     @if($employee2->strSex == 'M') Male
                     @else Female
@@ -89,11 +87,10 @@
       			<table class = "table centered data-employee" border = "1">
        				<thead>
           			<tr>
-                  <th data-field="id">Employee ID</th>
                   <th data-field="firstname">First Name</th>
                   <th data-field="middlename">Middle Name</th>
                   <th data-field="lastname">Last Name</th>          
-                  <th data-field="Age">Age</th>
+                  <th data-field="dtEmpBday">Date of Birth</th>
                   <th data-field="Sex">Sex</th>
                   <th data-field="address">Address</th>
                   <th data-field="Role">Role</th>
@@ -110,11 +107,10 @@
                 @foreach($employee as $employee)
                   @if($employee->boolIsActive == 1)
                 <tr>
-              		<td>{{ $employee->strEmployeeID }}</td>
                   <td>{{ $employee->strEmpFName }}</td>
                   <td>{{ $employee->strEmpMName }}</td>
                   <td>{{ $employee->strEmpLName }}</td>
-                  <td>{{ $employee->strEmpAge }} </td>
+                  <td>{{ $employee->dtEmpBday }} </td>
                   <td>
                     @if($employee->strSex == 'M') Male
                     @else Female
@@ -161,9 +157,9 @@
                             <label for="Address">*Address: </label>
                           </div>
 
-                          <div class="input-field">
-                            <input required value="{{$employee->strEmpAge}}" id="editAge" name="editAge" type="text" class="validateAge" maxlength="3">
-                            <label for="Age">*Age: </label>
+                          <div>
+                            <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
+                            <input id="editdtEmpBday" name="editdtEmpBday" type="date" class = "datepicker">
                           </div>  
 
                           <div class="input-field">                                                    
@@ -305,10 +301,10 @@
                     <label for="Address">*Address: </label>
                   </div>
 
-                  <div class="input-field">
-                    <input required id="addAge" name="addAge" type="text" class="validateAge" maxlength="3">
-                    <label for="Age">*Age: </label>
-                  </div>  
+                  <div>
+                    <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
+                    <input id="adddtEmpBday" name="adddtEmpBday" type="date" class = "datepicker">
+                  </div>
 
                   <div class="input-field">
                     <select name='addRoles' id='addRoles' required>
@@ -479,13 +475,6 @@
         $(this).val(numbers.replace(/\D/, ''));
       });
 
-      $('.validateAge').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
       $('.validateCell').on('input', function() {
         var input=$(this);
         var is_name=input.val();
@@ -566,10 +555,20 @@
 
     </script>
 
+<<<<<<< HEAD
       <!--TOOLTIP SCRIPT-->
 <script type="text/javascript">
     $(document).ready(function(){
       $('.tooltipped').tooltip({delay: 50});
   }); 
 </script>
+=======
+    <script type="text/javascript">
+      $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+      });
+        
+    </script>
+>>>>>>> 6a78a0181aab3571dbd9e34c945396fdc110a77e
 @stop

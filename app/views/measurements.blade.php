@@ -229,7 +229,6 @@
                     <table class = "table centered data-measHead" align = "center" border = "1">
                       <thead>
                         <tr>
-                          <th data-field = "MeasurementID"> Measurement ID </th>
                           <th data-field="Garmentcategory">Garment Category</th>
                           <th data-field="Garmentcategory">Segment</th>
                           <th data-field="MeasurementName">Measurement Name</th>
@@ -238,11 +237,12 @@
                       </thead>
 
                       <tbody>
+                        @foreach($head as $head)
+                        @if($head->boolIsActive == 1)
                         <tr>   
-                          <td>strMeasurementID</td>
-                          <td>strGarmentCategoryName</td>
-                          <td>strGarmentSegmentName</td>
-                          <td>strMeasurementDetailName</td>
+                          <td>{{ $head->strGarmentCategoryName }}</td>
+                          <td>{{ $head->strGarmentSegmentName }}</td>
+                          <td>{{ $head->strMeasurementDetailName }}</td>
                           <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editMeasurementCat">EDIT</button></td>
                           
 
@@ -302,6 +302,8 @@
                               </form>
                             </div>
                         </tr>
+                        @endif
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
@@ -317,42 +319,33 @@
                         <p>
                           <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
                           <div class="input-field">
-                            <input value="addMeasurementID" id="addMeasurementID" name="addMeasurementID" type="text" readonly>
+                            <input value="{{ $categoryNewID }}" id="addMeasurementID" name="addMeasurementID" type="text" readonly>
                             <label for="measurement_id">Measurement ID: </label>
                           </div>
 
                           <div class="input-field">                                                    
-                            <select required name='addCategory'>
-                              <option value="" disabled selected>Choose your Category</option>
-                              <option value="1">Uniform</option>
-                              <option value="2">Tuxedo</option>
-                              <option value="3">Gowns</option>                                        
-                            </select>    
-                            <label>Category</label>
-                          </div>       
+                              <select required name='addCategory'>                                      
+                                  @foreach($category as $category)
+                                    <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
+                                  @endforeach
+                              </select>    
+                              <label>Category</label>
+                            </div>        
                 
                           <div class="input-field">                                                    
                             <select required name='addSegment'>
-                        
-                              <option value="" disabled selected>Choose your Segment</option>
-                              <option value="1">Long Sleeve</option>
-                              <option value="2">Coat</option>
-                              <option value="3">Pants</option>
-                               
+                                @foreach($segment as $segment)
+                                    <option value="{{ $segment->strGarmentSegmentID }}" class="">{{ $segment->strGarmentSegmentName }}</option>
+                                @endforeach                          
                             </select>    
                             <label>Segment</label>
                           </div>     
 
-                          <div class="input-field">                                                    
-                              
-                            <select multiple name='addMeasurementTaken' id='addMeasurementTaken' required>
-                       
-                              <option value="" disabled selected>Choose Measurement</option>
-                              <option value="1">Shoulder</option>
-                              <option value="2">Chest</option>
-                              <option value="3">Hip</option>
-                              <option value="3">Waist</option>
-                               
+                          <div class="input-field">                                                                                 
+                            <select multiple name='addDetail[]' id='addDetail[]' required>
+                                @foreach($detailList as $detailList)
+                                    <option value="{{ $detailList->strMeasurementDetailID }}" class="">{{ $detailList->strMeasurementDetailName }}</option>
+                                @endforeach                               
                             </select>   
                             <label>Measurement Taken</label> 
                           </div>

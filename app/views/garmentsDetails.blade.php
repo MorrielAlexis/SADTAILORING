@@ -118,7 +118,7 @@
                                     @endif
                                   @endforeach
                                 </select>    
-                                <label></label>
+                                <label>Category Name:</label>
                               </div>   
                         
                               <div class="input-field">
@@ -148,16 +148,12 @@
                             <p>  
                           
                               <div class="input-field">
- 
-                                <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="text" class="" readonly>
-                                <label for="garment_details_id">Garment Details ID: </label>
-
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">
- 
                               </div>
 
                               <div class="input-field">                                                    
                                   <input type="text" value="{{$segment->strGarmentCategoryName}}">
+                                  <label>Category Name:</label>
                               </div>   
 
                               <div class="input-field">
@@ -218,7 +214,6 @@
 
                       <div class="input-field">
                         <input required pattern="[A-Za-z\s]+" id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validateSegDesc">
-
                         <label for="segment_description">*Segment Description: </label>
                       </div>
                     </p>

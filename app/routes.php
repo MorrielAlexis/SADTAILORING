@@ -14,8 +14,12 @@
 
 Route::get('/index', 'HomeController@goToMain');
 Route::get('/', 'HomeController@showWelcome');
-Route::get('/customerIndividual', 'CustomerController@individual');
-Route::get('/customerCompany', 'CustomerController@company');
+
+Route::group(array('prefix' => 'maintenance'), function () {
+	Route::get('/customerIndividual', 'CustomerController@individual');
+	Route::get('/customerCompany', 'CustomerController@company');
+});
+
 Route::get('/employee', 'EmployeeController@empProfile');	
 Route::get('/employeeRole', 'EmployeeController@roles');
 Route::get('/garments', 'GarmentsController@category');

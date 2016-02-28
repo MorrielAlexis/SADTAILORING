@@ -29,7 +29,6 @@
       <table class="table centered data-reactcustCompany" border="1">
         <thead>
           <tr>
-            <th data-field="id">Company ID</th>
             <th data-field="name">Company Name</th>
             <th data-field="address">Address</th>
             <th data-field="contact">Contact Person</th>
@@ -46,7 +45,6 @@
           @foreach($company2 as $company2)
                   @if($company2->boolIsActive == 0)
                 <tr>
-                  <td>{{ $company2->strCustCompanyID }}</td>
                   <td>{{ $company2->strCustCompanyName }}</td>
                   <td>{{ $company2->strCustCompanyAddress }}</td>
                   <td>{{ $company2->strCustContactPerson }} </td>
@@ -86,7 +84,6 @@
             <table class = "table centered data-custCompany" align = "center" border = "1">
               <thead>
                 <tr>
-                  <th data-field="id">Company ID</th>
                   <th data-field="name">Company Name</th>
                   <th data-field="address">Address</th>
                   <th data-field="contact">Contact Person</th>
@@ -104,7 +101,6 @@
                 @foreach($company as $company)
                   @if($company->boolIsActive == 1)
                 <tr>
-                  <td>{{ $company->strCustCompanyID }}</td>
                   <td>{{ $company->strCustCompanyName }}</td>
                   <td>{{ $company->strCustCompanyAddress }}</td>
                   <td>{{ $company->strCustContactPerson }} </td>

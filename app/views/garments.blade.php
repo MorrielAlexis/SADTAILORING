@@ -102,10 +102,6 @@
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="text" class="" readonly>
                                 <label for="garment_id">Garment ID: </label>
-
-                             <div class="input-field">
-                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
- 
                               </div>
 
                               <div class="input-field">
@@ -114,9 +110,7 @@
                               </div>
 
                               <div class="input-field">
-                      
-                               <input required value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validateGarmentDesc">
-
+                                <input required value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validateGarmentDesc">
                                 <label for="garment_description">*Garment Desription: </label>
                               </div>
                             </p>
@@ -184,13 +178,9 @@
                 <div class="modal-content">
 
                   <p>               
-                    <div class="input-field">
- 
+                    <div class="input-field">       
                       <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="text" class="" readonly>
                       <label for="garment_id">Garment ID: </label>
-
-                      <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="hidden">
- 
                     </div>
 
                     <div class="input-field">
@@ -211,7 +201,7 @@
                 </div>
               </form>
             </div>
-
+            </div>
           </div>
         </div>
       </div>

@@ -45,25 +45,55 @@ class CustomerController extends BaseController{
 
 	public function addCustPrivIndiv()
 	{
-		$individual = PrivateIndividual::create(array(
-			'strCustPrivIndivID' => Input::get('addIndiID'),
-			'strCustPrivFName' => Input::get('addFName'),		
-			'strCustPrivMName' => Input::get('addMName'),
-			'strCustPrivLName' => Input::get('addLName'),
-			'strCustPrivAddress' => Input::get('addAddress'),
-			'strCustPrivLandlineNumber' => Input::get('addPhone'),						
-			'strCustPrivCPNumber' => Input::get('addCel'), 
-			'strCustPrivCPNumberAlt' => Input::get('addCelAlt'),
-			'strCustPrivEmailAddress' => Input::get('addEmail'),
-			'boolIsActive' => 1
-			));
+		$ind = PrivateIndividual::get();
+		$isAdded = FALSE;
 
-		$individual->save();
-		return Redirect::to('/customerIndividual');
+		$count = DB::table('tblCustPrivateIndividual')
+            ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
+            ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', Input::get('addEmail'))
+            ->count();
+
+        $count2 = DB::table('tblCustPrivateIndividual')
+            ->select('tblCustPrivateIndividual.strCustPrivCPNumber')
+            ->where('tblCustPrivateIndividual.strCustPrivCPNumber','=', Input::get('addCel'))
+            ->count();
+
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach ($ind as $ind) {
+				if(strcasecmp($ind->strCustPrivFName, Input::get('addFName')) == 0 && 
+				   strcasecmp($ind->strCustPrivMName, Input::get('addMName')) == 0 && 
+				   strcasecmp($ind->strCustPrivLName, Input::get('addLName')) == 0 && 
+				   strcasecmp($ind->strCustPrivAddress, Input::get('addAddress')) == 0){
+						$isAdded = TRUE;
+					}			
+				}	
+        	}
+
+		if(!$isAdded){
+			$individual = PrivateIndividual::create(array(
+				'strCustPrivIndivID' => Input::get('addIndiID'),
+				'strCustPrivFName' => Input::get('addFName'),		
+				'strCustPrivMName' => Input::get('addMName'),
+				'strCustPrivLName' => Input::get('addLName'),
+				'strCustPrivAddress' => Input::get('addAddress'),
+				'strCustPrivLandlineNumber' => Input::get('addPhone'),						
+				'strCustPrivCPNumber' => Input::get('addCel'), 
+				'strCustPrivCPNumberAlt' => Input::get('addCelAlt'),
+				'strCustPrivEmailAddress' => Input::get('addEmail'),
+				'boolIsActive' => 1
+				));
+
+			$individual->save();
+			return Redirect::to('/maintenance/customerIndividual?success=true');
+		}else return Redirect::to('/maintenance/customerIndividual?success=false');
+
+		
 	}
 
 	public function editCustPrivIndiv()
-	{
+	{	
 		$id = Input::get('editIndiID');
 		$individual = PrivateIndividual::find($id);
 
@@ -77,7 +107,7 @@ class CustomerController extends BaseController{
 		$individual->strCustPrivLandlineNumber = Input::get('editPhone');
 
 		$individual->save();
-		return Redirect::to('/customerIndividual');
+		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
 
 	public function delCustPrivIndiv()
@@ -88,7 +118,7 @@ class CustomerController extends BaseController{
 		$individual->boolIsActive = 0;
 
 		$individual->save();
-		return Redirect::to('/customerIndividual');
+		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
 
 	public function reactCustPrivIndiv()
@@ -99,27 +129,54 @@ class CustomerController extends BaseController{
 		$individual->boolIsActive = 1;
 
 		$individual->save();
-		return Redirect::to('/customerIndividual');
+		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
 
 	public function addCustCompany()
 	{	
+		$comp = Company::get();
+		$isAdded = FALSE;
 
-		$company = Company::create(array(
-			'strCustCompanyID' => Input::get('addComID'),
-			'strCustCompanyName' => Input::get('addComName'),		
-			'strCustCompanyAddress' => Input::get('addAddress'),
-			'strCustContactPerson' => Input::get('addConPerson'),
-			'strCustCompanyEmailAddress' => Input::get('addComEmailAddress'),			
-			'strCustCompanyCPNumber' => Input::get('addCel'), 
-			'strCustCompanyCPNumberAlt' => Input::get('addCelAlt'), 
-			'strCustCompanyTelNumber' => Input::get('addPhone'),
-			'strCustCompanyFaxNumber' => Input::get('addFax'),
-			'boolIsActive' => 1
-			));
+		$count = DB::table('tblCustCompany')
+            ->select('tblCustCompany.strCustCompanyEmailAddress')
+            ->where('tblCustCompany.strCustCompanyEmailAddress','=', Input::get('addComEmailAddress'))
+            ->count();
 
-		$company->save();
-		return Redirect::to('/customerCompany');
+        $count2 = DB::table('tblCustCompany')
+            ->select('tblCustCompany.strCustCompanyCPNumber')
+            ->where('tblCustCompany.strCustCompanyCPNumber','=', Input::get('addCel'))
+            ->count();
+
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach ($comp as $comp) {
+				if(strcasecmp($comp->strCustCompanyName, Input::get('addComName')) == 0 && 
+				   strcasecmp($comp->strCustCompanyAddress, Input::get('addAddress')) == 0 && 
+				   strcasecmp($comp->strCustContactPerson, Input::get('addConPerson')) == 0){
+						$isAdded = TRUE;
+				}				
+			}	
+        }
+			
+		if(!$isAdded){
+			$company = Company::create(array(
+				'strCustCompanyID' => Input::get('addComID'),
+				'strCustCompanyName' => Input::get('addComName'),		
+				'strCustCompanyAddress' => Input::get('addAddress'),
+				'strCustContactPerson' => Input::get('addConPerson'),
+				'strCustCompanyEmailAddress' => Input::get('addComEmailAddress'),			
+				'strCustCompanyCPNumber' => Input::get('addCel'), 
+				'strCustCompanyCPNumberAlt' => Input::get('addCelAlt'), 
+				'strCustCompanyTelNumber' => Input::get('addPhone'),
+				'strCustCompanyFaxNumber' => Input::get('addFax'),
+				'boolIsActive' => 1
+				));
+
+			$company->save();
+		}
+
+		return Redirect::to('/maintenance/customerCompany');
 	}
 
 	public function editCustCompany()
@@ -137,7 +194,7 @@ class CustomerController extends BaseController{
 		$company->strCustCompanyFaxNumber = Input::get('editFax');
 
 		$company->save();
-		return Redirect::to('/customerCompany');
+		return Redirect::to('/maintenance/customerCompany');
 	}
 
 	public function delCustCompany()
@@ -148,7 +205,7 @@ class CustomerController extends BaseController{
 		$company->boolIsActive = 0;
 
 		$company->save();
-		return Redirect::to('/customerCompany');
+		return Redirect::to('/maintenance/customerCompany');
 	}
 
 	public function reactCustCompany()
@@ -159,7 +216,7 @@ class CustomerController extends BaseController{
 		$company->boolIsActive = 1;
 
 		$company->save();
-		return Redirect::to('/customerCompany');
+		return Redirect::to('/maintenance/customerCompany');
 	}
 
 	public function smartCounter($id)

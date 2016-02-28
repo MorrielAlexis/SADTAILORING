@@ -103,16 +103,13 @@
                       <p>
                       <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
                       <div class="input-field">
-<<<<<<< HEAD
+
                         <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" readonly>
-=======
-                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="hidden">
->>>>>>> daa8166192366910383034471522dbb013250a5b
+
                       </div>
 
                       <div class="input-field">
                         <select id="editCategory" name="editCategory"> 
-                          <option value="" disabled >Catalogue Category</option>
                             @foreach($category as $id=>$name)
                               @if($catalogue->strCatalogueCategory == $id)
                                 <option value="{{$id}}" selected>{{$name}}</option>
@@ -121,6 +118,7 @@
                               @endif
                             @endforeach
                         </select>
+                        <label>Category</label>
                       </div>      
 
 

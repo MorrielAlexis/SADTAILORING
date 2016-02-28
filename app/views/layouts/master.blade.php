@@ -46,19 +46,34 @@
           <div style="padding-top:10px"></div>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
+<<<<<<< HEAD
              <!-- <div class="divider"></div> -->
               <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90 "><i class="small material-icons" style="color:#ccff90">dashboard</i><b>Dashboard</b></a></li>
               <!--<div class="divider"></div>-->
               <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90"><i class="small material-icons" style="color:#ccff90">settings</i><b>Maintenance</b></a> 
+=======
+              <div class="divider"></div>
+              <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="small material-icons">dashboard</i><b>Dashboard</b></a></li>
+              <div class="divider"></div>
+              <li class="bold"><a class="collapsible-header waves-effect waves-teal {{ Request::is('maintenance/*') ? 'active' : '' }}"><i class="small material-icons">settings</i><b>Maintenance</b></a> 
+>>>>>>> 6a78a0181aab3571dbd9e34c945396fdc110a77e
                 <div class="collapsible-body" position = "fixed" style = "display: block;">
                   <ul>
                     <li class="no-padding">
                       <ul class="collapsible collapsible-accordion">
+<<<<<<< HEAD
                         <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white"><b>Customer Profile</b></a>
                            <div class="collapsible-body">
                             <ul>
                               <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('customerIndividual')}}">Individual</a></li>
                               <li><a style="color:black" class="waves-effect waves-white" href="{{URL::to('customerCompany')}}">Company</a></li>
+=======
+                        <li class="bold"><a style="color:teal" class="collapsible-header waves-effect waves-teal {{ Request::is('maintenance/customerIndividual') || Request::is('maintenance/customerCompany') ? 'active' : '' }}"><b>Customer Profile</b></a>
+                           <div class="collapsible-body">
+                            <ul>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('maintenance/customerIndividual')}}">Individual</a></li>
+                              <li><a style="color:black" class="waves-effect waves-teal" href="{{URL::to('maintenance/customerCompany')}}">Company</a></li>
+>>>>>>> 6a78a0181aab3571dbd9e34c945396fdc110a77e
           	                 <div class="divider"></div>
                             </ul>
                            </div>

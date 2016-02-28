@@ -4,6 +4,16 @@
 @section('content')
 
     <div class="main-wrapper">
+      @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel teal">
+              <span class="white-text">Successfully added customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
       <div class="row">
         <div class="col s12 m12 l12">
         <span class="page-title"><h4>Customer Individual</h4></span>
@@ -25,7 +35,6 @@
       <table class = "table centered data-custInd" align = "center" border = "1">
         <thead>
           <tr>
-            <th data-field="id">Indivual ID</th>
             <th data-field="fname">First Name</th>
             <th data-field= "mname">Middle Name </th>
             <th data-field="lname">Last Name</th>
@@ -41,7 +50,6 @@
           @foreach($individual2 as $individual2)
             @if($individual2->boolIsActive == 0)
             <tr>
-              <td>{{ $individual2->strCustPrivIndivID }}</td>
               <td>{{ $individual2->strCustPrivFName }}</td>
               <td>{{ $individual2->strCustPrivMName }}</td>
               <td>{{ $individual2->strCustPrivLName }}</td>
@@ -83,7 +91,6 @@
             <table class = "table centered data-custInd" align = "center" border = "1">
               <thead>
                 <tr>
-                  <th data-field="id">Indivual ID</th>
                   <th data-field="fname">First Name</th>
                   <th data-field="mname">Middle Name</th>
                   <th data-field="lname">Last Name</th>
@@ -102,7 +109,6 @@
                   @foreach($individual as $individual)
                   @if($individual->boolIsActive == 1)
                 <tr>
-                  <td>{{ $individual->strCustPrivIndivID }}</td>
                   <td>{{ $individual->strCustPrivFName }}</td>
                   <td>{{ $individual->strCustPrivMName }}</td>
                   <td>{{ $individual->strCustPrivLName }}</td>
@@ -445,6 +451,10 @@
 
           $('.data-custInd').DataTable();
            $('select').material_select();
+
+        setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
 
       } );
 

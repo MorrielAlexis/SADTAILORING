@@ -49,29 +49,56 @@ class EmployeeController extends BaseController{
 		return View::make('employeeRole')
 				->with('role', $role)
 				->with('role2', $role)
-				->with('newID', $newID);
+				->with('newID', $newID);	
 	}
 
 	public function addEmployee()
 	{	
+		$emp = Employee::get();
+		$isAdded = FALSE;
 
-		$employee = Employee::create(array(
-			'strEmployeeID' => Input::get('addEmpID'),
-			'strEmpFName' => Input::get('addFirstName'),	
-			'strEmpMName' => Input::get('addMiddleName'),	
-			'strEmpLName' => Input::get('addLastName'),
-			'strEmpAge' => Input::get('addAge'),
-			'strSex' => Input::get('addSex'),
-			'strEmpAddress' => Input::get('addAddress'),			
-			'strRole' => Input::get('addRoles'), 
-			'strCellNo' => Input::get('addCellNo'),
-			'strCellNoAlt' => Input::get('addCellNoAlt'),
-			'strPhoneNo' => Input::get('addPhoneNo'),
-			'strEmailAdd' => Input::get('addEmail'),
-			'boolIsActive' => 1
+		$count = DB::table('tblEmployee')
+            ->select('tblEmployee.strEmailAdd')
+            ->where('tblEmployee.strEmailAdd','=', Input::get('addEmail'))
+            ->count();
+
+        $count2 = DB::table('tblEmployee')
+            ->select('tblEmployee.strCellNo')
+            ->where('tblEmployee.strCellNo','=', Input::get('addCellNo'))
+            ->count();
+            
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach($emp as $emp){
+			if(strcmp($emp->strEmpFName, Input::get('addFirstName')) == 0 &&
+				    strcmp($emp->strEmpMName, Input::get('addMiddleName')) == 0 &&
+					strcmp($emp->strEmpLName, Input::get('addLastName')) == 0){
+						$isAdded = TRUE;
+				}
+			}
+        }
+
+		if(!$isAdded){
+			$employee = Employee::create(array(
+				'strEmployeeID' => Input::get('addEmpID'),
+				'strEmpFName' => Input::get('addFirstName'),	
+				'strEmpMName' => Input::get('addMiddleName'),	
+				'strEmpLName' => Input::get('addLastName'),
+				'dtEmpBday' => date("Y-m-d", strtotime(Input::get("adddtEmpBday"))),
+				'strSex' => Input::get('addSex'),
+				'strEmpAddress' => Input::get('addAddress'),			
+				'strRole' => Input::get('addRoles'), 
+				'strCellNo' => Input::get('addCellNo'),
+				'strCellNoAlt' => Input::get('addCellNoAlt'),
+				'strPhoneNo' => Input::get('addPhoneNo'),
+				'strEmailAdd' => Input::get('addEmail'),
+				'boolIsActive' => 1
 			));
 
-		$employee->save();
+			$employee->save();
+		}
+		
 		return Redirect::to('/employee');
 	}
 
@@ -81,7 +108,7 @@ class EmployeeController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($rol as $rol)
-			if(strcasecmp($rol->strEmpRoleName, Input::get('addRoleName')))
+			if(strcasecmp($rol->strEmpRoleName, Input::get('addRoleName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -106,7 +133,7 @@ class EmployeeController extends BaseController{
 		$employee->strEmpFName = Input::get('editFirstName');	
 		$employee->strEmpLName = Input::get('editLastName');	
 		$employee->strEmpMName = Input::get('editMiddleName');	
-		$employee->strEmpAge = Input::get('editAge');
+		$employee->dtEmpBday = Input::get('editdtEmpBday');
 		$employee->strSex = Input::get('editSex');
 		$employee->strEmpAddress = Input::get('editAddress');
 		$employee->strRole = Input::get('editRoles');
@@ -124,10 +151,20 @@ class EmployeeController extends BaseController{
 		$id = Input::get('editRoleID');
 		$role = Role::find($id);
 
-		$role->strEmpRoleName = Input::get('editRoleName');	
-		$role->strEmpRoleDesc = Input::get('editRoleDescription');
+		$rol = Role::all();
+		$isAdded = FALSE;
 
-		$role->save();
+		foreach ($rol as $rol)
+			if(strcasecmp($rol->strEmpRoleName, Input::get('editRoleName')) == 0)
+					$isAdded = TRUE;
+
+		if(!$isAdded){
+			$role->strEmpRoleName = Input::get('editRoleName');	
+			$role->strEmpRoleDesc = Input::get('editRoleDescription');
+
+			$role->save();
+		}
+
 		return Redirect::to('/employeeRole');
 	}
 

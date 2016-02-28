@@ -58,7 +58,7 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($garm as $garm)
-			if(strcmp($garm->strGarmentCategoryName, Input::get('addGarmentName')))
+			if(strcmp($garm->strGarmentCategoryName, Input::get('addGarmentName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -80,10 +80,20 @@ class GarmentsController extends BaseController{
 		$id = Input::get('editGarmentID');
 		$garments = Category::find($id);
 
-		$garments->strGarmentCategoryName = Input::get('editGarmentName');	
-		$garments->strGarmentCategoryDesc = Input::get('editGarmentDescription');
+		$garm = Category::get();
+		$isAdded = FALSE;
 
-		$garments->save();
+		foreach($garm as $garm)
+			if(strcmp($garm->strGarmentCategoryName, Input::get('editGarmentName')) == 0)
+				$isAdded = TRUE;
+
+		if(!$isAdded){		
+			$garments->strGarmentCategoryName = Input::get('editGarmentName');	
+			$garments->strGarmentCategoryDesc = Input::get('editGarmentDescription');
+
+			$garments->save();
+		}
+
 		return Redirect::to('/garments');
 	}	
 
@@ -120,7 +130,8 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($seg as $seg)
-			if(strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) & strcasecmp($seg->strCategory, Input::get('addCategory')))
+			if(strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) == 0 && 
+			   strcasecmp($seg->strCategory, Input::get('addCategory')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -143,11 +154,22 @@ class GarmentsController extends BaseController{
 		$id = Input::get('editSegmentID');
 		$segment = Segment::find($id);
 
-		$segment->strCategory = Input::get('editCategory');	
-		$segment->strGarmentSegmentName = Input::get('editSegmentName');	
-		$segment->strGarmentSegmentDesc = Input::get('editSegmentDesc');
+		$seg = Segment::all();
+		$isAdded = FALSE;
 
-		$segment->save();
+		foreach ($seg as $seg)
+			if(strcasecmp($seg->strGarmentSegmentName, Input::get('editSegmentName')) == 0 && 
+			   strcasecmp($seg->strCategory, Input::get('editCategory')) == 0)
+				$isAdded = TRUE;
+
+		if(!$isAdded){
+			$segment->strCategory = Input::get('editCategory');	
+			$segment->strGarmentSegmentName = Input::get('editSegmentName');	
+			$segment->strGarmentSegmentDesc = Input::get('editSegmentDesc');
+
+			$segment->save();
+		}
+
 		return Redirect::to('/garmentsDetails');
 	}
 

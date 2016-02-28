@@ -719,6 +719,7 @@
                   <th data-field="Hook and Eye Size">Hook and Eye Size</th>
                   <th data-field="Hook and Eye Color">Hook and Eye Color</th>
                   <th data-field="Image">Image</th>
+                  <th data-field="Hook and Eye Desc">Description</th>
                   <th>
                     <div align="right" style="margin-right:30px;"><a href="#addHookEye" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new hook and eye detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
@@ -734,8 +735,14 @@
                   <td>{{$hook->strMaterialHookSize}}</td>
                   <td>{{$hook->strMaterialHookColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($hook->strMaterialHookImage)}}"></td>
+<<<<<<< HEAD
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit hook and eye detail" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete hook and eye detail from the table" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
+=======
+                   <td>{{$hook->strMaterialHookDesc}}</td>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
+                  <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
+>>>>>>> 6a78a0181aab3571dbd9e34c945396fdc110a77e
                       
                     <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                       <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>

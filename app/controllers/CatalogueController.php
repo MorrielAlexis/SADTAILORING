@@ -40,7 +40,7 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($ctlg as $ctlg)
-			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory')) && 
+			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory') == 0) && 
 			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))))
 			   		$isAdded = TRUE;
 
@@ -79,26 +79,37 @@ class CatalogueController extends BaseController{
 		$id = Input::get('editCatalogueID');
 		$catalogue = Catalogue::find($id);
 		
-		if (Input::get('editImage') == $catalogue->strCatalogueImage) {
-			$catalogue->strCatalogueID = Input::get('editCatalogueID');
-			$catalogue->strCatalogueCategory = Input::get('editCategory');
-			$catalogue->strCatalogueName = Input::get('editCatalogueName');
-			$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
-		} else {
-			$file = Input::get('editImage');
-			$destinationPath = 'public/imgCatalogue';
-			$extension = Input::file('editImg')->getClientOriginalExtension();
-			$fileName = $file;
-			Input::file('editImg')->move($destinationPath, $fileName);
+		$ctlg = Catalogue::all();
+		$isAdded = FALSE;
 
-			$catalogue->strCatalogueID = Input::get('editCatalogueID');
-			$catalogue->strCatalogueCategory = Input::get('editCategory');
-			$catalogue->strCatalogueName = Input::get('editCatalogueName');
-			$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
-			$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
-		}		
+		foreach ($ctlg as $ctlg)
+			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('editCategory') == 0) && 
+			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('editCatalogueName'))))
+			   		$isAdded = TRUE;
 
-		$catalogue->save();
+		if(!$isAdded){
+			if (Input::get('editImage') == $catalogue->strCatalogueImage) {
+				$catalogue->strCatalogueID = Input::get('editCatalogueID');
+				$catalogue->strCatalogueCategory = Input::get('editCategory');
+				$catalogue->strCatalogueName = Input::get('editCatalogueName');
+				$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
+			} else {
+				$file = Input::get('editImage');
+				$destinationPath = 'public/imgCatalogue';
+				$extension = Input::file('editImg')->getClientOriginalExtension();
+				$fileName = $file;
+				Input::file('editImg')->move($destinationPath, $fileName);
+
+				$catalogue->strCatalogueID = Input::get('editCatalogueID');
+				$catalogue->strCatalogueCategory = Input::get('editCategory');
+				$catalogue->strCatalogueName = Input::get('editCatalogueName');
+				$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
+				$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
+			}		
+
+			$catalogue->save();
+		}
+
 		return Redirect::to('/catalogue');
 	}
 
