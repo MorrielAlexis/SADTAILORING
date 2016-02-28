@@ -18,6 +18,7 @@ class TblMaterialHookAndEye extends Migration {
 			$table->string('strMaterialHookSize');
 			$table->string('strMaterialHookColor');
 			$table->string('strMaterialHookImage')->nullable()->change();
+			$table->string('strMaterialHookDesc', 255);
 			$table->boolean('boolIsActive');
 			$table->timestamps();
 		});

@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder {
 		$this->call('tblMaterialThreadsSeeder');
 		$this->call('tblMaterialNeedlesSeeder');
 		$this->call('tblMaterialButtonsSeeder');
+		$this->call('tblMaterialHookandEyesSeeder');
+
 
 
 

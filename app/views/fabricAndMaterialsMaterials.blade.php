@@ -719,6 +719,7 @@
                   <th data-field="Hook and Eye Size">Hook and Eye Size</th>
                   <th data-field="Hook and Eye Color">Hook and Eye Color</th>
                   <th data-field="Image">Image</th>
+                  <th data-field="Hook and Eye Desc">Description</th>
                   <th>
                     <div align="right" style="margin-right:30px;"><a href="#addHookEye" class="btn-floating modal-trigger btn-medium waves-effect waves-light red"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
@@ -734,6 +735,7 @@
                   <td>{{$hook->strMaterialHookSize}}</td>
                   <td>{{$hook->strMaterialHookColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($hook->strMaterialHookImage)}}"></td>
+                   <td>{{$hook->strMaterialHookDesc}}</td>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
                   <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
                       
