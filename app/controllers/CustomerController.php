@@ -48,18 +48,28 @@ class CustomerController extends BaseController{
 		$ind = PrivateIndividual::get();
 		$isAdded = FALSE;
 
-		foreach ($ind as $ind) {
+		$count = DB::table('tblCustPrivateIndividual')
+            ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
+            ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', Input::get('addEmail'))
+            ->count();
+
+        $count2 = DB::table('tblCustPrivateIndividual')
+            ->select('tblCustPrivateIndividual.strCustPrivCPNumber')
+            ->where('tblCustPrivateIndividual.strCustPrivCPNumber','=', Input::get('addCel'))
+            ->count();
+
+        if($count > 0 || $count > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach ($ind as $ind) {
 			if(strcasecmp($ind->strCustPrivFName, Input::get('addFName') == 0) && 
 			   strcasecmp($ind->strCustPrivMName, Input::get('addMName') == 0) && 
 			   strcasecmp($ind->strCustPrivLName, Input::get('addLName') == 0) && 
-			   strcasecmp($ind->strCustPrivAddress, Input::get('addAddress') == 0) && 
-			   strcasecmp($ind->strCustPrivLandlineNumber, Input::get('addPhone') == 0) && 
-			   strcasecmp($ind->strCustPrivCPNumber, Input::get('addCel') == 0) && 
-			   strcasecmp($ind->strCustPrivCPNumberAlt, Input::get('addCelAlt') == 0) && 
-			   strcasecmp($ind->strCustPrivEmailAddress, Input::get('addEmail') == 0))
-					$isAdded = TRUE;
-		}	
-
+			   strcasecmp($ind->strCustPrivAddress, Input::get('addAddress') == 0)){
+						$isAdded = TRUE;
+				}			
+			}	
+        }
 
 		if(!$isAdded){
 			$individual = PrivateIndividual::create(array(
@@ -127,19 +137,28 @@ class CustomerController extends BaseController{
 		$comp = Company::get();
 		$isAdded = FALSE;
 
-		foreach ($comp as $comp) {
-			if(strcasecmp($comp->strCustCompanyName, Input::get('addComName') == 0) && 
-			   strcasecmp($comp->strCustCompanyAddress, Input::get('addAddress') == 0) && 
-			   strcasecmp($comp->strCustContactPerson, Input::get('addConPerson') == 0) && 
-			   strcasecmp($comp->strCustCompanyEmailAddress, Input::get('addComEmailAddress') == 0) && 
-			   strcasecmp($comp->strCustCompanyCPNumber, Input::get('addCel') == 0) && 
-			   strcasecmp($comp->strCustCompanyCPNumberAlt, Input::get('addCelAlt') == 0) && 
-			   strcasecmp($comp->strCustCompanyTelNumber, Input::get('addPhone') == 0) &&
-			   strcasecmp($comp->strCustCompanyFaxNumber, Input::get('addFax') == 0))
-					$isAdded = TRUE;
+		$count = DB::table('tblCustCompany')
+            ->select('tblCustCompany.strCustCompanyEmailAddress')
+            ->where('tblCustCompany.strCustCompanyEmailAddress','=', Input::get('addComEmailAddress'))
+            ->count();
+
+        $count2 = DB::table('tblCustCompany')
+            ->select('tblCustCompany.strCustCompanyCPNumber')
+            ->where('tblCustCompany.strCustCompanyCPNumber','=', Input::get('addCel'))
+            ->count();
+
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach ($comp as $comp) {
+				if(strcasecmp($comp->strCustCompanyName, Input::get('addComName') == 0) && 
+				   strcasecmp($comp->strCustCompanyAddress, Input::get('addAddress') == 0) && 
+				   strcasecmp($comp->strCustContactPerson, Input::get('addConPerson') == 0)){
+						$isAdded = TRUE;
+				}				
 			}	
-
-
+        }
+			
 		if(!$isAdded){
 			$company = Company::create(array(
 				'strCustCompanyID' => Input::get('addComID'),
