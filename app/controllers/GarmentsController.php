@@ -58,7 +58,7 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($garm as $garm)
-			if(strcmp($garm->strGarmentCategoryName, Input::get('addGarmentName')))
+			if(strcmp($garm->strGarmentCategoryName, Input::get('addGarmentName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
