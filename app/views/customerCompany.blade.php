@@ -11,13 +11,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-<<<<<<< HEAD
        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new company to the table" href="#addCom">ADD COMPANY Customer</button>
        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted companies from the table" href="#modal1">VIEW ALL INACTIVE CUSTOMERS</button>
-=======
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addCom">ADD NEW COMPANY</button>
-       <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE COMPANY CLIENTS</button>
->>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
       </div>
     </div>
   </div>
@@ -53,12 +48,12 @@
                   <td>{{ $company2->strCustCompanyCPNumberAlt }}</td>  
                   <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
-            <td>
+                <td>
                   <form action="{{URL::to('reactCustCompany')}}" method="POST">
-                  <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
+                    <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
+                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
                   </form>
-              </td>
+                </td>
           </tr>
           @endif
           @endforeach

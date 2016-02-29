@@ -9,13 +9,8 @@
 
     <div class="row">
       <div class="col s12 m12 l6">
-<<<<<<< HEAD
       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new type of garment to the table" href="#addGCategory">ADD GARMENT CATEGORY</button>
       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted category from the table" href="#modal1">VIEW INACTIVE CATEGORIES</button>
-=======
-      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#addGCategory">ADD GARMENT CATEGORY</button>
-      <button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#modal1">VIEW INACTIVE GARMENTS</button>
->>>>>>> 60966d0449f456fce135a2da65515ed790d2bdf9
      </div>
    </div>
   </div>

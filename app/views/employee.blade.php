@@ -554,15 +554,14 @@
       } );
 
     </script>
-
-<<<<<<< HEAD
+    
       <!--TOOLTIP SCRIPT-->
 <script type="text/javascript">
     $(document).ready(function(){
       $('.tooltipped').tooltip({delay: 50});
   }); 
 </script>
-=======
+
     <script type="text/javascript">
       $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
@@ -570,5 +569,5 @@
       });
         
     </script>
->>>>>>> 6a78a0181aab3571dbd9e34c945396fdc110a77e
+
 @stop

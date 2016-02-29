@@ -16,12 +16,15 @@ class MeasurementController extends BaseController{
 		$ID = $ids["0"]->strMeasurementID;
 		$categoryNewID = $this->smartCounter($ID);	
 
-		$head = DB::table('tblMeasurementHeader')
-            ->join('tblGarmentCategory', 'tblMeasurementHeader.strCategoryName', '=', 'tblGarmentCategory.strGarmentCategoryID')
-            ->join('tblGarmentSegment', 'tblMeasurementHeader.strSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
-            ->join('tblMeasurementDetail', 'tblMeasurementHeader.strMeasurementName', '=', 'tblMeasurementDetail.strMeasurementDetailID')
-            ->select('tblMeasurementHeader.*', 'tblGarmentCategory.strGarmentCategoryName','tblGarmentSegment.strGarmentSegmentName', 'tblMeasurementDetail.strMeasurementDetailName')
+		$head = DB::table('tblMeasurementHeader AS a')
+            ->leftJoin('tblGarmentCategory AS b', 'a.strCategoryName', '=', 'b.strGarmentCategoryID')
+            ->leftJoin('tblGarmentSegment AS c', 'a.strSegmentName', '=', 'c.strGarmentSegmentID')
+            ->leftJoin('tblMeasurementDetail AS d', 'a.strMeasurementName', '=', 'd.strMeasurementDetailID')
+            ->select('a.*', 'b.strGarmentCategoryName','c.strGarmentSegmentName', 
+            			DB::raw('group_concat(d.strMeasurementDetailName) AS meas_details'))
             ->orderBy('created_at')
+            ->groupBy('a.strCategoryName')
+            ->groupBy('a.strSegmentName')
             ->get();
 
         $category =  Category::all(); 	
@@ -52,7 +55,6 @@ class MeasurementController extends BaseController{
 					->with('category', $category)
 					->with('segment', $segment)
 					->with('detailList', $detailList)
-					->with('category2', $category)
 					->with('segment2', $segment)
 					->with('detailList2', $detailList);
 		
@@ -64,7 +66,7 @@ class MeasurementController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($det as $det)
-			if(strcasecmp($det->strMeasurementDetailName, Input::get('addDetailName')))
+			if(strcasecmp($det->strMeasurementDetailName, Input::get('addDetailName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -83,17 +85,42 @@ class MeasurementController extends BaseController{
 
 	public function addCategory()
 	{	
-			$category = MeasurementHead::create(array(
-				'strMeasurementID' => Input::get('addMeasurementID'),
-				'strCategoryName' => Input::get('addCategory'),
-				'strSegmentName' => Input::get('addSegment'),
-				'strMeasurementName' => Input::get('addDetail'),
-				'boolIsActive' => 1
-			));
+		for($i = 0; $i < count(Input::get('addDetail')); $i++){
 
-			$category->save();
-		
-		
+			if($i == 0){
+				$category = MeasurementHead::create(array(
+					'strMeasurementID' => Input::get('addMeasurementID'),
+					'strCategoryName' => Input::get('addCategory'),
+					'strSegmentName' => Input::get('addSegment'),
+					'strMeasurementName' => Input::get('addDetail')[$i],
+					'boolIsActive' => 1
+				));
+
+				$category->save();
+			}else{
+				$category = MeasurementHead::create(array(
+					'strMeasurementID' => $categoryNewID,
+					'strCategoryName' => Input::get('addCategory'),
+					'strSegmentName' => Input::get('addSegment'),
+					'strMeasurementName' => Input::get('addDetail')[$i],
+					'boolIsActive' => 1
+				));
+
+				$category->save();
+			}
+				
+			$ids = DB::table('tblMeasurementHeader')
+			->select('strMeasurementID')
+			->orderBy('created_at', 'desc')
+			->orderBy('strMeasurementID', 'desc')
+			->take(1)
+			->get();
+
+			$ID = $ids["0"]->strMeasurementID;
+			$categoryNewID = $this->smartCounter($ID);	
+
+		}
+			
 		return Redirect::to('/measurements');
 	}
 
