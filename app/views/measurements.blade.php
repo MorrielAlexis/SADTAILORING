@@ -50,16 +50,16 @@
         </thead>
 
         <tbody>
-            @foreach($head2 as $head2)
-            @if($head2->boolIsActive == 0)
+            @foreach($head2 as $head_2)
+            @if($head_2->boolIsActive == 0)
                 <tr>
-                 <td>{{ $head2->strMeasurementID }}</td>
-                 <td>{{ $head2->strGarmentCategoryName }}</td>
-                 <td>{{ $head2->strGarmentSegmentName }}</td>
-                 <td>{{ $head2->strMeasurementDetailName }}</td>
+                 <td>{{ $head_2->strMeasurementID }}</td>
+                 <td>{{ $head_2->strGarmentCategoryName }}</td>
+                 <td>{{ $head_2->strGarmentSegmentName }}</td>
+                 <td>{{ $head_2->strMeasurementDetailName }}</td>
                   <td>
                   <form action="{{URL::to('reactMeasurementCategory')}}" method="POST">
-                  <input type="hidden" value="{{ $head2->strMeasurementID }}" id="reactID" name="reactID">
+                  <input type="hidden" value="{{ $head_2->strMeasurementID }}" id="reactID" name="reactID">
                   <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns measuremennt information to the table">REACTIVATE</button>
                   </form>
                 </td>
@@ -97,31 +97,31 @@
                     </thead>
 
                     <tbody>
-                      @foreach($head as $head)
-                      @if($head->boolIsActive == 1)
+                      @foreach($head as $head_1)
+                      @if($head_1->boolIsActive == 1)
                       <tr>   
-                        <td>{{ $head->strMeasurementID }}</td>
-                        <td>{{ $head->strGarmentCategoryName }}</td>
-                        <td>{{ $head->strGarmentSegmentName }}</td>
-                        <td>{{ $head->strMeasurementDetailName }}</td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement information" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete measurement information from the table" href="#del{{$head->strMeasurementID}}">DELETE</button>
+                        <td>{{ $head_1->strMeasurementID }}</td>
+                        <td>{{ $head_1->strGarmentCategoryName }}</td>
+                        <td>{{ $head_1->strGarmentSegmentName }}</td>
+                        <td>{{ $head_1->strMeasurementDetailName }}</td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement information" href="#edit{{$head_1->strMeasurementID}}">EDIT</button></td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete measurement information from the table" href="#del{{$head_1->strMeasurementID}}">DELETE</button>
 
-                          <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
+                          <div id="edit{{$head_1->strMeasurementID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Measurement Information</center> </font> </h5>
                             <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
                               <div class="modal-content"> 
                                 <p>
                                 
                                   <div class="input-field">
-                                    <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="text" class="validate" readonly>
+                                    <input value="{{ $head_1->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="text" class="validate" readonly>
                                     <label for="measurement_id">Measurement ID: </label>
                                   </div>
 
                                   <div class="input-field">                                                    
                                     <select required name='editCategory'>
                                       @foreach($category2 as $cat)
-                                        @if($head->strCategoryName == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
+                                        @if($head_1->strCategoryName == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
                                           <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                                         @elseif($cat->boolIsActive == 1)
                                           <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
@@ -134,7 +134,7 @@
                                   <div class="input-field">                                                    
                                     <select required name='editSegment'>
                                       @foreach($segment2 as $seg)
-                                        @if($head->strSegmentName == $seg->strGarmentSegmentID && $seg->boolIsActive == 1)
+                                        @if($head_1->strSegmentName == $seg->strGarmentSegmentID && $seg->boolIsActive == 1)
                                           <option selected value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
                                         @elseif($seg->boolIsActive == 1)
                                           <option selected value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
@@ -147,7 +147,7 @@
                                   <div class="input-field">                                                    
                                     <select required name='editDetail'>
                                       @foreach($detailList2 as $det)
-                                        @if($head->strMeasurementName == $det->strMeasurementDetailID && $det->boolIsActive == 1)
+                                        @if($head_1->strMeasurementName == $det->strMeasurementDetailID && $det->boolIsActive == 1)
                                           <option selected value="{{ $det->strMeasurementDetailID }}">{{ $det->strMeasurementDetailName }}</option>
                                         @elseif($det->boolIsActive == 1)
                                           <option selected value="{{ $det->strMeasurementDetailID }}">{{ $det->strMeasurementDetailName }}</option>
@@ -167,27 +167,27 @@
                           </div>
                       
                           <!--*****************************************************-->
-                          <div id="del{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
+                          <div id="del{{$head_1->strMeasurementID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
                             <form action="{{URL::to('delMeasurementCategory')}}" method="POST"> 
                               <div class="modal-content"> 
                                 <p>
                         
                                   <div class="input-field">
-                                    <input value="{{ $head->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="text" class="validate" readonly>
+                                    <input value="{{ $head_1->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="text" class="validate" readonly>
                                     <label for="measurement_id">Measurement ID: </label>
                                   </div>
 
                                   <div class="input-field">                                                    
-                                    <input type="text" value="{{$head->strGarmentCategoryName}}"> 
+                                    <input type="text" value="{{$head_1->strGarmentCategoryName}}"> 
                                   </div>        
                         
                                   <div class="input-field">                                                    
-                                    <input type="text" value="{{$head->strGarmentSegmentName}}"> 
+                                    <input type="text" value="{{$head_1->strGarmentSegmentName}}"> 
                                   </div>     
 
                                   <div class="input-field">                                                    
-                                    <input type="text" value="{{$head->strMeasurementDetailName}}"> 
+                                    <input type="text" value="{{$head_1->strMeasurementDetailName}}"> 
                                   </div>   
                                 </p>                         
                               </div>
@@ -219,12 +219,12 @@
                       </thead>
 
                       <tbody>
-                        @foreach($head as $head)
-                        @if($head->boolIsActive == 1)
+                        @foreach($head as $head_3)
+                        @if($head_3->boolIsActive == 1)
                         <tr>   
-                          <td>{{ $head->strGarmentCategoryName }}</td>
-                          <td>{{ $head->strGarmentSegmentName }}</td>
-                          <td>{{ $head->strMeasurementDetailName }}</td>
+                          <td>{{ $head_3->strGarmentCategoryName }}</td>
+                          <td>{{ $head_3->strGarmentSegmentName }}</td>
+                          <td>{{ $head_3->strMeasurementDetailName }}</td>
                           <td><button class="modal-trigger waves-effect waves-light btn btn-small center-text" href="#editMeasurementCat">EDIT</button></td>
                           
 
