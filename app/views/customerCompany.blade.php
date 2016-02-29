@@ -48,12 +48,12 @@
                   <td>{{ $company2->strCustCompanyCPNumberAlt }}</td>  
                   <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
-            <td>
+                <td>
                   <form action="{{URL::to('reactCustCompany')}}" method="POST">
-                  <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
+                    <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
+                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
                   </form>
-              </td>
+                </td>
           </tr>
           @endif
           @endforeach

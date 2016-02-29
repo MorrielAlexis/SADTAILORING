@@ -46,14 +46,18 @@
           <div style="padding-top:10px"></div>
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
+
+			
              <!-- <div class="divider"></div> -->
               <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90 "><i class="small material-icons" style="color:#ccff90">dashboard</i><b>Dashboard</b></a></li>
               <!--<div class="divider"></div>-->
               <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#ccff90"><i class="small material-icons" style="color:#ccff90">settings</i><b>Maintenance</b></a> 
+
                 <div class="collapsible-body" position = "fixed" style = "display: block;">
                   <ul>
                     <li class="no-padding">
                       <ul class="collapsible collapsible-accordion">
+
                         <li class="bold"><a style="color:#81c784" class="collapsible-header waves-effect waves-white"><b>Customer Profile</b></a>
                            <div class="collapsible-body">
                             <ul>

@@ -10,10 +10,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-
         <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new segment to the table" href="#addSegment">ADD NEW SEGMENT</button>
         <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted segments from the table" href="#modal1">VIEW SEGMENTS</button>
-
       </div>
     </div>
   </div>

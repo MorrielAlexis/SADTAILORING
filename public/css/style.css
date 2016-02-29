@@ -81,6 +81,33 @@
 
         .tab:hover{
             color: #1a237e;
+
+        tab{
+            color: transparent;
+        }
+
+        #detailTab{
+            background: lavender;
+            border: teal;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 60px;
+        }   
+
+        #tabDetails{
+            border: 2px solid lavender;
+            background-color: lavender;
+        }
+
+        #categoryTab{
+            background: #bbdefb;
+            border: teal;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 60px;
+        }
+
+        #tabCategory{
+            border: 2px solid #bbdefb;
+            background-color: #bbdefb;
         }
 
         .admin-background{

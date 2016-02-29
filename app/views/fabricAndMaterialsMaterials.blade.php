@@ -738,6 +738,7 @@
 
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit hook and eye detail" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete hook and eye detail from the table" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
+
                       
                     <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                       <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>
