@@ -106,10 +106,6 @@
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="">
                                 <label for="swatch_id">Swatch ID: </label>
-
-                             <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
- 
                               </div>
 
                               <div class="input-field">

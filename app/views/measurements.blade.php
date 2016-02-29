@@ -56,59 +56,61 @@
                       </thead>
 
                       <tbody>
-                        @foreach($head as $head)
-                        @if($head->boolIsActive == 1)
+                        @foreach($head as $head_1)
+                        @if($head_1->boolIsActive == 1)
                         <tr>   
-                          <td>{{ $head->strGarmentCategoryName }}</td>
-                          <td>{{ $head->strGarmentSegmentName }}</td>
-                          <td>{{ $head->meas_details }}</td>
-                          <td><button class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement information" href="#editMeasurementCat">EDIT</button></td>
+                          <td>{{ $head_1->strGarmentCategoryName }}</td>
+                          <td>{{ $head_1->strGarmentSegmentName }}</td>
+                          <td>{{ $head_1->meas_details }}</td>
+                          <td><button class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement information" href="#edit{{$head_1->strMeasurementID}}">EDIT</button></td>
 
                           
 
-                            <div id="editMeasurementCat" class="modal modal-fixed-footer">
+                            <div id="edit{{$head_1->strMeasurementID}}" class="modal modal-fixed-footer">
                               <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
                               <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
                                 <div class="modal-content"> 
                                   <p>
                                   
                                     <div class="input-field">
-                                      <input value="editMeasurementID" id="editMeasurementID" name="editMeasurementID" type="text" readonly>
-                                      <label for="measurement_id">Measurement ID: </label>
+                                      <input value="{{ $head_1->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="hidden" readonly>                                 
                                     </div>
 
                                     <div class="input-field">                                                    
                                       <select required name='editCategory'>
-                                        <option value="" disabled selected>Choose your Category</option>
-                                        <option value="1">Uniform</option>
-                                        <option value="2">Tuxedo</option>
-                                        <option value="3">Gowns</option>                                        
+                                        @foreach($category as $cat)
+                                            @if($head_1->strCategoryName == $cat->strGarmentCategoryID)
+                                              <option value="{{ $cat->strGarmentCategoryID }}" selected>{{ $cat->strGarmentCategoryName }}</option> 
+                                            @else
+                                              <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                                            @endif 
+                                        @endforeach                                  
                                       </select>    
                                       <label>Category</label>
                                     </div>       
-                          
+                                      
                                     <div class="input-field">                                                    
                                       <select required name='editSegment'>
-                                  
-                                        <option value="" disabled selected>Choose your Segment</option>
-                                        <option value="1">Long Sleeve</option>
-                                        <option value="2">Coat</option>
-                                        <option value="3">Pants</option>
-                                         
+                                        @foreach($segment as $seg)
+                                          @if($head_1->strSegmentName == $seg->strGarmentSegmentID)
+                                            <option value="{{ $seg->strGarmentSegmentID }}" selected>{{ $seg->strGarmentSegmentName }}</option>
+                                          @else
+                                            <option value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
+                                          @endif
+                                        @endforeach
                                       </select>    
                                       <label>Segment</label>
                                     </div>     
 
-                                    <div class="input-field">                                                    
-                                        
-                                      <select multiple name='editMeasurementTaken' id='editMeasurementTaken' required>
-                                 
-                                        <option value="" disabled selected>Choose Measurement</option>
-                                        <option value="1">Shoulder</option>
-                                        <option value="2">Chest</option>
-                                        <option value="3">Hip</option>
-                                        <option value="3">Waist</option>
-                                         
+                                    <div class="input-field">                                                                               
+                                      <select multiple name='editDetail[]' id='editDetail[]' required>
+                                          @foreach($detailList as $dl)
+                                            @if($head_1->strMeasurementName == $dl->strMeasurementDetailID)
+                                              <option value ="{{ $dl->strMeasurementDetailID }}" selected>{{$dl->strMeasurementDetailName}}</option>
+                                            @else
+                                              <option value="{{ $dl->strMeasurementDetailID }}">{{$dl->strMeasurementDetailName}}</option>
+                                            @endif
+                                          @endforeach
                                       </select>   
                                       <label>Measurement Taken</label> 
                                     </div>   

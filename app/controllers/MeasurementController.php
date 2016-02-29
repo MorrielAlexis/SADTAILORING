@@ -55,7 +55,6 @@ class MeasurementController extends BaseController{
 					->with('category', $category)
 					->with('segment', $segment)
 					->with('detailList', $detailList)
-					->with('category2', $category)
 					->with('segment2', $segment)
 					->with('detailList2', $detailList);
 		
