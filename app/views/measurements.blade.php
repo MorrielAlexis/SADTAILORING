@@ -61,7 +61,7 @@
                         <tr>   
                           <td>{{ $head->strGarmentCategoryName }}</td>
                           <td>{{ $head->strGarmentSegmentName }}</td>
-                          <td>{{ $head->strMeasurementDetailName }}</td>
+                          <td>{{ $head->meas_details }}</td>
                           <td><button class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement information" href="#editMeasurementCat">EDIT</button></td>
 
                           
