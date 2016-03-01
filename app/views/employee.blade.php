@@ -3,6 +3,16 @@
 @section('content')
 
   <div class="main-wrapper">
+         @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added employee!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
     <div class="row">
       <div class="col s12 m12 l12">
         <span class="page-title"><h4>Employees</h4></span>
@@ -11,8 +21,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new employee to the table" href="#newemp">ADD NEW EMPLOYEE</button>
-       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted employee from the table" href="#modal1">VIEW INACTIVE EMPLOYEES</button>
+       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new employee to the table" href="#newemp">ADD NEW EMPLOYEE</button>
+       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted employees from the table" href="#modal1">VIEW INACTIVE EMPLOYEES</button>
      </div>
     </div>
   </div>
@@ -59,7 +69,7 @@
                   <td>
                   <form action="{{URL::to('reactEmployee')}}" method="POST">
                   <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactID" name="reactID">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
                   </form>
                 </td>
             </tr>
@@ -122,8 +132,8 @@
                   <td>{{ $employee->strCellNoAlt }}</td> 
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
-              		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of employee" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete employee from table" href="#del{{$employee->strEmployeeID}}">DELETE</button>
+              		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of employee" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of employee from table" href="#del{{$employee->strEmployeeID}}">DELETE</button>
                   
                <!-- <Modal Structure for Edit Employee>   -->
                     <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">

@@ -6,7 +6,7 @@
   <h4>MATERIALS</h4>
   <div class="divider"></div>
   <div style="padding-top:10px; padding-bottom:20px; margin-left:20px;">
-    <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new material to the list" href="#addMaterial">ADD Material</button>
+    <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new material to the list" href="#addMaterial">ADD Material</button>
   </div>
 </div>
   <!--Collapsible-->
@@ -20,7 +20,7 @@
       <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted thread details from the table" href="#inactiveThread">VIEW INACTIVE THREADS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted thread details from the table" href="#inactiveThread">VIEW INACTIVE THREADS</button>
 
                <thead>
                 <tr>
@@ -29,7 +29,7 @@
                   <th data-field="Thread Color">Thread Color</th>
                   <th data-field="ThreadImage">Image</th>
                   <th>
-                    <div align="right" style="margin-right:70px;"><a href="#addThread" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new thread detail to the table"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:70px;"><a href="#addThread" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -42,8 +42,8 @@
                   <td>{{ $thread->strMaterialThreadName }}</td>
                   <td>{{ $thread->strMaterialThreadColor }}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($thread->strMaterialThreadImage)}}"></td> 
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit thread details" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete thread details from the table" href="#del{{ $thread->strMaterialThreadID }}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit thread details" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of thread details from the table" href="#del{{ $thread->strMaterialThreadID }}">DELETE</button>
                       
                     <!--EDIT THREADS-->
                     <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
@@ -190,7 +190,7 @@
       <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted needle details from the table" href="#inactiveNeedle">VIEW INACTIVE NEEDLES</button>
+        <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted needle details from the table" href="#inactiveNeedle">VIEW INACTIVE NEEDLES</button>
               <thead>
                 <tr>
                   <!--<th date-field= "Needle ID">Needle ID</th>-->
@@ -198,7 +198,7 @@
                   <th data-field="Needle Size">Needle Size</th>
                   <th data-field="Needle Image">Image</th>
                   <th>
-                    <div align="right" style="margin-right:70px;"><a href="#addNeedle" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new needle detail to the table"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:70px;"><a href="#addNeedle" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new needle detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -211,8 +211,8 @@
                   <td>{{$needle->strMaterialNeedleName}}</td>
                   <td>{{$needle->strMaterialNeedleSize}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($needle->strMaterialNeedleImage)}}"></td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit needle detail" href="#edit{{$needle->strMaterialNeedleID}}">EDIT</button>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit needle detail" href="#edit{{$needle->strMaterialNeedleID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">DELETE</button>
                       
                     <div id="edit{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
                       <h5><font color = "#1b5e20"><center>Edit Needle</center> </font> </h5> 
@@ -353,7 +353,7 @@
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
 
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted button details from the table" href="#inactiveButton">VIEW INACTIVE BUTTONS</button>
+        <button style="color:black;\margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted button details from the table" href="#inactiveButton">VIEW INACTIVE BUTTONS</button>
               <thead>
                 <tr>
                  <!-- <th date-field= "Button ID">Button ID</th>-->
@@ -362,7 +362,7 @@
                   <th data-field="Button Color">Button Color</th>
                   <th data-field="ButtonImage">Button Image Link</th>
                   <th>
-                    <div align="right" style="margin-right:40px;"><a href="#addButton" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new button detail to the table"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:40px;"><a href="#addButton" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new button detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -376,8 +376,8 @@
                   <td>{{$button->strMaterialButtonSize}}</td>
                   <td>{{$button->strMaterialButtonColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($button->strMaterialButtonImage)}}"></td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit button detail" href="#edit{{$button->strMaterialButtonID}}">EDIT</button>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete button detail from the table" href="#del{{$button->strMaterialButtonID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit button detail" href="#edit{{$button->strMaterialButtonID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of button detail from the table" href="#del{{$button->strMaterialButtonID}}">DELETE</button>
                       
                     <div id="edit{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
                       <h5><font color = "#1b5e20"><center>Edit Button</center> </font> </h5> 
@@ -530,7 +530,7 @@
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
 
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted zipper details from the table" href="#inactiveZipper">VIEW INACTIVE ZIPPERS</button>
+        <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted zipper details from the table" href="#inactiveZipper">VIEW INACTIVE ZIPPERS</button>
               <thead>
                 <tr>
                   <!--<th date-field= "Zipper ID">Zipper ID</th>-->
@@ -539,7 +539,7 @@
                   <th data-field="Zipper Color">Zipper Color</th>
                   <th data-field="ZipperImage">Zipper Image</th>
                   <th>
-                    <div align="right" style="margin-right:45px;"><a href="#addZipper" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new zipper detail to the table"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:45px;"><a href="#addZipper" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new zipper detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -553,8 +553,8 @@
                   <td>{{$zipper->strMaterialZipperSize}}</td>
                   <td>{{$zipper->strMaterialZipperColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($zipper->strMaterialZipperImage)}}"></td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit zipper detail" href="#edit{{$zipper->strMaterialZipperID}}">EDIT</button>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete zipper detail from the table" href="#del{{$zipper->strMaterialZipperID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit zipper detail" href="#edit{{$zipper->strMaterialZipperID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of zipper detail from the table" href="#del{{$zipper->strMaterialZipperID}}">DELETE</button>
                       
                     <div id="edit{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
                       <h5><font color = "#1b5e20"><center>Edit Zipper</center> </font> </h5>
@@ -711,7 +711,7 @@
           <div class="col s12 m12 l12 overflow-x">
           <table class = "centered" border = "1">
 
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted hook and eye details from the table" href="#inactiveHook">VIEW INACTIVE THREADS</button>
+        <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to view deleted hook and eye details from the table" href="#inactiveHook">VIEW INACTIVE THREADS</button>
               <thead>
                 <tr>
                   <!--<th date-field="Hook and Eye ID">Hook and Eye ID</th>-->
@@ -721,7 +721,7 @@
                   <th data-field="Image">Image</th>
                   <th data-field="Hook and Eye Desc">Description</th>
                   <th>
-                    <div align="right" style="margin-right:30px;"><a href="#addHookEye" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new hook and eye detail to the table"><i class="centered tiny material-icons">add</i></a></div>
+                    <div align="right" style="margin-right:30px;"><a href="#addHookEye" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new hook and eye detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
                 </tr>
               </thead>
@@ -736,8 +736,8 @@
                   <td>{{$hook->strMaterialHookColor}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($hook->strMaterialHookImage)}}"></td>
 
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit hook and eye detail" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete hook and eye detail from the table" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit hook and eye detail" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of hook and eye detail from the table" href="#del{{$hook->strMaterialHookID}}">DELETE</button>
 
                       
                     <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">

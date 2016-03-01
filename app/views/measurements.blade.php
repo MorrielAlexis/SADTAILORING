@@ -10,9 +10,9 @@
     <!--Measurement Tabs-->
       <div class="col s12" id="measurements" name="measurements">
         <ul class="tabs">
-          <li class="tab col s3"><a style="color:black; padding-top:5px" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Contains parts being measured" href="#tabDetails"><b>Details</b></a></li>     
+          <li class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
           <div style="border: 1px solid white" class="divider"></div>
-          <li id="categoryTab" class="tab col s3"><a style="color:teal; padding-top:5px" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Contains measurement detail about a particular garment" href="#tabCategory"><b>Category</b></a></li>
+          <li id="categoryTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="CLick to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
           <div class="indicator white" style="z-index:1"></div>
         </ul>
     
@@ -22,6 +22,15 @@
         <div id="tabCategory" class="hue col s12">
 
           <div class="main-wrapper">
+                 @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
             <div class="row">
               <div class="col s12 m12 l12">
                 <span class="page-title"><h4>Measurement Information</h4></span>
@@ -30,8 +39,8 @@
 
             <div class="row">
               <div class="col s12 m12 l12">
-                <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new measurement information to the table" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
-                <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted measurement information from the table" href="#modal1">VIEW INACTIVE MEASUREMENT INFO</button>
+                <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new measurement information to the table" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
+                <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted measurement information from the table" href="#modal1">VIEW INACTIVE MEASUREMENT INFO</button>
               </div>
             </div>
           </div>
@@ -63,7 +72,7 @@
                   <td>
                   <form action="{{URL::to('reactMeasurementCategory')}}" method="POST">
                     <input type="hidden" value="{{ $head2->strMeasurementID }}" id="reactID" name="reactID">
-                    <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns measuremennt information to the table">REACTIVATE</button>
+                    <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return measuremennt information to the table">REACTIVATE</button>
                   </form>
                 </td>
             </tr>
@@ -104,7 +113,7 @@
                           <td>{{ $head_1->strGarmentCategoryName }}</td>
                           <td>{{ $head_1->strGarmentSegmentName }}</td>
                           <td>{{ $head_1->meas_details }}</td>
-                          <td><button class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement information" href="#edit{{$head_1->strMeasurementID}}">EDIT</button></td>
+                          <td><button class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head_1->strMeasurementID}}">EDIT</button></td>
 
                           
 
@@ -234,6 +243,15 @@
         <div id="tabDetails" class="hue col s12">
 
           <div class="main-wrapper">
+                 @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
             <div class="row">
               <div class="col s12 m12 l12">
                 <span class="page-title"><h4>Measurement Parts</h4></span>
@@ -242,7 +260,7 @@
 
             <div class="row">
               <div class="col s12 m12 l6">
-                <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new measurement detail to the table" href="#addMeasurementPart">ADD NEW PART</button>
+                <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new measurement detail to the table" href="#addMeasurementPart">ADD NEW PART</button>
               </div>
             </div>
           </div>
@@ -270,8 +288,8 @@
                       <tr>
                         <td>{{ $detail->strMeasurementDetailName }}</td>
                         <td>{{ $detail->strMeasurementDetailDesc }}</td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit measurement detail" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DELETE</button></td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement detail" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to delete measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DELETE</button></td>
 
                           <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>

@@ -7,8 +7,8 @@
       @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
-            <div class="card-panel teal">
-              <span class="white-text">Successfully added customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -22,8 +22,8 @@
 
       <div class="row">
         <div class="col s12 m12 l12">
-          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new individual to the table" href="#addCusIndi">ADD INDIVIDUAL CUSTOMER</button>
-          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted individuals from the table" href="#modal1">VIEW INACTIVE CUSTOMERS </button>
+          <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text  light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new customer to the table" href="#addCusIndi">ADD INDIVIDUAL CUSTOMER</button>
+          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted customers from the table" href="#modal1">VIEW INACTIVE CUSTOMERS </button>
         </div>      
       </div>
     </div>
@@ -60,7 +60,7 @@
               <td>          
                 <form action="{{URL::to('reactCustPrivIndiv')}}" method="POST">
                   <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactID" name="reactID">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
                 </form>
               </td>
           </tr>
@@ -117,8 +117,8 @@
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
                   <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
                   <td>{{ $individual->strCustPrivLandlineNumber }}</td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of customer" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete customer from table" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-2" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of customer" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-2" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
 
 
                     <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">

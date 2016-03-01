@@ -3,6 +3,16 @@
 
 @section('content')
   <div class="main-wrapper">
+         @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added segment pattern!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
     <div class="row">
       <div class="col s12 m12 l12">
         <span class="page-title"><h4>Segment Pattern</h4></span>
@@ -11,8 +21,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new segment pattern to the table" href="#addDesign">ADD SEGMENT PATTERN</button>
-          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted patterns from the table" href="#modal1">VIEW INACTIVE SEGMENT PATTERNS</button>
+          <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new segment pattern to the table" href="#addDesign">ADD SEGMENT PATTERN</button>
+          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted patterns from the table" href="#modal1">VIEW INACTIVE SEGMENT PATTERNS</button>
       </div>
     </div>
   </div>
@@ -45,7 +55,7 @@
                   <td>
                   <form action="{{URL::to('reactDesignPattern')}}" method="POST">
                   <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactID" name="reactID">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of segment pattern to the table">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of segment pattern to the table">REACTIVATE</button>
                   </form>
             </tr>
             @endif
@@ -90,8 +100,8 @@
                   <td>{{ $pattern->strGarmentSegmentName }}</td>
               		<td>{{ $pattern->strPatternName }}</td>
                   <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($pattern->strPatternImage)}}"></td>
-              		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of pattern" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete pattern from table" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
+              		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of pattern" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to remove data of pattern from table" href="#del{{ $pattern->strDesignPatternID }}">DELETE</button>
                       
                     <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>

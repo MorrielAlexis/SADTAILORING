@@ -2,6 +2,16 @@
 
 @section('content')
   <div class="main-wrapper">  <!-- Main Wrapper  -->   
+         @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added fabric type!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
     <div class="row">
       <div class="col s12 m12 l12">
         <span class="page-title"><h4>Fabric Type</h4></span>
@@ -9,9 +19,9 @@
     </div>
 
     <div class="row">
-      <div class="col s12 m12 l6">
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new fabric type to the table" href="#addFabricType">ADD FABRIC TYPE</button>
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted fabric types from the table" href="#inactiveFabric">VIEW INACTIVE FABRICS</button>
+      <div class="col s12 m12 l12">
+        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new fabric type to the table" href="#addFabricType">ADD FABRIC TYPE</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted fabric types from the table" href="#inactiveFabric">VIEW INACTIVE FABRICS</button>
       </div>
     </div>
   </div> <!-- End of Main Wrapper  --> 
@@ -39,7 +49,7 @@
                         <td>
                           <form action="{{URL::to('reactFabricType')}}" method="POST">
                             <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactID" name="reactID">
-                            <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of fabric type to the table">REACTIVATE</button>
+                            <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to return data of fabric type to the table">REACTIVATE</button>
                           </form>
                         </td>
                       </tr>
@@ -85,8 +95,8 @@
               		  <!--<td>{{ $fabricType->strFabricTypeID }}</td>-->
               		  <td>{{ $fabricType->strFabricTypeName }}</td>
               		  <td>{{ $fabricType->strFabricTypeDesc}}</td>
-              		  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of fabric type" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button></td>
-                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete fabric type from the table" href="#del{{$fabricType->strFabricTypeID}}">DELETE</button></td>
+              		  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of fabric type" href="#edit{{$fabricType->strFabricTypeID}}">EDIT</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of fabric type from the table" href="#del{{$fabricType->strFabricTypeID}}">DELETE</button></td>
               	
                     <div id="edit{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
                       <h5><font color = "#1b5e20"><center>Edit Fabric Type</center> </font> </h5>
