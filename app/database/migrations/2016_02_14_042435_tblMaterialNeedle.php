@@ -16,6 +16,7 @@ class TblMaterialNeedle extends Migration {
 			$table->string('strMaterialNeedleID')->primary();
 			$table->string('strMaterialNeedleName');
 			$table->string('strMaterialNeedleSize');
+			$table->string('strMaterialNeedleDesc')->nullable()->change();
 			$table->string('strMaterialNeedleImage')->nullable()->change();
 			$table->boolean('boolIsActive');
 			$table->timestamps();

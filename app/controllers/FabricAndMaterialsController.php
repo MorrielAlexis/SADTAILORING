@@ -432,6 +432,7 @@ class FabricAndMaterialsController extends BaseController{
 				'strMaterialNeedleID' => Input::get('addNeedleID'),
 				'strMaterialNeedleName' => Input::get('addNeedleName'),
 				'strMaterialNeedleSize' => Input::get('addNeedleSize'),
+				'strMaterialNeedleDesc' => Input::get('addNeedleDesc'),
 				'boolIsActive' => 1
 				));
 		}else{
@@ -443,6 +444,7 @@ class FabricAndMaterialsController extends BaseController{
 				'strMaterialNeedleID' => Input::get('addNeedleID'),
 				'strMaterialNeedleName' => Input::get('addNeedleName'),
 				'strMaterialNeedleSize' => Input::get('addNeedleSize'),
+				'strMaterialNeedleDesc' => Input::get('addNeedleDesc'),
 				'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
 				'boolIsActive' => 1
 				));
@@ -460,6 +462,7 @@ class FabricAndMaterialsController extends BaseController{
 		if(Input::get('editNeedleImage') == $needle->strMaterialNeedleImage){
 			$needle->strMaterialNeedleName = Input::get('editNeedleName');
 			$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
+			$needle->strMaterialNeedleDesc = Input::get('editNeedleDesc');
 		}else{
 			$file = Input::get('editNeedleImage');
 			$destinationPath = 'public/imgMaterialNeedles';
@@ -469,6 +472,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$needle->strMaterialNeedleName = Input::get('editNeedleName');
 			$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
+			$needle->strMaterialNeedleDesc = Input::get('editNeedleDesc');
 			$needle->strMaterialNeedleImage = 'imgMaterialNeedles/'.$fileName;
 		}
 

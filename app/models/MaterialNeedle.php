@@ -7,6 +7,7 @@ class MaterialNeedle extends Eloquent {
 	protected $fillable = array('strMaterialNeedleID',
 								'strMaterialNeedleName',
 								'strMaterialNeedleSize',
+								'strMaterialNeedleDesc',
 								'strMaterialNeedleImage',
 								'boolIsActive');
 

@@ -207,6 +207,7 @@
                   <!--<th date-field= "Needle ID">Needle ID</th>-->
                   <th data-field="Needle Name">Needle Name</th>
                   <th data-field="Needle Size">Needle Size</th>
+                  <th data-field="Needle Desc">Description</th>
                   <th data-field="Needle Image">Image</th>
                   <th>
                     <div align="right" style="margin-right:70px;"><a href="#addNeedle" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new needle detail to the table"><i class="centered tiny material-icons">add</i></a></div>
@@ -221,6 +222,7 @@
                   <!--<td>{{$needle->strMaterialNeedleID}}</td>-->
                   <td>{{$needle->strMaterialNeedleName}}</td>
                   <td>{{$needle->strMaterialNeedleSize}}</td>
+                   <td>{{$needle->strMaterialNeedleDesc}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($needle->strMaterialNeedleImage)}}"></td>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit needle detail" href="#edit{{$needle->strMaterialNeedleID}}">EDIT</button>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">DELETE</button>
@@ -231,13 +233,8 @@
                       <div class="modal-content">
                         <form action="{{URL::to('editNeedle')}}" method="POST" enctype="multipart/form-data">
                         <div class="input-field">
- 
-                          <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" readonly = "readonly" type="text" class="">
-                          <label for="Needle_ID"> Needle ID </label>
-
                           <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" type="hidden">
- 
-                        </div>
+                         </div>
                   
                         <div class="input-field">
                           <input required id="editNeedleName" name = "editNeedleName" value = "{{$needle->strMaterialNeedleName}}" type="text" class="validateName">
@@ -247,6 +244,11 @@
                         <div class="input-field">
                           <input required id="editNeedleSize" name = "editNeedleSize" value = "{{$needle->strMaterialNeedleSize}}" type="text" class="validateSize">
                           <label for="Needle_Size"> *Needle Size </label>
+                        </div>
+
+                        <div class="input-field">
+                          <input required id="editNeedleDesc" name = "editNeedleDesc" value = "{{$needle->strMaterialNeedleDesc}}" type="text" >
+                          <label for="Needle_Size"> Description </label>
                         </div>
 
                                    
@@ -278,9 +280,6 @@
                         <p>
                          <form action="{{URL::to('delNeedle')}}" method="POST">
                           <div class="input-field">
- 
-                            <label for="first_name">Needle ID: </label>
-                            <input value="{{$needle->strMaterialNeedleID}}" id="delNeedleID" name="delNeedleID" type="text" class="" readonly>
 
                             <input value="{{$needle->strMaterialNeedleID}}" id="delNeedleID" name="delNeedleID" type="hidden">
  
@@ -294,6 +293,11 @@
                            <div class="input-field">
                             <label for="middle_name">Needle Color: </label>
                             <input value="{{$needle->strMaterialNeedleColor}}" id="delNeedleColor" name="delNeedleColor" type="text" class="validate" readonly>
+                          </div>
+
+                            <div class="input-field">
+                            <label for="middle_name">Description </label>
+                            <input value="{{$needle->strMaterialNeedleDesc}}" id="delNeedleDesc" name="delNeedleDesc" type="text" class="validate" readonly>
                           </div>
                         </p>
                       </div>
@@ -330,6 +334,7 @@
               <!--<td>{{ $needle2->strMaterialNeedleID }}</td>-->
               <td>{{ $needle2->strMaterialNeedleName }}</td>
               <td>{{ $needle2->strMaterialNeedleSize }}</td>
+               <td>{{ $needle2->strMaterialNeedleDesc }}</td>
               <td><img class="materialboxed" width="650" src="{{URL::asset($needle2->strMaterialNeedleImage)}}"> </td>      
               <td>          
               <form action="{{URL::to('reactNeedle')}}" method="POST">
@@ -968,13 +973,8 @@
       <h5><font color = "#1b5e20"><center>Add Needle</center> </font> </h5>
       <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
- 
-        <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" readonly = "readonly" type="text" class="">
-        <label for="Needle_ID"> Needle ID: </label>
-
-        <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" type="hidden">
- 
-      </div>
+         <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" type="hidden">
+       </div>
                   
       <div class="input-field">
         <input required id="addNeedleName" name = "addNeedleName"  type="text" class="validateName">
@@ -985,7 +985,12 @@
         <input required  id="addNeedleSize" name = "addNeedleSize" type="text" class="validateSize">
         <label for="Needle_Size"> *Needle Size </label>
       </div>
-                                  
+                  
+       <div class="input-field">
+        <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateSize">
+        <label for="Needle_Desc"> Description: </label>
+      </div>
+                                
       <div class="file-field input-field">
         <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
           <span>Upload Image</span>
