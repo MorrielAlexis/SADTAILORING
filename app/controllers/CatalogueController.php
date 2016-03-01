@@ -17,10 +17,12 @@ class CatalogueController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$category = Category::lists('strGarmentCategoryName', 'strGarmentCategoryID');
+		$reason = ReasonCatalogue::all();
 
 		$catalogue = DB::table('tblCatalogue')
 				->join('tblGarmentCategory', 'tblCatalogue.strCatalogueCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
-				->select('tblCatalogue.*', 'tblGarmentCategory.strGarmentCategoryName')
+				->leftJoin('tblReasonCatalogue', 'tblCatalogue.strCatalogueID', '=', 'tblReasonCatalogue.strInactiveCatalogueID')
+				->select('tblCatalogue.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblReasonCatalogue.strInactiveCatalogueID', 'tblReasonCatalogue.strInactiveReason')
 				->orderBy('created_at')
 				->get();
 
@@ -28,6 +30,7 @@ class CatalogueController extends BaseController{
 					->with('newID', $newID)
 					->with('catalogue', $catalogue)
 					->with('catalogue2', $catalogue)
+					->with('reason', $reason)
 					->with('category', $category);
 	}
 
@@ -40,8 +43,8 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($ctlg as $ctlg)
-			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory') == 0) && 
-			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))))
+			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory')) == 0 && 
+			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))) == 0)
 			   		$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -83,8 +86,8 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($ctlg as $ctlg)
-			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('editCategory') == 0) && 
-			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('editCatalogueName'))))
+			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('editCategory')) == 0 && 
+			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('editCatalogueName'))) == 0)
 			   		$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -118,8 +121,13 @@ class CatalogueController extends BaseController{
 		$id = Input::get('delCatalogueID');
 		$catalogue = Catalogue::find($id);
 
-		$catalogue->boolIsActive = 0;
+		$reason = ReasonCatalogue::create(array(
+			'strInactiveCatalogueID' => Input::get('delInactiveCatalogueID'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$catalogue->boolIsActive = 0;
+		$reason->save();
 		$catalogue->save();
 		return Redirect::to('/catalogue');
 	}
@@ -129,7 +137,9 @@ class CatalogueController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$catalogue = Catalogue::find($id);
-
+		
+		$reas = Input::get('reactInactiveCatalogueID');
+		$reason = DB::table('tblReasonCatalogue')->where('strInactiveCatalogueID', '=', $reas)->delete();
 		$catalogue->boolIsActive = 1;
 
 		$catalogue->save();

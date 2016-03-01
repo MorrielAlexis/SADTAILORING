@@ -17,10 +17,18 @@ class FabricAndMaterialsController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$fabricType = FabricType::all();
+		$reason = ReasonFabricType::all();
+
+		$category = DB::table('tblFabricType')
+				->leftJoin('tblReasonFabricType', 'tblFabricType.strFabricTypeID', '=', 'tblReasonFabricType.strInactiveFabricTypeID')
+				->select('tblFabricType.*', 'tblReasonFabricType.strInactiveFabricTypeID', 'tblReasonFabricType.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 
 		return View::make('fabricAndMaterialsFabricType')
 					->with('fabricType', $fabricType)
 					->with('fabricType2', $fabricType)
+					->with('reason', $reason)
 					->with('newID', $newID);
 	}
 
@@ -37,17 +45,20 @@ class FabricAndMaterialsController extends BaseController{
 		$ID = $ids["0"]->strSwatchID;
 		$newID = $this->smartCounter($ID);	
 
-		$fabricType =  FabricType::lists('strFabricTypeName', 'strFabricTypeID'); 		
+		$fabricType =  FabricType::lists('strFabricTypeName', 'strFabricTypeID'); 
+		$reason = ReasonSwatches::all();		
 		
 		$swatch = DB::table('tblSwatches')
             ->join('tblFabricType', 'tblSwatches.strSwatchFabricTypeName', '=', 'tblFabricType.strFabricTypeID')
-            ->select('tblSwatches.*', 'tblFabricType.strFabricTypeName')
+            ->leftJoin('tblReasonSwatches', 'tblSwatches.strSwatchID', '=', 'tblReasonSwatches.strInactiveSwatchID')
+            ->select('tblSwatches.*', 'tblFabricType.strFabricTypeName', 'tblReasonSwatches.strInactiveSwatchID', 'tblReasonSwatches.strInactiveReason')
             ->get();
 
 		return View::make('fabricAndMaterialsSwatches')
 					->with('swatch', $swatch)
 					->with('swatch2', $swatch)
 					->with('fabricType', $fabricType)
+					->with('reason', $reason)
 					->with('newID', $newID);
 
 		
@@ -229,8 +240,13 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delSwatchID');
 		$swatch = Swatch::find($id);
 
-		$swatch->boolIsActive = 0;
+    	$reason = ReasonSwatches::create(array(
+    		'strInactiveSwatchID' => Input::get('delInactiveSwatch'),
+    		'strInactiveReason' => Input::get('delInactiveReason')
+    		));
 
+		$swatch->boolIsActive = 0;
+		$reason->save();
 		$swatch->save();
 		return Redirect::to('/fabricAndMaterialsSwatches');
 	}
@@ -239,6 +255,11 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$swatch = Swatch::find($id);
+
+		$reas = Input::get('reactInactiveSwatch');
+		$reason = DB::table('tblReasonSwatches')
+						->where('strInactiveSwatchID', '=', $reas)
+						->delete();
 
 		$swatch->boolIsActive = 1;
 
@@ -300,6 +321,11 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delFabricID');
 		$fabricType = FabricType::find($id);
 
+    	$reason = ReasonFabricType::create(array(
+    		'strInactiveFabricTypeID' => Input::get('delInactiveFabricType'),
+    		'strInactiveReason' => Input::get('delInactiveReason')
+    		));
+
 		$fabricType->boolIsActive = 0;
 
 		$fabricType->save();
@@ -310,6 +336,11 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$fabricType = FabricType::find($id);
+
+		$reas = Input::get('reactInactiveFabricType');
+		$reason = DB::table('tblReasonFabricType')
+						->where('strInactiveFabricTypeID', '=', $reas)
+						->delete();
 
 		$fabricType->boolIsActive = 1;
 

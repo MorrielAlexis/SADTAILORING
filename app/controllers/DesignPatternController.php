@@ -17,11 +17,13 @@ class DesignPatternController extends BaseController{
 
 		$category = Category::all();
 		$segment = Segment::all();
+		$reason = ReasonDesignPattern::all();
 
 		$pattern = DB::table('tblDesignPattern')
             	->join('tblGarmentCategory', 'tblDesignPattern.strDesignCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
 				->join('tblGarmentSegment', 'tblDesignPattern.strDesignSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
-				->select('tblDesignPattern.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblGarmentSegment.strGarmentSegmentName')
+				->leftJoin('tblReasonDesignPattern', 'tblDesignPattern.strDesignPatternID', '=', 'tblReasonDesignPattern.strInactivePatternID')
+				->select('tblDesignPattern.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblGarmentSegment.strGarmentSegmentName', 'tblReasonDesignPattern.strInactivePatternID', 'tblReasonDesignPattern.strInactiveReason')
 				->orderBy('strDesignPatternID')
 				->get();
 
@@ -31,6 +33,7 @@ class DesignPatternController extends BaseController{
 						->with('pattern2', $pattern)
 						->with('category', $category)
 						->with('category2', $category)
+						->with('reason', $reason)
 						->with('segment', $segment)
 						->with('segment2', $segment);
 	}
@@ -126,8 +129,13 @@ class DesignPatternController extends BaseController{
 		$id = Input::get('delPatternID');
 		$pattern = DesignPattern::find($id);
 
-		$pattern->boolIsActive = 0;
+		$reason = ReasonDesignPattern::create(array(
+			'strInactivePatternID' => Input::get('delInactivePattern'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$pattern->boolIsActive = 0;
+		$reason->save();
 		$pattern->save();
 		return Redirect::to('/designPattern');
 	}
@@ -136,6 +144,11 @@ class DesignPatternController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$pattern = DesignPattern::find($id);
+
+		$reas = Input::get('reactInactivePattern');
+		$reason = DB::table('tblReasonDesignPattern')
+						->where('strInactivePatternID', '=', $reas)
+						->delete();
 
 		$pattern->boolIsActive = 1;
 

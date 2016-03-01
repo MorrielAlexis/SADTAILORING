@@ -16,8 +16,19 @@ class GarmentsController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$category = Category::all();
+		$reason = ReasonGarmentCategory::all();
 
-		return View::make('garments')->with('category', $category)->with('category2', $category)->with('newID', $newID);
+		$category = DB::table('tblGarmentCategory')
+				->leftJoin('tblReasonGarmentCategory', 'tblGarmentCategory.strGarmentCategoryID', '=', 'tblReasonGarmentCategory.strInactiveGarmentID')
+				->select('tblGarmentCategory.*', 'tblReasonGarmentCategory.strInactiveGarmentID', 'tblReasonGarmentCategory.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+
+		return View::make('garments')
+					->with('category', $category)
+					->with('category2', $category)
+					->with('reason', $reason)
+					->with('newID', $newID);
 	}
 
 	public function details()
@@ -33,10 +44,12 @@ class GarmentsController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$category =  Category::all();
+		$reason = ReasonSegment::all();
 
 		$segment = DB::table('tblGarmentSegment')
             ->join('tblGarmentCategory', 'tblGarmentSegment.strCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
-            ->select('tblGarmentSegment.*', 'tblGarmentCategory.strGarmentCategoryName')
+            ->leftJoin('tblReasonSegment', 'tblGarmentSegment.strGarmentSegmentID', '=', 'tblReasonSegment.strInactiveSegmentID')
+            ->select('tblGarmentSegment.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblReasonSegment.strInactiveSegmentID', 'tblReasonSegment.strInactiveReason')
             ->get();
 
 		return View::make('garmentsDetails')
@@ -44,6 +57,7 @@ class GarmentsController extends BaseController{
 					->with('segment2', $segment)
 					->with('category', $category)
 					->with('category2', $category)
+					->with('reason', $reason)
 					->with('newID', $newID);
 	}
 
@@ -115,7 +129,12 @@ class GarmentsController extends BaseController{
             ->count();
 
         if ($count == 0 && $count2 == 0) {
+        	$reason = ReasonGarmentCategory::create(array(
+        		'strInactiveGarmentID' => Input::get('delInactiveGarment'),
+        		'strInactiveReason' => Input::get('delInactiveReason')
+        		));
         	$category->boolIsActive = 0;
+        	$reason->save;
         	$category->save();
         	return Redirect::to('/garments');
         } else {
@@ -191,7 +210,12 @@ class GarmentsController extends BaseController{
             ->count();
 
 		if ($count == 0 && $count2 == 0) {
+        	$reason = ReasonSegment::create(array(
+        		'strInactiveSegmentID' => Input::get('delInactiveSegment'),
+        		'strInactiveReason' => Input::get('delInactiveReason')
+        		));
         	$segment->boolIsActive = 0;
+        	$reason->save();
         	$segment->save();
         	return Redirect::to('/garmentsDetails');
         } else {
@@ -205,6 +229,11 @@ class GarmentsController extends BaseController{
 		$id = Input::get('reactID');
 		$category = Category::find($id);
 
+		$reas = Input::get('reactInactiveGarment');
+		$reason = DB::table('tblReasonGarmentCategory')
+						->where('strInactiveGarmentID', '=', $reas)
+						->delete();
+
 		$category->boolIsActive = 1;
 
 		$category->save();
@@ -215,6 +244,11 @@ class GarmentsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$segment = Segment::find($id);
+
+		$reas = Input::get('reactInactiveSegment');
+		$reason = DB::table('tblReasonSegment')
+						->where('strInactiveSegmentID', '=', $reas)
+						->delete();
 
 		$segment->boolIsActive = 1;
 

@@ -19,9 +19,12 @@ class EmployeeController extends BaseController{
 					->select('strEmpRoleID', 'strEmpRoleName', 'boolIsActive')
 					->get();
 
+		$reason = ReasonEmployee::all();
+
 		$employee = DB::table('tblEmployee')
             ->join('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
-            ->select('tblEmployee.*', 'tblEmployeeRole.strEmpRoleName')
+            ->leftJoin('tblReasonEmployee', 'tblEmployee.strEmployeeID', '=', 'tblReasonEmployee.strInactiveEmployeeID')
+            ->select('tblEmployee.*', 'tblEmployeeRole.strEmpRoleName', 'tblReasonEmployee.strInactiveEmployeeID', 'tblReasonEmployee.strInactiveReason')
             ->get();
 
 		return View::make('employee')
@@ -29,6 +32,7 @@ class EmployeeController extends BaseController{
 					->with('employee2', $employee)
 					->with('roles2', $roles)
 					->with('roles', $roles)
+					->with('reason', $reason)
 					->with('newID', $newID);
 	}
 
@@ -45,10 +49,18 @@ class EmployeeController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$role = Role::all();
+		$reason = ReasonRole::all();
+
+		$individual = DB::table('tblEmployeeRole')
+				->leftJoin('tblReasonRole', 'tblEmployeeRole.strCustPrivIndivID', '=', 'tblReasonRole.strInactiveRoleID')
+				->select('tblEmployeeRole.*', 'tblReasonRole.strInactiveRoleID', 'tblReasonRole.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 
 		return View::make('employeeRole')
 				->with('role', $role)
 				->with('role2', $role)
+				->with('reason', $reason)
 				->with('newID', $newID);	
 	}
 
@@ -173,8 +185,13 @@ class EmployeeController extends BaseController{
 		$id = Input::get('delEmpID');
 		$employee = Employee::find($id);
 
-		$employee->boolIsActive = 0;
+		$reason = ReasonEmployee::create(array(
+			'strInactiveEmployeeID' => Input::get('delInactiveEmp'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$employee->boolIsActive = 0;
+		$reason->save();
 		$employee->save();
 		return Redirect::to('/employee');
 	}
@@ -191,7 +208,13 @@ class EmployeeController extends BaseController{
             ->count();
 
         if ($count == 0) {
+
+			$reason = ReasonEmployee::create(array(
+				'strInactiveEmployeeID' => Input::get('delInactiveEmp'),
+				'strInactiveReason' => Input::get('delInactiveReason')
+				));
         	$role->boolIsActive = 0;
+			$reason->save();
         	$role->save();
         	return Redirect::to('/employeeRole');
         } else {
@@ -205,6 +228,11 @@ class EmployeeController extends BaseController{
 		$id = Input::get('reactID');
 		$employee = Employee::find($id);
 
+		$reas = Input::get('reactInactiveEmp');
+		$reason = DB::table('tblReasonEmployee')
+						->where('strInactiveEmployeeID', '=', $reas)
+						->delete();
+
 		$employee->boolIsActive = 1;
 
 		$employee->save();
@@ -215,6 +243,11 @@ class EmployeeController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$role = Role::find($id);
+
+		$reas = Input::get('reactInactiveEmp');
+		$reason = DB::table('tblReasonEmployee')
+						->where('strInactiveEmployeeID', '=', $reas)
+						->delete();
 
         $role->boolIsActive = 1;
 

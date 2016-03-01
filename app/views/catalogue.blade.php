@@ -30,6 +30,7 @@
               <th data-field="Catalogue Name">Catalogue Name</th>
               <th data-field="Description">Description</th>
               <th data-field="Image">Image</th>
+              <th data-field="Image">Reason for Inactivation</th>
             </tr>
           </thead>
           <tbody>
@@ -41,9 +42,11 @@
                 <td>{{ $catalogue2->strCatalogueName }}</td>
                 <td>{{ $catalogue2->strCatalogueDesc }}</td>
                 <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue2->strCatalogueImage)}}"></td>
+                <td>{{ $catalogue2->strInactiveReason }}</td>
                 <td>
                   <form action="{{URL::to('reactCatalogueDesign')}}" method="POST">
                     <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
+                    <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactInactiveCatalogueID" name="reactInactiveCatalogueID" >
                     <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
                   </form>
                 </td>
@@ -162,10 +165,6 @@
                   <p>
                     <form action="{{URL::to('delCatalogueDesign')}}" method="POST">
                       <div class="input-field">
-
-                        <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" text="text" readonly class="" >
-                        <label for="catalogue_id">CATALOGUE ID: </label>
-
                         <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" type="hidden">
  
                       </div>
@@ -184,6 +183,16 @@
                         <input value="{{ $catalogue->strCatalogueDesc }}" type="text" class="validate" readonly>
                         <label for="catalogue_name"> CATALOGUE DESCRIPTION: </label>
                       </div>
+                      
+                      <div class="input-field">
+                        <input value="{{ $catalogue->strCatalogueID }}" id="delInactiveCatalogueID" name="delInactiveCatalogueID" type="hidden">
+                      </div>
+
+                      <div class="input-field">
+                        <input value="{{ $catalogue->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
+                        <label for="catalogue_name"> *REASON FOR INACTIVATION: </label>
+                      </div>
+                    </p>
                     </div>
 
                       <div class="modal-footer">
@@ -212,10 +221,6 @@
               <p>
               <form action='{{URL::to('addCatalogueDesign')}}' method="POST" enctype="multipart/form-data">
               <div class="input-field">
- 
-                <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="text" class="" readonly>
-                <label for="Catalogue_id">Catalogue ID: </label>
-
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="hidden">
  
               </div>

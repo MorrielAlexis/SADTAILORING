@@ -16,10 +16,18 @@ class CustomerController extends BaseController{
 		$newID = $this->smartCounter($ID);	
 
 		$individual = PrivateIndividual::all();
+		$reason = ReasonIndividual::all();
+
+		$individual = DB::table('tblCustPrivateIndividual')
+				->leftJoin('tblReasonIndividual', 'tblCustPrivateIndividual.strCustPrivIndivID', '=', 'tblReasonIndividual.strInactiveIndividualID')
+				->select('tblCustPrivateIndividual.*', 'tblReasonIndividual.strInactiveIndividualID', 'tblReasonIndividual.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 
 		return View::make('customerIndividual')
 					->with('individual', $individual)
 					->with('individual2', $individual)
+					->with('reason', $reason)
 					->with('newID', $newID);
 	}
 
@@ -36,10 +44,18 @@ class CustomerController extends BaseController{
 		$newID = $this->smartCounter($ID);		
 		
 		$company = Company::all();
+		$reason = ReasonCompany::all();
+
+		$company = DB::table('tblCustCompany')
+				->leftJoin('tblReasonCompany', 'tblCustCompany.strCustCompanyID', '=', 'tblReasonCompany.strInactiveCompanyID')
+				->select('tblCustCompany.*', 'tblReasonCompany.strInactiveCompanyID', 'tblReasonCompany.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 
 		return View::make('customerCompany')
 				->with('company', $company)
 				->with('company2', $company)
+				->with('reason', $reason)
 				->with('newID', $newID);
 	}
 
@@ -115,8 +131,13 @@ class CustomerController extends BaseController{
 		$id = Input::get('delIndivID');
 		$individual = PrivateIndividual::find($id);
 
-		$individual->boolIsActive = 0;
+		$reason = ReasonIndividual::create(array(
+			'strInactiveIndividualID' =>Input::get('delInactiveIndiv'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$individual->boolIsActive = 0;
+		$reason->save();
 		$individual->save();
 		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
@@ -126,8 +147,12 @@ class CustomerController extends BaseController{
 		$id = Input::get('reactID');
 		$individual = PrivateIndividual::find($id);
 
-		$individual->boolIsActive = 1;
+		$reas = Input::get('reactInactiveIndiv');
+		$reason = DB::table('tblReasonIndividual')
+						->where('strInactiveIndividualID', '=', $reas)
+						->delete();
 
+		$individual->boolIsActive = 1;
 		$individual->save();
 		return Redirect::to('/maintenance/customerIndividual?success=false');
 	}
@@ -202,8 +227,13 @@ class CustomerController extends BaseController{
 		$id = Input::get('delCompanyID');
 		$company = Company::find($id);
 
-		$company->boolIsActive = 0;
+		$reason = ReasonCompany::create(array(
+			'strInactiveCompanyID' =>Input::get('delInactiveComp'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$company->boolIsActive = 0;
+		$reason->save();
 		$company->save();
 		return Redirect::to('/maintenance/customerCompany');
 	}
@@ -212,6 +242,11 @@ class CustomerController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$company = Company::find($id);
+
+		$reas = Input::get('reactInactiveComp');
+		$reason = DB::table('tblReasonCompany')
+						->where('strInactiveCompanyID', '=', $reas)
+						->delete();
 
 		$company->boolIsActive = 1;
 
