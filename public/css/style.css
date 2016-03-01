@@ -1,5 +1,7 @@
+        /* MASTER-BLADE */
+
         header, main, footer {
-        padding-left:250px;
+        padding-left: 250px;
         }
 
         @media only screen and (max-width : 992px) {
@@ -8,7 +10,108 @@
             }
         }
 
-        /*REAL TIME INPUT VALIDATION*/
+        .btn{
+            background: #1de9b6;
+        }
+
+        *{
+            font-family: 'Century Gothic';
+            
+        }
+
+        header{
+            background-color: #CFD8DC;
+            opacity: 0.95;
+            width: 100%;
+            height: 50px;
+        } 
+
+        body{
+            font-family: 'Century Gothic';
+            background-image: url("../img/hehehe.jpg");
+            background-color: #3D5AFE;
+        }
+        
+        /* ADMIN PROFILE */
+
+        .small.material-icons{
+            color: #1a237e;
+        }
+
+        .user{
+            background: #00695C;
+        }
+
+        #admin{
+            background: #00695C;
+        }
+        
+        #admin :hover{
+           background: #00695C;
+        }
+
+        .admin-background{
+            background: #00695C;
+            color: #1a237e;
+            height: 125px;
+        }
+
+        /* SIDENAV CONTENT */
+
+        #ul{
+            list-style-type: none;
+            background: #00695C;
+        }
+
+        #ul li{
+            background: #26A69A;
+        }
+
+        #ul li li{
+            background: #26A69A;
+        }
+
+        #ul :hover{
+            background: #00897B;
+        }
+
+        #ul :visited{
+           background: #00897B;
+        }
+
+        #ul :active{
+            background: #26A69A;
+
+        }
+
+        #slide-out{
+            margin-top: 60px;
+            background: #69f0ae;
+        }
+
+        #slide-out:hover{
+            background: #69f0ae;
+        }
+
+        #slide-out:active{
+            background: #69f0ae;
+        }
+
+        #slide-out > li ul li :active{
+            background: #26A69A;
+        }
+
+        #slide-out > li ul li :visited{
+            background: #26A69A;
+        }
+        
+        #slide-out > li ul li :hover{
+            background: #26A69A;        
+        }
+
+
+        /* REAL TIME INPUT VALIDATION */
+
         .error{
             display: none;
             margin-left: 10px;
@@ -26,44 +129,8 @@
         input.valid, textarea.valid{
             border: 2px solid yellow;
         }
-        /*END REAL TIME INPUT VALIDATION STYLE*/
-    
-        *{
-            font-family: 'Century Gothic';
-
-        }
-
-        header{
-            background-color: #CFD8DC;
-            opacity: 0.95;
-            width: 100%;
-            height: 50px;
-        } 
-
-        #slide-out{
-            margin-top: 60px;
-            background: transparent;
-        }
-
-        #slide-out:hover{
-            background: transparent;
-        }
-
-        #slide-out:active{
-            background: transparent;
-        }
-
-        img{
-            height: 70px;
-            width: 70px;
-
-        }
-
-        body{
-            font-family: 'Century Gothic';
-            background-image: url("../img/hehehe.jpg");
-            background-color: #3D5AFE;
-        }
+        
+        /* END REAL TIME INPUT VALIDATION STYLE */
 
         h4{
             color: black;
@@ -71,9 +138,40 @@
             margin-left: 20px;
         }
 
+        img{
+            height: 70px;
+            width: 70px;
+        }
+        
         .hue{
             width: col s12; 
             height: auto;
+        }
+
+        /* TABS IN MEASUREMENT-BLADE */
+
+        #detailTab{
+            background: lavender;
+            border: teal;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 60px;
+        }   
+
+        #tabDetails{
+            border: 2px solid lavender;
+            background-color: lavender;
+        }
+
+        #categoryTab{
+            background: #c8e6c9;
+            border: teal;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 60px;
+        }
+
+        #tabCategory{
+            border: 2px solid #c8e6c9;
+            background-color: #c8e6c9;
         }
 
         .tab{
@@ -85,69 +183,7 @@
         .tab:hover{
             color: #1a237e;
         }
-
-        .admin-background{
-            background: #00695C;
-            color: #1a237e;
-            height: 125px;
-        }
-
-        .user{
-            background: #00695C;
-        }
-
-        #admin{
-            background: #00695C;
-        }
-
-        #admin :hover{
-           background: #00695C;
-        }
-
-        .small.material-icons{
-            color: #1a237e;
-        }
-
-        #ul{
-            list-style-type: none;
-            background: #00695C;
-        }
-
-        #ul :hover{
-            background: #00897B;
-        }
-
-        #ul :visited{
-           background: #00897B;
-           opacity: 0.70;
-        }
-
-        #ul :active{
-            background: #26A69A;
-            opacity: 0.70;
-
-        }
-
-        #ul li{
-            background: #26A69A;
-        }
-
-        #ul li li{
-            background: #26A69A;
-        }
-
-
-        #slide-out > li ul li :active{
-            background: #26A69A;
-        }
-
-        #slide-out > li ul li :visited{
-            background: #26A69A;
-        }
-        
-        #slide-out > li ul li :hover{
-            background: #26A69A;        
-        }
+        /* END OF TABS IN MEASUREMENT-BLADE */
 
         .modal{
             display: none; /* Hidden by default */
@@ -160,10 +196,3 @@
         .overflow-x {
         overflow-x: auto;
         }
-
-        .side-nav .collapsible-body li.active, .side-nav.fixed .collapsible-body li.active {
-        background: transparent;
-        
-        }
-
-
