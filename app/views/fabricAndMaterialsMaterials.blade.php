@@ -711,15 +711,15 @@
           <div class="col s12 m12 l12 overflow-x">
           <table class = "centered" border = "1">
 
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted hook and eye details from the table" href="#inactiveHook">VIEW INACTIVE THREADS</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted hook and eye details from the table" href="#inactiveHook">VIEW INACTIVE HOOKS</button>
               <thead>
                 <tr>
                   <!--<th date-field="Hook and Eye ID">Hook and Eye ID</th>-->
                   <th data-field="Hook and Eye Name">Hook and Eye Name</th>
                   <th data-field="Hook and Eye Size">Hook and Eye Size</th>
                   <th data-field="Hook and Eye Color">Hook and Eye Color</th>
-                  <th data-field="Image">Image</th>
                   <th data-field="Hook and Eye Desc">Description</th>
+                  <th data-field="Image">Image</th>
                   <th>
                     <div align="right" style="margin-right:30px;"><a href="#addHookEye" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new hook and eye detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                   </th>
@@ -734,6 +734,7 @@
                   <td>{{$hook->strMaterialHookName}}</td>
                   <td>{{$hook->strMaterialHookSize}}</td>
                   <td>{{$hook->strMaterialHookColor}}</td>
+                  <td>{{$hook->strMaterialHookDesc}}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($hook->strMaterialHookImage)}}"></td>
 
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit hook and eye detail" href="#edit{{$hook->strMaterialHookID}}">EDIT</button>
@@ -1128,11 +1129,9 @@
           <span>Upload Image</span>
           <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
         </div>
-
         <div class="file-path-wrapper">
           <input class="file-path validate" id="addImage" name="addImage" type="text">
         </div>
-
       </div>
       
    </div>
