@@ -3,11 +3,47 @@
 @section('content')
 
   <div class="main-wrapper">
+      <!--Add Fabric Swatch-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
               <span class="black-text" style="color:black">Successfully added fabric swatch!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+      <!--Edit Fabric Swatch-->
+      @if (Input::get('successEdit') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully edited fabric swatch!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+      <!--Deleted Fabric Swatch-->
+      @if (Input::get('successDel') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully deleted fabric swatch!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+      <!--Reactivate Fabric Swatch-->
+      @if (Input::get('successRec') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added back fabric swatch!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>

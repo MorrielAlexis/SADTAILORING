@@ -2,6 +2,7 @@
 
 @section('content')
   <div class="main-wrapper">
+      <!--Add Garment Segment-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
@@ -11,6 +12,43 @@
           </div>
         </div>
       @endif
+
+
+      <!--Edit Garment Segment-->
+      @if (Input::get('successEdit') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully edited garment segment!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+      <!--Deleted Garment Segment-->
+      @if (Input::get('successDel') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully deleted garment segment!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+      <!--Reactivate Garment Segment-->
+      @if (Input::get('successRec') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added back garment segment!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
     <div class="row">
       <div class="col s12 m12 l12">
         <span class="page-title"><h4>Garment Segments</h4></span>

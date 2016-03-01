@@ -195,8 +195,8 @@
 
                   
                     <div class="modal-footer">
-                      <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
-                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                      <button type="submit" class="waves-effect waves-green btn-flat">Update</button>
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                     </div>
                   </form>
                 </div>
@@ -233,8 +233,8 @@
                     </div>
 
                       <div class="modal-footer">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                       </div>
                     </form>                 
                  </div>
@@ -301,8 +301,8 @@
             </div> 
             
             <div class="modal-footer">                  
-              <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-              <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>                    
+              <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
+              <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>                    
             </div>
           </form>
           </div>

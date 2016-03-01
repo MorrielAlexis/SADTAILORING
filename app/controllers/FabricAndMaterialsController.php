@@ -186,6 +186,10 @@ class FabricAndMaterialsController extends BaseController{
 	public function editSwatch()
 	{	
 		$id = Input::get('editSwatchID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$swatch = Swatch::find($id);
 
 		$swa = Swatch::all();
@@ -219,30 +223,41 @@ class FabricAndMaterialsController extends BaseController{
 			$swatch->save();
 		}
 
-		return Redirect::to('/fabricAndMaterialsSwatches?success=false');
+		return Redirect::to('/fabricAndMaterialsSwatches?successEdit=true');
+	 } else return Redirect::to('/fabricAndMaterialsSwatches?successEdit=false');
 	}
 
 
 	public function delSwatch()
 	{
 		$id = Input::get('delSwatchID');
+		$isDeleted = FALSE;
+
+
+	if(!$isDeleted){
 		$swatch = Swatch::find($id);
 
 		$swatch->boolIsActive = 0;
 
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches?success=false');
+		return Redirect::to('/fabricAndMaterialsSwatches?successDel=true');
+	 } else return Redirect::to('/fabricAndMaterialsSwatches?successDel=false');
 	}
 
 	public function reactSwatch()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
 		$swatch = Swatch::find($id);
 
 		$swatch->boolIsActive = 1;
 
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches?success=false');
+		return Redirect::to('/fabricAndMaterialsSwatches?successRec=true');
+	 } else return Redirect::to('/fabricAndMaterialsSwatches?successRec=false');
 	}
 
 		//////////FABRIC TYPE///////////
@@ -272,6 +287,9 @@ class FabricAndMaterialsController extends BaseController{
 	public function editFabricType()
 	{	
 		$id = Input::get('editFabricTypeID');
+		$isEdited = FALSE;
+
+	if(!$isEdited){
 		$fabricType = FabricType::find($id);
 
 		$fabric = FabricType::get();
@@ -289,30 +307,39 @@ class FabricAndMaterialsController extends BaseController{
 			$fabricType->save();
 		}
 
-		return Redirect::to('/fabricAndMaterialsFabricType?success=false');
+		return Redirect::to('/fabricAndMaterialsFabricType?successEdit=true');
+	 } else return Redirect::to('/fabricAndMaterialsFabricType?successEdit=false');
 	}
 
 
 	public function delFabricType()
 	{
 		$id = Input::get('delFabricID');
+		$isDeleted = FALSE;
+
+	if(!$isDeleted){
 		$fabricType = FabricType::find($id);
 
 		$fabricType->boolIsActive = 0;
 
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType?success=false');
+		return Redirect::to('/fabricAndMaterialsFabricType?successDel=true');
+	 } else return Redirect::to('/fabricAndMaterialsFabricType?successDel=false');
 	}
 
 	public function reactFabricType()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+	if(!$isAdded){
 		$fabricType = FabricType::find($id);
 
 		$fabricType->boolIsActive = 1;
 
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType?success=false');
+		return Redirect::to('/fabricAndMaterialsFabricType?successRec=true');
+	 } else return Redirect::to('/fabricAndMaterialsFabricType?successRec=false');
 	}
 
 		///////////THREADS/////////////

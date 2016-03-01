@@ -126,18 +126,26 @@ class MeasurementController extends BaseController{
 	public function editDetail()
 	{
 		$id = Input::get('editDetailID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$detail = MeasurementDetail::find($id);
 
 		$detail->strMeasurementDetailName = Input::get('editDetailName');	
 		$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
 
 		$detail->save();
-		return Redirect::to('/measurements?success=false');
+		return Redirect::to('/measurements?successEdit=true');
+	 } else return Redirect::to('/measurements?successEdit=false');
 	}
 
 	public function editCategory()
 	{
 		$id = Input::get('editMeasurementID');
+		$isEdited = FALSE;
+
+	if(!$isEdited){
 		$category = MeasurementHead::find($id);
 
 		$category->strCategoryName = Input::get('editCategory');	
@@ -145,12 +153,16 @@ class MeasurementController extends BaseController{
 		$category->strMeasurementName = Input::get('editDetail');
 
 		$category->save();
-		return Redirect::to('/measurements?success=false');
+		return Redirect::to('/measurements?successEdit=true');
+	 } else return Redirect::to('/measurements?successEdit=false');
 	}
 
 	public function delDetail()
 	{
 		$id = Input::get('delDetailID');
+		$isDeleted = FALSE;
+
+	if(!$isDeleted){
 		$detail = MeasurementDetail::find($id);
 
 		$count = DB::table('tblMeasurementHeader')
@@ -167,29 +179,40 @@ class MeasurementController extends BaseController{
         	return Redirect::to('/measurements?success=false');
         }
 	
-		return Redirect::to('/measurements?success=false');
+		return Redirect::to('/measurements?successDel=true');
+	 } else return Redirect::to('/measurements?successDel=false');
 	}
 
 	public function delCategory()
 	{
 		$id = Input::get('delMeasurementID');
+		$isDeleted = FALSE;
+
+
+	if(!$isDeleted){
 		$head = MeasurementHead::find($id);
 
 		$head->boolIsActive = 0;
 
 		$head->save();
-		return Redirect::to('/measurements?success=false');
+		return Redirect::to('/measurements?successDel=true');
+	 } else return Redirect::to('/measurements?successDel=false');
 	}
 
 	public function reactCategory()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
 		$head = MeasurementHead::find($id);
 
 		$head->boolIsActive = 1;
 
 		$head->save();
-		return Redirect::to('/measurements?success=false');
+		return Redirect::to('/measurements?successRec=true');
+	 } else return Redirect::to('/measurements?successRec=false');
 	}
 
 
