@@ -5,7 +5,7 @@
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
-            <div class="card-panel white" style="opacity:0.80">
+            <div class="card-panel yellow">
               <span class="black-text" style="color:black">Successfully added fabric type!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
@@ -273,6 +273,10 @@
 
           $('.data-fabricType').DataTable();
           $('select').material_select();
+
+          setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
 
       } );
     </script>

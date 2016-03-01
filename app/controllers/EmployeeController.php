@@ -97,9 +97,8 @@ class EmployeeController extends BaseController{
 			));
 
 			$employee->save();
-		}
-		
-		return Redirect::to('/employee');
+			return Redirect::to('/employee?success=true');
+		} else return Redirect::to('/employee?success=false');
 	}
 
 	public function addRole()
@@ -120,14 +119,17 @@ class EmployeeController extends BaseController{
 			));
 
 			$role->save();
-		}
-		
-		return Redirect::to('/employeeRole');
+			return Redirect::to('/employeeRole?success=true');
+		}else return Redirect::to('/employeeRole?success=false');
 	}
 
 	public function editEmployee()
 	{
 		$id = Input::get('editEmpID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$employee = Employee::find($id);
 
 		$employee->strEmpFName = Input::get('editFirstName');	
@@ -143,12 +145,17 @@ class EmployeeController extends BaseController{
 		$employee->strEmailAdd = Input::get('editEmail');
 
 		$employee->save();
-		return Redirect::to('/employee');
+		return Redirect::to('/employee?successEdit=true');
+	 } else return Redirect::to('/employee?successEdit=false');
 	}
 
 	public function editRole()
 	{
 		$id = Input::get('editRoleID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$role = Role::find($id);
 
 		$rol = Role::all();
@@ -165,23 +172,33 @@ class EmployeeController extends BaseController{
 			$role->save();
 		}
 
-		return Redirect::to('/employeeRole');
+		return Redirect::to('/employeeRole?successEdit=true');
+	 } else return Redirect::to('/employeeRole?successEdit=false');
 	}
 
 	public function delEmployee()
 	{
 		$id = Input::get('delEmpID');
+		$isDeleted = FALSE;
+
+
+	if(!$isDeleted){
 		$employee = Employee::find($id);
 
 		$employee->boolIsActive = 0;
 
 		$employee->save();
-		return Redirect::to('/employee');
+		return Redirect::to('/employee?successDel=true');
+	 } else return Redirect::to('/employee?successDel=false');
 	}
 
 	public function delRole()
 	{
 		$id = Input::get('delRoleID');
+		$isDeleted = FALSE;
+
+
+	if(!$isDeleted){
 		$role = Role::find($id);
 
 		$count = DB::table('tblEmployee')
@@ -193,33 +210,44 @@ class EmployeeController extends BaseController{
         if ($count == 0) {
         	$role->boolIsActive = 0;
         	$role->save();
-        	return Redirect::to('/employeeRole');
+        	return Redirect::to('/employeeRole?successDel=true');
         } else {
-        	return Redirect::to('/employeeRole');
+        	return Redirect::to('/employeeRole?successDel=true');
         }
+      } else return Redirect::to('/employeeRole?successDel=false');
 
 	}
 
 	public function reactEmployee()
 	{	
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
 		$employee = Employee::find($id);
 
 		$employee->boolIsActive = 1;
 
 		$employee->save();
-		return Redirect::to('/employee');
+		return Redirect::to('/employee?successRec=true');
+	 } else return Redirect::to('/employee?successRec=false');
 	}
 
 	public function reactRole()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
 		$role = Role::find($id);
 
         $role->boolIsActive = 1;
 
         $role->save();
-        return Redirect::to('/employeeRole');
+        return Redirect::to('/employeeRole?successRec=true');
+	 }else return Redirect::to('/employeeRole?successRec=false');
 	}
 
 	public function smartCounter($id)

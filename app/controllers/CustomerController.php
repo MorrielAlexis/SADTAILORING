@@ -95,6 +95,9 @@ class CustomerController extends BaseController{
 	public function editCustPrivIndiv()
 	{	
 		$id = Input::get('editIndiID');
+		$isEdited = FALSE;
+
+		if(!$isEdited){
 		$individual = PrivateIndividual::find($id);
 
 		$individual->strCustPrivFName = Input::get('editFName');
@@ -107,29 +110,38 @@ class CustomerController extends BaseController{
 		$individual->strCustPrivLandlineNumber = Input::get('editPhone');
 
 		$individual->save();
-		return Redirect::to('/maintenance/customerIndividual?success=false');
+		return Redirect::to('/maintenance/customerIndividual?successEdit=true');
+	  }else return Redirect::to('/maintenance/customerIndividual?successEdit=false');
 	}
 
 	public function delCustPrivIndiv()
 	{
 		$id = Input::get('delIndivID');
+		$isDeleted = FALSE;
+
+		if(!$isDeleted){
 		$individual = PrivateIndividual::find($id);
 
 		$individual->boolIsActive = 0;
 
 		$individual->save();
-		return Redirect::to('/maintenance/customerIndividual?success=false');
+		return Redirect::to('/maintenance/customerIndividual?successDel=true');
+	 }else return Redirect::to('/maintenance/customerIndividual?successDel=false');
 	}
 
 	public function reactCustPrivIndiv()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+		if(!$isAdded){
 		$individual = PrivateIndividual::find($id);
 
 		$individual->boolIsActive = 1;
 
 		$individual->save();
-		return Redirect::to('/maintenance/customerIndividual?success=false');
+		return Redirect::to('/maintenance/customerIndividual?successRec=true');
+	  }else return Redirect::to('/maintenance/customerIndividual?successRec=false'); 
 	}
 
 	public function addCustCompany()
@@ -174,14 +186,16 @@ class CustomerController extends BaseController{
 				));
 
 			$company->save();
-		}
-
-		return Redirect::to('/maintenance/customerCompany');
-	}
+			return Redirect::to('/maintenance/customerCompany?success=true');
+		}else return Redirect::to('/maintenance/customerCompany?success=false');
+	} 
 
 	public function editCustCompany()
 	{
 		$id = Input::get('editComID');
+		$isEdited = FALSE;
+
+		if(!$isEdited){
 		$company = Company::find($id);
 
 		$company->strCustCompanyName = Input::get('editComName');	
@@ -194,29 +208,40 @@ class CustomerController extends BaseController{
 		$company->strCustCompanyFaxNumber = Input::get('editFax');
 
 		$company->save();
-		return Redirect::to('/maintenance/customerCompany');
+		return Redirect::to('/maintenance/customerCompany?successEdit=true');
+	 }else return Redirect::to('/maintenance/customerCompany?successEdit=false');
 	}
 
 	public function delCustCompany()
 	{
 		$id = Input::get('delCompanyID');
+		$isDeleted = FALSE;
+
+
+		if(!$isDeleted){
 		$company = Company::find($id);
 
 		$company->boolIsActive = 0;
 
 		$company->save();
-		return Redirect::to('/maintenance/customerCompany');
+		return Redirect::to('/maintenance/customerCompany?successDel=true');
+	 }else return Redirect::to('/maintenance/customerCompany?successDel=false');
 	}
 
 	public function reactCustCompany()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+		if(!$isAdded){
 		$company = Company::find($id);
 
 		$company->boolIsActive = 1;
 
 		$company->save();
-		return Redirect::to('/maintenance/customerCompany');
+		return Redirect::to('/maintenance/customerCompany?successRec=true');
+	  }else return Redirect::to('/maintenance/customerCompany?successRec=false');
 	}
 
 	public function smartCounter($id)

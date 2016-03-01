@@ -179,9 +179,8 @@ class FabricAndMaterialsController extends BaseController{
 			}	
 
 			$swatch->save();
-		}
-		
-		return Redirect::to('/fabricAndMaterialsSwatches');
+			return Redirect::to('/fabricAndMaterialsSwatches?success=true');
+		} else return Redirect::to('/fabricAndMaterialsSwatches?success=false');
 	}
 
 	public function editSwatch()
@@ -220,7 +219,7 @@ class FabricAndMaterialsController extends BaseController{
 			$swatch->save();
 		}
 
-		return Redirect::to('/fabricAndMaterialsSwatches');
+		return Redirect::to('/fabricAndMaterialsSwatches?success=false');
 	}
 
 
@@ -232,7 +231,7 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->boolIsActive = 0;
 
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches');
+		return Redirect::to('/fabricAndMaterialsSwatches?success=false');
 	}
 
 	public function reactSwatch()
@@ -243,7 +242,7 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->boolIsActive = 1;
 
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches');
+		return Redirect::to('/fabricAndMaterialsSwatches?success=false');
 	}
 
 		//////////FABRIC TYPE///////////
@@ -265,9 +264,8 @@ class FabricAndMaterialsController extends BaseController{
 			));
 
 			$fabricType->save();
-		}
-		
-		return Redirect::to('/fabricAndMaterialsFabricType');
+			return Redirect::to('/fabricAndMaterialsFabricType?success=true');
+		}else return Redirect::to('/fabricAndMaterialsFabricType?success=false');
 
 	}
 
@@ -291,7 +289,7 @@ class FabricAndMaterialsController extends BaseController{
 			$fabricType->save();
 		}
 
-		return Redirect::to('/fabricAndMaterialsFabricType');
+		return Redirect::to('/fabricAndMaterialsFabricType?success=false');
 	}
 
 
@@ -303,7 +301,7 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType->boolIsActive = 0;
 
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType');
+		return Redirect::to('/fabricAndMaterialsFabricType?success=false');
 	}
 
 	public function reactFabricType()
@@ -314,7 +312,7 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType->boolIsActive = 1;
 
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType');
+		return Redirect::to('/fabricAndMaterialsFabricType?success=false');
 	}
 
 		///////////THREADS/////////////

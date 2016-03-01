@@ -3,6 +3,52 @@
 @section('content')
 
   <div class="main-wrapper">
+    <!--Add Catalogue-->
+    @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+    <!--Edit Catalogue-->
+    @if (Input::get('successEdit') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully edited catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+    <!--Delete Catalogue-->
+    @if (Input::get('successDel') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully deleted catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+      <!--Reactivate Catalogue-->
+      @if (Input::get('successRec') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added back catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+    
     <div class="row">
       <div class="col s12 m12 l12">
         <span class="page-title"><h4>Catalogue</h4></span>
@@ -334,6 +380,10 @@
 
           $('.data-catalogue').DataTable();
           $('select').material_select();
+
+          setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
 
       } );
     </script>

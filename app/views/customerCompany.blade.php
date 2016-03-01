@@ -3,15 +3,53 @@
 @section('content')
 
   <div class="main-wrapper">
+     <!--Add Customer-->
      @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
-            <div class="card-panel white" style="opacity:0.80">
+            <div class="card-panel yellow">
               <span class="black-text" style="color:black">Successfully added customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
       @endif
+
+
+     <!--Edit Customer-->
+     @if (Input::get('successEdit') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully edited customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+     <!--Delete Customer-->
+     @if (Input::get('successDel') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully deleted customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+     <!--Reactivate Customer-->
+     @if (Input::get('successRec') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added back customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+      
 
     <div class="row">
       <div class="col s12 m12 l12">
@@ -240,7 +278,7 @@
             </div>  
     
             <div id="addCom" class="modal modal-fixed-footer">
-              <h5><font color = "#1b5e20"><center>Add Individual Profile </center> </font> </h5>                      
+             <div class = "label"> <h5><font color = "#1b5e20"><center>Add Company Profile </center> </font> </h5>                      
               <div class="modal-content">
                 <p>
                 <form action="{{URL::to('addCustCompany')}}" method="POST">
@@ -297,14 +335,14 @@
               <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>
             </div>
             </form>
-          </div>     
-          
+          </div> 
+          </div>      
         </div>
        </div>  
     </div> 
     @stop
 
-@section('scripts')	 
+@section('scripts')  
     <script>
       function clearData(){
           document.getElementById("addComName").value = "";
@@ -446,6 +484,11 @@
 
           $('.data-custCompany').DataTable();
 
+      setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
+
+
       } );
 
     </script>
@@ -466,7 +509,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
       $('.tooltipped').tooltip({delay: 50});
-  });	
+  }); 
 </script>
 
 @stop                             

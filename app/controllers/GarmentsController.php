@@ -70,9 +70,8 @@ class GarmentsController extends BaseController{
 			));
 
 			$garment->save();
-		}
-		
-		return Redirect::to('/garments');
+			return Redirect::to('/garments?success=true');
+		}else return Redirect::to('/garments?success=false');
 	}
 
 	public function editGarmentCategory()
@@ -94,7 +93,7 @@ class GarmentsController extends BaseController{
 			$garments->save();
 		}
 
-		return Redirect::to('/garments');
+		return Redirect::to('/garments?success=false');
 	}	
 
 	public function delGarmentCategory()
@@ -117,9 +116,9 @@ class GarmentsController extends BaseController{
         if ($count == 0 && $count2 == 0) {
         	$category->boolIsActive = 0;
         	$category->save();
-        	return Redirect::to('/garments');
+        	return Redirect::to('/garments?success=false');
         } else {
-        	return Redirect::to('/garments');
+        	return Redirect::to('/garments?success=false');
         }
 
 	}
@@ -144,9 +143,8 @@ class GarmentsController extends BaseController{
 				));
 
 			$segment->save();
-		}
-
-		return Redirect::to('/garmentsDetails');
+			return Redirect::to('/garmentsDetails?success=true');
+		} else return Redirect::to('/garmentsDetails?success=false');
 	}
 
 	public function editGarmentSegment()
@@ -170,7 +168,7 @@ class GarmentsController extends BaseController{
 			$segment->save();
 		}
 
-		return Redirect::to('/garmentsDetails');
+		return Redirect::to('/garmentsDetails?success=false');
 	}
 
 	public function delGarmentSegment()
@@ -193,9 +191,9 @@ class GarmentsController extends BaseController{
 		if ($count == 0 && $count2 == 0) {
         	$segment->boolIsActive = 0;
         	$segment->save();
-        	return Redirect::to('/garmentsDetails');
+        	return Redirect::to('/garmentsDetails?success=false');
         } else {
-        	return Redirect::to('/garmentsDetails');
+        	return Redirect::to('/garmentsDetails?success=false');
         }
 
 	}
@@ -208,7 +206,7 @@ class GarmentsController extends BaseController{
 		$category->boolIsActive = 1;
 
 		$category->save();
-		return Redirect::to('/garments');
+		return Redirect::to('/garments?success=false');
 	}
 
 	public function reactGarmentSegment()
@@ -219,7 +217,7 @@ class GarmentsController extends BaseController{
 		$segment->boolIsActive = 1;
 
 		$segment->save();
-		return Redirect::to('/garmentsDetails');
+		return Redirect::to('/garmentsDetails?success=false');
 	}
 
 	public function smartCounter($id)

@@ -3,15 +3,51 @@
 
 @section('content')
   <div class="main-wrapper">
+        <!--Add Segment Pattern-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
-            <div class="card-panel white" style="opacity:0.80">
+            <div class="card-panel yellow">
               <span class="black-text" style="color:black">Successfully added segment pattern!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
-      @endif
+        @endif
+
+
+        <!--Edit Segment Pattern-->
+       @if (Input::get('successEdit') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully edit segment pattern!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+        @endif
+
+        <!--Delete Segment Pattern-->
+      @if (Input::get('successDel') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully deleted segment pattern!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+        @endif
+
+       <!--Reactivate Segment Pattern-->
+      @if (Input::get('successRec') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added back segment pattern!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+        @endif
+
 
     <div class="row">
       <div class="col s12 m12 l12">
@@ -341,6 +377,10 @@
 
           $('.data-segmentPattern').DataTable();
           $('select').material_select();
+
+          setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
 
       } );
     </script>
