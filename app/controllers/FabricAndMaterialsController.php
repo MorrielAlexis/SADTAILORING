@@ -327,6 +327,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strMaterialThreadID' => Input::get('addThreadID'),
 			'strMaterialThreadName' => Input::get('addThreadName'),
 			'strMaterialThreadColor' => Input::get('addThreadColor'),
+			// 'strMaterialThreadDesc' => Input::get('addThreadDesc'),
 			'boolIsActive' => 1
 			));
 		}else{
@@ -338,6 +339,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strMaterialThreadID' => Input::get('addThreadID'),
 			'strMaterialThreadName' => Input::get('addThreadName'),
 			'strMaterialThreadColor' => Input::get('addThreadColor'),
+			'strMaterialThreadDesc' => Input::get('addThreadDesc'),
 			'strMaterialThreadImage' => 'imgMaterialThreads/'.$fileName,
 			'boolIsActive' => 1
 			));
@@ -354,7 +356,8 @@ class FabricAndMaterialsController extends BaseController{
 
 		if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
 			$thread->strMaterialThreadName = Input::get('editThreadName');
-			$thread->strMaterialThreadColor = Input::get('editThreadColor');	
+			$thread->strMaterialThreadColor = Input::get('editThreadColor');
+			$thread->strMaterialThreadDesc = Input::get('editThreadDesc');	
 		}else{
 			$file = Input::get('editThreadImage');
 			$destinationPath = 'public/imgMaterialThreads';
@@ -364,6 +367,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$thread->strMaterialThreadName = Input::get('editThreadName');
 			$thread->strMaterialThreadColor = Input::get('editThreadColor');
+			$thread->strMaterialThreadDesc = Input::get('editThreadDesc');
 			$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
 		}
 

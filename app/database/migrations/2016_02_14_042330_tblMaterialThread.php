@@ -16,6 +16,7 @@ class TblMaterialThread extends Migration {
 			$table->string('strMaterialThreadID')->primary();
 			$table->string('strMaterialThreadName');
 			$table->string('strMaterialThreadColor');
+			$table->string('strMaterialThreadDesc');
 			$table->string('strMaterialThreadImage');
 			$table->boolean('boolIsActive');
 			$table->timestamps();

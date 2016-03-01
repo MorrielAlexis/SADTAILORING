@@ -12,6 +12,8 @@ class tblMaterialThreadsSeeder extends Seeder{
 				'strMaterialThreadID' => 'THR001',
 				'strMaterialThreadName' => 'Maong Brown',
 				'strMaterialThreadColor' =>'Brown',
+				'strMaterialThreadDesc' => 'For accent',
+				'strMaterialThreadImage' => '',
 				'boolIsActive' => '1'
 
 			),
@@ -21,6 +23,8 @@ class tblMaterialThreadsSeeder extends Seeder{
 				'strMaterialThreadID' => 'THR002',
 				'strMaterialThreadName' => 'Cotton Hard',
 				'strMaterialThreadColor' =>'Gray',
+				'strMaterialThreadDesc' => 'For design',
+				'strMaterialThreadImage' => '',
 				'boolIsActive' => '1'
 			)
 
