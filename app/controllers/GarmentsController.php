@@ -84,14 +84,17 @@ class GarmentsController extends BaseController{
 			));
 
 			$garment->save();
-		}
-		
-		return Redirect::to('/garments');
+			return Redirect::to('/garments?success=true');
+		}else return Redirect::to('/garments?success=false');
 	}
 
 	public function editGarmentCategory()
 	{
 		$id = Input::get('editGarmentID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$garments = Category::find($id);
 
 		$garm = Category::get();
@@ -108,12 +111,17 @@ class GarmentsController extends BaseController{
 			$garments->save();
 		}
 
-		return Redirect::to('/garments');
+		return Redirect::to('/garments?successEdit=true');
+	 } else return Redirect::to('/garments?successEdit=false');
 	}	
 
 	public function delGarmentCategory()
 	{
 		$id = Input::get('delGarmentID');
+		$isDeleted = FALSE;
+
+
+	if(!$isDeleted){
 		$category = Category::find($id);
 
 		$count = DB::table('tblGarmentSegment')
@@ -136,10 +144,11 @@ class GarmentsController extends BaseController{
         	$category->boolIsActive = 0;
         	$reason->save;
         	$category->save();
-        	return Redirect::to('/garments');
+        	return Redirect::to('/garments?successDel=true');
         } else {
-        	return Redirect::to('/garments');
+        	return Redirect::to('/garments?successDel=true');
         }
+     } else return Redirect::to('/garments?successDel=false');
 
 	}
 
@@ -163,14 +172,17 @@ class GarmentsController extends BaseController{
 				));
 
 			$segment->save();
-		}
-
-		return Redirect::to('/garmentsDetails');
+			return Redirect::to('/garmentsDetails?success=true');
+		} else return Redirect::to('/garmentsDetails?success=false');
 	}
 
 	public function editGarmentSegment()
 	{
 		$id = Input::get('editSegmentID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$segment = Segment::find($id);
 
 		$seg = Segment::all();
@@ -189,12 +201,17 @@ class GarmentsController extends BaseController{
 			$segment->save();
 		}
 
-		return Redirect::to('/garmentsDetails');
+		return Redirect::to('/garmentsDetails?successEdit=true');
+	 } else return Redirect::to('/garmentsDetails?successEdit=false');
 	}
 
 	public function delGarmentSegment()
 	{	
 		$id = Input::get('delSegmentID');
+		$isDeleted = FALSE;
+
+
+	if(!$isDeleted){
 		$segment = Segment::find($id);
 
 		$count = DB::table('tblDesignPattern')
@@ -217,16 +234,20 @@ class GarmentsController extends BaseController{
         	$segment->boolIsActive = 0;
         	$reason->save();
         	$segment->save();
-        	return Redirect::to('/garmentsDetails');
+        	return Redirect::to('/garmentsDetails?successDel=true');
         } else {
-        	return Redirect::to('/garmentsDetails');
+        	return Redirect::to('/garmentsDetails?successDel=true');
         }
+      } else return Redirect::to('/garmentsDetails?successDel=false');
 
 	}
 
 	public function reactGarmentCategory()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+	if(!$isAdded){
 		$category = Category::find($id);
 
 		$reas = Input::get('reactInactiveGarment');
@@ -237,12 +258,17 @@ class GarmentsController extends BaseController{
 		$category->boolIsActive = 1;
 
 		$category->save();
-		return Redirect::to('/garments');
+		return Redirect::to('/garments?successRec=true');
+	 } else return Redirect::to('/garments?successRec=false');
 	}
 
 	public function reactGarmentSegment()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
 		$segment = Segment::find($id);
 
 		$reas = Input::get('reactInactiveSegment');
@@ -253,7 +279,8 @@ class GarmentsController extends BaseController{
 		$segment->boolIsActive = 1;
 
 		$segment->save();
-		return Redirect::to('/garmentsDetails');
+		return Redirect::to('/garmentsDetails?successRec=true');
+	 }else return Redirect::to('/garmentsDetails?successRec=false');
 	}
 
 	public function smartCounter($id)

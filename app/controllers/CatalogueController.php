@@ -72,14 +72,16 @@ class CatalogueController extends BaseController{
 			}
 			
 			$catalogue->save();
-		}
-		
-		return Redirect::to('/catalogue');
+			return Redirect::to('/catalogue?success=true');
+		} else return Redirect::to('/catalogue?success=false');
 	}
 
 	public function editCatalogue()
 	{	
 		$id = Input::get('editCatalogueID');
+		$isEdited = FALSE;
+
+	if(!$isEdited){
 		$catalogue = Catalogue::find($id);
 		
 		$ctlg = Catalogue::all();
@@ -111,14 +113,17 @@ class CatalogueController extends BaseController{
 			}		
 
 			$catalogue->save();
-		}
-
-		return Redirect::to('/catalogue');
+		} 
+		return Redirect::to('/catalogue?successEdit=true');
+	 }else return Redirect::to('/catalogue?successEdit=false');
 	}
 
 	public function delCatalogue()
 	{
 		$id = Input::get('delCatalogueID');
+		$isDeleted = FALSE;
+
+	  if(!$isDeleted){
 		$catalogue = Catalogue::find($id);
 
 		$reason = ReasonCatalogue::create(array(
@@ -129,13 +134,18 @@ class CatalogueController extends BaseController{
 		$catalogue->boolIsActive = 0;
 		$reason->save();
 		$catalogue->save();
-		return Redirect::to('/catalogue');
+		return Redirect::to('/catalogue?successDel=true');
+	  }else return Redirect::to('/catalogue?successDel=false');
 	}
 
 
 	public function reactCatalogue()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+		if(!$isAdded){
 		$catalogue = Catalogue::find($id);
 		
 		$reas = Input::get('reactInactiveCatalogueID');
@@ -143,7 +153,8 @@ class CatalogueController extends BaseController{
 		$catalogue->boolIsActive = 1;
 
 		$catalogue->save();
-		return Redirect::to('/catalogue');
+		return Redirect::to('/catalogue?successRec=true');
+	 }else return Redirect::to('/catalogue?successRec=false');
 	}
 
 	public function smartCounter($id)

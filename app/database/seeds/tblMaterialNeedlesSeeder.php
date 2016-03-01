@@ -12,6 +12,7 @@ class tblMaterialNeedlesSeeder extends Seeder{
 				'strMaterialNeedleID' => 'NED001',
 				'strMaterialNeedleName' => 'Ballpoint',
 				'strMaterialNeedleSize' => 'Small',
+				'strMaterialNeedleDesc' => 'For embroidery',
 				'strMaterialNeedleImage' =>'',
 				'boolIsActive' => '1'
 
@@ -22,6 +23,7 @@ class tblMaterialNeedlesSeeder extends Seeder{
 				'strMaterialNeedleID' => 'THR002',
 				'strMaterialNeedleName' => 'Sharp',
 				'strMaterialNeedleSize' => 'Medium',
+				'strMaterialNeedleDesc' => 'For mass production',
 				'strMaterialNeedleImage' =>'',
 				'boolIsActive' => '1'
 			)

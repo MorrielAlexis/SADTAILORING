@@ -9,28 +9,65 @@
     
     <!--Measurement Tabs-->
       <div class="col s12" id="measurements" name="measurements">
-        <ul class="tabs">
-          <li class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
+        <ul class="tabs" style="background: transparent;">
+          <li id="detailTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
           <div style="border: 1px solid white" class="divider"></div>
-          <li id="categoryTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text light-green lighten-1"accent data-position="bottom" data-delay="50" data-tooltip="CLick to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
+          <li id="categoryTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="CLick to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
           <div class="indicator white" style="z-index:1"></div>
         </ul>
-    
     
     <!--Tab Contents-->
     <!--Measurement Category-->
         <div id="tabCategory" class="hue col s12">
 
           <div class="main-wrapper">
-                 @if (Input::get('success') == 'true')
-        <div class="row" id="success-message">
-          <div class="col s12 m12 l12">
-            <div class="card-panel white" style="opacity:0.80">
-              <span class="black-text" style="color:black">Successfully added measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
-            </div>
-          </div>
-        </div>
-      @endif
+             <!--Add Measurement Info-->
+              @if (Input::get('success') == 'true')
+                <div class="row" id="success-message">
+                  <div class="col s12 m12 l12">
+                    <div class="card-panel yellow">
+                      <span class="black-text" style="color:black">Successfully added measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                    </div>
+                  </div>
+                </div>
+              @endif
+
+
+             <!--Edit Measurement Info-->
+             @if (Input::get('successEdit') == 'true')
+                <div class="row" id="success-message">
+                  <div class="col s12 m12 l12">
+                    <div class="card-panel yellow">
+                      <span class="black-text" style="color:black">Successfully edited measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                    </div>
+                  </div>
+                </div>
+              @endif 
+
+
+              <!--Delete Measurement Info-->
+              @if (Input::get('successDel') == 'true')
+                <div class="row" id="success-message">
+                  <div class="col s12 m12 l12">
+                    <div class="card-panel yellow">
+                      <span class="black-text" style="color:black">Successfully deleted measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                    </div>
+                  </div>
+                </div>
+              @endif
+
+              <!--Reactivate Measurement Info-->
+              @if (Input::get('successRec') == 'true')
+                <div class="row" id="success-message">
+                  <div class="col s12 m12 l12">
+                    <div class="card-panel yellow">
+                      <span class="black-text" style="color:black">Successfully added back measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                    </div>
+                  </div>
+                </div>
+              @endif
+
+
             <div class="row">
               <div class="col s12 m12 l12">
                 <span class="page-title"><h4>Measurement Information</h4></span>
@@ -113,7 +150,7 @@
                           <td>{{ $head_1->strGarmentCategoryName }}</td>
                           <td>{{ $head_1->strGarmentSegmentName }}</td>
                           <td>{{ $head_1->meas_details }}</td>
-                          <td><button class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head_1->strMeasurementID}}">EDIT</button></td>
+                          <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head_1->strMeasurementID}}">EDIT</button></td>
 
                           
 
@@ -243,15 +280,52 @@
         <div id="tabDetails" class="hue col s12">
 
           <div class="main-wrapper">
+                <!--Add Measurement Part-->
                  @if (Input::get('success') == 'true')
-        <div class="row" id="success-message">
-          <div class="col s12 m12 l12">
-            <div class="card-panel white" style="opacity:0.80">
-              <span class="black-text" style="color:black">Successfully added measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
-            </div>
-          </div>
-        </div>
-      @endif
+                    <div class="row" id="success-message">
+                      <div class="col s12 m12 l12">
+                        <div class="card-panel yellow">
+                          <span class="black-text" style="color:black">Successfully added measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                        </div>
+                      </div>
+                    </div>
+                  @endif
+
+                <!--Edit Measurement Part-->
+                @if (Input::get('successEdit') == 'true')
+                    <div class="row" id="success-message">
+                      <div class="col s12 m12 l12">
+                        <div class="card-panel yellow">
+                          <span class="black-text" style="color:black">Successfully edited measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                        </div>
+                      </div>
+                    </div>
+                  @endif
+
+                  <!--Delete Measurement Part-->
+                  @if (Input::get('successDel') == 'true')
+                    <div class="row" id="success-message">
+                      <div class="col s12 m12 l12">
+                        <div class="card-panel yellow">
+                          <span class="black-text" style="color:black">Successfully deleted measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                        </div>
+                      </div>
+                    </div>
+                  @endif
+
+
+                  <!--Reactivate Measurement Part-->
+                  @if (Input::get('successRec') == 'true')
+                    <div class="row" id="success-message">
+                      <div class="col s12 m12 l12">
+                        <div class="card-panel yellow">
+                          <span class="black-text" style="color:black">Successfully added back measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                        </div>
+                      </div>
+                    </div>
+                  @endif
+
+
             <div class="row">
               <div class="col s12 m12 l12">
                 <span class="page-title"><h4>Measurement Parts</h4></span>
@@ -459,6 +533,9 @@
           $('.data-measHead').DataTable();
           $('select').material_select();
           
+          setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
       } );
     </script>
 

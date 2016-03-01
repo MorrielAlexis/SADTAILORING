@@ -78,15 +78,17 @@ class DesignPatternController extends BaseController{
 			}
 
 			$pattern->save();
-		}
-		
-
-		return Redirect::to('/designPattern');
+			return Redirect::to('/designPattern?success=true');
+		} else return Redirect::to('/designPattern?success=false');
 	}
 
 	public function editPattern()
 	{
 		$id = Input::get('editPatternID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$pattern = DesignPattern::find($id);
 
 		$pat = DesignPattern::all();
@@ -119,14 +121,16 @@ class DesignPatternController extends BaseController{
 				
 
 			$pattern->save();
-		}
-
-		return Redirect::to('/designPattern');
+		} return Redirect::to('/designPattern?successEdit=true');
+	} else return Redirect::to('/designPattern?successEdit=false');
 	}
 
 	public function delPattern()
 	{
 		$id = Input::get('delPatternID');
+		$isDeleted = FALSE;
+
+	if(!$isDeleted){
 		$pattern = DesignPattern::find($id);
 
 		$reason = ReasonDesignPattern::create(array(
@@ -137,12 +141,17 @@ class DesignPatternController extends BaseController{
 		$pattern->boolIsActive = 0;
 		$reason->save();
 		$pattern->save();
-		return Redirect::to('/designPattern');
+		return Redirect::to('/designPattern?successDel=true');
+	 } else return Redirect::to('/designPattern?successDel=false');
 	}
 
 	public function reactPattern()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
 		$pattern = DesignPattern::find($id);
 
 		$reas = Input::get('reactInactivePattern');
@@ -153,7 +162,8 @@ class DesignPatternController extends BaseController{
 		$pattern->boolIsActive = 1;
 
 		$pattern->save();
-		return Redirect::to('/designPattern');
+		return Redirect::to('/designPattern?successRec=true');
+	 }else return Redirect::to('/designPattern?successRec=false');
 	}
 
 	public function smartCounter($id)

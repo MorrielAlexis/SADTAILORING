@@ -3,6 +3,52 @@
 @section('content')
 
   <div class="main-wrapper">
+    <!--Add Catalogue-->
+    @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+
+    <!--Edit Catalogue-->
+    @if (Input::get('successEdit') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully edited catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+    <!--Delete Catalogue-->
+    @if (Input::get('successDel') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully deleted catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+      <!--Reactivate Catalogue-->
+      @if (Input::get('successRec') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added back catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
+    
     <div class="row">
       <div class="col s12 m12 l12">
         <span class="page-title"><h4>Catalogue</h4></span>
@@ -152,8 +198,8 @@
 
                   
                     <div class="modal-footer">
-                      <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
-                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">CANCEL</a>  
+                      <button type="submit" class="waves-effect waves-green btn-flat">Update</button>
+                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                     </div>
                   </form>
                 </div>
@@ -196,8 +242,8 @@
                     </div>
 
                       <div class="modal-footer">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                       </div>
                     </form>                 
                  </div>
@@ -260,8 +306,8 @@
             </div> 
             
             <div class="modal-footer">                  
-              <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-              <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>                    
+              <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
+              <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>                    
             </div>
           </form>
           </div>
@@ -339,6 +385,10 @@
 
           $('.data-catalogue').DataTable();
           $('select').material_select();
+
+          setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
 
       } );
     </script>

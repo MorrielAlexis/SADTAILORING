@@ -190,14 +190,17 @@ class FabricAndMaterialsController extends BaseController{
 			}	
 
 			$swatch->save();
-		}
-		
-		return Redirect::to('/fabricAndMaterialsSwatches');
+			return Redirect::to('/fabricAndMaterialsSwatches?success=true');
+		} else return Redirect::to('/fabricAndMaterialsSwatches?success=false');
 	}
 
 	public function editSwatch()
 	{	
 		$id = Input::get('editSwatchID');
+		$isEdited = FALSE;
+
+
+	if(!$isEdited){
 		$swatch = Swatch::find($id);
 
 		$swa = Swatch::all();
@@ -231,13 +234,18 @@ class FabricAndMaterialsController extends BaseController{
 			$swatch->save();
 		}
 
-		return Redirect::to('/fabricAndMaterialsSwatches');
+		return Redirect::to('/fabricAndMaterialsSwatches?successEdit=true');
+	 } else return Redirect::to('/fabricAndMaterialsSwatches?successEdit=false');
 	}
 
 
 	public function delSwatch()
 	{
 		$id = Input::get('delSwatchID');
+		$isDeleted = FALSE;
+
+
+	if(!$isDeleted){
 		$swatch = Swatch::find($id);
 
     	$reason = ReasonSwatches::create(array(
@@ -248,12 +256,17 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->boolIsActive = 0;
 		$reason->save();
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches');
+		return Redirect::to('/fabricAndMaterialsSwatches?successDel=true');
+	 } else return Redirect::to('/fabricAndMaterialsSwatches?successDel=false');
 	}
 
 	public function reactSwatch()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
 		$swatch = Swatch::find($id);
 
 		$reas = Input::get('reactInactiveSwatch');
@@ -264,7 +277,8 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->boolIsActive = 1;
 
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches');
+		return Redirect::to('/fabricAndMaterialsSwatches?successRec=true');
+	 } else return Redirect::to('/fabricAndMaterialsSwatches?successRec=false');
 	}
 
 		//////////FABRIC TYPE///////////
@@ -286,15 +300,17 @@ class FabricAndMaterialsController extends BaseController{
 			));
 
 			$fabricType->save();
-		}
-		
-		return Redirect::to('/fabricAndMaterialsFabricType');
+			return Redirect::to('/fabricAndMaterialsFabricType?success=true');
+		}else return Redirect::to('/fabricAndMaterialsFabricType?success=false');
 
 	}
 
 	public function editFabricType()
 	{	
 		$id = Input::get('editFabricTypeID');
+		$isEdited = FALSE;
+
+	if(!$isEdited){
 		$fabricType = FabricType::find($id);
 
 		$fabric = FabricType::get();
@@ -312,13 +328,17 @@ class FabricAndMaterialsController extends BaseController{
 			$fabricType->save();
 		}
 
-		return Redirect::to('/fabricAndMaterialsFabricType');
+		return Redirect::to('/fabricAndMaterialsFabricType?successEdit=true');
+	 } else return Redirect::to('/fabricAndMaterialsFabricType?successEdit=false');
 	}
 
 
 	public function delFabricType()
 	{
 		$id = Input::get('delFabricID');
+		$isDeleted = FALSE;
+
+	if(!$isDeleted){
 		$fabricType = FabricType::find($id);
 
     	$reason = ReasonFabricType::create(array(
@@ -329,12 +349,16 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType->boolIsActive = 0;
 
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType');
+		return Redirect::to('/fabricAndMaterialsFabricType?successDel=true');
+	 } else return Redirect::to('/fabricAndMaterialsFabricType?successDel=false');
 	}
 
 	public function reactFabricType()
 	{
 		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+	if(!$isAdded){
 		$fabricType = FabricType::find($id);
 
 		$reas = Input::get('reactInactiveFabricType');
@@ -345,7 +369,8 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType->boolIsActive = 1;
 
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType');
+		return Redirect::to('/fabricAndMaterialsFabricType?successRec=true');
+	 } else return Redirect::to('/fabricAndMaterialsFabricType?successRec=false');
 	}
 
 		///////////THREADS/////////////
@@ -358,6 +383,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strMaterialThreadID' => Input::get('addThreadID'),
 			'strMaterialThreadName' => Input::get('addThreadName'),
 			'strMaterialThreadColor' => Input::get('addThreadColor'),
+			// 'strMaterialThreadDesc' => Input::get('addThreadDesc'),
 			'boolIsActive' => 1
 			));
 		}else{
@@ -369,6 +395,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strMaterialThreadID' => Input::get('addThreadID'),
 			'strMaterialThreadName' => Input::get('addThreadName'),
 			'strMaterialThreadColor' => Input::get('addThreadColor'),
+			'strMaterialThreadDesc' => Input::get('addThreadDesc'),
 			'strMaterialThreadImage' => 'imgMaterialThreads/'.$fileName,
 			'boolIsActive' => 1
 			));
@@ -385,7 +412,8 @@ class FabricAndMaterialsController extends BaseController{
 
 		if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
 			$thread->strMaterialThreadName = Input::get('editThreadName');
-			$thread->strMaterialThreadColor = Input::get('editThreadColor');	
+			$thread->strMaterialThreadColor = Input::get('editThreadColor');
+			$thread->strMaterialThreadDesc = Input::get('editThreadDesc');	
 		}else{
 			$file = Input::get('editThreadImage');
 			$destinationPath = 'public/imgMaterialThreads';
@@ -395,6 +423,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$thread->strMaterialThreadName = Input::get('editThreadName');
 			$thread->strMaterialThreadColor = Input::get('editThreadColor');
+			$thread->strMaterialThreadDesc = Input::get('editThreadDesc');
 			$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
 		}
 
@@ -434,6 +463,7 @@ class FabricAndMaterialsController extends BaseController{
 				'strMaterialNeedleID' => Input::get('addNeedleID'),
 				'strMaterialNeedleName' => Input::get('addNeedleName'),
 				'strMaterialNeedleSize' => Input::get('addNeedleSize'),
+				'strMaterialNeedleDesc' => Input::get('addNeedleDesc'),
 				'boolIsActive' => 1
 				));
 		}else{
@@ -445,6 +475,7 @@ class FabricAndMaterialsController extends BaseController{
 				'strMaterialNeedleID' => Input::get('addNeedleID'),
 				'strMaterialNeedleName' => Input::get('addNeedleName'),
 				'strMaterialNeedleSize' => Input::get('addNeedleSize'),
+				'strMaterialNeedleDesc' => Input::get('addNeedleDesc'),
 				'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
 				'boolIsActive' => 1
 				));
@@ -462,6 +493,7 @@ class FabricAndMaterialsController extends BaseController{
 		if(Input::get('editNeedleImage') == $needle->strMaterialNeedleImage){
 			$needle->strMaterialNeedleName = Input::get('editNeedleName');
 			$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
+			$needle->strMaterialNeedleDesc = Input::get('editNeedleDesc');
 		}else{
 			$file = Input::get('editNeedleImage');
 			$destinationPath = 'public/imgMaterialNeedles';
@@ -471,6 +503,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$needle->strMaterialNeedleName = Input::get('editNeedleName');
 			$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
+			$needle->strMaterialNeedleDesc = Input::get('editNeedleDesc');
 			$needle->strMaterialNeedleImage = 'imgMaterialNeedles/'.$fileName;
 		}
 
