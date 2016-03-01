@@ -63,7 +63,7 @@
                         <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('maintenance/customerIndividual') || Request::is('maintenance/customerCompany') ? 'active' : '' }}"><b>Customer Profile</b></a>
                            <div class="collapsible-body">
                             <ul>
-                              <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('maintenance/customerIndividual')}}">Individual</a></li>
+                              <li><a style="color:black; font-weight:normal" class="waves-effect waves-white " href="{{URL::to('maintenance/customerIndividual')}}">Individual</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('maintenance/customerCompany')}}">Company</a></li>
 
           	                 <div class="divider"></div>
@@ -71,7 +71,7 @@
                            </div>
                         </li>
 
-                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white"><b>Employee</b></a>
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('maintenance/customerIndividual') || Request::is('maintenance/customerCompany') ? 'active' : '' }}"><b>Employee</b></a>
                           <div class="collapsible-body">
                             <ul> 	
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('employeeRole')}}">Position Roles</a></li>
