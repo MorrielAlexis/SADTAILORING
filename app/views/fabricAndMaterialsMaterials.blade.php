@@ -27,6 +27,7 @@
                   <!--<th date-field= "Thread ID">Thread ID</th>-->
                   <th data-field="Thread Name">Thread Name</th>
                   <th data-field="Thread Color">Thread Color</th>
+                  <th data-field="Thread Desc">Description</th>
                   <th data-field="ThreadImage">Image</th>
                   <th>
                     <div align="right" style="margin-right:70px;"><a href="#addThread" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table"><i class="centered tiny material-icons">add</i></a></div>
@@ -41,6 +42,7 @@
                   <!--<td>{{ $thread->strMaterialThreadID }}</td>-->
                   <td>{{ $thread->strMaterialThreadName }}</td>
                   <td>{{ $thread->strMaterialThreadColor }}</td>
+                  <td>{{ $thread->strMaterialThreadDesc }}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($thread->strMaterialThreadImage)}}"></td> 
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit thread details" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of thread details from the table" href="#del{{ $thread->strMaterialThreadID }}">DELETE</button>
@@ -53,8 +55,8 @@
                       <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
                         <div class="input-field">
  
-                          <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" readonly = "readonly" type="text" class="">
-                          <label for="Thread_ID"> Thread ID: </label>
+                          <!-- <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" readonly = "readonly" type="text" class="">
+                          <label for="Thread_ID"> Thread ID: </label> -->
 
                           <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" type="hidden">
  
@@ -68,6 +70,11 @@
                         <div class="input-field">
                           <input id="editThreadColor" name = "editThreadColor" value = "{{ $thread->strMaterialThreadColor }}" type="text" class="validateColor">
                           <label for="Thread_Color"> *Thread Color </label>
+                        </div>
+
+                         <div class="input-field">
+                          <input id="editThreadDesc" name = "editThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text">
+                          <label for="Thread_Color"> Description </label>
                         </div>
 
                         <div class="file-field input-field">
@@ -99,9 +106,6 @@
                         <p>
                          <form action="{{URL::to('delThread')}}" method="POST">
  
-                          <div class="input-field">
-                            <label for="first_name">Thread ID: </label>
-                            <input value="{{$thread->strMaterialThreadID}}" id="delThreadID" name="delThreadID" type="text" class="" readonly>
 
                          <div class="input-field">
                             <input value="{{$thread->strMaterialThreadID}}" id="delThreadID" name="delThreadID" type="hidden">
@@ -117,6 +121,11 @@
                             <label for="middle_name">Thread Color: </label>
                             <input value="{{$thread->strMaterialThreadColor}}" id="delThreadColor" name="delThreadColor" type="text" class="validate" readonly>
                           </div>
+
+                           <div class="input-field">
+                          <input id="delThreadDesc" name = "delThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text" class="validateColor">
+                          <label for="Thread_Color"> Description: </label>
+                        </div>
                         </p>
                       </div>
 
@@ -143,6 +152,7 @@
                   <!--<th date-field= "Thread ID">Thread ID</th>-->
                   <th data-field="Thread Name">Thread Name</th>
                   <th data-field="Thread Color">Thread Color</th>
+                  <th data-field="Thread Description">Description</th>
                   <th data-field="ThreadImage">Image</th>
                     </tr>
                   </thead>
@@ -154,6 +164,7 @@
                        <!-- <td>{{ $thread2->strMaterialThreadID }}</td>-->
                         <td>{{ $thread2->strMaterialThreadName }}</td>
                         <td>{{ $thread2->strMaterialThreadColor }}</td>
+                          <td>{{ $thread2->strMaterialThreadDesc }}</td>
                         <td><img src="{{URL::asset($thread2->strMaterialThreadImage)}}"></td>    
                         <td>          
                         <form action="{{URL::to('reactThread')}}" method="POST">
@@ -912,13 +923,8 @@
       <h5><font color = "#1b5e20"><center>Add Thread</center> </font> </h5>
       <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
       <div class="input-field">
- 
-          <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" readonly = "readonly" type="text" class="">
-          <label for="Thread_ID"> Thread ID: </label>
-
           <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" type="hidden">
- 
-      </div>
+       </div>
                   
       <div class="input-field">
         <input required id="addThreadName" name = "addThreadName" type="text" class="validateName">
@@ -928,6 +934,11 @@
       <div class="input-field">
         <input required id="addThreadColor" name = "addThreadColor" type="text" class="validateColor">
         <label for="Thread_Color"> *Thread Color </label>
+      </div>
+
+      <div class="input-field">
+        <input required id="addThreadDesc" name = "addThreadDesc" type="text" >
+        <label for="Thread_Desc"> Description </label>
       </div>
 
       <div class="file-field input-field">
