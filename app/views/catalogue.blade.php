@@ -10,9 +10,9 @@
     </div>
 
     <div class="row">
-      <div class="col s12 m12 l6">
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new catalogue design to the table" href="#addCatalogue">ADD DESIGN</button>
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted catalogue designs from the table" href="#modal1">VIEW INACTIVE CATALOGUE DESIGNS</button>
+      <div class="col s12 m12 l12">
+        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new catalogue design to the table" href="#addCatalogue">ADD DESIGN</button>
+        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted catalogue designs from the table" href="#modal1">VIEW INACTIVE CATALOGUE DESIGNS</button>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
                 <td>
                   <form action="{{URL::to('reactCatalogueDesign')}}" method="POST">
                     <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
-                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
+                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
                   </form>
                 </td>
               </tr>
@@ -94,8 +94,8 @@
               	<td>{{ $catalogue->strCatalogueName }}</td>
               	<td>{{ $catalogue->strCatalogueDesc }}</td>
                 <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue->strCatalogueImage)}}"></td>
-              	<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit catalogue design detail" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
-                <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete catalogue design detail from the table" href="#del{{$catalogue->strCatalogueID}}">DELETE</button>
+              	<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit catalogue design detail" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
+                <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of catalogue design from the table" href="#del{{$catalogue->strCatalogueID}}">DELETE</button>
 
                   <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Edit Catalogue Design</center> </font> </h5>

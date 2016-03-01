@@ -8,16 +8,26 @@
     @endif
 
   <div class="main-wrapper">
+         @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added employee role!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+      
     <div class="row">
       <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Employee-Roles</h4></span>
+        <span class="page-title"><h4>Employee Roles</h4></span>
       </div>
     </div>
 
     <div class="row">
-      <div class="col s12 m12 l6">
-       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new role to the table" href="#addRole">ADD A NEW ROLE</button>
-      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted roles from the table" href="#modal1">VIEW INACTIVE ROLES</button>
+      <div class="col s12 m12 l12">
+       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new role to the table" href="#addRole">ADD A NEW ROLE</button>
+      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to view deleted roles from the table" href="#modal1">VIEW INACTIVE ROLES</button>
       </div>
     </div>
   </div>
@@ -44,7 +54,7 @@
                 <td>
                   <form action="{{URL::to('reactRole')}}" method="POST">
                     <input type="hidden" value="{{ $role2->strEmpRoleID }}" id="reactID" name="reactID">
-                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of position to the table">REACTIVATE</button>
+                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of position to the table">REACTIVATE</button>
                   </form>
                 </td>
             </tr>
@@ -84,8 +94,8 @@
               <tr>
                 <td>{{ $role->strEmpRoleName }}</td>
                 <td>{{ $role->strEmpRoleDesc }}</td>
-                <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of role" href="#edit{{$role->strEmpRoleID}}">EDIT</button>
-                    <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete role from table" href="#del{{$role->strEmpRoleID}}">DELETE</button>
+                <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of role" href="#edit{{$role->strEmpRoleID}}">EDIT</button>
+                    <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of role from table" href="#del{{$role->strEmpRoleID}}">DELETE</button>
                 </td>	
                   <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                     <form action="{{URL::to('editRole')}}" method="POST">

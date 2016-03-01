@@ -3,6 +3,16 @@
 @section('content')
 
   <div class="main-wrapper">
+     @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
     <div class="row">
       <div class="col s12 m12 l12">
       <span class="page-title"><h4>Customer Company</h4></span>
@@ -11,8 +21,8 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new company to the table" href="#addCom">ADD COMPANY Customer</button>
-       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted companies from the table" href="#modal1">VIEW ALL INACTIVE CUSTOMERS</button>
+       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new company to the table" href="#addCom">ADD COMPANY Customer</button>
+       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted companies from the table" href="#modal1">VIEW ALL INACTIVE CUSTOMERS</button>
       </div>
     </div>
   </div>
@@ -50,8 +60,10 @@
                   <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
                 <td>
                   <form action="{{URL::to('reactCustCompany')}}" method="POST">
-                    <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
-                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of customer to the table">REACTIVATE</button>
+
+                  <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to reeturn data of customer to the table">REACTIVATE</button>
+                 
                   </form>
                 </td>
           </tr>
@@ -104,8 +116,8 @@
                   <td>{{ $company->strCustCompanyCPNumberAlt }}</td> 
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of customer" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete customer from table" href="#del{{$company->strCustCompanyID}}">DELETE</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of customer" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$company->strCustCompanyID}}">DELETE</button></td>
                   
 
                     <div id="edit{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">

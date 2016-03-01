@@ -2,15 +2,25 @@
 
 @section('content')
   <div class="main-wrapper">
+         @if (Input::get('success') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel white" style="opacity:0.80">
+              <span class="black-text" style="color:black">Successfully added garment category!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
     <div class="row">
       <div class="col s12 m12 l12">
       <span class="page-title"><h4>Garment Categories</h4></span>
     </div>
 
     <div class="row">
-      <div class="col s12 m12 l6">
-      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Add a new type of garment to the table" href="#addGCategory">ADD GARMENT CATEGORY</button>
-      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deleted category from the table" href="#modal1">VIEW INACTIVE CATEGORIES</button>
+      <div class="col s12 m12 l12">
+      <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new type of garment to the table" href="#addGCategory">ADD GARMENT CATEGORY</button>
+      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted categories from the table" href="#modal1">VIEW INACTIVE CATEGORIES</button>
+
      </div>
    </div>
   </div>
@@ -39,7 +49,7 @@
               <td>
                 <form action="{{URL::to('reactGarmentCategory')}}" method="POST">
                   <input type="hidden" id="reactID" name="reactID" value="{{$category2->strGarmentCategoryID}}">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of garment category to the table">REACTIVATE</button>
+                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of garment category to the table">REACTIVATE</button>
                 </form>
               </td>
             </tr>
@@ -83,8 +93,8 @@
                     <!--<td>{{ $category->strGarmentCategoryID }}</td>-->
                     <td>{{ $category->strGarmentCategoryName }}</td>
                     <td>{{ $category->strGarmentCategoryDesc }}</td>
-                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Edit data of category" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
-                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Delete category from the table" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of category" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of category from the table" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button></td>
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
