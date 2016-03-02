@@ -58,54 +58,10 @@
     <div class="row">
       <div class="col s12 m12 l12">
       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new type of garment to the table" href="#addGCategory">ADD GARMENT CATEGORY</button>
-      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted categories from the table" href="#modal1">VIEW INACTIVE CATEGORIES</button>
 
      </div>
    </div>
   </div>
-
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Garment Categories</center> </font> </h5>
-      <table class = "centered" align = "center" border = "1">
-        <thead>
-          <tr>
-            <!--<th data-field="id">Garment Details ID</th>-->
-            <th data-field="name">Category Name</th>
-            <th data-field="address">Category Description</th>
-            <th data-field="address">Reason for Inactivation</th>
-            <th>Reactivate</th>
-          </tr>
-        </thead>
-
-        <tbody>
-            @foreach($category2 as $category2)
-            @if($category2->boolIsActive == 0)
-            <tr>
-              <!--<td>{{ $category2->strGarmentCategoryID }}</td>-->
-              <td>{{ $category2->strGarmentCategoryName }}</td>
-              <td>{{ $category2->strGarmentCategoryDesc }}</td>
-              <td>{{ $category2->strInactiveReason }}</td>
-              <td>
-                <form action="{{URL::to('reactGarmentCategory')}}" method="POST">
-                  <input type="hidden" id="reactID" name="reactID" value="{{$category2->strGarmentCategoryID}}">
-                  <input type="hidden" id="reactInactiveGarment" name="reactInactiveGarment" value="{{$category2->strGarmentCategoryID}}">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of garment category to the table">REACTIVATE</button>
-                </form>
-              </td>
-            </tr>
-            @endif
-            @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-    </div>
-  </div>
-
 
     <div class="row">
       <div class="col s12 m12 l12">

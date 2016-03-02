@@ -143,10 +143,6 @@
             width: 70px;
         }
         
-        .hue{
-            width: col s12; 
-            height: auto;
-        }
 
         /* TABS IN MEASUREMENT-BLADE */
 
@@ -175,13 +171,16 @@
         }
 
         .tab{
-            background: #1a237e;
             border: gray;
-            border-radius: 4px;
         }   
 
         .tab:hover{
             color: #1a237e;
+        }
+
+        .hue{
+            width: col s12; 
+            height: auto;
         }
         /* END OF TABS IN MEASUREMENT-BLADE */
 

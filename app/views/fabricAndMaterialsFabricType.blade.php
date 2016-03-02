@@ -58,51 +58,10 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new fabric type to the table" href="#addFabricType">ADD FABRIC TYPE</button>
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted fabric types from the table" href="#inactiveFabric">VIEW INACTIVE FABRICS</button>
       </div>
     </div>
   </div> <!-- End of Main Wrapper  --> 
 
-   <!--**********VIEW INACTIVE FABRICS**********-->
-            <div id="inactiveFabric" class="modal modal-fixed-footer">
-              <div class="modal-content">
-                <h5><font color = "#1b5e20"><center>Inactive Fabric Types</center> </font> </h5>
-                <table class="centered" border="1">
-                  <thead>
-                    <tr>
-                      <!--<th data-field="fabricID">Fabric Type ID</th>-->
-                      <th data-field="fabricName">Fabric TypeName</th>
-                      <th data-field="fabricDesc">Fabric Description</th> 
-                      <th data-field="fabricDesc">Reason for Inactivation</th>     
-                      <th>Reactivate</th>   
-                  </thead>
-
-                  <tbody>
-                    @foreach($fabricType2 as $fabricType2)
-                    @if($fabricType2->boolIsActive == 0)
-                      <tr>
-                        <!--<td>{{ $fabricType2->strFabricTypeID }}</td>-->
-                        <td>{{ $fabricType2->strFabricTypeName }}</td>
-                        <td>{{ $fabricType2->strFabricTypeDesc }}</td>
-                        <td>{{ $fabricType2->strInactiveReason }}</td>
-                        <td>
-                          <form action="{{URL::to('reactFabricType')}}" method="POST">
-                            <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactID" name="reactID">
-                            <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactInactiveFabricType" name="reactInactiveFabricType">
-                            <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to return data of fabric type to the table">REACTIVATE</button>
-                          </form>
-                        </td>
-                      </tr>
-                      @endif
-                      @endforeach
-                  </tbody>
-                </table>
-              </div>
-
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-        </div>
-      </div>
 
 
   <div class="row"> <!-- row -->

@@ -63,51 +63,10 @@
     <div class="row">
       <div class="col s12 m12 l12">
        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new role to the table" href="#addRole">ADD A NEW ROLE</button>
-      <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to view deleted roles from the table" href="#modal1">VIEW INACTIVE ROLES</button>
       </div>
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL ROLES-->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Roles</center> </font> </h5>
-      <table class = "table centered data-reactRole" align = "center" border = "1">
-            <thead>
-              <tr>
-                  <th data-field="name">Role Name</th>
-                  <th data-field="address">Role Description</th>
-                  <th data-field="reason">Reason for Inactivation</th>
-                  <th data-field="Edit">Reactivate</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              @foreach($role2 as $role2)
-              @if($role2->boolIsActive == 0)
-              <tr>
-                <td>{{ $role2->strEmpRoleName }}</td>
-                <td>{{ $role2->strEmpRoleDesc }}</td>
-                <td>{{ $role2->strInactiveReason }}</td>
-                <td>
-                  <form action="{{URL::to('reactRole')}}" method="POST">
-                    <input type="hidden" value="{{ $role2->strEmpRoleID }}" id="reactID" name="reactID">
-                    <input type="hidden" value="{{ $role2->strEmpRoleID }}" id="reactInactiveRole" name="reactInactiveRole">
-                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of position to the table">REACTIVATE</button>
-                  </form>
-                </td>
-            </tr>
-            @endif
-            @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col s12 m12 l12">

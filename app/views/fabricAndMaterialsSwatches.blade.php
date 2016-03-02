@@ -70,58 +70,11 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new swatch to the table" href="#addSwatches">ADD NEW SWATCH</button>
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted swatches from the table" href="#modal1">VIEW INACTIVE SWATCHES</button>
       </div>
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL EMPLOYEES-->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Fabric Swatches</center> </font> </h5>
-      <table class="centered" border="1">
-        <thead>
-          <tr>
-            <!--<th date-field="Swatch ID">Swatch ID </th>-->
-            <th data-field="Swatch fabric type Name">Swatch Fabric Type Name</th>
-            <th data-field="SwatchName">Swatch Name</th>
-            <th data-field="SwatchCode">Swatch Code</th>
-            <th data-field="SwatchImage">Image</th>
-            <th data-field="SwatchImage">Reason for Inactivation</th>
-            <th data-field="reactSwatch">Reactivate</th>
-          </tr>
-        </thead>
 
-        <tbody>
-            @foreach($swatch2 as $swatch2)
-              @if($swatch2->boolIsActive == 0)
-            <tr>
-              <!--<td>{{ $swatch2->strSwatchID }}</td>-->
-              <td>{{ $swatch2->strFabricTypeName }}</td>
-              <td>{{ $swatch2->strSwatchName }}</td>
-              <td>{{ $swatch2->strSwatchCode }}</td>
-              <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch2->strSwatchImage)}}"></td>
-              <td>{{ $swatch2->strInactiveReason }}</td>
-              <td>
-
-               <form action="{{URL::to('reactSwatch')}}" method="POST">
-                  <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactID" name="reactID">
-                  <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactInactiveSwatch" name="reactInactiveSwatch">
-              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of fabric swatch to the table">REACTIVATE</button>
-
-              </form>
-            </tr>
-        @endif
-        @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col s12 m12 l12">

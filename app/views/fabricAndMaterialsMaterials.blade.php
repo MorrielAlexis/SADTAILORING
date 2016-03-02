@@ -20,7 +20,6 @@
       <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deactivated thread details from the table" href="#inactiveThread">VIEW INACTIVE THREADS</button>
 
                <thead>
                 <tr>
@@ -150,51 +149,7 @@
               </tbody>
             </table>
 
-                <!--VIEW INACTIVE THREADS-->
-          <div id="inactiveThread" class="modal modal-fixed-footer">
-             <div class="modal-content">
-             <h5><font color = "#1b5e20"><center>Inactive Threads</center> </font> </h5>
-                <table class="centered" border="1">
-                  <thead>
-                <tr>
-                  <!--<th date-field= "Thread ID">Thread ID</th>-->
-                  <th data-field="Thread Name">Thread Name</th>
-                  <th data-field="Thread Color">Thread Color</th>
-                  <th data-field="Thread Description">Description</th>
-                  <th data-field="ThreadImage">Image</th>
-                  <th data-field="Thread Description">Reason for Inactivation</th>
-                  <th data-field="ThreadImage">Reactivate</th>
-                    </tr>
-                  </thead>
 
-                  <tbody>
-                    @foreach($thread2 as $thread2)
-                      @if($thread2->boolIsActive == 0)
-                      <tr>
-                       <!-- <td>{{ $thread2->strMaterialThreadID }}</td>-->
-                        <td>{{ $thread2->strMaterialThreadName }}</td>
-                        <td>{{ $thread2->strMaterialThreadColor }}</td>
-                          <td>{{ $thread2->strMaterialThreadDesc }}</td>
-                        <td><img src="{{URL::asset($thread2->strMaterialThreadImage)}}"></td>
-                          <td>{{ $thread2->strInactiveReason }}</td>    
-                        <td>          
-                        <form action="{{URL::to('reactThread')}}" method="POST">
-                        <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactID" name="reactID">
-                        <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactInactiveThread" name="reactInactiveThread">
-                        <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of thread to the table">REACTIVATE</button>
-                        </form>
-                      </td>
-                    </tr>
-                    @endif
-                    @endforeach
-                  </tbody>
-                </table>
-              </div>
-              
-              <div class="modal-footer">
-                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a> 
-              </div>
-            </div>
         </div>
           </div>
       </div>
@@ -213,7 +168,6 @@
       <div class="collapsible-body" style="background:white">
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
-        <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deactivated needle details from the table" href="#inactiveNeedle">VIEW INACTIVE NEEDLES</button>
               <thead>
                 <tr>
                   <!--<th date-field= "Needle ID">Needle ID</th>-->
@@ -336,52 +290,6 @@
               </tbody>
         </table>
 
-  <div id="inactiveNeedle" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Needles</center> </font> </h5>
-      <table class="centered" border="1">
-        <thead>
-          <tr>
-            <!--<th data-field="Needle ID">Needle ID</th>-->
-            <th data-field="Needle Name">Needle Name</th>
-            <th data-field= "Needle Size">Needle Size </th>
-             <th data-field= "Needle Desc">Description </th>
-            <th data-field="Image">Image</th>    
-             <th data-field= "Needle Desc">Reason for Inactivation </th>
-            <th data-field="Image">Reactivate</th>       
-            </tr>
-        </thead>
-
-        <tbody>
-          @foreach($needle2 as $needle2)
-            @if($needle2->boolIsActive == 0)
-            <tr>
-              <!--<td>{{ $needle2->strMaterialNeedleID }}</td>-->
-              <td>{{ $needle2->strMaterialNeedleName }}</td>
-              <td>{{ $needle2->strMaterialNeedleSize }}</td>
-               <td>{{ $needle2->strMaterialNeedleDesc }}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($needle2->strMaterialNeedleImage)}}"> </td>
-               <td>{{ $needle2->strInactiveReason }}</td>      
-              <td>          
-              <form action="{{URL::to('reactNeedle')}}" method="POST">
-              <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactID" name="reactID">
-              <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactInactiveNeedle" name="reactInactiveNeedle">
-              <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of needle to the table">REACTIVATE</button>
-              </form>
-            </td>
-          </tr>
-          @endif
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a> 
-    </div>
-  </div>
-    
         <div class = "clearfix">
 
         </div>
@@ -396,7 +304,6 @@
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
 
-        <button style="color:black;\margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deactivated button details from the table" href="#inactiveButton">VIEW INACTIVE BUTTONS</button>
               <thead>
                 <tr>
                  <!-- <th date-field= "Button ID">Button ID</th>-->
@@ -533,54 +440,6 @@
         </table>
 
 
-  <div id="inactiveButton" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Buttons</center> </font> </h5>
-      <table class="centered" border="1">
-        <thead>
-          <tr>
-            <!--<th data-field="Button ID">Button ID</th>-->
-            <th data-field="Button Name">Button Name</th>
-            <th data-field= "Button Size">Button Size </th>
-            <th data-field= "Button Color">Button Color </th>
-            <th data-field= "Description">Description </th>
-            <th data-field="Image">Image</th> 
-            <th data-field= "Description">Reason for Inactivation </th>
-            <th data-field="Image">Reactivate</th>         
-          </tr>
-        </thead>
-
-        <tbody>
-          @foreach($button2 as $button2)
-            @if($button2->boolIsActive == 0)
-            <tr>
-              <!--<td>{{ $button2->strMaterialButtonID }}</td>-->
-              <td>{{ $button2->strMaterialButtonName }}</td>
-              <td>{{ $button2->strMaterialButtonSize }}</td>
-              <td>{{ $button2->strMaterialButtonColor }}</td>
-              <td>{{ $button2->strMaterialButtonDesc }}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($button2->strMaterialButtonImage)}}"> </td>
-              <td>{{ $button2->strInactiveReason }}</td>      
-              <td>          
-              <form action="{{URL::to('reactButton')}}" method="POST">
-              <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactID" name="reactID">
-              <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactInactiveButton" name="reactInactiveButton">
-              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of button to the table">REACTIVATE</button>
-              </form>
-            </td>
-          </tr>
-          @endif
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a> 
-    </div>
-  </div>
-
         <div class = "clearfix">
 
         </div>
@@ -594,7 +453,6 @@
         <div class="col s12 m12 l12 overflow-x">
         <table class = "centered" border = "1">
 
-        <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deactivated zipper details from the table" href="#inactiveZipper">VIEW INACTIVE ZIPPERS</button>
               <thead>
                 <tr>
                   <!--<th date-field= "Zipper ID">Zipper ID</th>-->
@@ -730,53 +588,7 @@
         </table>
 
 
-  <div id="inactiveZipper" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Zippers</center> </font> </h5>
-      <table class="centered" border="1">
-        <thead>
-          <tr>
-            <!--<th data-field="Zipper ID">Zipper ID</th>-->
-            <th data-field="Zipper Name">Zipper Name</th>
-            <th data-field= "Zipper Size">Zipper Size </th>
-            <th data-field= "Zipper Color">Zipper Color </th>
-            <th data-field= "Zipper Desc">Description </th>
-            <th data-field="Image">Image</th>    
-            <th data-field= "Zipper Desc">Reason for Inactivation </th>
-            <th data-field="Image">Reactivate</th>      
-          </tr>
-        </thead>
 
-        <tbody>
-          @foreach($zipper2 as $zipper2)
-            @if($zipper2->boolIsActive == 0)
-            <tr>
-              <!--<td>{{ $zipper2->strMaterialZipperID }}</td>-->
-              <td>{{ $zipper2->strMaterialZipperName }}</td>
-              <td>{{ $zipper2->strMaterialZipperSize }}</td>
-              <td>{{ $zipper2->strMaterialZipperColor }}</td>
-              <td>{{ $zipper2->strMaterialZipperDesc }}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($zipper2->strMaterialZipperImage)}}"> </td>
-              <td>{{ $zipper2->strInactiveReason }}</td>      
-              <td>          
-              <form action="{{URL::to('reactZipper')}}" method="POST">
-              <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactID" name="reactID">
-              <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactInactiveZipper" name="reactInactiveZipper">
-              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of zippers to the table">REACTIVATE</button>
-              </form>
-            </td>
-          </tr>
-          @endif
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a> 
-    </div>
-  </div>
 
         <div class = "clearfix">
 
@@ -794,7 +606,6 @@
           <table class = "centered" border = "1">
 
 
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="View deactivated hook and eye details from the table" href="#inactiveHook">VIEW INACTIVE HOOKS</button>
               <thead>
                 <tr>
                   <!--<th date-field="Hook and Eye ID">Hook and Eye ID</th>-->
@@ -936,52 +747,7 @@
           </div>
 
 
-  <div id="inactiveHook" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Hook and Eyes</center> </font> </h5>
-      <table class="centered" border="1">
-        <thead>
-          <tr>
-            <!--<th data-field="Hook ID">Hook and Eye ID</th>-->
-            <th data-field="Hook Name">Hook and Eye Name</th>
-            <th data-field= "Hook Size">Hook and Eye Size </th>
-            <th data-field= "Hook Color">Hook and Eye Color </th>
-            <th data-field="Image">Image</th>
-            <th data-field= "Hook Color">Reason for Inactivation </th>
-            <th data-field="Image">Reactivate</th>            
-          </tr>
-        </thead>
-
-        <tbody>
-          @foreach($hook2 as $hook2)
-            @if($hook2->boolIsActive == 0)
-            <tr>
-             <!-- <td>{{$hook2->strMaterialHookID}}</td>-->
-              <td>{{$hook2->strMaterialHookName}}</td>
-              <td>{{$hook2->strMaterialHookSize}}</td>
-              <td>{{$hook2->strMaterialHookColor}}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($hook2->strMaterialHookImage)}}"> </td>
-              <td>{{$hook2->strInactiveReason}}</td>      
-              <td>          
-              <form action="{{URL::to('reactHook')}}" method="POST">
-              <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactID" name="reactID">
-              <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactInactiveHook" name="reactInactiveHook">
-              <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of hook and eye to the table">REACTIVATE</button>
-              </form>
-            </td>
-          </tr>
-          @endif
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a> 
-    </div>
-  </div>
-
+ 
         <div class = "clearfix">
 
         </div>

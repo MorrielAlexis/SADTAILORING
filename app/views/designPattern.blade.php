@@ -58,56 +58,10 @@
     <div class="row">
       <div class="col s12 m12 l12">
           <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new segment pattern to the table" href="#addDesign">ADD SEGMENT PATTERN</button>
-          <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted patterns from the table" href="#modal1">VIEW INACTIVE SEGMENT PATTERNS</button>
       </div>
     </div>
   </div>
 
-  <!--MODAL: VIEW ALL DESIGN PATTERNS-->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-     <h5><font color = "#1b5e20"><center>Inactive Segment Pattern</center> </font> </h5>
-      <table class="centered" border="1">
-        <thead>
-          <tr>
-            <!--<th data-field= "Catalog ID">Segment Pattern ID</th>-->
-            <th data-field="Category Name">Category Name </th>
-            <th data-field="Garment Name">Segment Name </th>
-            <th data-field="Pattern Name">Pattern Name</th>
-            <th data-field="Pattern Image">Pattern Image</th>
-            <th data-field="Inactive Reason">Reason for Inactivation</th>
-            <th data-field="Action">Reactivate</th>
-          </tr>
-        </thead>
-
-        <tbody>
-            @foreach($pattern2 as $pattern2)
-            @if($pattern2->boolIsActive == 0)
-                <tr>
-                  <!--<td>{{ $pattern2->strDesignPatternID }}</td>-->
-                  <td>{{ $pattern2->strGarmentCategoryName }}</td>
-                  <td>{{ $pattern2->strGarmentSegmentName }}</td>
-                  <td>{{ $pattern2->strPatternName }}</td>
-                  <td><img class="materialboxed" width="650" src="{{URL::asset($pattern2->strPatternImage)}}"></td>
-                  <td>{{ $pattern2->strInactiveReason }}</td>
-                  <td>
-                  <form action="{{URL::to('reactDesignPattern')}}" method="POST">
-                  <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactID" name="reactID">
-                  <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactInactivePattern" name="reactInactivePattern">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of segment pattern to the table">REACTIVATE</button>
-                  </form>
-            </tr>
-            @endif
-            @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col s12 m12 l12">

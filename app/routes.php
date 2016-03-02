@@ -30,6 +30,8 @@ Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabric
 Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatch');
 Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
 Route::get('/catalogue', 'CatalogueController@catalogue');
+Route::get('/inactiveData', 'UtilitiesController@inactive');
+
 ////////////////ROUTES FOR VIEWS////////////////GET ROUTES///////////////////////
 
 /////////////////////ROUTES FOR VALIDATION (AJAX)//////////////////////////////////////////////

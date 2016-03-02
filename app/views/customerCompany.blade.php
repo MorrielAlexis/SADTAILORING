@@ -60,63 +60,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new company to the table" href="#addCom">ADD COMPANY Customer</button>
-       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted companies from the table" href="#modal1">VIEW ALL INACTIVE CUSTOMERS</button>
       </div>
-    </div>
-  </div>
-
-  <!--MODAL: VIEW ALL COMPANIES-->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-     <h5><font color = "#1b5e20"><center>Inactive Customers</center> </font> </h5>
-      <table class="table centered data-reactcustCompany" border="1">
-        <thead>
-          <tr>
-            <th data-field="name">Company Name</th>
-            <th data-field="address">Address</th>
-            <th data-field="contact">Contact Person</th>
-            <th data-field="comEmail">Company Email Address</th>
-            <th data-field="cellphone">Cellphone No.</th>
-            <th data-field="cellphone">Cellphone No. (alt)</th>
-            <th data-field="Landline">Telephone No.</th>
-            <th data-field="fax">Fax No.</th>
-            <th data-field="inactiveReason">Reason for Inactivation</th>
-            <th data-field="react">Reactivate</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          @foreach($company2 as $company2)
-                  @if($company2->boolIsActive == 0)
-                <tr>
-                  <td>{{ $company2->strCustCompanyName }}</td>
-                  <td>{{ $company2->strCustCompanyAddress }}</td>
-                  <td>{{ $company2->strCustContactPerson }} </td>
-                  <td>{{ $company2->strCustCompanyEmailAddress}}</td>                  
-                  <td>{{ $company2->strCustCompanyCPNumber }}</td>
-                  <td>{{ $company2->strCustCompanyCPNumberAlt }}</td>  
-                  <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
-                  <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
-                  <td>{{ $company2->strInactiveReason }}</td>
-                <td>
-                  <form action="{{URL::to('reactCustCompany')}}" method="POST">
-
-                  <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
-                  <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactInactiveComp" name="reactInactiveComp">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to reeturn data of customer to the table">REACTIVATE</button>
-                 
-                  </form>
-                </td>
-          </tr>
-          @endif
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 

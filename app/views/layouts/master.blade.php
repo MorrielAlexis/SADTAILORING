@@ -49,7 +49,7 @@
           <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
 
-			
+      
              <!-- <div class="divider"></div> -->
               <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#212121"><i class="small material-icons" style="color:#ccff90">dashboard</i><b>Dashboard</b></a></li>
               <!--<div class="divider"></div>-->
@@ -66,14 +66,14 @@
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white " href="{{URL::to('maintenance/customerIndividual')}}">Individual</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('maintenance/customerCompany')}}">Company</a></li>
 
-          	                 <div class="divider"></div>
+                             <div class="divider"></div>
                             </ul>
                            </div>
                         </li>
 
                         <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('maintenance/customerIndividual') || Request::is('maintenance/customerCompany') ? 'active' : '' }}"><b>Employee</b></a>
                           <div class="collapsible-body">
-                            <ul> 	
+                            <ul>  
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('employeeRole')}}">Position Roles</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('employee')}}">Employee Profile</a></li>
                               <div class="divider"></div>
@@ -81,21 +81,21 @@
                            </div>
                         </li>
 
-  		                  <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white"><b>Garments</b></a>
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white"><b>Garments</b></a>
                           <div class="collapsible-body">
-  				                  <ul> 	
+                            <ul>  
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('garments')}}">Category</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('garmentsDetails')}}">Segment</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('designPattern')}}">Segment Pattern</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('measurements')}}">Measurements</a></li> 
                               <div class="divider"></div>
-  				                  </ul>
+                            </ul>
                           </div>
-  		                  </li>
+                        </li>
 
-  		                  <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white"><b>Fabrics & Materials</b></a>
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white"><b>Fabrics & Materials</b></a>
                           <div class="collapsible-body">
-  				                  <ul> 	
+                            <ul>  
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('fabricAndMaterialsFabricType')}}">Fabric Types</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('fabricAndMaterialsSwatches')}}">Swatches</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('fabricAndMaterialsMaterials')}}">Materials</a></li>
@@ -104,7 +104,7 @@
                           </div>
                         </li>
 
-  		                  <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href="{{URL::to('catalogue')}}"><b>Catalogue</b></a></li>
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href="{{URL::to('catalogue')}}"><b>Catalogue</b></a></li>
                       </ul>
                     </li>
                   </ul>
@@ -118,7 +118,20 @@
               <!--<div class="divider"></div>-->
               <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#212121"><i class="small material-icons" style="color:#ccff90">multiline_chart</i><b>Reports</b></a></li>
               <!--<div class="divider"></div>-->
-              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#212121"><i class="small material-icons" style="color:#ccff90">loyalty</i><b>Utilities</b></a></li>
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#212121"><i class="small material-icons" style="color:#ccff90">loyalty</i><b>Utilities</b></a>
+                <div class="collapsible-body" position = "fixed" style = "display: block;">
+                  <ul>
+                    <li class="no-padding">
+                      <ul class="collapsible collapsible-accordion">
+
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href="/inactiveData"><b>Inactive Data</b></a></li>
+
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
             </ul>
           </li>
         </ul>
@@ -126,7 +139,7 @@
 
 
       <main>
-		    @yield('content')
+        @yield('content')
       </main>
 
       {{ HTML::script('js/jquery-2.1.4.min.js') }}
@@ -135,10 +148,10 @@
       
       <script>
         $(document).ready(function(){
-	 		  $('.button-collapse').sideNav({
-		      menuWidth: 240, // Default is 240
-		      edge: 'right', // Choose the horizontal origin
-		      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        $('.button-collapse').sideNav({
+          menuWidth: 240, // Default is 240
+          edge: 'right', // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         });
         $('.collapsible').collapsible();
             // Show sideNav

@@ -58,55 +58,9 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new segment to the table" href="#addSegment">ADD NEW SEGMENT</button>
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted segments from the table" href="#modal1">VIEW SEGMENTS</button>
       </div>
     </div>
   </div>
-
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Garment Segments</center> </font> </h5>
-      <table class = "table centered data-reactSegment" align = "center" border = "1">
-        <thead>
-          <tr>
-            <!--<th data-field="id">Garment Details ID</th>-->
-            <th data-field="name">Category Name</th>
-            <th data-field="name">Segment Name</th>
-            <th data-field="address">Segment Description</th>
-            <th data-field="address">Reason for Inactivation</th>
-            <th>Reactivate</th>
-          </tr>
-        </thead>
-
-        <tbody>
-            @foreach($segment2 as $segment2)
-            @if($segment2->boolIsActive == 0)
-            <tr>
-              <!--<td>{{ $segment2->strGarmentSegmentID }}</td>-->
-              <td>{{ $segment2->strGarmentCategoryName }}</td>
-              <td>{{ $segment2->strGarmentSegmentName }}</td>
-              <td>{{ $segment2->strGarmentSegmentDesc }}</td>
-              <td>{{ $segment2->strInactiveReason }}</td>
-              <td>
-                <form action="{{URL::to('reactGarmentSegment')}}" method="POST">
-                  <input type="hidden" id="reactID" name="reactID" value="{{$segment2->strGarmentSegmentID}}">
-                  <input type="hidden" id="reactInactiveSegment" name="reactInactiveSegment" value="{{$segment2->strGarmentSegmentID}}">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of segment to the table">REACTIVATE</button>
-                </form>
-              </td>
-            </tr>
-            @endif
-            @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-    </div>
-  </div>
-
 
     <div class="row">
     	<div class="col s12 m12 l12">

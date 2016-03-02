@@ -69,57 +69,9 @@
     <div class="row">
       <div class="col s12 m12 l12">
         <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new catalogue design to the table" href="#addCatalogue">ADD DESIGN</button>
-        <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted catalogue designs from the table" href="#modal1">VIEW INACTIVE CATALOGUE DESIGNS</button>
       </div>
     </div>
   </div>
-
-<!-- MODAL: VIEW ALL DESIGN IN CATALOGUE-->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Catalogue Designs</center> </font> </h5>
-        <table class="centered" border="1">
-
-          <thead>
-            <tr>
-              <!--<th data-field= "Catalogue ID">Catalogue ID</th>-->
-              <th data-field="Catalogue Category">Catalogue Category</th>
-              <th data-field="Catalogue Name">Catalogue Name</th>
-              <th data-field="Description">Description</th>
-              <th data-field="Image">Image</th>
-              <th data-field="Image">Reason for Inactivation</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach($catalogue2 as $catalogue2)
-            @if($catalogue2->boolIsActive == 0)
-              <tr>
-                <!--<td>{{ $catalogue2->strCatalogueID }}</td>-->
-                <td>{{ $catalogue2->strGarmentCategoryName }}</td>
-                <td>{{ $catalogue2->strCatalogueName }}</td>
-                <td>{{ $catalogue2->strCatalogueDesc }}</td>
-                <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue2->strCatalogueImage)}}"></td>
-                <td>{{ $catalogue2->strInactiveReason }}</td>
-                <td>
-                  <form action="{{URL::to('reactCatalogueDesign')}}" method="POST">
-                    <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactID" name="reactID">
-                    <input type="hidden" value="{{ $catalogue2->strCatalogueID }}" id="reactInactiveCatalogueID" name="reactInactiveCatalogueID" >
-                    <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
-                  </form>
-                </td>
-              </tr>
-              @endif
-              @endforeach
-          </tbody>
-        </table>
-      </div>
-
-       <!--MODAL FOOTER -->
-        <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
-        </div>  
-  </div>
-
 
 
   <div class="row">

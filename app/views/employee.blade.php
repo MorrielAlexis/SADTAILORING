@@ -60,69 +60,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new employee to the table" href="#newemp">ADD NEW EMPLOYEE</button>
-       <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to view deleted employees from the table" href="#modal1">VIEW INACTIVE EMPLOYEES</button>
      </div>
-    </div>
-  </div>
-
-  <!--MODAL: VIEW ALL EMPLOYEES-->
-  <div id="modal1" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h5><font color = "#1b5e20"><center>Inactive Employees</center> </font> </h5>
-      <table class="table centered data-reactEmployee" border="1">
-        <thead>
-          <tr>
-            <th data-field="firstname">First Name</th>
-            <th data-field="middlename">Middle Name</th>
-            <th data-field="lastname">Last Name</th>          
-            <th data-field="dtEmpBday">Date of Birth</th>
-            <th data-field="Sex">Sex</th>
-            <th data-field="address">Address</th>
-            <th data-field="Role">Role</th>
-            <th data-field="cellphone">Cellphone No.</th>
-            <th data-field="Landline">Phone No.</th>
-            <th data-field="email">Email Address</th>
-            <th data-field="inactiveReason">Reason for Inactivation</th>
-             <th data-field="Edit">Reactivate</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          @foreach($employee2 as $employee2)
-          @if($employee2->boolIsActive == 0)
-            <tr>
-                  <td>{{ $employee2->strEmpFName }}</td>
-                  <td>{{ $employee2->strEmpMName }}</td>
-                  <td>{{ $employee2->strEmpLName }}</td>
-                  <td>{{ $employee2->dtEmpBday }} </td>
-                  <td>
-                    @if($employee2->strSex == 'M') Male
-                    @else Female
-                    @endif
-                  </td>
-                  <td>{{ $employee2->strEmpAddress }} </td>
-                  <td>{{ $employee2->strEmpRoleName}}</td>                  
-                  <td>{{ $employee2->strCellNo }}</td> 
-                  <td>{{ $employee2->strPhoneNo }}</td>
-                  <td>{{ $employee2->strEmailAdd }}</td>
-                  <td>{{ $employee2->strInactiveReason }}</td>
-                  <td>
-                  <form action="{{URL::to('reactEmployee')}}" method="POST">
-                  <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactID" name="reactID">
-                  <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactInactiveEmp" name="reactInactiveEmp">
-                  <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
-                  </form>
-                </td>
-            </tr>
-            @endif
-            @endforeach
-        </tbody>
-      </table>
-    </div>
-  
-    <!--MODAL FOOTER-->
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
     </div>
   </div>
 
