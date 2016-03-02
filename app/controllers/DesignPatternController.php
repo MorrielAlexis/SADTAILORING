@@ -82,10 +82,6 @@ class DesignPatternController extends BaseController{
 	public function editPattern()
 	{
 		$id = Input::get('editPatternID');
-		$isEdited = FALSE;
-
-
-	if(!$isEdited){
 		$pattern = DesignPattern::find($id);
 
 		$pat = DesignPattern::all();
@@ -114,12 +110,10 @@ class DesignPatternController extends BaseController{
 				$pattern->strDesignSegmentName = Input::get('editSegment');
 				$pattern->strPatternName = Input::get('editPatternName');
 				$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
-			}
-				
-
+			}			
 			$pattern->save();
-		} return Redirect::to('/designPattern?successEdit=true');
-	} else return Redirect::to('/designPattern?successEdit=false');
+			return Redirect::to('/designPattern?successEdit=true');
+		}else return Redirect::to('/designPattern?successEdit=false');
 	}
 
 	public function delPattern()

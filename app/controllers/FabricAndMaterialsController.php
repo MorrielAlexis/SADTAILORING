@@ -186,10 +186,6 @@ class FabricAndMaterialsController extends BaseController{
 	public function editSwatch()
 	{	
 		$id = Input::get('editSwatchID');
-		$isEdited = FALSE;
-
-
-	if(!$isEdited){
 		$swatch = Swatch::find($id);
 
 		$swa = Swatch::all();
@@ -221,10 +217,8 @@ class FabricAndMaterialsController extends BaseController{
 			}
 
 			$swatch->save();
-		}
-
-		return Redirect::to('/fabricAndMaterialsSwatches?successEdit=true');
-	 } else return Redirect::to('/fabricAndMaterialsSwatches?successEdit=false');
+			return Redirect::to('/fabricAndMaterialsSwatches?successEdit=true');
+		}else return Redirect::to('/fabricAndMaterialsSwatches?successEdit=false');
 	}
 
 
@@ -287,9 +281,6 @@ class FabricAndMaterialsController extends BaseController{
 	public function editFabricType()
 	{	
 		$id = Input::get('editFabricTypeID');
-		$isEdited = FALSE;
-
-	if(!$isEdited){
 		$fabricType = FabricType::find($id);
 
 		$fabric = FabricType::get();
@@ -305,10 +296,8 @@ class FabricAndMaterialsController extends BaseController{
 			$fabricType->strFabricTypeDesc = Input::get('editFabricTypeDesc');
 
 			$fabricType->save();
-		}
-
-		return Redirect::to('/fabricAndMaterialsFabricType?successEdit=true');
-	 } else return Redirect::to('/fabricAndMaterialsFabricType?successEdit=false');
+			return Redirect::to('/fabricAndMaterialsFabricType?successEdit=true');
+		}else return Redirect::to('/fabricAndMaterialsFabricType?successEdit=false');
 	}
 
 
