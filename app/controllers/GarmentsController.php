@@ -80,7 +80,7 @@ class GarmentsController extends BaseController{
 
 			$garment->save();
 			return Redirect::to('/garments?success=true');
-		}else return Redirect::to('/garments?success=false');
+		}else return Redirect::to('/garments?success=duplicate');
 	}
 
 	public function editGarmentCategory()
@@ -101,7 +101,7 @@ class GarmentsController extends BaseController{
 
 			$garments->save();
 			return Redirect::to('/garments?successEdit=true');
-		}else return Redirect::to('/garments?successEdit=false');
+		}else return Redirect::to('/garments?success=duplicate');
 	}	
 
 	public function delGarmentCategory()
