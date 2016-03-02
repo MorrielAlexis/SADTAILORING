@@ -61,11 +61,6 @@ class GarmentsController extends BaseController{
 					->with('newID', $newID);
 	}
 
-	public function designPattern()
-	{
-		return View::make('designPattern');
-	}
-
 	public function addGarmentCategory()
 	{	
 		$garm = Category::get();
