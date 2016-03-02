@@ -98,7 +98,7 @@ class GarmentsController extends BaseController{
 		if(!$isAdded){		
 			$garments->strGarmentCategoryName = Input::get('editGarmentName');	
 			$garments->strGarmentCategoryDesc = Input::get('editGarmentDescription');
-
+	
 			$garments->save();
 			return Redirect::to('/garments?successEdit=true');
 		}else return Redirect::to('/garments?success=duplicate');
@@ -162,7 +162,7 @@ class GarmentsController extends BaseController{
 
 			$segment->save();
 			return Redirect::to('/garmentsDetails?success=true');
-		} else return Redirect::to('/garmentsDetails?success=duplicate');
+		} else return Redirect::to('/garmentsDetails?success=false');
 	}
 
 	public function editGarmentSegment()
@@ -182,10 +182,10 @@ class GarmentsController extends BaseController{
 			$segment->strCategory = Input::get('editCategory');	
 			$segment->strGarmentSegmentName = Input::get('editSegmentName');	
 			$segment->strGarmentSegmentDesc = Input::get('editSegmentDesc');
-
+			
 			$segment->save();
 			return Redirect::to('/garmentsDetails?successEdit=true');
-		} else return Redirect::to('/garmentsDetails?success=duplicate');
+		} else return Redirect::to('/garmentsDetails?successEdit=false');
 	}
 
 	public function delGarmentSegment()
@@ -218,10 +218,10 @@ class GarmentsController extends BaseController{
         	$reason->save();
         	$segment->save();
         	return Redirect::to('/garmentsDetails?successDel=true');
-        } else return Redirect::to('/garmentsDetails?successDel=duplicate');
+        } else return Redirect::to('/garmentsDetails?successDel=false');
        
 
-	}
+	}}
 
 	public function reactGarmentCategory()
 	{
@@ -240,7 +240,7 @@ class GarmentsController extends BaseController{
 
 		$category->save();
 		return Redirect::to('/garments?successRec=true');
-	 } else return Redirect::to('/garments?successRec=false');
+	 	} else return Redirect::to('/garments?successRec=false');
 	}
 
 	public function reactGarmentSegment()
