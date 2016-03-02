@@ -534,6 +534,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strMaterialButtonName' => Input::get('addButtonName'),
 			'strMaterialButtonSize' => Input::get('addButtonSize'),
 			'strMaterialButtonColor' => Input::get('addButtonColor'),
+			'strMaterialButtonDesc' => Input::get('addButtonDesc'),
 			'boolIsActive' => 1
 			));
 		}else{
@@ -546,6 +547,7 @@ class FabricAndMaterialsController extends BaseController{
 				'strMaterialButtonName' => Input::get('addButtonName'),
 				'strMaterialButtonSize' => Input::get('addButtonSize'),
 				'strMaterialButtonColor' => Input::get('addButtonColor'),
+				'strMaterialButtonDesc' => Input::get('addButtonDesc'),
 				'strMaterialButtonImage' => 'imgMaterialButtons/'.$fileName,
 				'boolIsActive' => 1
 				));
@@ -564,6 +566,7 @@ class FabricAndMaterialsController extends BaseController{
 			$button->strMaterialButtonName = Input::get('editButtonName');
 			$button->strMaterialButtonSize = Input::get('editButtonSize');
 			$button->strMaterialButtonColor = Input::get('editButtonColor');
+			$button->strMaterialButtonDesc = Input::get('editButtonDesc');
 		}else{
 			$file = Input::get('editButtonImage');
 			$destinationPath = 'public/imgMaterialButtons';
@@ -574,6 +577,7 @@ class FabricAndMaterialsController extends BaseController{
 			$button->strMaterialButtonName = Input::get('editButtonName');
 			$button->strMaterialButtonSize = Input::get('editButtonSize');
 			$button->strMaterialButtonColor = Input::get('editButtonColor');
+			$button->strMaterialButtonDesc = Input::get('editButtonDesc');
 			$button->strMaterialButtonImage = 'imgMaterialButtons/'.$fileName; 
 		}
 	
@@ -609,12 +613,13 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$file = Input::get('addImage');
 		$destinationPath = 'public/imgMaterialZippers';
-		if($filw == '' || $file == null){
+		if($file == '' || $file == null){
 			$zipper = MaterialZipper::create(array(
 			'strMaterialZipperID' => Input::get('addZipperID'),
 			'strMaterialZipperName' => Input::get('addZipperName'),
 			'strMaterialZipperSize' => Input::get('addZipperSize'),
 			'strMaterialZipperColor' => Input::get('addZipperColor'),
+			'strMaterialZipperDesc' => Input::get('addZipperDesc'),
 			'boolIsActive' => 1
 			));
 		}else{
@@ -627,6 +632,7 @@ class FabricAndMaterialsController extends BaseController{
 				'strMaterialZipperName' => Input::get('addZipperName'),
 				'strMaterialZipperSize' => Input::get('addZipperSize'),
 				'strMaterialZipperColor' => Input::get('addZipperColor'),
+				'strMaterialZipperDesc' => Input::get('addZipperDesc'),
 				'strMaterialZipperImage' => 'imgMaterialZippers/'.$fileName,
 				'boolIsActive' => 1
 				));
@@ -645,6 +651,7 @@ class FabricAndMaterialsController extends BaseController{
 			$zipper->strMaterialZipperName = Input::get('editZipperName');
 			$zipper->strMaterialZipperSize = Input::get('editZipperSize');
 			$zipper->strMaterialZipperColor = Input::get('editZipperColor');
+			$zipper->strMaterialZipperDesc = Input::get('editZipperDesc');
 		} else {
 			$file = Input::get('editZipperImage');
 			$destinationPath = 'public/imgMaterialZippers';
@@ -655,6 +662,7 @@ class FabricAndMaterialsController extends BaseController{
 			$zipper->strMaterialZipperName = Input::get('editZipperName');
 			$zipper->strMaterialZipperSize = Input::get('editZipperSize');
 			$zipper->strMaterialZipperColor = Input::get('editZipperColor');
+			$zipper->strMaterialZipperDesc = Input::get('editZipperDesc');
 			$zipper->strMaterialZipperImage = 'imgMaterialZippers/'.$fileName;
 		}	
 
@@ -695,6 +703,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strMaterialHookName' => Input::get('addHookName'),
 			'strMaterialHookSize' => Input::get('addHookSize'),
 			'strMaterialHookColor' => Input::get('addHookColor'),
+			'strMaterialHookDesc' => Input::get('addHookDesc'),
 			'boolIsActive' => 1
 			));
 		}else{
@@ -707,6 +716,7 @@ class FabricAndMaterialsController extends BaseController{
 				'strMaterialHookName' => Input::get('addHookName'),
 				'strMaterialHookSize' => Input::get('addHookSize'),
 				'strMaterialHookColor' => Input::get('addHookColor'),
+				'strMaterialHookDesc' => Input::get('addHookDesc'),
 				'strMaterialHookImage' => 'imgMaterialHooks/'.$fileName,
 				'boolIsActive' => 1
 				));
@@ -725,6 +735,7 @@ class FabricAndMaterialsController extends BaseController{
 			$hook->strMaterialHookName = Input::get('editHookName');
 			$hook->strMaterialHookSize = Input::get('editHookSize');
 			$hook->strMaterialHookColor = Input::get('editHookColor');
+			$hook->strMaterialHookDesc = Input::get('editHookDesc');
 		} else {
 			$file = Input::get('editHookImage');
 			$destinationPath = 'public/imgMaterialHooks';
@@ -735,6 +746,7 @@ class FabricAndMaterialsController extends BaseController{
 			$hook->strMaterialHookName = Input::get('editHookName');
 			$hook->strMaterialHookSize = Input::get('editHookSize');
 			$hook->strMaterialHookColor = Input::get('editHookColor');
+			$hook->strMaterialHookDesc = Input::get('editHookDesc');
 			$hook->strMaterialHookImage = 'imgMaterialHooks/'.$fileName;
 		}
 		

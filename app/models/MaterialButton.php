@@ -8,6 +8,7 @@ class MaterialButton extends Eloquent {
 								'strMaterialButtonName',
 								'strMaterialButtonSize',
 								'strMaterialButtonColor',
+								'strMaterialButtonDesc',
 								'strMaterialButtonImage',
 								'boolIsActive');
 

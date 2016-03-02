@@ -20,7 +20,7 @@ class tblMaterialNeedlesSeeder extends Seeder{
 			
 			array(
 
-				'strMaterialNeedleID' => 'THR002',
+				'strMaterialNeedleID' => 'NED002',
 				'strMaterialNeedleName' => 'Sharp',
 				'strMaterialNeedleSize' => 'Medium',
 				'strMaterialNeedleDesc' => 'For mass production',

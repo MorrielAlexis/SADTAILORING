@@ -8,6 +8,7 @@ class MaterialZipper extends Eloquent {
 								'strMaterialZipperName',
 								'strMaterialZipperSize',
 								'strMaterialZipperColor',
+							    'strMaterialZipperDesc',
 								'strMaterialZipperImage',
 								'boolIsActive');
 

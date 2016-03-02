@@ -10,9 +10,10 @@ class tblMaterialButtonsSeeder extends Seeder{
 			array(
 
 				'strMaterialButtonID' => 'BUTS001',
-				'strMaterialButtonName' => 'Zigzag',
+				'strMaterialButtonName' => 'Double Header',
 				'strMaterialButtonSize' => 'Small',
 				'strMaterialButtonColor' => 'Gray',
+				'strMaterialButtonDesc' => 'Two wholes with extra lining',
 				'strMaterialButtonImage' => '',
 				'boolIsActive' => '1'
 
@@ -21,10 +22,11 @@ class tblMaterialButtonsSeeder extends Seeder{
 			array(
 
 				'strMaterialButtonID' => 'BUTS002',
-				'strMaterialButtonName' => 'Straight',
+				'strMaterialButtonName' => 'Simple Buts',
 				'strMaterialButtonSize' => 'Medium',
 				'strMaterialButtonColor' => 'blue',
-				'strMaterialNeedleImage' =>'',
+				'strMaterialButtonDesc' => '3 holes wholes with extra lining',
+				'strMaterialZipperImage' =>'',
 				'boolIsActive' => '1'
 			)
 

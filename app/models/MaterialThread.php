@@ -7,6 +7,7 @@ class MaterialThread extends Eloquent {
 	protected $fillable = array('strMaterialThreadID',
 								'strMaterialThreadName',
 								'strMaterialThreadColor',
+								'strMaterialThreadDesc',
 								'strMaterialThreadImage',
 								'boolIsActive');
 
