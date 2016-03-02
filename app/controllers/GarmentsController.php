@@ -218,8 +218,8 @@ class GarmentsController extends BaseController{
         	$reason->save();
         	$segment->save();
         	return Redirect::to('/garmentsDetails?successDel=true');
-        } else return Redirect::to('/garmentsDetails?successDel=false');
-      } else return Redirect::to('/garmentsDetails?successDel=false');
+        } else return Redirect::to('/garmentsDetails?successDel=duplicate');
+       
 
 	}
 

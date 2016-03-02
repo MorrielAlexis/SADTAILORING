@@ -79,7 +79,7 @@ class DesignPatternController extends BaseController{
 
 			$pattern->save();
 			return Redirect::to('/designPattern?success=true');
-		} else return Redirect::to('/designPattern?success=false');
+		} else return Redirect::to('/designPattern?success=duplicate');
 	}
 
 	public function editPattern()
@@ -116,7 +116,7 @@ class DesignPatternController extends BaseController{
 			}			
 			$pattern->save();
 			return Redirect::to('/designPattern?successEdit=true');
-		}else return Redirect::to('/designPattern?successEdit=false');
+		}else return Redirect::to('/designPattern?success=duplicate');
 	}
 
 	public function delPattern()
