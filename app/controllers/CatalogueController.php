@@ -116,7 +116,7 @@ class CatalogueController extends BaseController{
 
 			$catalogue->save();
 			return Redirect::to('/catalogue?successEdit=true');
-		}else return Redirect::to('/catalogue?successEdit=false');
+		}else return Redirect::to('/catalogue?success=duplicate');
 	}
 
 	public function delCatalogue()

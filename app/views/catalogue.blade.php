@@ -14,6 +14,7 @@
         </div>
       @endif
 
+   <!--  <Duplicate Error Message>   -->
     @if (Input::get('success') == 'duplicate')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
@@ -163,7 +164,7 @@
                       <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
                       <div class="input-field">
 
-                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" readonly>
+                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" hidden>
 
                       </div>
 
@@ -201,7 +202,6 @@
                           <input value="{{$catalogue->strCatalogueImage}}" id="editImage" name="editImage" class="file-path validate" type="text">
                         </div>
                       </div>
-
                       </p>
                       <br><br>
                     </div>
@@ -213,6 +213,7 @@
                     </div>
                   </form>
                 </div>
+                </p>
 
             <!-- DELETE DESIGN IN CATALOGUE -->
             <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">
