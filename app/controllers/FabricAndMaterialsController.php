@@ -236,7 +236,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$swatch->save();
 			return Redirect::to('/fabricAndMaterialsSwatches?success=true');
-		} else return Redirect::to('/fabricAndMaterialsSwatches?success=false');
+		} else return Redirect::to('/fabricAndMaterialsSwatches?success=duplicate');
 	}
 
 	public function editSwatch()
@@ -274,7 +274,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$swatch->save();
 			return Redirect::to('/fabricAndMaterialsSwatches?successEdit=true');
-		}else return Redirect::to('/fabricAndMaterialsSwatches?successEdit=false');
+		} else return Redirect::to('/fabricAndMaterialsSwatches?success=duplicate');
 	}
 
 

@@ -19,7 +19,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel red">
-              <span class="black-text" style="color:black">Duplicate catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Catalogue datas already exist!!!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -160,12 +160,10 @@
                   <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Edit Catalogue Design</center> </font> </h5>
                     <div class="modal-content">
-                      <p>
+                     <p>
                       <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
                       <div class="input-field">
-
                         <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" hidden>
-
                       </div>
 
                       <div class="input-field">
@@ -213,7 +211,7 @@
                     </div>
                   </form>
                 </div>
-                </p>
+                
 
             <!-- DELETE DESIGN IN CATALOGUE -->
             <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">
