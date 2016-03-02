@@ -36,7 +36,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Successfully deleted employee role!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully deactivated employee role!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@
                 <td>{{ $role->strEmpRoleName }}</td>
                 <td>{{ $role->strEmpRoleDesc }}</td>
                 <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of role" href="#edit{{$role->strEmpRoleID}}">EDIT</button>
-                    <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of role from table" href="#del{{$role->strEmpRoleID}}">DELETE</button>
+                    <button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of role from table" href="#del{{$role->strEmpRoleID}}">DEACTIVATE</button>
                 </td>	
                   <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                     <form action="{{URL::to('editRole')}}" method="POST">
@@ -127,7 +127,7 @@
                   <div id="del{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
                     <form action="{{URL::to('delRole')}}" method="POST">
                       <div class="modal-content">
-                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
                         <p>
                   
                           <div class="input-field">
