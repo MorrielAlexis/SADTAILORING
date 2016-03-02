@@ -199,8 +199,8 @@
                         </div>
 
                         <div class="input-field">
-                          <input required id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validatePhone" maxlength="10">
-                          <label for="tel"> *Telephone Number: </label>
+                          <input id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validatePhone" maxlength="10">
+                          <label for="tel"> Telephone Number: </label>
                         </div>
 
                         <div class="input-field">
@@ -319,7 +319,7 @@
 
               <div class="input-field">
                 <input  id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10" minlength="10">
-                <label for="tel"> *Telephone Number: </label>
+                <label for="tel"> Telephone Number: </label>
               </div>
 
               <div class="input-field">

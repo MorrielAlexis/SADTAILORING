@@ -40,8 +40,8 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($ctlg as $ctlg)
-			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory') == 0) && 
-			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))))
+			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory')) == 0 && 
+			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))) == 0)
 			   		$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -76,9 +76,6 @@ class CatalogueController extends BaseController{
 	public function editCatalogue()
 	{	
 		$id = Input::get('editCatalogueID');
-		$isEdited = FALSE;
-
-	if(!$isEdited){
 		$catalogue = Catalogue::find($id);
 		
 		$ctlg = Catalogue::all();
@@ -110,9 +107,8 @@ class CatalogueController extends BaseController{
 			}		
 
 			$catalogue->save();
-		} 
-		return Redirect::to('/catalogue?successEdit=true');
-	 }else return Redirect::to('/catalogue?successEdit=false');
+			return Redirect::to('/catalogue?successEdit=true');
+		}else return Redirect::to('/catalogue?successEdit=false');
 	}
 
 	public function delCatalogue()
