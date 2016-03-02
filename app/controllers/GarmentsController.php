@@ -142,7 +142,7 @@ class GarmentsController extends BaseController{
         		'strInactiveReason' => Input::get('delInactiveReason')
         		));
         	$category->boolIsActive = 0;
-        	$reason->save;
+        	$reason->save();
         	$category->save();
         	return Redirect::to('/garments?successDel=true');
         } else {
@@ -235,9 +235,7 @@ class GarmentsController extends BaseController{
         	$reason->save();
         	$segment->save();
         	return Redirect::to('/garmentsDetails?successDel=true');
-        } else {
-        	return Redirect::to('/garmentsDetails?successDel=true');
-        }
+        } else return Redirect::to('/garmentsDetails?successDel=false');
       } else return Redirect::to('/garmentsDetails?successDel=false');
 
 	}

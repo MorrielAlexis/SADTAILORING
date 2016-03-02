@@ -77,6 +77,7 @@
               <tr>
                   <th data-field="name">Role Name</th>
                   <th data-field="address">Role Description</th>
+                  <th data-field="reason">Reason for Inactivation</th>
                   <th data-field="Edit">Reactivate</th>
               </tr>
             </thead>
@@ -87,9 +88,11 @@
               <tr>
                 <td>{{ $role2->strEmpRoleName }}</td>
                 <td>{{ $role2->strEmpRoleDesc }}</td>
+                <td>{{ $role2->strInactiveReason }}</td>
                 <td>
                   <form action="{{URL::to('reactRole')}}" method="POST">
                     <input type="hidden" value="{{ $role2->strEmpRoleID }}" id="reactID" name="reactID">
+                    <input type="hidden" value="{{ $role2->strEmpRoleID }}" id="reactInactiveRole" name="reactInactiveRole">
                     <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of position to the table">REACTIVATE</button>
                   </form>
                 </td>
@@ -140,8 +143,7 @@
                         <p>
                   
                           <div class="input-field">
-                            <input value="{{$role->strEmpRoleID}}" id="editRoleID" name="editRoleID" type="text" class="" readonly>
-                            <label for="role_id">Role ID: </label>
+                            <input value="{{$role->strEmpRoleID}}" id="editRoleID" name="editRoleID" type="hidden">
                           </div>
 
                           <div class="input-field">
@@ -170,8 +172,7 @@
                         <p>
                   
                           <div class="input-field">
-                            <input value="{{$role->strEmpRoleID}}" id="delRoleID" name="delRoleID" type="text" class="" readonly>
-                            <label for="role_id">Role ID: </label>
+                            <input value="{{$role->strEmpRoleID}}" id="delRoleID" name="delRoleID" type="hidden">
                           </div>
 
                           <div class="input-field">
@@ -183,6 +184,15 @@
                             <input  value="{{$role->strEmpRoleDesc}}" type="text" class="" readonly>
                             <label for="role_description">Role Description: </label>
                           </div>  
+
+                          <div class="input-field">
+                            <input id="delInactiveRole" name = "delInactiveRole" value = "{{$role->strEmpRoleID}}" type="hidden">
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveReason" name = "delInactiveReason" value = "{{$role->strInactiveReason}}" type="text" class="validate" required>
+                            <label for="fax"> *Reason for Inactivation: </label>
+                          </div>
                         </p>    
                       </div>
 
@@ -209,8 +219,7 @@
               <div class="modal-content">
                 <p>
                   <div class="input-field">
-                    <input value="{{$newID}}" id="addRoleID" name="addRoleID" type="text" class="" readonly>
-                    <label for="role_id">Role ID: </label>
+                    <input value="{{$newID}}" id="addRoleID" name="addRoleID" type="hidden">
                   </div>
                         
                   <div class="input-field">

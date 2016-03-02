@@ -75,7 +75,8 @@
             <th data-field="Garment Name">Segment Name </th>
             <th data-field="Pattern Name">Pattern Name</th>
             <th data-field="Pattern Image">Pattern Image</th>
-
+            <th data-field="Inactive Reason">Reason for Inactivation</th>
+            <th data-field="Action">Reactivate</th>
           </tr>
         </thead>
 
@@ -88,9 +89,11 @@
                   <td>{{ $pattern2->strGarmentSegmentName }}</td>
                   <td>{{ $pattern2->strPatternName }}</td>
                   <td><img class="materialboxed" width="650" src="{{URL::asset($pattern2->strPatternImage)}}"></td>
+                  <td>{{ $pattern2->strInactiveReason }}</td>
                   <td>
                   <form action="{{URL::to('reactDesignPattern')}}" method="POST">
                   <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactID" name="reactID">
+                  <input type="hidden" value="{{ $pattern2->strDesignPatternID }}" id="reactInactivePattern" name="reactInactivePattern">
                   <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of segment pattern to the table">REACTIVATE</button>
                   </form>
             </tr>
@@ -236,6 +239,15 @@
                           <input value = "{{ $pattern->strPatternName }}" type="text" class="validate" readonly>
                           <label for="pattern_name">Pattern Name: </label>
                         </div>
+
+                          <div class="input-field">
+                            <input id="delInactivePattern" name = "delInactivePattern" value = "{{$pattern->strDesignPatternID}}" type="hidden">
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveReason" name = "delInactiveReason" value = "{{$pattern->strInactiveReason}}" type="text" class="validate" required>
+                            <label for="fax"> *Reason for Inactivation: </label>
+                          </div>
                         </p>
                       </div>              
 

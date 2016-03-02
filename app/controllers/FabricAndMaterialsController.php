@@ -19,7 +19,7 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType = FabricType::all();
 		$reason = ReasonFabricType::all();
 
-		$category = DB::table('tblFabricType')
+		$fabricType = DB::table('tblFabricType')
 				->leftJoin('tblReasonFabricType', 'tblFabricType.strFabricTypeID', '=', 'tblReasonFabricType.strInactiveFabricTypeID')
 				->select('tblFabricType.*', 'tblReasonFabricType.strInactiveFabricTypeID', 'tblReasonFabricType.strInactiveReason')
 				->orderBy('created_at')
@@ -347,7 +347,7 @@ class FabricAndMaterialsController extends BaseController{
     		));
 
 		$fabricType->boolIsActive = 0;
-
+		$reason->save();
 		$fabricType->save();
 		return Redirect::to('/fabricAndMaterialsFabricType?successDel=true');
 	 } else return Redirect::to('/fabricAndMaterialsFabricType?successDel=false');

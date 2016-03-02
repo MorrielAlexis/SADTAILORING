@@ -73,6 +73,7 @@
             <th data-field="name">Category Name</th>
             <th data-field="name">Segment Name</th>
             <th data-field="address">Segment Description</th>
+            <th data-field="address">Reason for Inactivation</th>
             <th>Reactivate</th>
           </tr>
         </thead>
@@ -85,9 +86,11 @@
               <td>{{ $segment2->strGarmentCategoryName }}</td>
               <td>{{ $segment2->strGarmentSegmentName }}</td>
               <td>{{ $segment2->strGarmentSegmentDesc }}</td>
+              <td>{{ $segment2->strInactiveReason }}</td>
               <td>
                 <form action="{{URL::to('reactGarmentSegment')}}" method="POST">
                   <input type="hidden" id="reactID" name="reactID" value="{{$segment2->strGarmentSegmentID}}">
+                  <input type="hidden" id="reactInactiveSegment" name="reactInactiveSegment" value="{{$segment2->strGarmentSegmentID}}">
                   <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of segment to the table">REACTIVATE</button>
                 </form>
               </td>
@@ -206,6 +209,15 @@
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentDesc }}" type="text" class="validate" readonly>
                                 <label for="segment_description">Segment Description: </label>
+                              </div>
+
+                              <div class="input-field">
+                                <input value="{{ $segment->strGarmentSegmentID }}" id="delInactiveSegment" name="delInactiveSegment" type="hidden">
+                              </div>
+
+                              <div class="input-field">
+                                <input value="{{ $segment->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
+                                <label for="segment_description">*Reason for Inactivation: </label>
                               </div>
                             </p>
                           </div>

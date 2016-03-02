@@ -80,6 +80,7 @@
             <th data-field="cellphone">Cellphone No. (alt)</th>
             <th data-field="Landline">Telephone No.</th>
             <th data-field="fax">Fax No.</th>
+            <th data-field="inactiveReason">Reason for Inactivation</th>
             <th data-field="react">Reactivate</th>
           </tr>
         </thead>
@@ -96,10 +97,12 @@
                   <td>{{ $company2->strCustCompanyCPNumberAlt }}</td>  
                   <td>{{ $company2->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company2->strCustCompanyFaxNumber }}</td>  
+                  <td>{{ $company2->strInactiveReason }}</td>
                 <td>
                   <form action="{{URL::to('reactCustCompany')}}" method="POST">
 
                   <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactID" name="reactID">
+                  <input type="hidden" value="{{ $company2->strCustCompanyID }}" id="reactInactiveComp" name="reactInactiveComp">
                   <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to reeturn data of customer to the table">REACTIVATE</button>
                  
                   </form>
@@ -255,6 +258,15 @@
                           <div class="input-field">
                             <input id="delFax" name = "delFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="" maxlength="9" minlength="9" readonly>
                             <label for="fax"> Fax Number: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveComp" name = "delInactiveComp" value = "{{$company->strCustCompanyID}}" type="hidden">
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveReason" name = "delInactiveReason" value = "{{$company->strInactiveReason}}" type="text" class="validate" required>
+                            <label for="fax"> *Reason for Inactivation: </label>
                           </div>
                         </p>
                       </div>

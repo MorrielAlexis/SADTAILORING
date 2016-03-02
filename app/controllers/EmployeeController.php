@@ -51,8 +51,8 @@ class EmployeeController extends BaseController{
 		$role = Role::all();
 		$reason = ReasonRole::all();
 
-		$individual = DB::table('tblEmployeeRole')
-				->leftJoin('tblReasonRole', 'tblEmployeeRole.strCustPrivIndivID', '=', 'tblReasonRole.strInactiveRoleID')
+		$role = DB::table('tblEmployeeRole')
+				->leftJoin('tblReasonRole', 'tblEmployeeRole.strEmpRoleID', '=', 'tblReasonRole.strInactiveRoleID')
 				->select('tblEmployeeRole.*', 'tblReasonRole.strInactiveRoleID', 'tblReasonRole.strInactiveReason')
 				->orderBy('created_at')
 				->get();
@@ -226,8 +226,8 @@ class EmployeeController extends BaseController{
 
         if ($count == 0) {
 
-			$reason = ReasonEmployee::create(array(
-				'strInactiveEmployeeID' => Input::get('delInactiveEmp'),
+			$reason = ReasonRole::create(array(
+				'strInactiveRoleID' => Input::get('delInactiveRole'),
 				'strInactiveReason' => Input::get('delInactiveReason')
 				));
         	$role->boolIsActive = 0;
@@ -271,9 +271,9 @@ class EmployeeController extends BaseController{
 	if(!$isAdded){
 		$role = Role::find($id);
 
-		$reas = Input::get('reactInactiveEmp');
-		$reason = DB::table('tblReasonEmployee')
-						->where('strInactiveEmployeeID', '=', $reas)
+		$reas = Input::get('reactInactiveRole');
+		$reason = DB::table('tblReasonRole')
+						->where('strInactiveRoleID', '=', $reas)
 						->delete();
 
         $role->boolIsActive = 1;

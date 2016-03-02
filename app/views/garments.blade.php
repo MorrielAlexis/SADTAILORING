@@ -73,6 +73,7 @@
             <!--<th data-field="id">Garment Details ID</th>-->
             <th data-field="name">Category Name</th>
             <th data-field="address">Category Description</th>
+            <th data-field="address">Reason for Inactivation</th>
             <th>Reactivate</th>
           </tr>
         </thead>
@@ -83,11 +84,12 @@
             <tr>
               <!--<td>{{ $category2->strGarmentCategoryID }}</td>-->
               <td>{{ $category2->strGarmentCategoryName }}</td>
-              <td>{{ $category2->strGarmentCategoryName }}</td>
               <td>{{ $category2->strGarmentCategoryDesc }}</td>
+              <td>{{ $category2->strInactiveReason }}</td>
               <td>
                 <form action="{{URL::to('reactGarmentCategory')}}" method="POST">
                   <input type="hidden" id="reactID" name="reactID" value="{{$category2->strGarmentCategoryID}}">
+                  <input type="hidden" id="reactInactiveGarment" name="reactInactiveGarment" value="{{$category2->strGarmentCategoryID}}">
                   <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of garment category to the table">REACTIVATE</button>
                 </form>
               </td>
@@ -144,8 +146,7 @@
                             
  
                               <div class="input-field">
-                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="text" class="" readonly>
-                                <label for="garment_id">Garment ID: </label>
+                                <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
                               </div>
 
                               <div class="input-field">
@@ -174,12 +175,7 @@
                             <p> 
                             
                               <div class="input-field">
- 
-                                <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="text" class="" readonly>
-                                <label for="garment_id">Garment ID: </label>
-
                                 <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="hidden">
- 
                               </div>
 
                               <div class="input-field">
@@ -188,10 +184,17 @@
                               </div>
 
                               <div class="input-field">
-                      
                                <input  value= "{{ $category->strGarmentCategoryDesc }}" type="text" class="" readonly>
-
                                 <label for="garment_description">Garment Desription: </label>
+                              </div>
+
+                              <div class="input-field">
+                                <input value="{{ $category->strGarmentCategoryID }}" type="hidden" id="delInactiveGarment" name="delInactiveGarment">
+                              </div>
+
+                              <div class="input-field">
+                                <input value="{{ $category->strInactiveReason }}" type="text" id="delInactiveReason" name="delInactiveReason" class="validate" required>
+                                <label for="reason"> *Reason for Inactivation: </label>
                               </div>
                             </p>
                           </div>
@@ -221,11 +224,10 @@
 
                 <div class="modal-content">
 
-                  <p>               
-                    <div class="input-field">       
-                      <input value="{{$newID}}" id="addGarmentID" name="addGarmentID" type="text" class="" readonly>
-                      <label for="garment_id">Garment ID: </label>
-                    </div>
+                  <p>  
+                  <div class="input-field">
+                    <input value="{{ $newID }}" id="addGarmentID" name="addGarmentID" type="hidden">
+                  </div>
 
                     <div class="input-field">
                       <input required id="addGarmentName" name="addGarmentName" type="text" class="validateGarmentName">

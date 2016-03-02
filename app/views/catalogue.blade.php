@@ -217,17 +217,17 @@
 
                       <div class="input-field">
                         <input value="{{ $catalogue->strGarmentCategoryName }}" type="text" class="validate" readonly>
-                        <label for="catalogue_name"> CATALOGUE CATEGORY: </label>
+                        <label for="catalogue_name"> Catalogue Category: </label>
                       </div>
 
                       <div class="input-field">
                         <input value="{{ $catalogue->strCatalogueName }}" type="text" class="validate" readonly>
-                        <label for="catalogue_name"> CATALOGUE NAME: </label>
+                        <label for="catalogue_name"> Catalogue Name: </label>
                       </div>
 
                       <div class="input-field">
                         <input value="{{ $catalogue->strCatalogueDesc }}" type="text" class="validate" readonly>
-                        <label for="catalogue_name"> CATALOGUE DESCRIPTION: </label>
+                        <label for="catalogue_name"> Catalogue Description: </label>
                       </div>
                       
                       <div class="input-field">
@@ -236,7 +236,7 @@
 
                       <div class="input-field">
                         <input value="{{ $catalogue->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
-                        <label for="catalogue_name"> *REASON FOR INACTIVATION: </label>
+                        <label for="catalogue_name"> *Reason for Inactivation: </label>
                       </div>
                     </p>
                     </div>

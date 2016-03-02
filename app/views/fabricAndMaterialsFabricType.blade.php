@@ -72,7 +72,8 @@
                     <tr>
                       <!--<th data-field="fabricID">Fabric Type ID</th>-->
                       <th data-field="fabricName">Fabric TypeName</th>
-                      <th data-field="fabricDesc">Fabric Description</th>     
+                      <th data-field="fabricDesc">Fabric Description</th> 
+                      <th data-field="fabricDesc">Reason for Inactivation</th>     
                       <th>Reactivate</th>   
                   </thead>
 
@@ -83,9 +84,11 @@
                         <!--<td>{{ $fabricType2->strFabricTypeID }}</td>-->
                         <td>{{ $fabricType2->strFabricTypeName }}</td>
                         <td>{{ $fabricType2->strFabricTypeDesc }}</td>
+                        <td>{{ $fabricType2->strInactiveReason }}</td>
                         <td>
                           <form action="{{URL::to('reactFabricType')}}" method="POST">
                             <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactID" name="reactID">
+                            <input type="hidden" value="{{ $fabricType2->strFabricTypeID }}" id="reactInactiveFabricType" name="reactInactiveFabricType">
                             <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to return data of fabric type to the table">REACTIVATE</button>
                           </form>
                         </td>
@@ -141,10 +144,6 @@
                         <p>
                         <form action="{{URL::to('editFabricType')}}" method="POST">
                         <div class="input-field">
-
-                          <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="text" class="" readonly="">
-                          <label for="fabric_typeId">Fabric Type ID: </label>
-
                           <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="hidden">
 
                         </div>
@@ -176,10 +175,6 @@
                         <p>
                          <form action="{{URL::to('delFabricType')}}" method="POST">
                           <div class="input-field">
-
-                            <label for="first_name">Fabric Type ID: </label>
-                            <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="text" class="" readonly>
-
                             <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="hidden">
 
                           </div>
@@ -192,6 +187,15 @@
                            <div class="input-field">
                             <label for="middle_name">Fabric Desription: </label>
                             <input value="{{$fabricType->strFabricTypeDesc}}" id="delFabricDesc" name="delFabricDesc" type="text" class="validate" readonly>
+                          </div>
+
+                          <div>
+                            <input value="{{$fabricType->strFabricTypeID}}" id="delInactiveFabricType" name="delInactiveFabricType" type="hidden">
+                          </div>
+
+                           <div class="input-field">
+                            <label for="middle_name">*Reason for Inactivation: </label>
+                            <input value="{{$fabricType->strInactiveReason}}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
                           </div>
                         </p>
                       </div>
@@ -221,8 +225,7 @@
                 <p>           
 
                   <div class="input-field">
-                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="text" class="" readonly>
-                    <label for="fabrictype_id">Fabric ID: </label>
+                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="hidden">
                   </div>
 
                   <div class="input-field">

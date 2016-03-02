@@ -75,6 +75,7 @@
             <th data-field="SwatchName">Swatch Name</th>
             <th data-field="SwatchCode">Swatch Code</th>
             <th data-field="SwatchImage">Image</th>
+            <th data-field="SwatchImage">Reason for Inactivation</th>
             <th data-field="reactSwatch">Reactivate</th>
           </tr>
         </thead>
@@ -88,10 +89,12 @@
               <td>{{ $swatch2->strSwatchName }}</td>
               <td>{{ $swatch2->strSwatchCode }}</td>
               <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch2->strSwatchImage)}}"></td>
+              <td>{{ $swatch2->strInactiveReason }}</td>
               <td>
 
                <form action="{{URL::to('reactSwatch')}}" method="POST">
                   <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactID" name="reactID">
+                  <input type="hidden" value="{{ $swatch2->strSwatchID }}" id="reactInactiveSwatch" name="reactInactiveSwatch">
               <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of fabric swatch to the table">REACTIVATE</button>
 
               </form>
@@ -150,8 +153,7 @@
                             <p>
  
                               <div class="input-field">
-                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="text" readonly class="">
-                                <label for="swatch_id">Swatch ID: </label>
+                                <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
                               </div>
 
                               <div class="input-field">
@@ -204,10 +206,6 @@
                           <div class="modal-content">
                             <p>
                               <div class="input-field">
- 
-                                <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="text" readonly class="">
-                                <label for="swatch_id">Swatch ID: </label>
-
                                 <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="hidden">
  
                               </div>
@@ -225,6 +223,15 @@
                               <div class="input-field">
                                 <input value="{{$swatch->strSwatchCode}}" type="text" class="" readonly>
                                 <label for="swatch_code">Swatch Code: </label>
+                              </div>
+
+                              <div class="input-field">
+                                <input value = "{{ $swatch->strSwatchID }}" id="delInactiveSwatch" name= "delInactiveSwatch" type="hidden">
+                              </div>   
+
+                              <div class="input-field">
+                                <input value="{{$swatch->strInactiveReason}}" id="delInactiveReason" name= "delInactiveReason" type="text" class="" required>
+                                <label for="swatch_code">*Reason for Inactivation: </label>
                               </div>
 
                             </p>
@@ -260,8 +267,7 @@
 
  
                     <div class="input-field">
-                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="text" readonly class="">
-                      <label for="swatch_id">Swatch ID: </label>
+                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">
 
                    <div class="input-field">
                       <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">

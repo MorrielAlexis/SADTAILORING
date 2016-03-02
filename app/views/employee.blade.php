@@ -82,6 +82,7 @@
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Phone No.</th>
             <th data-field="email">Email Address</th>
+            <th data-field="inactiveReason">Reason for Inactivation</th>
              <th data-field="Edit">Reactivate</th>
           </tr>
         </thead>
@@ -104,9 +105,11 @@
                   <td>{{ $employee2->strCellNo }}</td> 
                   <td>{{ $employee2->strPhoneNo }}</td>
                   <td>{{ $employee2->strEmailAdd }}</td>
+                  <td>{{ $employee2->strInactiveReason }}</td>
                   <td>
                   <form action="{{URL::to('reactEmployee')}}" method="POST">
                   <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactID" name="reactID">
+                  <input type="hidden" value="{{ $employee2->strEmployeeID }}" id="reactInactiveEmp" name="reactInactiveEmp">
                   <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
                   </form>
                 </td>
@@ -268,11 +271,10 @@
 
                     <!-- Modal for (SOFT) delete Employee -->
                     <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
-                      <form action="{{URL::to('delEmployee')}}" method="POST">
                         <div class="modal-content">
                           <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
                           <p>
-                    
+                            <form action="{{URL::to('delEmployee')}}" method="POST">
                             <div class="input-field">
                               <label for="first_name">Employee ID: </label>
                               <input value="{{$employee->strEmployeeID}}" id="delEmpID" name="delEmpID" type="text" class="" readonly>
@@ -296,6 +298,16 @@
                             <div class="input-field">       
                                 <input type="text" value="{{$employee->strEmpRoleName}}" readonly>                                                                               
                             </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveEmp" name = "delInactiveEmp" value = "{{$employee->strEmployeeID}}" type="hidden">
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveReason" name = "delInactiveReason" value = "{{$employee->strInactiveReason}}" type="text" class="validate" required>
+                            <label for="fax"> *Reason for Inactivation: </label>
+                          </div>
+                          <br>
                           </p> 
                         </div>   
 

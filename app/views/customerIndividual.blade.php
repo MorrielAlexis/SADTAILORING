@@ -76,6 +76,7 @@
             <th data-field="email">Email Address</th>
             <th data-field="cellphone">Cellphone No.</th>
             <th data-field="Landline">Telephone No.</th>
+            <th data-field="inactiveReason">Reason for Inactivation</th>
             <th data-field="React">Reactivate</th>
           </tr>
         </thead>
@@ -90,10 +91,12 @@
               <td>{{ $individual2->strCustPrivAddress }} </td>
               <td>{{ $individual2->strCustPrivEmailAddress}}</td>                  
               <td>{{ $individual2->strCustPrivCPNumber }}</td> 
-              <td>{{ $individual2->strCustPrivLandlineNumber }}</td>       
+              <td>{{ $individual2->strCustPrivLandlineNumber }}</td> 
+              <td>{{ $individual2->strInactiveReason }}</td>      
               <td>          
                 <form action="{{URL::to('reactCustPrivIndiv')}}" method="POST">
                   <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactID" name="reactID">
+                  <input type="hidden" value="{{ $individual2->strCustPrivIndivID }}" id="reactInactiveIndiv" name="reactInactiveIndiv">
                   <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of customer to the table">REACTIVATE</button>
                 </form>
               </td>
@@ -242,6 +245,15 @@
                           <div class="input-field">
                             <label for="first_name">Address: </label>
                             <input value="{{$individual->strCustPrivAddress}}" id="delIndivAddress" name="delIndivAddress" type="text" class="validate" readonly>
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveIndiv" name = "delInactiveIndiv" value = "{{$individual->strCustPrivIndivID}}" type="hidden">
+                          </div>
+
+                          <div class="input-field">
+                            <input id="delInactiveReason" name = "delInactiveReason" value = "{{$individual->strInactiveReason}}" type="text" class="validate" required>
+                            <label for="fax"> *Reason for Inactivation: </label>
                           </div>
                         </p>
                         </div>
