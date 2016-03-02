@@ -214,7 +214,7 @@
         
     			<div id="addRole" class="modal">
             <h5><font color = "#1b5e20"><center>Add a Role</center> </font> </h5>
-            <form action="{{URL::to('addRole')}}" method="POST">
+            <form action="{{URL::to('addRole')}}" method="POST" id="formAddRole" name="formAddRole">
 
               <div class="modal-content">
                 <p>
@@ -235,7 +235,7 @@
               </div>
 
                 <div class="modal-footer">
-                  <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
+                  <button type="submit" class="modal-action  waves-effect waves-green btn-flat">ADD</button>
                   <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
             </form>
@@ -275,6 +275,31 @@
     $(document).ready(function(){
       $('.tooltipped').tooltip({delay: 50});
   }); 
+  </script>
+  
+  <script>  
+
+    $('#formAddRole').on('submit', function(){
+        $.ajax({
+                  url:"{{URL::to('addRole')}}",
+                  type: "POST",
+                  data:{
+                      roleID: $('#addRoleID').val(),
+                      roleName: $('#addRoleName').val(),
+                      roleDesc: $('#addRoleDescription').val()
+                  },
+                  success: function(data){
+                    alert('Added!');
+                  },
+                  error:function(xhr){
+                    console.log(xhr);
+                  }
+              });//end of ajax
+    });
+    
+    /*$("#addRole").click(function(){
+              
+          });//end of click*/
   </script>
 
 @stop

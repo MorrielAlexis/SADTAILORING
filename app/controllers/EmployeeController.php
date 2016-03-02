@@ -138,36 +138,62 @@ class EmployeeController extends BaseController{
 	public function editEmployee()
 	{
 		$id = Input::get('editEmpID');
-		$isEdited = FALSE;
-
-
-	if(!$isEdited){
 		$employee = Employee::find($id);
 
-		$employee->strEmpFName = Input::get('editFirstName');	
-		$employee->strEmpLName = Input::get('editLastName');	
-		$employee->strEmpMName = Input::get('editMiddleName');	
-		$employee->dtEmpBday = Input::get('editdtEmpBday');
-		$employee->strSex = Input::get('editSex');
-		$employee->strEmpAddress = Input::get('editAddress');
-		$employee->strRole = Input::get('editRoles');
-		$employee->strCellNo = Input::get('editCellNo');
-		$employee->strCellNoAlt = Input::get('editCellNoAlt');
-		$employee->strPhoneNo = Input::get('editPhoneNo');
-		$employee->strEmailAdd = Input::get('editEmail');
+		$emp = Employee::get();
+		$isAdded = FALSE;
 
-		$employee->save();
-		return Redirect::to('/employee?successEdit=true');
-	 } else return Redirect::to('/employee?successEdit=false');
+		$count = 0; $count2 = 0;
+
+		if(!($employee->strEmailAdd == Input::get('editEmail'))){	
+			$count = DB::table('tblEmployee')
+	            ->select('tblEmployee.strEmailAdd')
+	            ->where('tblEmployee.strEmailAdd','=', Input::get('editEmail'))
+	            ->count();
+        }
+
+        if(!($employee->strCellNo == Input::get('editCellNo'))){	
+	        $count2 = DB::table('tblEmployee')
+	            ->select('tblEmployee.strCellNo')
+	            ->where('tblEmployee.strCellNo','=', Input::get('editCellNo'))
+	            ->count();
+	    }
+            
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach($emp as $emp){
+			if(strcmp($emp->strEmpFName, Input::get('editFirstName')) == 0 &&
+				    strcmp($emp->strEmpMName, Input::get('editMiddleName')) == 0 &&
+					strcmp($emp->strEmpLName, Input::get('editLastName')) == 0){
+						$isAdded = TRUE;
+				}
+			}
+        }
+
+		if(!$isAdded){
+			$employee = Employee::find($id);
+
+			$employee->strEmpFName = Input::get('editFirstName');	
+			$employee->strEmpLName = Input::get('editLastName');	
+			$employee->strEmpMName = Input::get('editMiddleName');	
+			$employee->dtEmpBday = Input::get('editdtEmpBday');
+			$employee->strSex = Input::get('editSex');
+			$employee->strEmpAddress = Input::get('editAddress');
+			$employee->strRole = Input::get('editRoles');
+			$employee->strCellNo = Input::get('editCellNo');
+			$employee->strCellNoAlt = Input::get('editCellNoAlt');
+			$employee->strPhoneNo = Input::get('editPhoneNo');
+			$employee->strEmailAdd = Input::get('editEmail');
+
+			$employee->save();
+			return Redirect::to('/employee?successEdit=true');
+		 } else return Redirect::to('/employee?successEdit=false');
 	}
 
 	public function editRole()
 	{
 		$id = Input::get('editRoleID');
-		$isEdited = FALSE;
-
-
-	if(!$isEdited){
 		$role = Role::find($id);
 
 		$rol = Role::all();
@@ -182,10 +208,11 @@ class EmployeeController extends BaseController{
 			$role->strEmpRoleDesc = Input::get('editRoleDescription');
 
 			$role->save();
-		}
+			return Redirect::to('/employeeRole?successEdit=true');
+		}else return Redirect::to('/employeeRole?successEdit=false');
 
-		return Redirect::to('/employeeRole?successEdit=true');
-	 } else return Redirect::to('/employeeRole?successEdit=false');
+		
+	 
 	}
 
 	public function delEmployee()

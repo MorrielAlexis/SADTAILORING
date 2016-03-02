@@ -111,23 +111,54 @@ class CustomerController extends BaseController{
 	public function editCustPrivIndiv()
 	{	
 		$id = Input::get('editIndiID');
-		$isEdited = FALSE;
-
-		if(!$isEdited){
 		$individual = PrivateIndividual::find($id);
 
-		$individual->strCustPrivFName = Input::get('editFName');
-		$individual->strCustPrivMName = Input::get('editMName');	
-		$individual->strCustPrivLName = Input::get('editLName');
-		$individual->strCustPrivAddress = Input::get('editAddress');
-		$individual->strCustPrivEmailAddress = Input::get('editEmail');			
-		$individual->strCustPrivCPNumber = Input::get('editCel');
-		$individual->strCustPrivCPNumberAlt = Input::get('editCelAlt');
-		$individual->strCustPrivLandlineNumber = Input::get('editPhone');
+		$ind = PrivateIndividual::get();
+		$isAdded = FALSE;
 
-		$individual->save();
-		return Redirect::to('/maintenance/customerIndividual?successEdit=true');
-	  }else return Redirect::to('/maintenance/customerIndividual?successEdit=false');
+		$count = 0; $count2 = 0;
+
+		if(!($individual->strCustPrivEmailAddress == Input::get('editEmail'))){
+			$count = DB::table('tblCustPrivateIndividual')
+	            ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
+	            ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', Input::get('editEmail'))
+	            ->count();
+	    }
+
+	    if(!($individual->strCustPrivCPNumber == Input::get('editCel'))){
+	    	$count2 = DB::table('tblCustPrivateIndividual')
+	            ->select('tblCustPrivateIndividual.strCustPrivCPNumber')
+	            ->where('tblCustPrivateIndividual.strCustPrivCPNumber','=', Input::get('editCel'))
+	            ->count();
+	    }	
+
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach ($ind as $ind) {
+				if(strcasecmp($ind->strCustPrivFName, Input::get('editFName')) == 0 && 
+				   strcasecmp($ind->strCustPrivMName, Input::get('editMName')) == 0 && 
+				   strcasecmp($ind->strCustPrivLName, Input::get('editLName')) == 0 && 
+				   strcasecmp($ind->strCustPrivAddress, Input::get('editAddress')) == 0){
+						$isAdded = TRUE;
+					}			
+				}	
+        	}
+
+		if(!$isAdded){
+			$individual->strCustPrivFName = Input::get('editFName');
+			$individual->strCustPrivMName = Input::get('editMName');	
+			$individual->strCustPrivLName = Input::get('editLName');
+			$individual->strCustPrivAddress = Input::get('editAddress');
+			$individual->strCustPrivEmailAddress = Input::get('editEmail');			
+			$individual->strCustPrivCPNumber = Input::get('editCel');
+			$individual->strCustPrivCPNumberAlt = Input::get('editCelAlt');
+			$individual->strCustPrivLandlineNumber = Input::get('editPhone');
+
+			$individual->save();
+			return Redirect::to('/maintenance/customerIndividual?successEdit=true');
+	 	}else return Redirect::to('/maintenance/customerIndividual?successEdit=false');
+
 	}
 
 	public function delCustPrivIndiv()
@@ -218,23 +249,54 @@ class CustomerController extends BaseController{
 	public function editCustCompany()
 	{
 		$id = Input::get('editComID');
-		$isEdited = FALSE;
-
-		if(!$isEdited){
 		$company = Company::find($id);
 
-		$company->strCustCompanyName = Input::get('editComName');	
-		$company->strCustCompanyAddress = Input::get('editAddress');
-		$company->strCustContactPerson = Input::get('editConPerson');
-		$company->strCustCompanyEmailAddress = Input::get('editComEmailAddress');
-		$company->strCustCompanyTelNumber = Input::get('editPhone');			
-		$company->strCustCompanyCPNumber = Input::get('editCel');
-		$company->strCustCompanyCPNumberAlt = Input::get('editCelAlt');
-		$company->strCustCompanyFaxNumber = Input::get('editFax');
+		$comp = Company::get();
+		$isAdded = FALSE;
 
-		$company->save();
-		return Redirect::to('/maintenance/customerCompany?successEdit=true');
-	 }else return Redirect::to('/maintenance/customerCompany?successEdit=false');
+		$count = 0; $count2 = 0;
+
+		if(!($company->strCustCompanyEmailAddress == Input::get('editComEmailAddress'))){
+			$count = DB::table('tblCustCompany')
+	            ->select('tblCustCompany.strCustCompanyEmailAddress')
+	            ->where('tblCustCompany.strCustCompanyEmailAddress','=', Input::get('editComEmailAddress'))
+	            ->count();
+	    }
+
+	    if(!($company->strCustCompanyCPNumber == Input::get('editCel'))){
+	        $count2 = DB::table('tblCustCompany')
+	            ->select('tblCustCompany.strCustCompanyCPNumber')
+	            ->where('tblCustCompany.strCustCompanyCPNumber','=', Input::get('editCel'))
+	            ->count();
+	    }
+
+        if($count > 0 || $count2 > 0){
+        	$isAdded = TRUE;
+        }else{
+        	foreach ($comp as $comp) {
+				if(strcasecmp($comp->strCustCompanyName, Input::get('editComName')) == 0 && 
+				   strcasecmp($comp->strCustCompanyAddress, Input::get('editAddress')) == 0 && 
+				   strcasecmp($comp->strCustContactPerson, Input::get('editConPerson')) == 0){
+						$isAdded = TRUE;
+				}				
+			}	
+        }
+			
+		if(!$isAdded){
+			$company = Company::find($id);
+
+			$company->strCustCompanyName = Input::get('editComName');	
+			$company->strCustCompanyAddress = Input::get('editAddress');
+			$company->strCustContactPerson = Input::get('editConPerson');
+			$company->strCustCompanyEmailAddress = Input::get('editComEmailAddress');
+			$company->strCustCompanyTelNumber = Input::get('editPhone');			
+			$company->strCustCompanyCPNumber = Input::get('editCel');
+			$company->strCustCompanyCPNumberAlt = Input::get('editCelAlt');
+			$company->strCustCompanyFaxNumber = Input::get('editFax');
+
+			$company->save();
+			return Redirect::to('/maintenance/customerCompany?successEdit=true');
+	 	}else return Redirect::to('/maintenance/customerCompany?successEdit=false');
 	}
 
 	public function delCustCompany()

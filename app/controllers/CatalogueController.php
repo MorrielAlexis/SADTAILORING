@@ -79,9 +79,6 @@ class CatalogueController extends BaseController{
 	public function editCatalogue()
 	{	
 		$id = Input::get('editCatalogueID');
-		$isEdited = FALSE;
-
-	if(!$isEdited){
 		$catalogue = Catalogue::find($id);
 		
 		$ctlg = Catalogue::all();
@@ -113,9 +110,8 @@ class CatalogueController extends BaseController{
 			}		
 
 			$catalogue->save();
-		} 
-		return Redirect::to('/catalogue?successEdit=true');
-	 }else return Redirect::to('/catalogue?successEdit=false');
+			return Redirect::to('/catalogue?successEdit=true');
+		}else return Redirect::to('/catalogue?successEdit=false');
 	}
 
 	public function delCatalogue()

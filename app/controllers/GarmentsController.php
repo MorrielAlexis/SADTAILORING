@@ -91,10 +91,6 @@ class GarmentsController extends BaseController{
 	public function editGarmentCategory()
 	{
 		$id = Input::get('editGarmentID');
-		$isEdited = FALSE;
-
-
-	if(!$isEdited){
 		$garments = Category::find($id);
 
 		$garm = Category::get();
@@ -109,10 +105,8 @@ class GarmentsController extends BaseController{
 			$garments->strGarmentCategoryDesc = Input::get('editGarmentDescription');
 
 			$garments->save();
-		}
-
-		return Redirect::to('/garments?successEdit=true');
-	 } else return Redirect::to('/garments?successEdit=false');
+			return Redirect::to('/garments?successEdit=true');
+		}else return Redirect::to('/garments?successEdit=false');
 	}	
 
 	public function delGarmentCategory()
@@ -179,10 +173,6 @@ class GarmentsController extends BaseController{
 	public function editGarmentSegment()
 	{
 		$id = Input::get('editSegmentID');
-		$isEdited = FALSE;
-
-
-	if(!$isEdited){
 		$segment = Segment::find($id);
 
 		$seg = Segment::all();
@@ -199,10 +189,8 @@ class GarmentsController extends BaseController{
 			$segment->strGarmentSegmentDesc = Input::get('editSegmentDesc');
 
 			$segment->save();
-		}
-
-		return Redirect::to('/garmentsDetails?successEdit=true');
-	 } else return Redirect::to('/garmentsDetails?successEdit=false');
+			return Redirect::to('/garmentsDetails?successEdit=true');
+		}else return Redirect::to('/garmentsDetails?successEdit=false');
 	}
 
 	public function delGarmentSegment()
