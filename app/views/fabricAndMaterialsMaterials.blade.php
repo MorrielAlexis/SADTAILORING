@@ -6,7 +6,7 @@
   <h4>MATERIALS</h4>
   <div class="divider"></div>
   <div style="padding-top:10px; padding-bottom:20px; margin-left:20px;">
-    <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new material to the list" href="#addMaterial">ADD Material</button>
+    <button style="color:black; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new material to the list" href="#addMaterial">Add Material</button>
   </div>
 </div>
   <!--Collapsible-->
@@ -1303,6 +1303,7 @@
       }); 
 
   </script>
+
 @stop
 
   

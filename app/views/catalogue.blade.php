@@ -14,6 +14,16 @@
         </div>
       @endif
 
+    @if (Input::get('success') == 'duplicate')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Duplicate catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
 
     <!--Edit Catalogue-->
     @if (Input::get('successEdit') == 'true')
