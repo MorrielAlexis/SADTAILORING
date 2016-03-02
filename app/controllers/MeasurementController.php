@@ -126,18 +126,24 @@ class MeasurementController extends BaseController{
 	public function editDetail()
 	{
 		$id = Input::get('editDetailID');
-		$isEdited = FALSE;
-
-
-	if(!$isEdited){
 		$detail = MeasurementDetail::find($id);
 
-		$detail->strMeasurementDetailName = Input::get('editDetailName');	
-		$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
+		$det = MeasurementDetail::all();
+		$isAdded = FALSE;
 
-		$detail->save();
-		return Redirect::to('/measurements?successEdit=true');
-	 } else return Redirect::to('/measurements?successEdit=false');
+		foreach ($det as $det)
+			if(strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0)
+				$isAdded = TRUE;
+
+		if(!$isAdded){
+			$detail = MeasurementDetail::find($id);
+
+			$detail->strMeasurementDetailName = Input::get('editDetailName');	
+			$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
+
+			$detail->save();
+			return Redirect::to('/measurements?successEdit=true');
+	 	} else return Redirect::to('/measurements?successEdit=false');
 	}
 
 	public function editCategory()
