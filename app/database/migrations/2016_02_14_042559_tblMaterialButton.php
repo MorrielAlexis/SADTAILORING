@@ -17,6 +17,7 @@ class TblMaterialButton extends Migration {
 			$table->string('strMaterialButtonName');
 			$table->string('strMaterialButtonSize');
 			$table->string('strMaterialButtonColor');
+			$table->string('strMaterialButtonDesc')->nullable()->change();
 			$table->string('strMaterialButtonImage')->nullable()->change();
 			$table->boolean('boolIsActive');
 			$table->timestamps();
