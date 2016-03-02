@@ -79,6 +79,14 @@ class FabricAndMaterialsController extends BaseController{
 
 		$thread =  MaterialThread::all();
 
+		$reasonThread = ReasonMaterialThread::all();
+
+		$thread = DB::table('tblMaterialThread')
+				->leftJoin('tblReasonMaterialThread', 'tblMaterialThread.strMaterialThreadID', '=', 'tblReasonMaterialThread.strInactiveThreadID')
+				->select('tblMaterialThread.*', 'tblReasonMaterialThread.strInactiveThreadID', 'tblReasonMaterialThread.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+
 		/////NEEDLES/////
 		$ids = DB::table('tblMaterialNeedle')
 			->select('strMaterialNeedleID')
@@ -91,6 +99,14 @@ class FabricAndMaterialsController extends BaseController{
 		$newNeedleID = $this->smartCounter($ID);	
 
 		$needle =  MaterialNeedle::all(); 
+
+		$reasonNeedle = ReasonMaterialNeedle::all();
+
+		$needle = DB::table('tblMaterialNeedle')
+				->leftJoin('tblReasonMaterialNeedle', 'tblMaterialNeedle.strMaterialNeedleID', '=', 'tblReasonMaterialNeedle.strInactiveNeedleID')
+				->select('tblMaterialNeedle.*', 'tblReasonMaterialNeedle.strInactiveNeedleID', 'tblReasonMaterialNeedle.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 
 		/////BUTTONS/////
 		$ids = DB::table('tblMaterialButton')
@@ -105,6 +121,14 @@ class FabricAndMaterialsController extends BaseController{
 
 		$button =  MaterialButton::all(); 
 
+		$reasonButton = ReasonMaterialButton::all();
+
+		$button = DB::table('tblMaterialButton')
+				->leftJoin('tblReasonMaterialButton', 'tblMaterialButton.strMaterialButtonID', '=', 'tblReasonMaterialButton.strInactiveButtonID')
+				->select('tblMaterialButton.*', 'tblReasonMaterialButton.strInactiveButtonID', 'tblReasonMaterialButton.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+
 		/////ZIPPERS/////
 		$ids = DB::table('tblMaterialZipper')
 			->select('strMaterialZipperID')
@@ -118,6 +142,14 @@ class FabricAndMaterialsController extends BaseController{
 
 		$zipper =  MaterialZipper::all(); 
 
+		$reasonZipper = ReasonMaterialZipper::all();
+
+		$zipper = DB::table('tblMaterialZipper')
+				->leftJoin('tblReasonMaterialZipper', 'tblMaterialZipper.strMaterialZipperID', '=', 'tblReasonMaterialZipper.strInactiveZipperID')
+				->select('tblMaterialZipper.*', 'tblReasonMaterialZipper.strInactiveZipperID', 'tblReasonMaterialZipper.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+
 		/////HOOK AND EYE/////
 		$ids = DB::table('tblMaterialHookAndEye')
 			->select('strMaterialHookID')
@@ -129,24 +161,37 @@ class FabricAndMaterialsController extends BaseController{
 		$ID = $ids["0"]->strMaterialHookID;
 		$newHookID = $this->smartCounter($ID);	
 
-		$hook =  MaterialHookAndEye::all();
+		$hook =  MaterialHookAndEye::all(); 
+
+		$reasonHook = ReasonMaterialHookAndEye::all();
+
+		$hook = DB::table('tblMaterialHookAndEye')
+				->leftJoin('tblReasonMaterialHookAndEye', 'tblMaterialHookAndEye.strMaterialHookID', '=', 'tblReasonMaterialHookAndEye.strInactiveHookID')
+				->select('tblMaterialHookAndEye.*', 'tblReasonMaterialHookAndEye.strInactiveHookID', 'tblReasonMaterialHookAndEye.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 
 
 		return View::make('fabricAndMaterialsMaterials')
 					->with('thread', $thread)
 					->with('thread2', $thread)
+					->with('reasonThread', $reasonThread)
 					->with('newThreadID', $newThreadID)
 					->with('needle', $needle)
 					->with('needle2', $needle)
+					->with('reasonNeedle', $reasonNeedle)
 					->with('newNeedleID', $newNeedleID)
 					->with('button', $button)
 					->with('button2', $button)
+					->with('reasonButton', $reasonButton)
 					->with('newButtonID', $newButtonID)
 					->with('zipper', $zipper)
 					->with('zipper2', $zipper)
+					->with('reasonZipper', $reasonZipper)
 					->with('newZipperID', $newZipperID)
 					->with('hook', $hook)
 					->with('hook2', $hook)
+					->with('reasonHook', $reasonHook)
 					->with('newHookID', $newHookID);
 	}
 
@@ -425,8 +470,13 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delThreadID');
 		$thread = MaterialThread::find($id);
 
-		$thread->boolIsActive = 0;
+		$reasonThread = ReasonMaterialThread::create(array(
+			'strInactiveThreadID' => Input::get('delInactiveThread'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$thread->boolIsActive = 0;
+		$reasonThread->save();
 		$thread->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
 	}
@@ -435,6 +485,11 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$thread = MaterialThread::find($id);
+
+		$reas = Input::get('reactInactiveThread');
+		$reasonThread = DB::table('tblReasonMaterialThread')
+						->where('strInactiveThreadID', '=', $reas)
+						->delete();
 
 		$thread->boolIsActive = 1;
 
@@ -506,8 +561,13 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delNeedleID');
 		$needle = MaterialNeedle::find($id);
 
-		$needle->boolIsActive = 0;
+		$reasonNeedle = ReasonMaterialNeedle::create(array(
+			'strInactiveNeedleID' => Input::get('delInactiveNeedle'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$needle->boolIsActive = 0;
+		$reasonNeedle->save();
 		$needle->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
 	}
@@ -516,6 +576,11 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$needle = MaterialNeedle::find($id);
+
+		$reas = Input::get('reactInactiveNeedle');
+		$reasonNeedle = DB::table('tblReasonMaterialNeedle')
+						->where('strInactiveNeedleID', '=', $reas)
+						->delete();
 
 		$needle->boolIsActive = 1;
 
@@ -591,8 +656,13 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delButtonID');
 		$button = MaterialButton::find($id);
 
-		$button->boolIsActive = 0;
+		$reasonButton = ReasonMaterialButton::create(array(
+			'strInactiveButtonID' => Input::get('delInactiveButton'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$button->boolIsActive = 0;
+		$reasonButton->save();
 		$button->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
 	}
@@ -601,6 +671,11 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$button = MaterialButton::find($id);
+
+		$reas = Input::get('reactInactiveButton');
+		$reasonButton = DB::table('tblReasonMaterialButton')
+						->where('strInactiveButtonID', '=', $reas)
+						->delete();
 
 		$button->boolIsActive = 1;
 
@@ -675,8 +750,13 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delZipperID');
 		$zipper = MaterialZipper::find($id);
 
-		$zipper->boolIsActive = 0;
+		$reasonZipper = ReasonMaterialZipper::create(array(
+			'strInactiveZipperID' => Input::get('delInactiveZipper'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$zipper->boolIsActive = 0;
+		$reasonZipper->save();
 		$zipper->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
 	}
@@ -685,6 +765,11 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$zipper = MaterialZipper::find($id);
+
+		$reas = Input::get('reactInactiveZipper');
+		$reasonZipper = DB::table('tblReasonMaterialZipper')
+						->where('strInactiveZipperID', '=', $reas)
+						->delete();
 
 		$zipper->boolIsActive = 1;
 
@@ -759,8 +844,13 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delHookID');
 		$hook = MaterialHookAndEye::find($id);
 
-		$hook->boolIsActive = 0;
+		$reasonHook = ReasonMaterialHookAndEye::create(array(
+			'strInactiveHookID' => Input::get('delInactiveHook'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$hook->boolIsActive = 0;
+		$reasonHook->save();
 		$hook->save();
 		return Redirect::to('/fabricAndMaterialsMaterials');
 	}
@@ -769,6 +859,11 @@ class FabricAndMaterialsController extends BaseController{
 	{
 		$id = Input::get('reactID');
 		$hook = MaterialHookAndEye::find($id);
+
+		$reas = Input::get('reactInactiveHook');
+		$reasonHook = DB::table('tblReasonMaterialHookAndEye')
+						->where('strInactiveHookID', '=', $reas)
+						->delete();
 
 		$hook->boolIsActive = 1;
 

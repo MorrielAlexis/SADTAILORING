@@ -109,7 +109,6 @@
 
                          <div class="input-field">
                             <input value="{{$thread->strMaterialThreadID}}" id="delThreadID" name="delThreadID" type="hidden">
- 
                           </div>
 
                           <div class="input-field">
@@ -125,6 +124,15 @@
                            <div class="input-field">
                           <input id="delThreadDesc" name = "delThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text" class="validateColor">
                           <label for="Thread_Color"> Description: </label>
+                        </div>
+
+                         <div class="input-field">
+                            <input value="{{$thread->strMaterialThreadID}}" id="delInactiveThread" name="delInactiveThread" type="hidden">
+                          </div>
+
+                           <div class="input-field">
+                          <input id="delInactiveReason" name = "delInactiveReason" value="{{$thread->strInactiveReason}}" type="text" class="validate" required>
+                          <label for="Thread_Color"> *Reason for Inactivation: </label>
                         </div>
                         </p>
                       </div>
@@ -154,6 +162,8 @@
                   <th data-field="Thread Color">Thread Color</th>
                   <th data-field="Thread Description">Description</th>
                   <th data-field="ThreadImage">Image</th>
+                  <th data-field="Thread Description">Reason for Inactivation</th>
+                  <th data-field="ThreadImage">Reactivate</th>
                     </tr>
                   </thead>
 
@@ -165,10 +175,12 @@
                         <td>{{ $thread2->strMaterialThreadName }}</td>
                         <td>{{ $thread2->strMaterialThreadColor }}</td>
                           <td>{{ $thread2->strMaterialThreadDesc }}</td>
-                        <td><img src="{{URL::asset($thread2->strMaterialThreadImage)}}"></td>    
+                        <td><img src="{{URL::asset($thread2->strMaterialThreadImage)}}"></td>
+                          <td>{{ $thread2->strInactiveReason }}</td>    
                         <td>          
                         <form action="{{URL::to('reactThread')}}" method="POST">
                         <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactID" name="reactID">
+                        <input type="hidden" value="{{ $thread2->strMaterialThreadID }}" id="reactInactiveThread" name="reactInactiveThread">
                         <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of thread to the table">REACTIVATE</button>
                         </form>
                       </td>
@@ -292,13 +304,22 @@
 
                            <div class="input-field">
                             <label for="needle_size">Needle Size: </label>
-                            <input value="{{$needle->strMaterialNeedleColor}}" id="delNeedleColor" name="delNeedleColor" type="text" class="validate" readonly>
+                            <input value="{{$needle->strMaterialNeedleSize}}" id="delNeedlSize" name="delNeedleSize" type="text" class="validate" readonly>
                           </div>
 
                             <div class="input-field">
                             <label for="needle_desc">Description </label>
                             <input value="{{$needle->strMaterialNeedleDesc}}" id="delNeedleDesc" name="delNeedleDesc" type="text" class="validate" readonly>
                           </div>
+
+                         <div class="input-field">
+                            <input value="{{$needle->strMaterialNeedleID}}" id="delInactiveNeedle" name="delInactiveNeedle" type="hidden">
+                          </div>
+
+                           <div class="input-field">
+                          <input id="delInactiveReason" name = "delInactiveReason" value="{{$needle->strInactiveReason}}" type="text" class="validate" required>
+                          <label for="Thread_Color"> *Reason for Inactivation: </label>
+                        </div>
                         </p>
                       </div>
 
@@ -325,7 +346,9 @@
             <th data-field="Needle Name">Needle Name</th>
             <th data-field= "Needle Size">Needle Size </th>
              <th data-field= "Needle Desc">Description </th>
-            <th data-field="Image">Image</th>          
+            <th data-field="Image">Image</th>    
+             <th data-field= "Needle Desc">Reason for Inactivation </th>
+            <th data-field="Image">Reactivate</th>       
             </tr>
         </thead>
 
@@ -337,10 +360,12 @@
               <td>{{ $needle2->strMaterialNeedleName }}</td>
               <td>{{ $needle2->strMaterialNeedleSize }}</td>
                <td>{{ $needle2->strMaterialNeedleDesc }}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($needle2->strMaterialNeedleImage)}}"> </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($needle2->strMaterialNeedleImage)}}"> </td>
+               <td>{{ $needle2->strInactiveReason }}</td>      
               <td>          
               <form action="{{URL::to('reactNeedle')}}" method="POST">
               <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactID" name="reactID">
+              <input type="hidden" value="{{ $needle2->strMaterialNeedleID }}" id="reactInactiveNeedle" name="reactInactiveNeedle">
               <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of needle to the table">REACTIVATE</button>
               </form>
             </td>
@@ -481,6 +506,15 @@
                             <input value="{{$button->strMaterialButtonDesc}}" id="delButtonColor" name="delButtonColor" type="text" class="validate" readonly>
                           </div>
 
+                         <div class="input-field">
+                            <input value="{{$button->strMaterialButtonID}}" id="delInactiveButton" name="delInactiveButton" type="hidden">
+                          </div>
+
+                           <div class="input-field">
+                          <input id="delInactiveReason" name = "delInactiveReason" value="{{$button->strInactiveReason}}" type="text" class="validate" required>
+                          <label for="Thread_Color"> *Reason for Inactivation: </label>
+                        </div>
+
 
                         </p>
                       </div>
@@ -510,7 +544,9 @@
             <th data-field= "Button Size">Button Size </th>
             <th data-field= "Button Color">Button Color </th>
             <th data-field= "Description">Description </th>
-            <th data-field="Image">Image</th>          
+            <th data-field="Image">Image</th> 
+            <th data-field= "Description">Reason for Inactivation </th>
+            <th data-field="Image">Reactivate</th>         
           </tr>
         </thead>
 
@@ -523,10 +559,12 @@
               <td>{{ $button2->strMaterialButtonSize }}</td>
               <td>{{ $button2->strMaterialButtonColor }}</td>
               <td>{{ $button2->strMaterialButtonDesc }}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($button2->strMaterialButtonImage)}}"> </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($button2->strMaterialButtonImage)}}"> </td>
+              <td>{{ $button2->strInactiveReason }}</td>      
               <td>          
               <form action="{{URL::to('reactButton')}}" method="POST">
               <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactID" name="reactID">
+              <input type="hidden" value="{{ $button2->strMaterialButtonID }}" id="reactInactiveButton" name="reactInactiveButton">
               <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of button to the table">REACTIVATE</button>
               </form>
             </td>
@@ -666,6 +704,15 @@
                             <label for="Zipper_Desc">Description</label>
                             <input value="{{$zipper->strMaterialZipperDesc}}" id="delZipperColor" name="delZipperColor" type="text" class="validate" readonly>
                           </div>
+
+                         <div class="input-field">
+                            <input value="{{$zipper->strMaterialZipperID}}" id="delInactiveZipper" name="delInactiveZipper" type="hidden">
+                          </div>
+
+                           <div class="input-field">
+                          <input id="delInactiveReason" name = "delInactiveReason" value="{{$zipper->strInactiveReason}}" type="text" class="validate" required>
+                          <label for="Thread_Color"> *Reason for Inactivation: </label>
+                        </div>
                         </p>
                       </div>
 
@@ -694,7 +741,9 @@
             <th data-field= "Zipper Size">Zipper Size </th>
             <th data-field= "Zipper Color">Zipper Color </th>
             <th data-field= "Zipper Desc">Description </th>
-            <th data-field="Image">Image</th>          
+            <th data-field="Image">Image</th>    
+            <th data-field= "Zipper Desc">Reason for Inactivation </th>
+            <th data-field="Image">Reactivate</th>      
           </tr>
         </thead>
 
@@ -706,11 +755,13 @@
               <td>{{ $zipper2->strMaterialZipperName }}</td>
               <td>{{ $zipper2->strMaterialZipperSize }}</td>
               <td>{{ $zipper2->strMaterialZipperColor }}</td>
-              <td>{{ $zipper2->strMaterialDesc }}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($zipper2->strMaterialZipperImage)}}"> </td>      
+              <td>{{ $zipper2->strMaterialZipperDesc }}</td>
+              <td><img class="materialboxed" width="650" src="{{URL::asset($zipper2->strMaterialZipperImage)}}"> </td>
+              <td>{{ $zipper2->strInactiveReason }}</td>      
               <td>          
               <form action="{{URL::to('reactZipper')}}" method="POST">
               <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactID" name="reactID">
+              <input type="hidden" value="{{ $zipper2->strMaterialZipperID }}" id="reactInactiveZipper" name="reactInactiveZipper">
               <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of zippers to the table">REACTIVATE</button>
               </form>
             </td>
@@ -859,6 +910,15 @@
                             <label for="Hook_Desc">Description: </label>
                             <input value="{{$hook->strMaterialHookDesc}}" id="delHookDesc" name="delHookDesc" type="text" class="validate" readonly>
                           </div>
+
+                         <div class="input-field">
+                            <input value="{{$hook->strMaterialHookID}}" id="delInactiveHook" name="delInactiveHook" type="hidden">
+                          </div>
+
+                           <div class="input-field">
+                          <input id="delInactiveReason" name = "delInactiveReason" value="{{$hook->strInactiveReason}}" type="text" class="validate" required>
+                          <label for="Thread_Color"> *Reason for Inactivation: </label>
+                        </div>
                         </p>
                       </div>
 
@@ -886,7 +946,9 @@
             <th data-field="Hook Name">Hook and Eye Name</th>
             <th data-field= "Hook Size">Hook and Eye Size </th>
             <th data-field= "Hook Color">Hook and Eye Color </th>
-            <th data-field="Image">Image</th>          
+            <th data-field="Image">Image</th>
+            <th data-field= "Hook Color">Reason for Inactivation </th>
+            <th data-field="Image">Reactivate</th>            
           </tr>
         </thead>
 
@@ -898,10 +960,12 @@
               <td>{{$hook2->strMaterialHookName}}</td>
               <td>{{$hook2->strMaterialHookSize}}</td>
               <td>{{$hook2->strMaterialHookColor}}</td>
-              <td><img class="materialboxed" width="650" src="{{URL::asset($hook2->strMaterialHookImage)}}"> </td>      
+              <td><img class="materialboxed" width="650" src="{{URL::asset($hook2->strMaterialHookImage)}}"> </td>
+              <td>{{$hook2->strInactiveReason}}</td>      
               <td>          
               <form action="{{URL::to('reactHook')}}" method="POST">
               <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactID" name="reactID">
+              <input type="hidden" value="{{$hook->strMaterialHookID}}" id="reactInactiveHook" name="reactInactiveHook">
               <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="Returns data of hook and eye to the table">REACTIVATE</button>
               </form>
             </td>
