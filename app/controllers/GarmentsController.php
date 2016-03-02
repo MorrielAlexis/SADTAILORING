@@ -80,7 +80,7 @@ class GarmentsController extends BaseController{
 
 			$garment->save();
 			return Redirect::to('/garments?success=true');
-		}else return Redirect::to('/garments?success=false');
+		}else return Redirect::to('/garments?success=duplicate');
 	}
 
 	public function editGarmentCategory()
@@ -101,7 +101,7 @@ class GarmentsController extends BaseController{
 
 			$garments->save();
 			return Redirect::to('/garments?successEdit=true');
-		}else return Redirect::to('/garments?successEdit=false');
+		}else return Redirect::to('/garments?success=duplicate');
 	}	
 
 	public function delGarmentCategory()
@@ -162,7 +162,7 @@ class GarmentsController extends BaseController{
 
 			$segment->save();
 			return Redirect::to('/garmentsDetails?success=true');
-		} else return Redirect::to('/garmentsDetails?success=false');
+		} else return Redirect::to('/garmentsDetails?success=duplicate');
 	}
 
 	public function editGarmentSegment()
@@ -185,7 +185,7 @@ class GarmentsController extends BaseController{
 
 			$segment->save();
 			return Redirect::to('/garmentsDetails?successEdit=true');
-		}else return Redirect::to('/garmentsDetails?successEdit=false');
+		} else return Redirect::to('/garmentsDetails?success=duplicate');
 	}
 
 	public function delGarmentSegment()
@@ -218,8 +218,8 @@ class GarmentsController extends BaseController{
         	$reason->save();
         	$segment->save();
         	return Redirect::to('/garmentsDetails?successDel=true');
-        } else return Redirect::to('/garmentsDetails?successDel=false');
-      } else return Redirect::to('/garmentsDetails?successDel=false');
+        } else return Redirect::to('/garmentsDetails?successDel=duplicate');
+       
 
 	}
 

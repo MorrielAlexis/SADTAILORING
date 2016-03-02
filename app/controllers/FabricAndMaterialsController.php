@@ -340,7 +340,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$fabricType->save();
 			return Redirect::to('/fabricAndMaterialsFabricType?success=true');
-		}else return Redirect::to('/fabricAndMaterialsFabricType?success=false');
+		}else return Redirect::to('/fabricAndMaterialsFabricType?success=duplicate');
 
 	}
 
@@ -363,7 +363,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$fabricType->save();
 			return Redirect::to('/fabricAndMaterialsFabricType?successEdit=true');
-		}else return Redirect::to('/fabricAndMaterialsFabricType?successEdit=false');
+		}else return Redirect::to('/fabricAndMaterialsFabricType?success=duplicate');
 	}
 
 
