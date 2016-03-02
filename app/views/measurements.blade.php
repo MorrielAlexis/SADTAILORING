@@ -11,7 +11,6 @@
       <div class="col s12" id="measurements" name="measurements">
         <ul class="tabs" style="background: transparent;">
           <li id="detailTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
-          <div style="border: 1px solid white" class="divider"></div>
           <li id="categoryTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="CLick to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
           <div class="indicator white" style="z-index:1"></div>
         </ul>

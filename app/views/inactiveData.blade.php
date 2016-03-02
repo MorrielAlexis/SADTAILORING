@@ -12,7 +12,7 @@
         <li style="background:lightgreen; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabGarm">Garments</a></li>
         <li style="background:salmon; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabFabmat">Fabrics</a></li>
         <li style="background:seagreen; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabMate">Materials</a></li>
-        <li style="background:orchid; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabCata">Catalogue</a></li>
+        <li style="background:#ce93d8; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabCata">Catalogue</a></li>
         <div class="indicator white" style="z-index:1"></div>
       </ul>
 
@@ -369,6 +369,7 @@
                             <input type="hidden" value="{{ $pattern_1->strDesignPatternID }}" id="reactID" name="reactID">
                             <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of segment pattern to the table">REACTIVATE</button>
                             </form>
+                          </td>
                       </tr>
                       @endif
                       @endforeach
@@ -448,7 +449,8 @@
                       <!--<th data-field="fabricID">Fabric Type ID</th>-->
                       <th data-field="fabricName">Fabric TypeName</th>
                       <th data-field="fabricDesc">Fabric Description</th>     
-                      <th>Reactivate</th>   
+                      <th>Reactivate</th>
+                    </tr>   
                   </thead>
 
                   <tbody>
@@ -513,6 +515,7 @@
                         <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of fabric swatch to the table">REACTIVATE</button>
 
                         </form>
+                      </td>
                       </tr>
                   @endif
                   @endforeach
@@ -762,10 +765,9 @@
           </div>
         </div>
       </div>
-
     </div>
 
-    <div id="tabCata" class="hue col s12" style="margin-top:45px; background-color: orchid;">
+    <div id="tabCata" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
     <div style="height:30px;"></div>
     
       <!--Catalogue-->
