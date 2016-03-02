@@ -140,7 +140,7 @@
                     <th data-field="SwatchCode">Swatch Code</th>
               			<th data-field="SwatchImage">Image</th>
                     <th data-field="Edit">Edit</th>
-                    <th data-field="Edit">Delete</th>
+                    <th data-field="Edit">Deactivate</th>
 
               		</tr>
                 </thead>
@@ -155,7 +155,7 @@
                     <td>{{ $swatch->strSwatchCode }}</td>
                     <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($swatch->strSwatchImage)}}"></td>
               		  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit swatch detail" href="#edit{{ $swatch->strSwatchID }}">EDIT</button></td>
-                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of swatch from the table" href="#del{{ $swatch->strSwatchID }}">DELETE</button>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of swatch from the table" href="#del{{ $swatch->strSwatchID }}">DEACTIVATE</button>
     
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
@@ -213,7 +213,7 @@
                       </div> 
                       <!--******************Soft Delete*************************-->
                       <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
-                       <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
+                       <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
                         <form action="{{URL::to('delSwatch')}}" method="POST">
                           <div class="modal-content">
                             <p>

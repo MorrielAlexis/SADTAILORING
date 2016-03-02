@@ -31,7 +31,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Successfully deleted garment category!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully deactivated garment category!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@
                     <td>{{ $category->strGarmentCategoryName }}</td>
                     <td>{{ $category->strGarmentCategoryDesc }}</td>
                     <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of category" href="#edit{{ $category->strGarmentCategoryID }}">EDIT</button></td>
-                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of category from the table" href="#del{{ $category->strGarmentCategoryID }}">DELETE</button></td>
+                    <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of category from the table" href="#del{{ $category->strGarmentCategoryID }}">DEACTIVATE</button></td>
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
@@ -169,7 +169,7 @@
                       </div>
                       <!--///////////////////////DELETE/////////////////////-->
                       <div id="del{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
-                        <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate garment?</center> </font> </h5>
                         <form action="{{URL::to('delGarmentCategory')}}" method="POST">
                           <div class="modal-content">
                             <p> 

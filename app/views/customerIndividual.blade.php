@@ -30,7 +30,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Successfully deleted customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully deactivated customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@
                   <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
                   <td>{{ $individual->strCustPrivLandlineNumber }}</td>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-2" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of customer" href="#edit{{$individual->strCustPrivIndivID}}">EDIT</button></td>      
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-2" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$individual->strCustPrivIndivID}}">DELETE</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-2" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$individual->strCustPrivIndivID}}">DEACTIVATE</button></td>
 
 
                     <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
@@ -219,7 +219,7 @@
 
                     <div id="del{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <h5><font color:"#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
+                        <h5><font color:"#1b5e20"><center>Are you sure you want to deactivate customer?</center> </font> </h5> 
                         <p>
                          <form action="{{URL::to('delCustPrivIndiv')}}" method="POST">
                           <div class="input-field">

@@ -50,7 +50,7 @@
                 <div class="row" id="success-message">
                   <div class="col s12 m12 l12">
                     <div class="card-panel yellow">
-                      <span class="black-text" style="color:black">Successfully deleted measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                      <span class="black-text" style="color:black">Successfully deactivated measurement information!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
                     </div>
                   </div>
                 </div>
@@ -229,7 +229,7 @@
                         <p>
                           <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
                           <div class="input-field">
-                            <input value="{{ $categoryNewID }}" id="addMeasurementID" name="addMeasurementID" type="text" readonly>
+                            <input value="{{ $categoryNewID }}" id="addMeasurementID" name="addMeasurementID" type="text" hidden>
                             <label for="measurement_id">Measurement ID: </label>
                           </div>
 
@@ -307,7 +307,7 @@
                     <div class="row" id="success-message">
                       <div class="col s12 m12 l12">
                         <div class="card-panel yellow">
-                          <span class="black-text" style="color:black">Successfully deleted measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+                          <span class="black-text" style="color:black">Successfully deactivated measurement part!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
                         </div>
                       </div>
                     </div>
@@ -363,7 +363,7 @@
                         <td>{{ $detail->strMeasurementDetailName }}</td>
                         <td>{{ $detail->strMeasurementDetailDesc }}</td>
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement detail" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to delete measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DELETE</button></td>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to deactivate measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DEACTIVATE</button></td>
 
                           <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
@@ -371,8 +371,7 @@
                               <div class="modal-content">
                                 <p>
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text"  readonly>
-                                    <label for="measurement_id">Measurement ID: </label>
+                                    <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text"  hidden>
                                   </div>
 
                                   <div class="input-field">
@@ -396,7 +395,7 @@
                           <!--///////////////////////DELETE/////////////-->
 
                           <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
+                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>
                             <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
                               <div class="modal-content">
                                 <p>
@@ -442,8 +441,7 @@
                         <p>
 
                           <div class="input-field">
-                            <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text"  readonly>
-                            <label for="measurement_id">Measurement ID: </label>
+                            <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text"  hidden>
                           </div>
 
                           <div class="input-field">

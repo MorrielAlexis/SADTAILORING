@@ -174,7 +174,7 @@
                   <td>{{ $employee->strPhoneNo }}</td>
                   <td>{{ $employee->strEmailAdd }}</td>
               		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of employee" href="#edit{{$employee->strEmployeeID}}">EDIT</button></td>
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of employee from table" href="#del{{$employee->strEmployeeID}}">DELETE</button>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of employee from table" href="#del{{$employee->strEmployeeID}}">DEACTIVATE</button>
                   
                <!-- <Modal Structure for Edit Employee>   -->
                     <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
@@ -272,7 +272,7 @@
                     <!-- Modal for (SOFT) delete Employee -->
                     <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
                         <div class="modal-content">
-                          <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5> 
+                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
                           <p>
                             <form action="{{URL::to('delEmployee')}}" method="POST">
                             <div class="input-field">

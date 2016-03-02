@@ -32,7 +32,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Successfully deleted customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully deactivated customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of customer" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$company->strCustCompanyID}}">DELETE</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$company->strCustCompanyID}}">DEACTIVATED</button></td>
                   
 
                     <div id="edit{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
@@ -222,7 +222,7 @@
                     <!-- DELETE -->
                    <div id="del{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
                       <div class="modal-content">
-                        <h5><font color="#1b5e20"><center>Are you sure you want to delete?</center></font></h5> 
+                        <h5><font color="#1b5e20"><center>Are you sure you want to deactivate?</center></font></h5> 
                         <p>
                          <form action="{{URL::to('delCustCompany')}}" method="POST">
                           <div class="input-field">
