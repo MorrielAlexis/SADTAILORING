@@ -78,8 +78,8 @@ class DesignPatternController extends BaseController{
 			}
 
 			$pattern->save();
-			return Redirect::to('/designPattern?success=true');
-		} else return Redirect::to('/designPattern?success=duplicate');
+			return Redirect::to('/maintenance/designPattern?success=true');
+		} else return Redirect::to('/maintenance/designPattern?success=duplicate');
 	}
 
 	public function editPattern()
@@ -115,8 +115,8 @@ class DesignPatternController extends BaseController{
 				$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
 			}			
 			$pattern->save();
-			return Redirect::to('/designPattern?successEdit=true');
-		}else return Redirect::to('/designPattern?success=duplicate');
+			return Redirect::to('/maintenance/designPattern?successEdit=true');
+		}else return Redirect::to('/maintenance/designPattern?success=duplicate');
 	}
 
 	public function delPattern()
@@ -135,8 +135,8 @@ class DesignPatternController extends BaseController{
 		$pattern->boolIsActive = 0;
 		$reason->save();
 		$pattern->save();
-		return Redirect::to('/designPattern?successDel=true');
-	 } else return Redirect::to('/designPattern?successDel=false');
+		return Redirect::to('/maintenance/designPattern?successDel=true');
+	 } else return Redirect::to('/maintenance/designPattern?successDel=false');
 	}
 
 	public function reactPattern()
@@ -156,8 +156,8 @@ class DesignPatternController extends BaseController{
 		$pattern->boolIsActive = 1;
 
 		$pattern->save();
-		return Redirect::to('/designPattern?successRec=true');
-	 }else return Redirect::to('/designPattern?successRec=false');
+		return Redirect::to('/maintenance/designPattern?successRec=true');
+	 }else return Redirect::to('/maintenance/designPattern?successRec=false');
 	}
 
 	public function smartCounter($id)

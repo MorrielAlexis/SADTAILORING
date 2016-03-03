@@ -72,8 +72,8 @@ class CatalogueController extends BaseController{
 			}
 			
 			$catalogue->save();
-			return Redirect::to('/catalogue?success=true');
-		} else return Redirect::to('/catalogue?success=duplicate');
+			return Redirect::to('/maintenance/catalogue?success=true');
+		} else return Redirect::to('/maintenance/catalogue?success=duplicate');
 	}
 
 	public function editCatalogue()
@@ -115,8 +115,8 @@ class CatalogueController extends BaseController{
 			}		
 
 			$catalogue->save();
-			return Redirect::to('/catalogue?successEdit=true');
-		}else return Redirect::to('/catalogue?success=duplicate');
+			return Redirect::to('/maintenance/catalogue?successEdit=true');
+		}else return Redirect::to('/maintenance/catalogue?success=duplicate');
 	}
 
 	public function delCatalogue()
@@ -135,8 +135,8 @@ class CatalogueController extends BaseController{
 		$catalogue->boolIsActive = 0;
 		$reason->save();
 		$catalogue->save();
-		return Redirect::to('/catalogue?successDel=true');
-	  }else return Redirect::to('/catalogue?successDel=false');
+		return Redirect::to('/maintenance/catalogue?successDel=true');
+	  }else return Redirect::to('/maintenance/catalogue?successDel=false');
 	}
 
 
@@ -154,8 +154,8 @@ class CatalogueController extends BaseController{
 		$catalogue->boolIsActive = 1;
 
 		$catalogue->save();
-		return Redirect::to('/catalogue?successRec=true');
-	 }else return Redirect::to('/catalogue?successRec=false');
+		return Redirect::to('/maintenance/catalogue?successRec=true');
+	 }else return Redirect::to('/maintenance/catalogue?successRec=false');
 	}
 
 	public function smartCounter($id)

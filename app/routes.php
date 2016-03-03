@@ -20,18 +20,31 @@ Route::group(array('prefix' => 'maintenance'), function () {
 	Route::get('/customerCompany', 'CustomerController@company');
 });
 
-Route::get('/employee', 'EmployeeController@empProfile');	
-Route::get('/employeeRole', 'EmployeeController@roles');
-Route::get('/garments', 'GarmentsController@category');
-Route::get('/garmentsDetails', 'GarmentsController@details');
-Route::get('/designPattern', 'DesignPatternController@pattern');
-Route::get('/measurements', 'MeasurementController@measurements');
-Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabricType');
-Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatch');
-Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
-Route::get('/catalogue', 'CatalogueController@catalogue');
-Route::get('/inactiveData', 'UtilitiesController@inactive');
+Route::group(array('prefix' => 'maintenance'), function () {
+	Route::get('/employee', 'EmployeeController@empProfile');	
+	Route::get('/employeeRole', 'EmployeeController@roles');
+});
 
+Route::group(array('prefix' => 'maintenance'), function () {
+	Route::get('/garments', 'GarmentsController@category');
+	Route::get('/garmentsDetails', 'GarmentsController@details');
+	Route::get('/designPattern', 'DesignPatternController@pattern');
+	Route::get('/measurements', 'MeasurementController@measurements');
+});
+
+Route::group(array('prefix' => 'maintenance'), function () {
+	Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabricType');
+	Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatch');
+	Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
+});
+
+Route::group(array('prefix' => 'maintenance'), function () {
+	Route::get('/catalogue', 'CatalogueController@catalogue');
+});
+
+Route::group(array('prefix' => 'utilities'), function () {
+	Route::get('/inactiveData', 'UtilitiesController@inactive');
+});
 ////////////////ROUTES FOR VIEWS////////////////GET ROUTES///////////////////////
 
 /////////////////////ROUTES FOR VALIDATION (AJAX)//////////////////////////////////////////////
