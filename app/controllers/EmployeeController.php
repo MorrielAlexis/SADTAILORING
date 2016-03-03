@@ -83,9 +83,9 @@ class EmployeeController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach($emp as $emp){
-			if(strcmp($emp->strEmpFName, Input::get('addFirstName')) == 0 &&
-				    strcmp($emp->strEmpMName, Input::get('addMiddleName')) == 0 &&
-					strcmp($emp->strEmpLName, Input::get('addLastName')) == 0){
+			if(strcasecmp($emp->strEmpFName, Input::get('addFirstName')) == 0 &&
+				    strcasecmp($emp->strEmpMName, Input::get('addMiddleName')) == 0 &&
+					strcasecmp($emp->strEmpLName, Input::get('addLastName')) == 0){
 						$isAdded = TRUE;
 				}
 			}
@@ -163,9 +163,10 @@ class EmployeeController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach($emp as $emp){
-			if(strcmp($emp->strEmpFName, Input::get('editFirstName')) == 0 &&
-				    strcmp($emp->strEmpMName, Input::get('editMiddleName')) == 0 &&
-					strcmp($emp->strEmpLName, Input::get('editLastName')) == 0){
+			if(!strcasecmp($emp->strEmployeeID, Input::get('editEmpID')) == 0 &&
+				strcasecmp($emp->strEmpFName, Input::get('editFirstName')) == 0 &&
+			    strcasecmp($emp->strEmpMName, Input::get('editMiddleName')) == 0 &&
+				strcasecmp($emp->strEmpLName, Input::get('editLastName')) == 0){
 						$isAdded = TRUE;
 				}
 			}
@@ -200,7 +201,8 @@ class EmployeeController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($rol as $rol)
-			if(strcasecmp($rol->strEmpRoleName, Input::get('editRoleName')) == 0)
+			if(!strcasecmp($rol->strEmpRoleID, Input::get('editRoleID')) == 0 &&
+				strcasecmp($rol->strEmpRoleName, Input::get('editRoleName')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
