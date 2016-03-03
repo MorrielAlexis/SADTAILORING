@@ -1087,7 +1087,7 @@
 
   </script>
           <!--DATA TABLE SCRIPT-->
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
       $(document).ready(function() {
           $('.data-thread').DataTable();
           $('select').material_select();
@@ -1096,7 +1096,7 @@
             $('#success-message').hide();
         }, 5000);
       } );
-    </script>
+    </script> -->
 
 @stop
 

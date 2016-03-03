@@ -110,7 +110,7 @@ class EmployeeController extends BaseController{
 
 			$employee->save();
 			return Redirect::to('/employee?success=true');
-		} else return Redirect::to('/employee?success=false');
+		} else return Redirect::to('/employee?success=duplicate');
 	}
 
 	public function addRole()
