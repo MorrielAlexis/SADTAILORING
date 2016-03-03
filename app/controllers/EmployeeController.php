@@ -236,7 +236,7 @@ class EmployeeController extends BaseController{
 		$reason->save();
 		$employee->save();
 		return Redirect::to('/maintenance/employee?successDel=true');
-	 } else return Redirect::to('/maintenance/employee?successDel=false');
+	 } else return Redirect::to('/maintenance/employeeRole?success=beingUsed');
 	}
 
 	public function delRole()
