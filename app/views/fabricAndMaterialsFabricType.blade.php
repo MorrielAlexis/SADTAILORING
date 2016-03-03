@@ -224,7 +224,8 @@
             </div> <!-- card-content  --> 
         </div>  <!-- card-panel -->
       </div> <!-- col s12 m12 l12 --> 
-  </div>     <!-- row --> 
+  </div> 
+      <!-- row --> 
 
 
 
