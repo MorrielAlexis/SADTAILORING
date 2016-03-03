@@ -69,7 +69,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
 
-          <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new fabric type to the table" href="#addRole">ADD NEW FABRIC TYPE</button>
+          <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new fabric type to the table" href="#addFabricType">ADD NEW FABRIC TYPE</button>
       </div>
     </div>
   </div> <!-- End of Main Wrapper  --> 
