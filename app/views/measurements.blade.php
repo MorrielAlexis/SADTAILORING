@@ -94,40 +94,41 @@
                     <table class = "table centered data-measHead" align = "center" border = "1">
                       <thead>
                         <tr>
-                          <th>ID</th>
                           <th data-field="Garmentcategory">Garment Category</th>
                           <th data-field="Garmentcategory">Segment</th>
                           <th data-field="MeasurementName">Measurement Name</th>
-                          <th data-field="MeasurementName">Action</th>
+                          <th data-field="MeasurementName">Edit</th>
+                          <th data-field="MeasurementName">Deactivate</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        @foreach($head as $head_1)
-                        @if($head_1->boolIsActive == 1)
+                        @foreach($head as $head)
+                        @if($head->boolIsActive == 1)
                         <tr>   
-                          <td>{{ $head_1->strMeasurementID }}</td>
-                          <td>{{ $head_1->strGarmentCategoryName }}</td>
-                          <td>{{ $head_1->strGarmentSegmentName }}</td>
-                          <td>{{ $head_1->meas_details }}</td>
-                          <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head_1->strMeasurementID}}">EDIT</button></td>
+                          <!--<td>{{ $head->strMeasurementID }}</td>-->
+                          <td>{{ $head->strGarmentCategoryName }}</td>
+                          <td>{{ $head->strGarmentSegmentName }}</td>
+                          <td>{{ $head->meas_details }}</td>
+                          <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
+                          <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button></td>
 
                           
 
-                            <div id="edit{{$head_1->strMeasurementID}}" class="modal modal-fixed-footer">
+                            <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                               <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
                               <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
                                 <div class="modal-content"> 
                                   <p>
                                   
                                     <div class="input-field">
-                                      <input value="{{ $head_1->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="hidden" readonly>                                 
+                                      <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="hidden" readonly>                                 
                                     </div>
 
                                     <div class="input-field">                                                    
                                       <select required name='editCategory'>
                                         @foreach($category as $cat)
-                                            @if($head_1->strCategoryName == $cat->strGarmentCategoryID)
+                                            @if($head->strCategoryName == $cat->strGarmentCategoryID)
                                               <option value="{{ $cat->strGarmentCategoryID }}" selected>{{ $cat->strGarmentCategoryName }}</option> 
                                             @else
                                               <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
@@ -140,7 +141,7 @@
                                     <div class="input-field">                                                    
                                       <select required name='editSegment'>
                                         @foreach($segment as $seg)
-                                          @if($head_1->strSegmentName == $seg->strGarmentSegmentID)
+                                          @if($head->strSegmentName == $seg->strGarmentSegmentID)
                                             <option value="{{ $seg->strGarmentSegmentID }}" selected>{{ $seg->strGarmentSegmentName }}</option>
                                           @else
                                             <option value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
@@ -175,6 +176,50 @@
                                 </div>
                               </form>
                             </div>
+
+                          <!--///////////////////////DELETE/////////////-->
+
+                          <div id="del{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
+                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>
+                              <div class="modal-content">
+                            <form action="{{URL::to('delMeasurementCategory')}}" method="POST"> 
+                                <p>
+                                  <div class="input-field">
+                                      <input value="{{ $head->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="hidden" readonly>                                 
+                                    </div>
+
+                                  <div class="input-field">
+                                    <input value="{{ $head->strGarmentCategoryName }}" type="text" readonly>
+                                    <label for="measurement_id">Garment Category: </label>
+                                  </div>
+
+                                  <div class="input-field">
+                                    <input value="{{ $head->strGarmentSegmentName }}" type="text" readonly>
+                                    <label for="measurement_name">Segment: </label>
+                                  </div>
+
+                                  <div class="input-field">
+                                    <input value="{{ $head->meas_details }}" type="text" readonly>
+                                    <label for="measurement_desc">Measurement Name: </label>
+                                  </div>
+
+                                  <div class="input-field">
+                                      <input value="{{ $head->strMeasurementID }}" id="delInactiveHead" name="delInactiveHead" type="hidden">                                 
+                                    </div>
+
+                                  <div class="input-field">
+                                    <input value="{{ $head->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
+                                    <label for="measurement_desc">Reason for Deactivation: </label>
+                                  </div>
+                                </p>
+                              </div>
+
+                              <div class="modal-footer">
+                                <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                              </div>
+                            </form>
+                          </div>
                         </tr>
                         @endif
                         @endforeach
@@ -313,7 +358,7 @@
                         <th data-field="name">Measurement Name</th>
                         <th data-field="description">Measurement Description</th>
                         <th data-field="action">Edit</th>
-                        <th data-field="action">Delete</th>
+                        <th data-field="action">Deactivate</th>
                       </tr>
                     </thead>
 
@@ -328,8 +373,8 @@
 
                           <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
-                            <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
                               <div class="modal-content">
+                            <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
                                 <p>
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text"  hidden>
@@ -357,12 +402,11 @@
 
                           <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>
-                            <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
                               <div class="modal-content">
+                            <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
                                 <p>
                                   <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="text"  readonly>
-                                    <label for="measurement_id">Measurement ID: </label>
+                                    <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="hidden">
                                   </div>
 
                                   <div class="input-field">
@@ -373,6 +417,15 @@
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailDesc }}"type="text"  readonly>
                                     <label for="measurement_desc">Measurement Description: </label>
+                                  </div>
+
+                                  <div class="input-field">
+                                    <input value="{{ $detail->strMeasurementDetailID }}" id="delInactiveDetail" name="delInactiveDetail" type="hidden">
+                                  </div>
+
+                                  <div class="input-field">
+                                    <input value="{{ $detail->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text"  required>
+                                    <label for="measurement_desc">Reason for Deactivation: </label>
                                   </div>
                                 </p>
                               </div>
@@ -397,8 +450,8 @@
           
                   <div id="addMeasurementPart" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Add Measurement Part</center> </font> </h5>
-                    <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
                       <div class="modal-content">
+                    <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
                         <p>
 
                           <div class="input-field">

@@ -39,12 +39,21 @@ class UtilitiesController extends BaseController {
             ->leftJoin('tblGarmentCategory AS b', 'a.strCategoryName', '=', 'b.strGarmentCategoryID')
             ->leftJoin('tblGarmentSegment AS c', 'a.strSegmentName', '=', 'c.strGarmentSegmentID')
             ->leftJoin('tblMeasurementDetail AS d', 'a.strMeasurementName', '=', 'd.strMeasurementDetailID')
+            ->leftJoin('tblReasonMeasurementCategory AS e', 'a.strMeasurementID', '=', 'e.strInactiveHeadID')
             ->select('a.*', 'b.strGarmentCategoryName','c.strGarmentSegmentName', 
-            			DB::raw('group_concat(d.strMeasurementDetailName) AS meas_details'))
-            ->orderBy('created_at')
+            			DB::raw('group_concat(d.strMeasurementDetailName) AS meas_details'),
+            			DB::raw('group_concat(a.strMeasurementName) AS meas_details_id'),
+            			'e.strInactiveHeadID', 'e.strInactiveReason')
+            ->orderBy('created_at') 
             ->groupBy('a.strCategoryName')
             ->groupBy('a.strSegmentName')
-            ->get();			
+            ->get();
+        	
+		$detail = DB::table('tblMeasurementDetail')
+				->leftJoin('tblReasonMeasurementDetail', 'tblMeasurementDetail.strMeasurementDetailID', '=', 'tblReasonMeasurementDetail.strInactiveDetailID')
+				->select('tblMeasurementDetail.*', 'tblReasonMeasurementDetail.strInactiveDetailID', 'tblReasonMeasurementDetail.strInactiveReason')
+				->orderBy('created_at')
+				->get();		
 		$fabricType = FabricType::all();
 		$swatch = DB::table('tblSwatches')
             ->join('tblFabricType', 'tblSwatches.strSwatchFabricTypeName', '=', 'tblFabricType.strFabricTypeID')
@@ -70,6 +79,7 @@ class UtilitiesController extends BaseController {
 					->with('segment', $segment)
 					->with('pattern', $pattern)
 					->with('head', $head)
+					->with('detail', $detail)
 					->with('fabricType', $fabricType)
 					->with('swatch', $swatch)
 					->with('thread', $thread)

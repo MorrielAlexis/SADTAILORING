@@ -384,8 +384,8 @@
         </div>
       </div>
 
-      <!--Measurement Details-->
-      <p><h5 style="margin-left:20px"><b>Measurement Details</b></h5></p>
+      <!--Measurement Category-->
+      <p><h5 style="margin-left:20px"><b>Measurement Category</b></h5></p>
       <div class="row">
         <div class="col s12">
           <div class="card">
@@ -395,10 +395,11 @@
                 <table class="centered" border="1">
                   <thead>
                     <tr>
-                        <th data-field = "MeasurementID"> Measurement ID </th>
                         <th data-field="Garmentcategory">Garment Category</th>
                         <th data-field="Garmentcategory">Segment</th>
                         <th data-field="MeasurementName">Measurement Name</th>
+                        <th data-field="Garmentcategory">Reason for Deactivation</th>
+                        <th data-field="MeasurementName">Reactivate</th>
                     </tr>
                   </thead>
 
@@ -406,13 +407,14 @@
                       @foreach($head as $head_1)
                       @if($head_1->boolIsActive == 0)
                           <tr>
-                           <td>{{ $head_1->strMeasurementID }}</td>
                            <td>{{ $head_1->strGarmentCategoryName }}</td>
                            <td>{{ $head_1->strGarmentSegmentName }}</td>
-                           <td>{{ $head_1->strMeasurementDetailName }}</td>
+                           <td>{{ $head_1->meas_details }}</td>
+                           <td>{{ $head_1->strInactiveReason }}</td>
                             <td>
                             <form action="{{URL::to('reactMeasurementCategory')}}" method="POST">
                               <input type="hidden" value="{{ $head_1->strMeasurementID }}" id="reactID" name="reactID">
+                              <input type="hidden" value="{{ $head_1->strMeasurementID }}" id="reactInactiveHead" name="reactInactiveHead">
                               <button type="submit"  style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return measuremennt information to the table">REACTIVATE</button>
                             </form>
                           </td>
@@ -422,6 +424,51 @@
                   </tbody>
                 </table>
               
+              </div>
+              <div class = "clearfix"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Measurement Details-->
+      <p><h5 style="margin-left:20px"><b>Measurement Details</b></h5></p>
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content">
+              <div class = "col s12 m12 l12 overflow-x">
+                <h5><font color = "#1b5e20"><center>Inactive Measurement Details</center> </font> </h5>
+                <table class = "table centered data-reactSegment" align = "center" border = "1">
+                  <thead>
+                    <tr>
+                      <th data-field="name">Measurement Name</th>
+                      <th data-field="description">Measurement Description</th>
+                        <th data-field="Garmentcategory">Reason for Deactivation</th>
+                        <th data-field="MeasurementName">Reactivate</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                      @foreach($detail as $detail_1)
+                      @if($detail_1->boolIsActive == 0)
+                      <tr>
+                        <td>{{ $detail_1->strMeasurementDetailName }}</td>
+                        <td>{{ $detail_1->strMeasurementDetailDesc }}</td>
+                        <td>{{ $detail_1->strInactiveReason }}</td>
+                        <td>
+                          <form action="{{URL::to('reactMeasurementDetail')}}" method="POST">
+                            <input type="hidden" id="reactID" name="reactID" value="{{ $detail_1->strMeasurementDetailID }}">
+                            <input type="hidden" id="reactInactiveDetail" name="reactInactiveDetail" value="{{ $detail_1->strMeasurementDetailID }}">
+                            <button type="submit" style="color:black" class="btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to return data of segment to the table">REACTIVATE</button>
+                          </form>
+                        </td>
+                      </tr>
+                      @endif
+                      @endforeach
+                  </tbody>
+                </table>
               </div>
               <div class = "clearfix"></div>
 

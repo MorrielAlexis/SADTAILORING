@@ -20,10 +20,12 @@ class MeasurementController extends BaseController{
             ->leftJoin('tblGarmentCategory AS b', 'a.strCategoryName', '=', 'b.strGarmentCategoryID')
             ->leftJoin('tblGarmentSegment AS c', 'a.strSegmentName', '=', 'c.strGarmentSegmentID')
             ->leftJoin('tblMeasurementDetail AS d', 'a.strMeasurementName', '=', 'd.strMeasurementDetailID')
+            ->leftJoin('tblReasonMeasurementCategory AS e', 'a.strMeasurementID', '=', 'e.strInactiveHeadID')
             ->select('a.*', 'b.strGarmentCategoryName','c.strGarmentSegmentName', 
             			DB::raw('group_concat(d.strMeasurementDetailName) AS meas_details'),
-            			DB::raw('group_concat(a.strMeasurementName) AS meas_details_id'))
-            ->orderBy('created_at')
+            			DB::raw('group_concat(a.strMeasurementName) AS meas_details_id'),
+            			'e.strInactiveHeadID', 'e.strInactiveReason')
+            ->orderBy('created_at') 
             ->groupBy('a.strCategoryName')
             ->groupBy('a.strSegmentName')
             ->get();
@@ -33,7 +35,8 @@ class MeasurementController extends BaseController{
 
         $category =  Category::all(); 	
         $segment =  Segment::all(); 	
-        $detailList =  MeasurementDetail::all(); 	 
+        $detailList =  MeasurementDetail::all();
+        $reasonHead = ReasonMeasurementCategory::all();	 
 		////////////////MEASUREMENT HEAD////////////////
 
 		////////////////MEASUREMENT DETAILS////////////////
@@ -48,11 +51,20 @@ class MeasurementController extends BaseController{
 		$detailNewID = $this->smartCounter($ID);			
 
 		$detail = MeasurementDetail::all();
+		$reasonDetail = ReasonMeasurementDetail::all();
+
+		$detail = DB::table('tblMeasurementDetail')
+				->leftJoin('tblReasonMeasurementDetail', 'tblMeasurementDetail.strMeasurementDetailID', '=', 'tblReasonMeasurementDetail.strInactiveDetailID')
+				->select('tblMeasurementDetail.*', 'tblReasonMeasurementDetail.strInactiveDetailID', 'tblReasonMeasurementDetail.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 		////////////////MEASUREMENT DETAILS////////////////
 		// dito magbabago
 		return View::make('measurements') 
 					->with('head', $head)
 					->with('detail', $detail)
+					->with('reasonDetail', $reasonDetail)
+					->with('reasonHead', $reasonHead)
 					->with('categoryNewID', $categoryNewID)
 					->with('detailNewID', $detailNewID)
 					->with('category', $category)
@@ -62,6 +74,7 @@ class MeasurementController extends BaseController{
 		
 	}
 
+	//////////DETAIL///////////
 	public function addDetail()
 	{	
 		$det = MeasurementDetail::all();
@@ -84,6 +97,82 @@ class MeasurementController extends BaseController{
 		}else return Redirect::to('/maintenance/measurements?success=false');
 	}
 
+	public function editDetail()
+	{
+		$id = Input::get('editDetailID');
+		$detail = MeasurementDetail::find($id);
+
+		$det = MeasurementDetail::all();
+		$isAdded = FALSE;
+
+		foreach ($det as $det)
+			if(strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0)
+				$isAdded = TRUE;
+
+		if(!$isAdded){
+			$detail = MeasurementDetail::find($id);
+
+			$detail->strMeasurementDetailName = Input::get('editDetailName');	
+			$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
+
+			$detail->save();
+			return Redirect::to('/maintenance/measurements?successEdit=true');
+	 	} else return Redirect::to('/maintenance/measurements?successEdit=false');
+	}
+
+	public function delDetail()
+	{
+		$id = Input::get('delDetailID');
+		$isDeleted = FALSE;
+
+	if(!$isDeleted){
+		$detail = MeasurementDetail::find($id);
+
+		$count = DB::table('tblMeasurementHeader')
+            ->join('tblMeasurementDetail', 'tblMeasurementHeader.strMeasurementName', '=', 'tblMeasurementDetail.strMeasurementDetailID')
+            ->select('tblMeasurementDetail.*')
+            ->where('tblMeasurementDetail.strMeasurementDetailID','=', $id)
+            ->count();
+
+        if($count == 0){
+        	$reasonDetail = ReasonMeasurementDetail::create(array(
+        		'strInactiveDetailID' => Input::get('delInactiveDetail'),
+        		'strInactiveReason' => Input::get('delInactiveReason')
+        		));
+
+        	$detail->boolIsActive = 0;
+        	$reasonDetail->save();
+        	$detail->save();
+        	return Redirect::to('/maintenance/measurements?success=true');
+        }else{
+        	return Redirect::to('/maintenance/measurements?success=false');
+        }
+	
+		return Redirect::to('/maintenance/measurements?successDel=true');
+	 } else return Redirect::to('/maintenance/measurements?successDel=false');
+	}
+
+	public function reactDetail()
+	{
+		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+
+	if(!$isAdded){
+		$detail = MeasurementDetail::find($id);
+
+		$reas = Input::get('reactInactiveDetail');
+		$reasonDetail = DB::table('tblReasonMeasurementDetail')->where('strInactiveDetailID', '=', $reas)->delete();
+
+		$detail->boolIsActive = 1;
+
+		$detail->save();
+		return Redirect::to('/maintenance/measurements?successRec=true');
+	 } else return Redirect::to('/maintenance/measurements?successRec=false');
+	}
+
+
+	////////CATEGORY/////////////
 	public function addCategory()
 	{	
 		for($i = 0; $i < count(Input::get('addDetail')); $i++){
@@ -125,29 +214,6 @@ class MeasurementController extends BaseController{
 		return Redirect::to('/maintenance/measurements?success=false');
 	}
 
-	public function editDetail()
-	{
-		$id = Input::get('editDetailID');
-		$detail = MeasurementDetail::find($id);
-
-		$det = MeasurementDetail::all();
-		$isAdded = FALSE;
-
-		foreach ($det as $det)
-			if(strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0)
-				$isAdded = TRUE;
-
-		if(!$isAdded){
-			$detail = MeasurementDetail::find($id);
-
-			$detail->strMeasurementDetailName = Input::get('editDetailName');	
-			$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
-
-			$detail->save();
-			return Redirect::to('/maintenance/measurements?successEdit=true');
-	 	} else return Redirect::to('/maintenance/measurements?successEdit=false');
-	}
-
 	public function editCategory()
 	{
 		$id = Input::get('editMeasurementID');
@@ -165,32 +231,6 @@ class MeasurementController extends BaseController{
 	 } else return Redirect::to('/maintenance/measurements?successEdit=false');
 	}
 
-	public function delDetail()
-	{
-		$id = Input::get('delDetailID');
-		$isDeleted = FALSE;
-
-	if(!$isDeleted){
-		$detail = MeasurementDetail::find($id);
-
-		$count = DB::table('tblMeasurementHeader')
-            ->join('tblMeasurementDetail', 'tblMeasurementHeader.strMeasurementName', '=', 'tblMeasurementDetail.strMeasurementDetailID')
-            ->select('tblMeasurementDetail.*')
-            ->where('tblMeasurementDetail.strMeasurementDetailID','=', $id)
-            ->count();
-
-        if($count == 0){
-        	$detail->boolIsActive = 0;
-        	$detail->save();
-        	return Redirect::to('/maintenance/measurements?success=false');
-        }else{
-        	return Redirect::to('/maintenance/measurements?success=false');
-        }
-	
-		return Redirect::to('/maintenance/measurements?successDel=true');
-	 } else return Redirect::to('/maintenance/measurements?successDel=false');
-	}
-
 	public function delCategory()
 	{
 		$id = Input::get('delMeasurementID');
@@ -200,8 +240,13 @@ class MeasurementController extends BaseController{
 	if(!$isDeleted){
 		$head = MeasurementHead::find($id);
 
-		$head->boolIsActive = 0;
+		$reasonHead = ReasonMeasurementCategory::create(array(
+			'strInactiveHeadID' => Input::get('delInactiveHead'),
+			'strInactiveReason' => Input::get('delInactiveReason')
+			));
 
+		$head->boolIsActive = 0;
+		$reasonHead->save();
 		$head->save();
 		return Redirect::to('/maintenance/measurements?successDel=true');
 	 } else return Redirect::to('/maintenance/measurements?successDel=false');
@@ -215,6 +260,9 @@ class MeasurementController extends BaseController{
 
 	if(!$isAdded){
 		$head = MeasurementHead::find($id);
+
+		$reas = Input::get('reactInactiveHead');
+		$reasonHead = DB::table('tblReasonMeasurementCategory')->where('strInactiveHeadID', '=', $reas)->delete();
 
 		$head->boolIsActive = 1;
 
