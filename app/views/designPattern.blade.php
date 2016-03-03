@@ -91,7 +91,7 @@
              		  <th data-field="Pattern Name">Pattern Name</th>
               		<th data-field="Pattern Image">Pattern Image</th>
                   <th data-field="Edit">Edit</th>
-                  <th data-field="Edit">Delete</th>
+                  <th data-field="Edit">Deactivate</th>
               	</tr>
               </thead>
 
@@ -110,9 +110,8 @@
                     <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>
                       <div class="modal-content">
-                        <p>
-
                         <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                        <p>
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
                         </div>
@@ -159,7 +158,6 @@
                           </div>
                         </div>
                         </p>
-                        <br><br>
                       </div>
                   
                       <div class="modal-footer">
@@ -181,10 +179,10 @@
 
 
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <h5><font color = "#1b5e20"><center>Are you sure want to deactivate segment pattern?</center> </font> </h5>
                       <div class="modal-content">
-                        <p>
+                      <h5><font color = "#1b5e20"><center>Are you sure want to deactivate segment pattern?</center> </font> </h5>
                         <form action="{{URL::to('delDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                        <p>
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="hidden">
                         </div>
@@ -199,7 +197,6 @@
                           <label>Segment</label>
                         </div>   
   
-
                         <div class="input-field">
                           <input value = "{{ $pattern->strPatternName }}" type="text" class="validate" readonly>
                           <label for="pattern_name">Pattern Name: </label>
@@ -211,17 +208,16 @@
 
                           <div class="input-field">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$pattern->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Inactivation: </label>
+                            <label for="fax"> *Reason for Deactivation: </label>
                           </div>
+                          <br>
                         </p>
                       </div>              
-
 
                       <div class="modal-footer">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
-                    
                     </form>              
                     </div>
                   </td>
@@ -242,8 +238,8 @@
             <div id="addDesign" class="modal modal-fixed-footer">
               <h5><font color = "#1b5e20"><center>Add a Segment Pattern</center> </font> </h5> 
               <div class="modal-content">
-                <p>
                 <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                <p>
                 <div class="input-field">
                   <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="hidden">
                 </div>

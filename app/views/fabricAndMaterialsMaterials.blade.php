@@ -35,8 +35,8 @@
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
                         <th data-field="ThreadImage">Image</th>
-                        <th data-field="Edit">Action</th>
-                        <th data-field="Deactivate">Action</th>
+                        <th data-field="Edit">Edit</th>
+                        <th data-field="Deactivate">Deactivate</th>
                         <th>
                           <div align="right" style="margin-right:70px;"><a href="#addThread" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                         </th>
@@ -53,7 +53,7 @@
                         <td>{{ $thread->strMaterialThreadDesc }}</td>
                         <td><img class="materialboxed" width="650" src="{{URL::asset($thread->strMaterialThreadImage)}}"></td> 
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit thread details" href="#edit{{ $thread->strMaterialThreadID }}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of thread details from the table" href="#del{{ $thread->strMaterialThreadID }}">deactivate</button>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of thread details from the table" href="#del{{ $thread->strMaterialThreadID }}">DEACTIVATE</button>
                             
                           <!--EDIT THREADS-->
                           <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
@@ -137,7 +137,7 @@
 
                                   <div class="input-field">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$thread->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Inactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
                                 </p>
                               </div>
@@ -181,6 +181,9 @@
                         <th data-field="Needle Size">Needle Size</th>
                         <th data-field="Needle Desc">Description</th>
                         <th data-field="Needle Image">Image</th>
+                        <th data-field="Needle Desc">Edit</th>
+                        <th data-field="Needle Image">Deactivate</th>
+
                         <th>
                           <div align="right" style="margin-right:70px;"><a href="#addNeedle" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new needle detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                         </th>
@@ -197,7 +200,7 @@
                         <td>{{$needle->strMaterialNeedleDesc}}</td>
                         <td><img class="materialboxed" width="650" src="{{URL::asset($needle->strMaterialNeedleImage)}}"></td>
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit needle detail" href="#edit{{$needle->strMaterialNeedleID}}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">deactivate</button>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">DEACTIVATE</button>
                             
                           <div id="edit{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Needle</center> </font> </h5>
@@ -278,7 +281,7 @@
 
                                   <div class="input-field">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$needle->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Inactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
                                 </p>
                               </div>
@@ -324,6 +327,8 @@
                         <th data-field="Button Color">Button Color</th>
                         <th data-field="Button Color">Description</th>
                         <th data-field="ButtonImage">Image</th>
+                        <th data-field="Button Color">Edit</th>
+                        <th data-field="ButtonImage">Deactivate</th>
                         <th>
                           <div align="right" style="margin-right:40px;"><a href="#addButton" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new button detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                         </th>
@@ -341,14 +346,14 @@
                         <td>{{$button->strMaterialButtonDesc}}</td>
                         <td><img class="materialboxed" width="650" src="{{URL::asset($button->strMaterialButtonImage)}}"></td>
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit button detail" href="#edit{{$button->strMaterialButtonID}}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of button detail from the table" href="#del{{$button->strMaterialButtonID}}">deactivate</button>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of button detail from the table" href="#del{{$button->strMaterialButtonID}}">DEACTIVATE</button>
                            
                           <!-- <EDIT BUTTONS>   -->
                           <div id="edit{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Button</center> </font> </h5>
-                            <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data"> 
 
-                              <div class="modal-content">                              
+                              <div class="modal-content">
+                            <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data">                               
                                 <div class="input-field">
                                   <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" type="hidden">
                                 </div>
@@ -382,8 +387,8 @@
                                   <div class="file-path-wrapper">
                                     <input value="{{$button->strMaterialButtonImage}}" class="file-path validate" id="editButtonImage" name="editButtonImage" type="text">
                                   </div>
-                                </div>
-                                <br><br>                               
+                                </div>  
+                                <br><br>                            
                               </div>    
 
 
@@ -397,9 +402,9 @@
                        
 
                           <div id="del{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                            <form action="{{URL::to('delButton')}}" method="POST"> 
+                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
                               <div class="modal-content">
+                            <form action="{{URL::to('delButton')}}" method="POST">
                                 <p>
                                   <div class="input-field">
                                    <input value="{{$button->strMaterialButtonID}}" id="delButtonID" name="delButtonID" type="hidden">
@@ -431,8 +436,9 @@
 
                                   <div class="input-field">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$button->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Inactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
+                                  <br><br>
                                 </p>
                               </div>
 
@@ -476,7 +482,9 @@
                         <th data-field="Zipper Size">Zipper Size</th>
                         <th data-field="Zipper Color">Zipper Color</th>
                         <th data-field="Zipper Desc">Description</th>
-                        <th data-field="ZipperImage">Zipper Image</th>
+                        <th data-field="ZipperImage">Image</th>
+                        <th data-field="Zipper Desc">Edit</th>
+                        <th data-field="ZipperImage">Deactivate</th>
                         <th>
                           <div align="right" style="margin-right:45px;"><a href="#addZipper" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new zipper detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                         </th>
@@ -494,7 +502,7 @@
                         <td>{{$zipper->strMaterialZipperDesc}}</td>
                         <td><img class="materialboxed" width="650" src="{{URL::asset($zipper->strMaterialZipperImage)}}"></td>
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit zipper detail" href="#edit{{$zipper->strMaterialZipperID}}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of zipper detail from the table" href="#del{{$zipper->strMaterialZipperID}}">deactivate</button>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of zipper detail from the table" href="#del{{$zipper->strMaterialZipperID}}">DEACTIVATE</button>
                             
                           <div id="edit{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Zipper</center> </font> </h5>
@@ -535,9 +543,8 @@
                                   <div class="file-path-wrapper">
                                     <input value="{{$zipper->strMaterialZipperImage}}" class="file-path validate" id="editZipperImage" name="editZipperImage" type="text">
                                   </div>
-
                                 </div>
-                                <br><br> 
+                                <br><br>
                               </div>    
 
                               <div class="modal-footer">
@@ -551,9 +558,8 @@
 
                           <div id="del{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                            <form action="{{URL::to('delZipper')}}" method="POST">
                               <div class="modal-content">
-                                
+                            <form action="{{URL::to('delZipper')}}" method="POST">
                                 <p>                           
                                   <div class="input-field">
                                     <input value="{{$zipper->strMaterialZipperID}}" id="delZipperID" name="delZipperID" type="hidden">
@@ -585,8 +591,9 @@
 
                                   <div class="input-field">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$zipper->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Inactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
+                                  <br><br>
                                 </p>
                               </div>
 
@@ -631,6 +638,8 @@
                         <th data-field="Hook and Eye Color">Hook and Eye Color</th>
                         <th data-field="Hook and Eye Desc">Description</th>
                         <th data-field="Image">Image</th>
+                        <th data-field="Hook and Eye Desc">Edit</th>
+                        <th data-field="Image">Deactivate</th>
                         <th>
                           <div align="right" style="margin-right:30px;"><a href="#addHookEye" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new hook and eye detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                         </th>
@@ -649,22 +658,15 @@
                         <td><img class="materialboxed" width="650" src="{{URL::asset($hook->strMaterialHookImage)}}"></td>
 
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit hook and eye detail" href="#edit{{$hook->strMaterialHookID}}">EDIT</button></td>
-                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of hook and eye detail from the table" href="#del{{$hook->strMaterialHookID}}">deactivate</button>
+                        <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of hook and eye detail from the table" href="#del{{$hook->strMaterialHookID}}">DEACTIVATE</button>
 
                             
                           <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>
-                            <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
 
-                              <div class="modal-content">                              
+                              <div class="modal-content"> 
+                            <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">                             
                                 <div class="input-field">
-         
-                                  <!-- <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" readonly = "readonly" type="text" class="">
-                                  <label for="HookEye_ID"> Hook and Eye ID </label>
-                                </div>
-                                  -->
-                      
-
                                   <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" type="hidden">
                                 </div>
                           
@@ -696,10 +698,8 @@
                                   <div class="file-path-wrapper">
                                     <input value="{{$hook->strMaterialHookImage}}" id="editHookImage" name="editHookImage" class="file-path validate" type="text">
                                   </div>
-                                </div>
-
-                                <br><br> 
-
+                                </div> 
+                                <br><br>
                               </div>    
 
                               <div class="modal-footer">
@@ -712,12 +712,11 @@
 
                           <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                            <form action="{{URL::to('delHook')}}" method="POST">
 
                               <div class="modal-content">
+                            <form action="{{URL::to('delHook')}}" method="POST">
                                 
                                 <p>
-                                 
                                  <div class="input-field">
                                     <input value="{{$hook->strMaterialHookID}}" id="delHookID" name="delHookID" type="hidden">
                                   </div>
@@ -748,8 +747,9 @@
 
                                   <div class="input-field">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$hook->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Inactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
+                                  <br><br>
                                 </p>
                               </div>
 
@@ -778,9 +778,9 @@
   <!--MODAL: add Thread-->
   <div id="addThread" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Thread</center> </font> </h5>
-    <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
 
       <div class="modal-content">
+    <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
             <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" type="hidden">
          </div>
@@ -810,7 +810,7 @@
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
         </div>
-          
+          <br><br>
       </div>
     
       <!--MODAL FOOTER-->
@@ -824,8 +824,8 @@
   <!--MODAL: add Needle-->
   <div id="addNeedle" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Needle</center> </font> </h5>
-    <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
+    <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
            <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" type="hidden">
          </div>
@@ -855,7 +855,7 @@
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
         </div>
-        
+        <br><br>
       </div>
     
       <!--MODAL FOOTER-->
@@ -869,8 +869,8 @@
   <!--MODAL: add Button-->
   <div id="addButton" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Button</center> </font> </h5>
-    <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
+    <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" type="hidden">
         </div>
@@ -904,7 +904,7 @@
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
         </div>
-        
+        <br><br>
       </div>
     
       <!--MODAL FOOTER-->
@@ -918,8 +918,8 @@
   <!--MODAL: add Zipper-->
   <div id="addZipper" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Zipper</center> </font> </h5>
-    <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
+    <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" type="hidden">
         </div>
@@ -955,7 +955,7 @@
           </div>
 
         </div>
-        
+        <br><br>
       </div>
     
       <!--MODAL FOOTER-->
@@ -969,8 +969,8 @@
   <!--MODAL: add HookEye-->
   <div id="addHookEye" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Hook and Eye</center> </font> </h5>
-    <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
+    <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" type="hidden">
         </div>
@@ -1004,6 +1004,7 @@
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
         </div>
+        <br><br>
      </div>
     
       <!--MODAL FOOTER-->

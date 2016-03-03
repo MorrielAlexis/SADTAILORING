@@ -90,7 +90,7 @@
                     <th data-field="garmentName">Garment Name</th>
                     <th data-field="garmentDescription">Garment Description</th>
                     <th data-field="Edit">Edit</th>
-                    <th>Delete</th>
+                    <th>Deactivate</th>
                   </tr>
               </thead>
 
@@ -161,7 +161,7 @@
 
                               <div class="input-field">
                                 <input value="{{ $category->strInactiveReason }}" type="text" id="delInactiveReason" name="delInactiveReason" class="validate" required>
-                                <label for="reason"> *Reason for Inactivation: </label>
+                                <label for="reason"> *Reason for Deactivation: </label>
                               </div>
                             </p>
                           </div>

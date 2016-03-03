@@ -147,7 +147,7 @@ class CatalogueController extends BaseController{
 		if(!$isAdded){
 		$catalogue = Catalogue::find($id);
 		
-		$reas = Input::get('reactInactiveCatalogueID');
+		$reas = Input::get('reactInactiveCatalogue');
 		$reason = DB::table('tblReasonCatalogue')->where('strInactiveCatalogueID', '=', $reas)->delete();
 		$catalogue->boolIsActive = 1;
 

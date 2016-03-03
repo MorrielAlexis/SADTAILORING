@@ -88,7 +88,7 @@
                     <th data-field="name">Segment Name</th>
               			<th data-field="address">Segment Description</th>
                     <th data-field="Edit">Edit</th>
-                    <th data-field="Delete">Delete</th>
+                    <th data-field="Delete">Deactivate</th>
               		</tr>
                 </thead>
 
@@ -182,7 +182,7 @@
 
                               <div class="input-field">
                                 <input value="{{ $segment->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
-                                <label for="segment_description">*Reason for Inactivation: </label>
+                                <label for="segment_description">*Reason for Deactivation: </label>
                               </div>
                             </p>
                           </div>

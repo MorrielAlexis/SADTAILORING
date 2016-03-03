@@ -236,7 +236,7 @@ class FabricAndMaterialsController extends BaseController{
 
 			$swatch->save();
 			return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=true');
-		} else return Redirect::to('/maintenance//fabricAndMaterialsSwatches?success=duplicate');
+		} else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=duplicate');
 	}
 
 	public function editSwatch()
@@ -296,8 +296,8 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->boolIsActive = 0;
 		$reason->save();
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches?successDel=true');
-	 } else return Redirect::to('/fabricAndMaterialsSwatches?successDel=false');
+		return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successDel=true');
+	 } else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successDel=false');
 	}
 
 	public function reactSwatch()
@@ -317,8 +317,8 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->boolIsActive = 1;
 
 		$swatch->save();
-		return Redirect::to('/fabricAndMaterialsSwatches?successRec=true');
-	 } else return Redirect::to('/fabricAndMaterialsSwatches?successRec=false');
+		return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successRec=true');
+	 } else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successRec=false');
 	}
 
 		//////////FABRIC TYPE///////////
@@ -385,8 +385,8 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType->boolIsActive = 0;
 		$reason->save();
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType?successDel=true');
-	 } else return Redirect::to('/fabricAndMaterialsFabricType?successDel=false');
+		return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successDel=true');
+	 } else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successDel=false');
 	}
 
 	public function reactFabricType()
@@ -397,7 +397,7 @@ class FabricAndMaterialsController extends BaseController{
 	if(!$isAdded){
 		$fabricType = FabricType::find($id);
 
-		$reas = Input::get('reactInactiveFabricType');
+		$reas = Input::get('reactInactiveFabric');
 		$reason = DB::table('tblReasonFabricType')
 						->where('strInactiveFabricTypeID', '=', $reas)
 						->delete();
@@ -480,7 +480,7 @@ class FabricAndMaterialsController extends BaseController{
 		$thread->boolIsActive = 0;
 		$reasonThread->save();
 		$thread->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function reactThread()

@@ -17,24 +17,39 @@ class UtilitiesController extends BaseController {
 
 	public function inactive()
 	{	
-		$individual = PrivateIndividual::all();
-		$company = Company::all();
-		$role = Role::all();
+		$individual = DB::table('tblCustPrivateIndividual')
+				->leftJoin('tblReasonIndividual', 'tblCustPrivateIndividual.strCustPrivIndivID', '=', 'tblReasonIndividual.strInactiveIndividualID')
+				->select('tblCustPrivateIndividual.*', 'tblReasonIndividual.strInactiveIndividualID', 'tblReasonIndividual.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+		$company = DB::table('tblCustCompany')
+				->leftJoin('tblReasonCompany', 'tblCustCompany.strCustCompanyID', '=', 'tblReasonCompany.strInactiveCompanyID')
+				->select('tblCustCompany.*', 'tblReasonCompany.strInactiveCompanyID', 'tblReasonCompany.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+		$role = DB::table('tblEmployeeRole')
+				->leftJoin('tblReasonRole', 'tblEmployeeRole.strEmpRoleID', '=', 'tblReasonRole.strInactiveRoleID')
+				->select('tblEmployeeRole.*', 'tblReasonRole.strInactiveRoleID', 'tblReasonRole.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 		$employee = DB::table('tblEmployee')
             ->join('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
-            ->select('tblEmployee.*', 'tblEmployeeRole.strEmpRoleName')
+            ->leftJoin('tblReasonEmployee', 'tblEmployee.strEmployeeID', '=', 'tblReasonEmployee.strInactiveEmployeeID')
+            ->select('tblEmployee.*', 'tblEmployeeRole.strEmpRoleName', 'tblReasonEmployee.strInactiveEmployeeID', 'tblReasonEmployee.strInactiveReason')
             ->get();
 		$category = Category::all();
 		$segment = DB::table('tblGarmentSegment')
             ->join('tblGarmentCategory', 'tblGarmentSegment.strCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
-            ->select('tblGarmentSegment.*', 'tblGarmentCategory.strGarmentCategoryName')
+            ->leftJoin('tblReasonSegment', 'tblGarmentSegment.strGarmentSegmentID', '=', 'tblReasonSegment.strInactiveSegmentID')
+            ->select('tblGarmentSegment.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblReasonSegment.strInactiveSegmentID', 'tblReasonSegment.strInactiveReason')
             ->get();
 		$pattern = DB::table('tblDesignPattern')
-	    	->join('tblGarmentCategory', 'tblDesignPattern.strDesignCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
-			->join('tblGarmentSegment', 'tblDesignPattern.strDesignSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
-			->select('tblDesignPattern.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblGarmentSegment.strGarmentSegmentName')
-			->orderBy('strDesignPatternID')
-			->get();
+            	->join('tblGarmentCategory', 'tblDesignPattern.strDesignCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
+				->join('tblGarmentSegment', 'tblDesignPattern.strDesignSegmentName', '=', 'tblGarmentSegment.strGarmentSegmentID')
+				->leftJoin('tblReasonDesignPattern', 'tblDesignPattern.strDesignPatternID', '=', 'tblReasonDesignPattern.strInactivePatternID')
+				->select('tblDesignPattern.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblGarmentSegment.strGarmentSegmentName', 'tblReasonDesignPattern.strInactivePatternID', 'tblReasonDesignPattern.strInactiveReason')
+				->orderBy('strDesignPatternID')
+				->get();
 		$head = DB::table('tblMeasurementHeader AS a')
             ->leftJoin('tblGarmentCategory AS b', 'a.strCategoryName', '=', 'b.strGarmentCategoryID')
             ->leftJoin('tblGarmentSegment AS c', 'a.strSegmentName', '=', 'c.strGarmentSegmentID')
@@ -54,19 +69,45 @@ class UtilitiesController extends BaseController {
 				->select('tblMeasurementDetail.*', 'tblReasonMeasurementDetail.strInactiveDetailID', 'tblReasonMeasurementDetail.strInactiveReason')
 				->orderBy('created_at')
 				->get();		
-		$fabricType = FabricType::all();
+		$fabricType = DB::table('tblFabricType')
+				->leftJoin('tblReasonFabricType', 'tblFabricType.strFabricTypeID', '=', 'tblReasonFabricType.strInactiveFabricTypeID')
+				->select('tblFabricType.*', 'tblReasonFabricType.strInactiveFabricTypeID', 'tblReasonFabricType.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 		$swatch = DB::table('tblSwatches')
             ->join('tblFabricType', 'tblSwatches.strSwatchFabricTypeName', '=', 'tblFabricType.strFabricTypeID')
-            ->select('tblSwatches.*', 'tblFabricType.strFabricTypeName')
+            ->leftJoin('tblReasonSwatches', 'tblSwatches.strSwatchID', '=', 'tblReasonSwatches.strInactiveSwatchID')
+            ->select('tblSwatches.*', 'tblFabricType.strFabricTypeName', 'tblReasonSwatches.strInactiveSwatchID', 'tblReasonSwatches.strInactiveReason')
             ->get();
-		$thread =  MaterialThread::all();
-		$needle =  MaterialNeedle::all(); 
-		$button =  MaterialButton::all(); 
-		$zipper =  MaterialZipper::all(); 
-		$hook =  MaterialHookAndEye::all();
+		$thread = DB::table('tblMaterialThread')
+				->leftJoin('tblReasonMaterialThread', 'tblMaterialThread.strMaterialThreadID', '=', 'tblReasonMaterialThread.strInactiveThreadID')
+				->select('tblMaterialThread.*', 'tblReasonMaterialThread.strInactiveThreadID', 'tblReasonMaterialThread.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+		$needle = DB::table('tblMaterialNeedle')
+				->leftJoin('tblReasonMaterialNeedle', 'tblMaterialNeedle.strMaterialNeedleID', '=', 'tblReasonMaterialNeedle.strInactiveNeedleID')
+				->select('tblMaterialNeedle.*', 'tblReasonMaterialNeedle.strInactiveNeedleID', 'tblReasonMaterialNeedle.strInactiveReason')
+				->orderBy('created_at')
+				->get(); 
+		$button = DB::table('tblMaterialButton')
+				->leftJoin('tblReasonMaterialButton', 'tblMaterialButton.strMaterialButtonID', '=', 'tblReasonMaterialButton.strInactiveButtonID')
+				->select('tblMaterialButton.*', 'tblReasonMaterialButton.strInactiveButtonID', 'tblReasonMaterialButton.strInactiveReason')
+				->orderBy('created_at')
+				->get();
+		$zipper = DB::table('tblMaterialZipper')
+				->leftJoin('tblReasonMaterialZipper', 'tblMaterialZipper.strMaterialZipperID', '=', 'tblReasonMaterialZipper.strInactiveZipperID')
+				->select('tblMaterialZipper.*', 'tblReasonMaterialZipper.strInactiveZipperID', 'tblReasonMaterialZipper.strInactiveReason')
+				->orderBy('created_at')
+				->get(); 
+		$hook = DB::table('tblMaterialHookAndEye')
+				->leftJoin('tblReasonMaterialHookAndEye', 'tblMaterialHookAndEye.strMaterialHookID', '=', 'tblReasonMaterialHookAndEye.strInactiveHookID')
+				->select('tblMaterialHookAndEye.*', 'tblReasonMaterialHookAndEye.strInactiveHookID', 'tblReasonMaterialHookAndEye.strInactiveReason')
+				->orderBy('created_at')
+				->get();
 		$catalogue = DB::table('tblCatalogue')
 				->join('tblGarmentCategory', 'tblCatalogue.strCatalogueCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
-				->select('tblCatalogue.*', 'tblGarmentCategory.strGarmentCategoryName')
+				->leftJoin('tblReasonCatalogue', 'tblCatalogue.strCatalogueID', '=', 'tblReasonCatalogue.strInactiveCatalogueID')
+				->select('tblCatalogue.*', 'tblGarmentCategory.strGarmentCategoryName', 'tblReasonCatalogue.strInactiveCatalogueID', 'tblReasonCatalogue.strInactiveReason')
 				->orderBy('created_at')
 				->get();            
 

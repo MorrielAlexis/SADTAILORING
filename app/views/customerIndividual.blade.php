@@ -84,7 +84,7 @@
                   <th data-field="cellphone">Cellphone No. (alt) </th>
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="Edit">Edit</th>
-                  <th data-field="Delete">Delete</th>
+                  <th data-field="Delete">Deactivate</th>
 
                 </tr>
               </thead>
@@ -200,7 +200,7 @@
 
                           <div class="input-field">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$individual->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Inactivation: </label>
+                            <label for="fax"> *Reason for Deactivation: </label>
                           </div>
                         </p>
                         </div>

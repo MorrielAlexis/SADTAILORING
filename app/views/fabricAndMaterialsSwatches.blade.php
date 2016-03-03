@@ -196,7 +196,7 @@
 
                               <div class="input-field">
                                 <input value="{{$swatch->strInactiveReason}}" id="delInactiveReason" name= "delInactiveReason" type="text" class="" required>
-                                <label for="swatch_code">*Reason for Inactivation: </label>
+                                <label for="swatch_code">*Reason for Deactivation: </label>
                               </div>
 
                             </p>

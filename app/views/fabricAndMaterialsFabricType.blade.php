@@ -93,8 +93,8 @@
               		  <!--<th data-field="fabricID">Fabric Type ID</th>-->
                     <th data-field="fabricName">Fabric Type Name</th>
               		  <th data-field="fabricDescription">Fabric Description</th>
-                    <th data-field="Edit">Action</th>
-                    <th data-field="Delete">Action</th>
+                    <th data-field="Edit">Edit</th>
+                    <th data-field="Delete">Deactivate</th>
 
               	  </tr>
                 </thead>
@@ -165,7 +165,7 @@
                           </div>
 
                            <div class="input-field">
-                            <label for="middle_name">*Reason for Inactivation: </label>
+                            <label for="middle_name">*Reason for Deactivation: </label>
                             <input value="{{$fabricType->strInactiveReason}}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
                           </div>
                         </p>

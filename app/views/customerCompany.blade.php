@@ -85,7 +85,7 @@
                   <th data-field="Landline">Telephone No.</th>
                   <th data-field="fax">Fax No.</th>
                   <th data-field="Edit">Edit</th>
-                  <th data-field="Delete">Delete</th>
+                  <th data-field="Delete">Deactivate</th>
                 </tr>
               </thead>
 
@@ -102,7 +102,7 @@
                   <td>{{ $company->strCustCompanyTelNumber }}</td>                  
                   <td>{{ $company->strCustCompanyFaxNumber }}</td>        
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of customer" href="#edit{{$company->strCustCompanyID}}">EDIT</button></td>    
-                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$company->strCustCompanyID}}">DEACTIVATED</button></td>
+                  <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$company->strCustCompanyID}}">DEACTIVATE</button></td>
                   
 
                     <div id="edit{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">
@@ -210,7 +210,7 @@
 
                           <div class="input-field">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$company->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Inactivation: </label>
+                            <label for="fax"> *Reason for Deactivation: </label>
                           </div>
                         </p>
                       </div>

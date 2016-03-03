@@ -98,8 +98,8 @@
                   <th data-field="cellphone">Cellphone No. (alt)</th>
                   <th data-field="Landline">Phone No.</th>
                   <th data-field="email">Email Address</th>
-                  <th data-field="Edit">Action</th>
-                  <th data-field="Delete">Action</th>
+                  <th data-field="Edit">Edit</th>
+                  <th data-field="Delete">Deactivate</th>
               	</tr>
               </thead>
 
@@ -127,11 +127,10 @@
                   
                <!-- <Modal Structure for Edit Employee>   -->
                     <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
-                      <form action="{{URL::to('editEmployee')}}" method="POST">
                         <div class="modal-content">
-                          <h5><font color = "#1b5e20"><center>Edit Employee Profile</center> </font> </h5> 
+                          <h5><font color = "#1b5e20"><center>Edit Employee Profile</center> </font> </h5>
+                      <form action="{{URL::to('editEmployee')}}" method="POST"> 
                           <p>
-
                           <div class="input-field">
                             <label for="first_name">Employee ID: </label>
                             <input value="{{$employee->strEmployeeID}}" id="editEmpID" name="editEmpID" type="text" class="" readonly>
@@ -208,6 +207,7 @@
                             <input  value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
                             <label for="email">Email Address: </label>
                           </div>
+                          <br><br>
                           </p>
                         </div>
 
@@ -219,11 +219,11 @@
                     </div> 
 
                     <!-- Modal for (SOFT) delete Employee -->
-                    <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
+                    <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer"> 
                         <div class="modal-content">
-                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                          <p>
+                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
                             <form action="{{URL::to('delEmployee')}}" method="POST">
+                          <p>
                             <div class="input-field">
                               <label for="first_name">Employee ID: </label>
                               <input value="{{$employee->strEmployeeID}}" id="delEmpID" name="delEmpID" type="text" class="" readonly>
@@ -254,9 +254,9 @@
 
                           <div class="input-field">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$employee->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Inactivation: </label>
+                            <label for="fax"> *Reason for Deactivation: </label>
                           </div>
-                          <br>
+                          <br><br>
                           </p> 
                         </div>   
 
@@ -280,8 +280,8 @@
                 
           <!-- <Modal Structure for Add Employee> -->
     			<div id="newemp" class="modal modal-fixed-footer">
-            <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" class="employee-form" name="addEmployee">
               <div class="modal-content">
+            <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" class="employee-form" name="addEmployee">
                 <h5><font color = "#1b5e20"><center>Add an Employee</center> </font> </h5>
                 <p>
 

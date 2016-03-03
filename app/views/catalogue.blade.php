@@ -92,8 +92,8 @@
              		<th data-field="Catalogue Name">Catalogue Name</th>
                 <th data-field="Description">Description</th>
                 <th data-field="Image">Image</th>
-                <th data-field="Edit">Action</th>
-                 <th data-field="Edit">Action</th>
+                <th data-field="Edit">Edit</th>
+                 <th data-field="Edit">Deactivate</th>
               </tr>
             </thead>
 
@@ -107,7 +107,7 @@
               	<td>{{ $catalogue->strCatalogueDesc }}</td>
                 <td><img class="materialboxed" width="100%" height="100%" src="{{URL::asset($catalogue->strCatalogueImage)}}"></td>
               	<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit catalogue design detail" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
-                <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of catalogue design from the table" href="#del{{$catalogue->strCatalogueID}}">DELETE</button>
+                <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of catalogue design from the table" href="#del{{$catalogue->strCatalogueID}}">DEACTIVATE</button>
 
                   <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Edit Catalogue Design</center> </font> </h5>
@@ -197,7 +197,7 @@
 
                       <div class="input-field">
                         <input value="{{ $catalogue->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
-                        <label for="catalogue_name"> *Reason for Inactivation: </label>
+                        <label for="catalogue_name"> *Reason for Deactivation: </label>
                       </div>
                     </p>
                     </div>
