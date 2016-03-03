@@ -248,7 +248,8 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($swa as $swa)
-			if(strcasecmp($swa->strSwatchFabricTypeName, Input::get('editFabric')) == 0 && 
+			if(!strcasecmp($swa->strSwatchID, Input::get('editSwatchID')) == 0 &&
+			   strcasecmp($swa->strSwatchFabricTypeName, Input::get('editFabric')) == 0 && 
 			   strcasecmp($swa->strSwatchName, Input::get('editSwatchName')) == 0 &&
 			   strcasecmp($swa->strSwatchCode, Input::get('editSwatchCode')) == 0)
 			   		$isAdded = TRUE;
@@ -327,7 +328,7 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($fabric as $fabric)
-			if(strcmp($fabric->strFabricTypeName, Input::get('addFabricTypeName')) == 0)
+			if(strcasecmp($fabric->strFabricTypeName, Input::get('addFabricTypeName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -353,7 +354,8 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($fabric as $fabric)
-			if(strcmp($fabric->strFabricTypeName, Input::get('editFabricTypeName')) == 0)
+			if(!strcasecmp($fabric->strFabricTypeID, Input::get('editFabricTypeID')) == 0 &&
+				strcasecmp($fabric->strFabricTypeName, Input::get('editFabricTypeName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){

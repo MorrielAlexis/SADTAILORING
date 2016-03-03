@@ -136,7 +136,8 @@ class CustomerController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach ($ind as $ind) {
-				if(strcasecmp($ind->strCustPrivFName, Input::get('editFName')) == 0 && 
+				if(!strcasecmp($ind->strCustPrivIndivID, Input::get('editIndiID')) == 0 &&
+				   strcasecmp($ind->strCustPrivFName, Input::get('editFName')) == 0 && 
 				   strcasecmp($ind->strCustPrivMName, Input::get('editMName')) == 0 && 
 				   strcasecmp($ind->strCustPrivLName, Input::get('editLName')) == 0 && 
 				   strcasecmp($ind->strCustPrivAddress, Input::get('editAddress')) == 0){
@@ -274,7 +275,8 @@ class CustomerController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach ($comp as $comp) {
-				if(strcasecmp($comp->strCustCompanyName, Input::get('editComName')) == 0 && 
+				if(!strcasecmp($comp->strCustCompanyID, Input::get('editComID')) == 0 &&
+				   strcasecmp($comp->strCustCompanyName, Input::get('editComName')) == 0 && 
 				   strcasecmp($comp->strCustCompanyAddress, Input::get('editAddress')) == 0 && 
 				   strcasecmp($comp->strCustContactPerson, Input::get('editConPerson')) == 0){
 						$isAdded = TRUE;

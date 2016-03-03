@@ -85,14 +85,12 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($ctlg as $ctlg){
-			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('editCategory')) == 0 && 
+			if(!strcasecmp($ctlg->strCatalogueID, Input::get('editCatalogueID')) == 0 &&
+			   strcasecmp($ctlg->strCatalogueCategory, Input::get('editCategory')) == 0 && 
 			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('editCatalogueName'))) == 0){
 					$isAdded = TRUE;				
 			}			   		
 		}
-		if($isAdded == TRUE && strcasecmp($ctlg->strCatalogueDesc, Input::get('editCatalogueDesc'))){
-							$isAdded = FALSE;
-						}
 
 		if(!$isAdded){
 			if (Input::get('editImage') == $catalogue->strCatalogueImage) {

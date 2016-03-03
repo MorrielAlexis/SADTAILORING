@@ -21,11 +21,15 @@ class MeasurementController extends BaseController{
             ->leftJoin('tblGarmentSegment AS c', 'a.strSegmentName', '=', 'c.strGarmentSegmentID')
             ->leftJoin('tblMeasurementDetail AS d', 'a.strMeasurementName', '=', 'd.strMeasurementDetailID')
             ->select('a.*', 'b.strGarmentCategoryName','c.strGarmentSegmentName', 
-            			DB::raw('group_concat(d.strMeasurementDetailName) AS meas_details'))
+            			DB::raw('group_concat(d.strMeasurementDetailName) AS meas_details'),
+            			DB::raw('group_concat(a.strMeasurementName) AS meas_details_id'))
             ->orderBy('created_at')
             ->groupBy('a.strCategoryName')
             ->groupBy('a.strSegmentName')
             ->get();
+
+        for($i = 0; $i < count($head); $i++)
+        	$expHead[] = explode(",", $head[$i]->meas_details_id);
 
         $category =  Category::all(); 	
         $segment =  Segment::all(); 	
@@ -48,15 +52,13 @@ class MeasurementController extends BaseController{
 		// dito magbabago
 		return View::make('measurements') 
 					->with('head', $head)
-					->with('head2', $head)
 					->with('detail', $detail)
 					->with('categoryNewID', $categoryNewID)
 					->with('detailNewID', $detailNewID)
 					->with('category', $category)
 					->with('segment', $segment)
 					->with('detailList', $detailList)
-					->with('segment2', $segment)
-					->with('detailList2', $detailList);
+					->with('expHead', $expHead);
 		
 	}
 

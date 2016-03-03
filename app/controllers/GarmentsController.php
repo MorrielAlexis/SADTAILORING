@@ -67,7 +67,7 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($garm as $garm)
-			if(strcmp($garm->strGarmentCategoryName, Input::get('addGarmentName')) == 0)
+			if(strcasecmp($garm->strGarmentCategoryName, Input::get('addGarmentName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -92,7 +92,8 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($garm as $garm)
-			if(strcmp($garm->strGarmentCategoryName, Input::get('editGarmentName')) == 0)
+			if(!strcasecmp($garm->strGarmentCategoryID, Input::get('editGarmentID')) == 0 &&
+				strcasecmp($garm->strGarmentCategoryName, Input::get('editGarmentName')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){		
@@ -174,7 +175,8 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($seg as $seg)
-			if(strcasecmp($seg->strGarmentSegmentName, Input::get('editSegmentName')) == 0 && 
+			if(!strcasecmp($seg->strGarmentSegmentID, Input::get('editSegmentID')) == 0 &&
+			   strcasecmp($seg->strGarmentSegmentName, Input::get('editSegmentName')) == 0 && 
 			   strcasecmp($seg->strCategory, Input::get('editCategory')) == 0)
 				$isAdded = TRUE;
 
