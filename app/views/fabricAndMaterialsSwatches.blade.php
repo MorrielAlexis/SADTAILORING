@@ -203,7 +203,7 @@
                           </div>
                   
                           <div class="modal-footer">
-                            <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</button>
+                            <button type="submit" class=" modal-action waves-effect waves-green btn-flat">OK</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
                         </form>

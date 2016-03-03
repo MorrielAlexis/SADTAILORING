@@ -152,12 +152,12 @@
 
                           <div class="input-field">
                             <label for="first_name">Fabric Type Name: </label>
-                            <input value="{{$fabricType->strFabricTypeName}}" id="delFabricName" name="delFabricName" type="text" class="validate" readonly>
+                            <input value="{{$fabricType->strFabricTypeName}}" id="delFabricName" name="delFabricName" type="text" readonly>
                           </div>
 
                            <div class="input-field">
                             <label for="middle_name">Fabric Desription: </label>
-                            <input value="{{$fabricType->strFabricTypeDesc}}" id="delFabricDesc" name="delFabricDesc" type="text" class="validate" readonly>
+                            <input value="{{$fabricType->strFabricTypeDesc}}" id="delFabricDesc" name="delFabricDesc" type="text" readonly>
                           </div>
 
                           <div>
@@ -166,7 +166,7 @@
 
                            <div class="input-field">
                             <label for="middle_name">*Reason for Deactivation: </label>
-                            <input value="{{$fabricType->strInactiveReason}}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
+                            <input value="{{$fabricType->strInactiveReason}}" id="delInactiveReason" name="delInactiveReason" type="text" required>
                           </div>
                         </p>
                       </div>

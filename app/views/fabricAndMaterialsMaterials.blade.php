@@ -14,7 +14,6 @@
         <li style="background:pink; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabHook">Hook&Eye</a></li>
         <div class="indicator white" style="z-index:1"></div>
       </ul>
-      </div>
   
       <!--THREADS-->
       <div id="tabThread" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
@@ -118,21 +117,21 @@
 
                                   <div class="input-field">
                                     <label for="first_name">Thread Name: </label>
-                                    <input value="{{$thread->strMaterialThreadName}}" id="delThreadName" name="delThreadName" type="text" class="validate" readonly>
+                                    <input value="{{$thread->strMaterialThreadName}}" id="delThreadName" name="delThreadName" type="text"  readonly>
                                   </div>
 
                                    <div class="input-field">
                                     <label for="middle_name">Thread Color: </label>
-                                    <input value="{{$thread->strMaterialThreadColor}}" id="delThreadColor" name="delThreadColor" type="text" class="validate" readonly>
+                                    <input value="{{$thread->strMaterialThreadColor}}" id="delThreadColor" name="delThreadColor" type="text" readonly>
                                   </div>
 
                                   <div class="input-field">
-                                    <input id="delThreadDesc" name = "delThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text" class="validateColor">
+                                    <input id="delThreadDesc" name = "delThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text" readonly>
                                     <label for="Thread_Color"> Description: </label>
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{$thread->strMaterialThreadID}}" id="delInactiveThread" name="delInactiveThread" type="hidden">
+                                    <input value="{{$thread->strMaterialThreadID}}" id="delInactiveThread" name="delInactiveThread" type="hidden" readonly>
                                   </div>
 
                                   <div class="input-field">
@@ -262,17 +261,17 @@
 
                                   <div class="input-field">
                                     <label for="needle_name">Needle Name: </label>
-                                    <input value="{{$needle->strMaterialNeedleName}}" id="delNeedleName" name="delNeedleName" type="text" class="validate" readonly>
+                                    <input value="{{$needle->strMaterialNeedleName}}" id="delNeedleName" name="delNeedleName" type="text"  readonly>
                                   </div>
 
                                    <div class="input-field">
                                     <label for="needle_size">Needle Size: </label>
-                                    <input value="{{$needle->strMaterialNeedleSize}}" id="delNeedlSize" name="delNeedleSize" type="text" class="validate" readonly>
+                                    <input value="{{$needle->strMaterialNeedleSize}}" id="delNeedlSize" name="delNeedleSize" type="text"  readonly>
                                   </div>
 
                                   <div class="input-field">
                                     <label for="needle_desc">Description </label>
-                                    <input value="{{$needle->strMaterialNeedleDesc}}" id="delNeedleDesc" name="delNeedleDesc" type="text" class="validate" readonly>
+                                    <input value="{{$needle->strMaterialNeedleDesc}}" id="delNeedleDesc" name="delNeedleDesc" type="text"  readonly>
                                   </div>
 
                                   <div class="input-field">
@@ -412,22 +411,22 @@
 
                                   <div class="input-field">
                                     <label for="Button_Name">Button Name: </label>
-                                    <input value="{{$button->strMaterialButtonName}}" id="delButtonName" name="delButtonName" type="text" class="validate" readonly>
+                                    <input value="{{$button->strMaterialButtonName}}" id="delButtonName" name="delButtonName" type="text" readonly>
                                   </div>
 
                                   <div class="input-field">
                                     <label for="Button_Size">Button Size: </label>
-                                    <input value="{{$button->strMaterialButtonSize}}" id="delButtonSize" name="delButtonSize" type="text" class="validate" readonly>
+                                    <input value="{{$button->strMaterialButtonSize}}" id="delButtonSize" name="delButtonSize" type="text"  readonly>
                                   </div>
 
                                   <div class="input-field">
                                     <label for="Button_Color">Button Color: </label>
-                                    <input value="{{$button->strMaterialButtonColor}}" id="delButtonColor" name="delButtonColor" type="text" class="validate" readonly>
+                                    <input value="{{$button->strMaterialButtonColor}}" id="delButtonColor" name="delButtonColor" type="text" readonly>
                                   </div>
 
                                    <div class="input-field">
                                     <label for="Button_Desc">Desc: </label>
-                                    <input value="{{$button->strMaterialButtonDesc}}" id="delButtonColor" name="delButtonColor" type="text" class="validate" readonly>
+                                    <input value="{{$button->strMaterialButtonDesc}}" id="delButtonColor" name="delButtonColor" type="text"  readonly>
                                   </div>
 
                                   <div class="input-field">
@@ -567,22 +566,22 @@
 
                                   <div class="input-field">
                                     <label for="Zipper_Name">Zipper Name: </label>
-                                    <input value="{{$zipper->strMaterialZipperName}}" id="delZipperName" name="delZipperName" type="text" class="validate" readonly>
+                                    <input value="{{$zipper->strMaterialZipperName}}" id="delZipperName" name="delZipperName" type="text" readonly>
                                   </div>
 
                                    <div class="input-field">
                                     <label for="Zipper_Size">Zipper Size: </label>
-                                    <input value="{{$zipper->strMaterialZipperSize}}" id="delZipperSize" name="delZipperSize" type="text" class="validate" readonly>
+                                    <input value="{{$zipper->strMaterialZipperSize}}" id="delZipperSize" name="delZipperSize" type="text" readonly>
                                   </div>
 
                                    <div class="input-field">
                                     <label for="Zipper_Color">Zipper Color: </label>
-                                    <input value="{{$zipper->strMaterialZipperColor}}" id="delZipperColor" name="delZipperColor" type="text" class="validate" readonly>
+                                    <input value="{{$zipper->strMaterialZipperColor}}" id="delZipperColor" name="delZipperColor" type="text" readonly>
                                   </div>
 
                                   <div class="input-field">
                                     <label for="Zipper_Desc">Description</label>
-                                    <input value="{{$zipper->strMaterialZipperDesc}}" id="delZipperColor" name="delZipperColor" type="text" class="validate" readonly>
+                                    <input value="{{$zipper->strMaterialZipperDesc}}" id="delZipperColor" name="delZipperColor" type="text" readonly>
                                   </div>
 
                                  <div class="input-field">
@@ -663,9 +662,10 @@
                             
                           <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>
+                            <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
 
                               <div class="modal-content"> 
-                            <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">                             
+                                                         
                                 <div class="input-field">
                                   <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" type="hidden">
                                 </div>
@@ -712,9 +712,9 @@
 
                           <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-
-                              <div class="modal-content">
                             <form action="{{URL::to('delHook')}}" method="POST">
+                              <div class="modal-content">
+                                
                                 
                                 <p>
                                  <div class="input-field">
@@ -723,22 +723,22 @@
 
                                   <div class="input-field">
                                     <label for="Hook_Name">Hook and Eye Name: </label>
-                                    <input value="{{$hook->strMaterialHookName}}" id="delHookName" name="delHookName" type="text" class="validate" readonly>
+                                    <input value="{{$hook->strMaterialHookName}}" id="delHookName" name="delHookName" type="text" readonly>
                                   </div>
 
-                                   <div class="input-field">
+                                  <div class="input-field">
                                     <label for="Hook_Size">Hook and Eye Size: </label>
-                                    <input value="{{$hook->strMaterialHookSize}}" id="delHookSize" name="delHookSize" type="text" class="validate" readonly>
+                                    <input value="{{$hook->strMaterialHookSize}}" id="delHookSize" name="delHookSize" type="text" readonly>
                                   </div>
 
                                   <div class="input-field">
                                     <label for="Hook_Color">Hook and Eye Color: </label>
-                                    <input value="{{$hook->strMaterialHookColor}}" id="delHookColor" name="delHookColor" type="text" class="validate" readonly>
+                                    <input value="{{$hook->strMaterialHookColor}}" id="delHookColor" name="delHookColor" type="text" readonly>
                                   </div>
 
                                   <div class="input-field">
                                     <label for="Hook_Desc">Description: </label>
-                                    <input value="{{$hook->strMaterialHookDesc}}" id="delHookDesc" name="delHookDesc" type="text" class="validate" readonly>
+                                    <input value="{{$hook->strMaterialHookDesc}}" id="delHookDesc" name="delHookDesc" type="text" readonly>
                                   </div>
 
                                   <div class="input-field">
@@ -773,6 +773,7 @@
         </div>
 
       </div>
+    </div>
   
 
   <!--MODAL: add Thread-->
@@ -820,6 +821,7 @@
       </div>
     </form>
   </div>
+
 
   <!--MODAL: add Needle-->
   <div id="addNeedle" class="modal modal-fixed-footer">

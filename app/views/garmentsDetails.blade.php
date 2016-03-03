@@ -179,12 +179,12 @@
                               </div>   
 
                               <div class="input-field">
-                                <input value="{{ $segment->strGarmentSegmentName }}"type="text" class="validate" readonly>
+                                <input value="{{ $segment->strGarmentSegmentName }}"type="text" readonly>
                                 <label for="segment_name">Segment Name: </label>
                               </div>
 
                               <div class="input-field">
-                                <input value="{{ $segment->strGarmentSegmentDesc }}" type="text" class="validate" readonly>
+                                <input value="{{ $segment->strGarmentSegmentDesc }}" type="text" readonly>
                                 <label for="segment_description">Segment Description: </label>
                               </div>
 

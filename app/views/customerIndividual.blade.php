@@ -171,27 +171,27 @@
                          <form action="{{URL::to('delCustPrivIndiv')}}" method="POST">
                           <div class="input-field">
                             <label for="first_name">Individual ID: </label>
-                            <input value="{{$individual->strCustPrivIndivID}}" id="delIndivID" name="delIndivID" type="text" class="validate" readonly>
+                            <input value="{{$individual->strCustPrivIndivID}}" id="delIndivID" name="delIndivID" type="text" readonly>
                           </div>
 
                           <div class="input-field">
                             <label for="first_name">First Name: </label>
-                            <input value="{{$individual->strCustPrivFName}}" id="delIndivFName" name="delIndivFName" type="text" class="validate" readonly>
+                            <input value="{{$individual->strCustPrivFName}}" id="delIndivFName" name="delIndivFName" type="text" readonly>
                           </div>
 
                            <div class="input-field">
                             <label for="middle_name">Middle Name: </label>
-                            <input value="{{$individual->strCustPrivMName}}" id="delIndivMName" name="delIndivMName" type="text" class="validate" readonly>
+                            <input value="{{$individual->strCustPrivMName}}" id="delIndivMName" name="delIndivMName" type="text" readonly>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$individual->strCustPrivLName}}" id="delIndivLName" name="delIndivLName" type="text" class="validate" readonly>
+                            <input value="{{$individual->strCustPrivLName}}" id="delIndivLName" name="delIndivLName" type="text" readonly>
                             <label for="LastName">Last Name: </label>
                           </div>
 
                           <div class="input-field">
                             <label for="first_name">Address: </label>
-                            <input value="{{$individual->strCustPrivAddress}}" id="delIndivAddress" name="delIndivAddress" type="text" class="validate" readonly>
+                            <input value="{{$individual->strCustPrivAddress}}" id="delIndivAddress" name="delIndivAddress" type="text" readonly>
                           </div>
 
                           <div class="input-field">
