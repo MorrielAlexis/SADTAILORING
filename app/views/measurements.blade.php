@@ -94,6 +94,7 @@
                     <table class = "table centered data-measHead" align = "center" border = "1">
                       <thead>
                         <tr>
+                          <th>ID</th>
                           <th data-field="Garmentcategory">Garment Category</th>
                           <th data-field="Garmentcategory">Segment</th>
                           <th data-field="MeasurementName">Measurement Name</th>
@@ -105,6 +106,7 @@
                         @foreach($head as $head_1)
                         @if($head_1->boolIsActive == 1)
                         <tr>   
+                          <td>{{ $head_1->strMeasurementID }}</td>
                           <td>{{ $head_1->strGarmentCategoryName }}</td>
                           <td>{{ $head_1->strGarmentSegmentName }}</td>
                           <td>{{ $head_1->meas_details }}</td>
@@ -151,11 +153,15 @@
                                     <div class="input-field">                                                                               
                                       <select multiple name='editDetail[]' id='editDetail[]' required>
                                           @foreach($detailList as $dl)
-                                            @if($head_1->strMeasurementName == $dl->strMeasurementDetailID)
-                                              <option value ="{{ $dl->strMeasurementDetailID }}" selected>{{$dl->strMeasurementDetailName}}</option>
-                                            @else
-                                              <option value="{{ $dl->strMeasurementDetailID }}">{{$dl->strMeasurementDetailName}}</option>
-                                            @endif
+                                              <option value ="{{ $dl->strMeasurementDetailID }}" 
+                                                @for($i = 0; $i < count($expHead); $i++)
+                                                  @for($j = 0; $j < count($expHead[$i]); $j++)  
+                                                    @if($expHead[$i][$j] == $dl->strMeasurementDetailID)
+                                                      selected="selected"
+                                                    @endif
+                                                  @endfor
+                                                @endfor
+                                              >{{$dl->strMeasurementDetailName}}</option>
                                           @endforeach
                                       </select>   
                                       <label>Measurement Taken</label> 
@@ -182,13 +188,11 @@
 
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Add Measurement Information</center> </font> </h5> 
-                    
                       <div class="modal-content">
                         <p>
                           <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
                           <div class="input-field">
                             <input value="{{ $categoryNewID }}" id="addMeasurementID" name="addMeasurementID" type="text" hidden>
-                            <label for="measurement_id">Measurement ID: </label>
                           </div>
 
                           <div class="input-field">                                                    
@@ -198,7 +202,7 @@
                                   @endforeach
                               </select>    
                               <label>Category</label>
-                            </div>        
+                          </div>        
                 
                           <div class="input-field">                                                    
                             <select required name='addSegment'>
@@ -217,7 +221,6 @@
                             </select>   
                             <label>Measurement Taken</label> 
                           </div>
-                         
                         </p>                       
                       </div>
 
