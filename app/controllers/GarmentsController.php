@@ -108,10 +108,10 @@ class GarmentsController extends BaseController{
 	public function delGarmentCategory()
 	{
 		$id = Input::get('delGarmentID');
-		$isDeleted = FALSE;
+	
 
 
-	if(!$isDeleted){
+	
 		$category = Category::find($id);
 
 		$count = DB::table('tblGarmentSegment')
@@ -135,12 +135,12 @@ class GarmentsController extends BaseController{
         	$reason->save();
         	$category->save();
         	return Redirect::to('/maintenance/garments?successDel=true');
-        } else {
-        	return Redirect::to('/maintenance/garments?successDel=true');
-        }
-     } else return Redirect::to('/maintenance/garments?successDel=false');
+        } else return Redirect::to('/maintenance/garments?success=beingUsed');
+        	
+    }
+     
 
-	}
+	
 
 	public function addGarmentSegment()
 	{	
@@ -193,10 +193,9 @@ class GarmentsController extends BaseController{
 	public function delGarmentSegment()
 	{	
 		$id = Input::get('delSegmentID');
-		$isDeleted = FALSE;
+		
 
-
-	if(!$isDeleted){
+	
 		$segment = Segment::find($id);
 
 		$count = DB::table('tblDesignPattern')
@@ -220,10 +219,9 @@ class GarmentsController extends BaseController{
         	$reason->save();
         	$segment->save();
         	return Redirect::to('/maintenance/garmentsDetails?successDel=true');
-        } else return Redirect::to('/maintenance/garmentsDetails?successDel=false');
+        } else return Redirect::to('/maintenance/garmentsDetails?successDel=beingUsed');
        
-
-	}}
+	}
 
 	public function reactGarmentCategory()
 	{

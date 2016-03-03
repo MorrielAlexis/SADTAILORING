@@ -19,6 +19,7 @@
         </div>
       @endif
 
+     <!--  <Data Dependency Message> -->
        @if (Input::get('success') == 'beingUsed')
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
