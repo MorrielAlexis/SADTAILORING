@@ -163,7 +163,7 @@ class GarmentsController extends BaseController{
 
 			$segment->save();
 			return Redirect::to('/maintenance/garmentsDetails?success=true');
-		} else return Redirect::to('/maintenance/garmentsDetails?success=false');
+		} else return Redirect::to('/maintenance/garmentsDetails?success=duplicate');
 	}
 
 	public function editGarmentSegment()
@@ -187,7 +187,7 @@ class GarmentsController extends BaseController{
 			
 			$segment->save();
 			return Redirect::to('/maintenance/garmentsDetails?successEdit=true');
-		} else return Redirect::to('/maintenance/garmentsDetails?successEdit=false');
+		} else return Redirect::to('/maintenance/garmentsDetails?successEdit=duplicate');
 	}
 
 	public function delGarmentSegment()

@@ -235,8 +235,8 @@ class FabricAndMaterialsController extends BaseController{
 			}	
 
 			$swatch->save();
-			return Redirect::to('/fabricAndMaterialsSwatches?success=true');
-		} else return Redirect::to('/fabricAndMaterialsSwatches?success=duplicate');
+			return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=true');
+		} else return Redirect::to('/maintenance//fabricAndMaterialsSwatches?success=duplicate');
 	}
 
 	public function editSwatch()
@@ -274,8 +274,8 @@ class FabricAndMaterialsController extends BaseController{
 			}
 
 			$swatch->save();
-			return Redirect::to('/fabricAndMaterialsSwatches?successEdit=true');
-		} else return Redirect::to('/fabricAndMaterialsSwatches?success=duplicate');
+			return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successEdit=true');
+		} else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=duplicate');
 	}
 
 
@@ -340,8 +340,8 @@ class FabricAndMaterialsController extends BaseController{
 			));
 
 			$fabricType->save();
-			return Redirect::to('/fabricAndMaterialsFabricType?success=true');
-		}else return Redirect::to('/fabricAndMaterialsFabricType?success=duplicate');
+			return Redirect::to('/maintenance/fabricAndMaterialsFabricType?success=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?success=duplicate');
 
 	}
 
@@ -364,8 +364,8 @@ class FabricAndMaterialsController extends BaseController{
 			$fabricType->strFabricTypeDesc = Input::get('editFabricTypeDesc');
 
 			$fabricType->save();
-			return Redirect::to('/fabricAndMaterialsFabricType?successEdit=true');
-		}else return Redirect::to('/fabricAndMaterialsFabricType?success=duplicate');
+			return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successEdit=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?success=duplicate');
 	}
 
 
@@ -405,8 +405,8 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType->boolIsActive = 1;
 
 		$fabricType->save();
-		return Redirect::to('/fabricAndMaterialsFabricType?successRec=true');
-	 } else return Redirect::to('/fabricAndMaterialsFabricType?successRec=false');
+		return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successRec=true');
+	 } else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successRec=false');
 	}
 
 		///////////THREADS/////////////
@@ -438,7 +438,7 @@ class FabricAndMaterialsController extends BaseController{
 		}
 
 		$thread ->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function editThread()
@@ -464,7 +464,7 @@ class FabricAndMaterialsController extends BaseController{
 		}
 
 		$thread->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function delThread()
@@ -496,7 +496,7 @@ class FabricAndMaterialsController extends BaseController{
 		$thread->boolIsActive = 1;
 
 		$thread->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 		///////////NEEDLES////////////
@@ -528,7 +528,7 @@ class FabricAndMaterialsController extends BaseController{
 		}
 
 		$needle ->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function editNeedle()
@@ -555,7 +555,7 @@ class FabricAndMaterialsController extends BaseController{
 
 
 		$needle->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function delNeedle()
@@ -571,7 +571,7 @@ class FabricAndMaterialsController extends BaseController{
 		$needle->boolIsActive = 0;
 		$reasonNeedle->save();
 		$needle->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function reactNeedle()
@@ -587,7 +587,7 @@ class FabricAndMaterialsController extends BaseController{
 		$needle->boolIsActive = 1;
 
 		$needle->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 		///////////BUTTON////////////
@@ -621,7 +621,7 @@ class FabricAndMaterialsController extends BaseController{
 		}
 
 		$button ->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function editButton()
@@ -650,7 +650,7 @@ class FabricAndMaterialsController extends BaseController{
 	
 
 		$button->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function delButton()
@@ -666,7 +666,7 @@ class FabricAndMaterialsController extends BaseController{
 		$button->boolIsActive = 0;
 		$reasonButton->save();
 		$button->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function reactButton()
@@ -682,7 +682,7 @@ class FabricAndMaterialsController extends BaseController{
 		$button->boolIsActive = 1;
 
 		$button->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 		///////////ZIPPER////////////
@@ -716,7 +716,7 @@ class FabricAndMaterialsController extends BaseController{
 			}
 
 		$zipper ->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function editZipper()
@@ -744,7 +744,7 @@ class FabricAndMaterialsController extends BaseController{
 		}	
 
 		$zipper->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function delZipper()
@@ -760,7 +760,7 @@ class FabricAndMaterialsController extends BaseController{
 		$zipper->boolIsActive = 0;
 		$reasonZipper->save();
 		$zipper->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function reactZipper()
@@ -776,7 +776,7 @@ class FabricAndMaterialsController extends BaseController{
 		$zipper->boolIsActive = 1;
 
 		$zipper->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 		///////////HOOK AND EYE////////////
@@ -810,7 +810,7 @@ class FabricAndMaterialsController extends BaseController{
 		}
 
 		$hook ->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function editHook()
@@ -838,7 +838,7 @@ class FabricAndMaterialsController extends BaseController{
 		}
 		
 		$hook->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function delHook()
@@ -854,7 +854,7 @@ class FabricAndMaterialsController extends BaseController{
 		$hook->boolIsActive = 0;
 		$reasonHook->save();
 		$hook->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 	public function reactHook()
@@ -870,7 +870,7 @@ class FabricAndMaterialsController extends BaseController{
 		$hook->boolIsActive = 1;
 
 		$hook->save();
-		return Redirect::to('/fabricAndMaterialsMaterials');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
 	}
 
 		//////////SMART COUNTER////////////
