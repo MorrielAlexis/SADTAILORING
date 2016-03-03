@@ -14,6 +14,7 @@
         <li style="background:pink; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabHook">Hook&Eye</a></li>
         <div class="indicator white" style="z-index:1"></div>
       </ul>
+      </div>
   
       <!--THREADS-->
       <div id="tabThread" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
@@ -25,7 +26,7 @@
               <div class="card-content">
                 <div class = "col s12 m12 l12 overflow-x">
                   <h5><font color = "#1b5e20"><center>Threads</center> </font> </h5>
-                  <table class = "centered" border = "1">
+                  <table class = "table centered data-thread" border = "1">
 
                     <thead>
                       <tr>
@@ -34,6 +35,8 @@
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
                         <th data-field="ThreadImage">Image</th>
+                        <th data-field="Edit">Action</th>
+                        <th data-field="Deactivate">Action</th>
                         <th>
                           <div align="right" style="margin-right:70px;"><a href="#addThread" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table"><i class="centered tiny material-icons">add</i></a></div>
                         </th>
@@ -770,7 +773,7 @@
         </div>
 
       </div>
-  </div>
+  
 
   <!--MODAL: add Thread-->
   <div id="addThread" class="modal modal-fixed-footer">
@@ -1083,6 +1086,17 @@
       }); 
 
   </script>
+          <!--DATA TABLE SCRIPT-->
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('.data-thread').DataTable();
+          $('select').material_select();
+          
+          setTimeout(function () {
+            $('#success-message').hide();
+        }, 5000);
+      } );
+    </script>
 
 @stop
 
