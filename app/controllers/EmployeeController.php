@@ -179,6 +179,7 @@ class EmployeeController extends BaseController{
 			$employee->strEmpLName = Input::get('editLastName');	
 			$employee->strEmpMName = Input::get('editMiddleName');	
 			$employee->dtEmpBday = Input::get('editdtEmpBday');
+			$employee->dtEmpBday = date("Y-m-d", strtotime(Input::get("editdtEmpBday")));
 			$employee->strSex = Input::get('editSex');
 			$employee->strEmpAddress = Input::get('editAddress');
 			$employee->strRole = Input::get('editRoles');
