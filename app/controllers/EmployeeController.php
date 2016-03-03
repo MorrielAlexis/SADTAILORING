@@ -132,7 +132,7 @@ class EmployeeController extends BaseController{
 
 			$role->save();
 			return Redirect::to('/employeeRole?success=true');
-		}else return Redirect::to('/employeeRole?success=false');
+		}else return Redirect::to('/employeeRole?success=duplicate');
 	}
 
 	public function editEmployee()
@@ -188,7 +188,7 @@ class EmployeeController extends BaseController{
 
 			$employee->save();
 			return Redirect::to('/employee?successEdit=true');
-		 } else return Redirect::to('/employee?successEdit=false');
+		 } else return Redirect::to('/employee?success=duplicate');
 	}
 
 	public function editRole()
@@ -209,7 +209,7 @@ class EmployeeController extends BaseController{
 
 			$role->save();
 			return Redirect::to('/employeeRole?successEdit=true');
-		}else return Redirect::to('/employeeRole?successEdit=false');
+		}else return Redirect::to('/employeeRole?success=duplicate');
 
 		
 	 
