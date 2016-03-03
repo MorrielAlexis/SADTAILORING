@@ -242,10 +242,7 @@ class EmployeeController extends BaseController{
 	public function delRole()
 	{
 		$id = Input::get('delRoleID');
-		$isDeleted = FALSE;
 
-
-	if(!$isDeleted){
 		$role = Role::find($id);
 
 		$count = DB::table('tblEmployee')
@@ -264,10 +261,7 @@ class EmployeeController extends BaseController{
 			$reason->save();
         	$role->save();
         	return Redirect::to('/maintenance/employeeRole?successDel=true');
-        } else {
-        	return Redirect::to('/maintenance/employeeRole?successDel=true');
-        }
-      } else return Redirect::to('/maintenance/employeeRole?successDel=false');
+        } else return Redirect::to('/maintenance/employeeRole?success=beingUsed');
 
 	}
 

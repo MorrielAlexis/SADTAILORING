@@ -19,6 +19,16 @@
         </div>
       @endif
 
+       @if (Input::get('success') == 'beingUsed')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Someone is still assigned to this role!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
 
       <!--Edit Employee Role-->
       @if (Input::get('successEdit') == 'true')
