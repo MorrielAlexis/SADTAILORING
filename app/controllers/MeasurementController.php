@@ -123,9 +123,6 @@ class MeasurementController extends BaseController{
 	public function delDetail()
 	{
 		$id = Input::get('delDetailID');
-		$isDeleted = FALSE;
-
-	if(!$isDeleted){
 		$detail = MeasurementDetail::find($id);
 
 		$count = DB::table('tblMeasurementHeader')
@@ -144,12 +141,8 @@ class MeasurementController extends BaseController{
         	$reasonDetail->save();
         	$detail->save();
         	return Redirect::to('/maintenance/measurements?successPartDel=true');
-        }else{
-        	return Redirect::to('/maintenance/measurements?successPartDel=false');
-        }
-	
-		return Redirect::to('/maintenance/measurements?successPartDel=true');
-	 } else return Redirect::to('/maintenance/measurements?successPartDel=false');
+        }else return Redirect::to('/maintenance/measurements?successPartDel=false');
+
 	}
 
 	public function reactDetail()
@@ -177,41 +170,51 @@ class MeasurementController extends BaseController{
 	{	
 		for($i = 0; $i < count(Input::get('addDetail')); $i++){
 
-			if($i == 0){
-				$category = MeasurementHead::create(array(
-					'strMeasurementID' => Input::get('addMeasurementID'),
-					'strCategoryName' => Input::get('addCategory'),
-					'strSegmentName' => Input::get('addSegment'),
-					'strMeasurementName' => Input::get('addDetail')[$i],
-					'boolIsActive' => 1
-				));
+			$head = MeasurementHead::all();
+			$isAdded = FALSE;
 
-				$category->save();
-			}else{
-				$category = MeasurementHead::create(array(
-					'strMeasurementID' => $categoryNewID,
-					'strCategoryName' => Input::get('addCategory'),
-					'strSegmentName' => Input::get('addSegment'),
-					'strMeasurementName' => Input::get('addDetail')[$i],
-					'boolIsActive' => 1
-				));
+			foreach ($head as $head)
+				if(strcasecmp($head->strCategoryName, Input::get('addCategory')) == 0 &&
+					strcasecmp($head->strSegmentName, Input::get('addSegment')) == 0 &&
+					strcasecmp($head->strMeasurementName, Input::get('addDetail')[$i]) == 0)
+					$isAdded = TRUE;
 
-				$category->save();
-			}
-				
-			$ids = DB::table('tblMeasurementHeader')
-			->select('strMeasurementID')
-			->orderBy('created_at', 'desc')
-			->orderBy('strMeasurementID', 'desc')
-			->take(1)
-			->get();
+			if(!$isAdded){
+				if($i == 0){
+					$category = MeasurementHead::create(array(
+						'strMeasurementID' => Input::get('addMeasurementID'),
+						'strCategoryName' => Input::get('addCategory'),
+						'strSegmentName' => Input::get('addSegment'),
+						'strMeasurementName' => Input::get('addDetail')[$i],
+						'boolIsActive' => 1
+					));
 
-			$ID = $ids["0"]->strMeasurementID;
-			$categoryNewID = $this->smartCounter($ID);	
-			return Redirect::to('/maintenance/measurements?successHead=true');
+					$category->save();
+				}else{
+					$category = MeasurementHead::create(array(
+						'strMeasurementID' => $categoryNewID,
+						'strCategoryName' => Input::get('addCategory'),
+						'strSegmentName' => Input::get('addSegment'),
+						'strMeasurementName' => Input::get('addDetail')[$i],
+						'boolIsActive' => 1
+					));
+
+					$category->save();
+				}
+
+				$ids = DB::table('tblMeasurementHeader')
+					->select('strMeasurementID')
+					->orderBy('created_at', 'desc')
+					->orderBy('strMeasurementID', 'desc')
+					->take(1)
+					->get();
+
+					$ID = $ids["0"]->strMeasurementID;
+					$categoryNewID = $this->smartCounter($ID);	
+
+				return Redirect::to('/maintenance/measurements?successHead=true');
+			}else return Redirect::to('/maintenance/measurements?successHead=duplicate');	
 		}
-			
-		return Redirect::to('/maintenance/measurements?successHead=duplicate');
 	}
 
 	public function editCategory()
