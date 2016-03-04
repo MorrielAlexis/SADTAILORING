@@ -4,6 +4,17 @@
 
 <h3 style="margin-bottom:20px; margin-left:20px;">Inactive Datas</h3>
 
+  <!--Reactivate Garment Segment-->
+      @if (Input::get('successRec') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully added back record!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
   <div style="padding:20px">
 
       <ul class="tabs transparent" style="float:left">

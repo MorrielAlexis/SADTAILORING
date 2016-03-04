@@ -496,7 +496,7 @@ class FabricAndMaterialsController extends BaseController{
 		$thread->boolIsActive = 1;
 
 		$thread->save();
-		return Redirect::to('/utilities/inactiveData');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
 	}
 
 		///////////NEEDLES////////////
@@ -682,7 +682,7 @@ class FabricAndMaterialsController extends BaseController{
 		$button->boolIsActive = 1;
 
 		$button->save();
-		return Redirect::to('/utilities/inactiveData');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
 	}
 
 		///////////ZIPPER////////////
@@ -776,7 +776,7 @@ class FabricAndMaterialsController extends BaseController{
 		$zipper->boolIsActive = 1;
 
 		$zipper->save();
-		return Redirect::to('/utilities/inactiveData');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
 	}
 
 		///////////HOOK AND EYE////////////
@@ -870,7 +870,7 @@ class FabricAndMaterialsController extends BaseController{
 		$hook->boolIsActive = 1;
 
 		$hook->save();
-		return Redirect::to('/utilities/inactiveData');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
 	}
 
 		//////////SMART COUNTER////////////
