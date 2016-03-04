@@ -26,7 +26,7 @@
             <div class="row">
               <div style="height:20px"></div>
               <div class="col s12 center">
-                <img src="../img/admin-icon.png" alt="" class="circle responsive-img valign profile-image center" style="height:100px; width:100px; background: #00695C;">
+                <img src="../img/honeybabe.jpg" alt="" class="circle responsive-img valign profile-image center" style="height:130px; width:130px; background: #00695C;">
               </div>
           </li>
 
