@@ -117,29 +117,27 @@
                         </div>
 
                         <div class="input-field">                                                    
-                          <select required name='editCategory'>
+                          <select class="browser-default" required id="editCategory" name='editCategory'>
                             @foreach($category2 as $cat)
-                              @if($pattern->strDesignCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
+                              @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
                                 <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                               @elseif($cat->boolIsActive == 1)
                                 <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                               @endif
                             @endforeach
                           </select>    
-                          <label>Category</label>
                         </div>  
 
                         <div class="input-field">                                                    
-                          <select id="editSegment" name="editSegment">
+                          <select class="browser-default" id="editSegment" name="editSegment">
                               @foreach($segment2 as $seg)
-                                  @if($pattern->strDesignSegmentName == $seg->strGarmentSegmentID && $seg->boolIsActive == 1)
-                                    <option selected value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
-                                  @elseif($seg->boolIsActive == 1)
-                                    <option value="{{ $seg->strGarmentSegmentID }}">{{ $seg->strGarmentSegmentName }}</option>
+                                  @if($pattern->strDesignSegmentName)
+                                    <option selected value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}">{{ $seg->strGarmentSegmentName }}</option>
+                                  @else
+                                    <option value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}">{{ $seg->strGarmentSegmentName }}</option>
                                   @endif
                               @endforeach
                           </select>    
-                          <label>Segment</label>
                         </div>   
 
                         <div class="input-field">
@@ -245,25 +243,23 @@
                 </div>
 
                 <div class="input-field">
-                  <select name='addCategory' id='addCategory' required>
+                  <select class="browser-default" name='addCategory' id='addCategory' required>
                       @foreach($category as $category)
                         @if($category->boolIsActive == 1)
                           <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
                         @endif
                       @endforeach
                   </select>   
-                  <label>Category</label>
                 </div>  
 
                 <div class="input-field">
-                  <select required id="addSegment" name="addSegment">
+                  <select class="browser-default" required id="addSegment" name="addSegment">
                         @foreach($segment as $segment)
                           @if($segment->boolIsActive == 1)
                             <option value="{{ $segment->strGarmentSegmentID }}" class="{{ $segment->strCategory }}">{{ $segment->strGarmentSegmentName }}</option>
                           @endif
                         @endforeach
                   </select>
-                  <label>Segment</label>
                 </div>   
 
                 <div class="input-field">
@@ -310,6 +306,60 @@
 
         // Get jQuery object for element with ID as 'types' (second select element)
         var typesElement = $('#addSegment');
+
+        // Get children elements of typesElement
+        var typeOptions = typesElement.children();
+
+        // Invoke updateValue() once with initial category value for initial page load
+        updateValue(categoryElement.val());
+
+        // Listen for changes on the categoryElement
+        categoryElement.on('change', function () {
+          // Invoke updateValue() with currently selected category as parameter
+          updateValue(categoryElement.val());
+        });
+
+        // Define default current type
+        var defaultType = '';
+
+        // updateValue function definition
+        function updateValue(category) {
+          // On update, show everything first
+          typeOptions.show();
+
+          // Set default type to empty string for All
+          defaultType = '';
+
+          // If the selected category is all, do not hide anything
+          if (category == 'All') return;
+
+          // Iterate over options (children elements of typesElement)
+          for (var i = 0; i < typeOptions.length; i++) {
+            // Return each child as jQuery object
+            var optionElement = $(typeOptions[i]);
+
+            // Check class of optionElement, hide it if it's not equal to the current selected category
+            if (!optionElement.hasClass(category)) optionElement.hide();
+
+            // Check class of optionElement if it matches currently selected category AND if defaultType is an empty string,
+            // if the evaluation is true, set defaultType to optionElement value. We do this to set the default value
+            // when we pick another category
+            if (optionElement.hasClass(category) && defaultType == '') defaultType = optionElement.attr('value');
+          }
+
+          // If defaultType is not empty string, set it as typesElement value
+          if (defaultType != '') typesElement.val(defaultType);
+        }
+      });
+    </script>
+    
+    <script>
+    $(document).ready(function () {
+        // Get jQuery object for element with ID as 'category' (first select element)
+        var categoryElement = $('#editCategory');
+
+        // Get jQuery object for element with ID as 'types' (second select element)
+        var typesElement = $('#editSegment');
 
         // Get children elements of typesElement
         var typeOptions = typesElement.children();
