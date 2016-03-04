@@ -93,8 +93,8 @@ class MeasurementController extends BaseController{
 			));
 
 			$detail->save();
-			return Redirect::to('/maintenance/measurements?success=true');
-		}else return Redirect::to('/maintenance/measurements?success=false');
+			return Redirect::to('/maintenance/measurements?successPart=true');
+		}else return Redirect::to('/maintenance/measurements?successPart=duplicate');
 	}
 
 	public function editDetail()
@@ -116,8 +116,8 @@ class MeasurementController extends BaseController{
 			$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
 
 			$detail->save();
-			return Redirect::to('/maintenance/measurements?successEdit=true');
-	 	} else return Redirect::to('/maintenance/measurements?successEdit=false');
+			return Redirect::to('/maintenance/measurements?successPartEdit=true');
+	 	} else return Redirect::to('/maintenance/measurements?successPartEdit=duplicate');
 	}
 
 	public function delDetail()
@@ -143,13 +143,13 @@ class MeasurementController extends BaseController{
         	$detail->boolIsActive = 0;
         	$reasonDetail->save();
         	$detail->save();
-        	return Redirect::to('/maintenance/measurements?success=true');
+        	return Redirect::to('/maintenance/measurements?successPartDel=true');
         }else{
-        	return Redirect::to('/maintenance/measurements?success=false');
+        	return Redirect::to('/maintenance/measurements?successPartDel=false');
         }
 	
-		return Redirect::to('/maintenance/measurements?successDel=true');
-	 } else return Redirect::to('/maintenance/measurements?successDel=false');
+		return Redirect::to('/maintenance/measurements?successPartDel=true');
+	 } else return Redirect::to('/maintenance/measurements?successPartDel=false');
 	}
 
 	public function reactDetail()
@@ -208,10 +208,10 @@ class MeasurementController extends BaseController{
 
 			$ID = $ids["0"]->strMeasurementID;
 			$categoryNewID = $this->smartCounter($ID);	
-
+			return Redirect::to('/maintenance/measurements?successHead=true');
 		}
 			
-		return Redirect::to('/maintenance/measurements?success=false');
+		return Redirect::to('/maintenance/measurements?successHead=duplicate');
 	}
 
 	public function editCategory()
@@ -227,8 +227,8 @@ class MeasurementController extends BaseController{
 		$category->strMeasurementName = Input::get('editDetail');
 
 		$category->save();
-		return Redirect::to('/maintenance/measurements?successEdit=true');
-	 } else return Redirect::to('/maintenance/measurements?successEdit=false');
+		return Redirect::to('/maintenance/measurements?successHeadEdit=true');
+	 } else return Redirect::to('/maintenance/measurements?successHeadEdit=duplicate');
 	}
 
 	public function delCategory()
@@ -248,8 +248,8 @@ class MeasurementController extends BaseController{
 		$head->boolIsActive = 0;
 		$reasonHead->save();
 		$head->save();
-		return Redirect::to('/maintenance/measurements?successDel=true');
-	 } else return Redirect::to('/maintenance/measurements?successDel=false');
+		return Redirect::to('/maintenance/measurements?successHeadDel=true');
+	 } else return Redirect::to('/maintenance/measurements?successHeadDel=false');
 	}
 
 	public function reactCategory()

@@ -280,7 +280,7 @@
                       <th data-field="name">Category Name</th>
                       <th data-field="address">Category Description</th>
                       <th data-field="React">Reason for Deactivation</th>
-                      <th>Reactivate</th>
+                      <th><th data-field="React">Reactivate</th>
                     </tr>
                   </thead>
 

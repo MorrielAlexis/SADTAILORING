@@ -103,7 +103,7 @@ class CustomerController extends BaseController{
 
 			$individual->save();
 			return Redirect::to('/maintenance/customerIndividual?success=true');
-		}else return Redirect::to('/maintenance/customerIndividual?success=false');
+		}else return Redirect::to('/maintenance/customerIndividual?success=duplicate');
 
 		
 	}
@@ -158,7 +158,7 @@ class CustomerController extends BaseController{
 
 			$individual->save();
 			return Redirect::to('/maintenance/customerIndividual?successEdit=true');
-	 	}else return Redirect::to('/maintenance/customerIndividual?successEdit=false');
+	 	}else return Redirect::to('/maintenance/customerIndividual?successEdit=duplicate');
 
 	}
 
@@ -244,7 +244,7 @@ class CustomerController extends BaseController{
 
 			$company->save();
 			return Redirect::to('/maintenance/customerCompany?success=true');
-		}else return Redirect::to('/maintenance/customerCompany?success=false');
+		}else return Redirect::to('/maintenance/customerCompany?success=duplicate');
 	} 
 
 	public function editCustCompany()
@@ -298,7 +298,7 @@ class CustomerController extends BaseController{
 
 			$company->save();
 			return Redirect::to('/maintenance/customerCompany?successEdit=true');
-	 	}else return Redirect::to('/maintenance/customerCompany?successEdit=false');
+	 	}else return Redirect::to('/maintenance/customerCompany?successEdit=duplicate');
 	}
 
 	public function delCustCompany()
