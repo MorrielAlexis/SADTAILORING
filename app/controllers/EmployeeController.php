@@ -282,8 +282,8 @@ class EmployeeController extends BaseController{
 		$employee->boolIsActive = 1;
 
 		$employee->save();
-		return Redirect::to('/maintenance/employee?successRec=true');
-	 } else return Redirect::to('/maintenance/employee?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 } else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function reactRole()
@@ -303,8 +303,8 @@ class EmployeeController extends BaseController{
         $role->boolIsActive = 1;
 
         $role->save();
-        return Redirect::to('/maintenance/employeeRole?successRec=true');
-	 }else return Redirect::to('/maintenance/employeeRole?successRec=false');
+        return Redirect::to('/utilities/inactiveData?successRec=true');
+	 }else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function smartCounter($id)

@@ -157,8 +157,8 @@ class DesignPatternController extends BaseController{
 		$pattern->boolIsActive = 1;
 
 		$pattern->save();
-		return Redirect::to('/maintenance/designPattern?successRec=true');
-	 }else return Redirect::to('/maintenance/designPattern?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 }else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function smartCounter($id)

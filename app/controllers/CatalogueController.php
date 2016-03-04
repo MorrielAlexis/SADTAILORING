@@ -152,8 +152,8 @@ class CatalogueController extends BaseController{
 		$catalogue->boolIsActive = 1;
 
 		$catalogue->save();
-		return Redirect::to('/maintenance/catalogue?successRec=true');
-	 }else return Redirect::to('/maintenance/catalogue?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 }else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function smartCounter($id)

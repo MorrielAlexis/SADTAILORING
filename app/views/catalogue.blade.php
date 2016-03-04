@@ -48,16 +48,7 @@
         </div>
       @endif
 
-      <!--Reactivate Catalogue-->
-      @if (Input::get('successRec') == 'true')
-        <div class="row" id="success-message">
-          <div class="col s12 m12 l12">
-            <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Successfully added back catalogue design!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
-            </div>
-          </div>
-        </div>
-      @endif
+     
 
     
     <div class="row">

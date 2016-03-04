@@ -317,8 +317,8 @@ class FabricAndMaterialsController extends BaseController{
 		$swatch->boolIsActive = 1;
 
 		$swatch->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successRec=true');
-	 } else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 } else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 		//////////FABRIC TYPE///////////
@@ -405,8 +405,8 @@ class FabricAndMaterialsController extends BaseController{
 		$fabricType->boolIsActive = 1;
 
 		$fabricType->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successRec=true');
-	 } else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 } else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 		///////////THREADS/////////////
@@ -496,7 +496,7 @@ class FabricAndMaterialsController extends BaseController{
 		$thread->boolIsActive = 1;
 
 		$thread->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
+		return Redirect::to('/utilities/inactiveData');
 	}
 
 		///////////NEEDLES////////////
@@ -587,7 +587,7 @@ class FabricAndMaterialsController extends BaseController{
 		$needle->boolIsActive = 1;
 
 		$needle->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
+		return Redirect::to('/utilities/inactiveData');
 	}
 
 		///////////BUTTON////////////
@@ -682,7 +682,7 @@ class FabricAndMaterialsController extends BaseController{
 		$button->boolIsActive = 1;
 
 		$button->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
+		return Redirect::to('/utilities/inactiveData');
 	}
 
 		///////////ZIPPER////////////
@@ -776,7 +776,7 @@ class FabricAndMaterialsController extends BaseController{
 		$zipper->boolIsActive = 1;
 
 		$zipper->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
+		return Redirect::to('/utilities/inactiveData');
 	}
 
 		///////////HOOK AND EYE////////////
@@ -870,7 +870,7 @@ class FabricAndMaterialsController extends BaseController{
 		$hook->boolIsActive = 1;
 
 		$hook->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials');
+		return Redirect::to('/utilities/inactiveData');
 	}
 
 		//////////SMART COUNTER////////////

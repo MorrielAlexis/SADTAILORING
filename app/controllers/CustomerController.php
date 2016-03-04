@@ -197,8 +197,8 @@ class CustomerController extends BaseController{
 
 		$individual->boolIsActive = 1;
 		$individual->save();
-		return Redirect::to('/maintenance/customerIndividual?successRec=true');
-	  }else return Redirect::to('/maintenance/customerIndividual?successRec=false'); 
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	  }else return Redirect::to('/utilities/inactiveData?successRec=false'); 
 	}
 
 	public function addCustCompany()
@@ -339,8 +339,8 @@ class CustomerController extends BaseController{
 		$company->boolIsActive = 1;
 
 		$company->save();
-		return Redirect::to('/maintenance/customerCompany?successRec=true');
-	  }else return Redirect::to('/maintenance/customerCompany?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	  }else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function smartCounter($id)

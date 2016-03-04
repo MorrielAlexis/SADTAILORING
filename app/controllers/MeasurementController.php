@@ -167,8 +167,8 @@ class MeasurementController extends BaseController{
 		$detail->boolIsActive = 1;
 
 		$detail->save();
-		return Redirect::to('/maintenance/measurements?successRec=true');
-	 } else return Redirect::to('/maintenance/measurements?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 } else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 
@@ -267,8 +267,8 @@ class MeasurementController extends BaseController{
 		$head->boolIsActive = 1;
 
 		$head->save();
-		return Redirect::to('/maintenance/measurements?successRec=true');
-	 } else return Redirect::to('/maintenance/measurements?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 } else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 

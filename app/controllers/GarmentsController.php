@@ -239,8 +239,8 @@ class GarmentsController extends BaseController{
 		$category->boolIsActive = 1;
 
 		$category->save();
-		return Redirect::to('/maintenance/garments?successRec=true');
-	 	} else return Redirect::to('/maintenance/garments?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 	} else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function reactGarmentSegment()
@@ -260,8 +260,8 @@ class GarmentsController extends BaseController{
 		$segment->boolIsActive = 1;
 
 		$segment->save();
-		return Redirect::to('/maintenance/garmentsDetails?successRec=true');
-	 }else return Redirect::to('/maintenance/garmentsDetails?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 }else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function smartCounter($id)
