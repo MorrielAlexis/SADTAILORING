@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonMeasurementCategory extends Migration {
+class tblReasonMeasurementCategory extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonMeasurementCategory extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonMeasurementCategory', function(Blueprint $table){
+		Schema::create('tblReasonMeasurementCategory', function(Blueprint $table){
 			$table->string('strInactiveHeadID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonMeasurementCategory', function(Blueprint $table){
+		Schema::table('tblReasonMeasurementCategory', function(Blueprint $table){
 
 			$table->foreign('strInactiveHeadID')->references('strMeasurementID')->on('tblMeasurementHeader');
 			});
@@ -32,9 +32,9 @@ class TblReasonMeasurementCategory extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonMeasurementCategory');
+		Schema::dropIfExists('tblReasonMeasurementCategory');
 
-		Schema::table('TblReasonMeasurementCategory', function($table){
+		Schema::table('tblReasonMeasurementCategory', function($table){
 			$table->dropColumn('strInactiveHeadID');
 		});
 	}

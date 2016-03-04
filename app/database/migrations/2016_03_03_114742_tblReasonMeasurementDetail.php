@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonMeasurementDetail extends Migration {
+class tblReasonMeasurementDetail extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,16 @@ class TblReasonMeasurementDetail extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonMeasurementDetail', function(Blueprint $table){
+		Schema::create('tblReasonMeasurementDetail', function(Blueprint $table){
 			$table->string('strInactiveDetailID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonMeasurementDetail', function(Blueprint $table){
+		Schema::table('tblReasonMeasurementDetail', function(Blueprint $table){
 
-			$table->foreign('strInactiveDetailID')->references('strMeasurementDetailID')->on('TblMeasurementDetail');
+			$table->foreign('strInactiveDetailID')->references('strMeasurementDetailID')->on('tblMeasurementDetail');
 			});
 	}
 
@@ -32,9 +32,9 @@ class TblReasonMeasurementDetail extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonMeasurementDetail');
+		Schema::dropIfExists('tblReasonMeasurementDetail');
 
-		Schema::table('TblReasonMeasurementDetail', function($table){
+		Schema::table('tblReasonMeasurementDetail', function($table){
 			$table->dropColumn('strInactiveDetailID');
 		});
 	}

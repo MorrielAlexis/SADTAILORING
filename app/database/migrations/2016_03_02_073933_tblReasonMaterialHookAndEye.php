@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonMaterialHookAndEye extends Migration {
+class tblReasonMaterialHookAndEye extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonMaterialHookAndEye extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonMaterialHookAndEye', function(Blueprint $table){
+		Schema::create('tblReasonMaterialHookAndEye', function(Blueprint $table){
 			$table->string('strInactiveHookID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonMaterialHookAndEye', function(Blueprint $table){
+		Schema::table('tblReasonMaterialHookAndEye', function(Blueprint $table){
 
 			$table->foreign('strInactiveHookID')->references('strMaterialHookID')->on('tblMaterialHookAndEye');
 			});
@@ -32,9 +32,9 @@ class TblReasonMaterialHookAndEye extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonMaterialHookAndEye');
+		Schema::dropIfExists('tblReasonMaterialHookAndEye');
 
-		Schema::table('TblReasonMaterialHookAndEye', function($table){
+		Schema::table('tblReasonMaterialHookAndEye', function($table){
 			$table->dropColumn('strInactiveHookID');
 		});
 	}

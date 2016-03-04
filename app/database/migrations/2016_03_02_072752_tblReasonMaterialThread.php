@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonMaterialThread extends Migration {
+class tblReasonMaterialThread extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonMaterialThread extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonMaterialThread', function(Blueprint $table){
+		Schema::create('tblReasonMaterialThread', function(Blueprint $table){
 			$table->string('strInactiveThreadID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonMaterialThread', function(Blueprint $table){
+		Schema::table('tblReasonMaterialThread', function(Blueprint $table){
 
 			$table->foreign('strInactiveThreadID')->references('strMaterialThreadID')->on('tblMaterialThread');
 			});
@@ -32,9 +32,9 @@ class TblReasonMaterialThread extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonMaterialThread');
+		Schema::dropIfExists('tblReasonMaterialThread');
 
-		Schema::table('TblReasonMaterialThread', function($table){
+		Schema::table('tblReasonMaterialThread', function($table){
 			$table->dropColumn('strInactiveThreadID');
 		});
 	}

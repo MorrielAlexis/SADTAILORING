@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblDesignPattern extends Migration {
+class tblDesignPattern extends Migration {
 
 	/**
 	 * Run the migrations.

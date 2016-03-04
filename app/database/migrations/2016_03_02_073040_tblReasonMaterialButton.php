@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonMaterialButton extends Migration {
+class tblReasonMaterialButton extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonMaterialButton extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonMaterialButton', function(Blueprint $table){
+		Schema::create('tblReasonMaterialButton', function(Blueprint $table){
 			$table->string('strInactiveButtonID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonMaterialButton', function(Blueprint $table){
+		Schema::table('tblReasonMaterialButton', function(Blueprint $table){
 
 			$table->foreign('strInactiveButtonID')->references('strMaterialButtonID')->on('tblMaterialButton');
 			});
@@ -32,9 +32,9 @@ class TblReasonMaterialButton extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonMaterialButton');
+		Schema::dropIfExists('tblReasonMaterialButton');
 
-		Schema::table('TblReasonMaterialButton', function($table){
+		Schema::table('tblReasonMaterialButton', function($table){
 			$table->dropColumn('strInactiveButtonID');
 		});
 	}

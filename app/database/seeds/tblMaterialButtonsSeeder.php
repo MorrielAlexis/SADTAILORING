@@ -4,9 +4,9 @@
 class tblMaterialButtonsSeeder extends Seeder{
 	
 	public function run() {
-		DB::table('TblMaterialButton')->delete();
+		DB::table('tblMaterialButton')->delete();
 
-		$TblMaterialButton = array (
+		$tblMaterialButton = array (
 			array(
 
 				'strMaterialButtonID' => 'BUTS001',
@@ -33,7 +33,7 @@ class tblMaterialButtonsSeeder extends Seeder{
 	);
 
 	
-		DB::table('TblMaterialButton')->insert($TblMaterialButton);
+		DB::table('tblMaterialButton')->insert($tblMaterialButton);
 		}
 }
 

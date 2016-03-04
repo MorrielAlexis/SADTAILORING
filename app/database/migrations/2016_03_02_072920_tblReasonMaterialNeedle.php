@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonMaterialNeedle extends Migration {
+class tblReasonMaterialNeedle extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonMaterialNeedle extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonMaterialNeedle', function(Blueprint $table){
+		Schema::create('tblReasonMaterialNeedle', function(Blueprint $table){
 			$table->string('strInactiveNeedleID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonMaterialNeedle', function(Blueprint $table){
+		Schema::table('tblReasonMaterialNeedle', function(Blueprint $table){
 
 			$table->foreign('strInactiveNeedleID')->references('strMaterialNeedleID')->on('tblMaterialNeedle');
 			});
@@ -32,9 +32,9 @@ class TblReasonMaterialNeedle extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonMaterialNeedle');
+		Schema::dropIfExists('tblReasonMaterialNeedle');
 
-		Schema::table('TblReasonMaterialNeedle', function($table){
+		Schema::table('tblReasonMaterialNeedle', function($table){
 			$table->dropColumn('strInactiveNeedleID');
 		});
 	}

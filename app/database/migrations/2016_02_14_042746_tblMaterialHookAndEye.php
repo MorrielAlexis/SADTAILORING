@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMaterialHookAndEye extends Migration {
+class tblMaterialHookAndEye extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class TblMaterialHookAndEye extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblMaterialHookAndEye', function(Blueprint $table){
+		Schema::create('tblMaterialHookAndEye', function(Blueprint $table){
 			$table->string('strMaterialHookID')->primary();
 			$table->string('strMaterialHookName');
 			$table->string('strMaterialHookSize');
@@ -31,7 +31,7 @@ class TblMaterialHookAndEye extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblMaterialHookAndEye');
+		Schema::dropIfExists('tblMaterialHookAndEye');
 	}
 
 }

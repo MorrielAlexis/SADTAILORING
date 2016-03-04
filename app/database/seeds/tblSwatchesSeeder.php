@@ -4,9 +4,9 @@
 class tblSwatchesSeeder extends Seeder{
 	
 	public function run() {
-		DB::table('TblSwatches')->delete();
+		DB::table('tblSwatches')->delete();
 
-		$TblSwatches = array (
+		$tblSwatches = array (
 			array(
 
 				'strSwatchID' => 'SW001',
@@ -32,7 +32,7 @@ class tblSwatchesSeeder extends Seeder{
 	);
 
 	
-		DB::table('TblSwatches')->insert($TblSwatches);
+		DB::table('tblSwatches')->insert($tblSwatches);
 		}
 }
 

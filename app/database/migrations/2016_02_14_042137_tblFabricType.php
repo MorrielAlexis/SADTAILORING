@@ -28,7 +28,7 @@ class tblFabricType extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblFabricType');
+		Schema::dropIfExists('tblFabricType');
 	}
 
 }

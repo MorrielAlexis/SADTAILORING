@@ -4,9 +4,9 @@
 class tblMaterialNeedlesSeeder extends Seeder{
 	
 	public function run() {
-		DB::table('TblMaterialNeedle')->delete();
+		DB::table('tblMaterialNeedle')->delete();
 
-		$TblMaterialNeedle = array (
+		$tblMaterialNeedle = array (
 			array(
 
 				'strMaterialNeedleID' => 'NED001',
@@ -31,7 +31,7 @@ class tblMaterialNeedlesSeeder extends Seeder{
 	);
 
 	
-		DB::table('TblMaterialNeedle')->insert($TblMaterialNeedle);
+		DB::table('tblMaterialNeedle')->insert($tblMaterialNeedle);
 		}
 }
 

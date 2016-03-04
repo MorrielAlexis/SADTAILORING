@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblCustPrivateIndividual extends Migration {
+class tblCustPrivateIndividual extends Migration {
 
 	/**
 	 * Run the migrations.

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonIndividual extends Migration {
+class tblReasonIndividual extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonIndividual extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonIndividual', function(Blueprint $table){
+		Schema::create('tblReasonIndividual', function(Blueprint $table){
 			$table->string('strInactiveIndividualID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonIndividual', function(Blueprint $table){
+		Schema::table('tblReasonIndividual', function(Blueprint $table){
 
 			$table->foreign('strInactiveIndividualID')->references('strCustPrivIndivID')->on('tblCustPrivateIndividual');
 			});
@@ -32,9 +32,9 @@ class TblReasonIndividual extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonIndividual');
+		Schema::dropIfExists('tblReasonIndividual');
 
-		Schema::table('TblReasonIndividual', function($table){
+		Schema::table('tblReasonIndividual', function($table){
 			$table->dropColumn('strInactiveIndividualID');
 		});
 	}

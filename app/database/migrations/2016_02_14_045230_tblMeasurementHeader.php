@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMeasurementHeader extends Migration {
+class tblMeasurementHeader extends Migration {
 
 	/**
 	 * Run the migrations.

@@ -4,9 +4,9 @@
 class tblMaterialZippersSeeder extends Seeder{
 	
 	public function run() {
-		DB::table('TblMaterialZipper')->delete();
+		DB::table('tblMaterialZipper')->delete();
 
-		$TblMaterialZipper = array (
+		$tblMaterialZipper = array (
 			array(
 
 				'strMaterialZipperID' => 'ZIP001',
@@ -33,7 +33,7 @@ class tblMaterialZippersSeeder extends Seeder{
 	);
 
 	
-		DB::table('TblMaterialZipper')->insert($TblMaterialZipper);
+		DB::table('tblMaterialZipper')->insert($tblMaterialZipper);
 		}
 }
 

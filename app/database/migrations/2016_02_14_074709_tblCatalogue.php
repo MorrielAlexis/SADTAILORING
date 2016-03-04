@@ -38,9 +38,9 @@ class tblCatalogue extends Migration {
 
 	public function down()
 	{
-		Schema::dropIfExists('TblCatalogue');
+		Schema::dropIfExists('tblCatalogue');
 
-		Schema::table('TblCatalogue', function($table){
+		Schema::table('tblCatalogue', function($table){
 			$table->dropColumn('strCatalogueCategory');
 		});
 	}

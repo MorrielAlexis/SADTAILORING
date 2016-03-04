@@ -4,9 +4,9 @@
 class tblMaterialThreadsSeeder extends Seeder{
 	
 	public function run() {
-		DB::table('TblMaterialThread')->delete();
+		DB::table('tblMaterialThread')->delete();
 
-		$TblMaterialThread = array (
+		$tblMaterialThread = array (
 			array(
 
 				'strMaterialThreadID' => 'THR001',
@@ -31,7 +31,7 @@ class tblMaterialThreadsSeeder extends Seeder{
 	);
 
 	
-		DB::table('TblMaterialThread')->insert($TblMaterialThread);
+		DB::table('tblMaterialThread')->insert($tblMaterialThread);
 		}
 }
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMaterialButton extends Migration {
+class tblMaterialButton extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class TblMaterialButton extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblMaterialButton', function(Blueprint $table){
+		Schema::create('tblMaterialButton', function(Blueprint $table){
 			$table->string('strMaterialButtonID')->primary();
 			$table->string('strMaterialButtonName');
 			$table->string('strMaterialButtonSize');
@@ -31,7 +31,7 @@ class TblMaterialButton extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblMaterialButton');
+		Schema::dropIfExists('tblMaterialButton');
 	}
 
 }

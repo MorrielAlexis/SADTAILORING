@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMaterialThread extends Migration {
+class tblMaterialThread extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class TblMaterialThread extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblMaterialThread', function(Blueprint $table){
+		Schema::create('tblMaterialThread', function(Blueprint $table){
 			$table->string('strMaterialThreadID')->primary();
 			$table->string('strMaterialThreadName');
 			$table->string('strMaterialThreadColor');
@@ -30,7 +30,7 @@ class TblMaterialThread extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblMaterialThread');
+		Schema::dropIfExists('tblMaterialThread');
 	}
 
 }

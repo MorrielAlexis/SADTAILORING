@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMeasurementDetail extends Migration {
+class tblMeasurementDetail extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -28,7 +28,7 @@ class TblMeasurementDetail extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblMeasurementDetail');
+		Schema::dropIfExists('tblMeasurementDetail');
 	}
 
 }

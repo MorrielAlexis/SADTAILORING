@@ -4,9 +4,9 @@
 class tblMaterialHookandEyesSeeder extends Seeder{
 	
 	public function run() {
-		DB::table('TblMaterialHookAndEye')->delete();
+		DB::table('tblMaterialHookAndEye')->delete();
 
-		$TblMaterialHookAndEye = array (
+		$tblMaterialHookAndEye = array (
 			array(
 
 				'strMaterialHookID' => 'HK001',
@@ -33,7 +33,7 @@ class tblMaterialHookandEyesSeeder extends Seeder{
 	);
 
 	
-		DB::table('TblMaterialHookAndEye')->insert($TblMaterialHookAndEye);
+		DB::table('tblMaterialHookAndEye')->insert($tblMaterialHookAndEye);
 		}
 }
 

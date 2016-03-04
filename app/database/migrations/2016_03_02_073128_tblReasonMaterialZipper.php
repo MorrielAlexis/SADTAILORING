@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonMaterialZipper extends Migration {
+class tblReasonMaterialZipper extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonMaterialZipper extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonMaterialZipper', function(Blueprint $table){
+		Schema::create('tblReasonMaterialZipper', function(Blueprint $table){
 			$table->string('strInactiveZipperID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonMaterialZipper', function(Blueprint $table){
+		Schema::table('tblReasonMaterialZipper', function(Blueprint $table){
 
 			$table->foreign('strInactiveZipperID')->references('strMaterialZipperID')->on('tblMaterialZipper');
 			});
@@ -32,9 +32,9 @@ class TblReasonMaterialZipper extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonMaterialZipper');
+		Schema::dropIfExists('tblReasonMaterialZipper');
 
-		Schema::table('TblReasonMaterialZipper', function($table){
+		Schema::table('tblReasonMaterialZipper', function($table){
 			$table->dropColumn('strInactiveZipperID');
 		});
 	}

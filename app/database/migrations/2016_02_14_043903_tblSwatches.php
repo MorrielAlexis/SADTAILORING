@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblSwatches extends Migration {
+class tblSwatches extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -35,9 +35,9 @@ class TblSwatches extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblSwatches');
+		Schema::dropIfExists('tblSwatches');
 
-		Schema::table('TblSwatches', function($table){
+		Schema::table('tblSwatches', function($table){
 			$table->dropColumn('strSwatchFabricTypeName');	
 		});
 	}

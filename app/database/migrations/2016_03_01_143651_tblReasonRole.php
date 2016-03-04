@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblReasonRole extends Migration {
+class tblReasonRole extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,14 @@ class TblReasonRole extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblReasonRole', function(Blueprint $table){
+		Schema::create('tblReasonRole', function(Blueprint $table){
 			$table->string('strInactiveRoleID')->primary();
 			$table->string('strInactiveReason')->nullable()->change();
 			$table->timestamps();
 		});
 
 
-		Schema::table('TblReasonRole', function(Blueprint $table){
+		Schema::table('tblReasonRole', function(Blueprint $table){
 
 			$table->foreign('strInactiveRoleID')->references('strEmpRoleID')->on('tblEmployeeRole');
 			});
@@ -32,9 +32,9 @@ class TblReasonRole extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblReasonRole');
+		Schema::dropIfExists('tblReasonRole');
 
-		Schema::table('TblReasonRole', function($table){
+		Schema::table('tblReasonRole', function($table){
 			$table->dropColumn('strInactiveRoleID');
 		});
 	}

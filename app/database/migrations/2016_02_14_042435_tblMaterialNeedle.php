@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMaterialNeedle extends Migration {
+class tblMaterialNeedle extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class TblMaterialNeedle extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblMaterialNeedle', function(Blueprint $table){
+		Schema::create('tblMaterialNeedle', function(Blueprint $table){
 			$table->string('strMaterialNeedleID')->primary();
 			$table->string('strMaterialNeedleName');
 			$table->string('strMaterialNeedleSize');
@@ -30,7 +30,7 @@ class TblMaterialNeedle extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblMaterialNeedle');
+		Schema::dropIfExists('tblMaterialNeedle');
 	}
 
 }

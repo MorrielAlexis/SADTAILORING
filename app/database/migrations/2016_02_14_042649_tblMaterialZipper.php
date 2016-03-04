@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblMaterialZipper extends Migration {
+class tblMaterialZipper extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class TblMaterialZipper extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('TblMaterialZipper', function(Blueprint $table){
+		Schema::create('tblMaterialZipper', function(Blueprint $table){
 			$table->string('strMaterialZipperID')->primary();
 			$table->string('strMaterialZipperName');
 			$table->string('strMaterialZipperSize');
@@ -31,7 +31,7 @@ class TblMaterialZipper extends Migration {
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('TblMaterialZipper');
+		Schema::dropIfExists('tblMaterialZipper');
 	}
 
 }
