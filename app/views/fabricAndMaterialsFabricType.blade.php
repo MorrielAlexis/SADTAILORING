@@ -31,7 +31,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Successfully deactivatedd fabric type!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully deactivated fabric type!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>

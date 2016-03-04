@@ -419,7 +419,7 @@ class FabricAndMaterialsController extends BaseController{
 			'strMaterialThreadID' => Input::get('addThreadID'),
 			'strMaterialThreadName' => Input::get('addThreadName'),
 			'strMaterialThreadColor' => Input::get('addThreadColor'),
-			// 'strMaterialThreadDesc' => Input::get('addThreadDesc'),
+			'strMaterialThreadDesc' => Input::get('addThreadDesc'),
 			'boolIsActive' => 1
 			));
 		}else{

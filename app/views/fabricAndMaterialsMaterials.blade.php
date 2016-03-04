@@ -19,6 +19,13 @@
       <div id="tabThread" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
 
+
+       <div class="row">
+          <div class="col s12 m12 l12">
+              <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table" href="#addThread">ADD NEW THREAD</button>
+          </div>
+        </div>                                 
+
         <div class="row">
           <div class="col s12">
             <div class="card">
@@ -36,9 +43,6 @@
                         <th data-field="ThreadImage">Image</th>
                         <th data-field="Edit">Edit</th>
                         <th data-field="Deactivate">Deactivate</th>
-                        <th>
-                          <div align="right" style="margin-right:70px;"><a href="#addThread" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table"><i class="centered tiny material-icons">add</i></a></div>
-                        </th>
                       </tr>
                     </thead>
 
@@ -61,9 +65,7 @@
 
                               <div class="modal-content">
                                 <div class="input-field">
-         
-                                  <!-- <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" readonly = "readonly" type="text" class="">
-                                  <label for="Thread_ID"> Thread ID: </label> -->
+      
 
                                   <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" type="hidden">
          
@@ -166,13 +168,19 @@
       <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: lightgreen;">
         <div style="height:30px;"></div>
 
+      <div class="row">
+        <div class="col s12 m12 l12">
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new needle detail to the table" href="#addNeedle">ADD NEW NEEDLE</button>
+        </div>
+      </div>  
+
         <div class="row">
           <div class="col s12">
             <div class="card">
               <div class="card-content">
                 <div class = "col s12 m12 l12 overflow-x">
                   <h5><font color = "#1b5e20"><center>Needles</center> </font> </h5>
-                  <table class = "centered" border = "1">
+                  <table class = "table centered data-needle" border = "1">
                     <thead>
                       <tr>
                         <!--<th date-field= "Needle ID">Needle ID</th>-->
@@ -180,12 +188,8 @@
                         <th data-field="Needle Size">Needle Size</th>
                         <th data-field="Needle Desc">Description</th>
                         <th data-field="Needle Image">Image</th>
-                        <th data-field="Needle Desc">Edit</th>
-                        <th data-field="Needle Image">Deactivate</th>
-
-                        <th>
-                          <div align="right" style="margin-right:70px;"><a href="#addNeedle" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new needle detail to the table"><i class="centered tiny material-icons">add</i></a></div>
-                        </th>
+                        <th data-field="Needle Desc">Action</th>
+                        <th data-field="Needle Image">Action</th>
                       </tr>
                     </thead>
 
@@ -280,7 +284,7 @@
 
                                   <div class="input-field">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$needle->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
+                                    <label for="Needle_Reason"> *Reason for Deactivation: </label>
                                   </div>
                                 </p>
                               </div>
@@ -310,13 +314,19 @@
       <div id="tabButton" class="hue col s12" style="margin-top:45px; background-color: salmon;">
         <div style="height:30px;"></div>
 
+      <div class="row">
+        <div class="col s12 m12 l12">
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new button detail to the table" href="#addButton">ADD NEW BUTTON</button>
+        </div>
+      </div> 
+
         <div class="row">
           <div class="col s12">
             <div class="card">
               <div class="card-content">
                 <div class = "col s12 m12 l12 overflow-x">
                   <h5><font color = "#1b5e20"><center>Buttons</center> </font> </h5>
-                  <table class = "centered" border = "1">
+                  <table class = "table centered data-button" border = "1">
 
                     <thead>
                       <tr>
@@ -328,9 +338,6 @@
                         <th data-field="ButtonImage">Image</th>
                         <th data-field="Button Color">Edit</th>
                         <th data-field="ButtonImage">Deactivate</th>
-                        <th>
-                          <div align="right" style="margin-right:40px;"><a href="#addButton" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new button detail to the table"><i class="centered tiny material-icons">add</i></a></div>
-                        </th>
                       </tr>
                     </thead>
 
@@ -466,13 +473,19 @@
       <div id="tabZipper" class="hue col s12" style="margin-top:45px; background-color: lightblue;">
         <div style="height:30px;"></div>
 
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new zipper detail to the table" href="#addZipper">ADD NEW ZIPPER</button>
+        </div>
+      </div> 
+
         <div class="row">
           <div class="col s12">
             <div class="card">
               <div class="card-content">
                 <div class = "col s12 m12 l12 overflow-x">
                   <h5><font color = "#1b5e20"><center>Zippers</center> </font> </h5>
-                  <table class = "centered" border = "1">
+                  <table class = "table centered data-zipper" border="1">
 
                     <thead>
                       <tr>
@@ -484,9 +497,6 @@
                         <th data-field="ZipperImage">Image</th>
                         <th data-field="Zipper Desc">Edit</th>
                         <th data-field="ZipperImage">Deactivate</th>
-                        <th>
-                          <div align="right" style="margin-right:45px;"><a href="#addZipper" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new zipper detail to the table"><i class="centered tiny material-icons">add</i></a></div>
-                        </th>
                       </tr>
                     </thead>
 
@@ -621,27 +631,31 @@
       <div id="tabHook" class="hue col s12" style="margin-top:45px; background-color: pink;">
         <div style="height:30px;"></div>
 
+       <div class="row">
+        <div class="col s12 m12 l12">
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new hook and eye detail to the table" href="#addHookEye">ADD NEW HOOK AND EYE</button>
+        </div>
+      </div> 
+
+
         <div class="row">
           <div class="col s12">
             <div class="card">
               <div class="card-content">
                 <div class = "col s12 m12 l12 overflow-x">
                   <h5><font color = "#1b5e20"><center>Hook & Eye</center> </font> </h5>
-                  <table class = "centered" border = "1">
+                  <table class = "table centered data-hook" border = "1">
 
                     <thead>
                       <tr>
                         <!--<th date-field="Hook and Eye ID">Hook and Eye ID</th>-->
-                        <th data-field="Hook and Eye Name">Hook and Eye Name</th>
-                        <th data-field="Hook and Eye Size">Hook and Eye Size</th>
-                        <th data-field="Hook and Eye Color">Hook and Eye Color</th>
+                        <th data-field="Hook and Eye Name"> Hook Name</th>
+                        <th data-field="Hook and Eye Size"> Hook Size</th>
+                        <th data-field="Hook and Eye Color"> Hook Color</th>
                         <th data-field="Hook and Eye Desc">Description</th>
                         <th data-field="Image">Image</th>
                         <th data-field="Hook and Eye Desc">Edit</th>
                         <th data-field="Image">Deactivate</th>
-                        <th>
-                          <div align="right" style="margin-right:30px;"><a href="#addHookEye" style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new hook and eye detail to the table"><i class="centered tiny material-icons">add</i></a></div>
-                        </th>
                       </tr>
                     </thead>
 
@@ -1090,16 +1104,20 @@
 
   </script>
           <!--DATA TABLE SCRIPT-->
-   <!--  <script type="text/javascript">
+    <script type="text/javascript">
       $(document).ready(function() {
           $('.data-thread').DataTable();
+          $('.data-needle').DataTable();
+          $('.data-button').DataTable();
+          $('.data-zipper').DataTable();
+          $('.data-hook').DataTable();
           $('select').material_select();
           
           setTimeout(function () {
             $('#success-message').hide();
         }, 5000);
       } );
-    </script> -->
+    </script>
 
 @stop
 
