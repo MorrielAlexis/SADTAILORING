@@ -259,7 +259,7 @@
 
                 <div class="input-field">
                   <input required id="addLName" name = "addLName" type="text" class="validateLast">
-                  <label for="last_name"> *Last Name </label>
+                  <label for="last_name"> *Last Name: </label>
                 </div>
 
                 <div class="input-field">

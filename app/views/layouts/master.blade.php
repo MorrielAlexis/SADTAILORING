@@ -74,7 +74,7 @@
                         <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('maintenance/employeeRole') || Request::is('maintenance/employee') ? 'active' : '' }}"><b>Employee</b></a>
                           <div class="collapsible-body">
                             <ul>  
-                              <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('maintenance/employeeRole')}}">Position Roles</a></li>
+                              <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('maintenance/employeeRole')}}">Employee Roles</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('maintenance/employee')}}">Employee Profile</a></li>
                               <div class="divider"></div>
                             </ul>
