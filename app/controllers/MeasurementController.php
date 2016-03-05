@@ -14,7 +14,44 @@ class MeasurementController extends BaseController{
 			->get();
 
 		$ID = $ids["0"]->strMeasurementID;
-		$categoryNewID = $this->smartCounter($ID);	
+		$categoryNewID = $this->smartCounter($ID);
+
+		$records = MeasurementHead::all();
+		$array = array();
+
+		foreach ($records as $record) {
+			if (count($array) == 0) {
+				$item1 = array();
+				$item1[0] = $record->strCategoryName;
+				$item1[1] = $record->strSegmentName;
+				$item1[2] = [$record->strMeasurementName];
+				array_push($array, $item1);
+				continue;
+			}
+
+			$doesExist = FALSE;
+			foreach ($array as $checker) {
+				if ($checker[0] == $record->strCategoryName && $checker[1] == $record->strSegmentName) {
+					$doesExist = TRUE;
+					break;
+				}
+			}
+
+			if (!$doesExist) {
+				$itemPush = array();
+				$itemPush[0] = $record->strCategoryName;
+				$itemPush[1] = $record->strSegmentName;
+				$itemPush[2] = [$record->strMeasurementName];
+				array_push($array, $itemPush);
+				continue;
+			}
+
+			for ($i = 0; $i < count($array); $i++) {
+				if ($array[$i][0] == $record->strCategoryName && $array[$i][1] == $record->strSegmentName) {
+					array_push($array[$i][2], $record->strMeasurementName);
+				}
+			}
+		}
 
 		$head = DB::table('tblMeasurementHeader AS a')
             ->leftJoin('tblGarmentCategory AS b', 'a.strCategoryName', '=', 'b.strGarmentCategoryID')
@@ -70,7 +107,8 @@ class MeasurementController extends BaseController{
 					->with('category', $category)
 					->with('segment', $segment)
 					->with('detailList', $detailList)
-					->with('expHead', $expHead);
+					->with('expHead', $expHead)
+					->with('array', $array);
 		
 	}
 
