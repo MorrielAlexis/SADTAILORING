@@ -28,20 +28,21 @@
               <div class="col s12 center">
                 <img src="../img/honeybabe.jpg" alt="" class="circle responsive-img valign profile-image center" style="height:130px; width:130px; background: #00695C;">
               </div>
+            </div>
           </li>
 
-              <div class="col s12 center">
-                <ul id="profile-dropdown" class="dropdown-content">
-                  <li><a href="#"><i class="small mdi-action-face-unlock" style="font-size:15px; margin-top:20px;margin-left:0px;"> Profile</i></a></li>
-                  <li><a href="#"><i class="small mdi-action-settings" style="font-size:15px; margin-top:20px;margin-left:0px;"> Utils</i></a></li>
-                  <li><a href="#"><i class="small mdi-communication-live-help"style="font-size:15px; margin-top:20px;margin-left:0px;"> Help</i></a></li>
-                  <li class="divider"></li>
-                  <li><a href="#"><i class="small mdi-action-lock-outline"style="font-size:15px;margin-top:20px;margin-left:0px;"> Lock</i></a></li>
-                  <li><a href="#"><i class="small mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
-                </ul>
-                <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#" data-activates="profile-dropdown"><span class="user" style="color:white; padding-bottom:5px"><b>Honey Buenavides<b></span></a>
-              </div>
-            </div>
+          <div class="col s12 center">
+            <ul id="profile-dropdown" class="dropdown-content">
+              <li><a href="#"><i class="small mdi-action-face-unlock" style="font-size:15px; margin-top:20px;margin-left:0px;"> Profile</i></a></li>
+              <li><a href="#"><i class="small mdi-action-settings" style="font-size:15px; margin-top:20px;margin-left:0px;"> Utils</i></a></li>
+              <li><a href="#"><i class="small mdi-communication-live-help"style="font-size:15px; margin-top:20px;margin-left:0px;"> Help</i></a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="small mdi-action-lock-outline"style="font-size:15px;margin-top:20px;margin-left:0px;"> Lock</i></a></li>
+              <li><a href="#"><i class="small mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
+            </ul>
+            <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#" data-activates="profile-dropdown"><span class="user" style="color:white; padding-bottom:5px"><b>Honey Buenavides<b></span></a>
+          </div>
+            
 
           <!--<div class="divider" style="background-color:black"></div>-->
 
@@ -61,14 +62,14 @@
                       <ul class="collapsible collapsible-accordion">
 
                         <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('maintenance/customerIndividual') || Request::is('maintenance/customerCompany') ? 'active' : '' }}"><b>Customer Profile</b></a>
-                           <div class="collapsible-body">
+                          <div class="collapsible-body">
                             <ul>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white " href="{{URL::to('maintenance/customerIndividual')}}">Individual</a></li>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('maintenance/customerCompany')}}">Company</a></li>
 
                              <div class="divider"></div>
                             </ul>
-                           </div>
+                          </div>
                         </li>
 
                         <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('maintenance/employeeRole') || Request::is('maintenance/employee') ? 'active' : '' }}"><b>Employee</b></a>
@@ -112,7 +113,27 @@
               </li>
     
               <!--<div class="divider"></div>-->
-              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#212121"><i style="font-size:30px" class="small mdi-editor-attach-money" style="color:#ccff90"></i><b>Transaction</b></a></li>
+              <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#212121"><i style="font-size:30px" class="small mdi-editor-attach-money" style="color:#ccff90"></i><b>Transaction</b></a>
+                <div class = "collapsible-body" position = "fixed" style = "display:block;">
+                  <ul>
+                    <li class = "no padding">
+                       <ul class = "collapsible collapsible-accordion">
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href= "/#"><b>Job Order</b></a><li>
+                      </ul>
+                      <ul class = "collapsible collapsible-accordion">
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href= "/#"><b>Job Order Progress</b></a><li>
+                      </ul>
+                      <ul class = "collapsible collapsible-accordion">
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href= "/#"><font size = "-1"><b>Materials Purchasing</font></b></a><li>
+                      </ul>
+                      <ul class = "collapsible collapsible-accordion">
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href= "/#"><font size = "-1"><b>Billing and Collection</b></font></a><li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+              </li>
               <!--<div class="divider"></div>-->
               <li class="bold"><a class="collapsible-header waves-effect waves-white" style="color:#212121"><i style="font-size:30px" class="small mdi-action-assessment" style="color:#ccff90"></i><b>Queries</b></a></li>
               <!--<div class="divider"></div>-->
