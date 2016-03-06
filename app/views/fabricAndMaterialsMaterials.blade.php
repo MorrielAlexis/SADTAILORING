@@ -77,11 +77,11 @@
   <div style="padding:20px">
 
       <ul class="tabs transparent" style="float:left">
-        <li style="background:#ce93d8; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabThread">Threads</a></li>
-        <li style="background:lightgreen; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabNeedle">Needles</a></li>
-        <li style="background:salmon; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabButton">Buttons</a></li>
-        <li style="background:lightblue; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabZipper">Zippers</a></li>
-        <li style="background:pink; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabHook">Hook&Eye</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab active"><a style="color:black" href="#tabThread">Threads</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabNeedle">Needles</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabButton">Buttons</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabZipper">Zippers</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabHook">Hook&Eye</a></li>
         <div class="indicator white" style="z-index:1"></div>
       </ul>
   
@@ -235,7 +235,7 @@
       </div>
 
       <!--NEEDLES-->
-      <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: lightgreen;">
+      <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
 
       <div class="row">
@@ -381,7 +381,7 @@
       </div>
 
       <!--BUTTONS-->
-      <div id="tabButton" class="hue col s12" style="margin-top:45px; background-color: salmon;">
+      <div id="tabButton" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
 
       <div class="row">
@@ -540,7 +540,7 @@
       </div>
 
       <!--ZIPPERS-->
-      <div id="tabZipper" class="hue col s12" style="margin-top:45px; background-color: lightblue;">
+      <div id="tabZipper" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
 
     <div class="row">
@@ -698,7 +698,7 @@
       </div>
 
       <!--HOOK&EYE-->
-      <div id="tabHook" class="hue col s12" style="margin-top:45px; background-color: pink;">
+      <div id="tabHook" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
 
        <div class="row">

@@ -98,15 +98,15 @@
     
     <!--Measurement Tabs-->
       <div class="col s12" id="measurements" name="measurements">
-        <ul class="tabs" style="background: transparent;">
-          <li id="detailTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
-          <li id="categoryTab" class="tab col s3"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="CLick to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
+        <ul class="tabs transparent">
+          <li id="detailTab" class="tab col s3" style="background-color: lavender;"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
+          <li id="categoryTab" class="tab col s3" style="background-color: lavender;"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="CLick to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
           <div class="indicator white" style="z-index:1"></div>
         </ul>
     
     <!--Tab Contents-->
     <!--Measurement Category-->
-        <div id="tabCategory" class="hue col s12">
+        <div id="tabCategory" class="hue col s12" style="background-color: #ce93d8;">
 
           
 
@@ -323,7 +323,7 @@
       
         <!--END OF MEASUREMENT CATEGORY-->
 
-        <div id="tabDetails" class="hue col s12">
+        <div id="tabDetails" class="hue col s12" style="background-color: #ce93d8;">
 
             <div class="row">
               <div class="col s12 m12 l12">
