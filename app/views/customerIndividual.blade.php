@@ -1,4 +1,4 @@
-@extends('layouts.master')
+  @extends('layouts.master')
 
 @section('content')
 
@@ -86,9 +86,7 @@
             <table class = "table centered data-custInd" align = "center" border = "1">
               <thead>
                 <tr>
-                  <th data-field="fname">First Name</th>
-                  <th data-field="mname">Middle Name</th>
-                  <th data-field="lname">Last Name</th>
+                  <th data-field="fname">Customer Name</th>
                   <th data-field="address">Address</th>
                   <th data-field="email">Email Address</th>
                   <th data-field="cellphone">Cellphone No.</th>
@@ -104,9 +102,7 @@
                   @foreach($individual as $individual)
                   @if($individual->boolIsActive == 1)
                 <tr>
-                  <td>{{ $individual->strCustPrivFName }}</td>
-                  <td>{{ $individual->strCustPrivMName }}</td>
-                  <td>{{ $individual->strCustPrivLName }}</td>
+                  <td>{{ $individual->strCustPrivFName }} {{ $individual->strCustPrivMName }} {{ $individual->strCustPrivLName }}</td>
                   <td>{{ $individual->strCustPrivAddress }} </td>
                   <td>{{ $individual->strCustPrivEmailAddress}}</td>                  
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
