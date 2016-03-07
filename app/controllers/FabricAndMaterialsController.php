@@ -572,7 +572,7 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($needl as $needle)
-			if(!strcasecmp($needle->strMaterialNeedleID, Input::get('editNeedleID'))
+			if(!strcasecmp($needle->strMaterialNeedleID, Input::get('editNeedleID')) &&
 				strcasecmp($needle->strMaterialNeedleName, Input::get('editNeedleName')) == 0 && 
 				strcasecmp($needle->strMaterialNeedleSize, Input::get('editNeedleSize')) == 0 &&
 				strcasecmp($needle->strMaterialNeedleDesc, Input::get('editNeedleDesc')) == 0)
