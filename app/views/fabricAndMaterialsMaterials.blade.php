@@ -77,11 +77,11 @@
   <div style="padding:20px">
 
       <ul class="tabs transparent" style="float:left">
-        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab active"><a style="color:black" href="#tabThread">Threads</a></li>
-        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabNeedle">Needles</a></li>
-        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabButton">Buttons</a></li>
-        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabZipper">Zippers</a></li>
-        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabHook">Hook&Eye</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('thread') == 'true') class="active" @endif><a style="color:black" href="#tabThread">Threads</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('needle') == 'true') class="active" @endif><a style="color:black" href="#tabNeedle">Needles</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('button') == 'true') class="active" @endif><a style="color:black" href="#tabButton">Buttons</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('zipper') == 'true') class="active" @endif><a style="color:black" href="#tabZipper">Zippers</a></li>
+        <li id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('hook') == 'true') class="active" @endif><a style="color:black" href="#tabHook">Hook&Eye</a></li>
         <div class="indicator white" style="z-index:1"></div>
       </ul>
   
@@ -117,7 +117,7 @@
                     </thead>
 
                     <tbody>
-                      @foreach($thread as $thread)
+                      @foreach($threads as $thread)
                       @if($thread->boolIsActive == 1)
                       <tr>
                         <!--<td>{{ $thread->strMaterialThreadID }}</td>-->
@@ -264,7 +264,7 @@
                     </thead>
 
                     <tbody>
-                      @foreach($needle as $needle)
+                      @foreach($needles as $needle)
                         @if($needle->boolIsActive == 1)
                       <tr>
                         <!--<td>{{$needle->strMaterialNeedleID}}</td>-->
@@ -412,7 +412,7 @@
                     </thead>
 
                     <tbody>
-                      @foreach($button as $button)
+                      @foreach($buttons as $button)
                       @if($button->boolIsActive == 1)
                       <tr>
                        <!-- <td>{{$button->strMaterialButtonID}}</td>-->
@@ -571,7 +571,7 @@
                     </thead>
 
                     <tbody>
-                      @foreach($zipper as $zipper)
+                      @foreach($zippers as $zipper)
                       @if($zipper->boolIsActive == 1)
                       <tr>
                         <!--<td>{{$zipper->strMaterialZipperID}}</td>-->
@@ -730,7 +730,7 @@
                     </thead>
 
                     <tbody>
-                      @foreach($hook as $hook)
+                      @foreach($hooks as $hook)
                       @if($hook->boolIsActive == 1)
                       <tr>
                        <!-- <td>{{$hook->strMaterialHookID}}</td>-->
