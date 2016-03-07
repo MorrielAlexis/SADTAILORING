@@ -100,7 +100,7 @@
       <div class="col s12" id="measurements" name="measurements">
         <ul class="tabs transparent">
           <li id="detailTab" class="tab col s3" style="background-color: lavender;"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
-          <li id="categoryTab" class="tab col s3" style="background-color: lavender;"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="CLick to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
+          <li id="categoryTab" class="tab col s3" style="background-color: lavender;"><a @if (Input::get('isCat') == 'true') class="active" @endif style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
           <div class="indicator white" style="z-index:1"></div>
         </ul>
     
@@ -121,11 +121,7 @@
               <div class="col s12 m12 l12">
                 <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new measurement information to the table" href="#addMeasurementInfo"> ADD MEASUREMENT INFO </button>
               </div>
-            </div>
-        
-
-
-
+            </div>        
  
           <div class="row">
             <div class="col s12 m12 l12">
@@ -156,9 +152,7 @@
                           <td>{{ $head->meas_details }}</td>
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button></td>
-
-                          
-
+                        
                             <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                               <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
                               <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 

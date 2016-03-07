@@ -250,8 +250,8 @@ class MeasurementController extends BaseController{
 					$ID = $ids["0"]->strMeasurementID;
 					$categoryNewID = $this->smartCounter($ID);	
 
-				return Redirect::to('/maintenance/measurements?successHead=true');
-			}else return Redirect::to('/maintenance/measurements?successHead=duplicate');	
+				return Redirect::to('/maintenance/measurements?successHead=true&isCat=true');
+			}else return Redirect::to('/maintenance/measurements?successHead=duplicate&isCat=true');	
 		}
 	}
 
@@ -268,8 +268,8 @@ class MeasurementController extends BaseController{
 		$category->strMeasurementName = Input::get('editDetail');
 
 		$category->save();
-		return Redirect::to('/maintenance/measurements?successHeadEdit=true');
-	 } else return Redirect::to('/maintenance/measurements?successHeadEdit=duplicate');
+		return Redirect::to('/maintenance/measurements?successHeadEdit=true&isCat=true');
+	 } else return Redirect::to('/maintenance/measurements?successHeadEdit=duplicate&isCat=true');
 	}
 
 	public function delCategory()
@@ -289,8 +289,8 @@ class MeasurementController extends BaseController{
 		$head->boolIsActive = 0;
 		$reasonHead->save();
 		$head->save();
-		return Redirect::to('/maintenance/measurements?successHeadDel=true');
-	 } else return Redirect::to('/maintenance/measurements?successHeadDel=false');
+		return Redirect::to('/maintenance/measurements?successHeadDel=true&isCat=true');
+	 } else return Redirect::to('/maintenance/measurements?successHeadDel=false&isCat=true');
 	}
 
 	public function reactCategory()
@@ -308,8 +308,8 @@ class MeasurementController extends BaseController{
 		$head->boolIsActive = 1;
 
 		$head->save();
-		return Redirect::to('/utilities/inactiveData?successRec=true');
-	 } else return Redirect::to('/utilities/inactiveData?successRec=false');
+		return Redirect::to('/utilities/inactiveData?successRec=true&isCat=true');
+	 } else return Redirect::to('/utilities/inactiveData?successRec=false&isCat=true');
 	}
 
 
