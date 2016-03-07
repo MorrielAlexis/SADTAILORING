@@ -98,9 +98,7 @@
       			<table class = "table centered data-employee" border = "1">
        				<thead>
           			<tr>
-                  <th data-field="firstname">First Name</th>
-                  <th data-field="middlename">Middle Name</th>
-                  <th data-field="lastname">Last Name</th>          
+                  <th data-field="firstname">Employee Name</th>         
                   <th data-field="dtEmpBday">Date of Birth</th>
                   <th data-field="Sex">Sex</th>
                   <th data-field="address">Address</th>
@@ -118,9 +116,7 @@
                 @foreach($employee as $employee)
                   @if($employee->boolIsActive == 1)
                 <tr>
-                  <td>{{ $employee->strEmpFName }}</td>
-                  <td>{{ $employee->strEmpMName }}</td>
-                  <td>{{ $employee->strEmpLName }}</td>
+                  <td>{{ $employee->strEmpFName }} {{ $employee->strEmpMName }} {{ $employee->strEmpLName }}</td>
                   <td>{{ $employee->dtEmpBday }} </td>
                   <td>
                     @if($employee->strSex == 'M') Male
