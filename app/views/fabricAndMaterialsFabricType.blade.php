@@ -2,6 +2,18 @@
 
 @section('content')
   <div class="main-wrapper">  <!-- Main Wrapper  -->   
+      <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+  
+
       <!--Add Fabric Type-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">

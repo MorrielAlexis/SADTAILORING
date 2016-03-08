@@ -321,22 +321,32 @@ class FabricAndMaterialsController extends BaseController{
 	{	
 		$fabrics = FabricType::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		if (preg_match($regex, Input::get('addFabricTypeName'))) {
+			$validInput = TRUE;
+		} else {
+		    $validInput = FALSE;
+		}
 
 		foreach($fabrics as $fabric)
 			if(strcasecmp($fabric->strFabricTypeName, trim(Input::get('addFabricTypeName'))) == 0)
 				$isAdded = TRUE;
 
-		if(!$isAdded){
-			$fabricType = FabricType::create(array(
-			'strFabricTypeID' => Input::get('addFabricTypeID'),
-			'strFabricTypeName' => trim(Input::get('addFabricTypeName')),
-			'strFabricTypeDesc' => trim(Input::get('addFabricTypeDesc')),
-			'boolIsActive' => 1
-			));
+		if($validInput){
+			if(!$isAdded ){
+				$fabricType = FabricType::create(array(
+				'strFabricTypeID' => Input::get('addFabricTypeID'),
+				'strFabricTypeName' => trim(Input::get('addFabricTypeName')),
+				'strFabricTypeDesc' => trim(Input::get('addFabricTypeDesc')),
+				'boolIsActive' => 1
+				));
 
-			$fabricType->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsFabricType?success=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?success=duplicate');
+				$fabricType->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsFabricType?success=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsFabricType?input=invalid');
 
 	}
 
@@ -449,7 +459,7 @@ class FabricAndMaterialsController extends BaseController{
 	}
 
 	public function editThread()
-	{trim(
+	{
 		$id = Input::get('editThreadID');
 		$thread = MaterialThread::find($id);
 
@@ -490,16 +500,20 @@ class FabricAndMaterialsController extends BaseController{
 		$id = Input::get('delThreadID');
 		$thread = MaterialThread::find($id);
 
-		$reasonThread = ReasonMaterialThread::create(array(
-			'strInactiveThreadID' => Input::get('delInactiveThread'),
-			'strInactiveReason' => Input::get('delInactiveReason')
-			));
 
-		$thread->boolIsActive = 0;
-		$reasonThread->save();
-		$thread->save();
 
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true');
+		if(!$isAdded){
+			$reasonThread = ReasonMaterialThread::create(array(
+				'strInactiveThreadID' => Input::get('delInactiveThread'),
+				'strInactiveReason' => Input::get('delInactiveReason')
+				));
+
+			$thread->boolIsActive = 0;
+			$reasonThread->save();
+			$thread->save();
+
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=beingUsed');
 	}
 
 	public function reactThread()

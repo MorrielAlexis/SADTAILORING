@@ -106,7 +106,6 @@ class GarmentsController extends BaseController{
 	public function delGarmentCategory()
 	{
 		$id = Input::get('delGarmentID');
-	
 		$category = Category::find($id);
 
 		$count = DB::table('tblGarmentSegment')
@@ -185,8 +184,6 @@ class GarmentsController extends BaseController{
 	public function delGarmentSegment()
 	{	
 		$id = Input::get('delSegmentID');
-		
-
 	
 		$segment = Segment::find($id);
 
