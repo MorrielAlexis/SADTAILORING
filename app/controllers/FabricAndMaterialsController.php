@@ -442,14 +442,13 @@ class FabricAndMaterialsController extends BaseController{
 					));
 			}
 			$thread ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true');
-
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=duplicate');
 		
 	}
 
 	public function editThread()
-	{trim(
+	{
 		$id = Input::get('editThreadID');
 		$thread = MaterialThread::find($id);
 
@@ -481,8 +480,8 @@ class FabricAndMaterialsController extends BaseController{
 				$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
 			}
 			$thread->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=true');
 	}
 
 	public function delThread()
@@ -499,8 +498,10 @@ class FabricAndMaterialsController extends BaseController{
 		$reasonThread->save();
 		$thread->save();
 
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true');
-	}
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&successDel=true');
+		} 
+	
+	
 
 	public function reactThread()
 	{
