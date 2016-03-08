@@ -54,9 +54,7 @@ class GarmentsController extends BaseController{
 
 		return View::make('garmentsDetails')
 					->with('segment', $segment)
-					->with('segment2', $segment)
 					->with('category', $category)
-					->with('category2', $category)
 					->with('reason', $reason)
 					->with('newID', $newID);
 	}
@@ -67,14 +65,14 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($garm as $garm)
-			if(strcasecmp($garm->strGarmentCategoryName, Input::get('addGarmentName')) == 0)
+			if(strcasecmp($garm->strGarmentCategoryName, trim(Input::get('addGarmentName'))) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
 			$garment = Category::create(array(
 			'strGarmentCategoryID' => Input::get('addGarmentID'),
-			'strGarmentCategoryName' => Input::get('addGarmentName'),
-			'strGarmentCategoryDesc' => Input::get('addGarmentDesc'),
+			'strGarmentCategoryName' => trim(Input::get('addGarmentName')),
+			'strGarmentCategoryDesc' => trim(Input::get('addGarmentDesc')),
 			'boolIsActive' => 1
 			));
 
@@ -93,12 +91,12 @@ class GarmentsController extends BaseController{
 
 		foreach($garm as $garm)
 			if(!strcasecmp($garm->strGarmentCategoryID, Input::get('editGarmentID')) == 0 &&
-				strcasecmp($garm->strGarmentCategoryName, Input::get('editGarmentName')) == 0)
+				strcasecmp($garm->strGarmentCategoryName, trim(Input::get('editGarmentName'))) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){		
 			$garments->strGarmentCategoryName = Input::get('editGarmentName');	
-			$garments->strGarmentCategoryDesc = Input::get('editGarmentDescription');
+			$garments->strGarmentCategoryDesc = trim(Input::get('editGarmentDescription'));
 	
 			$garments->save();
 			return Redirect::to('/maintenance/garments?successEdit=true');
@@ -108,9 +106,6 @@ class GarmentsController extends BaseController{
 	public function delGarmentCategory()
 	{
 		$id = Input::get('delGarmentID');
-	
-
-
 	
 		$category = Category::find($id);
 
@@ -137,10 +132,7 @@ class GarmentsController extends BaseController{
         	return Redirect::to('/maintenance/garments?successDel=true');
         } else return Redirect::to('/maintenance/garments?success=beingUsed');
         	
-    }
-     
-
-	
+    }	
 
 	public function addGarmentSegment()
 	{	
@@ -148,7 +140,7 @@ class GarmentsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($seg as $seg)
-			if(strcasecmp($seg->strGarmentSegmentName, Input::get('addSegmentName')) == 0 && 
+			if(strcasecmp($seg->strGarmentSegmentName, trim(Input::get('addSegmentName'))) == 0 && 
 			   strcasecmp($seg->strCategory, Input::get('addCategory')) == 0)
 				$isAdded = TRUE;
 
@@ -156,8 +148,8 @@ class GarmentsController extends BaseController{
 			$segment = Segment::create(array(
 				'strGarmentSegmentID' => Input::get('addSegmentID'),
 				'strCategory' => Input::get('addCategory'),
-				'strGarmentSegmentName' => Input::get('addSegmentName'),
-				'strGarmentSegmentDesc' => Input::get('addSegmentDesc'),
+				'strGarmentSegmentName' => trim(Input::get('addSegmentName')),
+				'strGarmentSegmentDesc' => trim(Input::get('addSegmentDesc')),
 				'boolIsActive' => 1
 				));
 
@@ -176,14 +168,14 @@ class GarmentsController extends BaseController{
 
 		foreach ($seg as $seg)
 			if(!strcasecmp($seg->strGarmentSegmentID, Input::get('editSegmentID')) == 0 &&
-			   strcasecmp($seg->strGarmentSegmentName, Input::get('editSegmentName')) == 0 && 
+			   strcasecmp($seg->strGarmentSegmentName, trim(Input::get('editSegmentName'))) == 0 && 
 			   strcasecmp($seg->strCategory, Input::get('editCategory')) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
 			$segment->strCategory = Input::get('editCategory');	
-			$segment->strGarmentSegmentName = Input::get('editSegmentName');	
-			$segment->strGarmentSegmentDesc = Input::get('editSegmentDesc');
+			$segment->strGarmentSegmentName = trim(Input::get('editSegmentName'));	
+			$segment->strGarmentSegmentDesc = trim(Input::get('editSegmentDesc'));
 			
 			$segment->save();
 			return Redirect::to('/maintenance/garmentsDetails?successEdit=true');

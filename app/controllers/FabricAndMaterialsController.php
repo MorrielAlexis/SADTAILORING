@@ -201,8 +201,8 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach ($swa as $swa)
 			if(strcasecmp($swa->strSwatchFabricTypeName, Input::get('addFabric')) == 0 && 
-			   strcasecmp($swa->strSwatchName, Input::get('addSwatchName')) == 0 &&
-			   strcasecmp($swa->strSwatchCode, Input::get('addSwatchCode')) == 0)
+			   strcasecmp($swa->strSwatchName, trim(Input::get('addSwatchName'))) == 0 &&
+			   strcasecmp($swa->strSwatchCode, trim(Input::get('addSwatchCode'))) == 0)
 			   		$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -210,8 +210,8 @@ class FabricAndMaterialsController extends BaseController{
 			$swatch = Swatch::create(array(
 			'strSwatchID' => Input::get('addSwatchID'),
 			'strSwatchFabricTypeName' => Input::get('addFabric'),		
-			'strSwatchName' => Input::get('addSwatchName'),
-			'strSwatchCode' => Input::get('addSwatchCode'),
+			'strSwatchName' => trim(Input::get('addSwatchName')),
+			'strSwatchCode' => trim(Input::get('addSwatchCode')),
 			'boolIsActive' => 1
 			));
 			}else{
@@ -222,8 +222,8 @@ class FabricAndMaterialsController extends BaseController{
 				$swatch = Swatch::create(array(
 				'strSwatchID' => Input::get('addSwatchID'),
 				'strSwatchFabricTypeName' => Input::get('addFabric'),		
-				'strSwatchName' => Input::get('addSwatchName'),
-				'strSwatchCode' => Input::get('addSwatchCode'),
+				'strSwatchName' => trim(Input::get('addSwatchName')),
+				'strSwatchCode' => trim(Input::get('addSwatchCode')),
 				'strSwatchImage' => 'imgSwatches/'.$fileName,
 				'boolIsActive' => 1
 				));
@@ -245,15 +245,15 @@ class FabricAndMaterialsController extends BaseController{
 		foreach ($swa as $swa)
 			if(!strcasecmp($swa->strSwatchID, Input::get('editSwatchID')) == 0 &&
 			   strcasecmp($swa->strSwatchFabricTypeName, Input::get('editFabric')) == 0 && 
-			   strcasecmp($swa->strSwatchName, Input::get('editSwatchName')) == 0 &&
-			   strcasecmp($swa->strSwatchCode, Input::get('editSwatchCode')) == 0)
+			   strcasecmp($swa->strSwatchName, trim(Input::get('editSwatchName'))) == 0 &&
+			   strcasecmp($swa->strSwatchCode, trim(Input::get('editSwatchCode'))) == 0)
 			   		$isAdded = TRUE;
 
 		if(!$isAdded){	
 			if(Input::get('editSwatchImage') == $swatch->strSwatchImage){
 				$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
-				$swatch->strSwatchName = Input::get('editSwatchName');
-				$swatch->strSwatchCode = Input::get('editSwatchCode');
+				$swatch->strSwatchName = trim(Input::get('editSwatchName'));
+				$swatch->strSwatchCode = trim(Input::get('editSwatchCode'));
 			}else{
 
 				$file = Input::get('editSwatchImage');
@@ -263,8 +263,8 @@ class FabricAndMaterialsController extends BaseController{
 				Input::file('editImg')->move($destinationPath, $fileName);
 
 				$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
-				$swatch->strSwatchName = Input::get('editSwatchName');
-				$swatch->strSwatchCode = Input::get('editSwatchCode');
+				$swatch->strSwatchName = trim(Input::get('editSwatchName'));
+				$swatch->strSwatchCode = trim(Input::get('editSwatchCode'));
 				$swatch->strSwatchImage = 'imgSwatches/'.$fileName;
 			}
 
@@ -323,14 +323,14 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($fabrics as $fabric)
-			if(strcasecmp($fabric->strFabricTypeName, Input::get('addFabricTypeName')) == 0)
+			if(strcasecmp($fabric->strFabricTypeName, trim(Input::get('addFabricTypeName'))) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
 			$fabricType = FabricType::create(array(
 			'strFabricTypeID' => Input::get('addFabricTypeID'),
-			'strFabricTypeName' => Input::get('addFabricTypeName'),
-			'strFabricTypeDesc' => Input::get('addFabricTypeDesc'),
+			'strFabricTypeName' => trim(Input::get('addFabricTypeName')),
+			'strFabricTypeDesc' => trim(Input::get('addFabricTypeDesc')),
 			'boolIsActive' => 1
 			));
 
@@ -350,13 +350,13 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($fabrics as $fabric)
 			if(!strcasecmp($fabric->strFabricTypeID, Input::get('editFabricTypeID')) == 0 &&
-				strcasecmp($fabric->strFabricTypeName, Input::get('editFabricTypeName')) == 0)
+				strcasecmp($fabric->strFabricTypeName, trim(Input::get('editFabricTypeName'))) == 0)
 				$isAdded = TRUE;
 
 		if(!$isAdded){
 			$fabricType = FabricType::find($id);
-			$fabricType->strFabricTypeName = Input::get('editFabricTypeName');	
-			$fabricType->strFabricTypeDesc = Input::get('editFabricTypeDesc');
+			$fabricType->strFabricTypeName = trim(Input::get('editFabricTypeName'));	
+			$fabricType->strFabricTypeDesc = trim(Input::get('editFabricTypeDesc'));
 
 			$fabricType->save();
 			return Redirect::to('/maintenance/fabricAndMaterialsFabricType?successEdit=true');
@@ -414,17 +414,17 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($threads as $thread)
-			if(strcasecmp($thread->strMaterialThreadName, Input::get('addThreadName')) == 0 && 
-				strcasecmp($thread->strMaterialThreadColor, Input::get('addThreadColor')) == 0)
+			if(strcasecmp($thread->strMaterialThreadName, trim(Input::get('addThreadName'))) == 0 && 
+				strcasecmp($thread->strMaterialThreadColor, trim(Input::get('addThreadColor'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if($file == '' || $file == null){
 			$thread = MaterialThread::create(array(
 				'strMaterialThreadID' => Input::get('addThreadID'),
-				'strMaterialThreadName' => Input::get('addThreadName'),
-				'strMaterialThreadColor' => Input::get('addThreadColor'),
-				'strMaterialThreadDesc' => Input::get('addThreadDesc'),
+				'strMaterialThreadName' => trim(Input::get('addThreadName')),
+				'strMaterialThreadColor' => trim(Input::get('addThreadColor')),
+				'strMaterialThreadDesc' => trim(Input::get('addThreadDesc'))trim(,
 				'boolIsActive' => 1
 				));
 			}else{
@@ -434,9 +434,9 @@ class FabricAndMaterialsController extends BaseController{
 
 				$thread = MaterialThread::create(array(
 				'strMaterialThreadID' => Input::get('addThreadID'),
-				'strMaterialThreadName' => Input::get('addThreadName'),
-				'strMaterialThreadColor' => Input::get('addThreadColor'),
-				'strMaterialThreadDesc' => Input::get('addThreadDesc'),
+				'strMaterialThreadName' => trim(Input::get('addThreadName')),
+				'strMaterialThreadColor' => trim(Input::get('addThreadColor')),
+				'strMaterialThreadDesc' => trim(Input::get('addThreadDesc')),
 				'strMaterialThreadImage' => 'imgMaterialThreads/'.$fileName,
 				'boolIsActive' => 1
 					));
@@ -449,7 +449,7 @@ class FabricAndMaterialsController extends BaseController{
 	}
 
 	public function editThread()
-	{
+	{trim(
 		$id = Input::get('editThreadID');
 		$thread = MaterialThread::find($id);
 
@@ -458,26 +458,26 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($threads as $thread)
 			if(!strcasecmp($thread->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
-				strcasecmp($thread->strMaterialThreadName, Input::get('editThreadName')) == 0 && 
-				strcasecmp($thread->strMaterialThreadColor, Input::get('editThreadColor')) == 0 &&
-				strcasecmp($thread->strMaterialThreadDesc, Input::get('editThreadDesc')) == 0)
+				strcasecmp($thread->strMaterialThreadName, trim(Input::get('editThreadName'))) == 0 && 
+				strcasecmp($thread->strMaterialThreadColor, trim(Input::get('editThreadColor'))) == 0 &&
+				strcasecmp($thread->strMaterialThreadDesc, trim(Input::get('editThreadDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
-				$thread->strMaterialThreadName = Input::get('editThreadName');
-				$thread->strMaterialThreadColor = Input::get('editThreadColor');
-				$thread->strMaterialThreadDesc = Input::get('editThreadDesc');	
-			}else{
+				$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
+				$thread->strMaterialThreadColor = trim(Input::get('editThreadColor'));
+				$thread->strMaterialThreadDesc = trim(Input::get('editThreadDesc'));	
+			}else{	
 				$file = Input::get('editThreadImage');
 				$destinationPath = 'public/imgMaterialThreads';
 				$extension = Input::file('editImg')->getClientOriginalExtension();
 				$fileName = $file;
 				Input::file('editImg')->move($destinationPath, $fileName);
 
-				$thread->strMaterialThreadName = Input::get('editThreadName');
-				$thread->strMaterialThreadColor = Input::get('editThreadColor');
-				$thread->strMaterialThreadDesc = Input::get('editThreadDesc');
+				$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
+				$thread->strMaterialThreadColor = trim(Input::get('editThreadColor'));
+				$thread->strMaterialThreadDesc = trim(Input::get('editThreadDesc'));
 				$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
 			}
 			$thread->save();
@@ -528,17 +528,17 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($needles as $needle)
-			if(strcasecmp($needle->strMaterialNeedleName, Input::get('addNeedleName')) == 0 && 
-				strcasecmp($needle->strMaterialNeedleSize, Input::get('addNeedleSize')) == 0)
+			if(strcasecmp($needle->strMaterialNeedleName, trim(Input::get('addNeedleName'))) == 0 && 
+				strcasecmp($needle->strMaterialNeedleSize, trim(Input::get('addNeedleSize'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if($file == '' || $file == null){
 				$needle = MaterialNeedle::create(array(
 					'strMaterialNeedleID' => Input::get('addNeedleID'),
-					'strMaterialNeedleName' => Input::get('addNeedleName'),
-					'strMaterialNeedleSize' => Input::get('addNeedleSize'),
-					'strMaterialNeedleDesc' => Input::get('addNeedleDesc'),
+					'strMaterialNeedleName' => trim(Input::get('addNeedleName')),
+					'strMaterialNeedleSize' => trim(Input::get('addNeedleSize')),
+					'strMaterialNeedleDesc' => trim(Input::get('addNeedleDesc')),
 					'boolIsActive' => 1
 					));
 			}else{
@@ -548,9 +548,9 @@ class FabricAndMaterialsController extends BaseController{
 
 				$needle = MaterialNeedle::create(array(
 					'strMaterialNeedleID' => Input::get('addNeedleID'),
-					'strMaterialNeedleName' => Input::get('addNeedleName'),
-					'strMaterialNeedleSize' => Input::get('addNeedleSize'),
-					'strMaterialNeedleDesc' => Input::get('addNeedleDesc'),
+					'strMaterialNeedleName' => trim(Input::get('addNeedleName')),
+					'strMaterialNeedleSize' => trim(Input::get('addNeedleSize')),
+					'strMaterialNeedleDesc' => trim(Input::get('addNeedleDesc')),
 					'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
 					'boolIsActive' => 1
 					));
@@ -571,16 +571,16 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($needl as $needle)
 			if(!strcasecmp($needle->strMaterialNeedleID, Input::get('editNeedleID')) &&
-				strcasecmp($needle->strMaterialNeedleName, Input::get('editNeedleName')) == 0 && 
-				strcasecmp($needle->strMaterialNeedleSize, Input::get('editNeedleSize')) == 0 &&
-				strcasecmp($needle->strMaterialNeedleDesc, Input::get('editNeedleDesc')) == 0)
+				strcasecmp($needle->strMaterialNeedleName, trim(Input::get('editNeedleName'))) == 0 && 
+				strcasecmp($needle->strMaterialNeedleSize, trim(Input::get('editNeedleSize'))) == 0 &&
+				strcasecmp($needle->strMaterialNeedleDesc, trim(Input::get('editNeedleDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if(Input::get('editNeedleImage') == $needle->strMaterialNeedleImage){
-				$needle->strMaterialNeedleName = Input::get('editNeedleName');
-				$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
-				$needle->strMaterialNeedleDesc = Input::get('editNeedleDesc');
+				$needle->strMaterialNeedleName = trim(Input::get('editNeedleName'));
+				$needle->strMaterialNeedleSize = trim(Input::get('editNeedleSize'));
+				$needle->strMaterialNeedleDesc = trim(Input::get('editNeedleDesc'));
 			}else{
 				$file = Input::get('editNeedleImage');
 				$destinationPath = 'public/imgMaterialNeedles';
@@ -588,9 +588,9 @@ class FabricAndMaterialsController extends BaseController{
 				$fileName = $file;
 				Input::file('editImg')->move($destinationPath, $fileName);
 
-				$needle->strMaterialNeedleName = Input::get('editNeedleName');
-				$needle->strMaterialNeedleSize = Input::get('editNeedleSize');
-				$needle->strMaterialNeedleDesc = Input::get('editNeedleDesc');
+				$needle->strMaterialNeedleName = trim(Input::get('editNeedleName'));
+				$needle->strMaterialNeedleSize = trim(Input::get('editNeedleSize'));
+				$needle->strMaterialNeedleDesc = trim(Input::get('editNeedleDesc'));
 				$needle->strMaterialNeedleImage = 'imgMaterialNeedles/'.$fileName;
 			}
 			$needle->save();
@@ -640,19 +640,19 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($buttons as $button)
-			if(strcasecmp($button->strMaterialButtonName, Input::get('addButtonName')) == 0 && 
-				strcasecmp($button->strMaterialButtonSize, Input::get('addButtonSize')) == 0 &&
-				strcasecmp($button->strMaterialButtonColor, Input::get('addButtonColor')) == 0)
+			if(strcasecmp($button->strMaterialButtonName, trim(Input::get('addButtonName'))) == 0 && 
+				strcasecmp($button->strMaterialButtonSize, trim(Input::get('addButtonSize'))) == 0 &&
+				strcasecmp($button->strMaterialButtonColor, trim(Input::get('addButtonColor'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if($file == '' || $file == null){
 				$button = MaterialButton::create(array(
 				'strMaterialButtonID' => Input::get('addButtonID'),
-				'strMaterialButtonName' => Input::get('addButtonName'),
-				'strMaterialButtonSize' => Input::get('addButtonSize'),
-				'strMaterialButtonColor' => Input::get('addButtonColor'),
-				'strMaterialButtonDesc' => Input::get('addButtonDesc'),
+				'strMaterialButtonName' => trim(Input::get('addButtonName')),
+				'strMaterialButtonSize' => trim(Input::get('addButtonSize')),
+				'strMaterialButtonColor' => trim(Input::get('addButtonColor')),
+				'strMaterialButtonDesc' => trim(Input::get('addButtonDesc')),
 				'boolIsActive' => 1
 				));
 			}else{
@@ -662,10 +662,10 @@ class FabricAndMaterialsController extends BaseController{
 
 				$button = MaterialButton::create(array(
 					'strMaterialButtonID' => Input::get('addButtonID'),
-					'strMaterialButtonName' => Input::get('addButtonName'),
-					'strMaterialButtonSize' => Input::get('addButtonSize'),
-					'strMaterialButtonColor' => Input::get('addButtonColor'),
-					'strMaterialButtonDesc' => Input::get('addButtonDesc'),
+					'strMaterialButtonName' => trim(Input::get('addButtonName')),
+					'strMaterialButtonSize' => trim(Input::get('addButtonSize')),
+					'strMaterialButtonColor' => trim(Input::get('addButtonColor')),
+					'strMaterialButtonDesc' => trim(Input::get('addButtonDesc')),
 					'strMaterialButtonImage' => 'imgMaterialButtons/'.$fileName,
 					'boolIsActive' => 1
 					));
@@ -685,18 +685,18 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($buttons as $button)
 			if(!strcasecmp($button->strMaterialButtonID, Input::get('editButtonID')) == 0 && 
-				strcasecmp($button->strMaterialButtonName, Input::get('editButtonName')) == 0 && 
-				strcasecmp($button->strMaterialButtonSize, Input::get('editButtonSize')) == 0 &&
-				strcasecmp($button->strMaterialButtonColor, Input::get('editButtonColor')) == 0 &&
-				strcasecmp($button->strMaterialButtonDesc, Input::get('editButtonDesc')) == 0)
+				strcasecmp($button->strMaterialButtonName, trim(Input::get('editButtonName'))) == 0 && 
+				strcasecmp($button->strMaterialButtonSize, trim(Input::get('editButtonSize'))) == 0 &&
+				strcasecmp($button->strMaterialButtonColor, trim(Input::get('editButtonColor'))) == 0 &&
+				strcasecmp($button->strMaterialButtonDesc, trim(Input::get('editButtonDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if(Input::get('editButtonImage') == $button->strMaterialButtonImage){
-				$button->strMaterialButtonName = Input::get('editButtonName');
-				$button->strMaterialButtonSize = Input::get('editButtonSize');
-				$button->strMaterialButtonColor = Input::get('editButtonColor');
-				$button->strMaterialButtonDesc = Input::get('editButtonDesc');
+				$button->strMaterialButtonName = trim(Input::get('editButtonName'));
+				$button->strMaterialButtonSize = trim(Input::get('editButtonSize'));
+				$button->strMaterialButtonColor = trim(Input::get('editButtonColor'));
+				$button->strMaterialButtonDesc = trim(Input::get('editButtonDesc'));
 			}else{
 				$file = Input::get('editButtonImage');
 				$destinationPath = 'public/imgMaterialButtons';
@@ -704,10 +704,10 @@ class FabricAndMaterialsController extends BaseController{
 				$fileName = $file;
 				Input::file('editImg')->move($destinationPath, $fileName);
 
-				$button->strMaterialButtonName = Input::get('editButtonName');
-				$button->strMaterialButtonSize = Input::get('editButtonSize');
-				$button->strMaterialButtonColor = Input::get('editButtonColor');
-				$button->strMaterialButtonDesc = Input::get('editButtonDesc');
+				$button->strMaterialButtonName = trim(Input::get('editButtonName'));
+				$button->strMaterialButtonSize = trim(Input::get('editButtonSize'));
+				$button->strMaterialButtonColor = trim(Input::get('editButtonColor'));
+				$button->strMaterialButtonDesc = trim(Input::get('editButtonDesc'));
 				$button->strMaterialButtonImage = 'imgMaterialButtons/'.$fileName; 
 			}
 			$button->save();
@@ -757,19 +757,19 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($zippers as $zipper)
-			if(strcasecmp($zipper->strMaterialZipperName, Input::get('addZipperName')) == 0 && 
-				strcasecmp($zipper->strMaterialZipperSize, Input::get('addZipperSize')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperColor, Input::get('addZipperColor')) == 0)
+			if(strcasecmp($zipper->strMaterialZipperName, trim(Input::get('addZipperName'))) == 0 && 
+				strcasecmp($zipper->strMaterialZipperSize, trim(Input::get('addZipperSize'))) == 0 &&
+				strcasecmp($zipper->strMaterialZipperColor, trim(Input::get('addZipperColor'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if($file == '' || $file == null){
 				$zipper = MaterialZipper::create(array(
 				'strMaterialZipperID' => Input::get('addZipperID'),
-				'strMaterialZipperName' => Input::get('addZipperName'),
-				'strMaterialZipperSize' => Input::get('addZipperSize'),
-				'strMaterialZipperColor' => Input::get('addZipperColor'),
-				'strMaterialZipperDesc' => Input::get('addZipperDesc'),
+				'strMaterialZipperName' => trim(Input::get('addZipperName')),
+				'strMaterialZipperSize' => trim(Input::get('addZipperSize')),
+				'strMaterialZipperColor' => trim(Input::get('addZipperColor')),
+				'strMaterialZipperDesc' => trim(Input::get('addZipperDesc')),
 				'boolIsActive' => 1
 				));
 			}else{
@@ -779,10 +779,10 @@ class FabricAndMaterialsController extends BaseController{
 
 				$zipper = MaterialZipper::create(array(
 					'strMaterialZipperID' => Input::get('addZipperID'),
-					'strMaterialZipperName' => Input::get('addZipperName'),
-					'strMaterialZipperSize' => Input::get('addZipperSize'),
-					'strMaterialZipperColor' => Input::get('addZipperColor'),
-					'strMaterialZipperDesc' => Input::get('addZipperDesc'),
+					'strMaterialZipperName' => trim(Input::get('addZipperName')),
+					'strMaterialZipperSize' => trim(Input::get('addZipperSize')),
+					'strMaterialZipperColor' => trim(Input::get('addZipperColor')),
+					'strMaterialZipperDesc' => trim(Input::get('addZipperDesc')),
 					'strMaterialZipperImage' => 'imgMaterialZippers/'.$fileName,
 					'boolIsActive' => 1
 					));
@@ -802,18 +802,18 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($zippers as $zipper)
 			if(!strcasecmp($zipper->strMaterialZipperID, Input::get('editZipperID')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperName, Input::get('editZipperName')) == 0 && 
-				strcasecmp($zipper->strMaterialZipperSize, Input::get('editZipperSize')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperColor, Input::get('editZipperColor')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperDesc, Input::get('editZipperDesc')) == 0)
+				strcasecmp($zipper->strMaterialZipperName, trim(Input::get('editZipperName'))) == 0 && 
+				strcasecmp($zipper->strMaterialZipperSize, trim(Input::get('editZipperSize'))) == 0 &&
+				strcasecmp($zipper->strMaterialZipperColor, trim(Input::get('editZipperColor'))) == 0 &&
+				strcasecmp($zipper->strMaterialZipperDesc, trim(Input::get('editZipperDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if (Input::get('editZipperImage') == $zipper->strMaterialZipperImage) {
-				$zipper->strMaterialZipperName = Input::get('editZipperName');
-				$zipper->strMaterialZipperSize = Input::get('editZipperSize');
-				$zipper->strMaterialZipperColor = Input::get('editZipperColor');
-				$zipper->strMaterialZipperDesc = Input::get('editZipperDesc');
+				$zipper->strMaterialZipperName = trim(Input::get('editZipperName'));
+				$zipper->strMaterialZipperSize = trim(Input::get('editZipperSize'));
+				$zipper->strMaterialZipperColor = trim(Input::get('editZipperColor'));
+				$zipper->strMaterialZipperDesc = trim(Input::get('editZipperDesc'));
 			} else {
 				$file = Input::get('editZipperImage');
 				$destinationPath = 'public/imgMaterialZippers';
@@ -821,10 +821,10 @@ class FabricAndMaterialsController extends BaseController{
 				$fileName = $file;
 				Input::file('editImg')->move($destinationPath, $fileName);
 
-				$zipper->strMaterialZipperName = Input::get('editZipperName');
-				$zipper->strMaterialZipperSize = Input::get('editZipperSize');
-				$zipper->strMaterialZipperColor = Input::get('editZipperColor');
-				$zipper->strMaterialZipperDesc = Input::get('editZipperDesc');
+				$zipper->strMaterialZipperName = trim(Input::get('editZipperName'));
+				$zipper->strMaterialZipperSize = trim(Input::get('editZipperSize'));
+				$zipper->strMaterialZipperColor =trim(Input::get('editZipperColor'));
+				$zipper->strMaterialZipperDesc = trim(Input::get('editZipperDesc'));
 				$zipper->strMaterialZipperImage = 'imgMaterialZippers/'.$fileName;
 			}	
 			$zipper->save();
@@ -874,19 +874,19 @@ class FabricAndMaterialsController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach($hooks as $hook)
-			if(strcasecmp($hook->strMaterialHookName, Input::get('addHookName')) == 0 && 
-				strcasecmp($hook->strMaterialHookSize, Input::get('addHookSize')) == 0 &&
-				strcasecmp($hook->strMaterialHookColor, Input::get('addHookColor')) == 0)
+			if(strcasecmp($hook->strMaterialHookName, trim(Input::get('addHookName'))) == 0 && 
+				strcasecmp($hook->strMaterialHookSize, trim(Input::get('addHookSize'))) == 0 &&
+				strcasecmp($hook->strMaterialHookColor, trim(Input::get('addHookColor'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if($file == '' || $file == null){
 				$hook = MaterialHookAndEye::create(array(
 				'strMaterialHookID' => Input::get('addHookID'),
-				'strMaterialHookName' => Input::get('addHookName'),
-				'strMaterialHookSize' => Input::get('addHookSize'),
-				'strMaterialHookColor' => Input::get('addHookColor'),
-				'strMaterialHookDesc' => Input::get('addHookDesc'),
+				'strMaterialHookName' => trim(Input::get('addHookName')),
+				'strMaterialHookSize' => trim(Input::get('addHookSize')),
+				'strMaterialHookColor' => trim(Input::get('addHookColor')),
+				'strMaterialHookDesc' => trim(Input::get('addHookDesc')),
 				'boolIsActive' => 1
 				));
 			}else{
@@ -896,10 +896,10 @@ class FabricAndMaterialsController extends BaseController{
 
 				$hook = MaterialHookAndEye::create(array(
 					'strMaterialHookID' => Input::get('addHookID'),
-					'strMaterialHookName' => Input::get('addHookName'),
-					'strMaterialHookSize' => Input::get('addHookSize'),
-					'strMaterialHookColor' => Input::get('addHookColor'),
-					'strMaterialHookDesc' => Input::get('addHookDesc'),
+					'strMaterialHookName' => trim(Input::get('addHookName')),
+					'strMaterialHookSize' => trim(Input::get('addHookSize')),
+					'strMaterialHookColor' => trim(Input::get('addHookColor')),
+					'strMaterialHookDesc' => trim(Input::get('addHookDesc')),
 					'strMaterialHookImage' => 'imgMaterialHooks/'.$fileName,
 					'boolIsActive' => 1
 					));
@@ -919,18 +919,18 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($hooks as $hook)
 			if(!strcasecmp($hook->strMaterialHookID, Input::get('editHookID')) == 0 &&
-				strcasecmp($hook->strMaterialHookName, Input::get('editHookName')) == 0 && 
-				strcasecmp($hook->strMaterialHookSize, Input::get('editHookSize')) == 0 &&
-				strcasecmp($hook->strMaterialHookColor, Input::get('editHookColor')) == 0 &&
-				strcasecmp($hook->strMaterialHookDesc, Input::get('editHookDesc')) == 0)
+				strcasecmp($hook->strMaterialHookName, trim(Input::get('editHookName'))) == 0 && 
+				strcasecmp($hook->strMaterialHookSize, trim(Input::get('editHookSize'))) == 0 &&
+				strcasecmp($hook->strMaterialHookColor, trim(Input::get('editHookColor'))) == 0 &&
+				strcasecmp($hook->strMaterialHookDesc, trim(Input::get('editHookDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
 			if (Input::get('editHookImage') == $hook->strMaterialHookImage) {
-				$hook->strMaterialHookName = Input::get('editHookName');
-				$hook->strMaterialHookSize = Input::get('editHookSize');
-				$hook->strMaterialHookColor = Input::get('editHookColor');
-				$hook->strMaterialHookDesc = Input::get('editHookDesc');
+				$hook->strMaterialHookName = trim(Input::get('editHookName'));
+				$hook->strMaterialHookSize = trim(Input::get('editHookSize'));
+				$hook->strMaterialHookColor = trim(Input::get('editHookColor'));
+				$hook->strMaterialHookDesc = trim(Input::get('editHookDesc'));
 			} else {
 				$file = Input::get('editHookImage');
 				$destinationPath = 'public/imgMaterialHooks';
@@ -938,10 +938,10 @@ class FabricAndMaterialsController extends BaseController{
 				$fileName = $file;
 				Input::file('editImg')->move($destinationPath, $fileName);
 
-				$hook->strMaterialHookName = Input::get('editHookName');
-				$hook->strMaterialHookSize = Input::get('editHookSize');
-				$hook->strMaterialHookColor = Input::get('editHookColor');
-				$hook->strMaterialHookDesc = Input::get('editHookDesc');
+				$hook->strMaterialHookName = trim(Input::get('editHookName'));
+				$hook->strMaterialHookSize = trim(Input::get('editHookSize'));
+				$hook->strMaterialHookColor = trim(Input::get('editHookColor'));
+				$hook->strMaterialHookDesc = trim(Input::get('editHookDesc'));
 				$hook->strMaterialHookImage = 'imgMaterialHooks/'.$fileName;
 			}
 			$hook->save();

@@ -52,8 +52,8 @@ class CatalogueController extends BaseController{
 				$catalogue = Catalogue::create(array(
 				'strCatalogueID' => Input::get('addCatalogueID'),
 				'strCatalogueCategory' => Input::get('addCategory'),
-				'strCatalogueName' => Input::get('addCatalogueName'),
-				'strCatalogueDesc' => Input::get('addCatalogueDesc'),
+				'strCatalogueName' => trim(Input::get('addCatalogueName')),
+				'strCatalogueDesc' => trim(Input::get('addCatalogueDesc')),
 				'boolIsActive' => 1
 			));
 			}else{
@@ -64,8 +64,8 @@ class CatalogueController extends BaseController{
 				$catalogue = Catalogue::create(array(
 				'strCatalogueID' => Input::get('addCatalogueID'),
 				'strCatalogueCategory' => Input::get('addCategory'),
-				'strCatalogueName' => Input::get('addCatalogueName'),
-				'strCatalogueDesc' => Input::get('addCatalogueDesc'),
+				'strCatalogueName' => trim(Input::get('addCatalogueName')),
+				'strCatalogueDesc' => trim(Input::get('addCatalogueDesc')),
 				'strCatalogueImage' => 'imgCatalogue/'.$fileName ,
 				'boolIsActive' => 1
 				));
@@ -96,8 +96,8 @@ class CatalogueController extends BaseController{
 			if (Input::get('editImage') == $catalogue->strCatalogueImage) {
 				$catalogue->strCatalogueID = Input::get('editCatalogueID');
 				$catalogue->strCatalogueCategory = Input::get('editCategory');
-				$catalogue->strCatalogueName = Input::get('editCatalogueName');
-				$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
+				$catalogue->strCatalogueName = trim(Input::get('editCatalogueName'));
+				$catalogue->strCatalogueDesc = trim(Input::get('editCatalogueDesc'));
 			} else {
 				$file = Input::get('editImage');
 				$destinationPath = 'public/imgCatalogue';
@@ -107,8 +107,8 @@ class CatalogueController extends BaseController{
 
 				$catalogue->strCatalogueID = Input::get('editCatalogueID');
 				$catalogue->strCatalogueCategory = Input::get('editCategory');
-				$catalogue->strCatalogueName = Input::get('editCatalogueName');
-				$catalogue->strCatalogueDesc = Input::get('editCatalogueDesc');
+				$catalogue->strCatalogueName = trim(Input::get('editCatalogueName'));
+				$catalogue->strCatalogueDesc = trim(Input::get('editCatalogueDesc'));
 				$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
 			}		
 
