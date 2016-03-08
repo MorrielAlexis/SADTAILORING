@@ -49,7 +49,7 @@ class DesignPatternController extends BaseController{
 		foreach ($pat as $pat) 
 			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory')) == 0 && 
 			   strcasecmp($pat->strDesignSegmentName, Input::get('addSegment')) == 0 && 
-			   strcasecmp($pat->strPatternName, Input::get('addPatternName')) == 0)
+			   strcasecmp($pat->strPatternName, trim(Input::get('addPatternName'))) == 0)
 				$isAdded = TRUE;
 
 
@@ -59,7 +59,7 @@ class DesignPatternController extends BaseController{
 			'strDesignPatternID' => Input::get('addPatternID'),
 			'strDesignCategory' => Input::get('addCategory'),
 			'strDesignSegmentName' => Input::get('addSegment'),
-			'strPatternName' => Input::get('addPatternName'),
+			'strPatternName' => trim(Input::get('addPatternName')),
 			'boolIsActive' => 1
 			));		
 			}else{
@@ -71,7 +71,7 @@ class DesignPatternController extends BaseController{
 				'strDesignPatternID' => Input::get('addPatternID'),
 				'strDesignCategory' => Input::get('addCategory'),
 				'strDesignSegmentName' => Input::get('addSegment'),
-				'strPatternName' => Input::get('addPatternName'),
+				'strPatternName' => trim(Input::get('addPatternName')),
 				'strPatternImage' => 'imgDesignPatterns/'.$fileName,
 				'boolIsActive' => 1
 				));	
@@ -94,7 +94,7 @@ class DesignPatternController extends BaseController{
 			if(!strcasecmp($pat->strDesignPatternID, Input::get('editPatternID')) == 0 &&
 			   strcasecmp($pat->strDesignCategory, Input::get('editCategory')) == 0 && 
 			   strcasecmp($pat->strDesignSegmentName, Input::get('editSegment')) == 0 && 
-			   strcasecmp($pat->strPatternName, Input::get('editPatternName')) == 0)
+			   strcasecmp($pat->strPatternName, trimInput::get('editPatternName'))) == 0)
 				$isAdded = TRUE;
 
 
@@ -102,7 +102,7 @@ class DesignPatternController extends BaseController{
 			if(Input::get('editImage') == $pattern->strPatternImage){
 				$pattern->strDesignCategory = Input::get('editCategory');
 				$pattern->strDesignSegmentName = Input::get('editSegment');
-				$pattern->strPatternName = Input::get('editPatternName');
+				$pattern->strPatternName = trimInput::get('editPatternName'));
 			}else{
 				$file = Input::get('editImage');
 				$destinationPath = 'public/imgDesignPatterns';
@@ -112,7 +112,7 @@ class DesignPatternController extends BaseController{
 
 				$pattern->strDesignCategory = Input::get('editCategory');
 				$pattern->strDesignSegmentName = Input::get('editSegment');
-				$pattern->strPatternName = Input::get('editPatternName');
+				$pattern->strPatternName = trimInput::get('editPatternName'));
 				$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
 			}			
 			$pattern->save();
