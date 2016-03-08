@@ -41,7 +41,7 @@
 		  </div>
 	 </div>
 
-	<div id="modalSpecs" class="modal modal-fixed-footer" style="width:700px">
+	<div id="modalSpecs" class="modal modal-fixed-footer" style = "max-width:150%; max-height:100%;">
     	<div class="modal-content">
 
 		    <h3>Order Specifications</h3>
@@ -49,7 +49,7 @@
 		    <div class = "row">
 	            <div class="input-field col s6">
                     <input id="custName" name="custName" type="text" value = "Honey May" readonly>
-                    <label for="custName">Customer Name </label>
+                    <label for="custName">Customer Name: </label>
                 </div>
                 <div class="input-field col s6">
                     <input id="dueDate" name="dueDate" type="text" value = "05/18/2015" readonly>
