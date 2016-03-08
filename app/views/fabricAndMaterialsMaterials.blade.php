@@ -77,11 +77,11 @@
   <div style="padding:20px">
 
       <ul class="tabs transparent" style="float:left">
-        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('thread') == 'true') class="active" @endif><a style="color:black" href="#tabThread">Threads</a></li>
-        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('needle') == 'true') class="active" @endif><a style="color:black" href="#tabNeedle">Needles</a></li>
-        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('button') == 'true') class="active" @endif><a style="color:black" href="#tabButton">Buttons</a></li>
-        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('zipper') == 'true') class="active" @endif><a style="color:black" href="#tabZipper">Zippers</a></li>
-        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" @if(Input::get('hook') == 'true') class="active" @endif><a style="color:black" href="#tabHook">Hook&Eye</a></li>
+        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;"><a @if (Input::get('thread') == 'true') class="active" @endif  style="color:black" href="#tabThread">Threads</a></li>
+        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;"><a @if (Input::get('needle') == 'true') class="active" @endif style="color:black" href="#tabNeedle">Needles</a></li>
+        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;"><a @if (Input::get('button') == 'true') class="active" @endif  style="color:black" href="#tabButton">Buttons</a></li>
+        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;"><a @if (Input::get('zipper') == 'true') class="active" @endif  style="color:black" href="#tabZipper">Zippers</a></li>
+        <li class="tab col s3" id="tabcolor" style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;"><a @if (Input::get('hook') == 'true') class="active" @endif  style="color:black" href="#tabHook">Hook&Eye</a></li>
         <div class="indicator white" style="z-index:1"></div>
       </ul>
   
