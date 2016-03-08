@@ -47,6 +47,18 @@
 		    <h3>Order Specifications</h3>
 
 		    <div class = "row">
+	            <div class="input-field col s6">
+                    <input id="custName" name="custName" type="text" value = "Honey May" readonly>
+                    <label for="custName">Customer Name </label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="dueDate" name="dueDate" type="text" value = "05/18/2015" readonly>
+                    <label for="dueDate">Due Date: </label>
+                </div>
+            </div>
+            <br>
+
+		    <div class = "row">
 
 			    <div class="col s12 m12 l12 overflow-x">
 			    	<table class = "centered">
