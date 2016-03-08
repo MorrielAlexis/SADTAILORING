@@ -480,8 +480,8 @@ class FabricAndMaterialsController extends BaseController{
 				$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
 			}
 			$thread->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&successEdit=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=duplicate');
 	}
 
 	public function delThread()
@@ -557,8 +557,8 @@ class FabricAndMaterialsController extends BaseController{
 					));
 			}
 			$needle ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true');
-		}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&success=true');
+		}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&success=duplicate');
 
 	}
 
@@ -595,8 +595,8 @@ class FabricAndMaterialsController extends BaseController{
 				$needle->strMaterialNeedleImage = 'imgMaterialNeedles/'.$fileName;
 			}
 			$needle->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true');
-		}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&successEdit=true');
+		}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&successEdit=duplicate');
 	}
 
 	public function delNeedle()
@@ -612,7 +612,7 @@ class FabricAndMaterialsController extends BaseController{
 		$needle->boolIsActive = 0;
 		$reasonNeedle->save();
 		$needle->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&successDel=true');
 	}
 
 	public function reactNeedle()
@@ -628,7 +628,7 @@ class FabricAndMaterialsController extends BaseController{
 		$needle->boolIsActive = 1;
 
 		$needle->save();
-		return Redirect::to('/utilities/inactiveData');
+		return Redirect::to('/utilities/inactiveData?successRec=true&successRec=true');
 	}
 
 		///////////BUTTON////////////
@@ -672,8 +672,8 @@ class FabricAndMaterialsController extends BaseController{
 					));
 			}
 			$button ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&success=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&success=false');
 	}
 
 	public function editButton()
@@ -712,8 +712,8 @@ class FabricAndMaterialsController extends BaseController{
 				$button->strMaterialButtonImage = 'imgMaterialButtons/'.$fileName; 
 			}
 			$button->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&successEdit=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&successEdit=duplicate');
 	}
 
 	public function delButton()
@@ -729,7 +729,7 @@ class FabricAndMaterialsController extends BaseController{
 		$button->boolIsActive = 0;
 		$reasonButton->save();
 		$button->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&successDel=true');
 	}
 
 	public function reactButton()
@@ -745,7 +745,7 @@ class FabricAndMaterialsController extends BaseController{
 		$button->boolIsActive = 1;
 
 		$button->save();
-		return Redirect::to('/utilities/inactiveData?successRec=true');
+		return Redirect::to('/utilities/inactiveData?successRec=true&successRec=true');
 	}
 
 		///////////ZIPPER////////////
@@ -789,8 +789,8 @@ class FabricAndMaterialsController extends BaseController{
 					));
 				}
 			$zipper ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=false');
 	}
 
 	public function editZipper()
@@ -829,8 +829,8 @@ class FabricAndMaterialsController extends BaseController{
 				$zipper->strMaterialZipperImage = 'imgMaterialZippers/'.$fileName;
 			}	
 			$zipper->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&successEdit=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=duplicate');
 	}
 
 	public function delZipper()
@@ -846,7 +846,7 @@ class FabricAndMaterialsController extends BaseController{
 		$zipper->boolIsActive = 0;
 		$reasonZipper->save();
 		$zipper->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&successDel=true');
 	}
 
 	public function reactZipper()
@@ -862,7 +862,7 @@ class FabricAndMaterialsController extends BaseController{
 		$zipper->boolIsActive = 1;
 
 		$zipper->save();
-		return Redirect::to('/utilities/inactiveData?successRec=true');
+		return Redirect::to('/utilities/inactiveData?successRec=true&successRec=true');
 	}
 
 		///////////HOOK AND EYE////////////
@@ -906,8 +906,8 @@ class FabricAndMaterialsController extends BaseController{
 					));
 			}
 			$hook ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=duplicate');
 	}
 
 	public function editHook()
@@ -946,8 +946,8 @@ class FabricAndMaterialsController extends BaseController{
 				$hook->strMaterialHookImage = 'imgMaterialHooks/'.$fileName;
 			}
 			$hook->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true');
+			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&successEdit=true');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=duplicate');
 	}
 
 	public function delHook()
@@ -963,7 +963,7 @@ class FabricAndMaterialsController extends BaseController{
 		$hook->boolIsActive = 0;
 		$reasonHook->save();
 		$hook->save();
-		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true');
+		return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=true');
 	}
 
 	public function reactHook()
@@ -979,7 +979,7 @@ class FabricAndMaterialsController extends BaseController{
 		$hook->boolIsActive = 1;
 
 		$hook->save();
-		return Redirect::to('/utilities/inactiveData?successRec=true');
+		return Redirect::to('/utilities/inactiveData?successRec=true&successRec=true');
 	}
 
 		//////////SMART COUNTER////////////
