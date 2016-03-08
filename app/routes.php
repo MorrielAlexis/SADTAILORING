@@ -16,13 +16,13 @@ Route::get('/index', 'HomeController@goToMain');
 Route::get('/', 'HomeController@showWelcome');
 
 Route::group(array('prefix' => 'maintenance'), function () {
-	Route::get('/customerIndividual', 'CustomerController@individual');
-	Route::get('/customerCompany', 'CustomerController@company');
+	Route::get('/customerIndividual', 'CustomerIndividualController@individual');
+	Route::get('/customerCompany', 'CustomerCompanyController@company');
 });
 
 Route::group(array('prefix' => 'maintenance'), function () {
-	Route::get('/employee', 'EmployeeController@empProfile');	
-	Route::get('/employeeRole', 'EmployeeController@roles');
+	Route::get('/employee', 'EmployeeController@employee');	
+	Route::get('/employeeRole', 'RoleController@roles');
 });
 
 Route::group(array('prefix' => 'maintenance'), function () {
@@ -65,25 +65,25 @@ Route::post('/checkEmployee', array('uses' => 'AjaxController@checkEmployeeInput
 
 
 //////////////////////CRUD FOR CUSTOMER INDIVIDUAL//////////////////////
-Route::post('/addCustPrivIndiv', array('uses' => 'CustomerController@addCustPrivIndiv'));
-Route::post('/editCustPrivIndiv', array('uses' => 'CustomerController@editCustPrivIndiv'));
-Route::post('/delCustPrivIndiv', array('uses' => 'CustomerController@delCustPrivIndiv'));
-Route::post('/reactCustPrivIndiv', array('uses' => 'CustomerController@reactCustPrivIndiv'));
+Route::post('/addCustPrivIndiv', array('uses' => 'CustomerIndividualController@addCustPrivIndiv'));
+Route::post('/editCustPrivIndiv', array('uses' => 'CustomerIndividualController@editCustPrivIndiv'));
+Route::post('/delCustPrivIndiv', array('uses' => 'CustomerIndividualController@delCustPrivIndiv'));
+Route::post('/reactCustPrivIndiv', array('uses' => 'CustomerIndividualController@reactCustPrivIndiv'));
 //////////////////////CRUD FOR CUSTOMER COMPANY//////////////////////
-Route::post('/addCustCompany', array('uses' => 'CustomerController@addCustCompany'));
-Route::post('/editCustCompany', array('uses' => 'CustomerController@editCustCompany'));
-Route::post('/delCustCompany', array('uses' => 'CustomerController@delCustCompany'));
-Route::post('/reactCustCompany', array('uses' => 'CustomerController@reactCustCompany'));
+Route::post('/addCustCompany', array('uses' => 'CustomerCompanyController@addCustCompany'));
+Route::post('/editCustCompany', array('uses' => 'CustomerCompanyController@editCustCompany'));
+Route::post('/delCustCompany', array('uses' => 'CustomerCompanyController@delCustCompany'));
+Route::post('/reactCustCompany', array('uses' => 'CustomerCompanyController@reactCustCompany'));
 //////////////////////CRUD FOR EMPLOYEE//////////////////////
 Route::post('/addEmployee', array('uses'=>'EmployeeController@addEmployee'));
 Route::post('/editEmployee', array('uses'=>'EmployeeController@editEmployee'));
 Route::post('/delEmployee', array('uses' => 'EmployeeController@delEmployee'));
 Route::post('/reactEmployee', array('uses' => 'EmployeeController@reactEmployee'));
 //////////////////////CRUD FOR ROLE//////////////////////
-Route::post('/addRole', array('uses' =>'EmployeeController@addRole'));
-Route::post('/editRole', array('uses' => 'EmployeeController@editRole'));
-Route::post('/delRole', array('uses' => 'EmployeeController@delRole'));
-Route::post('/reactRole', array('uses' => 'EmployeeController@reactRole'));
+Route::post('/addRole', array('uses' =>'RoleController@addRole'));
+Route::post('/editRole', array('uses' => 'RoleController@editRole'));
+Route::post('/delRole', array('uses' => 'RoleController@delRole'));
+Route::post('/reactRole', array('uses' => 'RoleController@reactRole'));
 //////////////////////CRUD FOR GARMENT CATEGORY//////////////////////
 Route::post('/addGarmentCategory', array('uses' => 'GarmentsController@addGarmentCategory'));
 Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarmentCategory'));

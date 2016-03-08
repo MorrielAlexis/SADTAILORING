@@ -324,7 +324,7 @@
 
                   <div class="input-field">
                     <select name='addRoles' id='addRoles' required>
-                      @foreach($roles2 as $roles2)
+                      @foreach($roles as $roles2)
                         @if($roles2->boolIsActive == 1)
                           <option value="{{ $roles2->strEmpRoleID }}" selected>{{ $roles2->strEmpRoleName }}</option>
                         @endif
