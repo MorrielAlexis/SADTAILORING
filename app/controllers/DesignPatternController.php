@@ -30,12 +30,9 @@ class DesignPatternController extends BaseController{
 		return View::make('designPattern')
 						->with('newID', $newID)
 						->with('pattern', $pattern)
-						->with('pattern2', $pattern)
 						->with('category', $category)
-						->with('category2', $category)
 						->with('reason', $reason)
-						->with('segment', $segment)
-						->with('segment2', $segment);
+						->with('segment', $segment);
 	}
 
 	public function addPattern()

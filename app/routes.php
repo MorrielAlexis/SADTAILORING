@@ -21,8 +21,8 @@ Route::group(array('prefix' => 'maintenance'), function () {
 });
 
 Route::group(array('prefix' => 'maintenance'), function () {
-	Route::get('/employee', 'EmployeeController@empProfile');	
-	Route::get('/employeeRole', 'EmployeeController@roles');
+	Route::get('/employee', 'EmployeeController@employee');	
+	Route::get('/employeeRole', 'RoleController@roles');
 });
 
 Route::group(array('prefix' => 'maintenance'), function () {
@@ -70,10 +70,10 @@ Route::post('/editEmployee', array('uses'=>'EmployeeController@editEmployee'));
 Route::post('/delEmployee', array('uses' => 'EmployeeController@delEmployee'));
 Route::post('/reactEmployee', array('uses' => 'EmployeeController@reactEmployee'));
 //////////////////////CRUD FOR ROLE//////////////////////
-Route::post('/addRole', array('uses' =>'EmployeeController@addRole'));
-Route::post('/editRole', array('uses' => 'EmployeeController@editRole'));
-Route::post('/delRole', array('uses' => 'EmployeeController@delRole'));
-Route::post('/reactRole', array('uses' => 'EmployeeController@reactRole'));
+Route::post('/addRole', array('uses' =>'RoleController@addRole'));
+Route::post('/editRole', array('uses' => 'RoleController@editRole'));
+Route::post('/delRole', array('uses' => 'RoleController@delRole'));
+Route::post('/reactRole', array('uses' => 'RoleController@reactRole'));
 //////////////////////CRUD FOR GARMENT CATEGORY//////////////////////
 Route::post('/addGarmentCategory', array('uses' => 'GarmentsController@addGarmentCategory'));
 Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarmentCategory'));

@@ -1,6 +1,6 @@
 <?php
 
-class CustomerController extends BaseController{
+class CustomerCompanyController extends BaseController{
 
 
 	public function company()
@@ -37,12 +37,12 @@ class CustomerController extends BaseController{
 
 		$count = DB::table('tblCustCompany')
             ->select('tblCustCompany.strCustCompanyEmailAddress')
-            ->where('tblCustCompany.strCustCompanyEmailAddress','=', trim(Input::get('addComEmailAddress'))
+            ->where('tblCustCompany.strCustCompanyEmailAddress','=', trim(Input::get('addComEmailAddress')))
             ->count();
 
         $count2 = DB::table('tblCustCompany')
             ->select('tblCustCompany.strCustCompanyCPNumber')
-            ->where('tblCustCompany.strCustCompanyCPNumber','=', trim(Input::get('addCel'))
+            ->where('tblCustCompany.strCustCompanyCPNumber','=', trim(Input::get('addCel')))
             ->count();
 
         if($count > 0 || $count2 > 0){
@@ -59,7 +59,7 @@ class CustomerController extends BaseController{
 			
 		if(!$isAdded){
 			$company = Company::create(array(
-				'strCustCompanyID' => Input::get('addComID')),
+				'strCustCompanyID' => Input::get('addComID'),
 				'strCustCompanyName' => trim(Input::get('addComName')),		
 				'strCustCompanyAddress' => trim(Input::get('addAddress')),
 				'strCustContactPerson' => trim(Input::get('addConPerson')),
@@ -86,10 +86,10 @@ class CustomerController extends BaseController{
 
 		$count = 0; $count2 = 0;
 
-		if(!($company->strCustCompanyEmailAddress == trim(Input::get('editComEmailAddress'))){
+		if(!($company->strCustCompanyEmailAddress == trim(Input::get('editComEmailAddress')))){
 			$count = DB::table('tblCustCompany')
 	            ->select('tblCustCompany.strCustCompanyEmailAddress')
-	            ->where('tblCustCompany.strCustCompanyEmailAddress','=', trim(Input::get('editComEmailAddress'))
+	            ->where('tblCustCompany.strCustCompanyEmailAddress','=', trim(Input::get('editComEmailAddress')))
 	            ->count();
 	    }
 

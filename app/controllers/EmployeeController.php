@@ -3,7 +3,7 @@
 class EmployeeController extends BaseController{
 	
 
-	public function empProfile()
+	public function employee()
 	{	
 		$ids = DB::table('tblEmployee')
 			->select('strEmployeeID')
@@ -29,39 +29,9 @@ class EmployeeController extends BaseController{
 
 		return View::make('employee')
 					->with('employee', $employee)
-					->with('employee2', $employee)
-					->with('roles2', $roles)
 					->with('roles', $roles)
 					->with('reason', $reason)
 					->with('newID', $newID);
-	}
-
-	public function roles()
-	{	
-		$ids = DB::table('tblEmployeeRole')
-			->select('strEmpRoleID')
-			->orderBy('created_at', 'desc')
-			->orderBy('strEmpRoleID', 'desc')
-			->take(1)
-			->get();
-
-		$ID = $ids["0"]->strEmpRoleID;
-		$newID = $this->smartCounter($ID);	
-
-		$role = Role::all();
-		$reason = ReasonRole::all();
-
-		$role = DB::table('tblEmployeeRole')
-				->leftJoin('tblReasonRole', 'tblEmployeeRole.strEmpRoleID', '=', 'tblReasonRole.strInactiveRoleID')
-				->select('tblEmployeeRole.*', 'tblReasonRole.strInactiveRoleID', 'tblReasonRole.strInactiveReason')
-				->orderBy('created_at')
-				->get();
-
-		return View::make('employeeRole')
-				->with('role', $role)
-				->with('role2', $role)
-				->with('reason', $reason)
-				->with('newID', $newID);	
 	}
 
 	public function addEmployee()
@@ -71,21 +41,21 @@ class EmployeeController extends BaseController{
 
 		$count = DB::table('tblEmployee')
             ->select('tblEmployee.strEmailAdd')
-            ->where('tblEmployee.strEmailAdd','=', Input::get('addEmail'))
+            ->where('tblEmployee.strEmailAdd','=', trim(Input::get('addEmail')))
             ->count();
 
         $count2 = DB::table('tblEmployee')
             ->select('tblEmployee.strCellNo')
-            ->where('tblEmployee.strCellNo','=', Input::get('addCellNo'))
+            ->where('tblEmployee.strCellNo','=', trim(Input::get('addCellNo')))
             ->count();
             
         if($count > 0 || $count2 > 0){
         	$isAdded = TRUE;
         }else{
         	foreach($emp as $emp){
-			if(strcasecmp($emp->strEmpFName, Input::get('addFirstName')) == 0 &&
-				    strcasecmp($emp->strEmpMName, Input::get('addMiddleName')) == 0 &&
-					strcasecmp($emp->strEmpLName, Input::get('addLastName')) == 0){
+			if(strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))) == 0 &&
+				    strcasecmp($emp->strEmpMName, trim(Input::get('addMiddleName'))) == 0 &&
+					strcasecmp($emp->strEmpLName, trim(Input::get('addLastName'))) == 0){
 						$isAdded = TRUE;
 				}
 			}
@@ -94,45 +64,23 @@ class EmployeeController extends BaseController{
 		if(!$isAdded){
 			$employee = Employee::create(array(
 				'strEmployeeID' => Input::get('addEmpID'),
-				'strEmpFName' => Input::get('addFirstName'),	
-				'strEmpMName' => Input::get('addMiddleName'),	
-				'strEmpLName' => Input::get('addLastName'),
+				'strEmpFName' => trim(Input::get('addFirstName')),	
+				'strEmpMName' => trim(Input::get('addMiddleName')),	
+				'strEmpLName' => trim(Input::get('addLastName')),
 				'dtEmpBday' => date("Y-m-d", strtotime(Input::get("adddtEmpBday"))),
 				'strSex' => Input::get('addSex'),
-				'strEmpAddress' => Input::get('addAddress'),			
+				'strEmpAddress' => trim(Input::get('addAddress')),			
 				'strRole' => Input::get('addRoles'), 
-				'strCellNo' => Input::get('addCellNo'),
-				'strCellNoAlt' => Input::get('addCellNoAlt'),
-				'strPhoneNo' => Input::get('addPhoneNo'),
-				'strEmailAdd' => Input::get('addEmail'),
+				'strCellNo' => trim(Input::get('addCellNo')),
+				'strCellNoAlt' => trim(Input::get('addCellNoAlt')),
+				'strPhoneNo' => trim(Input::get('addPhoneNo')),
+				'strEmailAdd' => trim(Input::get('addEmail')),
 				'boolIsActive' => 1
 			));
 
 			$employee->save();
 			return Redirect::to('/maintenance/employee?success=true');
 		} else return Redirect::to('/maintenance/employee?success=duplicate');
-	}
-
-	public function addRole()
-	{	
-		$rol = Role::all();
-		$isAdded = FALSE;
-
-		foreach ($rol as $rol)
-			if(strcasecmp($rol->strEmpRoleName, Input::get('addRoleName')) == 0)
-				$isAdded = TRUE;
-
-		if(!$isAdded){
-			$role = Role::create(array(
-			'strEmpRoleID' => Input::get('addRoleID'),
-			'strEmpRoleName' => Input::get('addRoleName'),
-			'strEmpRoleDesc' => Input::get('addRoleDescription'),
-			'boolIsActive' => 1
-			));
-
-			$role->save();
-			return Redirect::to('/maintenance/employeeRole?success=true');
-		}else return Redirect::to('/maintenance/employeeRole?success=duplicate');
 	}
 
 	public function editEmployee()
@@ -145,17 +93,17 @@ class EmployeeController extends BaseController{
 
 		$count = 0; $count2 = 0;
 
-		if(!($employee->strEmailAdd == Input::get('editEmail'))){	
+		if(!($employee->strEmailAdd == trim(Input::get('editEmail')))) {	
 			$count = DB::table('tblEmployee')
 	            ->select('tblEmployee.strEmailAdd')
-	            ->where('tblEmployee.strEmailAdd','=', Input::get('editEmail'))
+	            ->where('tblEmployee.strEmailAdd','=', trim(Input::get('editEmail')))
 	            ->count();
         }
 
-        if(!($employee->strCellNo == Input::get('editCellNo'))){	
+        if(!($employee->strCellNo == trim(Input::get('editCellNo')))) {	
 	        $count2 = DB::table('tblEmployee')
 	            ->select('tblEmployee.strCellNo')
-	            ->where('tblEmployee.strCellNo','=', Input::get('editCellNo'))
+	            ->where('tblEmployee.strCellNo','=', trim(Input::get('editCellNo')))
 	            ->count();
 	    }
             
@@ -164,9 +112,9 @@ class EmployeeController extends BaseController{
         }else{
         	foreach($emp as $emp){
 			if(!strcasecmp($emp->strEmployeeID, Input::get('editEmpID')) == 0 &&
-				strcasecmp($emp->strEmpFName, Input::get('editFirstName')) == 0 &&
-			    strcasecmp($emp->strEmpMName, Input::get('editMiddleName')) == 0 &&
-				strcasecmp($emp->strEmpLName, Input::get('editLastName')) == 0){
+				strcasecmp($emp->strEmpFName, trim(Input::get('editFirstName'))) == 0 &&
+			    strcasecmp($emp->strEmpMName, trim(Input::get('editMiddleName'))) == 0 &&
+				strcasecmp($emp->strEmpLName, trim(Input::get('editLastName'))) == 0){
 						$isAdded = TRUE;
 				}
 			}
@@ -175,47 +123,21 @@ class EmployeeController extends BaseController{
 		if(!$isAdded){
 			$employee = Employee::find($id);
 
-			$employee->strEmpFName = Input::get('editFirstName');	
-			$employee->strEmpLName = Input::get('editLastName');	
-			$employee->strEmpMName = Input::get('editMiddleName');	
-			$employee->dtEmpBday = Input::get('editdtEmpBday');
+			$employee->strEmpFName = trim(Input::get('editFirstName'));	
+			$employee->strEmpLName = trim(Input::get('editLastName'));	
+			$employee->strEmpMName = trim(Input::get('editMiddleName'));	
 			$employee->dtEmpBday = date("Y-m-d", strtotime(Input::get("editdtEmpBday")));
 			$employee->strSex = Input::get('editSex');
-			$employee->strEmpAddress = Input::get('editAddress');
+			$employee->strEmpAddress = trim(Input::get('editAddress'));
 			$employee->strRole = Input::get('editRoles');
-			$employee->strCellNo = Input::get('editCellNo');
-			$employee->strCellNoAlt = Input::get('editCellNoAlt');
-			$employee->strPhoneNo = Input::get('editPhoneNo');
-			$employee->strEmailAdd = Input::get('editEmail');
+			$employee->strCellNo = trim(Input::get('editCellNo'));
+			$employee->strCellNoAlt = trim(Input::get('editCellNoAlt'));
+			$employee->strPhoneNo = trim(Input::get('editPhoneNo'));
+			$employee->strEmailAdd = trim(Input::get('editEmail'));
 
 			$employee->save();
 			return Redirect::to('/maintenance/employee?successEdit=true');
 		 } else return Redirect::to('/maintenance/employee?success=duplicate');
-	}
-
-	public function editRole()
-	{
-		$id = Input::get('editRoleID');
-		$role = Role::find($id);
-
-		$rol = Role::all();
-		$isAdded = FALSE;
-
-		foreach ($rol as $rol)
-			if(!strcasecmp($rol->strEmpRoleID, Input::get('editRoleID')) == 0 &&
-				strcasecmp($rol->strEmpRoleName, Input::get('editRoleName')) == 0)
-					$isAdded = TRUE;
-
-		if(!$isAdded){
-			$role->strEmpRoleName = Input::get('editRoleName');	
-			$role->strEmpRoleDesc = Input::get('editRoleDescription');
-
-			$role->save();
-			return Redirect::to('/maintenance/employeeRole?successEdit=true');
-		}else return Redirect::to('/maintenance/employeeRole?success=duplicate');
-
-		
-	 
 	}
 
 	public function delEmployee()
@@ -239,32 +161,6 @@ class EmployeeController extends BaseController{
 	 } else return Redirect::to('/maintenance/employeeRole?success=beingUsed');
 	}
 
-	public function delRole()
-	{
-		$id = Input::get('delRoleID');
-
-		$role = Role::find($id);
-
-		$count = DB::table('tblEmployee')
-            ->join('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
-            ->select('tblEmployeeRole.*')
-            ->where('tblEmployeeRole.strEmpRoleID','=', $id)
-            ->count();
-
-        if ($count == 0) {
-
-			$reason = ReasonRole::create(array(
-				'strInactiveRoleID' => Input::get('delInactiveRole'),
-				'strInactiveReason' => Input::get('delInactiveReason')
-				));
-        	$role->boolIsActive = 0;
-			$reason->save();
-        	$role->save();
-        	return Redirect::to('/maintenance/employeeRole?successDel=true');
-        } else return Redirect::to('/maintenance/employeeRole?success=beingUsed');
-
-	}
-
 	public function reactEmployee()
 	{	
 		$id = Input::get('reactID');
@@ -284,27 +180,6 @@ class EmployeeController extends BaseController{
 		$employee->save();
 		return Redirect::to('/utilities/inactiveData?successRec=true');
 	 } else return Redirect::to('/utilities/inactiveData?successRec=false');
-	}
-
-	public function reactRole()
-	{
-		$id = Input::get('reactID');
-		$isAdded = FALSE;
-
-
-	if(!$isAdded){
-		$role = Role::find($id);
-
-		$reas = Input::get('reactInactiveRole');
-		$reason = DB::table('tblReasonRole')
-						->where('strInactiveRoleID', '=', $reas)
-						->delete();
-
-        $role->boolIsActive = 1;
-
-        $role->save();
-        return Redirect::to('/utilities/inactiveData?successRec=true');
-	 }else return Redirect::to('/utilities/inactiveData?successRec=false');
 	}
 
 	public function smartCounter($id)

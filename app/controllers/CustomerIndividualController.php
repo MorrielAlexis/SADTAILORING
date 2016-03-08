@@ -1,6 +1,6 @@
 <?php
 
-class CustomerController extends BaseController{
+class CustomerIndividualController extends BaseController{
 
 
 	public function individual()
@@ -37,12 +37,12 @@ class CustomerController extends BaseController{
 
 		$count = DB::table('tblCustPrivateIndividual')
             ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
-            ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', trim(Input::get('addEmail'))
+            ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', trim(Input::get('addEmail')))
             ->count();
 
         $count2 = DB::table('tblCustPrivateIndividual')
             ->select('tblCustPrivateIndividual.strCustPrivCPNumber')
-            ->where('tblCustPrivateIndividual.strCustPrivCPNumber','=', trim(Input::get('addCel'))
+            ->where('tblCustPrivateIndividual.strCustPrivCPNumber','=', trim(Input::get('addCel')))
             ->count();
 
         if($count > 0 || $count2 > 0){
@@ -89,17 +89,17 @@ class CustomerController extends BaseController{
 
 		$count = 0; $count2 = 0;
 
-		if(!($individual->strCustPrivEmailAddress == trim(Input::get('editEmail'))){
+		if(!($individual->strCustPrivEmailAddress == trim(Input::get('editEmail')))){
 			$count = DB::table('tblCustPrivateIndividual')
 	            ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
-	            ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', trim(Input::get('editEmail'))
+	            ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', trim(Input::get('editEmail')))
 	            ->count();
 	    }
 
-	    if(!($individual->strCustPrivCPNumber == trim(Input::get('editCel'))){
+	    if(!($individual->strCustPrivCPNumber == trim(Input::get('editCel')))){
 	    	$count2 = DB::table('tblCustPrivateIndividual')
 	            ->select('tblCustPrivateIndividual.strCustPrivCPNumber')
-	            ->where('tblCustPrivateIndividual.strCustPrivCPNumber','=', trim(Input::get('editCel'))
+	            ->where('tblCustPrivateIndividual.strCustPrivCPNumber','=', trim(Input::get('editCel')))
 	            ->count();
 	    }	
 
