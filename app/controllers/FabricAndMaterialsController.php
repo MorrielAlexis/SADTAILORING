@@ -415,8 +415,7 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($threads as $thread)
 			if(strcasecmp($thread->strMaterialThreadName, Input::get('addThreadName')) == 0 && 
-				strcasecmp($thread->strMaterialThreadColor, Input::get('addThreadColor')) == 0 &&
-				strcasecmp($thread->strMaterialThreadDesc, Input::get('addThreadDesc')) == 0)
+				strcasecmp($thread->strMaterialThreadColor, Input::get('addThreadColor')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -457,7 +456,7 @@ class FabricAndMaterialsController extends BaseController{
 		$threads = MaterialThread::get();
 		$isAdded = FALSE;
 
-		foreach($thre as $thread)
+		foreach($threads as $thread)
 			if(!strcasecmp($thread->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
 				strcasecmp($thread->strMaterialThreadName, Input::get('editThreadName')) == 0 && 
 				strcasecmp($thread->strMaterialThreadColor, Input::get('editThreadColor')) == 0 &&
@@ -530,8 +529,7 @@ class FabricAndMaterialsController extends BaseController{
 
 		foreach($needles as $needle)
 			if(strcasecmp($needle->strMaterialNeedleName, Input::get('addNeedleName')) == 0 && 
-				strcasecmp($needle->strMaterialNeedleSize, Input::get('addNeedleSize')) == 0 &&
-				strcasecmp($needle->strMaterialNeedleDesc, Input::get('addNeedleDesc')) == 0)
+				strcasecmp($needle->strMaterialNeedleSize, Input::get('addNeedleSize')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -644,8 +642,7 @@ class FabricAndMaterialsController extends BaseController{
 		foreach($buttons as $button)
 			if(strcasecmp($button->strMaterialButtonName, Input::get('addButtonName')) == 0 && 
 				strcasecmp($button->strMaterialButtonSize, Input::get('addButtonSize')) == 0 &&
-				strcasecmp($button->strMaterialButtonColor, Input::get('addButtonColor')) == 0 &&
-				strcasecmp($button->strMaterialButtonDesc, Input::get('addButtonDesc')) == 0)
+				strcasecmp($button->strMaterialButtonColor, Input::get('addButtonColor')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -762,8 +759,7 @@ class FabricAndMaterialsController extends BaseController{
 		foreach($zippers as $zipper)
 			if(strcasecmp($zipper->strMaterialZipperName, Input::get('addZipperName')) == 0 && 
 				strcasecmp($zipper->strMaterialZipperSize, Input::get('addZipperSize')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperColor, Input::get('addZipperColor')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperDesc, Input::get('addZipperDesc')) == 0)
+				strcasecmp($zipper->strMaterialZipperColor, Input::get('addZipperColor')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -880,8 +876,7 @@ class FabricAndMaterialsController extends BaseController{
 		foreach($hooks as $hook)
 			if(strcasecmp($hook->strMaterialHookName, Input::get('addHookName')) == 0 && 
 				strcasecmp($hook->strMaterialHookSize, Input::get('addHookSize')) == 0 &&
-				strcasecmp($hook->strMaterialHookColor, Input::get('addHookColor')) == 0 &&
-				strcasecmp($hook->strMaterialHookDesc, Input::get('addHookDesc')) == 0)
+				strcasecmp($hook->strMaterialHookColor, Input::get('addHookColor')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
