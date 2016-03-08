@@ -173,19 +173,19 @@ class FabricAndMaterialsController extends BaseController{
 
 
 		return View::make('fabricAndMaterialsMaterials')
-					->with('thread', $thread)
+					->with('threads', $thread)
 					->with('reasonThread', $reasonThread)
 					->with('newThreadID', $newThreadID)
-					->with('needle', $needle)
+					->with('needles', $needle)
 					->with('reasonNeedle', $reasonNeedle)
 					->with('newNeedleID', $newNeedleID)
-					->with('button', $button)
+					->with('buttons', $button)
 					->with('reasonButton', $reasonButton)
 					->with('newButtonID', $newButtonID)
-					->with('zipper', $zipper)
+					->with('zippers', $zipper)
 					->with('reasonZipper', $reasonZipper)
 					->with('newZipperID', $newZipperID)
-					->with('hook', $hook)
+					->with('hooks', $hook)
 					->with('reasonHook', $reasonHook)
 					->with('newHookID', $newHookID);
 	}
@@ -763,7 +763,7 @@ class FabricAndMaterialsController extends BaseController{
 			if(strcasecmp($zipper->strMaterialZipperName, Input::get('addZipperName')) == 0 && 
 				strcasecmp($zipper->strMaterialZipperSize, Input::get('addZipperSize')) == 0 &&
 				strcasecmp($zipper->strMaterialZipperColor, Input::get('addZipperColor')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperDesc, Input::get('addZipperDesc')) == 0))
+				strcasecmp($zipper->strMaterialZipperDesc, Input::get('addZipperDesc')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -809,7 +809,7 @@ class FabricAndMaterialsController extends BaseController{
 				strcasecmp($zipper->strMaterialZipperName, Input::get('editZipperName')) == 0 && 
 				strcasecmp($zipper->strMaterialZipperSize, Input::get('editZipperSize')) == 0 &&
 				strcasecmp($zipper->strMaterialZipperColor, Input::get('editZipperColor')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperDesc, Input::get('editZipperDesc')) == 0))
+				strcasecmp($zipper->strMaterialZipperDesc, Input::get('editZipperDesc')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -881,7 +881,7 @@ class FabricAndMaterialsController extends BaseController{
 			if(strcasecmp($hook->strMaterialHookName, Input::get('addHookName')) == 0 && 
 				strcasecmp($hook->strMaterialHookSize, Input::get('addHookSize')) == 0 &&
 				strcasecmp($hook->strMaterialHookColor, Input::get('addHookColor')) == 0 &&
-				strcasecmp($hook->strMaterialHookDesc, Input::get('addHookDesc')) == 0))
+				strcasecmp($hook->strMaterialHookDesc, Input::get('addHookDesc')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
@@ -927,7 +927,7 @@ class FabricAndMaterialsController extends BaseController{
 				strcasecmp($hook->strMaterialHookName, Input::get('editHookName')) == 0 && 
 				strcasecmp($hook->strMaterialHookSize, Input::get('editHookSize')) == 0 &&
 				strcasecmp($hook->strMaterialHookColor, Input::get('editHookColor')) == 0 &&
-				strcasecmp($hook->strMaterialHookDesc, Input::get('editHookDesc')) == 0))
+				strcasecmp($hook->strMaterialHookDesc, Input::get('editHookDesc')) == 0)
 					$isAdded = TRUE;
 
 		if(!$isAdded){
