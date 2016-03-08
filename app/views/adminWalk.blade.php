@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Materials Purchasing</h1>
+<h1>Walkin</h1>
 
 
 @stop

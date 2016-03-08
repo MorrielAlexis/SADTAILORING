@@ -22,6 +22,8 @@ class HomeController extends BaseController {
 
 	public function goToMain()
 	{
+		$name = 'Arianne';
+		Session::put('userID',$name);
 		return View::make('layouts/master');
 	}
 }

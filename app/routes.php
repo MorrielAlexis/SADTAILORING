@@ -47,8 +47,18 @@ Route::group(array('prefix' => 'utilities'), function () {
 });
 ////////////////ROUTES FOR VIEWS////////////////GET ROUTES///////////////////////
 
+Route::group(array('prefix' => 'transaction'), function () {
+	Route::get('/walk', 'adminWalkController@walk');
+	Route::get('/online', 'adminOnlineCustomerController@online');
+	Route::get('/orderProgress', 'adminOrderProgressController@orderProgress');
+	Route::get('/materials', 'adminMaterialsController@materials');
+	Route::get('/billing', 'adminBillingController@billing');
+});
+
 /////////////////////ROUTES FOR VALIDATION (AJAX)//////////////////////////////////////////////
 Route::post('/checkEmployee', array('uses' => 'AjaxController@checkEmployeeInput'));
+
+
 
 
 
@@ -139,3 +149,4 @@ Route::post('/addHook', array('uses' => 'FabricAndMaterialsController@addHook'))
 Route::post('/editHook', array('uses' => 'FabricAndMaterialsController@editHook'));
 Route::post('/delHook', array('uses' => 'FabricAndMaterialsController@delHook'));
 Route::post('/reactHook', array('uses' => 'FabricAndMaterialsController@reactHook'));
+
