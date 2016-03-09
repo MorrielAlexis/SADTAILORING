@@ -1,6 +1,6 @@
 <?php
 
-class adminMaterialsController extends BaseController{
+class AdminMaterialsController extends BaseController{
 
 	public function materials(){
 

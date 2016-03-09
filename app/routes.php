@@ -48,12 +48,16 @@ Route::group(array('prefix' => 'utilities'), function () {
 ////////////////ROUTES FOR VIEWS////////////////GET ROUTES///////////////////////
 
 Route::group(array('prefix' => 'transaction'), function () {
-	Route::get('/walk', 'adminWalkController@walk');
-	Route::get('/online', 'adminOnlineCustomerController@online');
-	Route::get('/orderProgress', 'adminOrderProgressController@orderProgress');
-	Route::get('/materials', 'adminMaterialsController@materials');
-	Route::get('/billing', 'adminBillingController@billing');
+	Route::get('/walk', 'AdminWalkController@walk');
+	Route::get('/online', 'AdminOnlineCustomerController@online');
+	Route::get('/orderProgress', 'AdminOrderProgressController@orderProgress');
+	Route::get('/materials', 'AdminMaterialsController@materials');
+	Route::get('/billing', 'AdminBillingController@billing');
 });
+
+Route::get('/customerIndividual','IndiController@indi');
+Route::get('/customerCompany','ComController@com');
+Route::get('/chooseProduct','ProductController@products');
 
 /////////////////////ROUTES FOR VALIDATION (AJAX)//////////////////////////////////////////////
 Route::post('/checkEmployee', array('uses' => 'AjaxController@checkEmployeeInput'));

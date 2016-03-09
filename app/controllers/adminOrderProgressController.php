@@ -1,6 +1,6 @@
 <?php
 
-class adminOrderProgressController extends BaseController{
+class AdminOrderProgressController extends BaseController{
 
 	public function orderProgress(){
 

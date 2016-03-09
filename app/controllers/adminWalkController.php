@@ -1,6 +1,6 @@
 <?php
 
-class adminWalkController extends BaseController{
+class AdminWalkController extends BaseController{
 
 	public function walk(){
 

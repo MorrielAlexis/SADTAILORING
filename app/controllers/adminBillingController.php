@@ -1,6 +1,6 @@
 <?php
 
-class adminBillingController extends BaseController{
+class AdminBillingController extends BaseController{
 
 	public function billing(){
 

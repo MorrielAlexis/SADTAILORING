@@ -1,6 +1,6 @@
 <?php
 
-class adminOnlineCustomerController extends BaseController{
+class AdminOnlineCustomerController extends BaseController{
 
 	public function online(){
 

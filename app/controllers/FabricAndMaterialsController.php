@@ -502,7 +502,7 @@ class FabricAndMaterialsController extends BaseController{
 		$reasonThread = ReasonMaterialThread::create(array(
 			'strInactiveThreadID' => Input::get('delInactiveThread'),
 			'strInactiveReason' => Input::get('delInactiveReason')
-		);
+		));
 
 		$thread->boolIsActive = 0;
 		$reasonThread->save();
