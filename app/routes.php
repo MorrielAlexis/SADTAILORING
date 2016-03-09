@@ -55,9 +55,23 @@ Route::group(array('prefix' => 'transaction'), function () {
 	Route::get('/billing', 'AdminBillingController@billing');
 });
 
-Route::get('/customerIndividual','IndiController@indi');
-Route::get('/customerCompany','ComController@com');
+Route::get('/walkIndi','WalkIndiController@indi');
+Route::get('/walkCom','WalkComController@com');
 Route::get('/chooseProduct','ProductController@products');
+Route::get('/alteration','AlterationController@alter');
+Route::get('/madeorder','OrderController@order');
+Route::get('/trans','ChooseTransController@trans');
+
+
+/////////////////////ROUTES FOR ALTERATIONS//////////////////////////////////////////////
+
+Route::get('/tops','GarmentTopsController@tops');
+Route::get('/pants','GarmentPantsController@pants');
+Route::get('/denim','GarmentDenimController@denim');
+Route::get('/jackets','GarmentJacketsController@jackets');
+Route::get('/dresses','GarmentDressesController@dresses');
+Route::get('/others','GarmentOthersController@others');
+
 
 /////////////////////ROUTES FOR VALIDATION (AJAX)//////////////////////////////////////////////
 Route::post('/checkEmployee', array('uses' => 'AjaxController@checkEmployeeInput'));
