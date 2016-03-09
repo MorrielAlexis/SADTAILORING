@@ -131,6 +131,10 @@
         }
         
         /* END REAL TIME INPUT VALIDATION STYLE */
+        label{
+            color: black;
+        }
+
 
         h4{
             color: black;

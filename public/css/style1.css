@@ -57,6 +57,9 @@
   clear: both;
 }
 
+label{
+  font-color: black;
+}
 nav {
   padding: 0 15px 0 15px;
 }
