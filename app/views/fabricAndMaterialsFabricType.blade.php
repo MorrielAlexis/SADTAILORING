@@ -265,7 +265,13 @@
       $('.validateTypeName').keyup(function() {
         var name = $(this).val();
         $(this).val(name.replace(/\d/, ''));
-      });     
+      });  
+
+      //Kapag whitespace
+      $('.validateTypeName').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });      
 
       $('.validateTypeName').blur('input', function() {
         var input=$(this);
