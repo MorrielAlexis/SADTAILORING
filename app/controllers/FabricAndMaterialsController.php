@@ -324,11 +324,15 @@ class FabricAndMaterialsController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/[a-zA-Z\s\-\*\']+$/";
-		if (preg_match($regex, Input::get('addFabricTypeName'))) {
+		
+
+		if(!trim(Input::get('addFabricTypeName')) == ''){
 			$validInput = TRUE;
-		} else {
-		    $validInput = FALSE;
-		}
+			if (preg_match($regex, Input::get('addFabricTypeName'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+			
 
 		foreach($fabrics as $fabric)
 			if(strcasecmp($fabric->strFabricTypeName, trim(Input::get('addFabricTypeName'))) == 0)

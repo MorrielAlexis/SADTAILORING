@@ -228,7 +228,7 @@
                 </div>
 
                   <div class="modal-footer">
-                    <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
+                    <button type="submit" id="addFabType" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                     <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                   </div>
                 </form>
@@ -251,7 +251,6 @@
 
       }
     </script>
-
 
     <script type="text/javascript">
       $('.validateTypeName').on('input', function() {
