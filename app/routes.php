@@ -26,8 +26,8 @@ Route::group(array('prefix' => 'maintenance'), function () {
 });
 
 Route::group(array('prefix' => 'maintenance'), function () {
-	Route::get('/garments', 'GarmentsController@category');
-	Route::get('/garmentsDetails', 'GarmentsController@details');
+	Route::get('/garments', 'GarmentCategoryController@category');
+	Route::get('/garmentsDetails', 'GarmentSegmentController@segment');
 	Route::get('/designPattern', 'DesignPatternController@pattern');
 	Route::get('/measurements', 'MeasurementController@measurements');
 });
@@ -89,15 +89,15 @@ Route::post('/editRole', array('uses' => 'RoleController@editRole'));
 Route::post('/delRole', array('uses' => 'RoleController@delRole'));
 Route::post('/reactRole', array('uses' => 'RoleController@reactRole'));
 //////////////////////CRUD FOR GARMENT CATEGORY//////////////////////
-Route::post('/addGarmentCategory', array('uses' => 'GarmentsController@addGarmentCategory'));
-Route::post('/editGarmentCategory', array('uses' => 'GarmentsController@editGarmentCategory'));
-Route::post('/delGarmentCategory', array('uses' => 'GarmentsController@delGarmentCategory'));
-Route::post('/reactGarmentCategory', array('uses' => 'GarmentsController@reactGarmentCategory'));
+Route::post('/addGarmentCategory', array('uses' => 'GarmentCategoryController@addGarmentCategory'));
+Route::post('/editGarmentCategory', array('uses' => 'GarmentCategoryController@editGarmentCategory'));
+Route::post('/delGarmentCategory', array('uses' => 'GarmentCategoryController@delGarmentCategory'));
+Route::post('/reactGarmentCategory', array('uses' => 'GarmentCategoryController@reactGarmentCategory'));
 //////////////////////CRUD FOR GARMENT SEGMENT//////////////////////
-Route::post('/addGarmentSegment', array('uses' => 'GarmentsController@addGarmentSegment'));
-Route::post('/editGarmentSegment', array('uses' => 'GarmentsController@editGarmentSegment'));
-Route::post('/delGarmentSegment', array('uses' => 'GarmentsController@delGarmentSegment'));
-Route::post('/reactGarmentSegment', array('uses' => 'GarmentsController@reactGarmentSegment'));
+Route::post('/addGarmentSegment', array('uses' => 'GarmentSegmentController@addGarmentSegment'));
+Route::post('/editGarmentSegment', array('uses' => 'GarmentSegmentController@editGarmentSegment'));
+Route::post('/delGarmentSegment', array('uses' => 'GarmentSegmentController@delGarmentSegment'));
+Route::post('/reactGarmentSegment', array('uses' => 'GarmentSegmentController@reactGarmentSegment'));
 //////////////////////CRUD FOR MEASUREMENT DETAIL//////////////////////
 Route::post('/addMeasurementDetail', array('uses' => 'MeasurementController@addDetail'));
 Route::post('/editMeasurementDetail', array('uses' => 'MeasurementController@editDetail'));

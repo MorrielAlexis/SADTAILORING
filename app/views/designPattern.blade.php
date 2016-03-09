@@ -3,6 +3,17 @@
 
 @section('content')
   <div class="main-wrapper">
+      <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
         <!--Add Segment Pattern-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -118,7 +129,7 @@
 
                         <div class="input-field">                                                    
                           <select class="browser-default" required id="editCategory" name='editCategory'>
-                            @foreach($category2 as $cat)
+                            @foreach($category as $cat)
                               @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
                                 <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                               @elseif($cat->boolIsActive == 1)
@@ -130,7 +141,7 @@
 
                         <div class="input-field">                                                    
                           <select class="browser-default" id="editSegment" name="editSegment">
-                              @foreach($segment2 as $seg)
+                              @foreach($segment as $seg)
                                   @if($pattern->strDesignSegmentName)
                                     <option selected value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}">{{ $seg->strGarmentSegmentName }}</option>
                                   @else
@@ -426,13 +437,12 @@
         document.getElementById('addPatternName').value = "";
         document.getElementById('addImage').value = "";
       }
-
     </script>
 
     <script type="text/javascript">
       $('.validatePatternName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\'\*\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -444,9 +454,16 @@
         $(this).val(name.replace(/\d/, ''));
       });     
 
+      //Kapag whitespace
+      $('.validatePatternName').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
+      }); 
+
       $('.validatePatternName').blur('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var is_name=re.test(input.val())  ;
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 

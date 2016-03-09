@@ -38,7 +38,7 @@ class FabricController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
 		if(!trim(Input::get('addFabricTypeName')) == '' || !trim(Input::get('addFabricTypeDesc'))){
 			$validInput = TRUE;
@@ -78,7 +78,7 @@ class FabricController extends BaseController{
 
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
 		if(!trim(Input::get('editFabricTypeName')) == '' || !trim(Input::get('editFabricTypeDesc'))){
 			$validInput = TRUE;
