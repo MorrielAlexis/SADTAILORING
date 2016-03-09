@@ -33,9 +33,9 @@ Route::group(array('prefix' => 'maintenance'), function () {
 });
 
 Route::group(array('prefix' => 'maintenance'), function () {
-	Route::get('/fabricAndMaterialsFabricType', 'FabricAndMaterialsController@fabricType');
-	Route::get('/fabricAndMaterialsSwatches', 'FabricAndMaterialsController@swatch');
-	Route::get('/fabricAndMaterialsMaterials','FabricAndMaterialsController@materials');
+	Route::get('/fabricAndMaterialsFabricType', 'FabricController@fabricType');
+	Route::get('/fabricAndMaterialsSwatches', 'SwatchController@swatch');
+	Route::get('/fabricAndMaterialsMaterials','MaterialsController@materials');
 });
 
 Route::group(array('prefix' => 'maintenance'), function () {
@@ -109,10 +109,10 @@ Route::post('/editMeasurementCategory', array('uses' => 'MeasurementController@e
 Route::post('/delMeasurementCategory', array('uses' => 'MeasurementController@delCategory'));
 Route::post('/reactMeasurementCategory', array('uses' => 'MeasurementController@reactCategory'));
 //////////////////////CRUD FOR FABRIC TYPE//////////////////////
-Route::post('/addFabricType', array('uses' => 'FabricAndMaterialsController@addFabricType'));
-Route::post('/editFabricType', array('uses' => 'FabricAndMaterialsController@editFabricType'));
-Route::post('/delFabricType', array('uses' => 'FabricAndMaterialsController@delFabricType'));
-Route::post('/reactFabricType', array('uses' => 'FabricAndMaterialsController@reactFabricType'));
+Route::post('/addFabricType', array('uses' => 'FabricController@addFabricType'));
+Route::post('/editFabricType', array('uses' => 'FabricController@editFabricType'));
+Route::post('/delFabricType', array('uses' => 'FabricController@delFabricType'));
+Route::post('/reactFabricType', array('uses' => 'FabricController@reactFabricType'));
 //////////////////////CRUD FOR DESIGN PATTERN//////////////////////
 Route::post('/addDesignPattern', array('uses' => 'DesignPatternController@addPattern'));
 Route::post('/editDesignPattern', array('uses' => 'DesignPatternController@editPattern'));
@@ -124,33 +124,33 @@ Route::post('/editCatalogueDesign', array('uses' => 'CatalogueController@editCat
 Route::post('/delCatalogueDesign', array('uses' => 'CatalogueController@delCatalogue'));
 Route::post('/reactCatalogueDesign', array('uses' => 'CatalogueController@reactCatalogue'));
 //////////////////////CRUD FOR SWATCHES//////////////////////
-Route::post('/addSwatch', array('uses' => 'FabricAndMaterialsController@addSwatch'));
-Route::post('/editSwatch', array('uses' => 'FabricAndMaterialsController@editSwatch'));
-Route::post('/delSwatch', array('uses' => 'FabricAndMaterialsController@delSwatch'));
-Route::post('/reactSwatch', array('uses' => 'FabricAndMaterialsController@reactSwatch'));
+Route::post('/addSwatch', array('uses' => 'SwatchController@addSwatch'));
+Route::post('/editSwatch', array('uses' => 'SwatchController@editSwatch'));
+Route::post('/delSwatch', array('uses' => 'SwatchController@delSwatch'));
+Route::post('/reactSwatch', array('uses' => 'SwatchController@reactSwatch'));
 //////////////////////CRUD FOR MATERIAL THREAD//////////////////////
-Route::post('/addThread', array('uses' => 'FabricAndMaterialsController@addThread'));
-Route::post('/editThread', array('uses' => 'FabricAndMaterialsController@editThread'));
-Route::post('/delThread', array('uses' => 'FabricAndMaterialsController@delThread'));
-Route::post('/reactThread', array('uses' => 'FabricAndMaterialsController@reactThread'));
+Route::post('/addThread', array('uses' => 'MaterialsController@addThread'));
+Route::post('/editThread', array('uses' => 'MaterialsController@editThread'));
+Route::post('/delThread', array('uses' => 'MaterialsController@delThread'));
+Route::post('/reactThread', array('uses' => 'MaterialsController@reactThread'));
 //////////////////////CRUD FOR MATERIAL NEEDLE//////////////////////
-Route::post('/addNeedle', array('uses' => 'FabricAndMaterialsController@addNeedle'));
-Route::post('/editNeedle', array('uses' => 'FabricAndMaterialsController@editNeedle'));
-Route::post('/delNeedle', array('uses' => 'FabricAndMaterialsController@delNeedle'));
-Route::post('/reactNeedle', array('uses' => 'FabricAndMaterialsController@reactNeedle'));
+Route::post('/addNeedle', array('uses' => 'MaterialsController@addNeedle'));
+Route::post('/editNeedle', array('uses' => 'MaterialsController@editNeedle'));
+Route::post('/delNeedle', array('uses' => 'MaterialsController@delNeedle'));
+Route::post('/reactNeedle', array('uses' => 'MaterialsController@reactNeedle'));
 //////////////////////CRUD FOR MATERIAL BUTTON//////////////////////
-Route::post('/addButton', array('uses' => 'FabricAndMaterialsController@addButton'));
-Route::post('/editButton', array('uses' => 'FabricAndMaterialsController@editButton'));
-Route::post('/delButton', array('uses' => 'FabricAndMaterialsController@delButton'));
-Route::post('/reactButton', array('uses' => 'FabricAndMaterialsController@reactButton'));
+Route::post('/addButton', array('uses' => 'MaterialsController@addButton'));
+Route::post('/editButton', array('uses' => 'MaterialsController@editButton'));
+Route::post('/delButton', array('uses' => 'MaterialsController@delButton'));
+Route::post('/reactButton', array('uses' => 'MaterialsController@reactButton'));
 //////////////////////CRUD FOR MATERIAL ZIPPER//////////////////////
-Route::post('/addZipper', array('uses' => 'FabricAndMaterialsController@addZipper'));
-Route::post('/editZipper', array('uses' => 'FabricAndMaterialsController@editZipper'));
-Route::post('/delZipper', array('uses' => 'FabricAndMaterialsController@delZipper'));
-Route::post('/reactZipper', array('uses' => 'FabricAndMaterialsController@reactZipper'));
+Route::post('/addZipper', array('uses' => 'MaterialsController@addZipper'));
+Route::post('/editZipper', array('uses' => 'MaterialsController@editZipper'));
+Route::post('/delZipper', array('uses' => 'MaterialsController@delZipper'));
+Route::post('/reactZipper', array('uses' => 'MaterialsController@reactZipper'));
 //////////////////////CRUD FOR MATERIAL HOOK AND EYE//////////////////////
-Route::post('/addHook', array('uses' => 'FabricAndMaterialsController@addHook'));
-Route::post('/editHook', array('uses' => 'FabricAndMaterialsController@editHook'));
-Route::post('/delHook', array('uses' => 'FabricAndMaterialsController@delHook'));
-Route::post('/reactHook', array('uses' => 'FabricAndMaterialsController@reactHook'));
+Route::post('/addHook', array('uses' => 'MaterialsController@addHook'));
+Route::post('/editHook', array('uses' => 'MaterialsController@editHook'));
+Route::post('/delHook', array('uses' => 'MaterialsController@delHook'));
+Route::post('/reactHook', array('uses' => 'MaterialsController@reactHook'));
 

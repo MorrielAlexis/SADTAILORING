@@ -288,6 +288,12 @@
         else{input.removeClass("valid").addClass("invalid");}
       });
 
+      //Kapag whitespace
+      $('.validateTypeDesc').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
+      }); 
+
       $('.validateTypeDesc').blur('input', function() {
         var input=$(this);
         var is_desc=input.val();
