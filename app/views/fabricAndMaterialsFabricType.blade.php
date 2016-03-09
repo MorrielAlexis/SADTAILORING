@@ -228,7 +228,7 @@
                 </div>
 
                   <div class="modal-footer">
-                    <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
+                    <button type="submit" id="addFabType" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                     <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                   </div>
                 </form>
@@ -252,11 +252,10 @@
       }
     </script>
 
-
     <script type="text/javascript">
       $('.validateTypeName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\'\*\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -266,11 +265,17 @@
       $('.validateTypeName').keyup(function() {
         var name = $(this).val();
         $(this).val(name.replace(/\d/, ''));
-      });     
+      });  
+
+      //Kapag whitespace
+      $('.validateTypeName').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });      
 
       $('.validateTypeName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\'\*\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -282,6 +287,12 @@
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
+
+      //Kapag whitespace
+      $('.validateTypeDesc').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
+      }); 
 
       $('.validateTypeDesc').blur('input', function() {
         var input=$(this);
