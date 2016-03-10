@@ -119,7 +119,7 @@ class MeasurementController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\']+$/";
+		$regex = "/[a-zA-Z\s\-\'\.]+$/";
 		
 		if(!trim(Input::get('addDetailName')) == '' && !trim(Input::get('addDetailDesc')) == ''){
 			$validInput = TRUE;
@@ -153,7 +153,7 @@ class MeasurementController extends BaseController{
 		$detail = MeasurementDetail::find($id);
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\']+$/";
+		$regex = "/[a-zA-Z\s\-\'\.]+$/";
 		
 		if(!trim(Input::get('editDetailName')) == '' && !trim(Input::get('editDetailDesc')) == ''){
 			$validInput = TRUE;
