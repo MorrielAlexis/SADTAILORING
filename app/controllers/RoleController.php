@@ -37,10 +37,11 @@ class RoleController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\s\-\']+$/";
-		
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
+
 		if(!trim(Input::get('addRoleName')) == '' && !trim(Input::get('addRoleDescription')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addRoleName')) && preg_match($regex, Input::get('addRoleDescription'))) {
+			if (preg_match($regex, Input::get('addRoleName')) && preg_match($regex2, Input::get('addRoleDescription'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -74,10 +75,11 @@ class RoleController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
 		if(!trim(Input::get('editRoleName')) == '' && !trim(Input::get('editRoleDescription')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editRoleName')) && preg_match($regex, Input::get('editRoleDescription'))) {
+			if (preg_match($regex, Input::get('editRoleName')) && preg_match($regex2, Input::get('editRoleDescription'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;

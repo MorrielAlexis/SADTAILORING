@@ -119,11 +119,12 @@ class MeasurementController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\'\.]+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
 		if(!trim(Input::get('addDetailName')) == '' && !trim(Input::get('addDetailDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addDetailName')) && preg_match($regex, Input::get('addDetailDesc'))) {
+			if (preg_match($regex, Input::get('addDetailName')) && preg_match($regex2, Input::get('addDetailDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -153,11 +154,12 @@ class MeasurementController extends BaseController{
 		$detail = MeasurementDetail::find($id);
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\'\.]+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
 		if(!trim(Input::get('editDetailName')) == '' && !trim(Input::get('editDetailDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editDetailName')) && preg_match($regex, Input::get('editDetailDesc'))) {
+			if (preg_match($regex, Input::get('editDetailName')) && preg_match($regex2, Input::get('editDetailDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
