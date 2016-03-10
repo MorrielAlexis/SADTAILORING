@@ -44,7 +44,7 @@ class DesignPatternController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('addPatternName')) == ''){
 			$validInput = TRUE;
@@ -101,7 +101,7 @@ class DesignPatternController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('editPatternName')) == ''){
 			$validInput = TRUE;

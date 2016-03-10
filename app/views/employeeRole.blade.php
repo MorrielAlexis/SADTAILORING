@@ -128,12 +128,12 @@
                           </div>
 
                           <div class="input-field">
-                            <input required pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validate">
+                            <input required pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validateRole">
                             <label for="role_name">*Role Name: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validate">
+                            <input required value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validateRole">
                             <label for="role_description">*Role Description: </label>
                           </div>  
                         </p>    
@@ -203,12 +203,12 @@
                   </div>
                         
                   <div class="input-field">
-                    <input required pattern="[A-Za-z\s]+" id="addRoleName" name="addRoleName" type="text" class="validate">
+                    <input required pattern="[A-Za-z\s]+" id="addRoleName" name="addRoleName" type="text" class="validateRole">
                     <label for="role_name">*Role Name: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required pattern="[A-Za-z\s]+" id="addRoleDescription" name="addRoleDescription" type="text" class="validate">
+                    <input required pattern="[A-Za-z\s]+" id="addRoleDescription" name="addRoleDescription" type="text" class="validateRole">
                     <label for="role_description">*Role Description: </label>
                   </div>
                 </p>
@@ -227,6 +227,58 @@
 @stop
 
 @section('scripts')
+  <script>
+    $('.validateRole').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+    $('.validateRole').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+      //Kapag Number
+      $('.validateRole').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });  
+
+      //Kapag whitespace
+      $('.validateRole').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
+
+      $('.validateRoleDesc').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateRoleDesc').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag whitespace
+      $('.validateRoleDesc').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });        
+  </script>
+  
+
   <script>
       function clearData(){
           document.getElementById("addRoleDescription").value = "";

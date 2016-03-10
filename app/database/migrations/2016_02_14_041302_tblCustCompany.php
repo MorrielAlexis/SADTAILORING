@@ -18,7 +18,12 @@ class tblCustCompany extends Migration {
 			//$table->string('strAcctTypeID')->index();//fk
 			//$table->string('strCustID')->unique();
 			$table->string('strCustCompanyName');
-			$table->string('strCustCompanyAddress');
+			$table->string('strCustCompanyHouseNo');
+			$table->string('strCustCompanyStreet');
+			$table->string('strCustCompanyBarangay');
+			$table->string('strCustCompanyCity');
+			$table->string('strCustCompanyProvince');
+			$table->string('strCustCompanyZipCode');
 			$table->string('strCustContactPerson');
 			$table->string('strCustCompanyEmailAddress')->nullable()->change();
 			$table->string('strCustCompanyTelNumber')->nullable()->change();

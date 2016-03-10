@@ -43,11 +43,12 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
-		if(!trim(Input::get('addCatalogueName')) == '' || !trim(Input::get('addCatalogueDesc'))){
+		if(!trim(Input::get('addCatalogueName')) == '' && !trim(Input::get('addCatalogueDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addCatalogueName'))) {
+			if (preg_match($regex, Input::get('addCatalogueName')) && preg_match($regex2, Input::get('addCatalogueDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -97,11 +98,12 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
-		if(!trim(Input::get('editCatalogueName')) == '' || !trim(Input::get('editCatalogueDesc'))){
+		if(!trim(Input::get('editCatalogueName')) == '' && !trim(Input::get('editCatalogueDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editCatalogueName'))) {
+			if (preg_match($regex, Input::get('editCatalogueName')) && preg_match($regex2, Input::get('editCatalogueDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;

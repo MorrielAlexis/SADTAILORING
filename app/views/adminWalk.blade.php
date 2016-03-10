@@ -26,7 +26,7 @@
 	                  		</div>
 	                  		<div class ="col s6">
 	                  			<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/walkCom')}}">Customer</a></center>
+		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/walkCom')}}">Company</a></center>
 	                  		</div>	          			
 		          		</div>	
 		          	</div>

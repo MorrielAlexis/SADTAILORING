@@ -2,6 +2,17 @@
 
 @section('content')
   <div class="main-wrapper">
+          <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+      
       <!--Add Garment Category-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -117,11 +128,10 @@
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
+                        <div class="modal-content">
                         <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>
-                        <form action="{{URL::to('editGarmentCategory')}}" method="POST">
-                          <div class="modal-content">
-                            <p> 
-                            
+                          <p>   
+                            <form action="{{URL::to('editGarmentCategory')}}" method="POST">       
  
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
@@ -262,7 +272,7 @@
     <script type="text/javascript">
       $('.validateGarmentName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\s\'\-]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -276,24 +286,44 @@
 
       $('.validateGarmentName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\s\'\-]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
+      //Kapag whitespace
+      $('.validateGarmentName').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
+      }); 
+
       $('.validateGarmentDesc').on('input', function() {
         var input=$(this);
-        var is_desc=input.val();
-        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        var re=/^[a-zA-Z\s\'\-\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
+      //Kapag Number
+      $('.validateGarmentDesc').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
       $('.validateGarmentDesc').blur('input', function() {
         var input=$(this);
-        var is_desc=input.val();
-        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        var re=/^[a-zA-Z\s\'\-\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      //Kapag whitespace
+      $('.validateGarmentDesc').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
       }); 
  
 

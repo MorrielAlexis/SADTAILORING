@@ -114,7 +114,6 @@
                   @foreach($swatch as $swatch)
                     @if($swatch->boolIsActive == 1)
                   <tr>
-                    <!--<td>{{ $swatch->strSwatchID }}</td>-->
                     <td>{{ $swatch->strFabricTypeName }}</td>
                     <td>{{ $swatch->strSwatchName }}</td>
                     <td>{{ $swatch->strSwatchCode }}</td>
@@ -124,11 +123,10 @@
     
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
-                       <h5><font color = "#1b5e20"><center>Edit Fabric Swatch</center> </font> </h5>
-                        <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
-                          <div class="modal-content">
+                        <div class="modal-content">
+                          <h5><font color = "#1b5e20"><center>Edit Fabric Swatch</center> </font> </h5>
                             <p>
- 
+                            <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
                               </div>
@@ -143,7 +141,7 @@
                                     @endif
                                   @endforeach
                                 </select>
-                                  <label>*Fabric Type</label>
+                                <label>*Fabric Type</label>
                               </div>  
 
                               <div class="input-field">
@@ -167,24 +165,21 @@
                                 </div>
                               </div>
                             </p>
-                            <br><br>
-                          </div>
-                  
-                          <div class="modal-footer">
-                            <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
-                          </div>
-                        </form>
-                      </div> 
-                      <!--******************Soft Delete*************************-->
+                            </div>            
+                              <div class="modal-footer">
+                                <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                              </div>                          
+                          </form>
+                          </div> 
+                          <!--******************Soft Delete*************************-->
                       <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
-                       <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                        <form action="{{URL::to('delSwatch')}}" method="POST">
-                          <div class="modal-content">
-                            <p>
+                        <div class="modal-content">
+                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
+                          <p>
+                          <form action="{{URL::to('delSwatch')}}" method="POST">   
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="hidden">
- 
                               </div>
 
                               <div class="input-field">
@@ -209,25 +204,23 @@
                               <div class="input-field">
                                 <input value="{{$swatch->strInactiveReason}}" id="delInactiveReason" name= "delInactiveReason" type="text" class="" required>
                                 <label for="swatch_code">*Reason for Deactivation: </label>
-                              </div>
-
-                            </p>
+                              </div>                 
                           </div>
-                  
-                          <div class="modal-footer">
-                            <button type="submit" class=" modal-action waves-effect waves-green btn-flat">OK</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
-                          </div>
+                          
+                            <div class="modal-footer">
+                              <button type="submit" class=" modal-action waves-effect waves-green btn-flat">OK</button>
+                              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                            </div>
+                          </p>
                         </form>
                       </div>
-                    </td>
-                  </tr>     
+                      </td>
+                    </tr>     
                     @endif
-                  @endforeach               
-                </tbody>
-              </table>
-
-            </div>
+                    @endforeach               
+                  </tbody>
+                </table>
+              </div>
 
             <div class = "clearfix">
 
@@ -241,14 +234,9 @@
 
                 <div class="modal-content">
                   <p>
-
  
                     <div class="input-field">
                       <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">
-
-                   <div class="input-field">
-                      <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">
- 
                     </div>
 
                     <div class="input-field">
@@ -292,6 +280,7 @@
                 </div>           
               </form>
             </div>
+
         </div>
       </div>
     </div>
@@ -325,7 +314,7 @@
     <script type="text/javascript">
       $('.validateSwatchName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -345,7 +334,7 @@
 
       $('.validateSwatchName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

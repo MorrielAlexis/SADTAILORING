@@ -16,11 +16,8 @@
 	          	<div class="card-content">
                 <div class = "row">
                   <div class="input-field col s6">
-                    <select>
-                      <option value="" disabled selected>Choose Job Order</option>
-                      <option value="1">JobOrder001</option>
-                    </select>
-                    <label>Choose Job Order:</label>
+                    <input id="jobOrder" name = "jobOrder" type="text">
+                    <label for = "jobOrder">Type Job Order Number here:</label>
                   </div>
                   <div class = "col s6">
                     <center><button style="color:black" class="btn btn-small center-text light-green accent-1" href="#">Search</button></center>
@@ -113,6 +110,21 @@
                   
         <div class = "clearfix"></div>
       </div>
+    </div>
+
+    <div class="modal-footer">                  
+      <button type="button" class=" modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>                    
+    </div>
+  </div>
+
+   <div id="modalProgress" class="modal modal-fixed-footer" style = "max-width:150%; max-height:100%;">
+    <div class="modal-content">
+
+      <h3>Progress Update</h3>
+
+      <div class ="row">
+      </div>  
+        
     </div>
 
     <div class="modal-footer">                  

@@ -7,7 +7,12 @@ class Company extends Eloquent {
 	protected $primaryKey = 'strCustCompanyID';
 	protected $fillable = array('strCustCompanyID',
 								'strCustCompanyName',
-								'strCustCompanyAddress',
+								'strCustCompanyHouseNo',
+								'strCustCompanyStreet',
+								'strCustCompanyBarangay',
+								'strCustCompanyCity',
+								'strCustCompanyProvince',
+								'strCustCompanyZipCode',
 								'strCustContactPerson',
 								'strCustCompanyEmailAddress',
 								'strCustCompanyTelNumber',

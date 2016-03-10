@@ -64,7 +64,7 @@ Route::get('/walkIndi','WalkIndiController@indi');
 Route::get('/walkCom','WalkComController@com');
 Route::get('/chooseProduct','ProductController@products');
 Route::get('/alteration','AlterationController@alter');
-Route::get('/madeorder','OrderController@order');
+Route::get('/madeOrder','OrderController@order');
 Route::get('/trans','ChooseTransController@trans');
 
 
@@ -76,6 +76,15 @@ Route::get('/denim','GarmentDenimController@denim');
 Route::get('/jackets','GarmentJacketsController@jackets');
 Route::get('/dresses','GarmentDressesController@dresses');
 Route::get('/others','GarmentOthersController@others');
+
+/////////////////////ROUTES FOR MADE TO ORDER//////////////////////////////////////////////////
+
+Route::get('/orderCatalogue','OrderCatalogueController@catalogue');
+Route::get('/orderPersonalize','OrderPersonalizeController@personalize');
+Route::get('/orderUpload','OrderUploadController@uploads');
+
+
+
 
 
 /////////////////////ROUTES FOR VALIDATION (AJAX)//////////////////////////////////////////////
