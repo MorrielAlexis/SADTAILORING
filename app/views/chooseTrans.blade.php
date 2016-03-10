@@ -19,7 +19,7 @@
 		        <div class="card-panel">
 		          <div class="card-content">
 						      <div class = "col s12">
-                    <label><font size= "+2" color = "black">Choose Customer Type</font></label>
+                    <label><font size= "+2" color = "black">Choose Transacation Type</font></label>
                   </div>    
 
                   <div class = "row">
