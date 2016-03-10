@@ -44,7 +44,7 @@ class CustomerCompanyController extends BaseController{
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
 		if(!trim(Input::get('addComName')) == '' && !trim(Input::get('addConPerson')) == '' && 
-		   !trim(Input::get('addCustCompanyHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
+		   !trim(Input::get('addCustCompanyHouseNo')) == '' && !trim(Input::get('addComEmailAddress')) == '' &&
 		   !trim(Input::get('addCustCompanyStreet')) == '' && !trim(Input::get('addCustCompanyBarangay')) == '' &&
 		   !trim(Input::get('addCustCompanyCity')) == '' && !trim(Input::get('addCel')) == ''){
 				$validInput = TRUE;

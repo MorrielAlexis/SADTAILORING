@@ -372,7 +372,9 @@
     </div> 
     @stop
 
-@section('scripts')  
+@section('scripts') 
+    {{ HTML::script('js/customercomp_validation.js') }}
+
     <script>
       function clearData(){
           document.getElementById("addComName").value = "";
@@ -383,128 +385,6 @@
           document.getElementById("addComEmailAdd").value = "";
           document.getElementById("addFax").value = "";
       }
-
-    </script>
-
-    <script type="text/javascript">
-      $('.validateComName').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateComName').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      }); 
-
-      $('.validateAddress').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      //Validate Blank
-      $('.validateAddress').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });     
-
-      $('.validateConPerson').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateConPerson').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateEmail').on('input', function() {
-        var input=$(this);
-        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        var is_email=re.test(input.val());
-        if(is_email){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateCell').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateCell').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });
-
-      $('.validateCellAlt').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateCellAlt').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });
-
-      //Validate Blank
-      $('.validateCell').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-       $('.validateCell').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      });
-
-       $('.validateCellAlt').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      });
-
-       $('.validatePhone').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });
-
-       $('.validatePhone').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      }); 
-
-       $('.validateFax').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });
-
-       $('.validateFax').keyup(function() {
-      var numbers = $(this).val();
-      $(this).val(numbers.replace(/\D/, ''));
-      $(this).val($(this).val().replace(/(\d{2})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      }); 
-
-
     </script>
 
       <!--DATA TABLE SCRIPT-->
