@@ -38,7 +38,28 @@ class EmployeeController extends BaseController{
 	{	
 		$emp = Employee::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
 
+		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
+				if (preg_match($regex, Input::get('addFabricTypeName'))) {
+					$validInput = TRUE;
+				}else $validInput = FALSE;
+
+		if(!trim(Input::get('addFirstName')) == '' && !trim(Input::get('addLastName')) == '' && 
+		   !trim(Input::get('addEmpHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
+		   !trim(Input::get('addEmpStreet')) == '' && !trim(Input::get('addEmpBarangay')) == '' &&
+		   !trim(Input::get('addEmpCity')) == '' && !trim(Input::get('addCellNo')) == ''){
+				$validInput = TRUE;
+
+					if (preg_match($regex, Input::get('addFirstName')) && preg_match($regex, Input::get('addLastName')) &&
+						preg_match($regex, Input::get('addEmpHouseNo')) && preg_match($regex, Input::get('addEmail')) &&
+						preg_match($regex, Input::get('addEmpStreet')) && preg_match($regex, Input::get('addEmpBarangay')) &&
+						preg_match($regex, Input::get('addEmpCity')) && preg_match($regex, Input::get('addCellNo'))) {
+							$validInput = TRUE;
+					}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
+		
 		$count = DB::table('tblEmployee')
             ->select('tblEmployee.strEmailAdd')
             ->where('tblEmployee.strEmailAdd','=', trim(Input::get('addEmail')))
@@ -53,7 +74,8 @@ class EmployeeController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach($emp as $emp){
-			if(strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))) == 0 &&
+			if(!strcasecmp($emp->strEmployeeID, Input::get('addEmpID'))== 0 &&
+				strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))) == 0 &&
 				    strcasecmp($emp->strEmpMName, trim(Input::get('addMiddleName'))) == 0 &&
 					strcasecmp($emp->strEmpLName, trim(Input::get('addLastName'))) == 0){
 						$isAdded = TRUE;
@@ -61,31 +83,34 @@ class EmployeeController extends BaseController{
 			}
         }
 
-		if(!$isAdded){
-			$employee = Employee::create(array(
-				'strEmployeeID' => Input::get('addEmpID'),
-				'strEmpFName' => trim(Input::get('addFirstName')),	
-				'strEmpMName' => trim(Input::get('addMiddleName')),	
-				'strEmpLName' => trim(Input::get('addLastName')),
-				'dtEmpBday' => date("Y-m-d", strtotime(Input::get("adddtEmpBday"))),
-				'strSex' => Input::get('addSex'),
-				'strEmpHouseNo' => trim(Input::get('addEmpHouseNo')),	
-				'strEmpStreet' => trim(Input::get('addEmpStreet')),
-				'strEmpBarangay' => trim(Input::get('addEmpBarangay')),	
-				'strEmpCity' => trim(Input::get('addEmpCity')),	
-				'strEmpProvince' => trim(Input::get('addEmpProvince')),
-				'strEmpZipCode' => trim(Input::get('addEmpZipCode')),
-				'strRole' => Input::get('addRoles'), 
-				'strCellNo' => trim(Input::get('addCellNo')),
-				'strCellNoAlt' => trim(Input::get('addCellNoAlt')),
-				'strPhoneNo' => trim(Input::get('addPhoneNo')),
-				'strEmailAdd' => trim(Input::get('addEmail')),
-				'boolIsActive' => 1
-			));
 
-			$employee->save();
-			return Redirect::to('/maintenance/employee?success=true');
-		} else return Redirect::to('/maintenance/employee?success=duplicate');
+        if($validInput){
+			if(!$isAdded){
+				$employee = Employee::create(array(
+					'strEmployeeID' => Input::get('addEmpID'),
+					'strEmpFName' => trim(Input::get('addFirstName')),	
+					'strEmpMName' => trim(Input::get('addMiddleName')),	
+					'strEmpLName' => trim(Input::get('addLastName')),
+					'dtEmpBday' => date("Y-m-d", strtotime(Input::get("adddtEmpBday"))),
+					'strSex' => Input::get('addSex'),
+					'strEmpHouseNo' => trim(Input::get('addEmpHouseNo')),	
+					'strEmpStreet' => trim(Input::get('addEmpStreet')),
+					'strEmpBarangay' => trim(Input::get('addEmpBarangay')),	
+					'strEmpCity' => trim(Input::get('addEmpCity')),	
+					'strEmpProvince' => trim(Input::get('addEmpProvince')),
+					'strEmpZipCode' => trim(Input::get('addEmpZipCode')),
+					'strRole' => Input::get('addRoles'), 
+					'strCellNo' => trim(Input::get('addCellNo')),
+					'strCellNoAlt' => trim(Input::get('addCellNoAlt')),
+					'strPhoneNo' => trim(Input::get('addPhoneNo')),
+					'strEmailAdd' => trim(Input::get('addEmail')),
+					'boolIsActive' => 1
+				));
+
+				$employee->save();
+				return Redirect::to('/maintenance/employee?success=true');
+			} else return Redirect::to('/maintenance/employee?success=duplicate');
+		}else return Redirect::to('/maintenance/employee?input=invalid');
 	}
 
 	public function editEmployee()

@@ -3,6 +3,18 @@
 @section('content')
 
   <div class="main-wrapper">
+      <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+  
+
         <!--Add Employee-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -179,7 +191,7 @@
 
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo." name="editHouseNo" type="text" class="validateAddress">
+                            <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo." name="editHouseNo" type="text" class="validateHouseNo">
                             <label for="Emp House No">*House No.: </label>
                           </div>
 
@@ -199,13 +211,13 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpProvince}}" id="editEmpProvince" name="editEmpProvince" type="text" class="validateAddress">
-                            <label for="Emp Province">*Province: </label>
+                            <input value="{{$employee->strEmpProvince}}" id="editEmpProvince" name="editEmpProvince" type="text" class="validateAddress">
+                            <label for="Emp Province">Province: </label>
                           </div>
 
                            <div class="input-field">
-                            <input required value="{{$employee->strEmpZipCode}}" id="editEmpZipCode" name="editEmpZipCode" type="text" class="validateAddress">
-                            <label for="Emp Zip Code">*Zip Code: </label>
+                            <input value="{{$employee->strEmpZipCode}}" id="editEmpZipCode" name="editEmpZipCode" type="text" class="validateAddress">
+                            <label for="Emp Zip Code">Zip Code: </label>
                           </div>
 
                           <div class="input-field">                                                    
@@ -352,7 +364,7 @@
                   </div>   
 
                   <div class="input-field">
-                    <input required id="addEmpHouseNo." name="addEmpHouseNo" type="text" class="validateAddress">
+                    <input required id="addEmpHouseNo." name="addEmpHouseNo" type="text" class="validateHouseNo">
                     <label for="Emp House No">*House No.: </label>
                   </div>
 
@@ -372,13 +384,13 @@
                   </div>
 
                   <div class="input-field">
-                    <input required id="addEmpProvince" name="addEmpProvince" type="text" class="validateAddress">
-                    <label for="Emp Province">*Province: </label>
+                    <input id="addEmpProvince" name="addEmpProvince" type="text" class="validateAdd">
+                    <label for="Emp Province">Province: </label>
                   </div>
 
                    <div class="input-field">
-                    <input  id="addEmpZipCode" name="addEmpZipCode" type="text" class="validateAddress">
-                    <label for="Emp Zip Code">*Zip Code: </label>
+                    <input  id="addEmpZipCode" name="addEmpZipCode" type="text" class="validateAdd">
+                    <label for="Emp Zip Code">Zip Code: </label>
                   </div>
 
                   <div class="input-field">
@@ -472,25 +484,39 @@
     <script type="text/javascript">
       $('.validateFirst').on('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
       $('.validateFirst').blur('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });      
 
+      //Kapag whitespace
+      $('.validateFirst').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
+
       $('.validateMiddle').on('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
+      //Kapag whitespace
+      $('.validateMiddle').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
       // $('.validateMiddle').blur('input', function() {
       //   var input=$(this);
       //   var is_name=input.val();
@@ -500,32 +526,77 @@
 
       $('.validateLast').on('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
       $('.validateLast').blur('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
+      //Kapag whitespace
+      $('.validateLast').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
+//////////////////////////////////////////////
+      $('.validateHouseNo').on('input', function() {
+        var input=$(this);
+        var re=/^[0-9]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag whitespace
+      $('.validateHouseNo').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
+/////////////////////////////////////////
+      //Validate Blank
       $('.validateAddress').on('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
-      //Validate Blank
       $('.validateAddress').blur('input', function() {
         var input=$(this);
-        var is_name=input.val();
+        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      //Kapag whitespace
+      $('.validateAddress').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
+
+      //Validate Blank
+      $('.validateAdd').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
+
+      //Kapag whitespace
+      $('.validateAdd').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
 
       //Validate Numbers
       $('.validateAge').on('input', function() {
