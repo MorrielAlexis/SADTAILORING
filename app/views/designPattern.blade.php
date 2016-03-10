@@ -141,13 +141,11 @@
 
                         <div class="input-field">                                                    
                           <select class="browser-default" id="editSegment" name="editSegment">
-                              @foreach($segment as $seg)
-                                  @if($pattern->strDesignSegmentName)
-                                    <option selected value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}">{{ $seg->strGarmentSegmentName }}</option>
-                                  @else
-                                    <option value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}">{{ $seg->strGarmentSegmentName }}</option>
+                                @foreach($segment as $segment_2)
+                                  @if($segment_2->boolIsActive == 1)
+                                    <option value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
                                   @endif
-                              @endforeach
+                                @endforeach
                           </select>    
                         </div>   
 
@@ -265,9 +263,9 @@
 
                 <div class="input-field">
                   <select class="browser-default" required id="addSegment" name="addSegment">
-                        @foreach($segment as $segment)
-                          @if($segment->boolIsActive == 1)
-                            <option value="{{ $segment->strGarmentSegmentID }}" class="{{ $segment->strCategory }}">{{ $segment->strGarmentSegmentName }}</option>
+                        @foreach($segment as $segment_1)
+                          @if($segment_1->boolIsActive == 1)
+                            <option value="{{ $segment_1->strGarmentSegmentID }}" class="{{ $segment_1->strCategory }}">{{ $segment_1->strGarmentSegmentName }}</option>
                           @endif
                         @endforeach
                   </select>

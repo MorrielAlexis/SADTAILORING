@@ -27,7 +27,6 @@ class FabricController extends BaseController{
 
 		return View::make('fabricAndMaterialsFabricType')
 					->with('fabricType', $fabricType)
-					->with('fabricType2', $fabricType)
 					->with('reason', $reason)
 					->with('newID', $newID);
 	}
@@ -39,14 +38,14 @@ class FabricController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\s\-\']+$/";
-		
-		if(!trim(Input::get('addFabricTypeName')) == '' && !trim(Input::get('addFabricTypeDesc'))){
+		//dd(preg_match($regex, Input::get('addFabricTypeName')), preg_match($regex, Input::get('addFabricTypeDesc')));
+		if(!trim(Input::get('addFabricTypeName')) == '' && !trim(Input::get('addFabricTypeDesc')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('addFabricTypeName')) && preg_match($regex, Input::get('addFabricTypeDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
-			
+
 
 		foreach($fabrics as $fabric)
 			if(strcasecmp($fabric->strFabricTypeName, trim(Input::get('addFabricTypeName'))) == 0)
