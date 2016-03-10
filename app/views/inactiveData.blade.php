@@ -234,7 +234,7 @@
                               @else Female
                               @endif
                             </td>
-                            <td>{{ $employee_1->strEmpAddress }} </td>
+                            <td>{{ $employee_1->strEmpHouseNo }} {{ $employee_1->strEmpStreet }} {{ $employee_1->strEmpBarangay }} {{ $employee_1->strEmpCity }} {{ $employee_1->strEmpProvince }}  {{ $employee_1->strEmpZipCode }} </td>
                             <td>{{ $employee_1->strEmpRoleName}}</td>                  
                             <td>{{ $employee_1->strCellNo }}</td> 
                             <td>{{ $employee_1->strPhoneNo }}</td>
