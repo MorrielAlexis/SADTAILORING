@@ -43,7 +43,7 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('addCatalogueName')) == '' && !trim(Input::get('addCatalogueDesc'))){
 			$validInput = TRUE;
@@ -97,7 +97,7 @@ class CatalogueController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('editCatalogueName')) == '' && !trim(Input::get('editCatalogueDesc'))){
 			$validInput = TRUE;

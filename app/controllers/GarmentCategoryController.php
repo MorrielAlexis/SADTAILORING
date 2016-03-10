@@ -36,7 +36,7 @@ class GarmentCategoryController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('addGarmentName')) == '' || !trim(Input::get('addGarmentDesc')) == ''){
 			$validInput = TRUE;
@@ -73,7 +73,7 @@ class GarmentCategoryController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('editGarmentName')) == '' || !trim(Input::get('editGarmentName')) == ''){
 			$validInput = TRUE;

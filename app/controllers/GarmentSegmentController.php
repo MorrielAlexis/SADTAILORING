@@ -37,7 +37,7 @@ class GarmentSegmentController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('addSegmentName')) == '' || !trim(Input::get('addSegmentDesc')) == ''){
 			$validInput = TRUE;
@@ -79,7 +79,7 @@ class GarmentSegmentController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		$regex = "/[a-zA-Z\s\-\']+$/";
 		
 		if(!trim(Input::get('editSegmentName')) == '' || !trim(Input::get('editSegmentDesc')) == ''){
 			$validInput = TRUE;

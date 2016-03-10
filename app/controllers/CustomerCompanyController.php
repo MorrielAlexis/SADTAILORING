@@ -34,6 +34,28 @@ class CustomerCompanyController extends BaseController{
 	{	
 		$comp = Company::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regexName = "/^[a-zA-Z\s\-\']+$/";
+		$regexHouse = "/^[0-9]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
+		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
+		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+
+		if(!trim(Input::get('addComName')) == '' && !trim(Input::get('addConPerson')) == '' && 
+		   !trim(Input::get('addCustCompanyHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
+		   !trim(Input::get('addCustCompanyStreet')) == '' && !trim(Input::get('addCustCompanyBarangay')) == '' &&
+		   !trim(Input::get('addCustCompanyCity')) == '' && !trim(Input::get('addCel')) == ''){
+				$validInput = TRUE;
+
+					if (preg_match($regex, Input::get('addComName')) && preg_match($regexName, Input::get('addConPerson')) && 
+					    preg_match($regexHouse, Input::get('addCustCompanyHouseNo')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
+					    preg_match($regexStreet, Input::get('addCustCompanyStreet')) && preg_match($regexBarangay, Input::get('addCustCompanyBarangay')) &&
+					    preg_match($regexCity, Input::get('addCustCompanyCity'))){
+							$validInput = TRUE;
+					}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		$count = DB::table('tblCustCompany')
             ->select('tblCustCompany.strCustCompanyEmailAddress')
@@ -55,29 +77,31 @@ class CustomerCompanyController extends BaseController{
 				}				
 			}	
         }
-			
-		if(!$isAdded){
-			$company = Company::create(array(
-				'strCustCompanyID' => Input::get('addComID'),
-				'strCustCompanyName' => trim(Input::get('addComName')),		
-				'strCustCompanyHouseNo' => trim(Input::get('addCustCompanyHouseNo')),	
-				'strCustCompanyStreet' => trim(Input::get('addCustCompanyStreet')),
-				'strCustCompanyBarangay' => trim(Input::get('addCustCompanyBarangay')),	
-				'strCustPrivCity' => trim(Input::get('addCustPrivCity')),	
-				'strCustCompanyProvince' => trim(Input::get('addCustCompanyProvince')),
-				'strCustCompanyZipCode' => trim(Input::get('addCustCompanyZipCode')),
-				'strCustContactPerson' => trim(Input::get('addConPerson')),
-				'strCustCompanyEmailAddress' => trim(Input::get('addComEmailAddress')),			
-				'strCustCompanyCPNumber' => trim(Input::get('addCel')), 
-				'strCustCompanyCPNumberAlt' => trim(Input::get('addCelAlt')), 
-				'strCustCompanyTelNumber' => trim(Input::get('addPhone')),
-				'strCustCompanyFaxNumber' => trim(Input::get('addFax')),
-				'boolIsActive' => 1
-				));
+		
+		if($validInput){
+			if(!$isAdded){
+				$company = Company::create(array(
+					'strCustCompanyID' => Input::get('addComID'),
+					'strCustCompanyName' => trim(Input::get('addComName')),		
+					'strCustCompanyHouseNo' => trim(Input::get('addCustCompanyHouseNo')),	
+					'strCustCompanyStreet' => trim(Input::get('addCustCompanyStreet')),
+					'strCustCompanyBarangay' => trim(Input::get('addCustCompanyBarangay')),	
+					'strCustPrivCity' => trim(Input::get('addCustCompanyCity')),	
+					'strCustCompanyProvince' => trim(Input::get('addCustCompanyProvince')),
+					'strCustCompanyZipCode' => trim(Input::get('addCustCompanyZipCode')),
+					'strCustContactPerson' => trim(Input::get('addConPerson')),
+					'strCustCompanyEmailAddress' => trim(Input::get('addComEmailAddress')),			
+					'strCustCompanyCPNumber' => trim(Input::get('addCel')), 
+					'strCustCompanyCPNumberAlt' => trim(Input::get('addCelAlt')), 
+					'strCustCompanyTelNumber' => trim(Input::get('addPhone')),
+					'strCustCompanyFaxNumber' => trim(Input::get('addFax')),
+					'boolIsActive' => 1
+					));
 
-			$company->save();
-			return Redirect::to('/maintenance/customerCompany?success=true');
-		}else return Redirect::to('/maintenance/customerCompany?success=duplicate');
+				$company->save();
+				return Redirect::to('/maintenance/customerCompany?success=true');
+			}else return Redirect::to('/maintenance/customerCompany?success=duplicate');
+		}else return Redirect::to('/maintenance/customerCompany?input=invalid');
 	} 
 
 	public function editCustCompany()

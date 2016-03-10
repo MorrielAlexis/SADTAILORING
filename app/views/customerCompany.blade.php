@@ -3,6 +3,18 @@
 @section('content')
 
   <div class="main-wrapper">
+
+      <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
      <!--Add Customer-->
      @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -284,12 +296,6 @@
                 <input required id="addComName" name = "addComName" type="text" class="validateComName">
                 <label for="company_name"> *Company Name: </label>
               </div>
-
-              <div class="input-field">
-                <input required id="addAddress" name = "addAddress" type="text" class="validateAddress">
-                <label for="address"> *Address: </label>
-              </div>
-
 
               <div class="input-field">
                   <input required id="addCustCompanyHouseNo" name="addCustCompanyHouseNo" type="text" class="validateHouseNo">

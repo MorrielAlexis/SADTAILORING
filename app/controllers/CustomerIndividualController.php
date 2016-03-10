@@ -43,9 +43,9 @@ class CustomerIndividualController extends BaseController{
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
 		if(!trim(Input::get('addFName')) == '' && !trim(Input::get('addLName')) == '' && 
-		   !trim(Input::get('addCusPrivHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
-		   !trim(Input::get('addCusPrivStreet')) == '' && !trim(Input::get('addCusPrivBarangay')) == '' &&
-		   !trim(Input::get('addCustPrivCity')) == '' && !trim(Input::get('addCel')) == ''){
+		   !trim(Input::get('addCustPrivHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
+		   !trim(Input::get('addCustPrivStreet')) == '' && !trim(Input::get('addCustPrivBarangay')) == '' &&
+		   !trim(Input::get('addCusttPrivCity')) == '' && !trim(Input::get('addCel')) == ''){
 				$validInput = TRUE;
 
 					if (preg_match($regex, Input::get('addFName')) && preg_match($regex, Input::get('addLName')) &&
