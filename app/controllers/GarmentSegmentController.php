@@ -44,10 +44,7 @@ class GarmentSegmentController extends BaseController{
 			if (preg_match($regex, Input::get('addSegmentName')) && preg_match($regex, Input::get('addSegmentDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
-			dd($validInput);
 		}else $validInput = FALSE;
-
-		dd($validInput);
 
 		foreach ($seg as $seg)
 			if(strcasecmp($seg->strGarmentSegmentName, trim(Input::get('addSegmentName'))) == 0 && 

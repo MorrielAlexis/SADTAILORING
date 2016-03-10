@@ -121,13 +121,13 @@ class CustomerCompanyController extends BaseController{
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
 		if(!trim(Input::get('editComName')) == '' && !trim(Input::get('editConPerson')) == '' && 
-		   !trim(Input::get('editCustCompanyHouseNo')) == '' && !trim(Input::get('editComEmaileditress')) == '' &&
+		   !trim(Input::get('editCustCompanyHouseNo')) == '' && !trim(Input::get('editComEmailAddress')) == '' &&
 		   !trim(Input::get('editCustCompanyStreet')) == '' && !trim(Input::get('editCustCompanyBarangay')) == '' &&
 		   !trim(Input::get('editCustCompanyCity')) == '' && !trim(Input::get('editCel')) == ''){
 				$validInput = TRUE;
 
 					if (preg_match($regex, Input::get('editComName')) && preg_match($regexName, Input::get('editConPerson')) && 
-					    preg_match($regexHouse, Input::get('editCustCompanyHouseNo')) && !!filter_var(Input::get('editComEmaileditress'), FILTER_VALIDATE_EMAIL) &&
+					    preg_match($regexHouse, Input::get('editCustCompanyHouseNo')) && !!filter_var(Input::get('editComEmailAddress'), FILTER_VALIDATE_EMAIL) &&
 					    preg_match($regexStreet, Input::get('editCustCompanyStreet')) && preg_match($regexBarangay, Input::get('editCustCompanyBarangay')) &&
 					    preg_match($regexCity, Input::get('editCustCompanyCity'))){
 							$validInput = TRUE;
@@ -167,7 +167,6 @@ class CustomerCompanyController extends BaseController{
 				$company = Company::find($id);
 
 				$company->strCustCompanyName = trim(Input::get('editComName'));	
-				$company->strCustCompanyAddress = trim(Input::get('editAddress'));
 				$company->strCustCompanyHouseNo = trim(Input::get('editCustCompanyHouseNo'));
 				$company->strCustCompanyStreet = trim(Input::get('editCustCompanyStreet'));
 				$company->strCustCompanyBarangay = trim(Input::get('editCustCompanyBarangay'));
