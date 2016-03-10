@@ -255,7 +255,7 @@
     <script type="text/javascript">
       $('.validateTypeName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -275,7 +275,7 @@
 
       $('.validateTypeName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -283,7 +283,7 @@
 
       $('.validateTypeDesc').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -297,7 +297,7 @@
 
       $('.validateTypeDesc').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

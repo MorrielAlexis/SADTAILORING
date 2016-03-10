@@ -40,7 +40,7 @@ class RoleController extends BaseController{
 		
 		if(!trim(Input::get('addRoleName')) == '' && !trim(Input::get('addRoleDescription')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addRoleName')) && reg_match($regex, Input::get('addRoleDescription'))) {
+			if (preg_match($regex, Input::get('addRoleName')) && preg_match($regex, Input::get('addRoleDescription'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -77,7 +77,7 @@ class RoleController extends BaseController{
 		
 		if(!trim(Input::get('editRoleName')) == '' && !trim(Input::get('editRoleDescription')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editRoleName')) && reg_match($regex, Input::get('editRoleDescription'))) {
+			if (preg_match($regex, Input::get('editRoleName')) && preg_match($regex, Input::get('editRoleDescription'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;

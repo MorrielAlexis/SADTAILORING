@@ -42,7 +42,7 @@ class FabricController extends BaseController{
 		
 		if(!trim(Input::get('addFabricTypeName')) == '' && !trim(Input::get('addFabricTypeDesc'))){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addFabricTypeName'))) {
+			if (preg_match($regex, Input::get('addFabricTypeName')) && preg_match($regex, Input::get('addFabricTypeDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -82,7 +82,7 @@ class FabricController extends BaseController{
 		
 		if(!trim(Input::get('editFabricTypeName')) == '' || !trim(Input::get('editFabricTypeDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editFabricTypeName'))) {
+			if (preg_match($regex, Input::get('editFabricTypeName')) && preg_match($regex, Input::get('editFabricTypeDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;

@@ -40,7 +40,7 @@ class SwatchController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		$regex = "/[a-zA-Z\s\-\']+$/";
 		$regex2 = "/[a-zA-Z0-9]+$/";
 		
 		if(!trim(Input::get('addSwatchName')) == '' && !trim(Input::get('addSwatchCode')) == ''){
@@ -96,7 +96,7 @@ class SwatchController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		$regex = "/[a-zA-Z\s\-\']+$/";
 		$regex2 = "/[a-zA-Z0-9]+$/";
 		
 		if(!trim(Input::get('editSwatchName')) == '' && !trim(Input::get('editSwatchCode'))){

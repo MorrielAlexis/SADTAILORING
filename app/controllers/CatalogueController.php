@@ -47,7 +47,7 @@ class CatalogueController extends BaseController{
 		
 		if(!trim(Input::get('addCatalogueName')) == '' && !trim(Input::get('addCatalogueDesc'))){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addCatalogueName'))) {
+			if (preg_match($regex, Input::get('addCatalogueName')) && preg_match($regex, Input::get('addCatalogueDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -101,7 +101,7 @@ class CatalogueController extends BaseController{
 		
 		if(!trim(Input::get('editCatalogueName')) == '' && !trim(Input::get('editCatalogueDesc'))){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editCatalogueName'))) {
+			if (preg_match($regex, Input::get('editCatalogueName')) && preg_match($regex, Input::get('editCatalogueDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
