@@ -34,7 +34,29 @@ class CustomerIndividualController extends BaseController{
 	{
 		$ind = PrivateIndividual::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
 
+		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
+		$regexHouse = "/^[0-9]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
+		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
+		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+
+		if(!trim(Input::get('addFirstName')) == '' && !trim(Input::get('addLastName')) == '' && 
+		   !trim(Input::get('addEmpHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
+		   !trim(Input::get('addEmpStreet')) == '' && !trim(Input::get('addEmpBarangay')) == '' &&
+		   !trim(Input::get('addEmpCity')) == '' && !trim(Input::get('addCellNo')) == ''){
+				$validInput = TRUE;
+
+					if (preg_match($regex, Input::get('addFirstName')) && preg_match($regex, Input::get('addLastName')) &&
+						preg_match($regexStreet, Input::get('addEmpStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
+						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexBarangay, Input::get('addEmpBarangay')) &&
+						preg_match($regexCity, Input::get('addEmpCity'))) {
+							$validInput = TRUE;
+					}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
+		
 		$count = DB::table('tblCustPrivateIndividual')
             ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
             ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', trim(Input::get('addEmail')))

@@ -191,7 +191,7 @@
 
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo." name="editHouseNo" type="text" class="validateHouseNo">
+                            <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo" name="editEmpHouseNo" type="text" class="validateHouseNo">
                             <label for="Emp House No">*House No.: </label>
                           </div>
 

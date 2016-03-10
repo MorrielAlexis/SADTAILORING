@@ -115,12 +115,33 @@ class EmployeeController extends BaseController{
 	}
 
 	public function editEmployee()
-	{
+	{	
 		$id = Input::get('editEmpID');
 		$employee = Employee::find($id);
 
 		$emp = Employee::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
+		$regexHouse = "/^[0-9]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
+		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
+		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+
+		if(!trim(Input::get('editFirstName')) == '' && !trim(Input::get('editLastName')) == '' && 
+		   !trim(Input::get('editEmpHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
+		   !trim(Input::get('editEmpStreet')) == '' && !trim(Input::get('editEmpBarangay')) == '' &&
+		   !trim(Input::get('editEmpCity')) == '' && !trim(Input::get('editCellNo')) == ''){
+				$validInput = TRUE;
+					if (preg_match($regex, Input::get('editFirstName')) && preg_match($regex, Input::get('editLastName')) &&
+						preg_match($regexStreet, Input::get('editEmpStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
+						preg_match($regexHouse, Input::get('editEmpHouseNo')) && preg_match($regexBarangay, Input::get('editEmpBarangay')) &&
+						preg_match($regexCity, Input::get('editEmpCity'))) {
+							$validInput = TRUE;
+
+					}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		$count = 0; $count2 = 0;
 
@@ -151,29 +172,31 @@ class EmployeeController extends BaseController{
 			}
         }
 
-		if(!$isAdded){
-			$employee = Employee::find($id);
+        if($validInput){
+			if(!$isAdded){
+				$employee = Employee::find($id);
 
-			$employee->strEmpFName = trim(Input::get('editFirstName'));	
-			$employee->strEmpLName = trim(Input::get('editLastName'));	
-			$employee->strEmpMName = trim(Input::get('editMiddleName'));	
-			$employee->dtEmpBday = date("Y-m-d", strtotime(Input::get("editdtEmpBday")));
-			$employee->strSex = Input::get('editSex');
-			$employee->strEmpHouseNo = trim(Input::get('editEmpHouseNo'));
-			$employee->strEmpStreet = trim(Input::get('editEmpStreet'));
-			$employee->strEmpBarangay = trim(Input::get('editEmpBarangay'));
-			$employee->strEmpCity = trim(Input::get('editEmpCity'));
-			$employee->strEmpProvince = trim(Input::get('editEmpProvince'));
-			$employee->strEmpZipCode = trim(Input::get('editEmpZipCode'));
-			$employee->strRole = Input::get('editRoles');
-			$employee->strCellNo = trim(Input::get('editCellNo'));
-			$employee->strCellNoAlt = trim(Input::get('editCellNoAlt'));
-			$employee->strPhoneNo = trim(Input::get('editPhoneNo'));
-			$employee->strEmailAdd = trim(Input::get('editEmail'));
+				$employee->strEmpFName = trim(Input::get('editFirstName'));	
+				$employee->strEmpLName = trim(Input::get('editLastName'));	
+				$employee->strEmpMName = trim(Input::get('editMiddleName'));	
+				$employee->dtEmpBday = date("Y-m-d", strtotime(Input::get("editdtEmpBday")));
+				$employee->strSex = Input::get('editSex');
+				$employee->strEmpHouseNo = trim(Input::get('editEmpHouseNo'));
+				$employee->strEmpStreet = trim(Input::get('editEmpStreet'));
+				$employee->strEmpBarangay = trim(Input::get('editEmpBarangay'));
+				$employee->strEmpCity = trim(Input::get('editEmpCity'));
+				$employee->strEmpProvince = trim(Input::get('editEmpProvince'));
+				$employee->strEmpZipCode = trim(Input::get('editEmpZipCode'));
+				$employee->strRole = Input::get('editRoles');
+				$employee->strCellNo = trim(Input::get('editCellNo'));
+				$employee->strCellNoAlt = trim(Input::get('editCellNoAlt'));
+				$employee->strPhoneNo = trim(Input::get('editPhoneNo'));
+				$employee->strEmailAdd = trim(Input::get('editEmail'));
 
-			$employee->save();
-			return Redirect::to('/maintenance/employee?successEdit=true');
-		 } else return Redirect::to('/maintenance/employee?success=duplicate');
+				$employee->save();
+				return Redirect::to('/maintenance/employee?successEdit=true');
+			} else return Redirect::to('/maintenance/employee?success=duplicate');
+		}else return Redirect::to('/maintenance/employee?input=invalid');
 	}
 
 	public function delEmployee()

@@ -103,7 +103,7 @@
                   @if($individual->boolIsActive == 1)
                 <tr>
                   <td>{{ $individual->strCustPrivFName }} {{ $individual->strCustPrivMName }} {{ $individual->strCustPrivLName }}</td>
-                  <td> {{ $individual->strCustPrivHouseNo }} {{ $individual->strCustPrivStreet }} {{ $individual->strCustPrivBarangay }} {{ $individual->strCustPrivCity }} {{ $individual->strCustPrivProvince }}  {{ $individual->strCustPrivZipCode }} </td>
+                  <td>{{ $individual->strCustPrivHouseNo }} {{ $individual->strCustPrivStreet }} {{ $individual->strCustPrivBarangay }} {{ $individual->strCustPrivCity }} {{ $individual->strCustPrivProvince }}  {{ $individual->strCustPrivZipCode }} </td>
                   <td>{{ $individual->strCustPrivEmailAddress}}</td>                  
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
                   <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
@@ -164,7 +164,7 @@
                           </div>
 
                            <div class="input-field">
-                            <input value="{{$employee->strEmpZipCode}}" id="editCustPrivZipCode" name="editCustPrivZipCode" type="text" class="validateZip">
+                            <input value="{{$individual->strCustPrivZipCode}}" id="editCustPrivZipCode" name="editCustPrivZipCode" type="text" class="validateZip">
                             <label for=" Zip Code">Zip Code: </label>
                           </div>
 
@@ -221,12 +221,6 @@
                             <input value="{{$individual->strCustPrivLName}}" id="delIndivLName" name="delIndivLName" type="text" readonly>
                             <label for="LastName">Last Name: </label>
                           </div>
-
-                         <!--  <div class="input-field">
-                            <label for="first_name">Address: </label>
-                            <input value="{{$individual->strCustPrivAddress}}" id="delIndivAddress" name="delIndivAddress" type="text" readonly>
-                          </div> -->
-
 
                           <div class="input-field">
                             <input id="delInactiveIndiv" name = "delInactiveIndiv" value = "{{$individual->strCustPrivIndivID}}" type="hidden">
