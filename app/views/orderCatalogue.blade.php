@@ -49,6 +49,13 @@
 								<input id="quantity" name = "quantity" type="text">
 				                <label for="quantity"> Quantity:</label>
 							</div>
+							<div class = "col s12">
+								<center>
+									<br><br>
+			          				<input type="checkbox" class="filled-in" id="ownFabric" />
+	      							<label for="ownFabric">Customer bring and provide fabric</label>
+	      						</center>	
+		          			</div>
 							<div class="input-field col s12">
 							    <select>
 							      <option value="" disabled selected>Choose Fabric Type</option>
