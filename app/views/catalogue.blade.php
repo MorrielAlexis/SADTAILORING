@@ -78,12 +78,10 @@
     <div class="col s12 m12 l12">
     	<div class="card-panel">
         <span class="card-title"><h5 style="color:#1b5e20"><center>Catalogue Details</center></h5></span>
-        <div class="divider"></div>
-              
+        <div class="divider"></div>   
         <div class="card-content">
 
           <div class="col s12 m12 l12 overflow-x">
-    
       		<table class = "table centered data-catalogue" align = "center" border = "1">
             <thead>
           		<tr>
@@ -93,7 +91,7 @@
                 <th data-field="Description">Description</th>
                 <th data-field="Image">Image</th>
                 <th data-field="Edit">Edit</th>
-                 <th data-field="Edit">Deactivate</th>
+                <th data-field="Edit">Deactivate</th>
               </tr>
             </thead>
 
@@ -110,70 +108,65 @@
                 <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of catalogue design from the table" href="#del{{$catalogue->strCatalogueID}}">DEACTIVATE</button>
 
                   <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
-                    <h5><font color = "#1b5e20"><center>Edit Catalogue Design</center> </font> </h5>
                     <div class="modal-content">
-                     <p>
+                    <h5><font color = "#1b5e20"><center>Edit Catalogue Design</center></font> </h5>
+                      <p>
                       <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
-                      <div class="input-field">
-                        <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" hidden>
-                      </div>
-
-                      <div class="input-field">
-                        <select id="editCategory" name="editCategory"> 
-                            @foreach($category as $id=>$name)
-                              @if($catalogue->strCatalogueCategory == $id)
-                                <option value="{{$id}}" selected>{{$name}}</option>
-                              @else
-                                <option value="{{$id}}">{{$name}}</option>
-                              @endif
-                            @endforeach
-                        </select>
-                        <label>Category</label>
-                      </div>      
-
-
-                      <div class="input-field">
-                        <input required value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validateCatalogueName">
-                        <label for="Catalogue_Name"> *Catalogue Name </label>
-                      </div>
-
-                      <div class="input-field">
-                        <input  required value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validateCatalogueDesc">
-                        <label for="Category_Desc">*Catalogue Description </label>
-                      </div>
-
-                      <div class="file-field input-field">
-                        <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
-                          <span>Upload Image</span>
-                          <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                       
+                        <div class="input-field">
+                          <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" hidden>
                         </div>
 
-                        <div class="file-path-wrapper">
-                          <input value="{{$catalogue->strCatalogueImage}}" id="editImage" name="editImage" class="file-path validate" type="text">
+                        <div class="input-field">
+                          <select id="editCategory" name="editCategory"> 
+                              @foreach($category as $id=>$name)
+                                @if($catalogue->strCatalogueCategory == $id)
+                                  <option value="{{$id}}" selected>{{$name}}</option>
+                                @else
+                                  <option value="{{$id}}">{{$name}}</option>
+                                @endif
+                              @endforeach
+                          </select>
+                          <label>Category</label>
+                        </div>      
+
+                        <div class="input-field">
+                          <input required value="{{$catalogue->strCatalogueName}}" id="editCatalogueName" name = "editCatalogueName" type="text" class="validateCatalogueName">
+                          <label for="Catalogue_Name"> *Catalogue Name </label>
                         </div>
-                      </div>
+
+                        <div class="input-field">
+                          <input  required value="{{$catalogue->strCatalogueDesc}}" id="editCatalogueDesc" name = "editCatalogueDesc" type="text" class="validateCatalogueDesc">
+                          <label for="Category_Desc">*Catalogue Description </label>
+                        </div>
+
+                        <div class="file-field input-field">
+                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                            <span>Upload Image</span>
+                            <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                          </div>
+
+                          <div class="file-path-wrapper">
+                            <input value="{{$catalogue->strCatalogueImage}}" id="editImage" name="editImage" class="file-path validate" type="text">
+                          </div>
+                        </div> 
                       </p>
-                      <br><br>
-                    </div>
-
-                  
-                    <div class="modal-footer">
-                      <button type="submit" class="waves-effect waves-green btn-flat">Update</button>
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
-                    </div>
+                    </div>      
+                      <div class="modal-footer">
+                        <button type="submit" class="waves-effect waves-green btn-flat">Update</button>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
+                      </div>
                   </form>
                 </div>
-                
 
-            <!-- DELETE DESIGN IN CATALOGUE -->
-            <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">
-              <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>
-                 <div class="modal-content">
+              <!-- DELETE DESIGN IN CATALOGUE -->
+              <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>   
                   <p>
                     <form action="{{URL::to('delCatalogueDesign')}}" method="POST">
                       <div class="input-field">
                         <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" type="hidden">
- 
                       </div>
 
                       <div class="input-field">
@@ -199,32 +192,32 @@
                         <input value="{{ $catalogue->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
                         <label for="catalogue_name"> *Reason for Deactivation: </label>
                       </div>
-                    </p>
+                      </p>
                     </div>
-
                       <div class="modal-footer">
                         <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
-                      </div>
+                      </div>          
                     </form>                 
-                 </div>
-                 </td>
+                  </div>
+                </td>
             </tr>
             @endif
             @endforeach 
           </tbody>
         </table>  
       </div>  
-           
-
           <div class = "clearfix">
-
           </div>
-
-             <!-- ADD DESIGN IN CATALOGUE -->
+        </div>	
+      </div>
+    </div>
+  </div>
+  
+               <!-- ADD DESIGN IN CATALOGUE -->
           <div id="addCatalogue" class="modal modal-fixed-footer">
-            <h5><font color = "#1b5e20"><center>Add Catalogue Design</center> </font> </h5> 
             <div class="modal-content">
+            <h5><font color = "#1b5e20"><center>Add Catalogue Design</center> </font> </h5> 
               <p>
               <form action='{{URL::to('addCatalogueDesign')}}' method="POST" enctype="multipart/form-data">
               <div class="input-field">
@@ -260,10 +253,8 @@
                   <div class="file-path-wrapper">
                     <input id="addImage" name="addImage" class="file-path validate" type="text" readonly="readonly">
                   </div>
-                </div>
-
+              </div>
               </p>
-              <br><br>
             </div> 
             
             <div class="modal-footer">                  
@@ -271,11 +262,6 @@
               <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>                    
             </div>
           </form>
-          </div>
-        </div>	
-      </div>
-    </div>
-  </div>
 @stop
 
 @section('scripts')

@@ -128,11 +128,10 @@
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
+                        <div class="modal-content">
                         <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>
-                        <form action="{{URL::to('editGarmentCategory')}}" method="POST">
-                          <div class="modal-content">
-                            <p> 
-                            
+                          <p>   
+                            <form action="{{URL::to('editGarmentCategory')}}" method="POST">       
  
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">

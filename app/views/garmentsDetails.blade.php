@@ -127,18 +127,13 @@
                     <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of segment from table" href="#del{{ $segment->strGarmentSegmentID }}">DEACTIVATE</button>
        
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
+                        <div class="modal-content">
                         <h5><font color = "#1b5e20"><center>Edit Garment Segment</center> </font> </h5>
-                        <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
-                          <div class="modal-content">
-                            <p>  
+                          <p>
+                          <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
                           
                               <div class="input-field">
- 
-                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="text" class="" readonly>
-                                <label for="garment_details_id">Garment Details ID: </label>
-
-                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden">
- 
+                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden"> 
                               </div>
 
                               <div class="input-field">                                                    
@@ -175,10 +170,10 @@
                       </div>
                     <!--***************************Soft Delete********************************-->
                       <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
+                        <div class="modal-content">
                         <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate the segment?</center> </font> </h5>
-                        <form action="{{URL::to('delGarmentSegment')}}" method="POST"> 
-                          <div class="modal-content">
-                            <p>  
+                          <p> 
+                            <form action="{{URL::to('delGarmentSegment')}}" method="POST">   
                           
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">

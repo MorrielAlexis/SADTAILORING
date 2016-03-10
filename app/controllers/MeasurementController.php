@@ -130,7 +130,8 @@ class MeasurementController extends BaseController{
 		}else $validInput = FALSE;
 
 		foreach ($det as $det)
-			if(strcasecmp($det->strMeasurementDetailName, Input::get('addDetailName')) == 0)
+			if(strcasecmp($det->strMeasurementDetailName, Input::get('addDetailName')) == 0 &&
+				strcasecmp($det->strMeasurementDetailDesc, Input::get('addDetailDesc')) == 0)
 				$isAdded = TRUE;
 
 		if($validInput){

@@ -119,71 +119,62 @@
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to remove data of pattern from table" href="#del{{ $pattern->strDesignPatternID }}">DEACTIVATE</button>
                       
                     <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>
                       <div class="modal-content">
-                        <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                        <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>
                         <p>
-                        <div class="input-field">
-                          <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
-                        </div>
-
-                        <div class="input-field">                                                    
-                          <select class="browser-default" required id="editCategory" name='editCategory'>
-                            @foreach($category as $cat)
-                              @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
-                                <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
-                              @elseif($cat->boolIsActive == 1)
-                                <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
-                              @endif
-                            @endforeach
-                          </select>    
-                        </div>  
-
-                        <div class="input-field">                                                    
-                          <select class="browser-default" id="editSegment" name="editSegment">
-                                @foreach($segment as $segment_2)
-                                  @if($segment_2->boolIsActive == 1)
-                                    <option value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
-                                  @endif
-                                @endforeach
-                          </select>    
-                        </div>   
-
-                        <div class="input-field">
-                          <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
-                          <label for="pattern_name">Pattern Name: </label>
-                        </div>
-
-                        <div class="file-field input-field">
-                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
-                            <span>Upload Image</span>
-                            <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
-                          </div>
+                        <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
                         
-                          <div class="file-path-wrapper">
-                            <input value="{{$pattern->strPatternImage}}" id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
+                          <div class="input-field">
+                            <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
                           </div>
+
+                          <div class="input-field">                                                    
+                            <select class="browser-default" required id="editCategory" name='editCategory'>
+                              @foreach($category as $cat)
+                                @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
+                                  <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                                @elseif($cat->boolIsActive == 1)
+                                  <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                                @endif
+                              @endforeach
+                            </select>    
+                          </div>  
+
+                          <div class="input-field">                                                    
+                            <select class="browser-default" id="editSegment" name="editSegment">
+                                  @foreach($segment as $segment_2)
+                                    @if($segment_2->boolIsActive == 1)
+                                      <option value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
+                                    @endif
+                                  @endforeach
+                            </select>    
+                          </div>   
+
+                          <div class="input-field">
+                            <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
+                            <label for="pattern_name">Pattern Name: </label>
+                          </div>
+
+                          <div class="file-field input-field">
+                            <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                              <span>Upload Image</span>
+                              <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            </div>
+                          
+                            <div class="file-path-wrapper">
+                              <input value="{{$pattern->strPatternImage}}" id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
+                            </div>
+                          </div>
+
+                          </p>
                         </div>
-                        </p>
-                      </div>
-                  
-                      <div class="modal-footer">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                      </div>
-                    </form>
-
-                 </div>  
-
-
+                        <div class="modal-footer">
+                          <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        </div>
+                      </form>
+                   </div>  
                  <!-- DELETE DESIGN PATTERN --> 
-
-                 </div>   
-
-
-                 </div>   
-                 
-
 
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
                       <div class="modal-content">
