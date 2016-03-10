@@ -75,9 +75,9 @@ class GarmentCategoryController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
 		
-		if(!trim(Input::get('editGarmentName')) == '' || !trim(Input::get('editGarmentName')) == ''){
+		if(!trim(Input::get('editGarmentName')) == '' && !trim(Input::get('editGarmentDescription')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editGarmentName')) && preg_match($regex, Input::get('editGarmentName'))) {
+			if (preg_match($regex, Input::get('editGarmentName')) && preg_match($regex, Input::get('editGarmentDescription'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
