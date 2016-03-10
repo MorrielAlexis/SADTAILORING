@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	<a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/trans')}}">Previous</a>
+	<a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/madeOrder')}}">Previous</a>
 
 	<div class = "main-wrapper">	
 		<div class="row">
@@ -52,6 +52,15 @@
 								<input id="quantity" name = "quantity" type="text">
 				                <label for="quantity"> Quantity:</label>
 							</div>
+
+							<div class = "col s12">
+								<center>
+									<br><br>
+			          				<input type="checkbox" class="filled-in" id="ownFabric" />
+	      							<label for="ownFabric">Customer bring and provide fabric</label>
+	      						</center>	
+		          			</div>
+
 							<div class="input-field col s12">
 							    <select>
 							      <option value="" disabled selected>Choose Fabric Type</option>
