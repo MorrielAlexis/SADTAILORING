@@ -20,7 +20,12 @@ class tblEmployee extends Migration {
 			$table->string('strEmpLName');
 			$table->date('dtEmpBday');
 			$table->string('strSex');
-			$table->string('strEmpAddress');
+			$table->string('strEmpHouseNo');
+			$table->string('strEmpStreet');
+			$table->string('strEmpBarangay');
+			$table->string('strEmpCity');
+			$table->string('strEmpProvince');
+			$table->string('strEmpZipCode');
 			$table->string('strRole')->index();//fk
 			$table->string('strCellNo');
 			$table->string('strCellNoAlt')->nullable();
