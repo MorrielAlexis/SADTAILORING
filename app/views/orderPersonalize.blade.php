@@ -2,7 +2,7 @@
 
 @section('content')
 	
-	<a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/trans')}}">Previous</a>
+	<a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/madeOrder')}}">Previous</a>
 
 	<div class = "main-wrapper">	
 		<div class="row">
