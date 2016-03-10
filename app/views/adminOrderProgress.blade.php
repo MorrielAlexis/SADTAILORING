@@ -123,7 +123,118 @@
       <h3>Progress Update</h3>
 
       <div class ="row">
+        <div class="col s12 m12 l12 overflow-x">
+          <table class = "centered">
+            <thead>
+              <tr>
+                <td> Garment Type</td>
+                <td> Garment Name</td>
+                <td> Segment Name</td>
+                <td>  <center>Status</center>  </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Uniform</td>
+                <td>Women's Uniform</td>
+                <td>Blouse</td>
+                <td>
+                  <form action="gr1">
+                    <div class = "row">
+                      <div class = "col s6">
+                        <input name="group1" type="radio" id="gr1finished" checked= "checked"/>
+                        <label for="gr1finished">Finished</label>
+                      </div>
+                      <div class = "col s6">
+                        <input name="group1" type="radio" id="gr1unfinished" />
+                        <label for="gr1unfinished">Unfinished</label>
+                      </div>
+                    </div>  
+                  </form>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Uniform</td>
+                <td>Women's Uniform</td>
+                <td>Skirt</td>
+                <td>
+                  <form action="gr2">
+                    <div class = "row">
+                      <div class = "col s6">
+                        <input name="group2" type="radio" id="gr2finished" />
+                        <label for="gr2finished">Finished</label>
+                      </div>
+                      <div class = "col s6">
+                        <input name="group2" type="radio" id="gr2unfinished" checked= "checked" />
+                        <label for="gr2unfinished">Unfinished</label>
+                      </div>
+                    </div>  
+                  </form>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Gown</td>
+                <td>Tube Cocktail</td>
+                <td>Tube</td>
+                <td>
+                  <form action="gr3">
+                    <div class = "row">
+                      <div class = "col s6">
+                        <input name="group3" type="radio" id="gr3finished" />
+                        <label for="gr3finished">Finished</label>
+                      </div>
+                      <div class = "col s6">
+                        <input name="group3" type="radio" id="gr3unfinished" checked= "checked"/>
+                        <label for="gr3unfinished">Unfinished</label>
+                      </div>
+                    </div>  
+                  </form>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Gown</td>
+                <td>Tube Cocktail</td>
+                <td>Cocktail</td>
+                <td>
+                  <form action="gr4">
+                    <div class = "row">
+                      <div class = "col s6">
+                        <input name="group4" type="radio" id="gr4finished" />
+                        <label for="gr4finished">Finished</label>
+                      </div>
+                      <div class = "col s6">
+                        <input name="group4" type="radio" id="gr4unfinished" checked= "checked" />
+                        <label for="gr4unfinished">Unfinished</label>
+                      </div>
+                    </div>  
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>  
+        </div>
+                  
+        <div class = "clearfix"></div> 
+      </div>
+
+      <div class ="row">
+        <div class = "col s12">
+          <label><font size = "+2">Progress Bar:</font></label>
+        </div>
+        <div class = "col s2"> &nbsp </div>
+        <div class = "col s8">
+          <br>
+          <div id="progress">
+                <span id="percent">25%</span>
+                <div id="bar"></div>
+              
+          </div>
+        </div> 
       </div>  
+      <label><center><font size ="+2">25% of the order was done</font></center></label>  
         
     </div>
 
