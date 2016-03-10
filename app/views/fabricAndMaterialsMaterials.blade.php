@@ -1119,11 +1119,11 @@
   
       $('.validateName').on('input', function() {
           var input=$(this);
-          $re = "/^[a-zA-Z\s\-\']+$/";
+          var re = /^[a-zA-Z\s\-\']+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
-        });
+      });
 
       //Kapag Number
       $('.validateName').keyup(function() {
@@ -1139,7 +1139,7 @@
 
       $('.validateName').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var re = /^[a-zA-Z\s\-\']+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1147,7 +1147,7 @@
 
       $('.validateSize').on('input', function() {
           var input=$(this);
-          $re = "/^[a-zA-Z\s\-\']+$/";
+          var re = /^[a-zA-Z\s\-\']+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1167,7 +1167,7 @@
 
       $('.validateSize').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var $re = /^[a-zA-Z\s\-\']+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1175,7 +1175,7 @@
 
       $('.validateColor').on('input', function() {
           var input=$(this);
-          $re = "/^[a-zA-Z\s\-\']+$/";
+          var $re = /^[a-zA-Z\s\-\']+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1195,7 +1195,7 @@
 
       $('.validateColor').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var re = /^[a-zA-Z\s\-\']+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1215,7 +1215,7 @@
 
       $('.validateDesc').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var re = /^[a-zA-Z\s\-\']+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
