@@ -52,7 +52,7 @@
                     <label for="custName">Customer Name: </label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="dueDate" name="dueDate" type="text" value = "05/18/2015" readonly>
+                    <input id="dueDate" name="dueDate" type="text" value = "05/18/2016" readonly>
                     <label for="dueDate">Due Date: </label>
                 </div>
             </div>
@@ -105,6 +105,7 @@
     	</div>
 
 	    <div class="modal-footer">
+	    	<button type="button" class=" modal-action modal-close waves-effect waves-green btn-flat">CLOSE</a>
 	    	<button type="button" class=" modal-action modal-close waves-effect waves-green btn-flat">REJECT</a>
 	      	<button type="button" class=" modal-action modal-close waves-effect waves-green btn-flat">ACCEPT</a>                      
 	    </div>
