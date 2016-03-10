@@ -42,6 +42,17 @@ class DesignPatternController extends BaseController{
 
 		$pat = DesignPattern::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('addPatternName')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addPatternName'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach ($pat as $pat) 
 			if(strcasecmp($pat->strDesignCategory, Input::get('addCategory')) == 0 && 
@@ -50,33 +61,35 @@ class DesignPatternController extends BaseController{
 				$isAdded = TRUE;
 
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-			$pattern = DesignPattern::create(array(
-			'strDesignPatternID' => Input::get('addPatternID'),
-			'strDesignCategory' => Input::get('addCategory'),
-			'strDesignSegmentName' => Input::get('addSegment'),
-			'strPatternName' => trim(Input::get('addPatternName')),
-			'boolIsActive' => 1
-			));		
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
-
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
 				$pattern = DesignPattern::create(array(
 				'strDesignPatternID' => Input::get('addPatternID'),
 				'strDesignCategory' => Input::get('addCategory'),
 				'strDesignSegmentName' => Input::get('addSegment'),
 				'strPatternName' => trim(Input::get('addPatternName')),
-				'strPatternImage' => 'imgDesignPatterns/'.$fileName,
 				'boolIsActive' => 1
-				));	
-			}
+				));		
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
 
-			$pattern->save();
-			return Redirect::to('/maintenance/designPattern?success=true');
-		} else return Redirect::to('/maintenance/designPattern?success=duplicate');
+					$pattern = DesignPattern::create(array(
+					'strDesignPatternID' => Input::get('addPatternID'),
+					'strDesignCategory' => Input::get('addCategory'),
+					'strDesignSegmentName' => Input::get('addSegment'),
+					'strPatternName' => trim(Input::get('addPatternName')),
+					'strPatternImage' => 'imgDesignPatterns/'.$fileName,
+					'boolIsActive' => 1
+					));	
+				}
+
+				$pattern->save();
+				return Redirect::to('/maintenance/designPattern?success=true');
+			} else return Redirect::to('/maintenance/designPattern?success=duplicate');
+		}else return Redirect::to('/maintenance/designPattern?input=invalid');
 	}
 
 	public function editPattern()
@@ -86,35 +99,47 @@ class DesignPatternController extends BaseController{
 
 		$pat = DesignPattern::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('editPatternName')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editPatternName'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach ($pat as $pat) 
 			if(!strcasecmp($pat->strDesignPatternID, Input::get('editPatternID')) == 0 &&
 			   strcasecmp($pat->strDesignCategory, Input::get('editCategory')) == 0 && 
 			   strcasecmp($pat->strDesignSegmentName, Input::get('editSegment')) == 0 && 
-			   strcasecmp($pat->strPatternName, trimInput::get('editPatternName'))) == 0)
+			   strcasecmp($pat->strPatternName, trim(Input::get('editPatternName'))) == 0)
 				$isAdded = TRUE;
 
+		if($validInput){
+			if(!$isAdded){
+				if(Input::get('editImage') == $pattern->strPatternImage){
+					$pattern->strDesignCategory = Input::get('editCategory');
+					$pattern->strDesignSegmentName = Input::get('editSegment');
+					$pattern->strPatternName = trim(Input::get('editPatternName'));
+				}else{
+					$file = Input::get('editImage');
+					$destinationPath = 'public/imgDesignPatterns';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-		if(!$isAdded){
-			if(Input::get('editImage') == $pattern->strPatternImage){
-				$pattern->strDesignCategory = Input::get('editCategory');
-				$pattern->strDesignSegmentName = Input::get('editSegment');
-				$pattern->strPatternName = trimInput::get('editPatternName'));
-			}else{
-				$file = Input::get('editImage');
-				$destinationPath = 'public/imgDesignPatterns';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
-
-				$pattern->strDesignCategory = Input::get('editCategory');
-				$pattern->strDesignSegmentName = Input::get('editSegment');
-				$pattern->strPatternName = trimInput::get('editPatternName'));
-				$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
-			}			
-			$pattern->save();
-			return Redirect::to('/maintenance/designPattern?successEdit=true');
-		}else return Redirect::to('/maintenance/designPattern?success=duplicate');
+					$pattern->strDesignCategory = Input::get('editCategory');
+					$pattern->strDesignSegmentName = Input::get('editSegment');
+					$pattern->strPatternName = trim(Input::get('editPatternName'));
+					$pattern->strPatternImage = 'imgDesignPatterns/'.$fileName;
+				}			
+				$pattern->save();
+				return Redirect::to('/maintenance/designPattern?successEdit=true');
+			}else return Redirect::to('/maintenance/designPattern?success=duplicate');
+		}else return Redirect::to('/maintenance/designPattern?input=invalid');
 	}
 
 	public function delPattern()

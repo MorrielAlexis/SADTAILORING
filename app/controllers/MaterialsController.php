@@ -136,39 +136,51 @@ class MaterialsController extends BaseController{
 
 		$threads = MaterialThread::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('addThreadName')) == '' || !trim(Input::get('addThreadDesc')) == '' || !trim(Input::get('addThreadColor')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addThreadName')) && preg_match($regex, Input::get('addThreadDesc')) && preg_match($regex, Input::get('addThreadColor'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($threads as $thread)
 			if(strcasecmp($thread->strMaterialThreadName, trim(Input::get('addThreadName'))) == 0 && 
 				strcasecmp($thread->strMaterialThreadColor, trim(Input::get('addThreadColor'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-			$thread = MaterialThread::create(array(
-				'strMaterialThreadID' => Input::get('addThreadID'),
-				'strMaterialThreadName' => trim(Input::get('addThreadName')),
-				'strMaterialThreadColor' => trim(Input::get('addThreadColor')),
-				'strMaterialThreadDesc' => trim(Input::get('addThreadDesc')),
-				'boolIsActive' => 1
-				));
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
-
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
 				$thread = MaterialThread::create(array(
-				'strMaterialThreadID' => Input::get('addThreadID'),
-				'strMaterialThreadName' => trim(Input::get('addThreadName')),
-				'strMaterialThreadColor' => trim(Input::get('addThreadColor')),
-				'strMaterialThreadDesc' => trim(Input::get('addThreadDesc')),
-				'strMaterialThreadImage' => 'imgMaterialThreads/'.$fileName,
-				'boolIsActive' => 1
+					'strMaterialThreadID' => Input::get('addThreadID'),
+					'strMaterialThreadName' => trim(Input::get('addThreadName')),
+					'strMaterialThreadColor' => trim(Input::get('addThreadColor')),
+					'strMaterialThreadDesc' => trim(Input::get('addThreadDesc')),
+					'boolIsActive' => 1
 					));
-			}
-			$thread ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=duplicate');
-		
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
+
+					$thread = MaterialThread::create(array(
+					'strMaterialThreadID' => Input::get('addThreadID'),
+					'strMaterialThreadName' => trim(Input::get('addThreadName')),
+					'strMaterialThreadColor' => trim(Input::get('addThreadColor')),
+					'strMaterialThreadDesc' => trim(Input::get('addThreadDesc')),
+					'strMaterialThreadImage' => 'imgMaterialThreads/'.$fileName,
+					'boolIsActive' => 1
+						));
+				}
+				$thread ->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&input=invalid');
 	}
 
 	public function editThread()
@@ -178,6 +190,16 @@ class MaterialsController extends BaseController{
 
 		$threads = MaterialThread::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('editThreadName')) == '' || !trim(Input::get('editThreadDesc')) == '' || !trim(Input::get('editThreadColor')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editThreadName')) && preg_match($regex, Input::get('editThreadDesc')) && preg_match($regex, Input::get('editThreadColor'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		foreach($threads as $thread)
 			if(!strcasecmp($thread->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
@@ -186,26 +208,28 @@ class MaterialsController extends BaseController{
 				strcasecmp($thread->strMaterialThreadDesc, trim(Input::get('editThreadDesc'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
-				$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
-				$thread->strMaterialThreadColor = trim(Input::get('editThreadColor'));
-				$thread->strMaterialThreadDesc = trim(Input::get('editThreadDesc'));	
-			}else{	
-				$file = Input::get('editThreadImage');
-				$destinationPath = 'public/imgMaterialThreads';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
+		if($validInput){
+			if(!$isAdded){
+				if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
+					$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
+					$thread->strMaterialThreadColor = trim(Input::get('editThreadColor'));
+					$thread->strMaterialThreadDesc = trim(Input::get('editThreadDesc'));	
+				}else{	
+					$file = Input::get('editThreadImage');
+					$destinationPath = 'public/imgMaterialThreads';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-				$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
-				$thread->strMaterialThreadColor = trim(Input::get('editThreadColor'));
-				$thread->strMaterialThreadDesc = trim(Input::get('editThreadDesc'));
-				$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
-			}
-			$thread->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&successEdit=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=duplicate');
+					$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
+					$thread->strMaterialThreadColor = trim(Input::get('editThreadColor'));
+					$thread->strMaterialThreadDesc = trim(Input::get('editThreadDesc'));
+					$thread->strMaterialThreadImage = 'imgMaterialThreads/'.$fileName;
+				}
+				$thread->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&successEdit=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?thread=true&input=invalid');
 	}
 
 	public function delThread()
@@ -249,39 +273,51 @@ class MaterialsController extends BaseController{
 
 		$needles = MaterialNeedle::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('addNeedleName')) == '' || !trim(Input::get('addNeedleDesc')) == '' || !trim(Input::get('addNeedleSize')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addNeedleName')) && preg_match($regex, Input::get('addNeedleDesc')) && preg_match($regex, Input::get('addNeedleSize'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($needles as $needle)
 			if(strcasecmp($needle->strMaterialNeedleName, trim(Input::get('addNeedleName'))) == 0 && 
 				strcasecmp($needle->strMaterialNeedleSize, trim(Input::get('addNeedleSize'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-				$needle = MaterialNeedle::create(array(
-					'strMaterialNeedleID' => Input::get('addNeedleID'),
-					'strMaterialNeedleName' => trim(Input::get('addNeedleName')),
-					'strMaterialNeedleSize' => trim(Input::get('addNeedleSize')),
-					'strMaterialNeedleDesc' => trim(Input::get('addNeedleDesc')),
-					'boolIsActive' => 1
-					));
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
+					$needle = MaterialNeedle::create(array(
+						'strMaterialNeedleID' => Input::get('addNeedleID'),
+						'strMaterialNeedleName' => trim(Input::get('addNeedleName')),
+						'strMaterialNeedleSize' => trim(Input::get('addNeedleSize')),
+						'strMaterialNeedleDesc' => trim(Input::get('addNeedleDesc')),
+						'boolIsActive' => 1
+						));
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
 
-				$needle = MaterialNeedle::create(array(
-					'strMaterialNeedleID' => Input::get('addNeedleID'),
-					'strMaterialNeedleName' => trim(Input::get('addNeedleName')),
-					'strMaterialNeedleSize' => trim(Input::get('addNeedleSize')),
-					'strMaterialNeedleDesc' => trim(Input::get('addNeedleDesc')),
-					'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
-					'boolIsActive' => 1
-					));
-			}
-			$needle ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&success=true');
-		}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&success=duplicate');
-
+					$needle = MaterialNeedle::create(array(
+						'strMaterialNeedleID' => Input::get('addNeedleID'),
+						'strMaterialNeedleName' => trim(Input::get('addNeedleName')),
+						'strMaterialNeedleSize' => trim(Input::get('addNeedleSize')),
+						'strMaterialNeedleDesc' => trim(Input::get('addNeedleDesc')),
+						'strMaterialNeedleImage' => 'imgMaterialNeedles/'.$fileName,
+						'boolIsActive' => 1
+						));
+				}
+				$needle ->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&success=true');
+			}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&input=invalid');
 	}
 
 	public function editNeedle()
@@ -291,6 +327,17 @@ class MaterialsController extends BaseController{
 
 		$needl = MaterialNeedle::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('editNeedleName')) == '' || !trim(Input::get('editNeedleDesc')) == '' || !trim(Input::get('editNeedleSize')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editNeedleName')) && preg_match($regex, Input::get('editNeedleDesc')) && preg_match($regex, Input::get('editNeedleSize'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($needl as $needle)
 			if(!strcasecmp($needle->strMaterialNeedleID, Input::get('editNeedleID')) &&
@@ -299,26 +346,28 @@ class MaterialsController extends BaseController{
 				strcasecmp($needle->strMaterialNeedleDesc, trim(Input::get('editNeedleDesc'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if(Input::get('editNeedleImage') == $needle->strMaterialNeedleImage){
-				$needle->strMaterialNeedleName = trim(Input::get('editNeedleName'));
-				$needle->strMaterialNeedleSize = trim(Input::get('editNeedleSize'));
-				$needle->strMaterialNeedleDesc = trim(Input::get('editNeedleDesc'));
-			}else{
-				$file = Input::get('editNeedleImage');
-				$destinationPath = 'public/imgMaterialNeedles';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
+		if($validInput){
+			if(!$isAdded){
+				if(Input::get('editNeedleImage') == $needle->strMaterialNeedleImage){
+					$needle->strMaterialNeedleName = trim(Input::get('editNeedleName'));
+					$needle->strMaterialNeedleSize = trim(Input::get('editNeedleSize'));
+					$needle->strMaterialNeedleDesc = trim(Input::get('editNeedleDesc'));
+				}else{
+					$file = Input::get('editNeedleImage');
+					$destinationPath = 'public/imgMaterialNeedles';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-				$needle->strMaterialNeedleName = trim(Input::get('editNeedleName'));
-				$needle->strMaterialNeedleSize = trim(Input::get('editNeedleSize'));
-				$needle->strMaterialNeedleDesc = trim(Input::get('editNeedleDesc'));
-				$needle->strMaterialNeedleImage = 'imgMaterialNeedles/'.$fileName;
-			}
-			$needle->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&successEdit=true');
-		}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&successEdit=duplicate');
+					$needle->strMaterialNeedleName = trim(Input::get('editNeedleName'));
+					$needle->strMaterialNeedleSize = trim(Input::get('editNeedleSize'));
+					$needle->strMaterialNeedleDesc = trim(Input::get('editNeedleDesc'));
+					$needle->strMaterialNeedleImage = 'imgMaterialNeedles/'.$fileName;
+				}
+				$needle->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&successEdit=true');
+			}return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&successEdit=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?needle=true&input=invalid');
 	}
 
 	public function delNeedle()
@@ -361,6 +410,17 @@ class MaterialsController extends BaseController{
 
 		$buttons = MaterialButton::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('addButtonName')) == '' || !trim(Input::get('addButtonDesc')) == '' || !trim(Input::get('addButtonColor')) == '' || !trim(Input::get('addButtonSize')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addButtonName')) && preg_match($regex, Input::get('addButtonDesc')) && preg_match($regex, Input::get('addButtonColor')) && preg_match($regex, Input::get('addButtonSize'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($buttons as $button)
 			if(strcasecmp($button->strMaterialButtonName, trim(Input::get('addButtonName'))) == 0 && 
@@ -368,34 +428,36 @@ class MaterialsController extends BaseController{
 				strcasecmp($button->strMaterialButtonColor, trim(Input::get('addButtonColor'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-				$button = MaterialButton::create(array(
-				'strMaterialButtonID' => Input::get('addButtonID'),
-				'strMaterialButtonName' => trim(Input::get('addButtonName')),
-				'strMaterialButtonSize' => trim(Input::get('addButtonSize')),
-				'strMaterialButtonColor' => trim(Input::get('addButtonColor')),
-				'strMaterialButtonDesc' => trim(Input::get('addButtonDesc')),
-				'boolIsActive' => 1
-				));
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
-
-				$button = MaterialButton::create(array(
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
+					$button = MaterialButton::create(array(
 					'strMaterialButtonID' => Input::get('addButtonID'),
 					'strMaterialButtonName' => trim(Input::get('addButtonName')),
 					'strMaterialButtonSize' => trim(Input::get('addButtonSize')),
 					'strMaterialButtonColor' => trim(Input::get('addButtonColor')),
 					'strMaterialButtonDesc' => trim(Input::get('addButtonDesc')),
-					'strMaterialButtonImage' => 'imgMaterialButtons/'.$fileName,
 					'boolIsActive' => 1
 					));
-			}
-			$button ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&success=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&success=false');
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
+
+					$button = MaterialButton::create(array(
+						'strMaterialButtonID' => Input::get('addButtonID'),
+						'strMaterialButtonName' => trim(Input::get('addButtonName')),
+						'strMaterialButtonSize' => trim(Input::get('addButtonSize')),
+						'strMaterialButtonColor' => trim(Input::get('addButtonColor')),
+						'strMaterialButtonDesc' => trim(Input::get('addButtonDesc')),
+						'strMaterialButtonImage' => 'imgMaterialButtons/'.$fileName,
+						'boolIsActive' => 1
+						));
+				}
+				$button ->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&success=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&success=false');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&input=invalid');
 	}
 
 	public function editButton()
@@ -405,6 +467,17 @@ class MaterialsController extends BaseController{
 
 		$buttons = MaterialButton::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('editButtonName')) == '' || !trim(Input::get('editButtonDesc')) == '' || !trim(Input::get('editButtonColor')) == '' || !trim(Input::get('editButtonSize')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editButtonName')) && preg_match($regex, Input::get('editButtonDesc')) && preg_match($regex, Input::get('editButtonColor')) && preg_match($regex, Input::get('editButtonSize'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($buttons as $button)
 			if(!strcasecmp($button->strMaterialButtonID, Input::get('editButtonID')) == 0 && 
@@ -414,28 +487,30 @@ class MaterialsController extends BaseController{
 				strcasecmp($button->strMaterialButtonDesc, trim(Input::get('editButtonDesc'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if(Input::get('editButtonImage') == $button->strMaterialButtonImage){
-				$button->strMaterialButtonName = trim(Input::get('editButtonName'));
-				$button->strMaterialButtonSize = trim(Input::get('editButtonSize'));
-				$button->strMaterialButtonColor = trim(Input::get('editButtonColor'));
-				$button->strMaterialButtonDesc = trim(Input::get('editButtonDesc'));
-			}else{
-				$file = Input::get('editButtonImage');
-				$destinationPath = 'public/imgMaterialButtons';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
+		if($validInput){
+			if(!$isAdded){
+				if(Input::get('editButtonImage') == $button->strMaterialButtonImage){
+					$button->strMaterialButtonName = trim(Input::get('editButtonName'));
+					$button->strMaterialButtonSize = trim(Input::get('editButtonSize'));
+					$button->strMaterialButtonColor = trim(Input::get('editButtonColor'));
+					$button->strMaterialButtonDesc = trim(Input::get('editButtonDesc'));
+				}else{
+					$file = Input::get('editButtonImage');
+					$destinationPath = 'public/imgMaterialButtons';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-				$button->strMaterialButtonName = trim(Input::get('editButtonName'));
-				$button->strMaterialButtonSize = trim(Input::get('editButtonSize'));
-				$button->strMaterialButtonColor = trim(Input::get('editButtonColor'));
-				$button->strMaterialButtonDesc = trim(Input::get('editButtonDesc'));
-				$button->strMaterialButtonImage = 'imgMaterialButtons/'.$fileName; 
-			}
-			$button->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&successEdit=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&successEdit=duplicate');
+					$button->strMaterialButtonName = trim(Input::get('editButtonName'));
+					$button->strMaterialButtonSize = trim(Input::get('editButtonSize'));
+					$button->strMaterialButtonColor = trim(Input::get('editButtonColor'));
+					$button->strMaterialButtonDesc = trim(Input::get('editButtonDesc'));
+					$button->strMaterialButtonImage = 'imgMaterialButtons/'.$fileName; 
+				}
+				$button->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&successEdit=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&successEdit=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?button=true&input=invalid');
 	}
 
 	public function delButton()
@@ -478,6 +553,17 @@ class MaterialsController extends BaseController{
 
 		$zippers = MaterialZipper::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('addZipperName')) == '' || !trim(Input::get('addZipperSize')) == '' || !trim(Input::get('addZipperColor')) == '' || !trim(Input::get('addZipperDesc')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addZipperName')) && preg_match($regex, Input::get('addZipperSize')) && preg_match($regex, Input::get('addZipperColor')) && preg_match($regex, Input::get('addZipperDesc'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($zippers as $zipper)
 			if(strcasecmp($zipper->strMaterialZipperName, trim(Input::get('addZipperName'))) == 0 && 
@@ -485,34 +571,36 @@ class MaterialsController extends BaseController{
 				strcasecmp($zipper->strMaterialZipperColor, trim(Input::get('addZipperColor'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-				$zipper = MaterialZipper::create(array(
-				'strMaterialZipperID' => Input::get('addZipperID'),
-				'strMaterialZipperName' => trim(Input::get('addZipperName')),
-				'strMaterialZipperSize' => trim(Input::get('addZipperSize')),
-				'strMaterialZipperColor' => trim(Input::get('addZipperColor')),
-				'strMaterialZipperDesc' => trim(Input::get('addZipperDesc')),
-				'boolIsActive' => 1
-				));
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
-
-				$zipper = MaterialZipper::create(array(
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
+					$zipper = MaterialZipper::create(array(
 					'strMaterialZipperID' => Input::get('addZipperID'),
 					'strMaterialZipperName' => trim(Input::get('addZipperName')),
 					'strMaterialZipperSize' => trim(Input::get('addZipperSize')),
 					'strMaterialZipperColor' => trim(Input::get('addZipperColor')),
 					'strMaterialZipperDesc' => trim(Input::get('addZipperDesc')),
-					'strMaterialZipperImage' => 'imgMaterialZippers/'.$fileName,
 					'boolIsActive' => 1
 					));
-				}
-			$zipper ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=false');
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
+
+					$zipper = MaterialZipper::create(array(
+						'strMaterialZipperID' => Input::get('addZipperID'),
+						'strMaterialZipperName' => trim(Input::get('addZipperName')),
+						'strMaterialZipperSize' => trim(Input::get('addZipperSize')),
+						'strMaterialZipperColor' => trim(Input::get('addZipperColor')),
+						'strMaterialZipperDesc' => trim(Input::get('addZipperDesc')),
+						'strMaterialZipperImage' => 'imgMaterialZippers/'.$fileName,
+						'boolIsActive' => 1
+						));
+					}
+				$zipper ->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=false');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&input=invalid');
 	}
 
 	public function editZipper()
@@ -522,6 +610,17 @@ class MaterialsController extends BaseController{
 
 		$zippers = MaterialZipper::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('editZipperName')) == '' || !trim(Input::get('editZipperSize')) == '' || !trim(Input::get('editZipperColor')) == '' || !trim(Input::get('editZipperDesc')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editZipperName')) && preg_match($regex, Input::get('editZipperSize')) && preg_match($regex, Input::get('editZipperColor')) && preg_match($regex, Input::get('editZipperDesc'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($zippers as $zipper)
 			if(!strcasecmp($zipper->strMaterialZipperID, Input::get('editZipperID')) == 0 &&
@@ -531,28 +630,30 @@ class MaterialsController extends BaseController{
 				strcasecmp($zipper->strMaterialZipperDesc, trim(Input::get('editZipperDesc'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if (Input::get('editZipperImage') == $zipper->strMaterialZipperImage) {
-				$zipper->strMaterialZipperName = trim(Input::get('editZipperName'));
-				$zipper->strMaterialZipperSize = trim(Input::get('editZipperSize'));
-				$zipper->strMaterialZipperColor = trim(Input::get('editZipperColor'));
-				$zipper->strMaterialZipperDesc = trim(Input::get('editZipperDesc'));
-			} else {
-				$file = Input::get('editZipperImage');
-				$destinationPath = 'public/imgMaterialZippers';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
+		if($validInput){
+			if(!$isAdded){
+				if (Input::get('editZipperImage') == $zipper->strMaterialZipperImage) {
+					$zipper->strMaterialZipperName = trim(Input::get('editZipperName'));
+					$zipper->strMaterialZipperSize = trim(Input::get('editZipperSize'));
+					$zipper->strMaterialZipperColor = trim(Input::get('editZipperColor'));
+					$zipper->strMaterialZipperDesc = trim(Input::get('editZipperDesc'));
+				} else {
+					$file = Input::get('editZipperImage');
+					$destinationPath = 'public/imgMaterialZippers';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-				$zipper->strMaterialZipperName = trim(Input::get('editZipperName'));
-				$zipper->strMaterialZipperSize = trim(Input::get('editZipperSize'));
-				$zipper->strMaterialZipperColor =trim(Input::get('editZipperColor'));
-				$zipper->strMaterialZipperDesc = trim(Input::get('editZipperDesc'));
-				$zipper->strMaterialZipperImage = 'imgMaterialZippers/'.$fileName;
-			}	
-			$zipper->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&successEdit=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=duplicate');
+					$zipper->strMaterialZipperName = trim(Input::get('editZipperName'));
+					$zipper->strMaterialZipperSize = trim(Input::get('editZipperSize'));
+					$zipper->strMaterialZipperColor =trim(Input::get('editZipperColor'));
+					$zipper->strMaterialZipperDesc = trim(Input::get('editZipperDesc'));
+					$zipper->strMaterialZipperImage = 'imgMaterialZippers/'.$fileName;
+				}	
+				$zipper->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&successEdit=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&input=invalid');
 	}
 
 	public function delZipper()
@@ -595,6 +696,17 @@ class MaterialsController extends BaseController{
 
 		$hooks = MaterialHookAndEye::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('addHookName')) == '' || !trim(Input::get('addHookSize')) == '' || !trim(Input::get('addHookColor')) == '' || !trim(Input::get('addHookDesc')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addHookName')) && preg_match($regex, Input::get('addHookSize')) && preg_match($regex, Input::get('addHookColor')) && preg_match($regex, Input::get('addHookDesc'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($hooks as $hook)
 			if(strcasecmp($hook->strMaterialHookName, trim(Input::get('addHookName'))) == 0 && 
@@ -602,34 +714,36 @@ class MaterialsController extends BaseController{
 				strcasecmp($hook->strMaterialHookColor, trim(Input::get('addHookColor'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-				$hook = MaterialHookAndEye::create(array(
-				'strMaterialHookID' => Input::get('addHookID'),
-				'strMaterialHookName' => trim(Input::get('addHookName')),
-				'strMaterialHookSize' => trim(Input::get('addHookSize')),
-				'strMaterialHookColor' => trim(Input::get('addHookColor')),
-				'strMaterialHookDesc' => trim(Input::get('addHookDesc')),
-				'boolIsActive' => 1
-				));
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
-
-				$hook = MaterialHookAndEye::create(array(
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
+					$hook = MaterialHookAndEye::create(array(
 					'strMaterialHookID' => Input::get('addHookID'),
 					'strMaterialHookName' => trim(Input::get('addHookName')),
 					'strMaterialHookSize' => trim(Input::get('addHookSize')),
 					'strMaterialHookColor' => trim(Input::get('addHookColor')),
 					'strMaterialHookDesc' => trim(Input::get('addHookDesc')),
-					'strMaterialHookImage' => 'imgMaterialHooks/'.$fileName,
 					'boolIsActive' => 1
 					));
-			}
-			$hook ->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=duplicate');
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
+
+					$hook = MaterialHookAndEye::create(array(
+						'strMaterialHookID' => Input::get('addHookID'),
+						'strMaterialHookName' => trim(Input::get('addHookName')),
+						'strMaterialHookSize' => trim(Input::get('addHookSize')),
+						'strMaterialHookColor' => trim(Input::get('addHookColor')),
+						'strMaterialHookDesc' => trim(Input::get('addHookDesc')),
+						'strMaterialHookImage' => 'imgMaterialHooks/'.$fileName,
+						'boolIsActive' => 1
+						));
+				}
+				$hook ->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&input=invalid');
 	}
 
 	public function editHook()
@@ -639,6 +753,17 @@ class MaterialsController extends BaseController{
 
 		$hooks = MaterialHookAndEye::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('editHookName')) == '' || !trim(Input::get('editHookSize')) == '' || !trim(Input::get('editHookColor')) == '' || !trim(Input::get('editHookDesc')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editHookName')) && preg_match($regex, Input::get('editHookSize')) && preg_match($regex, Input::get('editHookColor')) && preg_match($regex, Input::get('editHookDesc'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach($hooks as $hook)
 			if(!strcasecmp($hook->strMaterialHookID, Input::get('editHookID')) == 0 &&
@@ -648,28 +773,30 @@ class MaterialsController extends BaseController{
 				strcasecmp($hook->strMaterialHookDesc, trim(Input::get('editHookDesc'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			if (Input::get('editHookImage') == $hook->strMaterialHookImage) {
-				$hook->strMaterialHookName = trim(Input::get('editHookName'));
-				$hook->strMaterialHookSize = trim(Input::get('editHookSize'));
-				$hook->strMaterialHookColor = trim(Input::get('editHookColor'));
-				$hook->strMaterialHookDesc = trim(Input::get('editHookDesc'));
-			} else {
-				$file = Input::get('editHookImage');
-				$destinationPath = 'public/imgMaterialHooks';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
+		if($validInput){
+			if(!$isAdded){
+				if (Input::get('editHookImage') == $hook->strMaterialHookImage) {
+					$hook->strMaterialHookName = trim(Input::get('editHookName'));
+					$hook->strMaterialHookSize = trim(Input::get('editHookSize'));
+					$hook->strMaterialHookColor = trim(Input::get('editHookColor'));
+					$hook->strMaterialHookDesc = trim(Input::get('editHookDesc'));
+				} else {
+					$file = Input::get('editHookImage');
+					$destinationPath = 'public/imgMaterialHooks';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-				$hook->strMaterialHookName = trim(Input::get('editHookName'));
-				$hook->strMaterialHookSize = trim(Input::get('editHookSize'));
-				$hook->strMaterialHookColor = trim(Input::get('editHookColor'));
-				$hook->strMaterialHookDesc = trim(Input::get('editHookDesc'));
-				$hook->strMaterialHookImage = 'imgMaterialHooks/'.$fileName;
-			}
-			$hook->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&successEdit=true');
-		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=duplicate');
+					$hook->strMaterialHookName = trim(Input::get('editHookName'));
+					$hook->strMaterialHookSize = trim(Input::get('editHookSize'));
+					$hook->strMaterialHookColor = trim(Input::get('editHookColor'));
+					$hook->strMaterialHookDesc = trim(Input::get('editHookDesc'));
+					$hook->strMaterialHookImage = 'imgMaterialHooks/'.$fileName;
+				}
+				$hook->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&successEdit=true');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?hook=true&input=invalid');
 	}
 
 	public function delHook()

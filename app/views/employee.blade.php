@@ -123,7 +123,7 @@
                     @else Female
                     @endif
                   </td>
-                  <td>{{ $employee->strEmpAddress }} </td>
+                  <td>{{ $employee->strEmpHouseNo }} {{ $employee->strEmpStreet }} {{ $employee->strEmpBarangay }} {{ $employee->strEmpCity }} {{ $employee->strEmpProvince }}  {{ $employee->strEmpZipCode }} </td>
                   <td>{{ $employee->strEmpRoleName}}</td>                  
                   <td>{{ $employee->strCellNo }}</td> 
                   <td>{{ $employee->strCellNoAlt }}</td> 
@@ -158,15 +158,55 @@
                             <label for="LastName">*Employee Last Name: </label>
                           </div>
 
-                          <div class="input-field">
-                            <input required value="{{$employee->strEmpAddress}}" id="editAddress" name="editAddress" type="text" class="validateAddress">
-                            <label for="Address">*Address: </label>
-                          </div>
-
                           <div>
                             <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
                             <input id="editdtEmpBday" name="editdtEmpBday" type="date" class = "datepicker">
                           </div>  
+
+                           <div class="input-field">                                                    
+                            <select required name='editSex'>
+                              <option disabled>Sex</option>
+                                  @if($employee->strSex == "M")
+                                    <option selected value="{{$employee->strSex}}">Male</option>
+                                    <option value="F">Female</option>
+                                  @else
+                                    <option value="M">Male</option>
+                                    <option selected value="{{$employee->strSex}}">Female</option>
+                                  @endif
+                            </select>    
+                            <label>Sex</label>
+                          </div>   
+
+
+                          <div class="input-field">
+                            <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo." name="editHouseNo" type="text" class="validateAddress">
+                            <label for="Emp House No">*House No.: </label>
+                          </div>
+
+                           <div class="input-field">
+                            <input required value="{{$employee->strEmpStreet}}" id="editEmpStreet" name="editEmpStreet" type="text" class="validateAddress">
+                            <label for="Emp Street">*Street: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateAddress">
+                            <label for="Emp Brgy">*Barangay: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required value="{{$employee->strEmpCity}}" id="editEmpCity" name="editEmpCity" type="text" class="validateAddress">
+                            <label for="Emp City">*City/Municipality: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required value="{{$employee->strEmpProvince}}" id="editEmpProvince" name="editEmpProvince" type="text" class="validateAddress">
+                            <label for="Emp Province">*Province: </label>
+                          </div>
+
+                           <div class="input-field">
+                            <input required value="{{$employee->strEmpZipCode}}" id="editEmpZipCode" name="editEmpZipCode" type="text" class="validateAddress">
+                            <label for="Emp Zip Code">*Zip Code: </label>
+                          </div>
 
                           <div class="input-field">                                                    
                             <select required name='editRoles'>
@@ -180,20 +220,6 @@
                             </select>    
                             <label >Role</label>
                           </div> 
-
-                          <div class="input-field">                                                    
-                            <select required name='editSex'>
-                              <option disabled>Sex</option>
-                                  @if($employee->strSex == "M")
-                                    <option selected value="{{$employee->strSex}}">Male</option>
-                                    <option value="F">Female</option>
-                                  @else
-                                    <option value="M">Male</option>
-                                    <option selected value="{{$employee->strSex}}">Female</option>
-                                  @endif
-                            </select>    
-                            <label>Sex</label>
-                          </div>   
 
                           <div class="input-field">
                             <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell" maxlength="11">
@@ -312,14 +338,47 @@
                     <label for="last_name">*Last Name: </label>
                   </div>
 
-                  <div class="input-field">
-                    <input required id="addAddress" name="addAddress" type="text" class="validateAddress">
-                    <label for="Address">*Address: </label>
-                  </div>
-
                   <div>
                     <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
                     <input id="adddtEmpBday" name="adddtEmpBday" type="date" class = "datepicker">
+                  </div>
+
+                  <div class="input-field">
+                    <select value="" name='addSex' id='addSex' required>
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
+                    </select>    
+                    <label >Sex</label>
+                  </div>   
+
+                  <div class="input-field">
+                    <input required id="addEmpHouseNo." name="addEmpHouseNo" type="text" class="validateAddress">
+                    <label for="Emp House No">*House No.: </label>
+                  </div>
+
+                   <div class="input-field">
+                    <input required id="addEmpStreet" name="addEmpStreet" type="text" class="validateAddress">
+                    <label for="Emp Street">*Street: </label>
+                  </div>
+
+                  <div class="input-field">
+                    <input required id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateAddress">
+                    <label for="Emp Brgy">*Barangay: </label>
+                  </div>
+
+                  <div class="input-field">
+                    <input required id="addEmpCity" name="addEmpCity" type="text" class="validateAddress">
+                    <label for="Emp City">*City/Municipality: </label>
+                  </div>
+
+                  <div class="input-field">
+                    <input required id="addEmpProvince" name="addEmpProvince" type="text" class="validateAddress">
+                    <label for="Emp Province">*Province: </label>
+                  </div>
+
+                   <div class="input-field">
+                    <input  id="addEmpZipCode" name="addEmpZipCode" type="text" class="validateAddress">
+                    <label for="Emp Zip Code">*Zip Code: </label>
                   </div>
 
                   <div class="input-field">
@@ -332,14 +391,6 @@
                     </select>   
                     <label>Role</label>
                   </div>      
-
-                  <div class="input-field">
-                    <select value="" name='addSex' id='addSex' required>
-                      <option value="M">Male</option>
-                      <option value="F">Female</option>
-                    </select>    
-                    <label >Sex</label>
-                  </div>   
                    
                   <div class="input-field">
                     <input required id="addCellNo" name="addCellNo" type="text" class="validateCell" maxlength="11">

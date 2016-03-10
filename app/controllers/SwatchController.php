@@ -38,6 +38,17 @@ class SwatchController extends BaseController{
 
 		$swa = Swatch::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		$regex2 = "/[a-zA-Z0-9]+$/";
+		
+		if(!trim(Input::get('addSwatchName')) == '' || !trim(Input::get('addSwatchCode')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addSwatchName')) && preg_match($regex2, Input::get('addSwatchCode'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		foreach ($swa as $swa)
 			if(strcasecmp($swa->strSwatchFabricTypeName, Input::get('addFabric')) == 0 && 
@@ -45,33 +56,35 @@ class SwatchController extends BaseController{
 			   strcasecmp($swa->strSwatchCode, trim(Input::get('addSwatchCode'))) == 0)
 			   		$isAdded = TRUE;
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-			$swatch = Swatch::create(array(
-			'strSwatchID' => Input::get('addSwatchID'),
-			'strSwatchFabricTypeName' => Input::get('addFabric'),		
-			'strSwatchName' => trim(Input::get('addSwatchName')),
-			'strSwatchCode' => trim(Input::get('addSwatchCode')),
-			'boolIsActive' => 1
-			));
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
-
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
 				$swatch = Swatch::create(array(
 				'strSwatchID' => Input::get('addSwatchID'),
 				'strSwatchFabricTypeName' => Input::get('addFabric'),		
 				'strSwatchName' => trim(Input::get('addSwatchName')),
 				'strSwatchCode' => trim(Input::get('addSwatchCode')),
-				'strSwatchImage' => 'imgSwatches/'.$fileName,
 				'boolIsActive' => 1
 				));
-			}	
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
 
-			$swatch->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=true');
-		} else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=duplicate');
+					$swatch = Swatch::create(array(
+					'strSwatchID' => Input::get('addSwatchID'),
+					'strSwatchFabricTypeName' => Input::get('addFabric'),		
+					'strSwatchName' => trim(Input::get('addSwatchName')),
+					'strSwatchCode' => trim(Input::get('addSwatchCode')),
+					'strSwatchImage' => 'imgSwatches/'.$fileName,
+					'boolIsActive' => 1
+					));
+				}	
+
+				$swatch->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=true');
+			} else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?input=invalid');
 	}
 
 	public function editSwatch()
@@ -81,6 +94,18 @@ class SwatchController extends BaseController{
 
 		$swa = Swatch::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/[a-zA-Z\s\-\*\']+$/";
+		$regex2 = "/[a-zA-Z0-9]+$/";
+		
+		if(!trim(Input::get('editSwatchName')) == '' || !trim(Input::get('editSwatchCode'))){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editSwatchName')) && preg_match($regex2, Input::get('editSwatchCode'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
+
 
 		foreach ($swa as $swa)
 			if(!strcasecmp($swa->strSwatchID, Input::get('editSwatchID')) == 0 &&
@@ -89,30 +114,31 @@ class SwatchController extends BaseController{
 			   strcasecmp($swa->strSwatchCode, trim(Input::get('editSwatchCode'))) == 0)
 			   		$isAdded = TRUE;
 
-		if(!$isAdded){	
-			if(Input::get('editSwatchImage') == $swatch->strSwatchImage){
-				$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
-				$swatch->strSwatchName = trim(Input::get('editSwatchName'));
-				$swatch->strSwatchCode = trim(Input::get('editSwatchCode'));
-			}else{
+		if($validInput){
+			if(!$isAdded){	
+				if(Input::get('editSwatchImage') == $swatch->strSwatchImage){
+					$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
+					$swatch->strSwatchName = trim(Input::get('editSwatchName'));
+					$swatch->strSwatchCode = trim(Input::get('editSwatchCode'));
+				}else{
 
-				$file = Input::get('editSwatchImage');
-				$destinationPath = 'public/imgSwatches';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
+					$file = Input::get('editSwatchImage');
+					$destinationPath = 'public/imgSwatches';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-				$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
-				$swatch->strSwatchName = trim(Input::get('editSwatchName'));
-				$swatch->strSwatchCode = trim(Input::get('editSwatchCode'));
-				$swatch->strSwatchImage = 'imgSwatches/'.$fileName;
-			}
+					$swatch->strSwatchFabricTypeName = Input::get('editFabric');		
+					$swatch->strSwatchName = trim(Input::get('editSwatchName'));
+					$swatch->strSwatchCode = trim(Input::get('editSwatchCode'));
+					$swatch->strSwatchImage = 'imgSwatches/'.$fileName;
+				}
 
-			$swatch->save();
-			return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successEdit=true');
-		} else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=duplicate');
+				$swatch->save();
+				return Redirect::to('/maintenance/fabricAndMaterialsSwatches?successEdit=true');
+			} else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?success=duplicate');
+		}else return Redirect::to('/maintenance/fabricAndMaterialsSwatches?input=invalid');
 	}
-
 
 	public function delSwatch()
 	{

@@ -3,6 +3,18 @@
 @section('content')
 
   <div class="main-wrapper">
+      <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+  
+
       <!--Add Fabric Swatch-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -313,7 +325,7 @@
     <script type="text/javascript">
       $('.validateSwatchName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\'\*\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -325,9 +337,15 @@
         $(this).val(name.replace(/\d/, ''));
       });     
 
+      //Kapag whitespace
+      $('.validateSwatchName').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
+      }); 
+
       $('.validateSwatchName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\'\*\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -335,17 +353,25 @@
 
       $('.validateSwatchCode').on('input', function() {
         var input=$(this);
-        var is_desc=input.val();
+        var re=/^[a-zA-Z0-9]+$/;
+        var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
       $('.validateSwatchCode').blur('input', function() {
         var input=$(this);
-        var is_desc=input.val();
+        var re=/^[a-zA-Z0-9]+$/;
+        var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
+
+      //Kapag space
+      $('.validateSwatchCode').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\s/, ''));
+      });  
       </script>
 
          <!--DATA TABLE SCRIPT-->

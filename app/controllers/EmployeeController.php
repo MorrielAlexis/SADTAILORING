@@ -69,7 +69,12 @@ class EmployeeController extends BaseController{
 				'strEmpLName' => trim(Input::get('addLastName')),
 				'dtEmpBday' => date("Y-m-d", strtotime(Input::get("adddtEmpBday"))),
 				'strSex' => Input::get('addSex'),
-				'strEmpAddress' => trim(Input::get('addAddress')),			
+				'strEmpHouseNo' => trim(Input::get('addEmpHouseNo')),	
+				'strEmpStreet' => trim(Input::get('addEmpStreet')),
+				'strEmpBarangay' => trim(Input::get('addEmpBarangay')),	
+				'strEmpCity' => trim(Input::get('addEmpCity')),	
+				'strEmpProvince' => trim(Input::get('addEmpProvince')),
+				'strEmpZipCode' => trim(Input::get('addEmpZipCode')),
 				'strRole' => Input::get('addRoles'), 
 				'strCellNo' => trim(Input::get('addCellNo')),
 				'strCellNoAlt' => trim(Input::get('addCellNoAlt')),
@@ -128,7 +133,12 @@ class EmployeeController extends BaseController{
 			$employee->strEmpMName = trim(Input::get('editMiddleName'));	
 			$employee->dtEmpBday = date("Y-m-d", strtotime(Input::get("editdtEmpBday")));
 			$employee->strSex = Input::get('editSex');
-			$employee->strEmpAddress = trim(Input::get('editAddress'));
+			$employee->strEmpHouseNo = trim(Input::get('editEmpHouseNo'));
+			$employee->strEmpStreet = trim(Input::get('editEmpStreet'));
+			$employee->strEmpBarangay = trim(Input::get('editEmpBarangay'));
+			$employee->strEmpCity = trim(Input::get('editEmpCity'));
+			$employee->strEmpProvince = trim(Input::get('editEmpProvince'));
+			$employee->strEmpZipCode = trim(Input::get('editEmpZipCode'));
 			$employee->strRole = Input::get('editRoles');
 			$employee->strCellNo = trim(Input::get('editCellNo'));
 			$employee->strCellNoAlt = trim(Input::get('editCellNoAlt'));
