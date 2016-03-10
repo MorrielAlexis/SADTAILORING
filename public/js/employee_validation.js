@@ -170,7 +170,7 @@
       }); 
 
       //Validate Blank
-      $('.validateProvince').blur('input', function() {
+      $('.validateProvince').on('input', function() {
         var input=$(this);
         var re=/^[a-zA-Z\'\-\s\.]+$/;
         var is_name=re.test(input.val());

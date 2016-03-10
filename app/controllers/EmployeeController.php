@@ -41,7 +41,6 @@ class EmployeeController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
-		$regexEmail = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
 		$regexHouse = "/^[0-9]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
 		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
@@ -54,8 +53,8 @@ class EmployeeController extends BaseController{
 				$validInput = TRUE;
 
 					if (preg_match($regex, Input::get('addFirstName')) && preg_match($regex, Input::get('addLastName')) &&
-						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexEmail, Input::get('addEmail')) &&
-						preg_match($regexStreet, Input::get('addEmpStreet')) && preg_match($regexBarangay, Input::get('addEmpBarangay')) &&
+						preg_match($regexStreet, Input::get('addEmpStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
+						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexBarangay, Input::get('addEmpBarangay')) &&
 						preg_match($regexCity, Input::get('addEmpCity'))) {
 							$validInput = TRUE;
 					}else $validInput = FALSE;
