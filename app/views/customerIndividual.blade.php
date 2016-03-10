@@ -150,7 +150,7 @@
 
 
                          <div class="input-field">
-                            <input required value="{{$individual->strCustPrivHouseNo}}" id="editCustPrivHouseNo." name="editCustPrivHouseNo." type="text" class="validateHouseNo">
+                            <input required value="{{$individual->strCustPrivHouseNo}}" id="editCustPrivHouseNo" name="editCustPrivHouseNo" type="text" class="validateHouseNo">
                             <label for="House No">*House No.: </label>
                           </div>
 
@@ -291,7 +291,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input required id="addCustPrivHouseNo." name="addCustPrivHouseNo." type="text" class="validateHouseNo">
+                  <input required id="addCustPrivHouseNo" name="addCustPrivHouseNo" type="text" class="validateHouseNo">
                   <label for="House No">*House No.: </label>
                 </div>
 

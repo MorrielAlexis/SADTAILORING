@@ -125,7 +125,7 @@
       //Validate Blank
       $('.validateBarangay').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z0-9\-\s]+$/;
+        var re=/^[a-zA-Z0-9\-\s\.]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -133,7 +133,7 @@
 
       $('.validateBarangay').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z0-9\-\s]+$/;
+        var re=/^[a-zA-Z0-9\-\s\.]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

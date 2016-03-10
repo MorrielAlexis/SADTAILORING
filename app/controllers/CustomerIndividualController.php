@@ -118,22 +118,23 @@ class CustomerIndividualController extends BaseController{
 		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
 		$regexHouse = "/^[0-9]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
-		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
+		$regexBarangay = "/^[a-zA-Z0-9\-\s\.]+$/";
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
 		if(!trim(Input::get('editFName')) == '' && !trim(Input::get('editLName')) == '' && 
-		   !trim(Input::get('editCusPrivHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
-		   !trim(Input::get('editCusPrivStreet')) == '' && !trim(Input::get('editCusPrivBarangay')) == '' &&
+		   !trim(Input::get('editCustPrivHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
+		   !trim(Input::get('editCustPrivStreet')) == '' && !trim(Input::get('editCustPrivBarangay')) == '' &&
 		   !trim(Input::get('editCustPrivCity')) == '' && !trim(Input::get('editCel')) == ''){
 				$validInput = TRUE;
-
+				dd("Yey!");
 					if (preg_match($regex, Input::get('editFName')) && preg_match($regex, Input::get('editLName')) &&
 						preg_match($regexStreet, Input::get('editCustPrivStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('editCustPrivHouseNo')) && preg_match($regexBarangay, Input::get('editCustPrivBarangay')) &&
 						preg_match($regexCity, Input::get('editCustPrivCity'))) {
 							$validInput = TRUE;
-					}else $validInput = FALSE;
-		}else $validInput = FALSE;
+							dd("Yey2!");
+					}else $validInput = FALSE; dd("Ow!");
+		}else $validInput = FALSE; dd("Aw!");
 
 		$count = 0; $count2 = 0;
 
