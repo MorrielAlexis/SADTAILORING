@@ -117,46 +117,72 @@ class MeasurementController extends BaseController{
 	{	
 		$det = MeasurementDetail::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/[a-zA-Z\s\-\']+$/";
+		
+		if(!trim(Input::get('addDetailName')) == '' && !trim(Input::get('addDetailDesc')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addDetailName')) && preg_match($regex, Input::get('addDetailDesc'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		foreach ($det as $det)
 			if(strcasecmp($det->strMeasurementDetailName, Input::get('addDetailName')) == 0)
 				$isAdded = TRUE;
 
-		if(!$isAdded){
-			$detail = MeasurementDetail::create(array(
-			'strMeasurementDetailID' => Input::get('addDetailID'),
-			'strMeasurementDetailName' => Input::get('addDetailName'),
-			'strMeasurementDetailDesc' => Input::get('addDetailDesc'),
-			'boolIsActive' => 1
-			));
+		if($validInput){
+			if(!$isAdded){
+				$detail = MeasurementDetail::create(array(
+				'strMeasurementDetailID' => Input::get('addDetailID'),
+				'strMeasurementDetailName' => Input::get('addDetailName'),
+				'strMeasurementDetailDesc' => Input::get('addDetailDesc'),
+				'boolIsActive' => 1
+				));
 
-			$detail->save();
-			return Redirect::to('/maintenance/measurements?successPart=true');
-		}else return Redirect::to('/maintenance/measurements?successPart=duplicate');
+				$detail->save();
+				return Redirect::to('/maintenance/measurements?successPart=true');
+			}else return Redirect::to('/maintenance/measurements?successPart=duplicate');
+		}else return Redirect::to('/maintenance/measurements?input=invalid');
 	}
 
 	public function editDetail()
 	{
 		$id = Input::get('editDetailID');
 		$detail = MeasurementDetail::find($id);
+		$validInput = TRUE;
+
+		$regex = "/[a-zA-Z\s\-\']+$/";
+		
+		if(!trim(Input::get('editDetailName')) == '' && !trim(Input::get('editDetailDesc')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editDetailName')) && preg_match($regex, Input::get('editDetailDesc'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		$det = MeasurementDetail::all();
 		$isAdded = FALSE;
 
 		foreach ($det as $det)
-			if(strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0)
+			if(!strcasecmp($det->strMeasurementID, Input::get('editDetailID') == 0 &&
+				strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0)
 				$isAdded = TRUE;
 
-		if(!$isAdded){
-			$detail = MeasurementDetail::find($id);
+		if($validInput){
+			if(!$isAdded){
+				$detail = MeasurementDetail::find($id);
 
-			$detail->strMeasurementDetailName = Input::get('editDetailName');	
-			$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
+				$detail->strMeasurementDetailName = Input::get('editDetailName');	
+				$detail->strMeasurementDetailDesc = Input::get('editDetailDesc');
 
-			$detail->save();
-			return Redirect::to('/maintenance/measurements?successPartEdit=true');
-	 	} else return Redirect::to('/maintenance/measurements?successPartEdit=duplicate');
+				$detail->save();
+				return Redirect::to('/maintenance/measurements?successPartEdit=true');
+		 	} else return Redirect::to('/maintenance/measurements?successPartEdit=duplicate');
+		}else return Redirect::to('maintenance/measurements?input=invalid');
 	}
+
 
 	public function delDetail()
 	{
