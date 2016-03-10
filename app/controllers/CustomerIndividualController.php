@@ -113,6 +113,27 @@ class CustomerIndividualController extends BaseController{
 
 		$ind = PrivateIndividual::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
+		$regexHouse = "/^[0-9]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
+		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
+		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+
+		if(!trim(Input::get('editFName')) == '' && !trim(Input::get('editLName')) == '' && 
+		   !trim(Input::get('editCusPrivHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
+		   !trim(Input::get('editCusPrivStreet')) == '' && !trim(Input::get('editCusPrivBarangay')) == '' &&
+		   !trim(Input::get('editCustPrivCity')) == '' && !trim(Input::get('editCel')) == ''){
+				$validInput = TRUE;
+
+					if (preg_match($regex, Input::get('editFName')) && preg_match($regex, Input::get('editLName')) &&
+						preg_match($regexStreet, Input::get('editCustPrivStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
+						preg_match($regexHouse, Input::get('editCustPrivHouseNo')) && preg_match($regexBarangay, Input::get('editCustPrivBarangay')) &&
+						preg_match($regexCity, Input::get('editCustPrivCity'))) {
+							$validInput = TRUE;
+					}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		$count = 0; $count2 = 0;
 
@@ -143,25 +164,26 @@ class CustomerIndividualController extends BaseController{
 				}	
         	}
 
-		if(!$isAdded){
-			$individual->strCustPrivFName = trim(Input::get('editFName'));
-			$individual->strCustPrivMName = trim(Input::get('editMName'));	
-			$individual->strCustPrivLName = trim(Input::get('editLName'));
-			$individual->strCustPrivHouseNo = trim(Input::get('editCustPrivHouseNo'));
-			$individual->strCustPrivStreet = trim(Input::get('editCustPrivStreet'));
-			$individual->strCustPrivBarangay = trim(Input::get('editCustPrivBarangay'));
-			$individual->strCustPrivCity = trim(Input::get('editCustPrivCity'));
-			$individual->strCustPrivProvince = trim(Input::get('editCustPrivProvince'));
-			$individual->strCustPrivZipCode = trim(Input::get('editCustPrivZipCode'));
-			$individual->strCustPrivEmailAddress = trim(Input::get('editEmail'));			
-			$individual->strCustPrivCPNumber = trim(Input::get('editCel'));
-			$individual->strCustPrivCPNumberAlt = trim(Input::get('editCelAlt'));
-			$individual->strCustPrivLandlineNumber = trim(Input::get('editPhone'));
+        if($validInput){
+			if(!$isAdded){
+				$individual->strCustPrivFName = trim(Input::get('editFName'));
+				$individual->strCustPrivMName = trim(Input::get('editMName'));	
+				$individual->strCustPrivLName = trim(Input::get('editLName'));
+				$individual->strCustPrivHouseNo = trim(Input::get('editCustPrivHouseNo'));
+				$individual->strCustPrivStreet = trim(Input::get('editCustPrivStreet'));
+				$individual->strCustPrivBarangay = trim(Input::get('editCustPrivBarangay'));
+				$individual->strCustPrivCity = trim(Input::get('editCustPrivCity'));
+				$individual->strCustPrivProvince = trim(Input::get('editCustPrivProvince'));
+				$individual->strCustPrivZipCode = trim(Input::get('editCustPrivZipCode'));
+				$individual->strCustPrivEmailAddress = trim(Input::get('editEmail'));			
+				$individual->strCustPrivCPNumber = trim(Input::get('editCel'));
+				$individual->strCustPrivCPNumberAlt = trim(Input::get('editCelAlt'));
+				$individual->strCustPrivLandlineNumber = trim(Input::get('editPhone'));
 
-			$individual->save();
-			return Redirect::to('/maintenance/customerIndividual?successEdit=true');
-	 	}else return Redirect::to('/maintenance/customerIndividual?successEdit=duplicate');
-
+				$individual->save();
+				return Redirect::to('/maintenance/customerIndividual?successEdit=true');
+		 	}else return Redirect::to('/maintenance/customerIndividual?successEdit=duplicate');
+		}else return Redirect::to('/maintenance/customerIndividual?input=invalid');
 	}
 
 	public function delCustPrivIndiv()
