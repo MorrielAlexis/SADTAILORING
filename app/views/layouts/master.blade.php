@@ -136,7 +136,14 @@
                         <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href= "{{URL::to('transaction/materials')}}"><font size = "-1"><b>Materials Purchasing</font></b></a><li>
                       </ul>
                       <ul class = "collapsible collapsible-accordion">
-                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white" href= "{{URL::to('transaction/billing')}}"><font size = "-1"><b>Billing and Collection</b></font></a><li>
+                        <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('transaction/adminBillingPayment') || Request::is('transaction/adminBillingCollection') ? 'active' : '' }}"><b>Billing & Collection</b></a>
+                            <div class="collapsible-body">
+                                <ul>  
+                                  <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('transaction/adminBillingPayment')}}">Bill A Customer</a></li>
+                                  <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('transaction/adminBillingCollection')}}">Collection</a></li>
+                                  <div class="divider"></div>
+                                </ul>
+                          </div>
                       </ul>
                     </li>
                   </ul>
