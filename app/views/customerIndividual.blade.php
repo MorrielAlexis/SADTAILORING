@@ -345,6 +345,8 @@
     @stop
 
 @section('scripts')
+    {{ HTML::script('js/customerind_validation.js') }}
+
     <script>
       function clearData(){
           document.getElementById("addFName").value = "";
@@ -356,137 +358,6 @@
           document.getElementById("addPhone").value = "";
           
       }
-
-    </script>
-
-    <script type="text/javascript">
-      $('.validateFirst').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateFirst').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });      
-
-      $('.validateMiddle').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      // $('.validateMiddle').blur('input', function() {
-      //   var input=$(this);
-      //   var is_name=input.val();
-      //   if(is_name){input.removeClass("invalid").addClass("valid");}
-      //   else{input.removeClass("valid").addClass("invalid");}
-      // });
-
-      $('.validateLast').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateLast').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateAddress').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      //Validate Blank
-      $('.validateAddress').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateEmail').on('input', function() {
-        var input=$(this);
-        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        var is_email=re.test(input.val());
-        if(is_email){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-       $('.validateEmail').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-
-      $('.validateCell').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateCell').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });
-
-      $('.validateCellAlt').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateCellAlt').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });
-
-      //Validate Blank
-      $('.validateCell').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-       $('.validateCell').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      });
-
-      $('.validateCellAlt').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      });
-
-       $('.validatePhone').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });     
-
-      $('.validatePhone').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'($1)$2-$3'))
-      }); 
 
     </script>
 

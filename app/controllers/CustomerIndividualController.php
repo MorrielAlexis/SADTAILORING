@@ -42,21 +42,21 @@ class CustomerIndividualController extends BaseController{
 		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
-		if(!trim(Input::get('addFirstName')) == '' && !trim(Input::get('addLastName')) == '' && 
-		   !trim(Input::get('addEmpHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
-		   !trim(Input::get('addEmpStreet')) == '' && !trim(Input::get('addEmpBarangay')) == '' &&
-		   !trim(Input::get('addEmpCity')) == '' && !trim(Input::get('addCellNo')) == ''){
+		if(!trim(Input::get('addFName')) == '' && !trim(Input::get('addLName')) == '' && 
+		   !trim(Input::get('addCusPrivHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
+		   !trim(Input::get('addCusPrivStreet')) == '' && !trim(Input::get('addCusPrivBarangay')) == '' &&
+		   !trim(Input::get('addCustPrivCity')) == '' && !trim(Input::get('addCel')) == ''){
 				$validInput = TRUE;
 
-					if (preg_match($regex, Input::get('addFirstName')) && preg_match($regex, Input::get('addLastName')) &&
-						preg_match($regexStreet, Input::get('addEmpStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
-						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexBarangay, Input::get('addEmpBarangay')) &&
-						preg_match($regexCity, Input::get('addEmpCity'))) {
+					if (preg_match($regex, Input::get('addFName')) && preg_match($regex, Input::get('addLName')) &&
+						preg_match($regexStreet, Input::get('addCustPrivStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
+						preg_match($regexHouse, Input::get('addCustPrivHouseNo')) && preg_match($regexBarangay, Input::get('addCustPrivBarangay')) &&
+						preg_match($regexCity, Input::get('addCustPrivCity'))) {
 							$validInput = TRUE;
 					}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
-		
+
 		$count = DB::table('tblCustPrivateIndividual')
             ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
             ->where('tblCustPrivateIndividual.strCustPrivEmailAddress','=', trim(Input::get('addEmail')))
@@ -79,29 +79,30 @@ class CustomerIndividualController extends BaseController{
 			}	
         }
 
-		if(!$isAdded){
-			$individual = PrivateIndividual::create(array(
-				'strCustPrivIndivID' => Input::get('addIndiID'),
-				'strCustPrivFName' => trim(Input::get('addFName')),		
-				'strCustPrivMName' => trim(Input::get('addMName')),
-				'strCustPrivLName' => trim(Input::get('addLName')),
-				'strCustPrivHouseNo' => trim(Input::get('addCustPrivHouseNo')),	
-				'strCustPrivStreet' => trim(Input::get('addCustPrivStreet')),
-				'strCustPrivBarangay' => trim(Input::get('addCustPrivBarangay')),	
-				'strCustPrivCity' => trim(Input::get('addCustPrivCity')),	
-				'strCustPrivProvince' => trim(Input::get('addCustPrivProvince')),
-				'strCustPrivZipCode' => trim(Input::get('addCustPrivZipCode')),
-				'strCustPrivLandlineNumber' => trim(Input::get('addPhone')),
-				'strCustPrivCPNumber' => trim(Input::get('addCel')), 
-				'strCustPrivCPNumberAlt' => trim(Input::get('addCelAlt')),
-				'strCustPrivEmailAddress' => trim(Input::get('addEmail')),
-				'boolIsActive' => 1
-				));
+        if($validInput){
+			if(!$isAdded){
+				$individual = PrivateIndividual::create(array(
+					'strCustPrivIndivID' => Input::get('addIndiID'),
+					'strCustPrivFName' => trim(Input::get('addFName')),		
+					'strCustPrivMName' => trim(Input::get('addMName')),
+					'strCustPrivLName' => trim(Input::get('addLName')),
+					'strCustPrivHouseNo' => trim(Input::get('addCustPrivHouseNo')),	
+					'strCustPrivStreet' => trim(Input::get('addCustPrivStreet')),
+					'strCustPrivBarangay' => trim(Input::get('addCustPrivBarangay')),	
+					'strCustPrivCity' => trim(Input::get('addCustPrivCity')),	
+					'strCustPrivProvince' => trim(Input::get('addCustPrivProvince')),
+					'strCustPrivZipCode' => trim(Input::get('addCustPrivZipCode')),
+					'strCustPrivLandlineNumber' => trim(Input::get('addPhone')),
+					'strCustPrivCPNumber' => trim(Input::get('addCel')), 
+					'strCustPrivCPNumberAlt' => trim(Input::get('addCelAlt')),
+					'strCustPrivEmailAddress' => trim(Input::get('addEmail')),
+					'boolIsActive' => 1
+					));
 
-			$individual->save();
-			return Redirect::to('/maintenance/customerIndividual?success=true');
-		}else return Redirect::to('/maintenance/customerIndividual?success=duplicate');
-
+				$individual->save();
+				return Redirect::to('/maintenance/customerIndividual?success=true');
+			}else return Redirect::to('/maintenance/customerIndividual?success=duplicate');
+		}else return Redirect::to('/maintenance/customerIndividual?input=invalid');
 		
 	}
 
