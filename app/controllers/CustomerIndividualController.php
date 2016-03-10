@@ -126,15 +126,13 @@ class CustomerIndividualController extends BaseController{
 		   !trim(Input::get('editCustPrivStreet')) == '' && !trim(Input::get('editCustPrivBarangay')) == '' &&
 		   !trim(Input::get('editCustPrivCity')) == '' && !trim(Input::get('editCel')) == ''){
 				$validInput = TRUE;
-				dd("Yey!");
 					if (preg_match($regex, Input::get('editFName')) && preg_match($regex, Input::get('editLName')) &&
 						preg_match($regexStreet, Input::get('editCustPrivStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('editCustPrivHouseNo')) && preg_match($regexBarangay, Input::get('editCustPrivBarangay')) &&
 						preg_match($regexCity, Input::get('editCustPrivCity'))) {
 							$validInput = TRUE;
-							dd("Yey2!");
-					}else $validInput = FALSE; dd("Ow!");
-		}else $validInput = FALSE; dd("Aw!");
+					}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		$count = 0; $count2 = 0;
 

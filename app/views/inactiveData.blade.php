@@ -114,7 +114,7 @@
                             @if($company_1->boolIsActive == 0)
                           <tr>
                             <td>{{ $company_1->strCustCompanyName }}</td>
-                            <td>{{ $company_1->strCustCompanyAddress }}</td>
+                            <td>{{ $company_1->strCustCompanyHouseNo }} {{ $company_1->strCustCompanyStreet }} {{ $company_1->strCustCompanyBarangay }} {{ $company_1->strCustCompanyCity }} {{ $company_1->strCustCompanyProvince }}  {{ $company_1->strCustCompanyZipCode }} </td>
                             <td>{{ $company_1->strCustContactPerson }} </td>
                             <td>{{ $company_1->strCustCompanyEmailAddress}}</td>                  
                             <td>{{ $company_1->strCustCompanyCPNumber }}</td>

@@ -11,8 +11,12 @@ class tblCustCompaniesSeeder extends Seeder{
 
 				'strCustCompanyID' => 'CUSTC001',
 				'strCustCompanyName' => 'Pfizer Phils',
-				
-				'strCustCompanyAddress' =>'Cainta, Rizal',
+				'strCustCompanyHouseNo' =>'771',
+				'strCustCompanyStreet'=> 'Aseana',
+				'strCustCompanyBarangay'=> 'San Miguel',
+				'strCustCompanyCity'=> 'Pasig',
+				'strCustCompanyProvince'=> 'NCR',
+				'strCustCompanyZipCode'=> '099',
 				'strCustContactPerson' => 'Lala Roque',
 				'strCustCompanyEmailAddress' => 'melodyreyes@pfizer.com',
 				'strCustCompanyTelNumber' => '2227777',
@@ -27,7 +31,12 @@ class tblCustCompaniesSeeder extends Seeder{
 
 				'strCustCompanyID' => 'CUSTC002',
 				'strCustCompanyName' => 'Nestle PH',
-				'strCustCompanyAddress' =>'BGC, Taguig City',
+				'strCustCompanyHouseNo' =>'056',
+				'strCustCompanyStreet'=> 'Roxas',
+				'strCustCompanyBarangay'=> 'Regexing',
+				'strCustCompanyCity'=> 'Majayjay',
+				'strCustCompanyProvince'=> 'Laguna',
+				'strCustCompanyZipCode'=> '1028',
 				'strCustContactPerson' => 'Zobel Ayala',
 				'strCustCompanyEmailAddress' => 'welness@nestle.com',
 				'strCustCompanyTelNumber' => '0345678',

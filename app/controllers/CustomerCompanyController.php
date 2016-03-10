@@ -50,7 +50,6 @@ class CustomerCompanyController extends BaseController{
         }else{
         	foreach ($comp as $comp) {
 				if(strcasecmp($comp->strCustCompanyName, trim(Input::get('addComName'))) == 0 && 
-				   strcasecmp($comp->strCustCompanyAddress, trim(Input::get('addAddress'))) == 0 && 
 				   strcasecmp($comp->strCustContactPerson, trim(Input::get('addConPerson'))) == 0){
 						$isAdded = TRUE;
 				}				
@@ -61,7 +60,12 @@ class CustomerCompanyController extends BaseController{
 			$company = Company::create(array(
 				'strCustCompanyID' => Input::get('addComID'),
 				'strCustCompanyName' => trim(Input::get('addComName')),		
-				'strCustCompanyAddress' => trim(Input::get('addAddress')),
+				'strCustCompanyHouseNo' => trim(Input::get('addCustCompanyHouseNo')),	
+				'strCustCompanyStreet' => trim(Input::get('addCustCompanyStreet')),
+				'strCustCompanyBarangay' => trim(Input::get('addCustCompanyBarangay')),	
+				'strCustPrivCity' => trim(Input::get('addCustPrivCity')),	
+				'strCustCompanyProvince' => trim(Input::get('addCustCompanyProvince')),
+				'strCustCompanyZipCode' => trim(Input::get('addCustCompanyZipCode')),
 				'strCustContactPerson' => trim(Input::get('addConPerson')),
 				'strCustCompanyEmailAddress' => trim(Input::get('addComEmailAddress')),			
 				'strCustCompanyCPNumber' => trim(Input::get('addCel')), 
@@ -106,7 +110,6 @@ class CustomerCompanyController extends BaseController{
         	foreach ($comp as $comp) {
 				if(!strcasecmp($comp->strCustCompanyID, trim(Input::get('editComID'))) == 0 &&
 				   strcasecmp($comp->strCustCompanyName, trim(Input::get('editComName'))) == 0 && 
-				   strcasecmp($comp->strCustCompanyAddress, trim(Input::get('editAddress'))) == 0 && 
 				   strcasecmp($comp->strCustContactPerson, trim(Input::get('editConPerson'))) == 0){
 						$isAdded = TRUE;
 				}				
@@ -118,6 +121,12 @@ class CustomerCompanyController extends BaseController{
 
 			$company->strCustCompanyName = trim(Input::get('editComName'));	
 			$company->strCustCompanyAddress = trim(Input::get('editAddress'));
+			$company->strCustCompanyHouseNo = trim(Input::get('editCustCompanyHouseNo'));
+			$company->strCustCompanyStreet = trim(Input::get('editCustCompanyStreet'));
+			$company->strCustCompanyBarangay = trim(Input::get('editCustCompanyBarangay'));
+			$company->strCustCompanyCity = trim(Input::get('editCustCompanyCity'));
+			$company->strCustCompanyProvince = trim(Input::get('editCustCompanyProvince'));
+			$company->strCustCompanyZipCode = trim(Input::get('editCustCompanyZipCode'));
 			$company->strCustContactPerson = trim(Input::get('editConPerson'));
 			$company->strCustCompanyEmailAddress = trim(Input::get('editComEmailAddress'));
 			$company->strCustCompanyTelNumber = trim(Input::get('editPhone'));			

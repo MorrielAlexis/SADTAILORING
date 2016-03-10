@@ -105,7 +105,7 @@
                   @if($company->boolIsActive == 1)
                 <tr>
                   <td>{{ $company->strCustCompanyName }}</td>
-                  <td>{{ $company->strCustCompanyAddress }}</td>
+                  <td>{{ $company->strCustCompanyHouseNo }} {{ $company->strCustCompanyStreet }} {{ $company->strCustCompanyBarangay }} {{ $company->strCustCompanyCity }} {{ $company->strCustCompanyProvince }}  {{ $company->strCustCompanyZipCode }} </td>
                   <td>{{ $company->strCustContactPerson }} </td>
                   <td>{{ $company->strCustCompanyEmailAddress}}</td>                  
                   <td>{{ $company->strCustCompanyCPNumber }}</td> 
@@ -131,10 +131,36 @@
                           <label for="company_name">*Company Name: </label>
                         </div>
 
-                        <div class="input-field">
-                          <input required id="editAddress" name = "editAddress" value = "{{$company->strCustCompanyAddress}}" type="text" class="validateAddress">
-                          <label for="address">*Address: </label>
-                        </div>
+                          <div class="input-field">
+                            <input required value="{{$company->strCustCompanyHouseNo}}" id="editCustCompanyHouseNo" name="editCustCompanyHouseNo" type="text" class="validateHouseNo">
+                            <label for="House No">*House No.: </label>
+                          </div>
+
+                           <div class="input-field">
+                            <input required value="{{$company->strCustCompanyStreet }}" id="editCustCompanyStreet" name="editCustCompanyStreet" type="text" class="validateStreet">
+                            <label for=" Street">*Street: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required value="{{$company->strCustCompanyBarangay}}" id="editCustCompanyBarangay" name="editCustCompanyBarangay" type="text" class="validateBarangay">
+                            <label for=" Brgy">*Barangay: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required value="{{$company->strCustCompanyCity}}" id="editCustCompanyCity" name="editCustCompanyCity" type="text" class="validateCity">
+                            <label for=" City">*City/Municipality: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input value="{{$company->strCustCompanyProvince}}" id="editCustCompanyProvince" name="editCustCompanyProvince" type="text" class="validateProvince">
+                            <label for=" Province">Province: </label>
+                          </div>
+
+                           <div class="input-field">
+                            <input value="{{$company->strCustCompanyZipCode}}" id="editCustCompanyZipCode" name="editCustCompanyZipCode" type="text" class="validateZip">
+                            <label for=" Zip Code">Zip Code: </label>
+                          </div>
+
 
                         <div class="input-field">
                           <input required id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validateConPerson">
@@ -262,6 +288,37 @@
               <div class="input-field">
                 <input required id="addAddress" name = "addAddress" type="text" class="validateAddress">
                 <label for="address"> *Address: </label>
+              </div>
+
+
+              <div class="input-field">
+                  <input required id="addCustCompanyHouseNo" name="addCustCompanyHouseNo" type="text" class="validateHouseNo">
+                  <label for="House No">*House No.: </label>
+              </div>
+
+               <div class="input-field">
+                <input id="addCustCompanyStreet" name="addCustCompanyStreet" type="text" class="validateStreet">
+                <label for=" Street">*Street: </label>
+              </div>
+
+              <div class="input-field">
+                <input id="addCustCompanyBarangay" name="addCustCompanyBarangay" type="text" class="validateBarangay">
+                <label for=" Brgy">*Barangay: </label>
+              </div>
+
+              <div class="input-field">
+                <input id="addCustCompanyCity" name="addCustCompanyCity" type="text" class="validateCity">
+                <label for=" City">*City/Municipality: </label>
+              </div>
+
+              <div class="input-field">
+                <input id="addCustCompanyProvince" name="addCustCompanyProvince" type="text" class="validateProvince">
+                <label for=" Province">Province: </label>
+              </div>
+
+               <div class="input-field">
+                <input id="addCustCompanyZipCode" name="addCustCompanyZipCode" type="text" class="validateZip">
+                <label for=" Zip Code">Zip Code: </label>
               </div>
 
               <div class="input-field">
