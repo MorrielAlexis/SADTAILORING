@@ -60,7 +60,7 @@
                         <td>{{ $individual_1->strCustPrivFName }}</td>
                         <td>{{ $individual_1->strCustPrivMName }}</td>
                         <td>{{ $individual_1->strCustPrivLName }}</td>
-                        <td>{{ $individual_1->strCustPrivAddress }} </td>
+                        <td>{{ $individual_1->strCustPrivHouseNo }} {{ $individual_1->strCustPrivStreet }} {{ $individual_1->strCustPrivBarangay }} {{ $individual_1->strCustPrivCity }} {{ $individual_1->strCustPrivProvince }}  {{ $individual_1->strCustPrivZipCode }} </td>
                         <td>{{ $individual_1->strCustPrivEmailAddress}}</td>                  
                         <td>{{ $individual_1->strCustPrivCPNumber }}</td> 
                         <td>{{ $individual_1->strCustPrivLandlineNumber }}</td> 
