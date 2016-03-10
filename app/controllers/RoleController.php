@@ -34,22 +34,34 @@ class RoleController extends BaseController{
 	{	
 		$rol = Role::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		
+		if(!trim(Input::get('addRoleName')) == '' && !trim(Input::get('addRoleDescription')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addRoleName')) && reg_match($regex, Input::get('addRoleDescription'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		foreach ($rol as $rol)
 			if(strcasecmp($rol->strEmpRoleName, trim(Input::get('addRoleName'))) == 0)
 				$isAdded = TRUE;
 
-		if(!$isAdded){
-			$role = Role::create(array(
-			'strEmpRoleID' => Input::get('addRoleID'),
-			'strEmpRoleName' => trim(Input::get('addRoleName')),
-			'strEmpRoleDesc' => trim(Input::get('addRoleDescription')),
-			'boolIsActive' => 1
-			));
+		if($validInput){
+			if(!$isAdded){
+				$role = Role::create(array(
+				'strEmpRoleID' => Input::get('addRoleID'),
+				'strEmpRoleName' => trim(Input::get('addRoleName')),
+				'strEmpRoleDesc' => trim(Input::get('addRoleDescription')),
+				'boolIsActive' => 1
+				));
 
-			$role->save();
-			return Redirect::to('/maintenance/employeeRole?success=true');
-		}else return Redirect::to('/maintenance/employeeRole?success=duplicate');
+				$role->save();
+				return Redirect::to('/maintenance/employeeRole?success=true');
+			}else return Redirect::to('/maintenance/employeeRole?success=duplicate');
+		}else return Redirect::to('/maintenance/employeeRole?input=invalid');
 	}
 
 	public function editRole()
@@ -59,22 +71,31 @@ class RoleController extends BaseController{
 
 		$rol = Role::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		
+		if(!trim(Input::get('editRoleName')) == '' && !trim(Input::get('editRoleDescription')) == ''){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editRoleName')) && reg_match($regex, Input::get('editRoleDescription'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		foreach ($rol as $rol)
 			if(!strcasecmp($rol->strEmpRoleID, trim(Input::get('editRoleID'))) == 0 &&
 				strcasecmp($rol->strEmpRoleName, trim(Input::get('editRoleName'))) == 0)
 					$isAdded = TRUE;
 
-		if(!$isAdded){
-			$role->strEmpRoleName = trim(Input::get('editRoleName'));	
-			$role->strEmpRoleDesc = trim(Input::get('editRoleDescription'));
+		if($validInput){
+			if(!$isAdded){
+				$role->strEmpRoleName = trim(Input::get('editRoleName'));	
+				$role->strEmpRoleDesc = trim(Input::get('editRoleDescription'));
 
-			$role->save();
-			return Redirect::to('/maintenance/employeeRole?successEdit=true');
-		}else return Redirect::to('/maintenance/employeeRole?success=duplicate');
-
-		
-	 
+				$role->save();
+				return Redirect::to('/maintenance/employeeRole?successEdit=true');
+			}else return Redirect::to('/maintenance/employeeRole?success=duplicate');
+		}else return Redirect::to('/maintenance/employeeRole?input=invalid');	 
 	}
 
 	public function delRole()

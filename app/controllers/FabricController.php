@@ -40,7 +40,7 @@ class FabricController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('addFabricTypeName')) == '' || !trim(Input::get('addFabricTypeDesc'))){
+		if(!trim(Input::get('addFabricTypeName')) == '' && !trim(Input::get('addFabricTypeDesc'))){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('addFabricTypeName'))) {
 				$validInput = TRUE;

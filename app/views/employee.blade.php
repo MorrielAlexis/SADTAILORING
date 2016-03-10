@@ -196,27 +196,27 @@
                           </div>
 
                            <div class="input-field">
-                            <input required value="{{$employee->strEmpStreet}}" id="editEmpStreet" name="editEmpStreet" type="text" class="validateAddress">
+                            <input required value="{{$employee->strEmpStreet}}" id="editEmpStreet" name="editEmpStreet" type="text" class="validateStreet">
                             <label for="Emp Street">*Street: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateAddress">
+                            <input required value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateBarangay">
                             <label for="Emp Brgy">*Barangay: </label>
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpCity}}" id="editEmpCity" name="editEmpCity" type="text" class="validateAddress">
+                            <input required value="{{$employee->strEmpCity}}" id="editEmpCity" name="editEmpCity" type="text" class="validateCity">
                             <label for="Emp City">*City/Municipality: </label>
                           </div>
 
                           <div class="input-field">
-                            <input value="{{$employee->strEmpProvince}}" id="editEmpProvince" name="editEmpProvince" type="text" class="validateAddress">
+                            <input value="{{$employee->strEmpProvince}}" id="editEmpProvince" name="editEmpProvince" type="text" class="validateProvince">
                             <label for="Emp Province">Province: </label>
                           </div>
 
                            <div class="input-field">
-                            <input value="{{$employee->strEmpZipCode}}" id="editEmpZipCode" name="editEmpZipCode" type="text" class="validateAddress">
+                            <input value="{{$employee->strEmpZipCode}}" id="editEmpZipCode" name="editEmpZipCode" type="text" class="validateZip">
                             <label for="Emp Zip Code">Zip Code: </label>
                           </div>
 
@@ -369,27 +369,27 @@
                   </div>
 
                    <div class="input-field">
-                    <input required id="addEmpStreet" name="addEmpStreet" type="text" class="validateAddress">
+                    <input required id="addEmpStreet" name="addEmpStreet" type="text" class="validateStreet">
                     <label for="Emp Street">*Street: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateAddress">
+                    <input required id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateBarangay">
                     <label for="Emp Brgy">*Barangay: </label>
                   </div>
 
                   <div class="input-field">
-                    <input required id="addEmpCity" name="addEmpCity" type="text" class="validateAddress">
+                    <input required id="addEmpCity" name="addEmpCity" type="text" class="validateCity">
                     <label for="Emp City">*City/Municipality: </label>
                   </div>
 
                   <div class="input-field">
-                    <input id="addEmpProvince" name="addEmpProvince" type="text" class="validateAdd">
+                    <input id="addEmpProvince" name="addEmpProvince" type="text" class="validateProvince">
                     <label for="Emp Province">Province: </label>
                   </div>
 
                    <div class="input-field">
-                    <input  id="addEmpZipCode" name="addEmpZipCode" type="text" class="validateAdd">
+                    <input  id="addEmpZipCode" name="addEmpZipCode" type="text" class="validateZip">
                     <label for="Emp Zip Code">Zip Code: </label>
                   </div>
 
@@ -449,6 +449,8 @@
 
 
 @section('scripts')
+    {{ HTML::script('js/employee_validation.js') }}
+
     <script>
     $( document ).ready(function() {
     
@@ -480,195 +482,6 @@
       }
 
     </script>
-
-    <script type="text/javascript">
-      $('.validateFirst').on('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateFirst').blur('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });      
-
-      //Kapag whitespace
-      $('.validateFirst').blur('input', function() {
-        var name = $(this).val();
-        $(this).val(name.trim());
-      }); 
-
-      $('.validateMiddle').on('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      //Kapag whitespace
-      $('.validateMiddle').blur('input', function() {
-        var name = $(this).val();
-        $(this).val(name.trim());
-      }); 
-      // $('.validateMiddle').blur('input', function() {
-      //   var input=$(this);
-      //   var is_name=input.val();
-      //   if(is_name){input.removeClass("invalid").addClass("valid");}
-      //   else{input.removeClass("valid").addClass("invalid");}
-      // });
-
-      $('.validateLast').on('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateLast').blur('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      //Kapag whitespace
-      $('.validateLast').blur('input', function() {
-        var name = $(this).val();
-        $(this).val(name.trim());
-      }); 
-//////////////////////////////////////////////
-      $('.validateHouseNo').on('input', function() {
-        var input=$(this);
-        var re=/^[0-9]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      //Kapag whitespace
-      $('.validateHouseNo').blur('input', function() {
-        var name = $(this).val();
-        $(this).val(name.trim());
-      }); 
-/////////////////////////////////////////
-      //Validate Blank
-      $('.validateAddress').on('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateAddress').blur('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      }); 
-
-      //Kapag whitespace
-      $('.validateAddress').blur('input', function() {
-        var name = $(this).val();
-        $(this).val(name.trim());
-      }); 
-
-      //Validate Blank
-      $('.validateAdd').on('input', function() {
-        var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
-        var is_name=re.test(input.val());
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      //Kapag whitespace
-      $('.validateAdd').blur('input', function() {
-        var name = $(this).val();
-        $(this).val(name.trim());
-      }); 
-
-      //Validate Numbers
-      $('.validateAge').on('input', function() {
-        var input=$(this);
-        var re = /^[0-9]/;
-        var is_email=re.test(input.val());
-        if(is_email){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      //Kapag Number
-      $('.validateAge').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-      });
-
-      $('.validateCell').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateCell').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      });
-
-      $('.validateCellAlt').on('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-      $('.validateCellAlt').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{4})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      });
-
-      //Validate Blank
-      $('.validateCell').blur('input', function() {
-        var input=$(this);
-        var is_name=input.val();
-        if(is_name){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-       $('.validatePhone').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));  
-      });
-
-       $('.validatePhone').keyup(function() {
-        var numbers = $(this).val();
-        $(this).val(numbers.replace(/\D/, ''));
-        $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
-      }); 
-
-
-      $('.validateEmail').on('input', function() {
-        var input=$(this);
-        var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        var is_email=re.test(input.val());
-        if(is_email){input.removeClass("invalid").addClass("valid");}
-        else{input.removeClass("valid").addClass("invalid");}
-      });
-
-    </script>
-
     <!--DATA TABLE SCRIPT-->
     <script type="text/javascript">
 

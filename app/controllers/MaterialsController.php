@@ -140,7 +140,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('addThreadName')) == '' || !trim(Input::get('addThreadDesc')) == '' || !trim(Input::get('addThreadColor')) == ''){
+		if(!trim(Input::get('addThreadName')) == '' && !trim(Input::get('addThreadDesc')) == '' && !trim(Input::get('addThreadColor')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('addThreadName')) && preg_match($regex, Input::get('addThreadDesc')) && preg_match($regex, Input::get('addThreadColor'))) {
 				$validInput = TRUE;
@@ -194,7 +194,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('editThreadName')) == '' || !trim(Input::get('editThreadDesc')) == '' || !trim(Input::get('editThreadColor')) == ''){
+		if(!trim(Input::get('editThreadName')) == '' && !trim(Input::get('editThreadDesc')) == '' && !trim(Input::get('editThreadColor')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('editThreadName')) && preg_match($regex, Input::get('editThreadDesc')) && preg_match($regex, Input::get('editThreadColor'))) {
 				$validInput = TRUE;
@@ -277,7 +277,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('addNeedleName')) == '' || !trim(Input::get('addNeedleDesc')) == '' || !trim(Input::get('addNeedleSize')) == ''){
+		if(!trim(Input::get('addNeedleName')) == '' && !trim(Input::get('addNeedleDesc')) == '' && !trim(Input::get('addNeedleSize')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('addNeedleName')) && preg_match($regex, Input::get('addNeedleDesc')) && preg_match($regex, Input::get('addNeedleSize'))) {
 				$validInput = TRUE;
@@ -331,7 +331,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('editNeedleName')) == '' || !trim(Input::get('editNeedleDesc')) == '' || !trim(Input::get('editNeedleSize')) == ''){
+		if(!trim(Input::get('editNeedleName')) == '' && !trim(Input::get('editNeedleDesc')) == '' && !trim(Input::get('editNeedleSize')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('editNeedleName')) && preg_match($regex, Input::get('editNeedleDesc')) && preg_match($regex, Input::get('editNeedleSize'))) {
 				$validInput = TRUE;
@@ -414,7 +414,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('addButtonName')) == '' || !trim(Input::get('addButtonDesc')) == '' || !trim(Input::get('addButtonColor')) == '' || !trim(Input::get('addButtonSize')) == ''){
+		if(!trim(Input::get('addButtonName')) == '' && !trim(Input::get('addButtonDesc')) == '' && !trim(Input::get('addButtonColor')) == '' || !trim(Input::get('addButtonSize')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('addButtonName')) && preg_match($regex, Input::get('addButtonDesc')) && preg_match($regex, Input::get('addButtonColor')) && preg_match($regex, Input::get('addButtonSize'))) {
 				$validInput = TRUE;
@@ -471,7 +471,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('editButtonName')) == '' || !trim(Input::get('editButtonDesc')) == '' || !trim(Input::get('editButtonColor')) == '' || !trim(Input::get('editButtonSize')) == ''){
+		if(!trim(Input::get('editButtonName')) == '' && !trim(Input::get('editButtonDesc')) == '' && !trim(Input::get('editButtonColor')) == '' || !trim(Input::get('editButtonSize')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('editButtonName')) && preg_match($regex, Input::get('editButtonDesc')) && preg_match($regex, Input::get('editButtonColor')) && preg_match($regex, Input::get('editButtonSize'))) {
 				$validInput = TRUE;
@@ -557,7 +557,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('addZipperName')) == '' || !trim(Input::get('addZipperSize')) == '' || !trim(Input::get('addZipperColor')) == '' || !trim(Input::get('addZipperDesc')) == ''){
+		if(!trim(Input::get('addZipperName')) == '' && !trim(Input::get('addZipperSize')) == '' && !trim(Input::get('addZipperColor')) == '' || !trim(Input::get('addZipperDesc')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('addZipperName')) && preg_match($regex, Input::get('addZipperSize')) && preg_match($regex, Input::get('addZipperColor')) && preg_match($regex, Input::get('addZipperDesc'))) {
 				$validInput = TRUE;
@@ -614,7 +614,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('editZipperName')) == '' || !trim(Input::get('editZipperSize')) == '' || !trim(Input::get('editZipperColor')) == '' || !trim(Input::get('editZipperDesc')) == ''){
+		if(!trim(Input::get('editZipperName')) == '' && !trim(Input::get('editZipperSize')) == '' && !trim(Input::get('editZipperColor')) == '' || !trim(Input::get('editZipperDesc')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('editZipperName')) && preg_match($regex, Input::get('editZipperSize')) && preg_match($regex, Input::get('editZipperColor')) && preg_match($regex, Input::get('editZipperDesc'))) {
 				$validInput = TRUE;
@@ -700,7 +700,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('addHookName')) == '' || !trim(Input::get('addHookSize')) == '' || !trim(Input::get('addHookColor')) == '' || !trim(Input::get('addHookDesc')) == ''){
+		if(!trim(Input::get('addHookName')) == '' && !trim(Input::get('addHookSize')) == '' && !trim(Input::get('addHookColor')) == '' || !trim(Input::get('addHookDesc')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('addHookName')) && preg_match($regex, Input::get('addHookSize')) && preg_match($regex, Input::get('addHookColor')) && preg_match($regex, Input::get('addHookDesc'))) {
 				$validInput = TRUE;
@@ -757,7 +757,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\*\']+$/";
 		
-		if(!trim(Input::get('editHookName')) == '' || !trim(Input::get('editHookSize')) == '' || !trim(Input::get('editHookColor')) == '' || !trim(Input::get('editHookDesc')) == ''){
+		if(!trim(Input::get('editHookName')) == '' && !trim(Input::get('editHookSize')) == '' && !trim(Input::get('editHookColor')) == '' || !trim(Input::get('editHookDesc')) == ''){
 			$validInput = TRUE;
 			if (preg_match($regex, Input::get('editHookName')) && preg_match($regex, Input::get('editHookSize')) && preg_match($regex, Input::get('editHookColor')) && preg_match($regex, Input::get('editHookDesc'))) {
 				$validInput = TRUE;
