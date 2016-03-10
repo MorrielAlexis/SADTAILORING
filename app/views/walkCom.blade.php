@@ -1,8 +1,21 @@
 @extends('layouts.master')
 
 @section('content')
+
+	<div class = "row">
+		<div class = "col s1">
+			<a style="color:black; align= left;" class="btn btn-large center-text light-green accent-1" href="{{URL::to('transaction/walk')}}">Previous</a>
+		</div>
+		<div class = "col s10">
+			&nbsp
+		</div>
+		<div class = "col s1">
+			<align="right"><a style="color:black;" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/trans')}}">Next</a></align>
+		</div>	
+	</div>	
 	
-	<a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('transaction/walk')}}">Previous</a>
+	
+	
 
 	<div class = "main-wrapper">	
 		<div class="row">
@@ -62,7 +75,7 @@
 					        <input id="addFax" name = "addFax" type="text" class="validateFax" maxlength="9" minlength="9">
 					        <label for="fax"> Fax Number: </label>
 					      </div>
-					      <center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/chooseProduct')}}">Save</a></center>
+					      <center><a style="color:black" class="btn btn-large center-text light-green accent-1" href= "">Save</a></center>
 							<br>
 					    </form>
 					</div>

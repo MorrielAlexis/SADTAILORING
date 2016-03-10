@@ -1,11 +1,13 @@
 @extends('layouts.master')
 
 @section('content')
+	
+	<a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('transaction/walk')}}">Previous</a>
 
 	<div class = "main-wrapper">	
 		<div class="row">
 	      <div class="col s12 m12 l12">
-	      	<span class="page-title"><h4>Walk in Customer</h4></span>
+	      	<span class="page-title"><h4>Order</h4></span>
 	      </div>
     	</div>
   	</div>
@@ -22,18 +24,16 @@
 		          		<div class = "row">
 		          			<div class ="col s6">
 		          				<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/walkIndi')}}">Individual</a></center>
+		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/customerIndividual')}}">Individual Customer</a></center>
 	                  		</div>
 	                  		<div class ="col s6">
 	                  			<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/walkCom')}}">Customer</a></center>
+		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/customerCompany')}}">Company Customer</a></center>
 	                  		</div>	          			
 		          		</div>	
 		          	</div>
 		        </div>
 		    </div>
 		</div>
-	</div>          	
-
-
+	</div>
 @stop

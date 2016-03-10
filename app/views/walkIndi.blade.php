@@ -3,15 +3,25 @@
 @section('content')
 
 	
-	<a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('transaction/walk')}}">Previous</a>
-
+	<div class = "row">
+    <div class = "col s1">
+      <a style="color:black; align= left;" class="btn btn-large center-text light-green accent-1" href="{{URL::to('transaction/walk')}}">Previous</a>
+    </div>
+    <div class = "col s10">
+      &nbsp
+    </div>
+    <div class = "col s1">
+      <align="right"><a style="color:black;" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/trans')}}">Next</a></align>
+    </div>  
+  </div> 
+   
 	<div class = "main-wrapper">	
 		<div class="row">
-	      <div class="col s12 m12 l12">
-	      	<span class="page-title"><h4>Individual Customer</h4></span>
-	      </div>
-    	</div>
+      <div class="col s12 m12 l12">
+      	<span class="page-title"><h4>Individual Customer</h4></span>
+      </div>
   	</div>
+	</div>
 
   	<div class = "container">
 	  	<div class="row">

@@ -41,39 +41,51 @@ class CatalogueController extends BaseController{
 
 		$ctlg = Catalogue::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('addCatalogueName')) == '' || !trim(Input::get('addCatalogueDesc'))){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('addCatalogueName'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		foreach ($ctlg as $ctlg)
 			if(strcasecmp($ctlg->strCatalogueCategory, Input::get('addCategory')) == 0 && 
 			   strcasecmp($ctlg->strCatalogueName, trim(Input::get('addCatalogueName'))) == 0)
 			   		$isAdded = TRUE;
 
-		if(!$isAdded){
-			if($file == '' || $file == null){
-				$catalogue = Catalogue::create(array(
-				'strCatalogueID' => Input::get('addCatalogueID'),
-				'strCatalogueCategory' => Input::get('addCategory'),
-				'strCatalogueName' => trim(Input::get('addCatalogueName')),
-				'strCatalogueDesc' => trim(Input::get('addCatalogueDesc')),
-				'boolIsActive' => 1
-			));
-			}else{
-				$extension = Input::file('addImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('addImg')->move($destinationPath, $fileName);
-
-				$catalogue = Catalogue::create(array(
-				'strCatalogueID' => Input::get('addCatalogueID'),
-				'strCatalogueCategory' => Input::get('addCategory'),
-				'strCatalogueName' => trim(Input::get('addCatalogueName')),
-				'strCatalogueDesc' => trim(Input::get('addCatalogueDesc')),
-				'strCatalogueImage' => 'imgCatalogue/'.$fileName ,
-				'boolIsActive' => 1
+		if($validInput){
+			if(!$isAdded){
+				if($file == '' || $file == null){
+					$catalogue = Catalogue::create(array(
+					'strCatalogueID' => Input::get('addCatalogueID'),
+					'strCatalogueCategory' => Input::get('addCategory'),
+					'strCatalogueName' => trim(Input::get('addCatalogueName')),
+					'strCatalogueDesc' => trim(Input::get('addCatalogueDesc')),
+					'boolIsActive' => 1
 				));
-			}
-			
-			$catalogue->save();
-			return Redirect::to('/maintenance/catalogue?success=true');
-		} else return Redirect::to('/maintenance/catalogue?success=duplicate');
+				}else{
+					$extension = Input::file('addImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('addImg')->move($destinationPath, $fileName);
+
+					$catalogue = Catalogue::create(array(
+					'strCatalogueID' => Input::get('addCatalogueID'),
+					'strCatalogueCategory' => Input::get('addCategory'),
+					'strCatalogueName' => trim(Input::get('addCatalogueName')),
+					'strCatalogueDesc' => trim(Input::get('addCatalogueDesc')),
+					'strCatalogueImage' => 'imgCatalogue/'.$fileName ,
+					'boolIsActive' => 1
+					));
+				}
+				
+				$catalogue->save();
+				return Redirect::to('/maintenance/catalogue?success=true');
+			} else return Redirect::to('/maintenance/catalogue?success=duplicate');
+		}else return Redirect::to('/maintenance/catalogue?input=invalid');
 	}
 
 	public function editCatalogue()
@@ -83,6 +95,16 @@ class CatalogueController extends BaseController{
 		
 		$ctlg = Catalogue::all();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		if(!trim(Input::get('editCatalogueName')) == '' || !trim(Input::get('editCatalogueDesc'))){
+			$validInput = TRUE;
+			if (preg_match($regex, Input::get('editCatalogueName'))) {
+				$validInput = TRUE;
+			}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		foreach ($ctlg as $ctlg){
 			if(!strcasecmp($ctlg->strCatalogueID, Input::get('editCatalogueID')) == 0 &&
@@ -92,29 +114,31 @@ class CatalogueController extends BaseController{
 			}			   		
 		}
 
-		if(!$isAdded){
-			if (Input::get('editImage') == $catalogue->strCatalogueImage) {
-				$catalogue->strCatalogueID = Input::get('editCatalogueID');
-				$catalogue->strCatalogueCategory = Input::get('editCategory');
-				$catalogue->strCatalogueName = trim(Input::get('editCatalogueName'));
-				$catalogue->strCatalogueDesc = trim(Input::get('editCatalogueDesc'));
-			} else {
-				$file = Input::get('editImage');
-				$destinationPath = 'public/imgCatalogue';
-				$extension = Input::file('editImg')->getClientOriginalExtension();
-				$fileName = $file;
-				Input::file('editImg')->move($destinationPath, $fileName);
+		if($validInput){
+			if(!$isAdded){
+				if (Input::get('editImage') == $catalogue->strCatalogueImage) {
+					$catalogue->strCatalogueID = Input::get('editCatalogueID');
+					$catalogue->strCatalogueCategory = Input::get('editCategory');
+					$catalogue->strCatalogueName = trim(Input::get('editCatalogueName'));
+					$catalogue->strCatalogueDesc = trim(Input::get('editCatalogueDesc'));
+				} else {
+					$file = Input::get('editImage');
+					$destinationPath = 'public/imgCatalogue';
+					$extension = Input::file('editImg')->getClientOriginalExtension();
+					$fileName = $file;
+					Input::file('editImg')->move($destinationPath, $fileName);
 
-				$catalogue->strCatalogueID = Input::get('editCatalogueID');
-				$catalogue->strCatalogueCategory = Input::get('editCategory');
-				$catalogue->strCatalogueName = trim(Input::get('editCatalogueName'));
-				$catalogue->strCatalogueDesc = trim(Input::get('editCatalogueDesc'));
-				$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
-			}		
+					$catalogue->strCatalogueID = Input::get('editCatalogueID');
+					$catalogue->strCatalogueCategory = Input::get('editCategory');
+					$catalogue->strCatalogueName = trim(Input::get('editCatalogueName'));
+					$catalogue->strCatalogueDesc = trim(Input::get('editCatalogueDesc'));
+					$catalogue->strCatalogueImage = 'imgCatalogue/'.$fileName;
+				}		
 
-			$catalogue->save();
-			return Redirect::to('/maintenance/catalogue?successEdit=true');
-		}else return Redirect::to('/maintenance/catalogue?success=duplicate');
+				$catalogue->save();
+				return Redirect::to('/maintenance/catalogue?successEdit=true');
+			}else return Redirect::to('/maintenance/catalogue?success=duplicate');
+		}else return Redirect::to('/maintenance/catalogue?input=invalid');
 	}
 
 	public function delCatalogue()
