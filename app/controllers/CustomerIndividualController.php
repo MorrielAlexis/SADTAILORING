@@ -48,15 +48,14 @@ class CustomerIndividualController extends BaseController{
         if($count > 0 || $count2 > 0){
         	$isAdded = TRUE;
         }else{
-        	foreach ($ind as $ind) {
+        	foreach ($ind as $ind){
 				if(strcasecmp($ind->strCustPrivFName, trim(Input::get('addFName'))) == 0 && 
 				   strcasecmp($ind->strCustPrivMName, trim(Input::get('addMName'))) == 0 && 
-				   strcasecmp($ind->strCustPrivLName, trim(Input::get('addLName'))) == 0 && 
-				   strcasecmp($ind->strCustPrivAddress, trim(Input::get('addAddress'))) == 0){
+				   strcasecmp($ind->strCustPrivLName, trim(Input::get('addLName'))) == 0) {
 						$isAdded = TRUE;
 					}			
-				}	
-        	}
+			}	
+        }
 
 		if(!$isAdded){
 			$individual = PrivateIndividual::create(array(
@@ -64,8 +63,13 @@ class CustomerIndividualController extends BaseController{
 				'strCustPrivFName' => trim(Input::get('addFName')),		
 				'strCustPrivMName' => trim(Input::get('addMName')),
 				'strCustPrivLName' => trim(Input::get('addLName')),
-				'strCustPrivAddress' => trim(Input::get('addAddress')),
-				'strCustPrivLandlineNumber' => trim(Input::get('addPhone')),						
+				'strCustPrivHouseNo' => trim(Input::get('addCustPrivHouseNo')),	
+				'strCustPrivStreet' => trim(Input::get('addCustPrivStreet')),
+				'strCustPrivBarangay' => trim(Input::get('addCustPrivBarangay')),	
+				'strCustPrivCity' => trim(Input::get('addCustPrivCity')),	
+				'strCustPrivProvince' => trim(Input::get('addCustPrivProvince')),
+				'strCustPrivZipCode' => trim(Input::get('addCustPrivZipCode')),
+				'strCustPrivLandlineNumber' => trim(Input::get('addPhone')),
 				'strCustPrivCPNumber' => trim(Input::get('addCel')), 
 				'strCustPrivCPNumberAlt' => trim(Input::get('addCelAlt')),
 				'strCustPrivEmailAddress' => trim(Input::get('addEmail')),
@@ -110,8 +114,7 @@ class CustomerIndividualController extends BaseController{
 				if(!strcasecmp($ind->strCustPrivIndivID, Input::get('editIndiID')) == 0 &&
 				   strcasecmp($ind->strCustPrivFName, trim(Input::get('editFName'))) == 0 && 
 				   strcasecmp($ind->strCustPrivMName, trim(Input::get('editMName'))) == 0 && 
-				   strcasecmp($ind->strCustPrivLName, trim(Input::get('editLName'))) == 0 && 
-				   strcasecmp($ind->strCustPrivAddress, trim(Input::get('editAddress'))) == 0){
+				   strcasecmp($ind->strCustPrivLName, trim(Input::get('editLName'))) == 0){
 						$isAdded = TRUE;
 					}			
 				}	
@@ -121,7 +124,12 @@ class CustomerIndividualController extends BaseController{
 			$individual->strCustPrivFName = trim(Input::get('editFName'));
 			$individual->strCustPrivMName = trim(Input::get('editMName'));	
 			$individual->strCustPrivLName = trim(Input::get('editLName'));
-			$individual->strCustPrivAddress = trim(Input::get('editAddress'));
+			$individual->strCustPrivHouseNo = trim(Input::get('editCustPrivHouseNo'));
+			$individual->strCustPrivStreet = trim(Input::get('editCustPrivStreet'));
+			$individual->strCustPrivBarangay = trim(Input::get('editCustPrivBarangay'));
+			$individual->strCustPrivCity = trim(Input::get('editCustPrivCity'));
+			$individual->strCustPrivProvince = trim(Input::get('editCustPrivProvince'));
+			$individual->strCustPrivZipCode = trim(Input::get('editCustPrivZipCode'));
 			$individual->strCustPrivEmailAddress = trim(Input::get('editEmail'));			
 			$individual->strCustPrivCPNumber = trim(Input::get('editCel'));
 			$individual->strCustPrivCPNumberAlt = trim(Input::get('editCelAlt'));

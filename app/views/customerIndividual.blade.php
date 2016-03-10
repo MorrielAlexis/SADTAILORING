@@ -103,7 +103,7 @@
                   @if($individual->boolIsActive == 1)
                 <tr>
                   <td>{{ $individual->strCustPrivFName }} {{ $individual->strCustPrivMName }} {{ $individual->strCustPrivLName }}</td>
-                  <td>{{ $individual->strCustPrivAddress }} </td>
+                  <td> {{ $individual->strCustPrivHouseNo }} {{ $individual->strCustPrivStreet }} {{ $individual->strCustPrivBarangay }} {{ $individual->strCustPrivCity }} {{ $individual->strCustPrivProvince }}  {{ $individual->strCustPrivZipCode }} </td>
                   <td>{{ $individual->strCustPrivEmailAddress}}</td>                  
                   <td>{{ $individual->strCustPrivCPNumber }}</td> 
                   <td>{{ $individual->strCustPrivCPNumberAlt }}</td> 
@@ -137,10 +137,36 @@
                           <label for="last_name"> *Last Name </label>
                         </div>
 
-                        <div class="input-field">
-                          <input required id="editAddress" name = "editAddress" value = "{{$individual->strCustPrivAddress}}" type="text" class="validateAddress">
-                          <label for="address"> *Address: </label>
-                        </div>
+
+                         <div class="input-field">
+                            <input required value="{{$individual->strCustPrivHouseNo}}" id="editCustPrivHouseNo." name="editCustPrivHouseNo." type="text" class="validateHouseNo">
+                            <label for="House No">*House No.: </label>
+                          </div>
+
+                           <div class="input-field">
+                            <input required value="{{$individual->strCustPrivStreet }}" id="editCustPrivStreet" name="editCustPrivStreet" type="text" class="validateStreet">
+                            <label for=" Street">*Street: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required value="{{$individual->strCustPrivBarangay}}" id="editCustPrivBarangay" name="editCustPrivBarangay" type="text" class="validateBarangay">
+                            <label for=" Brgy">*Barangay: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input required value="{{$individual->strCustPrivCity}}" id="editCustPrivCity" name="editCustPrivCity" type="text" class="validateCity">
+                            <label for=" City">*City/Municipality: </label>
+                          </div>
+
+                          <div class="input-field">
+                            <input value="{{$individual->strCustPrivProvince}}" id="editCustPrivProvince" name="editCustPrivProvince" type="text" class="validateProvince">
+                            <label for=" Province">Province: </label>
+                          </div>
+
+                           <div class="input-field">
+                            <input value="{{$employee->strEmpZipCode}}" id="editCustPrivZipCode" name="editCustPrivZipCode" type="text" class="validateZip">
+                            <label for=" Zip Code">Zip Code: </label>
+                          </div>
 
                         <div class="input-field">
                           <input id="editEmail" name = "editEmail" value = "{{$individual->strCustPrivEmailAddress}}" type="text" class="validateEmail">
@@ -196,10 +222,11 @@
                             <label for="LastName">Last Name: </label>
                           </div>
 
-                          <div class="input-field">
+                         <!--  <div class="input-field">
                             <label for="first_name">Address: </label>
                             <input value="{{$individual->strCustPrivAddress}}" id="delIndivAddress" name="delIndivAddress" type="text" readonly>
-                          </div>
+                          </div> -->
+
 
                           <div class="input-field">
                             <input id="delInactiveIndiv" name = "delInactiveIndiv" value = "{{$individual->strCustPrivIndivID}}" type="hidden">
@@ -259,8 +286,33 @@
                 </div>
 
                 <div class="input-field">
-                  <input id="addAddress" name = "addAddress" type="text" class="validateAddress">
-                  <label for="address"> *Address: </label>
+                  <input required id="addCustPrivHouseNo." name="addCustPrivHouseNo." type="text" class="validateHouseNo">
+                  <label for="House No">*House No.: </label>
+                </div>
+
+                 <div class="input-field">
+                  <input required id="addCustPrivStreet" name="addCustPrivStreet" type="text" class="validateStreet">
+                  <label for=" Street">*Street: </label>
+                </div>
+
+                <div class="input-field">
+                  <input required id="addCustPrivBarangay" name="addCustPrivBarangay" type="text" class="validateBarangay">
+                  <label for=" Brgy">*Barangay/Subd: </label>
+                </div>
+
+                <div class="input-field">
+                  <input required id="addCustPrivCity" name="addCustPrivCity" type="text" class="validateCity">
+                  <label for=" City">*City/Municipality: </label>
+                </div>
+
+                <div class="input-field">
+                  <input id="addCustPrivProvince" name="addCustPrivProvince" type="text" class="validateProvince">
+                  <label for=" Province">Province/Region: </label>
+                </div>
+
+                 <div class="input-field">
+                  <input id="addCustPrivZipCode" name="addCustPrivZipCode" type="text" class="validateZip">
+                  <label for=" Zip Code">Zip Code: </label>
                 </div>
 
                 <div class="input-field">
