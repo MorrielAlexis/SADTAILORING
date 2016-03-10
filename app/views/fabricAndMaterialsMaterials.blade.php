@@ -1,7 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
-
+      <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+  
  <!--Add Garment Category-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -152,7 +162,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input id="editThreadDesc" name = "editThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text">
+                                  <input id="editThreadDesc" name = "editThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text" class="validateDesc">
                                   <label for="Thread_Color"> Description </label>
                                 </div>
 
@@ -295,7 +305,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input required id="editNeedleDesc" name = "editNeedleDesc" value = "{{$needle->strMaterialNeedleDesc}}" type="text" >
+                                  <input required id="editNeedleDesc" name = "editNeedleDesc" value = "{{$needle->strMaterialNeedleDesc}}" type="text" class="validateDesc">
                                   <label for="Needle_Size"> Description </label>
                                 </div>
 
@@ -450,7 +460,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validate">
+                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validate" class="validateDesc">
                                   <label for="Button_Color"> Description: </label>
                                 </div>
 
@@ -608,7 +618,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input required id="editZipperDesc" name = "editZipperDesc" value = "{{$zipper->strMaterialZipperDesc}}" type="text" class="validateColor">
+                                  <input required id="editZipperDesc" name = "editZipperDesc" value = "{{$zipper->strMaterialZipperDesc}}" type="text" class="validateDesc">
                                   <label for="Zipper_Desc"> Description </label>
                                 </div>
 
@@ -770,7 +780,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input id="editHookDesc" name = "editHookDesc" value = "{{$hook->strMaterialHookDesc}}" type="text" class="validate">
+                                  <input id="editHookDesc" name = "editHookDesc" value = "{{$hook->strMaterialHookDesc}}" type="text" class="validateDesc">
                                   <label for="Hookeye_Desc">Description </label>
                                 </div>
 
@@ -881,7 +891,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addThreadDesc" name = "addThreadDesc" type="text" >
+          <input required id="addThreadDesc" name = "addThreadDesc" type="text" class="validateDesc">
           <label for="Thread_Desc"> Description </label>
         </div>
 
@@ -927,7 +937,7 @@
         </div>
                     
          <div class="input-field">
-          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateSize">
+          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateSize" class="validateDesc">
           <label for="Needle_Desc"> Description: </label>
         </div>
                                   
@@ -977,7 +987,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateColor">
+          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateColor" class="validateDesc">
           <label for="Button_Desc"> Description: </label>
         </div>
                                        
@@ -1026,7 +1036,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateColor">
+          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateColor" class="validateDesc">
           <label for="Zipper_Desc"> Description </label>
         </div>
 
@@ -1077,7 +1087,7 @@
         </div>
 
          <div class="input-field">
-          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validate">
+          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validate" class="validateDesc">
           <label for="Hookeye_Desc"> Description: </label>
         </div>
 
@@ -1106,9 +1116,10 @@
 
 @section('scripts')
   <script type="text/javascript">
+  
       $('.validateName').on('input', function() {
           var input=$(this);
-          var re=/^[a-zA-Z," "]+$/;
+          $regex = "/^[a-zA-Z\s\-\*\']+$/";
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1120,9 +1131,15 @@
         $(this).val(name.replace(/\d/, ''));
       });     
 
+      //Kapag whitespace
+      $('.validateName').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });
+
       $('.validateName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        $regex = "/^[a-zA-Z\s\-\*\']+$/";
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1130,7 +1147,7 @@
 
       $('.validateSize').on('input', function() {
           var input=$(this);
-          var re=/^[a-zA-Z," "]+$/;
+          $regex = "/^[a-zA-Z\s\-\*\']+$/";
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1142,9 +1159,15 @@
         $(this).val(name.replace(/\d/, ''));
       });     
 
+      //Kapag whitespace
+      $('.validateSize').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });
+
       $('.validateSize').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        $regex = "/^[a-zA-Z\s\-\*\']+$/";
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1152,7 +1175,7 @@
 
       $('.validateColor').on('input', function() {
           var input=$(this);
-          var re=/^[a-zA-Z," "]+$/;
+          $regex = "/^[a-zA-Z\s\-\*\']+$/";
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1164,9 +1187,35 @@
         $(this).val(name.replace(/\d/, ''));
       });     
 
+      //Kapag whitespace
+      $('.validateColor').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });
+
       $('.validateColor').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        $regex = "/^[a-zA-Z\s\-\*\']+$/";
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+            //Kapag Number
+      $('.validateDesc').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
+      //Kapag whitespace
+      $('.validateDesc').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });
+
+      $('.validateDesc').blur('input', function() {
+        var input=$(this);
+        $regex = "/^[a-zA-Z\s\-\*\']+$/";
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
