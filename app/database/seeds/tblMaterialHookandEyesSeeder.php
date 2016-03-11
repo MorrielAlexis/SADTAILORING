@@ -12,8 +12,8 @@ class tblMaterialHookandEyesSeeder extends Seeder{
 				'strMaterialHookID' => 'HK001',
 				'strMaterialHookName' => 'Skirt Hook',
 				'strMaterialHookSize' => 'Small',
-				'strMaterialHookColor' => 'Gray',
-				'strMaterialHookImage' => '',
+				'strMaterialHookColor' => 'Black',
+				'strMaterialHookImage' => 'imgMaterialHooks/skirthookandeye-1.jpg',
 				'strMaterialHookDesc'=> 'Use for skirt and dress',
 				'boolIsActive' => '1'
 
@@ -24,8 +24,8 @@ class tblMaterialHookandEyesSeeder extends Seeder{
 				'strMaterialHookID' => 'HK002',
 				'strMaterialHookName' => 'Pants Hook',
 				'strMaterialHookSize' => 'Medium',
-				'strMaterialHookColor' => 'blue',
-				'strMaterialHookImage' =>'',
+				'strMaterialHookColor' => 'Silver',
+				'strMaterialHookImage' =>'imgMaterialHooks/skirthookandeye-5.jpg',
 				'strMaterialHookDesc'=> 'Use for pants',
 				'boolIsActive' => '1'
 			)

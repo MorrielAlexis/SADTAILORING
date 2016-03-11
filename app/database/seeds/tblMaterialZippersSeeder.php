@@ -14,7 +14,7 @@ class tblMaterialZippersSeeder extends Seeder{
 				'strMaterialZipperSize' => 'Small',
 				'strMaterialZipperColor' => 'Gray',
 				'strMaterialZipperDesc' => 'For Pants',
-				'strMaterialZipperImage' => '',
+				'strMaterialZipperImage' => 'imgMaterialZippers/Zipper-2.jpg',
 				'boolIsActive' => '1'
 
 			),
@@ -26,7 +26,7 @@ class tblMaterialZippersSeeder extends Seeder{
 				'strMaterialZipperSize' => 'Medium',
 				'strMaterialZipperColor' => 'Blue',
 				'strMaterialZipperDesc' => 'Zipper for pockets',
-				'strMaterialZipperImage' =>'',
+				'strMaterialZipperImage' =>'imgMaterialZippers/Zipper-1.jpg',
 				'boolIsActive' => '1'
 			)
 

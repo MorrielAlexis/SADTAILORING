@@ -14,19 +14,23 @@
 
 	<div class = "row" style="margin:20px;">
 
-		<div class = "col s7 m7 l7" style="background:#b0bec5; padding:40px;  border:3px outset white;">			
+		<div class = "col s7 m7 l7" style="background:#80d8ff; padding:40px;  border:3px outset white;">	
+			<div style="margin-bottom:50px">
+			<label><font size="+3">CUSTOMER DATA</font></label>
+			<div class="divider"></div>		
+			</div>
 			<div class="input-field col s12" style="padding-left:200px">
 		          <input style="color:black" disabled id="cust_id" type="text" class="validate" value="IND00001"></input>
-		          <label for="cust_id" style="color:black"><font size="+1">CUSTOMER ID:</font></label>
+		          <label for="cust_id" style="color:black"><font size="+0.95">CUSTOMER ID:</font></label>
   			</div>
 
   			<div class="input-field col s12" style="padding-left:200px">
 		          <input style="color:black" disabled id="cust_name" type="text" class="validate" value="BUENAVIDES, HONEY MAY A."></input>
-		          <label for="cust_name" style="color:black"><font size="+1">CUSTOMER NAME:</font></label>
+		          <label for="cust_name" style="color:black"><font size="+0.95">CUSTOMER NAME:</font></label>
   			</div>
 
   			<div class="input-field col s12" style="padding-left:200px">
-  				<label style="color:black"><font size="+1">CUSTOMER TYPE:</font></label>
+  				<label style="color:black"><font size="+0.95">CUSTOMER TYPE:</font></label>
 				    <select class="browser-default">
 				    	  <option value="1" disabled selected>--- Choose customer type ---</option>
 					      <option value="1">Individual</option>
@@ -35,7 +39,7 @@
 			</div>
 
 			<div class="input-field col s12" style="padding-left:200px">
-				<label style="color:black"><font size="+1">PAYMENT TYPE:</font></label>
+				<label style="color:black"><font size="+0.95">PAYMENT TYPE:</font></label>
 				    <select class="browser-default">
 				    	  <option value="1" disabled selected>--- Choose payment type ---</option>
 					      <option value="1">Cheque/Check</option>
@@ -43,37 +47,46 @@
 				    </select>
 			</div>
 
-			<div class="modal-footer" style="padding-left:200px; margin-top:310px">
+			<div class="modal-footer" style="padding-left:200px; margin-top:400px">
   				<button class="waves-effect waves-dark btn light-green accent-1" style="color:black;  margin-right:15px"><i class="material-icons left">system_update_alt</i>Save</button>
 	  			<button class="waves-effect waves-dark btn light-green accent-1" style="color:black;"><i class="material-icons left">delete</i>Discard</button>
   			</div>
 
 		</div>
 
-		<div class = "col s4 m4 l4" style="background:#b0bec5; margin-left:20px; border:3px outset white;">
+		<div class = "col s4 m4 l4" style="background:#80d8ff; margin-left:20px; border:3px outset white;">
 			<div class="col s12" style="margin-top:30px; padding-top:20px; padding-bottom:25px">
 				<div class="input-field col s12" style="padding-left:200px">
 		          <input style="color:red" disabled id="amount_total" type="text" class="validate" value="Php 2,000.00"></input>
-		          <label for="amount_total" style="color:red; padding-left:30px"><font size="+2">AMOUNT TOTAL:</font></label>
+		          <label for="amount_total" style="color:red; padding-left:5px"><font size="+2">AMOUNT TOTAL:</font></label>
   				</div>
-  				<div class="col s12 divider" style="margin-bottom:45px; background-color:#455a64; height:2px"></div>
+  				<div class="col s12 divider" style="margin-bottom:15px; background-color:red; height:2px"></div>
   				<div class="input-field col s12" style="padding-left:200px">
 		          <input style="color:black" disabled id="downpayment" type="text" class="validate" value="Php 1,000.00"></input>
-		          <label for="downpayment" style="color:black; padding-left:30px"><font size="+0.5">DOWNPAYMENT (50%):</font> </label>
+		          <label for="downpayment" style="color:black; padding-left:3px">DOWNPAYMENT (50%):</label>
   				</div>	
   				<div class="input-field col s12" style="padding-left:200px">
+		          <input style="color:black" disabled id="amount_paid" type="text" class="validate" value="Php 1,000.00"></input>
+		          <label for="amount_paid" style="color:black; padding-left:3px">AMOUNT PAID:</label>
+  				</div>
+  				<div class="input-field col s12" style="padding-left:200px">
+		          <input style="color:black" disabled id="balance" type="text" class="validate" value="Php 1,000.00"></input>
+		          <label for="balance" style="color:black; padding-left:3px">BALANCE:</label>
+  				</div>
+  				<div class="col s12 divider" style="margin-bottom:15px; background-color:gray; height:1px"></div>
+  				<div class="input-field col s12" style="padding-left:200px">
 		          <input style="color:black" disabled id="amount_tender" type="text" class="validate" value="Php 3,000.00"></input>
-		          <label for="amount_tender" style="color:black; padding-left:30px"><font size="+0.5">AMOUNT TENDERED:</font> </label>
+		          <label for="amount_tender" style="color:black; padding-left:3px"><font size="+0.95">AMOUNT TENDERED:</font></label>
   				</div>	
   				<div class="input-field col s12" style="padding-left:200px">
 		          <input style="color:black" disabled id="change" type="text" class="validate" value="Php 1,000.00"></input>
-		          <label for="change" style="color:black; padding-left:30px"><font size="+0.5">CHANGE:</font> </label>
+		          <label for="change" style="color:black; padding-left:3px"><font size="+0.95">CHANGE:</font></label>
   				</div>
   			</div>
 		</div>
 
 
-		<div class = "col s11 m11 l11" style="background:#b0bec5; margin-top:50px; margin-left:10px; padding:40px;  border:3px outset white;">			
+		<div class = "col s11 m11 l11" style="background:#80d8ff; margin-top:50px; margin-left:10px; padding:40px;  border:3px outset white;">			
 			<label><left>Order Summary</left></label>
 			<label style="padding-left:600px">March 12, 2016 2:30AM</label>
 			<div class="input-field col s12" style="padding-left:10px">

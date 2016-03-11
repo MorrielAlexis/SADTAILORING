@@ -11,9 +11,9 @@ class tblSwatchesSeeder extends Seeder{
 
 				'strSwatchID' => 'SW001',
 				'strSwatchFabricTypeName' => 'FAB001',
-				'strSwatchName' =>'Linen Keme',
+				'strSwatchName' =>'Linen Antique',
 				'strSwatchCode' =>'LINK01',
-				'strSwatchImage' =>'',
+				'strSwatchImage' =>'imgSwatches/linen keme.jpg',
 
 				'boolIsActive' => '1'
 
@@ -23,9 +23,9 @@ class tblSwatchesSeeder extends Seeder{
 
 				'strSwatchID' => 'SW002',
 				'strSwatchFabricTypeName' => 'FAB002',
-				'strSwatchName' =>'Cotton Keme',
+				'strSwatchName' =>'Cotton Classic',
 				'strSwatchCode' =>'CKJK01',
-				'strSwatchImage' =>'',
+				'strSwatchImage' =>'imgSwatches/cotton sample.jpg',
 				'boolIsActive' => '1'
 			)
 
