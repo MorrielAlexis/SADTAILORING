@@ -139,7 +139,7 @@
                         <li class="bold"><a style="color:#212121; opacity:0.90" class="collapsible-header waves-effect waves-white {{ Request::is('transaction/adminBillingPayment') || Request::is('transaction/adminBillingCollection') ? 'active' : '' }}"><b>Billing & Collection</b></a>
                             <div class="collapsible-body">
                                 <ul>  
-                                  <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('transaction/adminBillingPayment')}}">Bill A Customer</a></li>
+                                  <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('transaction/adminBillingPayment')}}">Billing</a></li>
                                   <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('transaction/adminBillingCollection')}}">Collection</a></li>
                                   <div class="divider"></div>
                                 </ul>
