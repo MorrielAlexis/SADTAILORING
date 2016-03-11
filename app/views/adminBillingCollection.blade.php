@@ -14,7 +14,11 @@
 
 	<div class = "row" style="margin:20px;">
 
-		<div class = "col s7 m7 l7" style="background:#80d8ff; padding:40px;  border:3px outset white;">			
+		<div class = "col s7 m7 l7" style="background:#80d8ff; padding:40px;  border:3px outset white;">	
+			<div style="margin-bottom:50px">
+			<label><font size="+3">CUSTOMER DATA</font></label>
+			<div class="divider"></div>		
+			</div>
 			<div class="input-field col s12" style="padding-left:200px">
 		          <input style="color:black" disabled id="cust_id" type="text" class="validate" value="IND00001"></input>
 		          <label for="cust_id" style="color:black"><font size="+0.95">CUSTOMER ID:</font></label>
@@ -43,7 +47,7 @@
 				    </select>
 			</div>
 
-			<div class="modal-footer" style="padding-left:200px; margin-top:310px">
+			<div class="modal-footer" style="padding-left:200px; margin-top:400px">
   				<button class="waves-effect waves-dark btn light-green accent-1" style="color:black;  margin-right:15px"><i class="material-icons left">system_update_alt</i>Save</button>
 	  			<button class="waves-effect waves-dark btn light-green accent-1" style="color:black;"><i class="material-icons left">delete</i>Discard</button>
   			</div>

@@ -2,49 +2,151 @@
 
 @section('content')
 
-<h1>Materials Purchasing</h1>
+	<div class = "main-wrapper" style="margin-top:30px">	
+			<div class="row">
+		      <div class="col s12 m12 l12">
+		      	<span class="page-title"><h4>Material Purchasing</h4></span>
+		      </div>
+	    	</div>
+	</div>
 
-<div id="materialsPurchasing">
+	<button class="waves-effect waves-dark btn light-green accent-1" style="color:black; margin-left:20px"><i class="material-icons left">system_update_alt</i>Print Data</button>
+
 	<div class = "row" style="margin:20px;">
-		<div class = "col s6 m6 l6" style="background:white; padding-left:42px; padding-right:42px; border:8px inset #00e676;">
-			<label style="color:#01579b;"><font size="+3"><b>Materials Purchases</b></font></label>
-			  	<div class="col s12">
-			  			<div class="divider" style="background-color:#757575; height:3px"></div>
-			  			<div class="divider" style="background-color:#757575; height:3px; margin-top:3px; margin-bottom:30px"></div>
-			  	</div>
-			  	<div class="container col s12" style="margin-top:20px; padding-top:20px; padding-bottom:25px; border:3px inset #bdbdbd;">
+
+		<div class = "col s12 m12 l12" style="background:white; padding-top:20px; padding-left:5px; padding-right:5px; padding-bottom:5px;  border:3px outset gray;">			
+			<div class="input-field col s6" style="padding-left:20px">
+		          <input style="color:black" disabled id="cust_id" type="text" class="validate" value="IND00001"></input>
+		          <label for="cust_id" style="color:black">CUSTOMER ID:</label>
+  			</div>
+
+  			<div class="input-field col s6" style="padding-left:20px">
+		          <input style="color:black" disabled id="cust_name" type="text" class="validate" value="BUENAVIDES, HONEY MAY A."></input>
+		          <label for="cust_name" style="color:black">CUSTOMER NAME:</label>
+  			</div> 			
+  		</div>
+
+
+  		<div class = "col s12 m12 l12" style="background:white; padding:40px;  border:3px inset gray;">			
+			<label><left>Materials To be Purchased</left></label>
+			<label style="padding-left:600px">March 12, 2016 2:30AM</label>
+
+			<div>
+				<label style="color:red"><font size="+1">JobOrder 0001</font></label>
+			</div>
+			<div class="input-field col s12" style="padding-left:10px">
+			
+				<div class="col s12" style="margin-top:5px; background:white; padding-top:20px; padding-bottom:25px;">
 					<table class = "table centered" border = "1">
+					<div class="divider"></div>
 	       				<thead>
-	       					<h5><center>Fabrics</center><h5>
 		          			<tr>
-		          				<th data-field="yard">Yard</th>
-		                 		 <th data-field="fabric_type">Fabric Type</th>
-		                 		 <th data-field="swatch_code">Swatch Code</th>   
-		                 		 <th data-field="price">Price Per Yard</th>
+		          				 <th data-field="job_order">MATERIAL CATEGORY</th>
+		                 		 <th data-field="order">MATERIAL NAME</th> 
+		                 		 <th data-field="swatch">SWATCH CODE (if available)</th> 
+		                 		 <th data-field="quantity">SPECIFICATION</th>
+		                 		 <th data-field="price">QUANTITY</th>
 		                 	</tr>
 	                 	</thead>
 	                 	<tbody>
 	                 		<tr>
-	                 			<td>3</td>
+	                 			<td>Fabric</td>
 	                 			<td>Cotton</td>
-	                 			<td>#COT0123</td>
-	                 			<td>500.00</td>
+	                 			<td>#COT0001</td>
+	                 			<td></td>
+	                 			<td>3 yards</td>
 	                 		</tr>
 	                 		<tr>
-	                 			<td>2</td>
+	                 			<td>Button</td>
+	                 			<td>Mushroom Button</td>
+	                 			<td></td>
+	                 			<td>3-holed, black, small</td>
+	                 			<td>1 dozen</td>
+	                 		</tr>
+	                 		<tr>
+	                 			<td>Thread</td>
+	                 			<td>Nylon Thread</td>
+	                 			<td></td>
+	                 			<td>Yellow, Large</td>
+	                 			<td>2 pieces</td>
+	                 		</tr>
+	                 		<tr>
+	                 			<td>Fabric</td>
 	                 			<td>Linen</td>
-	                 			<td>#LIN034</td>
-	                 			<td>1000.00</td>
-	                 		</tr>
-	                 		<tr>
-	                 			<td>3</td>
-	                 			<td>Silk</td>
-	                 			<td>#SIL001</td>
-	                 			<td>1500.00</td>
+	                 			<td>#LIN0002</td>
+	                 			<td></td>
+	                 			<td>30 yards</td>
 	                 		</tr>
 	                 	</tbody>
-                 	</table>    
+                 	</table> 
 	  			</div>
+	  		</div>
 	  	</div>
-	 </div>
+
+
+	  	<div class = "col s12 m12 l12" style="background:white; padding:40px;  border:3px inset gray;">			
+				<label><left>Materials To be Purchased</left></label>
+				<label style="padding-left:600px">March 12, 2016 2:30AM</label>
+	  		<div>
+				<label style="color:red"><font size="+1">JobOrder 0002</font></label>
+			</div>
+			<div class="input-field col s12" style="padding-left:10px">
+			
+				<div class="col s12" style="margin-top:5px; background:white; padding-top:20px; padding-bottom:25px;">
+					<table class = "table centered" border = "1">
+					<div class="divider"></div>
+	       				<thead>
+		          			<tr>
+		          				 <th data-field="job_order">MATERIAL CATEGORY</th>
+		                 		 <th data-field="order">MATERIAL NAME</th> 
+		                 		 <th data-field="swatch">SWATCH CODE (if available)</th> 
+		                 		 <th data-field="quantity">SPECIFICATION</th>
+		                 		 <th data-field="price">QUANTITY</th>
+		                 	</tr>
+	                 	</thead>
+	                 	<tbody>
+	                 		<tr>
+	                 			<td>Fabric</td>
+	                 			<td>Cotton</td>
+	                 			<td>#COT0001</td>
+	                 			<td></td>
+	                 			<td>3 yards</td>
+	                 		</tr>
+	                 		<tr>
+	                 			<td>Button</td>
+	                 			<td>Mushroom Button</td>
+	                 			<td></td>
+	                 			<td>3-holed, black, small</td>
+	                 			<td>1 dozen</td>
+	                 		</tr>
+	                 		<tr>
+	                 			<td>Thread</td>
+	                 			<td>Nylon Thread</td>
+	                 			<td></td>
+	                 			<td>Yellow, Large</td>
+	                 			<td>2 pieces</td>
+	                 		</tr>
+	                 		<tr>
+	                 			<td>Fabric</td>
+	                 			<td>Linen</td>
+	                 			<td>#LIN0002</td>
+	                 			<td></td>
+	                 			<td>30 yards</td>
+	                 		</tr>
+	                 	</tbody>
+                 	</table> 
+	  			</div>
+			</div>
+		</div>
+	</div>
+
 @stop
+
+
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ <script type="text/javascript" src="js/materialize.min.js"></script>
+ <script type="text/javascript">
+	 $(document).ready(function() {
+	    $('select').material_select();
+	  });
+ </script>
