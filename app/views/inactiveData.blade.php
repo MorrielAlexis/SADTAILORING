@@ -24,16 +24,16 @@
   <div style="padding:20px">
 
       <ul class="tabs transparent" style="float:left">
-        <li style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab active"><a style="color:black" href="#tabCustp">Customer</a></li>
-        <li style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabEmp">Employee</a></li>
-        <li style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabGarm">Garments</a></li>
-        <li style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabFabmat">Fabrics</a></li>
-        <li style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabMate">Materials</a></li>
-        <li style="background:lavender; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabCata">Catalogue</a></li>
+        <li style="background:#00b0ff; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab active"><a style="color:black" href="#tabCustp">Customer</a></li>
+        <li style="background:#00b0ff; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabEmp">Employee</a></li>
+        <li style="background:#00b0ff; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabGarm">Garments</a></li>
+        <li style="background:#00b0ff; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabFabmat">Fabrics</a></li>
+        <li style="background:#00b0ff; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabMate">Materials</a></li>
+        <li style="background:#00b0ff; border-top-left-radius: 20px; border-top-right-radius: 40px;" class="tab"><a style="color:black" href="#tabCata">Catalogue</a></li>
         <div class="indicator white" style="z-index:1"></div>
       </ul>
 
-    <div id="tabCustp" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+    <div id="tabCustp" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
     <div style="height:30px;"></div>
 
       <!--Individual Customer-->
@@ -152,7 +152,7 @@
 
     </div>
     
-    <div id="tabEmp" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+    <div id="tabEmp" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
     <div style="height:30px;"></div>
 
       <!--Position Roles-->
@@ -268,7 +268,7 @@
 
     </div>
 
-    <div id="tabGarm" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+    <div id="tabGarm" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
     <div style="height:30px;"></div>
     
       <!--Category Garments-->
@@ -516,7 +516,7 @@
 
     </div>
 
-    <div id="tabFabmat" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+    <div id="tabFabmat" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
     <div style="height:30px;"></div>
 
       <!--Fabric Types-->
@@ -621,7 +621,7 @@
 
     </div>
 
-    <div id="tabMate" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+    <div id="tabMate" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
     <div style="height:30px;"></div>
     
       <!--THREADS-->
@@ -878,7 +878,7 @@
       </div>
     </div>
 
-    <div id="tabCata" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+    <div id="tabCata" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
     <div style="height:30px;"></div>
     
       <!--Catalogue-->
