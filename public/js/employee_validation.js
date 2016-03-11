@@ -1,7 +1,7 @@
 
       $('.validateFirst').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var re = /^[a-zA-Z0\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -9,7 +9,7 @@
 
       $('.validateFirst').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var re = /^[a-zA-Z0\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -23,7 +23,7 @@
 
       $('.validateMiddle').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z0\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -43,7 +43,7 @@
 
       $('.validateLast').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z0\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -51,7 +51,7 @@
 
       $('.validateLast').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z0\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
