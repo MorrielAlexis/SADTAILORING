@@ -123,11 +123,11 @@
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-2" data-position="bottom" data-delay="50" data-tooltip="Click to remove customer from table" href="#del{{$individual->strCustPrivIndivID}}">DEACTIVATE</button></td>
 
 
-                    <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
+                    <div id="edit{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">                     
                       <h5><font color = "#1b5e20"><center>Edit Individual Profile </center> </font> </h5>
-                        <p>
                         <form action="{{URL::to('editCustPrivIndiv')}}" method="POST">
+                          <div class="modal-content col s12">
+                              <p>
                         <div class="input-field">                 
                           <input value="{{$individual->strCustPrivIndivID}}" id="editIndiID" name="editIndiID" type="text" class="" readonly>
                           <label for="indi_id">Individual ID: </label>
@@ -201,18 +201,19 @@
                         </p>
                       </div>
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Update</button> 
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>    
                       </div>
                     </form>
                   </div>
 
-                    <div id="del{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
-                        <h5><font color:"#1b5e20"><center>Are you sure you want to deactivate customer?</center> </font> </h5> 
-                        <p>
+                    <div id="del{{$individual->strCustPrivIndivID}}" class="modal modal-fixed-footer">                     
+                        <h5><font color:"#1b5e20"><center>Are you sure you want to deactivate customer?</center> </font> </h5>                        
                          <form action="{{URL::to('delCustPrivIndiv')}}" method="POST">
+                          <div class="modal-content col s12">
+                           <p>
+
                           <div class="input-field">
                             <label for="first_name">Individual ID: </label>
                             <input value="{{$individual->strCustPrivIndivID}}" id="delIndivID" name="delIndivID" type="text" readonly>
@@ -244,7 +245,7 @@
                         </p>
                         </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" style="color:black" class="modal-action modal-close waves-effect waves-green btn-flat">OK</button>
                             <a href="#!" style="color:black" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
@@ -266,10 +267,10 @@
 
             <div id="addCusIndi" class="modal modal-fixed-footer">
               <div class = "label" ><h5><font color = "#1b5e20"><center>Add Individual Profile </center> </font> </h5>
-              <div class="modal-content">
-                <p>
-
                 <form action="{{URL::to('addCustPrivIndiv')}}" method="POST">
+                 <div class="modal-content col s12">
+                  <p>
+
                 <div class="input-field">                 
                   <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="" readonly>
                   <label for="indi_id">Individual ID: </label>
@@ -343,7 +344,7 @@
                 </p>
                 </div>
 
-              <div class="modal-footer">
+              <div class="modal-footer col s12">
                 <button type="submit" class="waves-effect waves-green btn-flat">Save</button> 
                 <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>  
               </div>
