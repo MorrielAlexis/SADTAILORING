@@ -37,7 +37,6 @@ class tblEmployeesSeeder extends Seeder{
 				'strEmpLName' => 'Lastima',
 				'dtEmpBday' =>'2000-08-04',
 				'strSex' => 'Female',
-				'strEmpAddress' => 'Signal Village, Taguig City',
 				'strEmpHouseNo' => '41',
 				'strEmpStreet' => 'Bonficatio St.',
 				'strEmpBarangay' => 'Sangandaan',

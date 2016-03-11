@@ -56,11 +56,11 @@ class EmployeeController extends BaseController{
 				$validInput = TRUE;
 					if (preg_match($regex, Input::get('addFirstName')) && preg_match($regex, Input::get('addLastName')) &&
 						preg_match($regexStreet, Input::get('addEmpStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
-						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexBarangay, Input::get('addEmpBarangay')) &&
-						preg_match($regexCity, Input::get('addEmpCity'))){
+						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexCity, Input::get('addEmpCity'))){
 							$validInput = TRUE;
-								if(!trim(Input::get('addEmpZipCode')) == '' || !trim(Input::get('addEmpProvince')) == ''){
-									if (preg_match($regexZip, Input::get('addEmpZipCode')) || preg_match($regexProvince, Input::get('addEmpProvince'))){
+								if(!trim(Input::get('addEmpZipCode')) == '' || !trim(Input::get('addEmpProvince')) == '' || !trim(Input::get('addEmpBarangay')) == 0){
+									if (preg_match($regexZip, Input::get('addEmpZipCode')) || preg_match($regexProvince, Input::get('addEmpProvince')) ||
+										preg_match($regexBarangay, Input::get('addEmpBarangay'))){
 										$validInput = TRUE;
 									}else $validInput = FALSE;
 								}
