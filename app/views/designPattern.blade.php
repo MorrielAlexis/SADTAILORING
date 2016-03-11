@@ -129,7 +129,7 @@
                           </div>
 
                           <div class="input-field">                                                    
-                            <select class="browser-default" required id="editCategory" name='editCategory'>
+                            <select class="browser-default" id="editCategory" name='editCategory'>
                               @foreach($category as $cat)
                                 @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
                                   <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
@@ -301,6 +301,7 @@
     <script>
       // $(document).ready() executes this script AFTER the whole page loads
       $(document).ready(function () {
+
         // Get jQuery object for element with ID as 'category' (first select element)
         var categoryElement = $('#addCategory');
 
@@ -370,6 +371,7 @@
         // Listen for changes on the categoryElement
         categoryElement.on('change', function () {
           // Invoke updateValue() with currently selected category as parameter
+
           updateValue(categoryElement.val());
         });
 
@@ -403,6 +405,7 @@
 
           // If defaultType is not empty string, set it as typesElement value
           if (defaultType != '') typesElement.val(defaultType);
+
         }
       });
     </script>

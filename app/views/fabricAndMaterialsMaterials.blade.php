@@ -1153,12 +1153,6 @@
           else{input.removeClass("valid").addClass("invalid");}
         });
 
-      //Kapag Number
-      $('.validateSize').keyup(function() {
-        var name = $(this).val();
-        $(this).val(name.replace(/\d/, ''));
-      });     
-
       //Kapag whitespace
       $('.validateSize').blur('input', function() {
         var name = $(this).val();
