@@ -155,7 +155,7 @@
 
                           <div class="input-field">
                             <input value="{{$company->strCustCompanyBarangay}}" id="editCustCompanyBarangay" name="editCustCompanyBarangay" type="text" class="validateBarangay">
-                            <label for=" Brgy">*Barangay: </label>
+                            <label for=" Brgy">Barangay: </label>
                           </div>
 
                           <div class="input-field">
@@ -309,7 +309,7 @@
 
               <div class="input-field">
                 <input id="addCustCompanyBarangay" name="addCustCompanyBarangay" type="text" class="validateBarangay">
-                <label for=" Brgy">*Barangay: </label>
+                <label for=" Brgy">Barangay: </label>
               </div>
 
               <div class="input-field">

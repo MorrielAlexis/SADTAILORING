@@ -62,10 +62,9 @@ class EmployeeController extends BaseController{
 								if(!trim(Input::get('addEmpZipCode')) == '' || !trim(Input::get('addEmpProvince')) == ''){
 									if (preg_match($regexZip, Input::get('addEmpZipCode')) || preg_match($regexProvince, Input::get('addEmpProvince'))){
 										$validInput = TRUE;
-									}else {$validInput = FALSE;
-										dd("When");}
+									}else $validInput = FALSE;
 								}
-					}else {$validInput = FALSE; dd("hays");}
+					}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
 		
