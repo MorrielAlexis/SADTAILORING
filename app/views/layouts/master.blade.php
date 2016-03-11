@@ -15,8 +15,9 @@
     <body>
 
     <header>
-        <div class="col s9 right" style="padding-top:7px">
-          <font size = "+2" color = "black" style="margin-right:20px; margin-top:5px" >Tailoring Management System</font>
+        <img src="../img/logo.jpg"  alt="" class="circle responsive-img valign profile-image center" style="height:70px; width:80px; margin-top:5px; margin-left:650px">
+        <div class="col s9 right" style="padding-top:20px">
+          <font size = "+2" color = "black" style="margin-right:10px; margin-top:5px" >Tailoring Management System</font>
         </div>
     </header>
 
@@ -38,7 +39,7 @@
               <li><a href="#"><i class="small mdi-communication-live-help"style="font-size:15px; margin-top:20px;margin-left:0px;"> Help</i></a></li>
               <li class="divider"></li>
               <li><a href="#"><i class="small mdi-action-lock-outline"style="font-size:15px;margin-top:20px;margin-left:0px;"> Lock</i></a></li>
-              <li><a href="/logout"><i class="small mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
+              <li><a href="{{URL::to('logout')}}"><i class="small mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
             </ul>
             <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#" data-activates="profile-dropdown"><span class="user" style="color:white; padding-bottom:5px"><b>{{Session::get('user')}}<b></span></a>
           </div>

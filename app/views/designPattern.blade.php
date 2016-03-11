@@ -2,7 +2,7 @@
 
 
 @section('content')
-  <div class="main-wrapper">
+  <div class="main-wrapper" style="margin-top:30px">
       <!--Input Validation-->
       @if (Input::get('input') == 'invalid')
         <div class="row" id="success-message">
@@ -451,7 +451,7 @@
     <script type="text/javascript">
       $('.validatePatternName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        $regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -471,7 +471,7 @@
 
       $('.validatePatternName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        $regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
         var is_name=re.test(input.val())  ;
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

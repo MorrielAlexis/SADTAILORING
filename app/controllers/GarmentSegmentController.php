@@ -37,12 +37,12 @@ class GarmentSegmentController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\']+$/";
-		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regexDesc = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/";
 		
 		if(!trim(Input::get('addSegmentName')) == '' || !trim(Input::get('addSegmentDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addSegmentName')) && preg_match($regex2, Input::get('addSegmentDesc'))) {
+			if (preg_match($regex, Input::get('addSegmentName')) && preg_match($regexDesc, Input::get('addSegmentDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -77,12 +77,12 @@ class GarmentSegmentController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\']+$/";
-		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regexDesc = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/";;
 		
 		if(!trim(Input::get('editSegmentName')) == '' || !trim(Input::get('editSegmentDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editSegmentName')) && preg_match($regex2, Input::get('editSegmentDesc'))) {
+			if (preg_match($regex, Input::get('editSegmentName')) && preg_match($regexDesc, Input::get('editSegmentDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;

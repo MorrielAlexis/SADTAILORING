@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="main-wrapper">
+  <div class="main-wrapper"  style="margin-top:30px">
         <!--Input Validation-->
       @if (Input::get('input') == 'invalid')
         <div class="row" id="success-message">
@@ -62,7 +62,7 @@
     
     <div class="row">
       <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Catalogue</h4></span>
+        <span class="page-title"><h4>Catalogue Design</h4></span>
       </div>
     </div>
 
@@ -290,7 +290,7 @@
     <script type="text/javascript">
       $('.validateCatalogueName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re=/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -310,7 +310,7 @@
 
       $('.validateCatalogueName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re=/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -324,7 +324,7 @@
 
       $('.validateCatalogueDesc').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
+        var re=/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -332,7 +332,7 @@
 
       $('.validateCatalogueDesc').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
+        var re=/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

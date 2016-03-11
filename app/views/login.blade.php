@@ -14,7 +14,7 @@
        <div id="login-page" class="row">
 
     		<div class="col s4 push-s4 z-depth-4 card-panel">
-	    	  <form class="login-form" action="/login" method="post">
+	    	  <form class="login-form" action="{{URL::to('login')}}" method="post">
 	      		  	<div class="row">
 	        			<div class="input-field col s12 center">
 	          				<p class="center login-form-text">TAILORING MANAGEMENT SYSTEM</p>
