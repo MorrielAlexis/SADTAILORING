@@ -15,7 +15,7 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showWelcome()	
 	{
 		if(Session::has('user'))
 		{
@@ -29,16 +29,16 @@ class HomeController extends BaseController {
 		$user = Input::get('username');
 		$pass = Input::get('password');
 		$check1 = User::where('strUserID','=', $user)->first();
-		$check2 = User::where('strPassword','=',$pass)->first();	
+		$check2 = User::where('strPassword','=',$pass)->first();
+
 		if($check1 == $check2)
 		{
 			$empID = DB::table('tblUser')
-				->join('tblEmployee', 'tblUser.strLoginEmpID', '=', 'tblEmployee.strEmployeeID')
-				->leftJoin('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
+				->rightJoin('tblEmployee', 'tblUser.strLoginEmpID', '=', 'tblEmployee.strEmployeeID')
 				->where('tblUser.strUserID', '=', $user )
 				->first();
 
-			$name = $empID ->strEmpFName . " " . $empID ->strEmpLName;
+			$name = $empID->strEmpFName . " " . $empID ->strEmpLName;
 			Session::put('user',$name);
 			return View::make('layouts/master')->with('user', $user)->with('empID', $empID);
 		}else
