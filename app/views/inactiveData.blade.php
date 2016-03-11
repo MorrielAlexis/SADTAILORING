@@ -2,7 +2,13 @@
 
 @section('content')
 
-<h3 style="margin-bottom:20px; margin-left:20px;">Inactive Datas</h3>
+  <div class="main-wrapper" style="margin-top:30px">
+   <div class="row">
+      <div class="col s12 m12 l12">
+        <span class="page-title"><h4>Inactive Data</h4></span>
+      </div>
+    </div>
+  </div>
 
   <!--Reactivate Garment Segment-->
       @if (Input::get('successRec') == 'true')

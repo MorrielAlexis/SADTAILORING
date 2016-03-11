@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class="main-wrapper">  <!-- Main Wrapper  -->   
+  <div class="main-wrapper" style="margin-top:30px">  <!-- Main Wrapper  -->   
       <!--Input Validation-->
       @if (Input::get('input') == 'invalid')
         <div class="row" id="success-message">

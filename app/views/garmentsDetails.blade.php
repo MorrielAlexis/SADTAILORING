@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class="main-wrapper">
+  <div class="main-wrapper" style="margin-top:30px">
      <!--Input Validation-->
       @if (Input::get('input') == 'invalid')
         <div class="row" id="success-message">
@@ -85,7 +85,7 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-        <span class="page-title"><h4>Garment Segments</h4></span>
+        <span class="page-title"><h4>Garment Segment</h4></span>
       </div>
     </div>
 

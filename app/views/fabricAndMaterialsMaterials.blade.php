@@ -81,8 +81,13 @@
         </div>
       @endif
 
-
-<h3 style="margin-bottom:20px; margin-left:20px;">Materials</h3>
+  <div class="main-wrapper" style="margin-top:30px">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <span class="page-title"><h4>Materials</h4></span>
+      </div> 
+    </div>
+  </div>
   
   <div style="padding:20px">
 
