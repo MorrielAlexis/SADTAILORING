@@ -46,18 +46,26 @@ class EmployeeController extends BaseController{
 		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
+		$regexZip = "/^[0-9]+$/";
+		$regexProvince = "/^[a-zA-Z\'\-\s\.]+$/";
+
 		if(!trim(Input::get('addFirstName')) == '' && !trim(Input::get('addLastName')) == '' && 
 		   !trim(Input::get('addEmpHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
-		   !trim(Input::get('addEmpStreet')) == '' && !trim(Input::get('addEmpBarangay')) == '' &&
-		   !trim(Input::get('addEmpCity')) == '' && !trim(Input::get('addCellNo')) == ''){
+		   !trim(Input::get('addEmpStreet')) == '' && !trim(Input::get('addEmpCity')) == '' && 
+		   !trim(Input::get('addCellNo')) == ''){
 				$validInput = TRUE;
-
 					if (preg_match($regex, Input::get('addFirstName')) && preg_match($regex, Input::get('addLastName')) &&
 						preg_match($regexStreet, Input::get('addEmpStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexBarangay, Input::get('addEmpBarangay')) &&
-						preg_match($regexCity, Input::get('addEmpCity'))) {
+						preg_match($regexCity, Input::get('addEmpCity'))){
 							$validInput = TRUE;
-					}else $validInput = FALSE;
+								if(!trim(Input::get('addEmpZipCode')) == '' || !trim(Input::get('addEmpProvince')) == ''){
+									if (preg_match($regexZip, Input::get('addEmpZipCode')) || preg_match($regexProvince, Input::get('addEmpProvince'))){
+										$validInput = TRUE;
+									}else {$validInput = FALSE;
+										dd("When");}
+								}
+					}else {$validInput = FALSE; dd("hays");}
 		}else $validInput = FALSE;
 
 		
@@ -75,11 +83,13 @@ class EmployeeController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach($emp as $emp){
-			if(!strcasecmp($emp->strEmployeeID, Input::get('addEmpID'))== 0 &&
-				strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))) == 0 &&
+			if(strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))) == 0 &&
 				    strcasecmp($emp->strEmpMName, trim(Input::get('addMiddleName'))) == 0 &&
 					strcasecmp($emp->strEmpLName, trim(Input::get('addLastName'))) == 0){
-						$isAdded = TRUE;
+						//$isAdded = TRUE;
+				dd(strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))),
+				    strcasecmp($emp->strEmpMName, trim(Input::get('addMiddleName'))),
+					strcasecmp($emp->strEmpLName, trim(Input::get('addLastName'))));
 				}
 			}
         }
@@ -131,8 +141,8 @@ class EmployeeController extends BaseController{
 
 		if(!trim(Input::get('editFirstName')) == '' && !trim(Input::get('editLastName')) == '' && 
 		   !trim(Input::get('editEmpHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
-		   !trim(Input::get('editEmpStreet')) == '' && !trim(Input::get('editEmpBarangay')) == '' &&
-		   !trim(Input::get('editEmpCity')) == '' && !trim(Input::get('editCellNo')) == ''){
+		   !trim(Input::get('editEmpStreet')) == '' && !trim(Input::get('editEmpCity')) == '' && 
+		   !trim(Input::get('editCellNo')) == ''){
 				$validInput = TRUE;
 					if (preg_match($regex, Input::get('editFirstName')) && preg_match($regex, Input::get('editLastName')) &&
 						preg_match($regexStreet, Input::get('editEmpStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&

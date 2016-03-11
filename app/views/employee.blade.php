@@ -422,8 +422,8 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addEmail" name="addEmail" type="email" class="validateEmail">
-                    <label for="email" data-error="wrong" data-success="right">Email Address: </label>
+                    <input required id="addEmail" name="addEmail" type="email" class="validateEmail">
+                    <label for="email" data-error="wrong" data-success="right">*Email Address: </label>
                   </div>
 
                 </p>

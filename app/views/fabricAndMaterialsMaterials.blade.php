@@ -1136,7 +1136,7 @@
 
       $('.validateSize').on('input', function() {
           var input=$(this);
-          var re = /^[a-zA-Z0-9\s]+$/;
+          var $re = /^[a-zA-Z0-9\s]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1150,7 +1150,7 @@
 
       $('.validateSize').blur('input', function() {
         var input=$(this);
-        var $re = /^[a-zA-Z0-9\s]+$/;
+        var re = /^[a-zA-Z0-9\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1178,7 +1178,7 @@
 
       $('.validateColor').blur('input', function() {
         var input=$(this);
-        var re = /^[a-zA-Z\s]+$/;
+        var re = /^[a-zA-Z\s\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1186,7 +1186,7 @@
 
       $('.validateDesc').blur('input', function() {
         var input=$(this);
-        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
+        var re = /^[a-zA-Z0-9\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1198,9 +1198,9 @@
         $(this).val(name.trim());
       });
 
-      $('.validateDesc').blur('input', function() {
+      $('.validateDesc').on('input', function() {
         var input=$(this);
-        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
+        var re = /^[a-zA-Z0-9\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
