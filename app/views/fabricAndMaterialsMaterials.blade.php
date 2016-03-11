@@ -1,4 +1,4 @@
-@extends('layouts.master')
+0-9@extends('layouts.master')
 
 @section('content')
       <!--Input Validation-->
@@ -1122,7 +1122,7 @@
   
       $('.validateName').on('input', function() {
           var input=$(this);
-          var re = /^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
+          var re = /^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1142,7 +1142,7 @@
 
       $('.validateName').blur('input', function() {
         var input=$(this);
-        var re = /^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
+        var re = /^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

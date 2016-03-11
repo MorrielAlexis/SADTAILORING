@@ -138,7 +138,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
 		
@@ -191,7 +191,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
 		
@@ -280,7 +280,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 		
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		
@@ -336,7 +336,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		
@@ -421,7 +421,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
@@ -481,7 +481,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
@@ -570,7 +570,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
@@ -630,7 +630,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
@@ -719,7 +719,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
@@ -779,7 +779,7 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regex = "/^[a-zA-Z0-9\'\-]+( [a-zA-Z0-9\'\-]+)*$/";
 		$regexDesc = "/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/";
 		$regexSize = "/^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$/";
 		$regexColor = "/^[a-zA-Z\,]+( [a-zA-Z\,]+)*$/";
