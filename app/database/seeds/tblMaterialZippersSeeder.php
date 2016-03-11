@@ -24,7 +24,7 @@ class tblMaterialZippersSeeder extends Seeder{
 				'strMaterialZipperID' => 'ZIP002',
 				'strMaterialZipperName' => 'Straight',
 				'strMaterialZipperSize' => 'Medium',
-				'strMaterialZipperColor' => 'blue',
+				'strMaterialZipperColor' => 'Blue',
 				'strMaterialZipperDesc' => 'Zipper for pockets',
 				'strMaterialZipperImage' =>'',
 				'boolIsActive' => '1'

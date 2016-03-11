@@ -20,7 +20,7 @@ class tblCustCompany extends Migration {
 			$table->string('strCustCompanyName');
 			$table->string('strCustCompanyHouseNo');
 			$table->string('strCustCompanyStreet');
-			$table->string('strCustCompanyBarangay');
+			$table->string('strCustCompanyBarangay')->nullable()->change();
 			$table->string('strCustCompanyCity');
 			$table->string('strCustCompanyProvince');
 			$table->string('strCustCompanyZipCode');

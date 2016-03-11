@@ -201,8 +201,8 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateBarangay">
-                            <label for="Emp Brgy">*Barangay: </label>
+                            <input value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateBarangay">
+                            <label for="Emp Brgy">Barangay/Subd: </label>
                           </div>
 
                           <div class="input-field">
@@ -374,8 +374,8 @@
                   </div>
 
                   <div class="input-field">
-                    <input required id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateBarangay">
-                    <label for="Emp Brgy">*Barangay: </label>
+                    <input  id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateBarangay">
+                    <label for="Emp Brgy">Barangay/Subd: </label>
                   </div>
 
                   <div class="input-field">

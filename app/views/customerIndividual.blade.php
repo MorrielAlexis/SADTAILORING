@@ -160,7 +160,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$individual->strCustPrivBarangay}}" id="editCustPrivBarangay" name="editCustPrivBarangay" type="text" class="validateBarangay">
+                            <input value="{{$individual->strCustPrivBarangay}}" id="editCustPrivBarangay" name="editCustPrivBarangay" type="text" class="validateBarangay">
                             <label for=" Brgy">*Barangay: </label>
                           </div>
 
@@ -301,7 +301,7 @@
                 </div>
 
                 <div class="input-field">
-                  <input required id="addCustPrivBarangay" name="addCustPrivBarangay" type="text" class="validateBarangay">
+                  <input  id="addCustPrivBarangay" name="addCustPrivBarangay" type="text" class="validateBarangay">
                   <label for=" Brgy">*Barangay/Subd: </label>
                 </div>
 

@@ -23,7 +23,7 @@ class tblCustPrivateIndividual extends Migration {
 			// $table->string('strPrivSex');
 			$table->string('strCustPrivHouseNo');
 			$table->string('strCustPrivStreet');
-			$table->string('strCustPrivBarangay');
+			$table->string('strCustPrivBarangay')->nullable()->change();
 			$table->string('strCustPrivCity');
 			$table->string('strCustPrivProvince');
 			$table->string('strCustPrivZipCode');
