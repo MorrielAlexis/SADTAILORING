@@ -201,7 +201,7 @@
                                     <label for="first_name">Thread Name: </label>
                                     <input value="{{$thread->strMaterialThreadName}}" id="delThreadName" name="delThreadName" type="text"  readonly>
                                   </div>
-
+                                                
                                    <div class="input-field">
                                     <label for="middle_name">Thread Color: </label>
                                     <input value="{{$thread->strMaterialThreadColor}}" id="delThreadColor" name="delThreadColor" type="text" readonly>
@@ -243,7 +243,7 @@
         </div>
 
       </div>
-
+                                                                                                                                                       
       <!--NEEDLES-->
       <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
@@ -460,7 +460,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validate" class="validateDesc">
+                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validateDesc">
                                   <label for="Button_Color"> Description: </label>
                                 </div>
 
@@ -987,7 +987,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateColor" class="validateDesc">
+          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateDesc">
           <label for="Button_Desc"> Description: </label>
         </div>
                                        
@@ -1036,7 +1036,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateColor" class="validateDesc">
+          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateDesc">
           <label for="Zipper_Desc"> Description </label>
         </div>
 
@@ -1087,7 +1087,7 @@
         </div>
 
          <div class="input-field">
-          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validate" class="validateDesc">
+          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validateDesc">
           <label for="Hookeye_Desc"> Description: </label>
         </div>
 
