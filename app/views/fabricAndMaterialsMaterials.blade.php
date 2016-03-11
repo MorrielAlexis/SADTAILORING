@@ -116,7 +116,7 @@
 
                     <thead>
                       <tr>
-                        <th date-field= "Thread ID">Thread ID</th>
+                        <!--<th date-field= "Thread ID">Thread ID</th>-->
                         <th data-field="Thread Name">Thread Name</th>
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
@@ -130,7 +130,7 @@
                       @foreach($threads as $thread)
                       @if($thread->boolIsActive == 1)
                       <tr>
-                        <td>{{ $thread->strMaterialThreadID }}</td>
+                        <!--<td>{{ $thread->strMaterialThreadID }}</td>-->
                         <td>{{ $thread->strMaterialThreadName }}</td>
                         <td>{{ $thread->strMaterialThreadColor }}</td>
                         <td>{{ $thread->strMaterialThreadDesc }}</td>
