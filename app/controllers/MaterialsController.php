@@ -193,7 +193,7 @@ class MaterialsController extends BaseController{
 
 		$regex = "/^[a-zA-Z\s\-\']+$/";
 		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
-		$regexColor = "/^[a-zA-Z\s\,]+$";
+		$regexColor = "/^[a-zA-Z\s\,]+$/";
 		
 		if(!trim(Input::get('editThreadName')) == '' && !trim(Input::get('editThreadDesc')) == '' && !trim(Input::get('editThreadColor')) == ''){
 			$validInput = TRUE;
