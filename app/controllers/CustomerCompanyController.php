@@ -163,13 +163,14 @@ class CustomerCompanyController extends BaseController{
         }else{
         	foreach ($comp as $comp) {
 				if(!strcasecmp($comp->strCustCompanyID, trim(Input::get('editComID'))) == 0 &&
-				   strcasecmp($comp->strCustCompanyName, trim(Input::get('editComName'))) == 0 && 
-				   strcasecmp($comp->strCustContactPerson, trim(Input::get('editConPerson'))) == 0){
+				   (strcasecmp($comp->strCustCompanyName, trim(Input::get('editComName'))) == 0 || 
+				   strcasecmp($comp->strCustContactPerson, trim(Input::get('editConPerson'))) ==0 )){
 						$isAdded = TRUE;
+						
 				}				
 			}	
         }
-		
+        
 		if($validInput){	
 			if(!$isAdded){
 				$company = Company::find($id);
@@ -190,7 +191,7 @@ class CustomerCompanyController extends BaseController{
 
 				$company->save();
 				return Redirect::to('/maintenance/customerCompany?successEdit=true');
-		 	}else return Redirect::to('/maintenance/customerCompany?successEdit=duplicate');
+		 	}else return Redirect::to('/maintenance/customerCompany?success=duplicate');
 		}else return Redirect::to('/maintenance/customerCompany?input=invalid');
 	}
 
