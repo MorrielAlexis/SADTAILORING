@@ -1119,7 +1119,7 @@
   
       $('.validateName').on('input', function() {
           var input=$(this);
-          var re = /^[a-zA-Z\s\-\']+$/;
+          var re = /^[a-zA-Z\s\-\'\.\,]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1139,7 +1139,7 @@
 
       $('.validateName').blur('input', function() {
         var input=$(this);
-        var re = /^[a-zA-Z\s\-\']+$/;
+        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1147,7 +1147,7 @@
 
       $('.validateSize').on('input', function() {
           var input=$(this);
-          var re = /^[a-zA-Z\s\-\']+$/;
+          var re = /^[a-zA-Z0-9\s]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1167,7 +1167,7 @@
 
       $('.validateSize').blur('input', function() {
         var input=$(this);
-        var $re = /^[a-zA-Z\s\-\']+$/;
+        var $re = /^[a-zA-Z0-9\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1175,7 +1175,7 @@
 
       $('.validateColor').on('input', function() {
           var input=$(this);
-          var $re = /^[a-zA-Z\s\-\']+$/;
+          var $re = /^[a-zA-Z\s]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1195,18 +1195,20 @@
 
       $('.validateColor').blur('input', function() {
         var input=$(this);
-        var re = /^[a-zA-Z\s\-\']+$/;
+        var re = /^[a-zA-Z\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
-            //Kapag Number
-      $('.validateDesc').keyup(function() {
-        var name = $(this).val();
-        $(this).val(name.replace(/\d/, ''));
-      });     
-
+      $('.validateDesc').blur('input', function() {
+        var input=$(this);
+        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+    
       //Kapag whitespace
       $('.validateDesc').blur('input', function() {
         var name = $(this).val();
@@ -1215,7 +1217,7 @@
 
       $('.validateDesc').blur('input', function() {
         var input=$(this);
-        var re = /^[a-zA-Z\s\-\']+$/;
+        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
