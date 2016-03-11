@@ -60,7 +60,7 @@
                         <td>{{ $individual_1->strCustPrivFName }}</td>
                         <td>{{ $individual_1->strCustPrivMName }}</td>
                         <td>{{ $individual_1->strCustPrivLName }}</td>
-                        <td>{{ $individual_1->strCustPrivAddress }} </td>
+                        <td>{{ $individual_1->strCustPrivHouseNo }} {{ $individual_1->strCustPrivStreet }} {{ $individual_1->strCustPrivBarangay }} {{ $individual_1->strCustPrivCity }} {{ $individual_1->strCustPrivProvince }}  {{ $individual_1->strCustPrivZipCode }} </td>
                         <td>{{ $individual_1->strCustPrivEmailAddress}}</td>                  
                         <td>{{ $individual_1->strCustPrivCPNumber }}</td> 
                         <td>{{ $individual_1->strCustPrivLandlineNumber }}</td> 
@@ -114,7 +114,7 @@
                             @if($company_1->boolIsActive == 0)
                           <tr>
                             <td>{{ $company_1->strCustCompanyName }}</td>
-                            <td>{{ $company_1->strCustCompanyAddress }}</td>
+                            <td>{{ $company_1->strCustCompanyHouseNo }} {{ $company_1->strCustCompanyStreet }} {{ $company_1->strCustCompanyBarangay }} {{ $company_1->strCustCompanyCity }} {{ $company_1->strCustCompanyProvince }}  {{ $company_1->strCustCompanyZipCode }} </td>
                             <td>{{ $company_1->strCustContactPerson }} </td>
                             <td>{{ $company_1->strCustCompanyEmailAddress}}</td>                  
                             <td>{{ $company_1->strCustCompanyCPNumber }}</td>
@@ -234,7 +234,7 @@
                               @else Female
                               @endif
                             </td>
-                            <td>{{ $employee_1->strEmpAddress }} </td>
+                            <td>{{ $employee_1->strEmpHouseNo }} {{ $employee_1->strEmpStreet }} {{ $employee_1->strEmpBarangay }} {{ $employee_1->strEmpCity }} {{ $employee_1->strEmpProvince }}  {{ $employee_1->strEmpZipCode }} </td>
                             <td>{{ $employee_1->strEmpRoleName}}</td>                  
                             <td>{{ $employee_1->strCellNo }}</td> 
                             <td>{{ $employee_1->strPhoneNo }}</td>

@@ -2,7 +2,7 @@
 
 class ReasonIndividual extends Eloquent {
 
-	protected $table = 'TblReasonIndividual';
+	protected $table = 'tblReasonIndividual';
 	protected $primaryKey = 'strInactiveIndividualID';
 	protected $fillable = array('strInactiveIndividualID',
 								'strInactiveReason');

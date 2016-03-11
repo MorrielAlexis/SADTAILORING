@@ -36,11 +36,12 @@ class GarmentCategoryController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
 		if(!trim(Input::get('addGarmentName')) == '' || !trim(Input::get('addGarmentDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addGarmentName')) && preg_match($regex, Input::get('addGarmentDesc'))) {
+			if (preg_match($regex, Input::get('addGarmentName')) && preg_match($regex2, Input::get('addGarmentDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -73,11 +74,12 @@ class GarmentCategoryController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
-		if(!trim(Input::get('editGarmentName')) == '' || !trim(Input::get('editGarmentName')) == ''){
+		if(!trim(Input::get('editGarmentName')) == '' && !trim(Input::get('editGarmentDescription')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editGarmentName')) && preg_match($regex, Input::get('editGarmentName'))) {
+			if (preg_match($regex, Input::get('editGarmentName')) && preg_match($regex2, Input::get('editGarmentDescription'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;

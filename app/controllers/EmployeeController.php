@@ -46,17 +46,24 @@ class EmployeeController extends BaseController{
 		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
+		$regexZip = "/^[0-9]+$/";
+		$regexProvince = "/^[a-zA-Z\'\-\s\.]+$/";
+
 		if(!trim(Input::get('addFirstName')) == '' && !trim(Input::get('addLastName')) == '' && 
 		   !trim(Input::get('addEmpHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
-		   !trim(Input::get('addEmpStreet')) == '' && !trim(Input::get('addEmpBarangay')) == '' &&
-		   !trim(Input::get('addEmpCity')) == '' && !trim(Input::get('addCellNo')) == ''){
+		   !trim(Input::get('addEmpStreet')) == '' && !trim(Input::get('addEmpCity')) == '' && 
+		   !trim(Input::get('addCellNo')) == ''){
 				$validInput = TRUE;
-
 					if (preg_match($regex, Input::get('addFirstName')) && preg_match($regex, Input::get('addLastName')) &&
 						preg_match($regexStreet, Input::get('addEmpStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexBarangay, Input::get('addEmpBarangay')) &&
-						preg_match($regexCity, Input::get('addEmpCity'))) {
+						preg_match($regexCity, Input::get('addEmpCity'))){
 							$validInput = TRUE;
+								if(!trim(Input::get('addEmpZipCode')) == '' || !trim(Input::get('addEmpProvince')) == ''){
+									if (preg_match($regexZip, Input::get('addEmpZipCode')) || preg_match($regexProvince, Input::get('addEmpProvince'))){
+										$validInput = TRUE;
+									}else $validInput = FALSE;
+								}
 					}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
@@ -75,11 +82,13 @@ class EmployeeController extends BaseController{
         	$isAdded = TRUE;
         }else{
         	foreach($emp as $emp){
-			if(!strcasecmp($emp->strEmployeeID, Input::get('addEmpID'))== 0 &&
-				strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))) == 0 &&
+			if(strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))) == 0 &&
 				    strcasecmp($emp->strEmpMName, trim(Input::get('addMiddleName'))) == 0 &&
 					strcasecmp($emp->strEmpLName, trim(Input::get('addLastName'))) == 0){
-						$isAdded = TRUE;
+						//$isAdded = TRUE;
+				dd(strcasecmp($emp->strEmpFName, trim(Input::get('addFirstName'))),
+				    strcasecmp($emp->strEmpMName, trim(Input::get('addMiddleName'))),
+					strcasecmp($emp->strEmpLName, trim(Input::get('addLastName'))));
 				}
 			}
         }
@@ -115,12 +124,33 @@ class EmployeeController extends BaseController{
 	}
 
 	public function editEmployee()
-	{
+	{	
 		$id = Input::get('editEmpID');
 		$employee = Employee::find($id);
 
 		$emp = Employee::get();
 		$isAdded = FALSE;
+		$validInput = TRUE;
+
+		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
+		$regexHouse = "/^[0-9]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
+		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
+		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+
+		if(!trim(Input::get('editFirstName')) == '' && !trim(Input::get('editLastName')) == '' && 
+		   !trim(Input::get('editEmpHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
+		   !trim(Input::get('editEmpStreet')) == '' && !trim(Input::get('editEmpCity')) == '' && 
+		   !trim(Input::get('editCellNo')) == ''){
+				$validInput = TRUE;
+					if (preg_match($regex, Input::get('editFirstName')) && preg_match($regex, Input::get('editLastName')) &&
+						preg_match($regexStreet, Input::get('editEmpStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
+						preg_match($regexHouse, Input::get('editEmpHouseNo')) && preg_match($regexBarangay, Input::get('editEmpBarangay')) &&
+						preg_match($regexCity, Input::get('editEmpCity'))) {
+							$validInput = TRUE;
+
+					}else $validInput = FALSE;
+		}else $validInput = FALSE;
 
 		$count = 0; $count2 = 0;
 
@@ -151,29 +181,31 @@ class EmployeeController extends BaseController{
 			}
         }
 
-		if(!$isAdded){
-			$employee = Employee::find($id);
+        if($validInput){
+			if(!$isAdded){
+				$employee = Employee::find($id);
 
-			$employee->strEmpFName = trim(Input::get('editFirstName'));	
-			$employee->strEmpLName = trim(Input::get('editLastName'));	
-			$employee->strEmpMName = trim(Input::get('editMiddleName'));	
-			$employee->dtEmpBday = date("Y-m-d", strtotime(Input::get("editdtEmpBday")));
-			$employee->strSex = Input::get('editSex');
-			$employee->strEmpHouseNo = trim(Input::get('editEmpHouseNo'));
-			$employee->strEmpStreet = trim(Input::get('editEmpStreet'));
-			$employee->strEmpBarangay = trim(Input::get('editEmpBarangay'));
-			$employee->strEmpCity = trim(Input::get('editEmpCity'));
-			$employee->strEmpProvince = trim(Input::get('editEmpProvince'));
-			$employee->strEmpZipCode = trim(Input::get('editEmpZipCode'));
-			$employee->strRole = Input::get('editRoles');
-			$employee->strCellNo = trim(Input::get('editCellNo'));
-			$employee->strCellNoAlt = trim(Input::get('editCellNoAlt'));
-			$employee->strPhoneNo = trim(Input::get('editPhoneNo'));
-			$employee->strEmailAdd = trim(Input::get('editEmail'));
+				$employee->strEmpFName = trim(Input::get('editFirstName'));	
+				$employee->strEmpLName = trim(Input::get('editLastName'));	
+				$employee->strEmpMName = trim(Input::get('editMiddleName'));	
+				$employee->dtEmpBday = date("Y-m-d", strtotime(Input::get("editdtEmpBday")));
+				$employee->strSex = Input::get('editSex');
+				$employee->strEmpHouseNo = trim(Input::get('editEmpHouseNo'));
+				$employee->strEmpStreet = trim(Input::get('editEmpStreet'));
+				$employee->strEmpBarangay = trim(Input::get('editEmpBarangay'));
+				$employee->strEmpCity = trim(Input::get('editEmpCity'));
+				$employee->strEmpProvince = trim(Input::get('editEmpProvince'));
+				$employee->strEmpZipCode = trim(Input::get('editEmpZipCode'));
+				$employee->strRole = Input::get('editRoles');
+				$employee->strCellNo = trim(Input::get('editCellNo'));
+				$employee->strCellNoAlt = trim(Input::get('editCellNoAlt'));
+				$employee->strPhoneNo = trim(Input::get('editPhoneNo'));
+				$employee->strEmailAdd = trim(Input::get('editEmail'));
 
-			$employee->save();
-			return Redirect::to('/maintenance/employee?successEdit=true');
-		 } else return Redirect::to('/maintenance/employee?success=duplicate');
+				$employee->save();
+				return Redirect::to('/maintenance/employee?successEdit=true');
+			} else return Redirect::to('/maintenance/employee?success=duplicate');
+		}else return Redirect::to('/maintenance/employee?input=invalid');
 	}
 
 	public function delEmployee()

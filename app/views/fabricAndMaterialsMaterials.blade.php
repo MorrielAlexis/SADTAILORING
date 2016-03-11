@@ -116,7 +116,7 @@
 
                     <thead>
                       <tr>
-                        <!--<th date-field= "Thread ID">Thread ID</th>-->
+                        <th date-field= "Thread ID">Thread ID</th>
                         <th data-field="Thread Name">Thread Name</th>
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
@@ -130,7 +130,7 @@
                       @foreach($threads as $thread)
                       @if($thread->boolIsActive == 1)
                       <tr>
-                        <!--<td>{{ $thread->strMaterialThreadID }}</td>-->
+                        <td>{{ $thread->strMaterialThreadID }}</td>
                         <td>{{ $thread->strMaterialThreadName }}</td>
                         <td>{{ $thread->strMaterialThreadColor }}</td>
                         <td>{{ $thread->strMaterialThreadDesc }}</td>
@@ -140,15 +140,13 @@
                             
                           <!--EDIT THREADS-->
                           <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
+                            <div class="modal-content col s12">
                             <h5><font color = "#1b5e20"><center>Edit Thread</center> </font> </h5>
+                            <p>
                             <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
 
-                              <div class="modal-content">
                                 <div class="input-field">
-      
-
                                   <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" type="hidden">
-         
                                 </div>
                           
                                 <div class="input-field">
@@ -174,14 +172,14 @@
 
                                   <div class="file-path-wrapper">
                                     <input value="{{$thread->strMaterialThreadImage}}" class="file-path validate" id="editThreadImage" name="editThreadImage" type="text">
-                                  </div>
-                                  <br><br>
+                                  </div>                   
                                 </div> 
+                              </p>
                               </div>    
 
-                              <div class="modal-footer">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>   
+                              <div class="modal-footer col s12">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>   
                               </div>
                             </form>
                           </div>
@@ -189,7 +187,7 @@
                             <!--deactivate THREADS-->
                           <div id="del{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
                             <form action="{{URL::to('delThread')}}" method="POST">
-                              <div class="modal-content">
+                              <div class="modal-content col s12">
                                 <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
                                 <p>
          
@@ -201,7 +199,7 @@
                                     <label for="first_name">Thread Name: </label>
                                     <input value="{{$thread->strMaterialThreadName}}" id="delThreadName" name="delThreadName" type="text"  readonly>
                                   </div>
-
+                                                
                                    <div class="input-field">
                                     <label for="middle_name">Thread Color: </label>
                                     <input value="{{$thread->strMaterialThreadColor}}" id="delThreadColor" name="delThreadColor" type="text" readonly>
@@ -223,7 +221,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                               </div> 
@@ -243,7 +241,7 @@
         </div>
 
       </div>
-
+                                                                                                                                                       
       <!--NEEDLES-->
       <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
@@ -289,7 +287,7 @@
                             <h5><font color = "#1b5e20"><center>Edit Needle</center> </font> </h5>
                             <form action="{{URL::to('editNeedle')}}" method="POST" enctype="multipart/form-data"> 
 
-                              <div class="modal-content">                              
+                              <div class="modal-content col s12">                              
                                 <div class="input-field">
                                   <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" type="hidden">
                                 </div>
@@ -323,8 +321,8 @@
                                 </div>
                               </div>    
 
-                              <div class="modal-footer">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
+                              <div class="modal-footer col s12">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
                             </form>
@@ -336,7 +334,7 @@
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
                             <form action="{{URL::to('delNeedle')}}" method="POST">
 
-                              <div class="modal-content">
+                              <div class="modal-content col s12">
                                 
                                 <p>
                                   <div class="input-field">
@@ -369,7 +367,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                               </div> 
@@ -438,7 +436,7 @@
                           <div id="edit{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Button</center> </font> </h5>
 
-                              <div class="modal-content">
+                              <div class="modal-content col s12">
                             <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data">                               
                                 <div class="input-field">
                                   <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" type="hidden">
@@ -460,7 +458,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validate" class="validateDesc">
+                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validateDesc">
                                   <label for="Button_Color"> Description: </label>
                                 </div>
 
@@ -478,8 +476,8 @@
                               </div>    
 
 
-                              <div class="modal-footer">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
+                              <div class="modal-footer col s12">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
                             </form>  
@@ -489,7 +487,7 @@
 
                           <div id="del{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                              <div class="modal-content">
+                              <div class="modal-content col s12">
                             <form action="{{URL::to('delButton')}}" method="POST">
                                 <p>
                                   <div class="input-field">
@@ -528,7 +526,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                               </div> 
@@ -597,7 +595,7 @@
                             <h5><font color = "#1b5e20"><center>Edit Zipper</center> </font> </h5>
                             <form action="{{URL::to('editZipper')}}" method="POST" enctype="multipart/form-data">
 
-                              <div class="modal-content">                             
+                              <div class="modal-content col s12">                             
                                 <div class="input-field">
                                   <input id="editZipperID" name = "editZipperID" value = "{{$zipper->strMaterialZipperID}}" type="hidden">
                                 </div>
@@ -636,8 +634,8 @@
                                 <br><br>
                               </div>    
 
-                              <div class="modal-footer">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
+                              <div class="modal-footer col s12">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
                             </form>
@@ -647,7 +645,7 @@
 
                           <div id="del{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                              <div class="modal-content">
+                              <div class="modal-content col s12">
                             <form action="{{URL::to('delZipper')}}" method="POST">
                                 <p>                           
                                   <div class="input-field">
@@ -686,7 +684,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div> 
@@ -758,7 +756,7 @@
                             <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>
                             <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
 
-                              <div class="modal-content"> 
+                              <div class="modal-content col s12"> 
                                                          
                                 <div class="input-field">
                                   <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" type="hidden">
@@ -796,8 +794,8 @@
                                 <br><br>
                               </div>    
 
-                              <div class="modal-footer">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn btn-flat">UPDATE</button>
+                              <div class="modal-footer col s12">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>   
                               </div>
                             </form>
@@ -807,7 +805,7 @@
                           <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
                             <form action="{{URL::to('delHook')}}" method="POST">
-                              <div class="modal-content">
+                              <div class="modal-content col s12">
                                 
                                 
                                 <p>
@@ -847,7 +845,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                               </div>
@@ -874,7 +872,7 @@
   <div id="addThread" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Thread</center> </font> </h5>
 
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
             <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" type="hidden">
@@ -909,7 +907,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -920,7 +918,7 @@
   <!--MODAL: add Needle-->
   <div id="addNeedle" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Needle</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
            <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" type="hidden">
@@ -937,7 +935,7 @@
         </div>
                     
          <div class="input-field">
-          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateSize" class="validateDesc">
+          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateDesc">
           <label for="Needle_Desc"> Description: </label>
         </div>
                                   
@@ -955,7 +953,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -965,7 +963,7 @@
   <!--MODAL: add Button-->
   <div id="addButton" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Button</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" type="hidden">
@@ -987,7 +985,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateColor" class="validateDesc">
+          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateDesc">
           <label for="Button_Desc"> Description: </label>
         </div>
                                        
@@ -1004,7 +1002,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -1014,7 +1012,7 @@
   <!--MODAL: add Zipper-->
   <div id="addZipper" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Zipper</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" type="hidden">
@@ -1036,7 +1034,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateColor" class="validateDesc">
+          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateDesc">
           <label for="Zipper_Desc"> Description </label>
         </div>
 
@@ -1055,7 +1053,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -1065,7 +1063,7 @@
   <!--MODAL: add HookEye-->
   <div id="addHookEye" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Hook and Eye</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" type="hidden">
@@ -1087,7 +1085,7 @@
         </div>
 
          <div class="input-field">
-          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validate" class="validateDesc">
+          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validateDesc">
           <label for="Hookeye_Desc"> Description: </label>
         </div>
 
@@ -1104,7 +1102,7 @@
      </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
         <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
       </div>
@@ -1119,11 +1117,11 @@
   
       $('.validateName').on('input', function() {
           var input=$(this);
-          $regex = "/^[a-zA-Z\s\-\*\']+$/";
+          var re = /^[a-zA-Z\s\-\'\.\,]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
-        });
+      });
 
       //Kapag Number
       $('.validateName').keyup(function() {
@@ -1139,7 +1137,7 @@
 
       $('.validateName').blur('input', function() {
         var input=$(this);
-        $regex = "/^[a-zA-Z\s\-\*\']+$/";
+        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1147,17 +1145,11 @@
 
       $('.validateSize').on('input', function() {
           var input=$(this);
-          $regex = "/^[a-zA-Z\s\-\*\']+$/";
+          var $re = /^[a-zA-Z0-9\s]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
         });
-
-      //Kapag Number
-      $('.validateSize').keyup(function() {
-        var name = $(this).val();
-        $(this).val(name.replace(/\d/, ''));
-      });     
 
       //Kapag whitespace
       $('.validateSize').blur('input', function() {
@@ -1167,7 +1159,7 @@
 
       $('.validateSize').blur('input', function() {
         var input=$(this);
-        $regex = "/^[a-zA-Z\s\-\*\']+$/";
+        var re = /^[a-zA-Z0-9\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1175,7 +1167,7 @@
 
       $('.validateColor').on('input', function() {
           var input=$(this);
-          $regex = "/^[a-zA-Z\s\-\*\']+$/";
+          var $re = /^[a-zA-Z\s]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1195,27 +1187,29 @@
 
       $('.validateColor').blur('input', function() {
         var input=$(this);
-        $regex = "/^[a-zA-Z\s\-\*\']+$/";
+        var re = /^[a-zA-Z\s\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
-            //Kapag Number
-      $('.validateDesc').keyup(function() {
-        var name = $(this).val();
-        $(this).val(name.replace(/\d/, ''));
-      });     
-
+      $('.validateDesc').blur('input', function() {
+        var input=$(this);
+        var re = /^[a-zA-Z0-9\s\-\'\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+    
       //Kapag whitespace
       $('.validateDesc').blur('input', function() {
         var name = $(this).val();
         $(this).val(name.trim());
       });
 
-      $('.validateDesc').blur('input', function() {
+      $('.validateDesc').on('input', function() {
         var input=$(this);
-        $regex = "/^[a-zA-Z\s\-\*\']+$/";
+        var re = /^[a-zA-Z0-9\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

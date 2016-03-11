@@ -236,6 +236,13 @@
         else{input.removeClass("valid").addClass("invalid");}
       });
 
+    $('.validateRole').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
       //Kapag Number
       $('.validateRole').keyup(function() {
         var name = $(this).val();
@@ -246,7 +253,29 @@
       $('.validateRole').blur('input', function() {
         var name = $(this).val();
         $(this).val(name.trim());
-      });      
+      }); 
+
+      $('.validateRoleDesc').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateRoleDesc').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag whitespace
+      $('.validateRoleDesc').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      });        
   </script>
   
 

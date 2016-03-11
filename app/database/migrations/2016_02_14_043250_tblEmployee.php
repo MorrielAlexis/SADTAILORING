@@ -22,7 +22,7 @@ class tblEmployee extends Migration {
 			$table->string('strSex');
 			$table->string('strEmpHouseNo');
 			$table->string('strEmpStreet');
-			$table->string('strEmpBarangay');
+			$table->string('strEmpBarangay')->nullable()->change();
 			$table->string('strEmpCity');
 			$table->string('strEmpProvince');
 			$table->string('strEmpZipCode');

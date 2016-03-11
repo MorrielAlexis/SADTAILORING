@@ -2,6 +2,17 @@
 
 @section('content')
   <div class="main-wrapper">
+          <!--Input Validation-->
+      @if (Input::get('input') == 'invalid')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel red">
+              <span class="black-text" style="color:black">Invalid input!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+      
       <!--Add Garment Category-->
          @if (Input::get('success') == 'true')
         <div class="row" id="success-message">
@@ -117,12 +128,11 @@
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
-                        <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>
-                        <form action="{{URL::to('editGarmentCategory')}}" method="POST">
-                          <div class="modal-content">
-                            <p> 
-                            
- 
+                        <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>                          
+                            <form action="{{URL::to('editGarmentCategory')}}" method="POST">       
+                              <div class="modal-content col s12">
+                              <p> 
+                                
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
                               </div>
@@ -139,7 +149,7 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                           </div>
@@ -149,7 +159,7 @@
                       <div id="del{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
                         <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate garment?</center> </font> </h5>
                         <form action="{{URL::to('delGarmentCategory')}}" method="POST">
-                          <div class="modal-content">
+                          <div class="modal-content col s12">
                             <p> 
                             
                               <div class="input-field">
@@ -177,7 +187,7 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                           </div>
@@ -200,7 +210,7 @@
               <h5><font color = "#1b5e20"><center>Add Garment Category</center> </font> </h5>
               <form action="{{URL::to('addGarmentCategory')}}" method="POST" id="addGarmentCategory" name="addGarmentCategory"> 
 
-                <div class="modal-content">
+                <div class="modal-content col s12">
 
                   <p>  
                   <div class="input-field">
@@ -262,7 +272,7 @@
     <script type="text/javascript">
       $('.validateGarmentName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\s\'\-]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -276,24 +286,44 @@
 
       $('.validateGarmentName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z," "]+$/;
+        var re=/^[a-zA-Z\s\'\-]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
+      //Kapag whitespace
+      $('.validateGarmentName').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
+      }); 
+
       $('.validateGarmentDesc').on('input', function() {
         var input=$(this);
-        var is_desc=input.val();
-        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        var re=/^[a-zA-Z\s\'\-\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
 
+      //Kapag Number
+      $('.validateGarmentDesc').keyup(function() {
+        var name = $(this).val();
+        $(this).val(name.replace(/\d/, ''));
+      });     
+
       $('.validateGarmentDesc').blur('input', function() {
         var input=$(this);
-        var is_desc=input.val();
-        if(is_desc){input.removeClass("invalid").addClass("valid");}
+        var re=/^[a-zA-Z\s\'\-\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
+      }); 
+
+      //Kapag whitespace
+      $('.validateGarmentDesc').blur('input', function() {
+        var desc = $(this).val();
+        $(this).val(desc.trim());
       }); 
  
 

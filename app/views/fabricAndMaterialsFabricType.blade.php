@@ -123,9 +123,10 @@
               	
                     <div id="edit{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
                       <h5><font color = "#1b5e20"><center>Edit Fabric Type</center> </font> </h5>
-                      <div class="modal-content">
+                      <form action="{{URL::to('editFabricType')}}" method="POST">
+                      <div class="modal-content col s12">
                         <p>
-                        <form action="{{URL::to('editFabricType')}}" method="POST">
+                        
                         <div class="input-field">
                           <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="hidden">
 
@@ -143,7 +144,7 @@
                         </p>
                       </div>
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
@@ -152,11 +153,11 @@
                   
 
               <!--**********DELETE***********-->
-              <div id="del{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
-                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate the swatch?</center> </font> </h5>
-                        <p>
-                         <form action="{{URL::to('delFabricType')}}" method="POST">
+              <div id="del{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer">                     
+                <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate the swatch?</center> </font> </h5>                       
+                  <form action="{{URL::to('delFabricType')}}" method="POST">
+                    <div class="modal-content col s12">
+                      <p>
                           <div class="input-field">
                             <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="hidden">
 
@@ -183,7 +184,7 @@
                         </p>
                       </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                           </div> 
@@ -201,10 +202,10 @@
               </div>  
 
             <!--********ADD******-->
-              <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->  
-                <form action="{{URL::to('addFabricType')}}" method="POST">
+              <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->                 
                 <h5><font color = "#1b5e20"><center>Add Fabric Type</center> </font> </h5> 
-                <div class="modal-content">
+                <form action="{{URL::to('addFabricType')}}" method="POST">
+                <div class="modal-content col s12">
                 <p>           
 
                   <div class="input-field">
@@ -227,7 +228,7 @@
                 </p>
                 </div>
 
-                  <div class="modal-footer">
+                  <div class="modal-footer col s12">
                     <button type="submit" id="addFabType" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                     <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                   </div>
@@ -255,7 +256,7 @@
     <script type="text/javascript">
       $('.validateTypeName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -275,7 +276,7 @@
 
       $('.validateTypeName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -283,7 +284,7 @@
 
       $('.validateTypeDesc').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -297,7 +298,7 @@
 
       $('.validateTypeDesc').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

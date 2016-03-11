@@ -138,11 +138,13 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
+		$regexColor = "/^[a-zA-Z\s\,]+$";
 		
 		if(!trim(Input::get('addThreadName')) == '' && !trim(Input::get('addThreadDesc')) == '' && !trim(Input::get('addThreadColor')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addThreadName')) && preg_match($regex, Input::get('addThreadDesc')) && preg_match($regex, Input::get('addThreadColor'))) {
+			if (preg_match($regex, Input::get('addThreadName')) && preg_match($regexDesc, Input::get('addThreadDesc')) && preg_match($regexColor, Input::get('addThreadColor'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -185,30 +187,33 @@ class MaterialsController extends BaseController{
 
 	public function editThread()
 	{
-		$id = Input::get('editThreadID');
-		$thread = MaterialThread::find($id);
-
 		$threads = MaterialThread::get();
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
+		$regexColor = "/^[a-zA-Z\s\,]+$";
 		
 		if(!trim(Input::get('editThreadName')) == '' && !trim(Input::get('editThreadDesc')) == '' && !trim(Input::get('editThreadColor')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editThreadName')) && preg_match($regex, Input::get('editThreadDesc')) && preg_match($regex, Input::get('editThreadColor'))) {
+			if (preg_match($regex, Input::get('editThreadName')) && preg_match($regexDesc, Input::get('editThreadDesc')) && preg_match($regexColor, Input::get('editThreadColor'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
-		foreach($threads as $thread)
-			if(!strcasecmp($thread->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
-				strcasecmp($thread->strMaterialThreadName, trim(Input::get('editThreadName'))) == 0 && 
-				strcasecmp($thread->strMaterialThreadColor, trim(Input::get('editThreadColor'))) == 0 &&
-				strcasecmp($thread->strMaterialThreadDesc, trim(Input::get('editThreadDesc'))) == 0)
+		$id = Input::get('editThreadID');
+		$thread = MaterialThread::find($id);
+
+		foreach($threads as $threade)
+			if(!strcasecmp($threade->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
+				strcasecmp($threade->strMaterialThreadName, trim(Input::get('editThreadName'))) == 0 && 
+				strcasecmp($threade->strMaterialThreadColor, trim(Input::get('editThreadColor'))) == 0 &&
+				strcasecmp($threade->strMaterialThreadDesc, trim(Input::get('editThreadDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
+			//dd("yes")
 			if(!$isAdded){
 				if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
 					$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
@@ -274,12 +279,14 @@ class MaterialsController extends BaseController{
 		$needles = MaterialNeedle::get();
 		$isAdded = FALSE;
 		$validInput = TRUE;
-
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
 		
 		if(!trim(Input::get('addNeedleName')) == '' && !trim(Input::get('addNeedleDesc')) == '' && !trim(Input::get('addNeedleSize')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addNeedleName')) && preg_match($regex, Input::get('addNeedleDesc')) && preg_match($regex, Input::get('addNeedleSize'))) {
+			if (preg_match($regex, Input::get('addNeedleName')) && preg_match($regexDesc, Input::get('addNeedleDesc')) && preg_match($regexSize, Input::get('addNeedleSize'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -325,25 +332,27 @@ class MaterialsController extends BaseController{
 		$id = Input::get('editNeedleID');
 		$needle= MaterialNeedle::find($id);
 
-		$needl = MaterialNeedle::get();
+		$needles = MaterialNeedle::get();
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
 		
 		if(!trim(Input::get('editNeedleName')) == '' && !trim(Input::get('editNeedleDesc')) == '' && !trim(Input::get('editNeedleSize')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editNeedleName')) && preg_match($regex, Input::get('editNeedleDesc')) && preg_match($regex, Input::get('editNeedleSize'))) {
+			if (preg_match($regex, Input::get('editNeedleName')) && preg_match($regexDesc, Input::get('editNeedleDesc')) && preg_match($regexSize, Input::get('editNeedleSize'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
 
-		foreach($needl as $needle)
-			if(!strcasecmp($needle->strMaterialNeedleID, Input::get('editNeedleID')) &&
-				strcasecmp($needle->strMaterialNeedleName, trim(Input::get('editNeedleName'))) == 0 && 
-				strcasecmp($needle->strMaterialNeedleSize, trim(Input::get('editNeedleSize'))) == 0 &&
-				strcasecmp($needle->strMaterialNeedleDesc, trim(Input::get('editNeedleDesc'))) == 0)
+		foreach($needles as $needlee)
+			if(!strcasecmp($needlee->strMaterialNeedleID, Input::get('editNeedleID')) == 0 &&
+				strcasecmp($needlee->strMaterialNeedleName, trim(Input::get('editNeedleName'))) == 0 && 
+				strcasecmp($needlee->strMaterialNeedleSize, trim(Input::get('editNeedleSize'))) == 0 &&
+				strcasecmp($needlee->strMaterialNeedleDesc, trim(Input::get('editNeedleDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -412,11 +421,13 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
 		
 		if(!trim(Input::get('addButtonName')) == '' && !trim(Input::get('addButtonDesc')) == '' && !trim(Input::get('addButtonColor')) == '' || !trim(Input::get('addButtonSize')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addButtonName')) && preg_match($regex, Input::get('addButtonDesc')) && preg_match($regex, Input::get('addButtonColor')) && preg_match($regex, Input::get('addButtonSize'))) {
+			if (preg_match($regex, Input::get('addButtonName')) && preg_match($regexDesc, Input::get('addButtonDesc')) && preg_match($regex, Input::get('addButtonColor')) && preg_match($regexSize, Input::get('addButtonSize'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -469,22 +480,25 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
+		$regexColor = "/^[a-zA-Z\s\,]+$/";
 		
 		if(!trim(Input::get('editButtonName')) == '' && !trim(Input::get('editButtonDesc')) == '' && !trim(Input::get('editButtonColor')) == '' || !trim(Input::get('editButtonSize')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editButtonName')) && preg_match($regex, Input::get('editButtonDesc')) && preg_match($regex, Input::get('editButtonColor')) && preg_match($regex, Input::get('editButtonSize'))) {
+			if (preg_match($regex, Input::get('editButtonName')) && preg_match($regexDesc, Input::get('editButtonDesc')) && preg_match($regexColor, Input::get('editButtonColor')) && preg_match($regexSize, Input::get('editButtonSize'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
+				
 		}else $validInput = FALSE;
 
-
-		foreach($buttons as $button)
-			if(!strcasecmp($button->strMaterialButtonID, Input::get('editButtonID')) == 0 && 
-				strcasecmp($button->strMaterialButtonName, trim(Input::get('editButtonName'))) == 0 && 
-				strcasecmp($button->strMaterialButtonSize, trim(Input::get('editButtonSize'))) == 0 &&
-				strcasecmp($button->strMaterialButtonColor, trim(Input::get('editButtonColor'))) == 0 &&
-				strcasecmp($button->strMaterialButtonDesc, trim(Input::get('editButtonDesc'))) == 0)
+		foreach($buttons as $buttonn)
+			if(!strcasecmp($buttonn->strMaterialButtonID, Input::get('editButtonID')) == 0 && 
+				strcasecmp($buttonn->strMaterialButtonName, trim(Input::get('editButtonName'))) == 0 && 
+				strcasecmp($buttonn->strMaterialButtonSize, trim(Input::get('editButtonSize'))) == 0 &&
+				strcasecmp($buttonn->strMaterialButtonColor, trim(Input::get('editButtonColor'))) == 0 &&
+				strcasecmp($buttonn->strMaterialButtonDesc, trim(Input::get('editButtonDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -555,11 +569,14 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
+		
 		
 		if(!trim(Input::get('addZipperName')) == '' && !trim(Input::get('addZipperSize')) == '' && !trim(Input::get('addZipperColor')) == '' || !trim(Input::get('addZipperDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addZipperName')) && preg_match($regex, Input::get('addZipperSize')) && preg_match($regex, Input::get('addZipperColor')) && preg_match($regex, Input::get('addZipperDesc'))) {
+			if (preg_match($regex, Input::get('addZipperName')) && preg_match($regexDesc, Input::get('addZipperSize')) && preg_match($regex, Input::get('addZipperColor')) && preg_match($regexDesc, Input::get('addZipperDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -612,22 +629,25 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
-		
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z0-9\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
+		$regexColor = "/^[a-zA-Z\s\,]+$";
+
 		if(!trim(Input::get('editZipperName')) == '' && !trim(Input::get('editZipperSize')) == '' && !trim(Input::get('editZipperColor')) == '' || !trim(Input::get('editZipperDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editZipperName')) && preg_match($regex, Input::get('editZipperSize')) && preg_match($regex, Input::get('editZipperColor')) && preg_match($regex, Input::get('editZipperDesc'))) {
+			if (preg_match($regex, Input::get('editZipperName')) && preg_match($regexSize, Input::get('editZipperSize')) && preg_match($regexColor, Input::get('editZipperColor')) && preg_match($regexDesc, Input::get('editZipperDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
 
-		foreach($zippers as $zipper)
-			if(!strcasecmp($zipper->strMaterialZipperID, Input::get('editZipperID')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperName, trim(Input::get('editZipperName'))) == 0 && 
-				strcasecmp($zipper->strMaterialZipperSize, trim(Input::get('editZipperSize'))) == 0 &&
-				strcasecmp($zipper->strMaterialZipperColor, trim(Input::get('editZipperColor'))) == 0 &&
-				strcasecmp($zipper->strMaterialZipperDesc, trim(Input::get('editZipperDesc'))) == 0)
+		foreach($zippers as $zipperr)
+			if(!strcasecmp($zipperr->strMaterialZipperID, Input::get('editZipperID')) == 0 &&
+				strcasecmp($zipperr->strMaterialZipperName, trim(Input::get('editZipperName'))) == 0 && 
+				strcasecmp($zipperr->strMaterialZipperSize, trim(Input::get('editZipperSize'))) == 0 &&
+				strcasecmp($zipperr->strMaterialZipperColor, trim(Input::get('editZipperColor'))) == 0 &&
+				strcasecmp($zipperr->strMaterialZipperDesc, trim(Input::get('editZipperDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -698,11 +718,14 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
+		$regexColor = "/^[a-zA-Z\s\,]+$";
 		
 		if(!trim(Input::get('addHookName')) == '' && !trim(Input::get('addHookSize')) == '' && !trim(Input::get('addHookColor')) == '' || !trim(Input::get('addHookDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addHookName')) && preg_match($regex, Input::get('addHookSize')) && preg_match($regex, Input::get('addHookColor')) && preg_match($regex, Input::get('addHookDesc'))) {
+			if (preg_match($regex, Input::get('addHookName')) && preg_match($regexSize, Input::get('addHookSize')) && preg_match($regexColor, Input::get('addHookColor')) && preg_match($regexDesc, Input::get('addHookDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -755,22 +778,25 @@ class MaterialsController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\*\']+$/";
-		
+		$regex = "/^[a-zA-Z\s\-\']+$/";
+		$regexDesc = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regexSize = "/^[a-zA-Z0-9\s]+$/";
+		$regexColor = "/^[a-zA-Z\s\,]+$";
+
 		if(!trim(Input::get('editHookName')) == '' && !trim(Input::get('editHookSize')) == '' && !trim(Input::get('editHookColor')) == '' || !trim(Input::get('editHookDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editHookName')) && preg_match($regex, Input::get('editHookSize')) && preg_match($regex, Input::get('editHookColor')) && preg_match($regex, Input::get('editHookDesc'))) {
+			if (preg_match($regex, Input::get('editHookName')) && preg_match($regexSize, Input::get('editHookSize')) && preg_match($regexColor, Input::get('editHookColor')) && preg_match($regexDesc, Input::get('editHookDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
 
-		foreach($hooks as $hook)
-			if(!strcasecmp($hook->strMaterialHookID, Input::get('editHookID')) == 0 &&
-				strcasecmp($hook->strMaterialHookName, trim(Input::get('editHookName'))) == 0 && 
-				strcasecmp($hook->strMaterialHookSize, trim(Input::get('editHookSize'))) == 0 &&
-				strcasecmp($hook->strMaterialHookColor, trim(Input::get('editHookColor'))) == 0 &&
-				strcasecmp($hook->strMaterialHookDesc, trim(Input::get('editHookDesc'))) == 0)
+		foreach($hooks as $hookk)
+			if(!strcasecmp($hookk->strMaterialHookID, Input::get('editHookID')) == 0 &&
+				strcasecmp($hookk->strMaterialHookName, trim(Input::get('editHookName'))) == 0 && 
+				strcasecmp($hookk->strMaterialHookSize, trim(Input::get('editHookSize'))) == 0 &&
+				strcasecmp($hookk->strMaterialHookColor, trim(Input::get('editHookColor'))) == 0 &&
+				strcasecmp($hookk->strMaterialHookDesc, trim(Input::get('editHookDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){

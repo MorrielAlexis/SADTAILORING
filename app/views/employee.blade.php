@@ -191,7 +191,7 @@
 
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo." name="editHouseNo" type="text" class="validateHouseNo">
+                            <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo" name="editEmpHouseNo" type="text" class="validateHouseNo">
                             <label for="Emp House No">*House No.: </label>
                           </div>
 
@@ -201,8 +201,8 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateBarangay">
-                            <label for="Emp Brgy">*Barangay: </label>
+                            <input value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateBarangay">
+                            <label for="Emp Brgy">Barangay/Subd: </label>
                           </div>
 
                           <div class="input-field">
@@ -374,8 +374,8 @@
                   </div>
 
                   <div class="input-field">
-                    <input required id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateBarangay">
-                    <label for="Emp Brgy">*Barangay: </label>
+                    <input  id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateBarangay">
+                    <label for="Emp Brgy">Barangay/Subd: </label>
                   </div>
 
                   <div class="input-field">
@@ -422,8 +422,8 @@
                   </div>
 
                   <div class="input-field">
-                    <input id="addEmail" name="addEmail" type="email" class="validateEmail">
-                    <label for="email" data-error="wrong" data-success="right">Email Address: </label>
+                    <input required id="addEmail" name="addEmail" type="email" class="validateEmail">
+                    <label for="email" data-error="wrong" data-success="right">*Email Address: </label>
                   </div>
 
                 </p>

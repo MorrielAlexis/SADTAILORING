@@ -54,8 +54,13 @@ Route::group(array('prefix' => 'transaction'), function () {
 	Route::get('/online', 'AdminOnlineCustomerController@online');
 	Route::get('/orderProgress', 'AdminOrderProgressController@orderProgress');
 	Route::get('/materials', 'AdminMaterialsController@materials');
-	Route::get('/billing', 'AdminBillingController@billing');
 });
+
+Route::group(array('prefix' => 'transaction'), function() {
+	Route::get('/adminBillingPayment', 'AdminBillingAndCollectionController@payment');
+	Route::get('/adminBillingCollection', 'AdminBillingAndCollectionController@collection');
+});
+
 
 Route::get('/walkIndi','WalkIndiController@indi');
 Route::get('/walkCom','WalkComController@com');

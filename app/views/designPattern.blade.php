@@ -118,79 +118,69 @@
               		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of pattern" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to remove data of pattern from table" href="#del{{ $pattern->strDesignPatternID }}">DEACTIVATE</button>
                       
-                    <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>
-                      <div class="modal-content">
+                    <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">                     
+                        <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>                        
                         <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
-                        <p>
-                        <div class="input-field">
-                          <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
-                        </div>
+                        <div class="modal-content col s12">
+                          <p>
+                          <div class="input-field">
+                            <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
+                          </div>
 
-                        <div class="input-field">                                                    
-                          <select class="browser-default" required id="editCategory" name='editCategory'>
-                            @foreach($category as $cat)
-                              @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
-                                <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
-                              @elseif($cat->boolIsActive == 1)
-                                <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
-                              @endif
-                            @endforeach
-                          </select>    
-                        </div>  
-
-                        <div class="input-field">                                                    
-                          <select class="browser-default" id="editSegment" name="editSegment">
-                              @foreach($segment as $seg)
-                                  @if($pattern->strDesignSegmentName)
-                                    <option selected value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}">{{ $seg->strGarmentSegmentName }}</option>
-                                  @else
-                                    <option value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}">{{ $seg->strGarmentSegmentName }}</option>
-                                  @endif
+                          <div class="input-field">                                                    
+                            <select class="browser-default editCategory" id="{{ $pattern->strDesignPatternID }}" name='editCategory'>
+                              @foreach($category as $cat)
+                                @if($pattern->strDesignCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
+                                  <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                                @elseif($cat->boolIsActive == 1)
+                                  <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
+                                @endif
                               @endforeach
-                          </select>    
-                        </div>   
+                            </select>    
+                          </div>  
 
-                        <div class="input-field">
-                          <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
-                          <label for="pattern_name">Pattern Name: </label>
-                        </div>
+                          <div class="input-field">                                                    
+                            <select class="browser-default editSegment" id="{{ $pattern->strDesignPatternID }}" name="editSegment">
+                                  @foreach($segment as $segment_2)
+                                    @if($pattern->strDesignSegmentName == $segment_2->strGarmentSegmentID && $segment_2->boolIsActive == 1)
+                                      <option selected value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
+                                    @elseif($segment_2->boolIsActive == 1)
+                                      <option value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
+                                    @endif
+                                  @endforeach
+                            </select>    
+                          </div>   
 
-                        <div class="file-field input-field">
-                          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
-                            <span>Upload Image</span>
-                            <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                          <div class="input-field">
+                            <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
+                            <label for="pattern_name">Pattern Name: </label>
                           </div>
-                        
-                          <div class="file-path-wrapper">
-                            <input value="{{$pattern->strPatternImage}}" id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
+
+                          <div class="file-field input-field">
+                            <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                              <span>Upload Image</span>
+                              <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+                            </div>
+                          
+                            <div class="file-path-wrapper">
+                              <input value="{{$pattern->strPatternImage}}" id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
+                            </div>
                           </div>
+
+                          </p>
                         </div>
-                        </p>
-                      </div>
-                  
-                      <div class="modal-footer">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
-                      </div>
-                    </form>
-
-                 </div>  
-
-
+                        <div class="modal-footer col s12">
+                          <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        </div>
+                      </form>
+                   </div>  
                  <!-- DELETE DESIGN PATTERN --> 
 
-                 </div>   
-
-
-                 </div>   
-                 
-
-
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
                       <h5><font color = "#1b5e20"><center>Are you sure want to deactivate segment pattern?</center> </font> </h5>
                         <form action="{{URL::to('delDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                        <div class="modal-content col s12">
                         <p>
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="hidden">
@@ -223,7 +213,7 @@
                         </p>
                       </div>              
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
@@ -246,8 +236,8 @@
 
             <div id="addDesign" class="modal modal-fixed-footer">
               <h5><font color = "#1b5e20"><center>Add a Segment Pattern</center> </font> </h5> 
-              <div class="modal-content">
                 <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                <div class="modal-content col s12">
                 <p>
                 <div class="input-field">
                   <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="hidden">
@@ -265,9 +255,9 @@
 
                 <div class="input-field">
                   <select class="browser-default" required id="addSegment" name="addSegment">
-                        @foreach($segment as $segment)
-                          @if($segment->boolIsActive == 1)
-                            <option value="{{ $segment->strGarmentSegmentID }}" class="{{ $segment->strCategory }}">{{ $segment->strGarmentSegmentName }}</option>
+                        @foreach($segment as $segment_1)
+                          @if($segment_1->boolIsActive == 1)
+                            <option value="{{ $segment_1->strGarmentSegmentID }}" class="{{ $segment_1->strCategory }}">{{ $segment_1->strGarmentSegmentName }}</option>
                           @endif
                         @endforeach
                   </select>
@@ -293,7 +283,7 @@
                 </p>
               </div>
 
-              <div class="modal-footer">
+              <div class="modal-footer col s12">
                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                 <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
               </div>
@@ -312,6 +302,7 @@
     <script>
       // $(document).ready() executes this script AFTER the whole page loads
       $(document).ready(function () {
+
         // Get jQuery object for element with ID as 'category' (first select element)
         var categoryElement = $('#addCategory');
 
@@ -367,31 +358,49 @@
     <script>
     $(document).ready(function () {
         // Get jQuery object for element with ID as 'category' (first select element)
-        var categoryElement = $('#editCategory');
+        var categoryElements = $('.editCategory');
 
         // Get jQuery object for element with ID as 'types' (second select element)
-        var typesElement = $('#editSegment');
+        var typesElement = $('.editSegment');
+
+        var typeOptions = {};
+
+        typesElement.each(function (typeElem, elem) {
+          var elem = $(elem);
+          typeOptions[elem.attr('id')] = { element: elem, children: elem.children() };
+        });
+
+        console.log(typeOptions);
 
         // Get children elements of typesElement
-        var typeOptions = typesElement.children();
+        // var typeOptions = typesElement.children();
 
-        // Invoke updateValue() once with initial category value for initial page load
-        updateValue(categoryElement.val());
+        categoryElements.each(function (index, categoryElement) {
+          var elem = $(categoryElement);
 
-        // Listen for changes on the categoryElement
-        categoryElement.on('change', function () {
-          // Invoke updateValue() with currently selected category as parameter
-          updateValue(categoryElement.val());
+          // Invoke updateValue() once with initial category value for initial page load
+          updateValue(elem);
+
+          // Listen for changes on the categoryElement
+          elem.on('change', function () {
+            // Invoke updateValue() with currently selected category as parameter
+
+            updateValue(elem);
+          });
         });
+
 
         // Define default current type
         var defaultType = '';
 
         // updateValue function definition
-        function updateValue(category) {
-          // On update, show everything first
-          typeOptions.show();
+        function updateValue(categoryElement) {
+          var typeOption = typeOptions[categoryElement.attr('id')];
+          var category = categoryElement.val();
 
+          // On update, show everything first
+          typeOption.children.show();
+          
           // Set default type to empty string for All
           defaultType = '';
 
@@ -399,9 +408,9 @@
           if (category == 'All') return;
 
           // Iterate over options (children elements of typesElement)
-          for (var i = 0; i < typeOptions.length; i++) {
+          for (var i = 0; i < typeOption.children.length; i++) {
             // Return each child as jQuery object
-            var optionElement = $(typeOptions[i]);
+            var optionElement = $(typeOption.children[i]);
 
             // Check class of optionElement, hide it if it's not equal to the current selected category
             if (!optionElement.hasClass(category)) optionElement.hide();
@@ -413,7 +422,7 @@
           }
 
           // If defaultType is not empty string, set it as typesElement value
-          if (defaultType != '') typesElement.val(defaultType);
+          if (defaultType != '') typeOption.element.val(defaultType);
         }
       });
     </script>

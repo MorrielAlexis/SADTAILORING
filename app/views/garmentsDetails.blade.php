@@ -128,21 +128,17 @@
        
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <h5><font color = "#1b5e20"><center>Edit Garment Segment</center> </font> </h5>
-                        <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
-                          <div class="modal-content">
-                            <p>  
-                          
-                              <div class="input-field">
- 
-                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="text" class="" readonly>
-                                <label for="garment_details_id">Garment Details ID: </label>
+                          <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
+                            <div class="modal-content col s12">
+                            <p>
 
-                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden">
- 
+                              <div class="input-field">
+                                <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden"> 
                               </div>
 
                               <div class="input-field">                                                    
-                                <select required name="editCategory" id="editCategory">
+                                <select class="browser-default" id="editCategory" name="editCategory"required>
+                                  <option value="" disabled selected>Choose garment category</option>
                                   @foreach($category as $cat)
                                     @if($segment->strCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
                                       <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
@@ -150,8 +146,7 @@
                                       <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                                     @endif
                                   @endforeach
-                                </select>    
-                                <label>Category Name:</label>
+                                </select>   
                               </div>   
                         
                               <div class="input-field">
@@ -167,7 +162,7 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
@@ -176,10 +171,10 @@
                     <!--***************************Soft Delete********************************-->
                       <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
                         <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate the segment?</center> </font> </h5>
-                        <form action="{{URL::to('delGarmentSegment')}}" method="POST"> 
-                          <div class="modal-content">
-                            <p>  
-                          
+                          <form action="{{URL::to('delGarmentSegment')}}" method="POST">   
+                            <div class="modal-content col s12">
+                            <p> 
+
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">
                               </div>
@@ -210,7 +205,7 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
@@ -234,19 +229,19 @@
     			    <div id="addSegment" class="modal modal-fixed-footer">
                 <h5><font color = "#1b5e20"><center>Add Garment Segment</center> </font> </h5> 
                 <form action="{{URL::to('addGarmentSegment')}}" method="POST">
-                  <div class="modal-content">
+                  <div class="modal-content col s12">
                     <p>
                       <div class="input-field">
                         <input value="{{ $newID }}" id="addSegmentID" name="addSegmentID" type="hidden">
                       </div>
 
                       <div class="input-field">
-                        <select name='addCategory' id='addCategory' required>
+                        <select class="browser-default" name='addCategory' id='addCategory' required>
+                          <option value="" disabled selected>Choose garment category</option>
                           @foreach($category as $category)
                           <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
                           @endforeach
                         </select> 
-                        <label >Category</label>
                       </div>  
 
                       <div class="input-field">
@@ -261,7 +256,7 @@
                     </p>
                   </div>
 
-                  <div class="modal-footer">
+                  <div class="modal-footer col s12">
                     <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                     <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                   </div>
@@ -290,7 +285,7 @@
     <script type="text/javascript">
       $('.validateSegName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -310,7 +305,7 @@
 
       $('.validateSegName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\-\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -324,7 +319,7 @@
 
       $('.validateSegDesc').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\.\,\-\s]+$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -332,7 +327,7 @@
 
       $('.validateSegDesc').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\*\-\s]+$/;
+        var re=/^[a-zA-Z\'\.\,\-\s]+$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
