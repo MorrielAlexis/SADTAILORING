@@ -128,12 +128,11 @@
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
-                        <div class="modal-content">
-                        <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>
-                          <p>  
-                           <div class="container"> 
+                        <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>                          
                             <form action="{{URL::to('editGarmentCategory')}}" method="POST">       
- 
+                              <div class="modal-content col s12">
+                              <p> 
+                                
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
                               </div>
@@ -150,18 +149,17 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                           </div>
                         </form>
                       </div>
-                      </div>
                       <!--///////////////////////DELETE/////////////////////-->
                       <div id="del{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
                         <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate garment?</center> </font> </h5>
                         <form action="{{URL::to('delGarmentCategory')}}" method="POST">
-                          <div class="modal-content">
+                          <div class="modal-content col s12">
                             <p> 
                             
                               <div class="input-field">
@@ -189,7 +187,7 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                           </div>
@@ -212,7 +210,7 @@
               <h5><font color = "#1b5e20"><center>Add Garment Category</center> </font> </h5>
               <form action="{{URL::to('addGarmentCategory')}}" method="POST" id="addGarmentCategory" name="addGarmentCategory"> 
 
-                <div class="modal-content">
+                <div class="modal-content col s12">
 
                   <p>  
                   <div class="input-field">

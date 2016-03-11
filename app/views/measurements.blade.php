@@ -166,9 +166,9 @@
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button></td>
                         
                             <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
-                              <font color = "teal"><center><h5> Edit Measurement Info </h5></center></font>
+                            <h5><font color = "#1b5e20"><center>Edit Measurement Information</center> </font> </h5>
                               <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
-                                <div class="modal-content"> 
+                                <div class="modal-content col s12"> 
                                   <p>
                                   
                                     <div class="input-field">
@@ -218,7 +218,7 @@
                                   </p>
                                 </div> 
 
-                                <div class="modal-footer">
+                                <div class="modal-footer col s12">
                                   <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                   <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                                 </div>
@@ -229,8 +229,8 @@
 
                           <div id="del{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>
-                              <div class="modal-content">
                             <form action="{{URL::to('delMeasurementCategory')}}" method="POST"> 
+                              <div class="modal-content col s12">
                                 <p>
                                   <div class="input-field">
                                       <input value="{{ $head->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="hidden" readonly>                                 
@@ -262,7 +262,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
@@ -281,9 +281,9 @@
 
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Add Measurement Information</center> </font> </h5> 
-                      <div class="modal-content">
-                        <p>
-                          <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
+                        <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
+                          <div class="modal-content col s12">
+                          <p>
                           <div class="input-field">
                             <input value="{{ $categoryNewID }}" id="addMeasurementID" name="addMeasurementID" type="text" hidden>
                           </div>
@@ -315,7 +315,7 @@
                         </p>                       
                       </div>
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                       </div>
@@ -371,8 +371,8 @@
 
                           <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
                             <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
-                              <div class="modal-content">
                             <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
+                              <div class="modal-content col s12">
                                 <p>
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="text"  hidden>
@@ -390,7 +390,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
@@ -399,9 +399,9 @@
                           <!--///////////////////////DELETE/////////////-->
 
                           <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>
-                              <div class="modal-content">
+                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>                            
                             <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
+                               <div class="modal-content col s12">
                                 <p>
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="hidden">
@@ -428,7 +428,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
@@ -448,8 +448,8 @@
           
                   <div id="addMeasurementPart" class="modal modal-fixed-footer">
                     <h5><font color = "#1b5e20"><center>Add Measurement Part</center> </font> </h5>
-                      <div class="modal-content">
                     <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
+                      <div class="modal-content col s12">
                         <p>
 
                           <div class="input-field">
@@ -468,7 +468,7 @@
                         </p>
                       </div>
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                         <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
                       </div>

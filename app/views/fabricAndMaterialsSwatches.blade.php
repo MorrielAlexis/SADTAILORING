@@ -122,11 +122,11 @@
                     <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of swatch from the table" href="#del{{ $swatch->strSwatchID }}">DEACTIVATE</button>
     
 
-                      <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
-                        <div class="modal-content">
-                          <h5><font color = "#1b5e20"><center>Edit Fabric Swatch</center> </font> </h5>
-                            <p>
-                            <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
+                      <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">                        
+                        <h5><font color = "#1b5e20"><center>Edit Fabric Swatch</center> </font> </h5>
+                          <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
+                            <div class="modal-content col s12">
+                            <p>                           
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
                               </div>
@@ -166,18 +166,18 @@
                               </div>
                             </p>
                             </div>            
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>                          
                           </form>
                           </div> 
                           <!--******************Soft Delete*************************-->
-                      <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">
-                        <div class="modal-content">
-                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                          <p>
-                          <form action="{{URL::to('delSwatch')}}" method="POST">   
+                      <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">                        
+                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>                           
+                          <form action="{{URL::to('delSwatch')}}" method="POST"> 
+                          <div class="modal-content col s12">  
+                            <p>
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="hidden">
                               </div>
@@ -207,7 +207,7 @@
                               </div>                 
                           </div>
                           
-                            <div class="modal-footer">
+                            <div class="modal-footer col s12">
                               <button type="submit" class=" modal-action waves-effect waves-green btn-flat">OK</button>
                               <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                             </div>
@@ -232,7 +232,7 @@
              <h5><font color = "#1b5e20"><center>Add Fabric Swatch</center> </font> </h5>
               <form action="{{URL::to('addSwatch')}}" method="POST" id="addSwatch" name="addSwatch" enctype="multipart/form-data"> 
 
-                <div class="modal-content">
+                <div class="modal-content col s12">
                   <p>
  
                     <div class="input-field">
@@ -274,7 +274,7 @@
                   </p>  
                 </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer col s12">
                   <button type="submit" id="send" name="send" class=" modal-action waves-effect waves-green btn-flat">ADD</button>
                   <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                 </div>           

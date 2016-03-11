@@ -118,12 +118,11 @@
               		<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of pattern" href="#edit{{ $pattern->strDesignPatternID }}">EDIT</button></td>
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to remove data of pattern from table" href="#del{{ $pattern->strDesignPatternID }}">DEACTIVATE</button>
                       
-                    <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
-                        <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>
-                        <p>
+                    <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">                     
+                        <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>                        
                         <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
-                        
+                        <div class="modal-content col s12">
+                          <p>
                           <div class="input-field">
                             <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
                           </div>
@@ -168,7 +167,7 @@
 
                           </p>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer col s12">
                           <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                         </div>
@@ -177,9 +176,9 @@
                  <!-- DELETE DESIGN PATTERN --> 
 
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
                       <h5><font color = "#1b5e20"><center>Are you sure want to deactivate segment pattern?</center> </font> </h5>
                         <form action="{{URL::to('delDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                        <div class="modal-content col s12">
                         <p>
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="hidden">
@@ -212,7 +211,7 @@
                         </p>
                       </div>              
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
@@ -235,8 +234,8 @@
 
             <div id="addDesign" class="modal modal-fixed-footer">
               <h5><font color = "#1b5e20"><center>Add a Segment Pattern</center> </font> </h5> 
-              <div class="modal-content">
                 <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                <div class="modal-content col s12">
                 <p>
                 <div class="input-field">
                   <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="hidden">
@@ -282,7 +281,7 @@
                 </p>
               </div>
 
-              <div class="modal-footer">
+              <div class="modal-footer col s12">
                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                 <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
               </div>

@@ -107,12 +107,12 @@
               	<td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit catalogue design detail" href="#edit{{$catalogue->strCatalogueID}}">EDIT</button></td>
                 <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of catalogue design from the table" href="#del{{$catalogue->strCatalogueID}}">DEACTIVATE</button>
 
-                  <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">
-                    <div class="modal-content">
-                    <h5><font color = "#1b5e20"><center>Edit Catalogue Design</center></font> </h5>
-                      <p>
+                  <div id="edit{{$catalogue->strCatalogueID}}" class="modal modal-fixed-footer">                   
+                    <h5><font color = "#1b5e20"><center>Edit Catalogue Design</center></font> </h5>                     
                       <form action="{{URL::to('editCatalogueDesign')}}" method="POST" enctype="multipart/form-data">
-                       
+                       <div class="modal-content col s12">
+                        <p>
+
                         <div class="input-field">
                           <input value="{{$catalogue->strCatalogueID}}" id="editCatalogueID" name="editCatalogueID" type="text" class="" hidden>
                         </div>
@@ -152,7 +152,7 @@
                         </div> 
                       </p>
                     </div>      
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class="waves-effect waves-green btn-flat">Update</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                       </div>
@@ -160,11 +160,12 @@
                 </div>
 
               <!-- DELETE DESIGN IN CATALOGUE -->
-              <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">
-                <div class="modal-content">
-                <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>   
-                  <p>
+              <div id="del{{ $catalogue->strCatalogueID }}" class="modal modal-fixed-footer">               
+                <h5><font color = "#1b5e20"><center>Are you sure you want to delete?</center> </font> </h5>                     
                     <form action="{{URL::to('delCatalogueDesign')}}" method="POST">
+                     <div class="modal-content col s12">
+                      <p>
+
                       <div class="input-field">
                         <input value="{{$catalogue->strCatalogueID}}" id="delCatalogueID" name="delCatalogueID" type="hidden">
                       </div>
@@ -194,7 +195,7 @@
                       </div>
                       </p>
                     </div>
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                       </div>          
@@ -215,11 +216,12 @@
   </div>
   
                <!-- ADD DESIGN IN CATALOGUE -->
-          <div id="addCatalogue" class="modal modal-fixed-footer">
-            <div class="modal-content">
-            <h5><font color = "#1b5e20"><center>Add Catalogue Design</center> </font> </h5> 
-              <p>
+          <div id="addCatalogue" class="modal modal-fixed-footer">            
+            <h5><font color = "#1b5e20"><center>Add Catalogue Design</center> </font> </h5>               
               <form action='{{URL::to('addCatalogueDesign')}}' method="POST" enctype="multipart/form-data">
+              <div class="modal-content col s12">
+                <p>
+
               <div class="input-field">
                 <input value="{{$newID}}" id="addCatalogueID" name="addCatalogueID" type="hidden">
  
@@ -257,7 +259,7 @@
               </p>
             </div> 
             
-            <div class="modal-footer">                  
+            <div class="modal-footer col s12">                  
               <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
               <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>                    
             </div>

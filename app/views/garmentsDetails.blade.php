@@ -127,17 +127,18 @@
                     <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of segment from table" href="#del{{ $segment->strGarmentSegmentID }}">DEACTIVATE</button>
        
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
-                        <div class="modal-content">
                         <h5><font color = "#1b5e20"><center>Edit Garment Segment</center> </font> </h5>
-                          <p>
                           <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
-                          
+                            <div class="modal-content col s12">
+                            <p>
+
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden"> 
                               </div>
 
                               <div class="input-field">                                                    
-                                <select required name="editCategory" id="editCategory">
+                                <select class="browser-default" id="editCategory" name="editCategory"required>
+                                  <option value="" disabled selected>Choose garment category</option>
                                   @foreach($category as $cat)
                                     @if($segment->strCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
                                       <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
@@ -145,8 +146,7 @@
                                       <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                                     @endif
                                   @endforeach
-                                </select>    
-                                <label>Category Name:</label>
+                                </select>   
                               </div>   
                         
                               <div class="input-field">
@@ -162,7 +162,7 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
@@ -170,11 +170,11 @@
                       </div>
                     <!--***************************Soft Delete********************************-->
                       <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
-                        <div class="modal-content">
                         <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate the segment?</center> </font> </h5>
-                          <p> 
-                            <form action="{{URL::to('delGarmentSegment')}}" method="POST">   
-                          
+                          <form action="{{URL::to('delGarmentSegment')}}" method="POST">   
+                            <div class="modal-content col s12">
+                            <p> 
+
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">
                               </div>
@@ -205,7 +205,7 @@
                             </p>
                           </div>
 
-                          <div class="modal-footer">
+                          <div class="modal-footer col s12">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                           </div>
@@ -229,19 +229,19 @@
     			    <div id="addSegment" class="modal modal-fixed-footer">
                 <h5><font color = "#1b5e20"><center>Add Garment Segment</center> </font> </h5> 
                 <form action="{{URL::to('addGarmentSegment')}}" method="POST">
-                  <div class="modal-content">
+                  <div class="modal-content col s12">
                     <p>
                       <div class="input-field">
                         <input value="{{ $newID }}" id="addSegmentID" name="addSegmentID" type="hidden">
                       </div>
 
                       <div class="input-field">
-                        <select name='addCategory' id='addCategory' required>
+                        <select class="browser-default" name='addCategory' id='addCategory' required>
+                          <option value="" disabled selected>Choose garment category</option>
                           @foreach($category as $category)
                           <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
                           @endforeach
                         </select> 
-                        <label >Category</label>
                       </div>  
 
                       <div class="input-field">
@@ -256,7 +256,7 @@
                     </p>
                   </div>
 
-                  <div class="modal-footer">
+                  <div class="modal-footer col s12">
                     <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
                     <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                   </div>
