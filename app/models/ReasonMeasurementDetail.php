@@ -2,7 +2,7 @@
 
 class ReasonMeasurementDetail extends Eloquent {
 
-	protected $table = 'TblReasonMeasurementDetail';
+	protected $table = 'tblReasonMeasurementDetail';
 	protected $primaryKey = 'strInactiveDetailID';
 	protected $fillable = array('strInactiveDetailID',
 								'strInactiveReason');

@@ -2,7 +2,7 @@
 
 class ReasonMaterialNeedle extends Eloquent {
 
-	protected $table = 'TblReasonMaterialNeedle';
+	protected $table = 'tblReasonMaterialNeedle';
 	protected $primaryKey = 'strInactiveNeedleID';
 	protected $fillable = array('strInactiveNeedleID',
 								'strInactiveReason');

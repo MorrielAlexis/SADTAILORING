@@ -2,7 +2,7 @@
 
 class ReasonRole extends Eloquent {
 
-	protected $table = 'TblReasonRole';
+	protected $table = 'tblReasonRole';
 	protected $primaryKey = 'strInactiveRoleID';
 	protected $fillable = array('strInactiveRoleID',
 								'strInactiveReason');

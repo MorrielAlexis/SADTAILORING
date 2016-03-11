@@ -116,7 +116,7 @@
 
                     <thead>
                       <tr>
-                        <!--<th date-field= "Thread ID">Thread ID</th>-->
+                        <th date-field= "Thread ID">Thread ID</th>
                         <th data-field="Thread Name">Thread Name</th>
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
@@ -130,7 +130,7 @@
                       @foreach($threads as $thread)
                       @if($thread->boolIsActive == 1)
                       <tr>
-                        <!--<td>{{ $thread->strMaterialThreadID }}</td>-->
+                        <td>{{ $thread->strMaterialThreadID }}</td>
                         <td>{{ $thread->strMaterialThreadName }}</td>
                         <td>{{ $thread->strMaterialThreadColor }}</td>
                         <td>{{ $thread->strMaterialThreadDesc }}</td>
@@ -140,7 +140,7 @@
                             
                           <!--EDIT THREADS-->
                           <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
+                            <div class="modal-content col s12">
                             <h5><font color = "#1b5e20"><center>Edit Thread</center> </font> </h5>
                             <p>
                             <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
@@ -177,7 +177,7 @@
                               </p>
                               </div>    
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>   
                               </div>
@@ -186,9 +186,9 @@
                         
                             <!--deactivate THREADS-->
                           <div id="del{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
                             <form action="{{URL::to('delThread')}}" method="POST">
+                              <div class="modal-content col s12">
+                                <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
                                 <p>
          
                                   <div class="input-field">
@@ -221,7 +221,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
                               </div> 
@@ -284,11 +284,10 @@
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">DEACTIVATE</button>
                             
                           <div id="edit{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content">                              
                             <h5><font color = "#1b5e20"><center>Edit Needle</center> </font> </h5>
-                            <p>
                             <form action="{{URL::to('editNeedle')}}" method="POST" enctype="multipart/form-data"> 
-                                              
+
+                              <div class="modal-content col s12">                              
                                 <div class="input-field">
                                   <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" type="hidden">
                                 </div>
@@ -317,12 +316,12 @@
 
                                   <div class="file-path-wrapper">
                                     <input value="{{$needle->strMaterialNeedleImage}}" class="file-path validate" id="editNeedleImage" name="editNeedleImage" type="text">
-                                  </div> 
+                                  </div>
+                                  <br><br> 
                                 </div>
-                              </p>
                               </div>    
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
@@ -332,11 +331,12 @@
                         
 
                           <div id="del{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
-                              <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                              <p>
-                              <form action="{{URL::to('delNeedle')}}" method="POST">
+                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
+                            <form action="{{URL::to('delNeedle')}}" method="POST">
 
+                              <div class="modal-content col s12">
+                                
+                                <p>
                                   <div class="input-field">
                                     <input value="{{$needle->strMaterialNeedleID}}" id="delNeedleID" name="delNeedleID" type="hidden">   
                                   </div>
@@ -367,7 +367,7 @@
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                               </div> 
@@ -434,9 +434,9 @@
                            
                           <!-- <EDIT BUTTONS>   -->
                           <div id="edit{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
                             <h5><font color = "#1b5e20"><center>Edit Button</center> </font> </h5>
-                            </p>
+
+                              <div class="modal-content col s12">
                             <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data">                               
                                 <div class="input-field">
                                   <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" type="hidden">
@@ -472,20 +472,24 @@
                                     <input value="{{$button->strMaterialButtonImage}}" class="file-path validate" id="editButtonImage" name="editButtonImage" type="text">
                                   </div>
                                 </div>  
-                                </p>                        
+                                <br><br>                            
                               </div>    
-                              <div class="modal-footer">
+
+
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
                             </form>  
                           </div>
-                      
+                       
+                       
+
                           <div id="del{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                            <p>
-                              <form action="{{URL::to('delButton')}}" method="POST">
+                              <div class="modal-content col s12">
+                            <form action="{{URL::to('delButton')}}" method="POST">
+                                <p>
                                   <div class="input-field">
                                    <input value="{{$button->strMaterialButtonID}}" id="delButtonID" name="delButtonID" type="hidden">
                                   </div>
@@ -518,10 +522,11 @@
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$button->strInactiveReason}}" type="text" class="validate" required>
                                     <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
+                                  <br><br>
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                               </div> 
@@ -587,11 +592,10 @@
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of zipper detail from the table" href="#del{{$zipper->strMaterialZipperID}}">DEACTIVATE</button>
                             
                           <div id="edit{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content">                             
                             <h5><font color = "#1b5e20"><center>Edit Zipper</center> </font> </h5>
-                            <p>
                             <form action="{{URL::to('editZipper')}}" method="POST" enctype="multipart/form-data">
 
+                              <div class="modal-content col s12">                             
                                 <div class="input-field">
                                   <input id="editZipperID" name = "editZipperID" value = "{{$zipper->strMaterialZipperID}}" type="hidden">
                                 </div>
@@ -627,21 +631,23 @@
                                     <input value="{{$zipper->strMaterialZipperImage}}" class="file-path validate" id="editZipperImage" name="editZipperImage" type="text">
                                   </div>
                                 </div>
-                              </p>
+                                <br><br>
                               </div>    
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
                             </form>
-                          </div>     
+                          </div>
+                        
+                        
 
                           <div id="del{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                            <p>                           
-                              <form action="{{URL::to('delZipper')}}" method="POST">
+                              <div class="modal-content col s12">
+                            <form action="{{URL::to('delZipper')}}" method="POST">
+                                <p>                           
                                   <div class="input-field">
                                     <input value="{{$zipper->strMaterialZipperID}}" id="delZipperID" name="delZipperID" type="hidden">
                                    </div>
@@ -674,10 +680,11 @@
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$zipper->strInactiveReason}}" type="text" class="validate" required>
                                     <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
+                                  <br><br>
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div> 
@@ -746,10 +753,10 @@
 
                             
                           <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content"> 
                             <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>
-                            <p>
                             <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
+
+                              <div class="modal-content col s12"> 
                                                          
                                 <div class="input-field">
                                   <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" type="hidden">
@@ -784,10 +791,10 @@
                                     <input value="{{$hook->strMaterialHookImage}}" id="editHookImage" name="editHookImage" class="file-path validate" type="text">
                                   </div>
                                 </div> 
-                                </p>
+                                <br><br>
                               </div>    
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>   
                               </div>
@@ -796,11 +803,12 @@
                         
 
                           <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
                             <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                            <p>  
-                              <form action="{{URL::to('delHook')}}" method="POST">
-        
+                            <form action="{{URL::to('delHook')}}" method="POST">
+                              <div class="modal-content col s12">
+                                
+                                
+                                <p>
                                  <div class="input-field">
                                     <input value="{{$hook->strMaterialHookID}}" id="delHookID" name="delHookID" type="hidden">
                                   </div>
@@ -833,10 +841,11 @@
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$hook->strInactiveReason}}" type="text" class="validate" required>
                                     <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
+                                  <br><br>
                                 </p>
                               </div>
 
-                              <div class="modal-footer">
+                              <div class="modal-footer col s12">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                               </div>
@@ -863,8 +872,8 @@
   <div id="addThread" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Thread</center> </font> </h5>
 
-      <div class="modal-content">
-      <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
+      <div class="modal-content col s12">
+    <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
             <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" type="hidden">
          </div>
@@ -898,7 +907,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -909,7 +918,7 @@
   <!--MODAL: add Needle-->
   <div id="addNeedle" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Needle</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
            <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" type="hidden">
@@ -944,7 +953,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -954,7 +963,7 @@
   <!--MODAL: add Button-->
   <div id="addButton" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Button</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" type="hidden">
@@ -993,7 +1002,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -1003,7 +1012,7 @@
   <!--MODAL: add Zipper-->
   <div id="addZipper" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Zipper</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" type="hidden">
@@ -1044,7 +1053,7 @@
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
       </div>
@@ -1054,7 +1063,7 @@
   <!--MODAL: add HookEye-->
   <div id="addHookEye" class="modal modal-fixed-footer">
     <h5><font color = "#1b5e20"><center>Add Hook and Eye</center> </font> </h5>
-      <div class="modal-content">
+      <div class="modal-content col s12">
     <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
         <div class="input-field">
           <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" type="hidden">
@@ -1093,7 +1102,7 @@
      </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer">
+      <div class="modal-footer col s12">
         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
         <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
       </div>

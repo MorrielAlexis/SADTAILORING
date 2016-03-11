@@ -130,7 +130,8 @@
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
                         <div class="modal-content">
                         <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>
-                          <p>   
+                          <p>  
+                           <div class="container"> 
                             <form action="{{URL::to('editGarmentCategory')}}" method="POST">       
  
                               <div class="input-field">
@@ -154,6 +155,7 @@
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                           </div>
                         </form>
+                      </div>
                       </div>
                       <!--///////////////////////DELETE/////////////////////-->
                       <div id="del{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
