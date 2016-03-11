@@ -118,10 +118,10 @@
                 <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit data of role" href="#edit{{$role->strEmpRoleID}}">EDIT</button></td>
                 <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of role from table" href="#del{{$role->strEmpRoleID}}">DEACTIVATE</button>
                 </td>	
-                  <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
-                        <h5><font color = "#1b5e20"><center>Edit role</center> </font> </h5>
+                  <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">                     
+                    <h5><font color = "#1b5e20"><center>Edit role</center> </font> </h5>
                     <form action="{{URL::to('editRole')}}" method="POST">
+                      <div class="modal-content col s12">
                         <p>
                           <div class="input-field">
                             <input value="{{$role->strEmpRoleID}}" id="editRoleID" name="editRoleID" type="hidden">
@@ -139,17 +139,17 @@
                         </p>    
                       </div>
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
                     </form>
                   </div>
                   <!---/////////////////DELETE ROLE//////////////////////-->
-                  <div id="del{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">
-                      <div class="modal-content">
-                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                    <form action="{{URL::to('delRole')}}" method="POST">
+                  <div id="del{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">                     
+                     <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
+                      <form action="{{URL::to('delRole')}}" method="POST">
+                       <div class="modal-content col s12">
                         <p>
                           <div class="input-field">
                             <input value="{{$role->strEmpRoleID}}" id="delRoleID" name="delRoleID" type="hidden">
@@ -176,7 +176,7 @@
                         </p>    
                       </div>
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col s12">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                       </div>
@@ -194,9 +194,8 @@
         
     			<div id="addRole" class="modal">
             <h5><font color = "#1b5e20"><center>Add a Role</center> </font> </h5>
-
-              <div class="modal-content">
-            <form action="{{URL::to('addRole')}}" method="POST" id="formAddRole" name="formAddRole">
+              <form action="{{URL::to('addRole')}}" method="POST" id="formAddRole" name="formAddRole">
+               <div class="modal-content col s12">
                 <p>
                   <div class="input-field">
                     <input value="{{$newID}}" id="addRoleID" name="addRoleID" type="hidden">
@@ -214,7 +213,7 @@
                 </p>
               </div>
 
-                <div class="modal-footer">
+                <div class="modal-footer col s12">
                   <button type="submit" class="modal-action  waves-effect waves-green btn-flat">ADD</button>
                   <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
                 </div>
