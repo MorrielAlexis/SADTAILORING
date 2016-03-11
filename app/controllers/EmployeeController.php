@@ -58,7 +58,7 @@ class EmployeeController extends BaseController{
 						preg_match($regexStreet, Input::get('addEmpStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('addEmpHouseNo')) && preg_match($regexCity, Input::get('addEmpCity'))){
 							$validInput = TRUE;
-								if(!trim(Input::get('addEmpZipCode')) == '' || !trim(Input::get('addEmpProvince')) == '' || !trim(Input::get('addEmpBarangay')) == 0){
+								if((!trim(Input::get('addEmpZipCode')) == '' || !trim(Input::get('addEmpProvince')) == '' || !trim(Input::get('addEmpBarangay')) == 0)){
 									if (preg_match($regexZip, Input::get('addEmpZipCode')) || preg_match($regexProvince, Input::get('addEmpProvince')) ||
 										preg_match($regexBarangay, Input::get('addEmpBarangay'))){
 										$validInput = TRUE;
@@ -67,7 +67,7 @@ class EmployeeController extends BaseController{
 					}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
-		
+		//dd($validInput);
 		$count = DB::table('tblEmployee')
             ->select('tblEmployee.strEmailAdd')
             ->where('tblEmployee.strEmailAdd','=', trim(Input::get('addEmail')))
