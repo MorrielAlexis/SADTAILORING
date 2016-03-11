@@ -2,7 +2,7 @@
 
 class ReasonCatalogue extends Eloquent {
 
-	protected $table = 'TblReasonCatalogue';
+	protected $table = 'tblReasonCatalogue';
 	protected $primaryKey = 'strInactiveCatalogueID';
 	protected $fillable = array('strInactiveCatalogueID',
 								'strInactiveReason');

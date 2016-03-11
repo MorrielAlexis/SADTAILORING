@@ -2,7 +2,7 @@
 
 class ReasonFabricType extends Eloquent {
 
-	protected $table = 'TblReasonFabricType';
+	protected $table = 'tblReasonFabricType';
 	protected $primaryKey = 'strInactiveFabricTypeID';
 	protected $fillable = array('strInactiveFabricTypeID',
 								'strInactiveReason');
