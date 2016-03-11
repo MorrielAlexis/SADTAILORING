@@ -9,17 +9,10 @@ class tblUsersSeeder extends Seeder{
 		$tblUser = array (
 			array(
 
-				'strUserID' => 'USER-A-001',
+				'strUserID' => 'USER001',
 				'strPassword' => 'pass001',
 				'strLoginEmpID' => 'EMPL001'
 
-			),
-			
-			array(
-
-				'strUserID' => 'USER-M-002',
-				'strPassword' => 'pass002',
-				'strLoginEmpID' => 'EMPL002'
 			)
 
 	);
