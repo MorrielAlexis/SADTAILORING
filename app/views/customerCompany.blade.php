@@ -154,7 +154,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$company->strCustCompanyBarangay}}" id="editCustCompanyBarangay" name="editCustCompanyBarangay" type="text" class="validateBarangay">
+                            <input value="{{$company->strCustCompanyBarangay}}" id="editCustCompanyBarangay" name="editCustCompanyBarangay" type="text" class="validateBarangay">
                             <label for=" Brgy">*Barangay: </label>
                           </div>
 
