@@ -154,7 +154,7 @@
                           </div>
 
                           <div class="input-field">
-                            <input required value="{{$company->strCustCompanyBarangay}}" id="editCustCompanyBarangay" name="editCustCompanyBarangay" type="text" class="validateBarangay">
+                            <input value="{{$company->strCustCompanyBarangay}}" id="editCustCompanyBarangay" name="editCustCompanyBarangay" type="text" class="validateBarangay">
                             <label for=" Brgy">*Barangay: </label>
                           </div>
 
@@ -303,7 +303,7 @@
               </div>
 
                <div class="input-field">
-                <input id="addCustCompanyStreet" name="addCustCompanyStreet" type="text" class="validateStreet">
+                <input  required id="addCustCompanyStreet" name="addCustCompanyStreet" type="text" class="validateStreet">
                 <label for=" Street">*Street: </label>
               </div>
 
@@ -313,7 +313,7 @@
               </div>
 
               <div class="input-field">
-                <input id="addCustCompanyCity" name="addCustCompanyCity" type="text" class="validateCity">
+                <input required="" id="addCustCompanyCity" name="addCustCompanyCity" type="text" class="validateCity">
                 <label for=" City">*City/Municipality: </label>
               </div>
 
