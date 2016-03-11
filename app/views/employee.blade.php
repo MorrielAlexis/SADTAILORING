@@ -145,10 +145,10 @@
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of employee from table" href="#del{{$employee->strEmployeeID}}">DEACTIVATE</button>
                   
                <!-- <Modal Structure for Edit Employee>   -->
-                    <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">
-                        <div class="modal-content">
-                          <h5><font color = "#1b5e20"><center>Edit Employee Profile</center> </font> </h5>
+                   <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">                       
+                    <h5><font color = "#1b5e20"><center>Edit Employee Profile</center> </font> </h5>
                       <form action="{{URL::to('editEmployee')}}" method="POST"> 
+                        <div class="modal-content col s12">
                           <p>
                           <div class="input-field">
                             <label for="first_name">Employee ID: </label>
@@ -256,7 +256,7 @@
                           </p>
                         </div>
 
-                        <div class="modal-footer">
+                        <div class="modal-footer col s12">
                           <button type="submit" class="waves-effect waves-green btn-flat">UPDATE</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
@@ -264,11 +264,11 @@
                     </div> 
 
                     <!-- Modal for (SOFT) delete Employee -->
-                    <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer"> 
-                        <div class="modal-content">
-                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                            <form action="{{URL::to('delEmployee')}}" method="POST">
-                          <p>
+                    <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">                        
+                      <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
+                        <form action="{{URL::to('delEmployee')}}" method="POST">
+                            <div class="modal-content col s12">
+                            <p>
                             <div class="input-field">
                               <label for="first_name">Employee ID: </label>
                               <input value="{{$employee->strEmployeeID}}" id="delEmpID" name="delEmpID" type="text" class="" readonly>
@@ -305,7 +305,7 @@
                           </p> 
                         </div>   
 
-                        <div class="modal-footer">
+                        <div class="modal-footer col s12">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
@@ -324,10 +324,10 @@
             </div>
                 
           <!-- <Modal Structure for Add Employee> -->
-    			<div id="newemp" class="modal modal-fixed-footer">
-              <div class="modal-content">
-            <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" class="employee-form" name="addEmployee">
-                <h5><font color = "#1b5e20"><center>Add an Employee</center> </font> </h5>
+    			<div id="newemp" class="modal modal-fixed-footer">              
+            <h5><font color = "#1b5e20"><center>Add an Employee</center> </font> </h5>
+            <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" class="employee-form" name="addEmployee">               
+                <div class="modal-content col s12">
                 <p>
 
                   <div class="input-field">
@@ -429,7 +429,7 @@
                 </p>
               </div>
 
-              <div class="modal-footer">
+              <div class="modal-footer col s12">
                 <button type="submit" id="send" name="send" class="modal-action waves-effect waves-green btn-flat">ADD</button>
                 <button type="button" onclick="clearData()" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button>
               </div>
