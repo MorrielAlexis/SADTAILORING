@@ -42,20 +42,26 @@ class CustomerIndividualController extends BaseController{
 		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
 		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
 
+		$regexZip = "/^[0-9]+$/";
+		$regexProvince = "/^[a-zA-Z\'\-\s\.]+$/";
+
 		if(!trim(Input::get('addFName')) == '' && !trim(Input::get('addLName')) == '' && 
 		   !trim(Input::get('addCustPrivHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
-		   !trim(Input::get('addCustPrivStreet')) == '' && !trim(Input::get('addCustPrivBarangay')) == '' &&
-		   !trim(Input::get('addCusttPrivCity')) == '' && !trim(Input::get('addCel')) == ''){
+		   !trim(Input::get('addCustPrivStreet')) == '' && !trim(Input::get('addCustPrivCity')) == '' && 
+		   !trim(Input::get('addCel')) == ''){
 				$validInput = TRUE;
-
 					if (preg_match($regex, Input::get('addFName')) && preg_match($regex, Input::get('addLName')) &&
 						preg_match($regexStreet, Input::get('addCustPrivStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('addCustPrivHouseNo')) && preg_match($regexBarangay, Input::get('addCustPrivBarangay')) &&
 						preg_match($regexCity, Input::get('addCustPrivCity'))) {
 							$validInput = TRUE;
+								if(!trim(Input::get('addCustPrivZipCode')) == '' || !trim(Input::get('addCustPrivProvince')) == ''){
+									if (preg_match($regexZip, Input::get('addCustPrivZipCode')) || preg_match($regexProvince, Input::get('addCustPrivProvince'))){
+										$validInput = TRUE;
+									}else $validInput = FALSE;
+								}
 					}else $validInput = FALSE;
 		}else $validInput = FALSE;
-
 
 		$count = DB::table('tblCustPrivateIndividual')
             ->select('tblCustPrivateIndividual.strCustPrivEmailAddress')
