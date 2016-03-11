@@ -137,8 +137,7 @@ class CustomerIndividualController extends BaseController{
 				$validInput = TRUE;
 					if (preg_match($regex, Input::get('editFName')) && preg_match($regex, Input::get('editLName')) &&
 						preg_match($regexStreet, Input::get('editCustPrivStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
-						preg_match($regexHouse, Input::get('editCustPrivHouseNo')) && preg_match($regexBarangay, Input::get('editCustPrivBarangay')) &&
-						preg_match($regexCity, Input::get('editCustPrivCity'))) {
+						preg_match($regexHouse, Input::get('editCustPrivHouseNo')) && preg_match($regexCity, Input::get('editCustPrivCity'))) {
 							$validInput = TRUE;
 								if(!trim(Input::get('editCustPrivZipCode')) == '' || !trim(Input::get('editCustPrivProvince')) == '' || !trim(Input::get('editCustPrivBarangay'))){
 									if (preg_match($regexZip, Input::get('editCustPrivZipCode')) || preg_match($regexProvince, Input::get('editCustPrivProvince')) || 
