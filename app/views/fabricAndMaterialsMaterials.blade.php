@@ -116,7 +116,7 @@
 
                     <thead>
                       <tr>
-                        <!--<th date-field= "Thread ID">Thread ID</th>-->
+                        <th date-field= "Thread ID">Thread ID</th>
                         <th data-field="Thread Name">Thread Name</th>
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
@@ -130,7 +130,7 @@
                       @foreach($threads as $thread)
                       @if($thread->boolIsActive == 1)
                       <tr>
-                        <!--<td>{{ $thread->strMaterialThreadID }}</td>-->
+                        <td>{{ $thread->strMaterialThreadID }}</td>
                         <td>{{ $thread->strMaterialThreadName }}</td>
                         <td>{{ $thread->strMaterialThreadColor }}</td>
                         <td>{{ $thread->strMaterialThreadDesc }}</td>
@@ -140,15 +140,13 @@
                             
                           <!--EDIT THREADS-->
                           <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
+                            <div class="modal-content">
                             <h5><font color = "#1b5e20"><center>Edit Thread</center> </font> </h5>
+                            <p>
                             <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
 
-                              <div class="modal-content">
                                 <div class="input-field">
-      
-
                                   <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" type="hidden">
-         
                                 </div>
                           
                                 <div class="input-field">
@@ -174,9 +172,9 @@
 
                                   <div class="file-path-wrapper">
                                     <input value="{{$thread->strMaterialThreadImage}}" class="file-path validate" id="editThreadImage" name="editThreadImage" type="text">
-                                  </div>
-                                  <br><br>
+                                  </div>                   
                                 </div> 
+                              </p>
                               </div>    
 
                               <div class="modal-footer">
@@ -937,7 +935,7 @@
         </div>
                     
          <div class="input-field">
-          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateSize" class="validateDesc">
+          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateDesc">
           <label for="Needle_Desc"> Description: </label>
         </div>
                                   

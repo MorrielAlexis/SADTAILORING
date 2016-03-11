@@ -186,14 +186,10 @@ class MaterialsController extends BaseController{
 
 	public function editThread()
 	{
-		$id = Input::get('editThreadID');
-		$thread = MaterialThread::find($id);
-
 		$threads = MaterialThread::get();
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		
 		$regex = "/^[a-zA-Z\s\-\']+$/";
 		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
 		
@@ -204,14 +200,18 @@ class MaterialsController extends BaseController{
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
-		foreach($threads as $thread)
-			if(!strcasecmp($thread->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
-				strcasecmp($thread->strMaterialThreadName, trim(Input::get('editThreadName'))) == 0 && 
-				strcasecmp($thread->strMaterialThreadColor, trim(Input::get('editThreadColor'))) == 0 &&
-				strcasecmp($thread->strMaterialThreadDesc, trim(Input::get('editThreadDesc'))) == 0)
+		$id = Input::get('editThreadID');
+		$thread = MaterialThread::find($id);
+
+		foreach($threads as $threade)
+			if(!strcasecmp($threade->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
+				strcasecmp($threade->strMaterialThreadName, trim(Input::get('editThreadName'))) == 0 && 
+				strcasecmp($threade->strMaterialThreadColor, trim(Input::get('editThreadColor'))) == 0 &&
+				strcasecmp($threade->strMaterialThreadDesc, trim(Input::get('editThreadDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
+			//dd("yes")
 			if(!$isAdded){
 				if(Input::get('editThreadImage') == $thread->strMaterialThreadImage){
 					$thread->strMaterialThreadName = trim(Input::get('editThreadName'));
@@ -330,7 +330,7 @@ class MaterialsController extends BaseController{
 		$id = Input::get('editNeedleID');
 		$needle= MaterialNeedle::find($id);
 
-		$needl = MaterialNeedle::get();
+		$needles = MaterialNeedle::get();
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
@@ -346,11 +346,11 @@ class MaterialsController extends BaseController{
 		}else $validInput = FALSE;
 
 
-		foreach($needl as $needle)
-			if(!strcasecmp($needle->strMaterialNeedleID, Input::get('editNeedleID')) &&
-				strcasecmp($needle->strMaterialNeedleName, trim(Input::get('editNeedleName'))) == 0 && 
-				strcasecmp($needle->strMaterialNeedleSize, trim(Input::get('editNeedleSize'))) == 0 &&
-				strcasecmp($needle->strMaterialNeedleDesc, trim(Input::get('editNeedleDesc'))) == 0)
+		foreach($needles as $needlee)
+			if(!strcasecmp($needlee->strMaterialNeedleID, Input::get('editNeedleID')) == 0 &&
+				strcasecmp($needlee->strMaterialNeedleName, trim(Input::get('editNeedleName'))) == 0 && 
+				strcasecmp($needlee->strMaterialNeedleSize, trim(Input::get('editNeedleSize'))) == 0 &&
+				strcasecmp($needlee->strMaterialNeedleDesc, trim(Input::get('editNeedleDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -491,12 +491,12 @@ class MaterialsController extends BaseController{
 		}else $validInput = FALSE;
 
 
-		foreach($buttons as $button)
-			if(!strcasecmp($button->strMaterialButtonID, Input::get('editButtonID')) == 0 && 
-				strcasecmp($button->strMaterialButtonName, trim(Input::get('editButtonName'))) == 0 && 
-				strcasecmp($button->strMaterialButtonSize, trim(Input::get('editButtonSize'))) == 0 &&
-				strcasecmp($button->strMaterialButtonColor, trim(Input::get('editButtonColor'))) == 0 &&
-				strcasecmp($button->strMaterialButtonDesc, trim(Input::get('editButtonDesc'))) == 0)
+		foreach($buttons as $buttonn)
+			if(!strcasecmp($buttonn->strMaterialButtonID, Input::get('editButtonID')) == 0 && 
+				strcasecmp($buttonn->strMaterialButtonName, trim(Input::get('editButtonName'))) == 0 && 
+				strcasecmp($buttonn->strMaterialButtonSize, trim(Input::get('editButtonSize'))) == 0 &&
+				strcasecmp($buttonn->strMaterialButtonColor, trim(Input::get('editButtonColor'))) == 0 &&
+				strcasecmp($buttonn->strMaterialButtonDesc, trim(Input::get('editButtonDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -640,12 +640,12 @@ class MaterialsController extends BaseController{
 		}else $validInput = FALSE;
 
 
-		foreach($zippers as $zipper)
-			if(!strcasecmp($zipper->strMaterialZipperID, Input::get('editZipperID')) == 0 &&
-				strcasecmp($zipper->strMaterialZipperName, trim(Input::get('editZipperName'))) == 0 && 
-				strcasecmp($zipper->strMaterialZipperSize, trim(Input::get('editZipperSize'))) == 0 &&
-				strcasecmp($zipper->strMaterialZipperColor, trim(Input::get('editZipperColor'))) == 0 &&
-				strcasecmp($zipper->strMaterialZipperDesc, trim(Input::get('editZipperDesc'))) == 0)
+		foreach($zippers as $zipperr)
+			if(!strcasecmp($zipperr->strMaterialZipperID, Input::get('editZipperID')) == 0 &&
+				strcasecmp($zipperr->strMaterialZipperName, trim(Input::get('editZipperName'))) == 0 && 
+				strcasecmp($zipperr->strMaterialZipperSize, trim(Input::get('editZipperSize'))) == 0 &&
+				strcasecmp($zipperr->strMaterialZipperColor, trim(Input::get('editZipperColor'))) == 0 &&
+				strcasecmp($zipperr->strMaterialZipperDesc, trim(Input::get('editZipperDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -787,12 +787,12 @@ class MaterialsController extends BaseController{
 		}else $validInput = FALSE;
 
 
-		foreach($hooks as $hook)
-			if(!strcasecmp($hook->strMaterialHookID, Input::get('editHookID')) == 0 &&
-				strcasecmp($hook->strMaterialHookName, trim(Input::get('editHookName'))) == 0 && 
-				strcasecmp($hook->strMaterialHookSize, trim(Input::get('editHookSize'))) == 0 &&
-				strcasecmp($hook->strMaterialHookColor, trim(Input::get('editHookColor'))) == 0 &&
-				strcasecmp($hook->strMaterialHookDesc, trim(Input::get('editHookDesc'))) == 0)
+		foreach($hooks as $hookk)
+			if(!strcasecmp($hookk->strMaterialHookID, Input::get('editHookID')) == 0 &&
+				strcasecmp($hookk->strMaterialHookName, trim(Input::get('editHookName'))) == 0 && 
+				strcasecmp($hookk->strMaterialHookSize, trim(Input::get('editHookSize'))) == 0 &&
+				strcasecmp($hookk->strMaterialHookColor, trim(Input::get('editHookColor'))) == 0 &&
+				strcasecmp($hookk->strMaterialHookDesc, trim(Input::get('editHookDesc'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
