@@ -159,7 +159,7 @@
                           <!--<td>{{ $head->strMeasurementID }}</td>-->
                           <td>{{ $head->strGarmentCategoryName }}</td>
                           <td>{{ $head->strGarmentSegmentName }}</td>
-                          <td>{{ $head->meas_details }}</td>
+                          <td>{{ $head->strMeasurementDetailName }}</td>
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button>
                         
@@ -197,9 +197,13 @@
                                     </div>     
     
                                     <div class="input-field">                                                                               
-                                       <select multiple name='editDetail[]' id='editDetail[]' required>
+                                       <select class="browser-default" name="editDetail" id="editDetail" required>
                                            @foreach($detailList as $dl)
-                                               <option value ="{{ $dl->strMeasurementDetailID }}">{{$dl->strMeasurementDetailName}}</option>
+                                              @if($head->strMeasurementName == $dl->strMeasurementDetailID)
+                                                <option selected value ="{{ $dl->strMeasurementDetailID }}">{{$dl->strMeasurementDetailName}}</option>
+                                              @else
+                                                <option value ="{{ $dl->strMeasurementDetailID }}">{{$dl->strMeasurementDetailName}}</option>
+                                              @endif  
                                            @endforeach
                                        </select>   
                                      </div>
@@ -235,7 +239,7 @@
                                   </div>
 
                                   <div class="input-field">
-                                    <input value="{{ $head->meas_details }}" type="text" readonly>
+                                    <input value="{{ $head->strMeasurementDetailName }}" type="text" readonly>
                                     <label for="measurement_desc">Measurement Name: </label>
                                   </div>
 
@@ -295,7 +299,7 @@
                           </div>     
 
                           <div class="input-field">                                                                                 
-                            <select multiple name='addDetail[]' id='addDetail[]' required>
+                            <select class="browser-default" name="addDetail" id="addDetail" required>
                                 @foreach($detailList as $detailList)
                                     <option value="{{ $detailList->strMeasurementDetailID }}" class="">{{ $detailList->strMeasurementDetailName }}</option>
                                 @endforeach                               
@@ -627,7 +631,7 @@
     <script type="text/javascript">
       $('.validateDetailName').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re=/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -640,7 +644,7 @@
 
       $('.validateDetailName').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re=/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -654,14 +658,14 @@
 
       $('.validateDetailDesc').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.\,]+$/;
+        var re=/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
       $('.validateDetailDesc').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\,\.\s]+$/;
+        var re=/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
