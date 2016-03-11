@@ -12,8 +12,10 @@
 */
 
 
-Route::get('/index', 'HomeController@goToMain');
 Route::get('/', 'HomeController@showWelcome');
+Route::get('/index', 'HomeController@remembLog');
+Route::post('/login', array('uses'=>'HomeController@LogIn'));
+Route::get('/logout', 'HomeController@LogOut');
 
 Route::group(array('prefix' => 'maintenance'), function () {
 	Route::get('/customerIndividual', 'CustomerIndividualController@individual');
