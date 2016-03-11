@@ -131,7 +131,7 @@
                           <div class="input-field">                                                    
                             <select class="browser-default editCategory" id="{{ $pattern->strDesignPatternID }}" name='editCategory'>
                               @foreach($category as $cat)
-                                @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
+                                @if($pattern->strDesignCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
                                   <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                                 @elseif($cat->boolIsActive == 1)
                                   <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
@@ -143,7 +143,9 @@
                           <div class="input-field">                                                    
                             <select class="browser-default editSegment" id="{{ $pattern->strDesignPatternID }}" name="editSegment">
                                   @foreach($segment as $segment_2)
-                                    @if($segment_2->boolIsActive == 1)
+                                    @if($pattern->strDesignSegmentName == $segment_2->strGarmentSegmentID && $segment_2->boolIsActive == 1)
+                                      <option selected value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
+                                    @elseif($segment_2->boolIsActive == 1)
                                       <option value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
                                     @endif
                                   @endforeach
