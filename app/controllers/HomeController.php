@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		if(Session::has('username'))
+		if(Session::has('user'))
 		{
 			return Redirect::to('/index');
 		}
@@ -28,20 +28,18 @@ class HomeController extends BaseController {
 	{
 		$user = Input::get('username');
 		$pass = Input::get('password');
-		$check1 = User::where('strUserID','=',Input::get('username'))->first();
-		$check2 = User::where('strPassword','=',Input::get('password'))->first();	
-		if($check1 && $check2)
+		$check1 = User::where('strUserID','=', $user)->first();
+		$check2 = User::where('strPassword','=',$pass)->first();	
+		if($check1 == $check2)
 		{
 			$empID = DB::table('tblUser')
-			->join('tblEmployee',function($join)
-			{
-				$join->on('tblUser.strLoginEmpID','=','tblEmployee.strEmployeeID');
-			})
-			->join('tblEmployeeRole',function($join)
-			{
-				$join->on('tblEmployee.strRoleID','=','tblEmployeeRole.strEmpRoleID');
-			})->get();
+				->join('tblEmployee', 'tblUser.strLoginEmpID', '=', 'tblEmployee.strEmployeeID')
+				->leftJoin('tblEmployeeRole', 'tblEmployee.strRole', '=', 'tblEmployeeRole.strEmpRoleID')
+				->where('tblUser.strUserID', '=', $user )
+				->first();
 
+			$name = $empID ->strEmpFName . " " . $empID ->strEmpLName;
+			Session::put('user',$name);
 			return View::make('layouts/master')->with('user', $user)->with('empID', $empID);
 		}else
 			return Redirect::to('/')->with('message', 'Login Failed, USERNAME/PASSWORD Dont Exists');
@@ -49,7 +47,7 @@ class HomeController extends BaseController {
 
 	public function remembLog()
 	{
-		if(!Session::has('username'))
+		if(!Session::has('user'))
 		{
 			return Redirect::to('/');
 		}

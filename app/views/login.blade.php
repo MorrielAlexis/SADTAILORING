@@ -14,10 +14,10 @@
        <div id="login-page" class="row">
 
     		<div class="col s4 push-s4 z-depth-4 card-panel">
-	    	  <form class="login-form">
+	    	  <form class="login-form" action="/login" method="post">
 	      		  	<div class="row">
 	        			<div class="input-field col s12 center">
-	          				<p class="center login-form-text">TAILORING AND ALTERATION MANAGEMENT SYSTEM</p>
+	          				<p class="center login-form-text">TAILORING MANAGEMENT SYSTEM</p>
 	          				<p></p>
 	         			</div>
 	         		</div>
@@ -50,7 +50,7 @@
 	       			<div class="row">
 
 	       				<div class="col s12">
-	           				<a href="{{URL::to('/index')}}" class="btn waves-effect waves-light col s12">Login</a>
+	           				<button type="submit" class="btn waves-effect waves-light col s12">Login</button>
          				</div>
          			</div>
          			<p></p>

@@ -9,4 +9,5 @@ class User extends Eloquent {
 								'strPassword',
 								'strLoginEmpID');
 
+
 }

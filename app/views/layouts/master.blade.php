@@ -38,9 +38,9 @@
               <li><a href="#"><i class="small mdi-communication-live-help"style="font-size:15px; margin-top:20px;margin-left:0px;"> Help</i></a></li>
               <li class="divider"></li>
               <li><a href="#"><i class="small mdi-action-lock-outline"style="font-size:15px;margin-top:20px;margin-left:0px;"> Lock</i></a></li>
-              <li><a href="#"><i class="small mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
+              <li><a href="/logout"><i class="small mdi-hardware-keyboard-tab"style="font-size:15px;margin-top:20px;margin-left:0px;"> Logout</i></a></li>
             </ul>
-            <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#" data-activates="profile-dropdown"><span class="user" style="color:white; padding-bottom:5px"><b>{{Session::get('strEmpFName')}} {{Session::get('strEmpLName')}}<b></span></a>
+            <a class="btn-flat dropdown-button waves-effect waves-light profile-btn" href="#" data-activates="profile-dropdown"><span class="user" style="color:white; padding-bottom:5px"><b>{{Session::get('user')}}<b></span></a>
           </div>
             
 

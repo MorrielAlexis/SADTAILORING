@@ -17,6 +17,8 @@ Route::get('/index', 'HomeController@remembLog');
 Route::post('/login', array('uses'=>'HomeController@LogIn'));
 Route::get('/logout', 'HomeController@LogOut');
 
+Route::group(['before' => 'login'], function() {
+
 Route::group(array('prefix' => 'maintenance'), function () {
 	Route::get('/customerIndividual', 'CustomerIndividualController@individual');
 	Route::get('/customerCompany', 'CustomerCompanyController@company');
@@ -183,4 +185,4 @@ Route::post('/addHook', array('uses' => 'MaterialsController@addHook'));
 Route::post('/editHook', array('uses' => 'MaterialsController@editHook'));
 Route::post('/delHook', array('uses' => 'MaterialsController@delHook'));
 Route::post('/reactHook', array('uses' => 'MaterialsController@reactHook'));
-
+});
