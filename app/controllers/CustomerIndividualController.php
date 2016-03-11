@@ -36,14 +36,14 @@ class CustomerIndividualController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
+		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
 		$regexHouse = "/^[0-9]+$/";
-		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
-		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
-		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 
 		$regexZip = "/^[0-9]+$/";
-		$regexProvince = "/^[a-zA-Z\'\-\s\.]+$/";
+		$regexProvince = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 
 		if(!trim(Input::get('addFName')) == '' && !trim(Input::get('addLName')) == '' && 
 		   !trim(Input::get('addCustPrivHouseNo')) == '' && !trim(Input::get('addEmail')) == '' &&
@@ -121,22 +121,31 @@ class CustomerIndividualController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\'\.]+$/";
+		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
 		$regexHouse = "/^[0-9]+$/";
-		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
-		$regexBarangay = "/^[a-zA-Z0-9\-\s\.]+$/";
-		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+
+		$regexZip = "/^[0-9]+$/";
+		$regexProvince = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 
 		if(!trim(Input::get('editFName')) == '' && !trim(Input::get('editLName')) == '' && 
 		   !trim(Input::get('editCustPrivHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
-		   !trim(Input::get('editCustPrivStreet')) == '' && !trim(Input::get('editCustPrivBarangay')) == '' &&
-		   !trim(Input::get('editCustPrivCity')) == '' && !trim(Input::get('editCel')) == ''){
+		   !trim(Input::get('editCustPrivStreet')) == '' && !trim(Input::get('editCustPrivCity')) == '' && 
+		   !trim(Input::get('editCel')) == ''){
 				$validInput = TRUE;
 					if (preg_match($regex, Input::get('editFName')) && preg_match($regex, Input::get('editLName')) &&
 						preg_match($regexStreet, Input::get('editCustPrivStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('editCustPrivHouseNo')) && preg_match($regexBarangay, Input::get('editCustPrivBarangay')) &&
 						preg_match($regexCity, Input::get('editCustPrivCity'))) {
 							$validInput = TRUE;
+								if(!trim(Input::get('editCustPrivZipCode')) == '' || !trim(Input::get('editCustPrivProvince')) == '' || !trim(Input::get('editCustPrivBarangay'))){
+									if (preg_match($regexZip, Input::get('editCustPrivZipCode')) || preg_match($regexProvince, Input::get('editCustPrivProvince')) || 
+										preg_match($regexBarangay, (Input::get('editCustPrivBarangay')))){
+										$validInput = TRUE;
+									}else $validInput = FALSE;
+								}
 					}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
