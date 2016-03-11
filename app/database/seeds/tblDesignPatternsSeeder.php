@@ -13,7 +13,7 @@ class tblDesignPatternsSeeder extends Seeder{
 				'strDesignCategory' => 'GARM001',
 				'strDesignSegmentName' => 'SEGM001',		
 				'strPatternName' =>'Pencil Cut',
-				'strPatternImage' => '',
+				'strPatternImage' => 'imgDesignPatterns/pencil cut.jpg',
 				'boolIsActive' => '1'
 
 			),
@@ -24,7 +24,7 @@ class tblDesignPatternsSeeder extends Seeder{
 				'strDesignCategory' => 'GARM001',
 				'strDesignSegmentName' => 'SEGM001',
 				'strPatternName' =>'Slim Fit',
-				'strPatternImage' => '',
+				'strPatternImage' => 'imgDesignPatterns/Chinos.jpg',
 				'boolIsActive' => '1'
 			)
 

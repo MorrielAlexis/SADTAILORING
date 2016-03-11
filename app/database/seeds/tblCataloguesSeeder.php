@@ -13,7 +13,7 @@ class tblCataloguesSeeder extends Seeder{
 				'strCatalogueCategory' => 'GARM001',
 				'strCatalogueName' =>'JS Promenade Dress',
 				'strCatalogueDesc'=>'Clothing for promenade and special events.',
-				'strCatalogueImage'=>'',
+				'strCatalogueImage'=>'imgCatalogue/gown.jpg',
 				'boolIsActive' => '1'
 
 			),
@@ -24,7 +24,7 @@ class tblCataloguesSeeder extends Seeder{
 				'strCatalogueCategory' => 'GARM001',
 				'strCatalogueName' =>'Conference Formal Attire',
 				'strCatalogueDesc'=>'Use by men for formal events.',
-				'strCatalogueImage'=>'',
+				'strCatalogueImage'=>'imgCatalogue/suit2.jpg',
 				'boolIsActive' => '1'
 			)
 

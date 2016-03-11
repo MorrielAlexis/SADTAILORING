@@ -14,7 +14,7 @@ class tblMaterialButtonsSeeder extends Seeder{
 				'strMaterialButtonSize' => 'Small',
 				'strMaterialButtonColor' => 'Gray',
 				'strMaterialButtonDesc' => 'Two wholes with extra lining',
-				'strMaterialButtonImage' => '',
+				'strMaterialButtonImage' => 'imgMaterialButtons/a22-1002.jpg',
 				'boolIsActive' => '1'
 
 			),
@@ -22,11 +22,11 @@ class tblMaterialButtonsSeeder extends Seeder{
 			array(
 
 				'strMaterialButtonID' => 'BUTS002',
-				'strMaterialButtonName' => 'Simple Buts',
+				'strMaterialButtonName' => 'Cyclic Button',
 				'strMaterialButtonSize' => 'Medium',
-				'strMaterialButtonColor' => 'blue',
-				'strMaterialButtonDesc' => '3 holes wholes with extra lining',
-				'strMaterialZipperImage' =>'',
+				'strMaterialButtonColor' => 'White',
+				'strMaterialButtonDesc' => '2 holes wholes with extra circular lining',
+				'strMaterialZipperImage' =>'imgMaterialButtons/a22-1004',
 				'boolIsActive' => '1'
 			)
 

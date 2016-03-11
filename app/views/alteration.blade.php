@@ -332,5 +332,11 @@
 	  });
 	</script>
 
+	<script type="text/javascript">
+		$(document).ready(function(){
+	    	$('ul.tabs').tabs();
+	  	});
+	</script>
+
 
 @stop
