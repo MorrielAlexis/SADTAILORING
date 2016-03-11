@@ -48,17 +48,17 @@ class CustomerCompanyController extends BaseController{
 
 		if(!trim(Input::get('addComName')) == '' && !trim(Input::get('addConPerson')) == '' && 
 		   !trim(Input::get('addCustCompanyHouseNo')) == '' && !trim(Input::get('addComEmailAddress')) == '' &&
-		   !trim(Input::get('addCustCompanyStreet')) == '' && !trim(Input::get('addCustCompanyBarangay')) == '' &&
-		   !trim(Input::get('addCustCompanyCity')) == '' && !trim(Input::get('addCel')) == ''){
+		   !trim(Input::get('addCustCompanyStreet')) == '' && !trim(Input::get('addCustCompanyCity')) == '' && 
+		   !trim(Input::get('addCel')) == ''){
 				$validInput = TRUE;
 
 					if (preg_match($regex, Input::get('addComName')) && preg_match($regexName, Input::get('addConPerson')) && 
 					    preg_match($regexHouse, Input::get('addCustCompanyHouseNo')) && !!filter_var(Input::get('addComEmailAddress'), FILTER_VALIDATE_EMAIL) &&
-					    preg_match($regexStreet, Input::get('addCustCompanyStreet')) && preg_match($regexBarangay, Input::get('addCustCompanyBarangay')) &&
-					    preg_match($regexCity, Input::get('addCustCompanyCity'))){
+					    preg_match($regexStreet, Input::get('addCustCompanyStreet')) && preg_match($regexCity, Input::get('addCustCompanyCity'))){
 							$validInput = TRUE;
 								if(!trim(Input::get('addCustCompanyZipCode')) == '' || !trim(Input::get('addCustCompanyProvince')) == ''){
-									if (preg_match($regexZip, Input::get('addCustCompanyZipCode')) || preg_match($regexProvince, Input::get('addCustCompanyProvince'))){
+									if (preg_match($regexZip, Input::get('addCustCompanyZipCode')) || preg_match($regexProvince, Input::get('addCustCompanyProvince')) ||
+										preg_match($regexBarangay, Input::get('addCustCompanyBarangay'))){
 										$validInput = TRUE;
 									}else $validInput = FALSE;
 								}
