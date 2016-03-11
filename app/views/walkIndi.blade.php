@@ -73,7 +73,7 @@
 			                  <input id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10">
 			                  <label for="tel"> Telephone Number: </label>
 			                </div>
-							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/chooseProduct')}}">Save</a></center>
+							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="">Save</a></center>
 							<br>
 					    </form>
 					</div>

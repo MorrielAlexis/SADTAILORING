@@ -31,6 +31,24 @@
             background-image: url("../img/hehehe.jpg");
             background-color: #3D5AFE;
         }
+
+        #progress {
+         width: 500px;   
+         border: 1px solid black;
+         position: relative;
+         padding: 3px;
+        }
+
+        #percent {
+         position: absolute;   
+         left: 50%;
+        }
+
+        #bar {
+         height: 30px;
+         background-color: teal;
+         width: 25%;
+        }
         
         /* ADMIN PROFILE */
 

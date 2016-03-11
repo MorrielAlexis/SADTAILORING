@@ -116,7 +116,7 @@
 
                     <thead>
                       <tr>
-                        <!--<th date-field= "Thread ID">Thread ID</th>-->
+                        <th date-field= "Thread ID">Thread ID</th>
                         <th data-field="Thread Name">Thread Name</th>
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
@@ -130,7 +130,7 @@
                       @foreach($threads as $thread)
                       @if($thread->boolIsActive == 1)
                       <tr>
-                        <!--<td>{{ $thread->strMaterialThreadID }}</td>-->
+                        <td>{{ $thread->strMaterialThreadID }}</td>
                         <td>{{ $thread->strMaterialThreadName }}</td>
                         <td>{{ $thread->strMaterialThreadColor }}</td>
                         <td>{{ $thread->strMaterialThreadDesc }}</td>
@@ -140,15 +140,13 @@
                             
                           <!--EDIT THREADS-->
                           <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
+                            <div class="modal-content">
                             <h5><font color = "#1b5e20"><center>Edit Thread</center> </font> </h5>
+                            <p>
                             <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
 
-                              <div class="modal-content">
                                 <div class="input-field">
-      
-
                                   <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" type="hidden">
-         
                                 </div>
                           
                                 <div class="input-field">
@@ -174,9 +172,9 @@
 
                                   <div class="file-path-wrapper">
                                     <input value="{{$thread->strMaterialThreadImage}}" class="file-path validate" id="editThreadImage" name="editThreadImage" type="text">
-                                  </div>
-                                  <br><br>
+                                  </div>                   
                                 </div> 
+                              </p>
                               </div>    
 
                               <div class="modal-footer">
@@ -201,7 +199,7 @@
                                     <label for="first_name">Thread Name: </label>
                                     <input value="{{$thread->strMaterialThreadName}}" id="delThreadName" name="delThreadName" type="text"  readonly>
                                   </div>
-
+                                                
                                    <div class="input-field">
                                     <label for="middle_name">Thread Color: </label>
                                     <input value="{{$thread->strMaterialThreadColor}}" id="delThreadColor" name="delThreadColor" type="text" readonly>
@@ -243,7 +241,7 @@
         </div>
 
       </div>
-
+                                                                                                                                                       
       <!--NEEDLES-->
       <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
         <div style="height:30px;"></div>
@@ -460,7 +458,7 @@
                                 </div>
 
                                 <div class="input-field">
-                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validate" class="validateDesc">
+                                  <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validateDesc">
                                   <label for="Button_Color"> Description: </label>
                                 </div>
 
@@ -937,7 +935,7 @@
         </div>
                     
          <div class="input-field">
-          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateSize" class="validateDesc">
+          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateDesc">
           <label for="Needle_Desc"> Description: </label>
         </div>
                                   
@@ -987,7 +985,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateColor" class="validateDesc">
+          <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateDesc">
           <label for="Button_Desc"> Description: </label>
         </div>
                                        
@@ -1036,7 +1034,7 @@
         </div>
 
         <div class="input-field">
-          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateColor" class="validateDesc">
+          <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateDesc">
           <label for="Zipper_Desc"> Description </label>
         </div>
 
@@ -1087,7 +1085,7 @@
         </div>
 
          <div class="input-field">
-          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validate" class="validateDesc">
+          <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validateDesc">
           <label for="Hookeye_Desc"> Description: </label>
         </div>
 
@@ -1119,11 +1117,11 @@
   
       $('.validateName').on('input', function() {
           var input=$(this);
-          $re = "/^[a-zA-Z\s\-\']+$/";
+          var re = /^[a-zA-Z\s\-\'\.\,]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
-        });
+      });
 
       //Kapag Number
       $('.validateName').keyup(function() {
@@ -1139,7 +1137,7 @@
 
       $('.validateName').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1147,17 +1145,11 @@
 
       $('.validateSize').on('input', function() {
           var input=$(this);
-          $re = "/^[a-zA-Z\s\-\']+$/";
+          var re = /^[a-zA-Z0-9\s]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
         });
-
-      //Kapag Number
-      $('.validateSize').keyup(function() {
-        var name = $(this).val();
-        $(this).val(name.replace(/\d/, ''));
-      });     
 
       //Kapag whitespace
       $('.validateSize').blur('input', function() {
@@ -1167,7 +1159,7 @@
 
       $('.validateSize').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var $re = /^[a-zA-Z0-9\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -1175,7 +1167,7 @@
 
       $('.validateColor').on('input', function() {
           var input=$(this);
-          $re = "/^[a-zA-Z\s\-\']+$/";
+          var $re = /^[a-zA-Z\s]+$/;
           var is_name=re.test(input.val());
           if(is_name){input.removeClass("invalid").addClass("valid");}
           else{input.removeClass("valid").addClass("invalid");}
@@ -1195,18 +1187,20 @@
 
       $('.validateColor').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var re = /^[a-zA-Z\s]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       }); 
 
-            //Kapag Number
-      $('.validateDesc').keyup(function() {
-        var name = $(this).val();
-        $(this).val(name.replace(/\d/, ''));
-      });     
-
+      $('.validateDesc').blur('input', function() {
+        var input=$(this);
+        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      }); 
+    
       //Kapag whitespace
       $('.validateDesc').blur('input', function() {
         var name = $(this).val();
@@ -1215,7 +1209,7 @@
 
       $('.validateDesc').blur('input', function() {
         var input=$(this);
-        $re = "/^[a-zA-Z\s\-\']+$/";
+        var re = /^[a-zA-Z\s\-\'\.\,]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
