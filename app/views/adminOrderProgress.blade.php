@@ -62,6 +62,14 @@
           <label for="custName">Customer Name: </label>
         </div>
         <div class="input-field col s6">
+          <input id="modePayment" name="modePayment" type="text" value = "Cash" readonly>
+          <label for="modePayment">Mode of Payment: </label>
+        </div>
+        <div class="input-field col s6">
+          <input id="orderDate" name="orderDate" type="text" value = "03/18/2015" readonly>
+          <label for="orderDate">Date Ordered: </label>
+        </div>
+        <div class="input-field col s6">
           <input id="dueDate" name="dueDate" type="text" value = "05/18/2015" readonly>
           <label for="dueDate">Due Date: </label>
         </div>
@@ -70,7 +78,7 @@
       <div class = "row">
 
         <div class="col s12 m12 l12 overflow-x">
-          <table class = "centered">
+          <table class = "striped centered">
             <thead>
               <tr>
                 <th>Garment Type</th>
