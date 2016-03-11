@@ -163,17 +163,16 @@
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button>
                         
                           <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
-                            <div class="modal-content col s12"> 
                             <h5><font color = "#1b5e20"><center>Edit Measurement Information</center> </font> </h5>
-                            <p>
                               <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
-                                  
+                                <div class="modal-content col s12"> 
+                                  <p>
                                     <div class="input-field">
                                       <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="hidden" readonly>                                 
                                     </div>
 
                                     <div class="input-field">                                                    
-                                      <select class="browser-default editCategory" name='editCategory' id="{{ $head->strMeasurementID}}"> 
+                                      <select class="browser-default editCategory" name="editCategory" id="{{ $head->strMeasurementID}}"> 
                                         @foreach($category as $cat)
                                             @if($head->strCategoryName == $cat->strGarmentCategoryID)
                                               <option value="{{ $cat->strGarmentCategoryID }}" selected>{{ $cat->strGarmentCategoryName }}</option> 
@@ -269,9 +268,9 @@
                   </div>
 
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
-                    <div class="modal-content col s12">
                     <h5><font color = "#1b5e20"><center>Add Measurement Information</center> </font> </h5> 
-                        <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
+                      <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
+                        <div class="modal-content col s12">
                           <p>
 
                           <div class="input-field">
@@ -360,11 +359,10 @@
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to deactivate measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DEACTIVATE</button>
 
                         <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <div class="modal-content col s12">
-                            <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
-                              <p>
-                                <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
-
+                          <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
+                            <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
+                              <div class="modal-content col s12">
+                                <p>
                                     <div class="input-field">
                                       <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="hidden">
                                     </div>
@@ -389,11 +387,11 @@
                         </div>
                           <!--///////////////////////DELETE/////////////-->
 
-                          <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <div class="modal-content col s12">
-                              <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>                            
+                        <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
+                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>                            
+                            <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
+                              <div class="modal-content col s12">
                                 <p>
-                                <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="hidden">
                                   </div>
@@ -438,12 +436,11 @@
 
                   </div>
           
-                  <div id="addMeasurementPart" class="modal modal-fixed-footer">
-                    <div class="modal-content col s12">
-                    <h5><font color = "#1b5e20"><center>Add Measurement Part</center> </font> </h5>
-                      <p>
-                        <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
-
+                <div id="addMeasurementPart" class="modal modal-fixed-footer">
+                  <h5><font color = "#1b5e20"><center>Add Measurement Part</center> </font> </h5>
+                    <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
+                      <div class="modal-content col s12">
+                        <p>
                           <div class="input-field">
                             <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text"  hidden>
                           </div>
