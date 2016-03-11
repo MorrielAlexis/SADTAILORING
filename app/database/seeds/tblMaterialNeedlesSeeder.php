@@ -10,10 +10,10 @@ class tblMaterialNeedlesSeeder extends Seeder{
 			array(
 
 				'strMaterialNeedleID' => 'NED001',
-				'strMaterialNeedleName' => 'Ballpoint',
-				'strMaterialNeedleSize' => 'Small',
-				'strMaterialNeedleDesc' => 'For embroidery',
-				'strMaterialNeedleImage' =>'',
+				'strMaterialNeedleName' => 'Classic Big',
+				'strMaterialNeedleSize' => 'Big',
+				'strMaterialNeedleDesc' => 'For large comforters',
+				'strMaterialNeedleImage' =>'imgMaterialNeedles/big needle.jpg',
 				'boolIsActive' => '1'
 
 			),
@@ -21,10 +21,10 @@ class tblMaterialNeedlesSeeder extends Seeder{
 			array(
 
 				'strMaterialNeedleID' => 'NED002',
-				'strMaterialNeedleName' => 'Sharp',
-				'strMaterialNeedleSize' => 'Medium',
+				'strMaterialNeedleName' => 'Sharp Classic',
+				'strMaterialNeedleSize' => 'Small',
 				'strMaterialNeedleDesc' => 'For mass production',
-				'strMaterialNeedleImage' =>'',
+				'strMaterialNeedleImage' =>'imgMaterialNeedles/small needle.jpg',
 				'boolIsActive' => '1'
 			)
 

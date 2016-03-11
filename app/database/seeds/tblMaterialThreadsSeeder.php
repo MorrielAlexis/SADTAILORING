@@ -10,10 +10,10 @@ class tblMaterialThreadsSeeder extends Seeder{
 			array(
 
 				'strMaterialThreadID' => 'THR001',
-				'strMaterialThreadName' => 'Maong Brown',
-				'strMaterialThreadColor' =>'Brown',
-				'strMaterialThreadDesc' => 'For accent',
-				'strMaterialThreadImage' => '',
+				'strMaterialThreadName' => 'Coats Metallic',
+				'strMaterialThreadColor' =>'Silver',
+				'strMaterialThreadDesc' => 'Used for theatrical costumes and other events.',
+				'strMaterialThreadImage' => 'imgMaterialThreads/coats metallic.jpg',
 				'boolIsActive' => '1'
 
 			),
@@ -21,10 +21,10 @@ class tblMaterialThreadsSeeder extends Seeder{
 			array(
 
 				'strMaterialThreadID' => 'THR002',
-				'strMaterialThreadName' => 'Cotton Hard',
-				'strMaterialThreadColor' =>'Gray',
-				'strMaterialThreadDesc' => 'For design',
-				'strMaterialThreadImage' => '',
+				'strMaterialThreadName' => 'Rayon',
+				'strMaterialThreadColor' =>'Red',
+				'strMaterialThreadDesc' => 'For normal clothes',
+				'strMaterialThreadImage' => 'imgMaterialThreads/rayon thread.jpg',
 				'boolIsActive' => '1'
 			)
 
