@@ -72,14 +72,6 @@ Route::get('/madeOrder','OrderController@order');
 Route::get('/trans','ChooseTransController@trans');
 
 
-/////////////////////ROUTES FOR ALTERATIONS//////////////////////////////////////////////
-
-Route::get('/tops','GarmentTopsController@tops');
-Route::get('/pants','GarmentPantsController@pants');
-Route::get('/denim','GarmentDenimController@denim');
-Route::get('/jackets','GarmentJacketsController@jackets');
-Route::get('/dresses','GarmentDressesController@dresses');
-Route::get('/others','GarmentOthersController@others');
 
 /////////////////////ROUTES FOR MADE TO ORDER//////////////////////////////////////////////////
 

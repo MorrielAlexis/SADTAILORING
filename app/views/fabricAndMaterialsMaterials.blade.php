@@ -96,7 +96,7 @@
       </ul>
   
       <!--THREADS-->
-      <div id="tabThread" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+      <div id="tabThread" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
         <div style="height:30px;"></div>
 
 
@@ -243,7 +243,7 @@
       </div>
                                                                                                                                                        
       <!--NEEDLES-->
-      <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+      <div id="tabNeedle" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
         <div style="height:30px;"></div>
 
       <div class="row">
@@ -389,7 +389,7 @@
       </div>
 
       <!--BUTTONS-->
-      <div id="tabButton" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+      <div id="tabButton" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
         <div style="height:30px;"></div>
 
       <div class="row">
@@ -548,7 +548,7 @@
       </div>
 
       <!--ZIPPERS-->
-      <div id="tabZipper" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+      <div id="tabZipper" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
         <div style="height:30px;"></div>
 
     <div class="row">
@@ -706,7 +706,7 @@
       </div>
 
       <!--HOOK&EYE-->
-      <div id="tabHook" class="hue col s12" style="margin-top:45px; background-color: #ce93d8;">
+      <div id="tabHook" class="hue col s12" style="margin-top:45px; background-color: #80d8ff;">
         <div style="height:30px;"></div>
 
        <div class="row">

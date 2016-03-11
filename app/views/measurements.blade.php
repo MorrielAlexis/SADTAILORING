@@ -105,20 +105,21 @@
                       @endif
   
 
+  <br><br><br>
  <!--<p><h4 style="lightpink">Measurements</h4></p>-->
     <div class="row" style="padding:20px">
     
     <!--Measurement Tabs-->
       <div class="col s12" id="measurements" name="measurements">
         <ul class="tabs transparent">
-          <li id="detailTab" class="tab col s3" style="background-color: lavender;"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
-          <li id="categoryTab" class="tab col s3" style="background-color: lavender;"><a @if (Input::get('isCat') == 'true') class="active" @endif style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
+          <li id="detailTab" class="tab col s3" style="background-color: #00b0ff;"><a style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see to parts being measured" href="#tabDetails"><b>Details</b></a></li>     
+          <li id="categoryTab" class="tab col s3" style="background-color: #00b0ff;"><a @if (Input::get('isCat') == 'true') class="active" @endif style="color:black; padding-top:5px; opacity:0.80" class="tooltipped center-text" accent data-position="bottom" data-delay="50" data-tooltip="Click to see measurement details about a particular garment" href="#tabCategory"><b>Category</b></a></li>
           <div class="indicator white" style="z-index:1"></div>
         </ul>
     
     <!--Tab Contents-->
     <!--Measurement Category-->
-        <div id="tabCategory" class="hue col s12" style="background-color: #ce93d8;">
+        <div id="tabCategory" class="hue col s12" style="background-color: #80d8ff;">
 
             <div class="row">
               <div class="col s12 m12 l12">
@@ -318,7 +319,7 @@
       
         <!--END OF MEASUREMENT CATEGORY-->
 
-        <div id="tabDetails" class="hue col s12" style="background-color: #ce93d8;">
+        <div id="tabDetails" class="hue col s12" style="background-color: #80d8ff;">
 
             <div class="row">
               <div class="col s12 m12 l12">
