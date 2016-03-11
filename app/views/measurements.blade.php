@@ -120,9 +120,6 @@
     <!--Measurement Category-->
         <div id="tabCategory" class="hue col s12" style="background-color: #ce93d8;">
 
-          
-
-
             <div class="row">
               <div class="col s12 m12 l12">
                 <span class="page-title"><h4>Measurement Information</h4></span>
@@ -163,20 +160,20 @@
                           <td>{{ $head->strGarmentSegmentName }}</td>
                           <td>{{ $head->meas_details }}</td>
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#edit{{$head->strMeasurementID}}">EDIT</button></td>
-                          <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button></td>
+                          <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button>
                         
-                            <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
+                          <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
+                            <div class="modal-content col s12"> 
                             <h5><font color = "#1b5e20"><center>Edit Measurement Information</center> </font> </h5>
+                            <p>
                               <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
-                                <div class="modal-content col s12"> 
-                                  <p>
                                   
                                     <div class="input-field">
                                       <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="hidden" readonly>                                 
                                     </div>
 
                                     <div class="input-field">                                                    
-                                      <select class="browser-default editCategory" required name='editCategory' id='editCategory'> 
+                                      <select class="browser-default editCategory" name='editCategory' id="{{ $head->strMeasurementID}}"> 
                                         @foreach($category as $cat)
                                             @if($head->strCategoryName == $cat->strGarmentCategoryID)
                                               <option value="{{ $cat->strGarmentCategoryID }}" selected>{{ $cat->strGarmentCategoryName }}</option> 
@@ -188,7 +185,7 @@
                                     </div>       
                                       
                                     <div class="input-field">                                                    
-                                      <select class="browser-default editSegment" required name='editSegment' id='editSegment'>
+                                      <select class="browser-default editSegment" required name='editSegment' id="{{ $head->strMeasurementID}}">
                                         @foreach($segment as $seg)
                                           @if($head->strSegmentName == $seg->strGarmentSegmentID)
                                             <option value="{{ $seg->strGarmentSegmentID }}" class="{{ $seg->strCategory }}" selected>{{ $seg->strGarmentSegmentName }}</option>
@@ -199,22 +196,13 @@
                                       </select>    
                                     </div>     
     
-                                    <!-- <div class="input-field">                                                                               
+                                    <div class="input-field">                                                                               
                                        <select multiple name='editDetail[]' id='editDetail[]' required>
                                            @foreach($detailList as $dl)
-                                               <option value ="{{ $dl->strMeasurementDetailID }}" 
-                                                 @for($i = 0; $i < count($expHead); $i++)
-                                                   @for($j = 0; $j < count($expHead[$i]); $j++)  
-                                                     @if($expHead[$i][$j] == $dl->strMeasurementDetailID)
-                                                       selected="selected"
-                                                     @endif
-                                                   @endfor
-                                                 @endfor
-                                               >{{$dl->strMeasurementDetailName}}</option>
+                                               <option value ="{{ $dl->strMeasurementDetailID }}">{{$dl->strMeasurementDetailName}}</option>
                                            @endforeach
                                        </select>   
-                                       <label>Measurement Taken</label> 
-                                     </div> --> 
+                                     </div>
                                   </p>
                                 </div> 
 
@@ -268,6 +256,7 @@
                               </div>
                             </form>
                           </div>
+                        </td>
                         </tr>
                         @endif
                         @endforeach
@@ -280,10 +269,9 @@
                   </div>
 
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
-                    <div class="modal-content">
+                    <div class="modal-content col s12">
                     <h5><font color = "#1b5e20"><center>Add Measurement Information</center> </font> </h5> 
                         <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
-                          <div class="modal-content col s12">
                           <p>
 
                           <div class="input-field">
@@ -309,10 +297,9 @@
                           <div class="input-field">                                                                                 
                             <select multiple name='addDetail[]' id='addDetail[]' required>
                                 @foreach($detailList as $detailList)
-                                    <option value="{{ $detailList->strMeasurementDetailID }}" class="">A</option>
+                                    <option value="{{ $detailList->strMeasurementDetailID }}" class="">{{ $detailList->strMeasurementDetailName }}</option>
                                 @endforeach                               
-                            </select>   
-                            <label>Measurement Taken</label> 
+                            </select>
                           </div>
                         </p>                       
                       </div>
@@ -323,7 +310,7 @@
                       </div>
                     </form>
                   </div> 
-
+                  
                 </div> 
               </div>
             </div>
@@ -372,26 +359,25 @@
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement detail" href="#edit{{ $detail->strMeasurementDetailID }}">EDIT</button></td>
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to deactivate measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DEACTIVATE</button>
 
-                          <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <div class="modal-content">
+                        <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
+                            <div class="modal-content col s12">
                             <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
-                            <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
-                              <div class="modal-content col s12">
-                                <p>
+                              <p>
+                                <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
 
-                                  <div class="input-field">
-                                    <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="hidden">
-                                  </div>
+                                    <div class="input-field">
+                                      <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="hidden">
+                                    </div>
 
-                                  <div class="input-field">
-                                    <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
-                                    <label for="measurement_name"> *Measurement Name: </label>
-                                  </div>
+                                    <div class="input-field">
+                                      <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
+                                      <label for="measurement_name"> *Measurement Name: </label>
+                                    </div>
 
-                                  <div class="input-field">
-                                    <input required value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
-                                    <label for="measurement_desc">*Measurement Description: </label>
-                                  </div>
+                                    <div class="input-field">
+                                      <input required value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
+                                      <label for="measurement_desc">*Measurement Description: </label>
+                                    </div>
                                 </p>
                               </div>
 
@@ -399,15 +385,15 @@
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
                                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
                               </div>
-                            </form>
-                          </div>
+                          </form>
+                        </div>
                           <!--///////////////////////DELETE/////////////-->
 
                           <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>                            
-                            <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
-                               <div class="modal-content col s12">
+                            <div class="modal-content col s12">
+                              <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>                            
                                 <p>
+                                <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="hidden">
                                   </div>
@@ -453,10 +439,10 @@
                   </div>
           
                   <div id="addMeasurementPart" class="modal modal-fixed-footer">
+                    <div class="modal-content col s12">
                     <h5><font color = "#1b5e20"><center>Add Measurement Part</center> </font> </h5>
-                    <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
-                      <div class="modal-content col s12">
-                        <p>
+                      <p>
+                        <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
 
                           <div class="input-field">
                             <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text"  hidden>
@@ -493,6 +479,7 @@
 @section('scripts')
     <script src="js/jquery-1.12.0.min.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>
+
     <script>
       // $(document).ready() executes this script AFTER the whole page loads
       $(document).ready(function () {
@@ -625,7 +612,7 @@
         $('ul.tabs').tabs();
         });
     </script>
-    x
+    
     <script>
       $(document).ready(function(){
       $('select').material_select();
@@ -688,7 +675,7 @@
         $(this).val(desc.trim());
       }); 
 
-</script>
+    </script>
          <!--DATA TABLE SCRIPT-->
     <script type="text/javascript">
       $(document).ready(function() {
