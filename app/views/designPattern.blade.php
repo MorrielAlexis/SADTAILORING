@@ -128,9 +128,9 @@
                           </div>
 
                           <div class="input-field">                                                    
-                            <select class="browser-default" id="editCategory" name='editCategory'>
+                            <select class="browser-default editCategory" id="{{ $pattern->strDesignPatternID }}" name='editCategory'>
                               @foreach($category as $cat)
-                                @if($pattern->strDesignCategory == $cat->strGarmentCategoryID)
+                                @if($pattern->strDesignCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
                                   <option selected value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
                                 @elseif($cat->boolIsActive == 1)
                                   <option value="{{ $cat->strGarmentCategoryID }}">{{ $cat->strGarmentCategoryName }}</option>
@@ -140,9 +140,11 @@
                           </div>  
 
                           <div class="input-field">                                                    
-                            <select class="browser-default" id="editSegment" name="editSegment">
+                            <select class="browser-default editSegment" id="{{ $pattern->strDesignPatternID }}" name="editSegment">
                                   @foreach($segment as $segment_2)
-                                    @if($segment_2->boolIsActive == 1)
+                                    @if($pattern->strDesignSegmentName == $segment_2->strGarmentSegmentID && $segment_2->boolIsActive == 1)
+                                      <option selected value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
+                                    @elseif($segment_2->boolIsActive == 1)
                                       <option value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
                                     @endif
                                   @endforeach
@@ -356,32 +358,49 @@
     <script>
     $(document).ready(function () {
         // Get jQuery object for element with ID as 'category' (first select element)
-        var categoryElement = $('#editCategory');
+        var categoryElements = $('.editCategory');
 
         // Get jQuery object for element with ID as 'types' (second select element)
-        var typesElement = $('#editSegment');
+        var typesElement = $('.editSegment');
+
+        var typeOptions = {};
+
+        typesElement.each(function (typeElem, elem) {
+          var elem = $(elem);
+          typeOptions[elem.attr('id')] = { element: elem, children: elem.children() };
+        });
+
+        console.log(typeOptions);
 
         // Get children elements of typesElement
-        var typeOptions = typesElement.children();
+        // var typeOptions = typesElement.children();
 
-        // Invoke updateValue() once with initial category value for initial page load
-        updateValue(categoryElement.val());
+        categoryElements.each(function (index, categoryElement) {
+          var elem = $(categoryElement);
 
-        // Listen for changes on the categoryElement
-        categoryElement.on('change', function () {
-          // Invoke updateValue() with currently selected category as parameter
+          // Invoke updateValue() once with initial category value for initial page load
+          updateValue(elem);
 
-          updateValue(categoryElement.val());
+          // Listen for changes on the categoryElement
+          elem.on('change', function () {
+            // Invoke updateValue() with currently selected category as parameter
+
+            updateValue(elem);
+          });
         });
+
 
         // Define default current type
         var defaultType = '';
 
         // updateValue function definition
-        function updateValue(category) {
-          // On update, show everything first
-          typeOptions.show();
+        function updateValue(categoryElement) {
+          var typeOption = typeOptions[categoryElement.attr('id')];
+          var category = categoryElement.val();
 
+          // On update, show everything first
+          typeOption.children.show();
+          
           // Set default type to empty string for All
           defaultType = '';
 
@@ -389,9 +408,9 @@
           if (category == 'All') return;
 
           // Iterate over options (children elements of typesElement)
-          for (var i = 0; i < typeOptions.length; i++) {
+          for (var i = 0; i < typeOption.children.length; i++) {
             // Return each child as jQuery object
-            var optionElement = $(typeOptions[i]);
+            var optionElement = $(typeOption.children[i]);
 
             // Check class of optionElement, hide it if it's not equal to the current selected category
             if (!optionElement.hasClass(category)) optionElement.hide();
@@ -403,8 +422,7 @@
           }
 
           // If defaultType is not empty string, set it as typesElement value
-          if (defaultType != '') typesElement.val(defaultType);
-
+          if (defaultType != '') typeOption.element.val(defaultType);
         }
       });
     </script>
