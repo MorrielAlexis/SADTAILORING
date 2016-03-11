@@ -40,12 +40,12 @@ class SwatchController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\']+$/";
-		$regex2 = "/[a-zA-Z0-9]+$/";
+		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regexCode = "/[a-zA-Z0-9]+$/";
 		
 		if(!trim(Input::get('addSwatchName')) == '' && !trim(Input::get('addSwatchCode')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addSwatchName')) && preg_match($regex2, Input::get('addSwatchCode'))) {
+			if (preg_match($regex, Input::get('addSwatchName')) && preg_match($regexCode, Input::get('addSwatchCode'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -96,12 +96,12 @@ class SwatchController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/[a-zA-Z\s\-\']+$/";
-		$regex2 = "/[a-zA-Z0-9]+$/";
+		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regexCode = "/[a-zA-Z0-9]+$/";
 		
 		if(!trim(Input::get('editSwatchName')) == '' && !trim(Input::get('editSwatchCode')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editSwatchName')) && preg_match($regex2, Input::get('editSwatchCode'))) {
+			if (preg_match($regex, Input::get('editSwatchName')) && preg_match($regexCode, Input::get('editSwatchCode'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;

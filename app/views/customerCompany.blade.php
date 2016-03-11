@@ -38,6 +38,17 @@
         </div>
       @endif
 
+      <!--Edit Customer-->
+     @if (Input::get('successEdit') == 'true')
+        <div class="row" id="success-message">
+          <div class="col s12 m12 l12">
+            <div class="card-panel yellow">
+              <span class="black-text" style="color:black">Successfully edited customer!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+            </div>
+          </div>
+        </div>
+      @endif
+
 
      <!--Delete Customer-->
      @if (Input::get('successDel') == 'true')

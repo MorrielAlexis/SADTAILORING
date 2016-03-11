@@ -12,8 +12,12 @@
 */
 
 
-Route::get('/index', 'HomeController@goToMain');
 Route::get('/', 'HomeController@showWelcome');
+Route::get('/index', 'HomeController@remembLog');
+Route::post('/login', array('uses'=>'HomeController@LogIn'));
+Route::get('/logout', 'HomeController@LogOut');
+
+Route::group(['before' => 'login'], function() {
 
 Route::group(array('prefix' => 'maintenance'), function () {
 	Route::get('/customerIndividual', 'CustomerIndividualController@individual');
@@ -68,14 +72,6 @@ Route::get('/madeOrder','OrderController@order');
 Route::get('/trans','ChooseTransController@trans');
 
 
-/////////////////////ROUTES FOR ALTERATIONS//////////////////////////////////////////////
-
-Route::get('/tops','GarmentTopsController@tops');
-Route::get('/pants','GarmentPantsController@pants');
-Route::get('/denim','GarmentDenimController@denim');
-Route::get('/jackets','GarmentJacketsController@jackets');
-Route::get('/dresses','GarmentDressesController@dresses');
-Route::get('/others','GarmentOthersController@others');
 
 /////////////////////ROUTES FOR MADE TO ORDER//////////////////////////////////////////////////
 
@@ -181,4 +177,4 @@ Route::post('/addHook', array('uses' => 'MaterialsController@addHook'));
 Route::post('/editHook', array('uses' => 'MaterialsController@editHook'));
 Route::post('/delHook', array('uses' => 'MaterialsController@delHook'));
 Route::post('/reactHook', array('uses' => 'MaterialsController@reactHook'));
-
+});

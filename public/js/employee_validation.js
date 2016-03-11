@@ -1,7 +1,7 @@
 
       $('.validateFirst').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var re = /^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -9,7 +9,7 @@
 
       $('.validateFirst').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var re = /^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -23,7 +23,7 @@
 
       $('.validateMiddle').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -34,16 +34,10 @@
         var name = $(this).val();
         $(this).val(name.trim());
       }); 
-      // $('.validateMiddle').blur('input', function() {
-      //   var input=$(this);
-      //   var is_name=input.val();
-      //   if(is_name){input.removeClass("invalid").addClass("valid");}
-      //   else{input.removeClass("valid").addClass("invalid");}
-      // });
 
       $('.validateLast').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -51,7 +45,7 @@
 
       $('.validateLast').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -102,7 +96,7 @@
       //Validate Blank
       $('.validateStreet').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z0-9\'\-\s\.]+$/;
+        var re = /^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -110,7 +104,7 @@
 
       $('.validateStreet').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z0-9\'\-\s\.]+$/;
+        var re = /^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -125,7 +119,7 @@
       //Validate Blank
       $('.validateBarangay').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z0-9\-\s]+$/;
+        var re = /^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -140,7 +134,7 @@
       //Validate Blank
       $('.validateCity').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -149,7 +143,7 @@
       //Validate Blank
       $('.validateCity').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s]+$/;
+        var re = /^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -164,7 +158,7 @@
       //Validate Blank
       $('.validateProvince').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\s\.]+$/;
+        var re = /^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}

@@ -36,15 +36,15 @@ class CustomerCompanyController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\'\.\,]+$/";
-		$regexName = "/^[a-zA-Z\s\-\']+$/";
+		$regex = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\'\-\.\,]+)*$/";
+		$regexName = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 		$regexHouse = "/^[0-9]+$/";
-		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
-		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
-		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 
 		$regexZip = "/^[0-9]+$/";
-		$regexProvince = "/^[a-zA-Z\'\-\s\.]+$/";
+		$regexProvince = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 
 		if(!trim(Input::get('addComName')) == '' && !trim(Input::get('addConPerson')) == '' && 
 		   !trim(Input::get('addCustCompanyHouseNo')) == '' && !trim(Input::get('addComEmailAddress')) == '' &&
@@ -121,24 +121,32 @@ class CustomerCompanyController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\'\.\,]+$/";
-		$regexName = "/^[a-zA-Z\s\-\']+$/";
+		$regex = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\'\-\.\,]+)*$/";
+		$regexName = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 		$regexHouse = "/^[0-9]+$/";
-		$regexStreet = "/^[a-zA-Z0-9\'\-\s\.]+$/";
-		$regexBarangay = "/^[a-zA-Z0-9\-\s]+$/";
-		$regexCity = "/^[a-zA-Z\'\-\s]+$/";
+		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
+		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 
+		$regexZip = "/^[0-9]+$/";
+		$regexProvince = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		
 		if(!trim(Input::get('editComName')) == '' && !trim(Input::get('editConPerson')) == '' && 
 		   !trim(Input::get('editCustCompanyHouseNo')) == '' && !trim(Input::get('editComEmailAddress')) == '' &&
-		   !trim(Input::get('editCustCompanyStreet')) == '' && !trim(Input::get('editCustCompanyBarangay')) == '' &&
-		   !trim(Input::get('editCustCompanyCity')) == '' && !trim(Input::get('editCel')) == ''){
+		   !trim(Input::get('editCustCompanyStreet')) == '' && !trim(Input::get('editCustCompanyCity')) == '' &&
+		    !trim(Input::get('editCel')) == ''){
 				$validInput = TRUE;
 
 					if (preg_match($regex, Input::get('editComName')) && preg_match($regexName, Input::get('editConPerson')) && 
 					    preg_match($regexHouse, Input::get('editCustCompanyHouseNo')) && !!filter_var(Input::get('editComEmailAddress'), FILTER_VALIDATE_EMAIL) &&
-					    preg_match($regexStreet, Input::get('editCustCompanyStreet')) && preg_match($regexBarangay, Input::get('editCustCompanyBarangay')) &&
-					    preg_match($regexCity, Input::get('editCustCompanyCity'))){
+					    preg_match($regexStreet, Input::get('editCustCompanyStreet')) && preg_match($regexCity, Input::get('editCustCompanyCity'))){
 							$validInput = TRUE;
+								if(!trim(Input::get('addCustCompanyZipCode')) == '' || !trim(Input::get('addCustCompanyProvince')) == ''){
+									if (preg_match($regexZip, Input::get('addCustCompanyZipCode')) || preg_match($regexProvince, Input::get('addCustCompanyProvince')) ||
+										preg_match($regexBarangay, Input::get('addCustCompanyBarangay'))){
+										$validInput = TRUE;
+									}else $validInput = FALSE;
+								}
 					}else $validInput = FALSE;
 		}else $validInput = FALSE;
 
@@ -163,13 +171,14 @@ class CustomerCompanyController extends BaseController{
         }else{
         	foreach ($comp as $comp) {
 				if(!strcasecmp($comp->strCustCompanyID, trim(Input::get('editComID'))) == 0 &&
-				   strcasecmp($comp->strCustCompanyName, trim(Input::get('editComName'))) == 0 && 
-				   strcasecmp($comp->strCustContactPerson, trim(Input::get('editConPerson'))) == 0){
+				   (strcasecmp($comp->strCustCompanyName, trim(Input::get('editComName'))) == 0 || 
+				   strcasecmp($comp->strCustContactPerson, trim(Input::get('editConPerson'))) ==0 )){
 						$isAdded = TRUE;
+						
 				}				
 			}	
         }
-		
+        
 		if($validInput){	
 			if(!$isAdded){
 				$company = Company::find($id);
@@ -190,7 +199,7 @@ class CustomerCompanyController extends BaseController{
 
 				$company->save();
 				return Redirect::to('/maintenance/customerCompany?successEdit=true');
-		 	}else return Redirect::to('/maintenance/customerCompany?successEdit=duplicate');
+		 	}else return Redirect::to('/maintenance/customerCompany?success=duplicate');
 		}else return Redirect::to('/maintenance/customerCompany?input=invalid');
 	}
 

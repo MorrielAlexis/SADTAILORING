@@ -36,12 +36,12 @@ class GarmentCategoryController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\']+$/";
-		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regexDesc = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/";
 		
 		if(!trim(Input::get('addGarmentName')) == '' || !trim(Input::get('addGarmentDesc')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('addGarmentName')) && preg_match($regex2, Input::get('addGarmentDesc'))) {
+			if (preg_match($regex, Input::get('addGarmentName')) && preg_match($regexDesc, Input::get('addGarmentDesc'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -74,12 +74,12 @@ class GarmentCategoryController extends BaseController{
 		$isAdded = FALSE;
 		$validInput = TRUE;
 
-		$regex = "/^[a-zA-Z\s\-\']+$/";
-		$regex2 = "/^[a-zA-Z\s\-\'\.\,]+$/";
+		$regex = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
+		$regexDesc = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/";
 		
 		if(!trim(Input::get('editGarmentName')) == '' && !trim(Input::get('editGarmentDescription')) == ''){
 			$validInput = TRUE;
-			if (preg_match($regex, Input::get('editGarmentName')) && preg_match($regex2, Input::get('editGarmentDescription'))) {
+			if (preg_match($regex, Input::get('editGarmentName')) && preg_match($regexDesc, Input::get('editGarmentDescription'))) {
 				$validInput = TRUE;
 			}else $validInput = FALSE;
 		}else $validInput = FALSE;
@@ -89,75 +89,75 @@ class GarmentCategoryController extends BaseController{
 				strcasecmp($garm->strGarmentCategoryName, trim(Input::get('editGarmentName'))) == 0)
 				$isAdded = TRUE;
 
-		if($validInput){
-			if(!$isAdded){		
-				$garments->strGarmentCategoryName = Input::get('editGarmentName');	
-				$garments->strGarmentCategoryDesc = trim(Input::get('editGarmentDescription'));
-		
-				$garments->save();
-				return Redirect::to('/maintenance/garments?successEdit=true');
-			}else return Redirect::to('/maintenance/garments?success=duplicate');
-		}else return Redirect::to('/maintenance/garments?input=invalid');
-	}	
+			if($validInput){
+				if(!$isAdded){		
+					$garments->strGarmentCategoryName = Input::get('editGarmentName');	
+					$garments->strGarmentCategoryDesc = trim(Input::get('editGarmentDescription'));
+			
+					$garments->save();
+					return Redirect::to('/maintenance/garments?successEdit=true');
+				}else return Redirect::to('/maintenance/garments?success=duplicate');
+			}else return Redirect::to('/maintenance/garments?input=invalid');
+		}	
 
-	public function delGarmentCategory()
-	{
-		$id = Input::get('delGarmentID');
-		$category = Category::find($id);
+		public function delGarmentCategory()
+		{
+			$id = Input::get('delGarmentID');
+			$category = Category::find($id);
 
-		$count = DB::table('tblGarmentSegment')
-            ->join('tblGarmentCategory', 'tblGarmentSegment.strCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
-            ->select('tblGarmentCategory.*')
-            ->where('tblGarmentCategory.strGarmentCategoryID','=', $id)
-            ->count();
+			$count = DB::table('tblGarmentSegment')
+	            ->join('tblGarmentCategory', 'tblGarmentSegment.strCategory', '=', 'tblGarmentCategory.strGarmentCategoryID')
+	            ->select('tblGarmentCategory.*')
+	            ->where('tblGarmentCategory.strGarmentCategoryID','=', $id)
+	            ->count();
 
-        $count2 = DB::table('tblMeasurementHeader')
-            ->join('tblGarmentCategory', 'tblMeasurementHeader.strCategoryName', '=', 'tblGarmentCategory.strGarmentCategoryID')
-            ->select('tblGarmentCategory.*')
-            ->where('tblGarmentCategory.strGarmentCategoryID','=', $id)
-            ->count();
+	        $count2 = DB::table('tblMeasurementHeader')
+	            ->join('tblGarmentCategory', 'tblMeasurementHeader.strCategoryName', '=', 'tblGarmentCategory.strGarmentCategoryID')
+	            ->select('tblGarmentCategory.*')
+	            ->where('tblGarmentCategory.strGarmentCategoryID','=', $id)
+	            ->count();
 
-        if ($count == 0 && $count2 == 0) {
-        	$reason = ReasonGarmentCategory::create(array(
-        		'strInactiveGarmentID' => Input::get('delInactiveGarment'),
-        		'strInactiveReason' => Input::get('delInactiveReason')
-        		));
-        	$category->boolIsActive = 0;
-        	$reason->save();
-        	$category->save();
-        	return Redirect::to('/maintenance/garments?successDel=true');
-        } else return Redirect::to('/maintenance/garments?success=beingUsed');
-        	
-    }	
+	        if ($count == 0 && $count2 == 0) {
+	        	$reason = ReasonGarmentCategory::create(array(
+	        		'strInactiveGarmentID' => Input::get('delInactiveGarment'),
+	        		'strInactiveReason' => Input::get('delInactiveReason')
+	        		));
+	        	$category->boolIsActive = 0;
+	        	$reason->save();
+	        	$category->save();
+	        	return Redirect::to('/maintenance/garments?successDel=true');
+	        } else return Redirect::to('/maintenance/garments?success=beingUsed');
+	        	
+	    }	
 
-	public function smartCounter($id)
-	{	
+		public function smartCounter($id)
+		{	
 
-		$lastID = str_split($id);
+			$lastID = str_split($id);
 
-		$ctr = 0;
-		$tempID = "";
-		$tempNew = [];
-		$newID = "";
-		$add = TRUE;
+			$ctr = 0;
+			$tempID = "";
+			$tempNew = [];
+			$newID = "";
+			$add = TRUE;
 
-		for($ctr = count($lastID)-1; $ctr >= 0; $ctr--){
+			for($ctr = count($lastID)-1; $ctr >= 0; $ctr--){
 
-			$tempID = $lastID[$ctr];
+				$tempID = $lastID[$ctr];
 
-			if($add){
-				if(is_numeric($tempID) || $tempID == '0'){
-					if($tempID == '9'){
-						$tempID = '0';
-						$tempNew[$ctr] = $tempID;
+				if($add){
+					if(is_numeric($tempID) || $tempID == '0'){
+						if($tempID == '9'){
+							$tempID = '0';
+							$tempNew[$ctr] = $tempID;
 
+						}else{
+							$tempID = $tempID + 1;
+							$tempNew[$ctr] = $tempID;
+							$add = FALSE;
+						}
 					}else{
-						$tempID = $tempID + 1;
 						$tempNew[$ctr] = $tempID;
-						$add = FALSE;
-					}
-				}else{
-					$tempNew[$ctr] = $tempID;
 				}			
 			}
 			$tempNew[$ctr] = $tempID;	
