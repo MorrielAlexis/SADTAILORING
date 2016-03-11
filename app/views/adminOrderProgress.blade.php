@@ -127,17 +127,22 @@
           <table class = "centered">
             <thead>
               <tr>
-                <td> Garment Type</td>
-                <td> Garment Name</td>
-                <td> Segment Name</td>
-                <td>  <center>Status</center>  </td>
+                <td> <center>Garment Type</td></center>
+                <td> <center>Garment Name</td></center>
+                <td> <center>Segment Name</td></center>
+                <td> <center>Quantity</td></center>
+                <td> <center>Transaction Type</td></center>
+                <td> <center>Transaction Type</td></center>
+                <td> <center>Status</center>  </td>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Uniform</td>
                 <td>Women's Uniform</td>
-                <td>Blouse</td>
+                <td>Longsleeve</td>
+                <td>1</td>
+                <td> Made to Order</td>
                 <td>
                   <form action="gr1">
                     <div class = "row">
@@ -158,6 +163,8 @@
                 <td>Uniform</td>
                 <td>Women's Uniform</td>
                 <td>Skirt</td>
+                <td>1</td>
+                <td> Made to Order</td>
                 <td>
                   <form action="gr2">
                     <div class = "row">
@@ -178,6 +185,8 @@
                 <td>Gown</td>
                 <td>Tube Cocktail</td>
                 <td>Tube</td>
+                <td>1</td>
+                <td> Made to Order</td>
                 <td>
                   <form action="gr3">
                     <div class = "row">
@@ -198,6 +207,8 @@
                 <td>Gown</td>
                 <td>Tube Cocktail</td>
                 <td>Cocktail</td>
+                <td>1</td>
+                <td> Made to Order</td>
                 <td>
                   <form action="gr4">
                     <div class = "row">
