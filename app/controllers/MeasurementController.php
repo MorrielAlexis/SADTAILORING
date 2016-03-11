@@ -254,7 +254,7 @@ class MeasurementController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($head as $head)
-			if(!strcasecmp($head->strMeasurementID, Input::get('editMeasurementID'))
+			if(!strcasecmp($head->strMeasurementID, Input::get('editMeasurementID')) == 0 &&
 				strcasecmp($head->strCategoryName, Input::get('editCategory')) == 0 &&
 				strcasecmp($head->strSegmentName, Input::get('editSegment')) == 0 &&
 				strcasecmp($head->strMeasurementName, Input::get('editDetail')) == 0)
