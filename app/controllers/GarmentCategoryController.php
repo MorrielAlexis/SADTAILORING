@@ -130,6 +130,26 @@ class GarmentCategoryController extends BaseController{
 	        	
 	    }	
 
+	    public function reactGarmentCategory()
+	{
+		$id = Input::get('reactID');
+		$isAdded = FALSE;
+
+	if(!$isAdded){
+		$category = Category::find($id);
+
+		$reas = Input::get('reactInactiveGarment');
+		$reason = DB::table('tblReasonGarmentCategory')
+						->where('strInactiveGarmentID', '=', $reas)
+						->delete();
+
+		$category->boolIsActive = 1;
+
+		$category->save();
+		return Redirect::to('/utilities/inactiveData?successRec=true');
+	 	} else return Redirect::to('/utilities/inactiveData?successRec=false');
+	}
+
 		public function smartCounter($id)
 		{	
 
