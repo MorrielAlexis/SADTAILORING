@@ -62,7 +62,7 @@
 									<center>
 										<br><br>
 				          				<input type="checkbox" class="filled-in" id="ownFabric" />
-		      							<label for="ownFabric">Customer bring and provide fabric</label>
+		      							<label for="ownFabric">Fabric is provided by the customer.</label>
 		      						</center>	
 			          			</div>
 								<div class="input-field col s12">
@@ -77,8 +77,8 @@
 								<div class="input-field col s12">
 								    <select>
 								      <option value="" disabled selected>Choose Swatch Name</option>
-								      <option value="1">Linen Keme</option>
-								      <option value="2">Linen Chuchu</option>
+								      <option value="1">Native Silk</option>
+								      <option value="2">Cotton citadel</option>
 								    </select>
 								    <label>Swatch Name:</label>
 								</div>
@@ -135,7 +135,7 @@
 								<div class="input-field col s12">
 								    <select>
 								      <option value="" disabled selected>Choose Garment Segment</option>
-								      <option value="1">Sleeve</option>
+								      <option value="1">Pants</option>
 								      <option value="2">Skirt</option>
 								    </select>
 								    <label>Garment Segment Name:</label>
@@ -147,7 +147,7 @@
 								      <option value="1">Pencil Cut</option>
 								      <option value="2">Slim Fit</option>
 								    </select>
-								    <label>Garment Segment Pattern Design:</label>
+								    <label>Segment Pattern:</label>
 								</div>
 
 							 	<div class = "col s3">
@@ -166,7 +166,7 @@
 									<center>
 										<br><br>
 				          				<input type="checkbox" class="filled-in" id="ownFabric" />
-		      							<label for="ownFabric">Customer bring and provide fabric</label>
+		      							<label for="ownFabric">Fabric is provided by the customer</label>
 		      						</center>	
 			          			</div>
 
