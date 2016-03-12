@@ -174,7 +174,7 @@
 								    <select>
 								      <option value="" disabled selected>Choose Fabric Type</option>
 								      <option value="1">Linen</option>
-								      <option value="2">Cotton</option>
+								      <option value="2">Native Silk</option>
 								    </select>
 								    <label>Fabric Type:</label>
 								</div>
@@ -182,8 +182,8 @@
 								<div class="input-field col s12">
 								    <select>
 								      <option value="" disabled selected>Choose Swatch Name</option>
-								      <option value="1">Linen Keme</option>
-								      <option value="2">Linen Chuchu</option>
+								      <option value="1">Linen Citadel</option>
+								      <option value="2">Native Silk</option>
 								    </select>
 								    <label>Swatch Name:</label>
 								</div>
@@ -303,35 +303,6 @@
 			</div>
 	    </div>
 	</div>
-
-  	<!-- <div class = "container">
-	  	<div class="row">
-	      	<div class="col s12 m12 l12">
-		        <div class="card-panel">
-		          	<div class="card-content">
-		          		<div class = "col s12">
-		          			<label><font size= "+2" color = "black">Choose one</font></label>
-		          		</div>		
-
-		          		<div class = "row">
-		          			<div class ="col s4">
-		          				<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/orderCatalogue')}}">CATALOGUE DESIGN</a></center>
-	                  		</div>
-	                  		<div class ="col s4">
-	                  			<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/orderPersonalize')}}">PERSONALIZE DESIGN</a></center>
-	                  		</div>	
-	                  		<div class ="col s4">
-	                  			<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/orderUpload')}}">UPLOAD DESIGN</a></center>
-	                  		</div>          			
-		          		</div>	
-		          	</div>
-		        </div>
-		    </div>
-		</div>
-	</div> -->
 @stop
 
 @section('scripts')
