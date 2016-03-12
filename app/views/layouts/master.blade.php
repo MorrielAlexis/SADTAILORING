@@ -15,7 +15,7 @@
     <body>
 
     <header>
-        <img src="../img/logo.jpg"  alt="" class="circle responsive-img valign profile-image center" style="height:70px; width:80px; margin-top:5px; margin-left:650px">
+        <img src="../img/logo.jpg"  alt="" class="circle responsive-img valign profile-image center" style="height:70px; width:80px; margin-top:5px; margin-left:800px">
         <div class="col s9 right" style="padding-top:20px">
           <font size = "+2" color = "black" style="margin-right:10px; margin-top:5px" >Tailoring Management System</font>
         </div>
