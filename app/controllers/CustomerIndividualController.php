@@ -195,7 +195,7 @@ class CustomerIndividualController extends BaseController{
 
 				$individual->save();
 				return Redirect::to('/maintenance/customerIndividual?successEdit=true');
-		 	}else return Redirect::to('/maintenance/customerIndividual?successEdit=duplicate');
+		 	}else return Redirect::to('/maintenance/customerIndividual?success=duplicate');
 		}else return Redirect::to('/maintenance/customerIndividual?input=invalid');
 	}
 

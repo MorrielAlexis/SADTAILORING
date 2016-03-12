@@ -25,7 +25,7 @@
 							      <option value="2">Gown</option>
 							      <option value="3">Suit</option>
 							    </select>
-							    <label>Garment Type:</label>
+							    <label>Garment Type:</label>    
 							</div>
 
 							<div class="input-field col s12">

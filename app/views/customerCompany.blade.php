@@ -156,7 +156,7 @@
 
                           <div class="input-field">
                             <input required value="{{$company->strCustCompanyHouseNo}}" id="editCustCompanyHouseNo" name="editCustCompanyHouseNo" type="text" class="validateHouseNo">
-                            <label for="House No">*House No.: </label>
+                            <label for="House No">*House No/Unit/Floor No.: </label>
                           </div>
 
                            <div class="input-field">
@@ -312,7 +312,7 @@
 
               <div class="input-field">
                   <input required id="addCustCompanyHouseNo" name="addCustCompanyHouseNo" type="text" class="validateHouseNo">
-                  <label for="House No">*House No.: </label>
+                  <label for="House No">*House No./Unit No./Floor Number: </label>
               </div>
 
                <div class="input-field">
