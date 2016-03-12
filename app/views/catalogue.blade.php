@@ -119,11 +119,11 @@
 
                         <div class="input-field">
                           <select id="editCategory" name="editCategory"> 
-                              @foreach($category as $id=>$name)
-                                @if($catalogue->strCatalogueCategory == $id)
-                                  <option value="{{$id}}" selected>{{$name}}</option>
-                                @else
-                                  <option value="{{$id}}">{{$name}}</option>
+                              @foreach($category as $cat)
+                                @if($catalogue->strCatalogueCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 0)
+                                  <option selected value="{{$cat->strGarmentCategoryID}}" selected>{{$cat->strGarmentCategoryName}}</option>
+                                @elseif($cat->boolIsActive == 1)
+                                  <option value="{{$cat->strGarmentCategoryID}}" selected>{{$cat->strGarmentCategoryName}}</option>
                                 @endif
                               @endforeach
                           </select>
@@ -229,9 +229,11 @@
 
               <div class="input-field">
                 <select id="addCategory" name="addCategory">
-                    @foreach($category as $id=>$name)
-                      <option value="{{$id}}">{{$name}}</option>
-                    @endforeach   
+                    @foreach($category as $cat)
+                        @if($cat->boolIsActive == 1)
+                          <option value="{{$cat->strGarmentCategoryID}}" selected>{{$cat->strGarmentCategoryName}}</option>
+                        @endif
+                    @endforeach
                 </select>
                 <label>Category</label>
               </div>      

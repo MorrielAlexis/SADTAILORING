@@ -16,7 +16,7 @@ class CatalogueController extends BaseController{
 		$ID = $ids["0"]->strCatalogueID;
 		$newID = $this->smartCounter($ID);	
 
-		$category = Category::lists('strGarmentCategoryName', 'strGarmentCategoryID');
+		$category = Category::all();
 		$reason = ReasonCatalogue::all();
 
 		$catalogue = DB::table('tblCatalogue')
@@ -29,7 +29,6 @@ class CatalogueController extends BaseController{
 		return View::make('catalogue')
 					->with('newID', $newID)
 					->with('catalogue', $catalogue)
-					->with('catalogue2', $catalogue)
 					->with('reason', $reason)
 					->with('category', $category);
 	}

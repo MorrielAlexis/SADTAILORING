@@ -133,11 +133,11 @@
 
                               <div class="input-field">
                                 <select required  name='editFabric'>
-                                  @foreach($fabricType as $id=>$name)
-                                    @if($swatch->strSwatchFabricTypeName == $id)
-                                      <option value="{{$id}}" selected>{{$name}}</option>
-                                    @else
-                                      <option value="{{$id}}">{{$name}}</option>
+                                  @foreach($fabricType as $fab)
+                                    @if($swatch->strSwatchFabricTypeName == $fab->strFabricTypeID && $fab->boolIsActive == 1)
+                                      <option selected value="{{ $fab->strFabricTypeID }}">{{ $fab->strFabricTypeName }}</option>
+                                    @elseif($fab->boolIsActive == 1)
+                                      <option value="{{ $fab->strFabricTypeID }}">{{ $fab->strFabricTypeName }}</option>
                                     @endif
                                   @endforeach
                                 </select>
@@ -241,8 +241,10 @@
 
                     <div class="input-field">
                       <select name='addFabric' id='addFabric' required>
-                          @foreach($fabricType as $id=>$name)
-                          <option value="{{ $id }}">{{ $name }}</option>
+                          @foreach($fabricType as $fab)
+                            @if($fab->boolIsActive == 1)
+                              <option value="{{ $fab->strFabricTypeID }}">{{ $fab->strFabricTypeName }}</option>
+                            @endif
                           @endforeach
                       </select>
                       <label>*Fabric Type</label>

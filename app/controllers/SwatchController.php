@@ -15,7 +15,7 @@ class SwatchController extends BaseController{
 		$ID = $ids["0"]->strSwatchID;
 		$newID = $this->smartCounter($ID);	
 
-		$fabricType =  FabricType::lists('strFabricTypeName', 'strFabricTypeID'); 
+		$fabricType =  FabricType::all();
 		$reason = ReasonSwatches::all();		
 		
 		$swatch = DB::table('tblSwatches')

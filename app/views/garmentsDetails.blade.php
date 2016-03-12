@@ -238,8 +238,10 @@
                       <div class="input-field">
                         <select class="browser-default" name='addCategory' id='addCategory' required>
                           <option value="" disabled selected>Choose garment category</option>
-                          @foreach($category as $category)
-                          <option value="{{ $category->strGarmentCategoryID }}">{{ $category->strGarmentCategoryName }}</option>
+                          @foreach($category as $category_1)
+                            @if($category_1->boolIsActive == 1) 
+                              <option value="{{ $category_1->strGarmentCategoryID }}">{{ $category_1->strGarmentCategoryName }}</option>
+                            @endif                       
                           @endforeach
                         </select> 
                       </div>  
