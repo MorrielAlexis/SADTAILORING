@@ -321,7 +321,7 @@
 
       $('.validateSegDesc').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/;
+        var re=/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -329,7 +329,7 @@
 
       $('.validateSegDesc').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\,\'\-\.]+)*$/;
+        var re=/^[a-zA-Z0-9\'\-\.\,]+( [a-zA-Z0-9\,\'\-\.]+)*$/;
         var is_desc=re.test(input.val());
         if(is_desc){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
