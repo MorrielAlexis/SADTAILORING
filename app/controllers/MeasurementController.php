@@ -198,7 +198,7 @@ class MeasurementController extends BaseController{
         	$reasonDetail->save();
         	$detail->save();
         	return Redirect::to('/maintenance/measurements?successPartDel=true');
-        }else return Redirect::to('/maintenance/measurements?successPartDel=false');
+        }else return Redirect::to('/maintenance/measurements?success=beingUsed');
 
 	}
 
