@@ -62,7 +62,7 @@
 									<center>
 										<br><br>
 				          				<input type="checkbox" class="filled-in" id="ownFabric" />
-		      							<label for="ownFabric">Customer bring and provide fabric</label>
+		      							<label for="ownFabric">Fabric is provided by the customer.</label>
 		      						</center>	
 			          			</div>
 								<div class="input-field col s12">
@@ -77,8 +77,8 @@
 								<div class="input-field col s12">
 								    <select>
 								      <option value="" disabled selected>Choose Swatch Name</option>
-								      <option value="1">Linen Keme</option>
-								      <option value="2">Linen Chuchu</option>
+								      <option value="1">Native Silk</option>
+								      <option value="2">Cotton citadel</option>
 								    </select>
 								    <label>Swatch Name:</label>
 								</div>
@@ -135,7 +135,7 @@
 								<div class="input-field col s12">
 								    <select>
 								      <option value="" disabled selected>Choose Garment Segment</option>
-								      <option value="1">Sleeve</option>
+								      <option value="1">Pants</option>
 								      <option value="2">Skirt</option>
 								    </select>
 								    <label>Garment Segment Name:</label>
@@ -147,7 +147,7 @@
 								      <option value="1">Pencil Cut</option>
 								      <option value="2">Slim Fit</option>
 								    </select>
-								    <label>Garment Segment Pattern Design:</label>
+								    <label>Segment Pattern:</label>
 								</div>
 
 							 	<div class = "col s3">
@@ -166,7 +166,7 @@
 									<center>
 										<br><br>
 				          				<input type="checkbox" class="filled-in" id="ownFabric" />
-		      							<label for="ownFabric">Customer bring and provide fabric</label>
+		      							<label for="ownFabric">Fabric is provided by the customer</label>
 		      						</center>	
 			          			</div>
 
@@ -174,7 +174,7 @@
 								    <select>
 								      <option value="" disabled selected>Choose Fabric Type</option>
 								      <option value="1">Linen</option>
-								      <option value="2">Cotton</option>
+								      <option value="2">Native Silk</option>
 								    </select>
 								    <label>Fabric Type:</label>
 								</div>
@@ -182,8 +182,8 @@
 								<div class="input-field col s12">
 								    <select>
 								      <option value="" disabled selected>Choose Swatch Name</option>
-								      <option value="1">Linen Keme</option>
-								      <option value="2">Linen Chuchu</option>
+								      <option value="1">Linen Citadel</option>
+								      <option value="2">Native Silk</option>
 								    </select>
 								    <label>Swatch Name:</label>
 								</div>
@@ -303,35 +303,6 @@
 			</div>
 	    </div>
 	</div>
-
-  	<!-- <div class = "container">
-	  	<div class="row">
-	      	<div class="col s12 m12 l12">
-		        <div class="card-panel">
-		          	<div class="card-content">
-		          		<div class = "col s12">
-		          			<label><font size= "+2" color = "black">Choose one</font></label>
-		          		</div>		
-
-		          		<div class = "row">
-		          			<div class ="col s4">
-		          				<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/orderCatalogue')}}">CATALOGUE DESIGN</a></center>
-	                  		</div>
-	                  		<div class ="col s4">
-	                  			<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/orderPersonalize')}}">PERSONALIZE DESIGN</a></center>
-	                  		</div>	
-	                  		<div class ="col s4">
-	                  			<br>
-		          				<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/orderUpload')}}">UPLOAD DESIGN</a></center>
-	                  		</div>          			
-		          		</div>	
-		          	</div>
-		        </div>
-		    </div>
-		</div>
-	</div> -->
 @stop
 
 @section('scripts')

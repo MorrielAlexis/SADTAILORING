@@ -33,7 +33,6 @@
 							      <option value="" disabled selected>Choose Garment Name</option>
 							      <option value="1">Women's Uniform</option>
 							      <option value="2">Men's Uniform</option>
-							      <option value="3">Uniform Something Fucking Shit :3</option>
 							    </select>
 							    <label>Garment Name:</label>
 							</div>
@@ -53,7 +52,7 @@
 								<center>
 									<br><br>
 			          				<input type="checkbox" class="filled-in" id="ownFabric" />
-	      							<label for="ownFabric">Customer bring and provide fabric</label>
+	      							<label for="ownFabric">Fabric is provided by the customer.</label>
 	      						</center>	
 		          			</div>
 							<div class="input-field col s12">
@@ -68,8 +67,8 @@
 							<div class="input-field col s12">
 							    <select>
 							      <option value="" disabled selected>Choose Swatch Name</option>
-							      <option value="1">Linen Keme</option>
-							      <option value="2">Linen Chuchu</option>
+							      <option value="1">Chiffon Citadel</option>
+							      <option value="2">Silk Citadel</option>
 							    </select>
 							    <label>Swatch Name:</label>
 							</div>

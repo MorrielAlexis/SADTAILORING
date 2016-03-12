@@ -80,7 +80,7 @@
 							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/alteration')}}">Go to Alterations</a></center>
 						</div>
 						<div class = "col s6">
-							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/madeOrder')}}">Go to Made Order</a></center>
+							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/madeOrder')}}">Go to Made to Order</a></center>
 						</div>
 					</div>	
 				</div>
@@ -147,7 +147,7 @@
 							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/alteration')}}">Go to Alterations</a></center>
 						</div>
 						<div class = "col s6">
-							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/madeOrder')}}">Go to Made Order</a></center>
+							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="{{URL::to('/madeOrder')}}">Go to Made to Order</a></center>
 						</div>
 					</div>	
 				</div>	
