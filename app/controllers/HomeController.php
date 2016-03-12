@@ -37,13 +37,10 @@ class HomeController extends BaseController {
 				->rightJoin('tblEmployee', 'tblUser.strLoginEmpID', '=', 'tblEmployee.strEmployeeID')
 				->where('tblUser.strUserID', '=', $user )
 				->first();
-
-			if($empID != NULL){
-				$name = $empID->strEmpFName . " " . $empID ->strEmpLName;
-				Session::put('user',$name);
-				return View::make('layouts/master')->with('user', $user)->with('empID', $empID);
-			}
 			
+			$name = $empID->strEmpFName . " " . $empID ->strEmpLName;
+			Session::put('user',$name);
+			return View::make('layouts/master')->with('user', $user)->with('empID', $empID);
 		}else
 			return Redirect::to('/')->with('message', 'Login Failed, USERNAME/PASSWORD Dont Exists');
 	}
