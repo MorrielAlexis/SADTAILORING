@@ -37,7 +37,7 @@ class CustomerIndividualController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
-		$regexHouse = "/^[0-9]+$/";
+		$regexHouse = "/^[a-zA-Z0-9]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
@@ -122,7 +122,7 @@ class CustomerIndividualController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
-		$regexHouse = "/^[0-9]+$/";
+		$regexHouse = "/^[a-zA-Z0-9]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";

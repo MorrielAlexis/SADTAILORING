@@ -1,4 +1,4 @@
-0-9@extends('layouts.master')
+@extends('layouts.master')
 
 @section('content')
       <!--Input Validation-->
@@ -121,7 +121,6 @@
 
                     <thead>
                       <tr>
-                        <th date-field= "Thread ID">Thread ID</th>
                         <th data-field="Thread Name">Thread Name</th>
                         <th data-field="Thread Color">Thread Color</th>
                         <th data-field="Thread Desc">Description</th>
@@ -135,7 +134,6 @@
                       @foreach($threads as $thread)
                       @if($thread->boolIsActive == 1)
                       <tr>
-                        <td>{{ $thread->strMaterialThreadID }}</td>
                         <td>{{ $thread->strMaterialThreadName }}</td>
                         <td>{{ $thread->strMaterialThreadColor }}</td>
                         <td>{{ $thread->strMaterialThreadDesc }}</td>
@@ -271,8 +269,8 @@
                         <th data-field="Needle Size">Needle Size</th>
                         <th data-field="Needle Desc">Description</th>
                         <th data-field="Needle Image">Image</th>
-                        <th data-field="Needle Desc">Action</th>
-                        <th data-field="Needle Image">Action</th>
+                        <th data-field="Needle Desc">Edit</th>
+                        <th data-field="Needle Image">Delete</th>
                       </tr>
                     </thead>
 

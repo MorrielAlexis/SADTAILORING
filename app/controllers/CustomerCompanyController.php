@@ -38,7 +38,7 @@ class CustomerCompanyController extends BaseController{
 
 		$regex = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\'\-\.\,]+)*$/";
 		$regexName = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
-		$regexHouse = "/^[0-9]+$/";
+		$regexHouse = "/^[a-zA-Z0-9]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
@@ -94,7 +94,7 @@ class CustomerCompanyController extends BaseController{
 					'strCustCompanyHouseNo' => trim(Input::get('addCustCompanyHouseNo')),	
 					'strCustCompanyStreet' => trim(Input::get('addCustCompanyStreet')),
 					'strCustCompanyBarangay' => trim(Input::get('addCustCompanyBarangay')),	
-					'strCustPrivCity' => trim(Input::get('addCustCompanyCity')),	
+					'strCustCompanyCity' => trim(Input::get('addCustCompanyCity')),	
 					'strCustCompanyProvince' => trim(Input::get('addCustCompanyProvince')),
 					'strCustCompanyZipCode' => trim(Input::get('addCustCompanyZipCode')),
 					'strCustContactPerson' => trim(Input::get('addConPerson')),
@@ -123,7 +123,7 @@ class CustomerCompanyController extends BaseController{
 
 		$regex = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\'\-\.\,]+)*$/";
 		$regexName = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
-		$regexHouse = "/^[0-9]+$/";
+		$regexHouse = "/^[a-zA-Z0-9]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
