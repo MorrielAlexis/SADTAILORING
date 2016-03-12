@@ -1,4 +1,4 @@
-0-9@extends('layouts.master')
+@extends('layouts.master')
 
 @section('content')
       <!--Input Validation-->
