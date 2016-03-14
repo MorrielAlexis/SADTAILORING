@@ -54,7 +54,7 @@ class CustomerIndividualController extends BaseController{
 						preg_match($regexStreet, Input::get('addCustPrivStreet')) && !!filter_var(Input::get('addEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('addCustPrivHouseNo')) && preg_match($regexCity, Input::get('addCustPrivCity'))) {
 							$validInput = TRUE;
-								if(!trim(Input::get('addCustPrivZipCode')) == '' || !trim(Input::get('addCustPrivProvince')) == '' || !trim(Input::get('addCustPrivBarangay'))){
+								if(!trim(Input::get('addCustPrivZipCode')) == '' || !trim(Input::get('addCustPrivProvince')) == '' || !trim(Input::get('addCustPrivBarangay')) == '') {
 									if (preg_match($regexZip, Input::get('addCustPrivZipCode')) || preg_match($regexProvince, Input::get('addCustPrivProvince')) || 
 										preg_match($regexBarangay, (Input::get('addCustPrivBarangay')))){
 										$validInput = TRUE;
@@ -139,7 +139,7 @@ class CustomerIndividualController extends BaseController{
 						preg_match($regexStreet, Input::get('editCustPrivStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
 						preg_match($regexHouse, Input::get('editCustPrivHouseNo')) && preg_match($regexCity, Input::get('editCustPrivCity'))) {
 							$validInput = TRUE;
-								if(!trim(Input::get('editCustPrivZipCode')) == '' || !trim(Input::get('editCustPrivProvince')) == '' || !trim(Input::get('editCustPrivBarangay'))){
+								if(!trim(Input::get('editCustPrivZipCode')) == '' || !trim(Input::get('editCustPrivProvince')) == '' || !trim(Input::get('editCustPrivBarangay')) == ''){
 									if (preg_match($regexZip, Input::get('editCustPrivZipCode')) || preg_match($regexProvince, Input::get('editCustPrivProvince')) || 
 										preg_match($regexBarangay, (Input::get('editCustPrivBarangay')))){
 										$validInput = TRUE;

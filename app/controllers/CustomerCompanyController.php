@@ -56,7 +56,7 @@ class CustomerCompanyController extends BaseController{
 					    preg_match($regexHouse, Input::get('addCustCompanyHouseNo')) && !!filter_var(Input::get('addComEmailAddress'), FILTER_VALIDATE_EMAIL) &&
 					    preg_match($regexStreet, Input::get('addCustCompanyStreet')) && preg_match($regexCity, Input::get('addCustCompanyCity'))){
 							$validInput = TRUE;
-								if(!trim(Input::get('addCustCompanyZipCode')) == '' || !trim(Input::get('addCustCompanyProvince')) == ''){
+								if(!trim(Input::get('addCustCompanyZipCode')) == '' || !trim(Input::get('addCustCompanyProvince')) == '' || !trim(Input::get('addCustCompanyBarangay')) == ''){
 									if (preg_match($regexZip, Input::get('addCustCompanyZipCode')) || preg_match($regexProvince, Input::get('addCustCompanyProvince')) ||
 										preg_match($regexBarangay, Input::get('addCustCompanyBarangay'))){
 										$validInput = TRUE;
@@ -141,9 +141,9 @@ class CustomerCompanyController extends BaseController{
 					    preg_match($regexHouse, Input::get('editCustCompanyHouseNo')) && !!filter_var(Input::get('editComEmailAddress'), FILTER_VALIDATE_EMAIL) &&
 					    preg_match($regexStreet, Input::get('editCustCompanyStreet')) && preg_match($regexCity, Input::get('editCustCompanyCity'))){
 							$validInput = TRUE;
-								if(!trim(Input::get('addCustCompanyZipCode')) == '' || !trim(Input::get('addCustCompanyProvince')) == ''){
-									if (preg_match($regexZip, Input::get('addCustCompanyZipCode')) || preg_match($regexProvince, Input::get('addCustCompanyProvince')) ||
-										preg_match($regexBarangay, Input::get('addCustCompanyBarangay'))){
+								if(!trim(Input::get('editCustCompanyZipCode')) == '' || !trim(Input::get('editCustCompanyProvince')) == '' || !trim(Input::get('editCustCompanyBarangay')) == ''){
+									if (preg_match($regexZip, Input::get('editCustCompanyZipCode')) || preg_match($regexProvince, Input::get('editCustCompanyProvince')) ||
+										preg_match($regexBarangay, Input::get('editCustCompanyBarangay'))){
 										$validInput = TRUE;
 									}else $validInput = FALSE;
 								}

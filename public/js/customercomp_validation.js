@@ -45,7 +45,7 @@
 //////////////////////////////////////////////
       $('.validateHouseNo').on('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z0-\-]+$/;
+        var re=/[a-zA-Z0-\-]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
@@ -53,7 +53,7 @@
 
       $('.validateHouseNo').blur('input', function() {
         var input=$(this);
-        var re=/^[a-zA-Z0-9\-]+$/;
+        var re=/[a-zA-Z0-9\-]+$/;
         var is_name=re.test(input.val());
         if(is_name){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
