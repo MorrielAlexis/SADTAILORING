@@ -159,9 +159,10 @@ class MeasurementController extends BaseController{
 		$isAdded = FALSE;
 
 		foreach ($det as $det)
-			if(!strcasecmp($det->strMeasurementID, Input::get('editDetailID') == 0 &&
-				strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0))
-				$isAdded = TRUE;
+			if(!strcasecmp($det->strMeasurementID, Input::get('editDetailID')) == 0 &&
+				strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0){
+					$isAdded = TRUE;
+			}			
 
 		if($validInput){
 			if(!$isAdded){
@@ -236,7 +237,7 @@ class MeasurementController extends BaseController{
 
 		if(!$isAdded){
 			$category = MeasurementHead::create(array(
-					'strMeasurementID' => $categoryNewID,
+					'strMeasurementID' => Input::get('addMeasurementID'),
 					'strCategoryName' => Input::get('addCategory'),
 					'strSegmentName' => Input::get('addSegment'),
 					'strMeasurementName' => Input::get('addDetail'),
@@ -253,12 +254,15 @@ class MeasurementController extends BaseController{
 		$id = Input::get('editMeasurementID');
 		$isAdded = FALSE;
 
+		$head = MeasurementHead::all();
+		$isAdded = FALSE;
+
 		foreach ($head as $head)
 			if(!strcasecmp($head->strMeasurementID, Input::get('editMeasurementID')) == 0 &&
 				strcasecmp($head->strCategoryName, Input::get('editCategory')) == 0 &&
 				strcasecmp($head->strSegmentName, Input::get('editSegment')) == 0 &&
 				strcasecmp($head->strMeasurementName, Input::get('editDetail')) == 0)
-				$isAdded = TRUE;
+					$isAdded = TRUE;
 
 		if(!$isAdded){
 			$category = MeasurementHead::find($id);
