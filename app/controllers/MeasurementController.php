@@ -160,7 +160,8 @@ class MeasurementController extends BaseController{
 
 		foreach ($det as $det)
 			if(!strcasecmp($det->strMeasurementID, Input::get('editDetailID')) == 0 &&
-				strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0){
+				strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0 &&
+				strcasecmp($det->strMeasurementDetailDesc, trim(Input::get('editDetailDesc'))) == 0){
 					$isAdded = TRUE;
 			}			
 
@@ -173,7 +174,7 @@ class MeasurementController extends BaseController{
 
 				$detail->save();
 				return Redirect::to('/maintenance/measurements?successPartEdit=true');
-		 	} else return Redirect::to('/maintenance/measurements?successPartEdit=duplicate');
+		 	} else return Redirect::to('/maintenance/measurements?successPart=duplicate');
 		}else return Redirect::to('maintenance/measurements?input=invalid');
 	}
 
@@ -273,7 +274,7 @@ class MeasurementController extends BaseController{
 
 			$category->save();
 			return Redirect::to('/maintenance/measurements?successHeadEdit=true&isCat=true');
-	 	} else return Redirect::to('/maintenance/measurements?successHeadEdit=duplicate&isCat=true');
+	 	} else return Redirect::to('/maintenance/measurements?successHead=duplicate&isCat=true');
 	}
 
 	public function delCategory()
