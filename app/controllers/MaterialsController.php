@@ -208,8 +208,7 @@ class MaterialsController extends BaseController{
 		foreach($threads as $threade)
 			if(!strcasecmp($threade->strMaterialThreadID, Input::get('editThreadID')) == 0 &&
 				strcasecmp($threade->strMaterialThreadName, trim(Input::get('editThreadName'))) == 0 && 
-				strcasecmp($threade->strMaterialThreadColor, trim(Input::get('editThreadColor'))) == 0 &&
-				strcasecmp($threade->strMaterialThreadDesc, trim(Input::get('editThreadDesc'))) == 0)
+				strcasecmp($threade->strMaterialThreadColor, trim(Input::get('editThreadColor'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -351,8 +350,7 @@ class MaterialsController extends BaseController{
 		foreach($needles as $needlee)
 			if(!strcasecmp($needlee->strMaterialNeedleID, Input::get('editNeedleID')) == 0 &&
 				strcasecmp($needlee->strMaterialNeedleName, trim(Input::get('editNeedleName'))) == 0 && 
-				strcasecmp($needlee->strMaterialNeedleSize, trim(Input::get('editNeedleSize'))) == 0 &&
-				strcasecmp($needlee->strMaterialNeedleDesc, trim(Input::get('editNeedleDesc'))) == 0)
+				strcasecmp($needlee->strMaterialNeedleSize, trim(Input::get('editNeedleSize'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -498,8 +496,7 @@ class MaterialsController extends BaseController{
 			if(!strcasecmp($buttonn->strMaterialButtonID, Input::get('editButtonID')) == 0 && 
 				strcasecmp($buttonn->strMaterialButtonName, trim(Input::get('editButtonName'))) == 0 && 
 				strcasecmp($buttonn->strMaterialButtonSize, trim(Input::get('editButtonSize'))) == 0 &&
-				strcasecmp($buttonn->strMaterialButtonColor, trim(Input::get('editButtonColor'))) == 0 &&
-				strcasecmp($buttonn->strMaterialButtonDesc, trim(Input::get('editButtonDesc'))) == 0)
+				strcasecmp($buttonn->strMaterialButtonColor, trim(Input::get('editButtonColor'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -617,7 +614,7 @@ class MaterialsController extends BaseController{
 					}
 				$zipper ->save();
 				return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=true');
-			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=false');
+			}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&success=duplicate');
 		}else return Redirect::to('/maintenance/fabricAndMaterialsMaterials?zipper=true&input=invalid');
 	}
 
@@ -647,8 +644,7 @@ class MaterialsController extends BaseController{
 			if(!strcasecmp($zipperr->strMaterialZipperID, Input::get('editZipperID')) == 0 &&
 				strcasecmp($zipperr->strMaterialZipperName, trim(Input::get('editZipperName'))) == 0 && 
 				strcasecmp($zipperr->strMaterialZipperSize, trim(Input::get('editZipperSize'))) == 0 &&
-				strcasecmp($zipperr->strMaterialZipperColor, trim(Input::get('editZipperColor'))) == 0 &&
-				strcasecmp($zipperr->strMaterialZipperDesc, trim(Input::get('editZipperDesc'))) == 0)
+				strcasecmp($zipperr->strMaterialZipperColor, trim(Input::get('editZipperColor'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
@@ -796,8 +792,7 @@ class MaterialsController extends BaseController{
 			if(!strcasecmp($hookk->strMaterialHookID, Input::get('editHookID')) == 0 &&
 				strcasecmp($hookk->strMaterialHookName, trim(Input::get('editHookName'))) == 0 && 
 				strcasecmp($hookk->strMaterialHookSize, trim(Input::get('editHookSize'))) == 0 &&
-				strcasecmp($hookk->strMaterialHookColor, trim(Input::get('editHookColor'))) == 0 &&
-				strcasecmp($hookk->strMaterialHookDesc, trim(Input::get('editHookDesc'))) == 0)
+				strcasecmp($hookk->strMaterialHookColor, trim(Input::get('editHookColor'))) == 0)
 					$isAdded = TRUE;
 
 		if($validInput){
