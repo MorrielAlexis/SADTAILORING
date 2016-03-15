@@ -20,7 +20,7 @@ class tblCustPrivateIndividualsSeeder extends Seeder{
 				'strCustPrivProvince' => 'Rizal',
 				'strCustPrivZipCode' => '1007',
 				'strCustPrivLandlineNumber' => '0467892',
-				'strCustPrivCPNumber' => '09156789678',
+				'strCustPrivCPNumber' => '(0915)-678-9678',
 				'strCustPrivEmailAddress' => 'melodyreyes@gmail.com',
 				'boolIsActive' => '1'
 
@@ -39,7 +39,7 @@ class tblCustPrivateIndividualsSeeder extends Seeder{
 				'strCustPrivProvince' => 'Rizal',
 				'strCustPrivZipCode' => '1003',
 				'strCustPrivLandlineNumber' => '0723456',
-				'strCustPrivCPNumber' => '09198761290',
+				'strCustPrivCPNumber' => '(0919)-876-1290',
 				'strCustPrivEmailAddress' => 'reychnayre@yahoo.com',
 				'boolIsActive' => '1'
 			)

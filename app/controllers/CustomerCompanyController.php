@@ -38,7 +38,7 @@ class CustomerCompanyController extends BaseController{
 
 		$regex = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\'\-\.\,]+)*$/";
 		$regexName = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
-		$regexHouse = "/^[a-zA-Z0-9\-]+$/";
+		$regexHouse = "/[0-9a-zA-Z\-\s]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
@@ -123,7 +123,7 @@ class CustomerCompanyController extends BaseController{
 
 		$regex = "/^[a-zA-Z\'\-\.\,]+( [a-zA-Z\'\-\.\,]+)*$/";
 		$regexName = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
-		$regexHouse = "/^[a-zA-Z0-9\-]+$/";
+		$regexHouse = "/[0-9a-zA-Z\-\s]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";

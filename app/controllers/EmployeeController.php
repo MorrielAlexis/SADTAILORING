@@ -41,7 +41,7 @@ class EmployeeController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
-		$regexHouse = "/^[a-zA-Z0-9\-]+$/";
+		$regexHouse = "/[0-9a-zA-Z\-\s]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
@@ -133,14 +133,14 @@ class EmployeeController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
-		$regexHouse = "/^[a-zA-Z0-9\-]+$/";
+		$regexHouse = "/[0-9a-zA-Z\-\s]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
 
 		$regexZip = "/^[0-9]+$/";
 		$regexProvince = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
-
+		
 		if(!trim(Input::get('editFirstName')) == '' && !trim(Input::get('editLastName')) == '' && 
 		   !trim(Input::get('editEmpHouseNo')) == '' && !trim(Input::get('editEmail')) == '' &&
 		   !trim(Input::get('editEmpStreet')) == '' && !trim(Input::get('editEmpCity')) == '' && 
@@ -148,10 +148,9 @@ class EmployeeController extends BaseController{
 				$validInput = TRUE;
 					if (preg_match($regex, Input::get('editFirstName')) && preg_match($regex, Input::get('editLastName')) &&
 						preg_match($regexStreet, Input::get('editEmpStreet')) && !!filter_var(Input::get('editEmail'), FILTER_VALIDATE_EMAIL) &&
-						preg_match($regexHouse, Input::get('editEmpHouseNo')) && preg_match($regexBarangay, Input::get('editEmpBarangay')) &&
-						preg_match($regexCity, Input::get('editEmpCity'))) {
+						preg_match($regexHouse, Input::get('editEmpHouseNo')) && preg_match($regexCity, Input::get('editEmpCity'))) {
 							$validInput = TRUE;
-								if(!trim(Input::get('editEmpZipCode')) == '' || !trim(Input::get('editEmpProvince')) == '' || !trim(Input::get('editEmpBarangay')) == 0){
+								if(!trim(Input::get('editEmpZipCode')) == '' || !trim(Input::get('editEmpProvince')) == '' || !trim(Input::get('editEmpBarangay')) == ''){
 									if (preg_match($regexZip, Input::get('editEmpZipCode')) || preg_match($regexProvince, Input::get('editEmpProvince')) ||
 										preg_match($regexBarangay, Input::get('editEmpBarangay'))){
 										$validInput = TRUE;

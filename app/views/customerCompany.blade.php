@@ -374,7 +374,8 @@
     @stop
 
 @section('scripts') 
-    {{ HTML::script('js/customercomp_validation.js') }}
+    {{ HTML::script('js/customer_validation.js') }}
+
 
     <script>
       function clearData(){
@@ -402,11 +403,6 @@
 
       } );
 
-    </script>
-
-      <!--DATA TABLE SCRIPT-->
-    <script type="text/javascript">
-
       $(document).ready(function() {
 
           $('.data-reactcustCompany').DataTable();
@@ -414,14 +410,13 @@
 
       } );
 
+
+      $(document).ready(function(){
+      
+        $('.tooltipped').tooltip({delay: 50});
+      }); 
     </script>
 
-  <!--TOOLTIP SCRIPT-->
-<script type="text/javascript">
-    $(document).ready(function(){
-      $('.tooltipped').tooltip({delay: 50});
-  }); 
-</script>
 
 @stop                             
     

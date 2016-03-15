@@ -160,8 +160,7 @@ class MeasurementController extends BaseController{
 
 		foreach ($det as $det)
 			if(!strcasecmp($det->strMeasurementID, Input::get('editDetailID')) == 0 &&
-				strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0 &&
-				strcasecmp($det->strMeasurementDetailDesc, trim(Input::get('editDetailDesc'))) == 0){
+				strcasecmp($det->strMeasurementDetailName, trim(Input::get('editDetailName'))) == 0){
 					$isAdded = TRUE;
 			}			
 

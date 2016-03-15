@@ -22,7 +22,7 @@ class tblEmployeesSeeder extends Seeder{
 				'strEmpProvince' => 'La Union',
 				'strEmpZipCode' => '2501',
 				'strRole' => 'ROLE001',
-				'strCellNo'=>'09162451291',
+				'strCellNo'=>'(0916)-245-1291',
 				'strPhoneNo' => '02345890',
 				'strEmailAdd' => 'earvintol@gmail.com',
 				'boolIsActive' => '1'
@@ -44,7 +44,7 @@ class tblEmployeesSeeder extends Seeder{
 				'strEmpProvince' => 'La Union',
 				'strEmpZipCode' => '2501',
 				'strRole' => 'ROLE002',
-				'strCellNo'=>'09197864523',
+				'strCellNo'=>'(0919)-786-4523',
 				'strPhoneNo'=> '02345890',
 				'strEmailAdd' => 'amberaq@gmail.com',
 				'boolIsActive' => '1'

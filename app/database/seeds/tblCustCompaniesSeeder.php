@@ -20,7 +20,7 @@ class tblCustCompaniesSeeder extends Seeder{
 				'strCustContactPerson' => 'Lala Roque',
 				'strCustCompanyEmailAddress' => 'melodyreyes@pfizer.com',
 				'strCustCompanyTelNumber' => '2227777',
-				'strCustCompanyCPNumber' => '09178901234',
+				'strCustCompanyCPNumber' => '(0917)-890-1234',
 				'strCustCompanyFaxNumber' => '4440102',
 
 				'boolIsActive' => '1'
@@ -40,7 +40,7 @@ class tblCustCompaniesSeeder extends Seeder{
 				'strCustContactPerson' => 'Zobel Ayala',
 				'strCustCompanyEmailAddress' => 'welness@nestle.com',
 				'strCustCompanyTelNumber' => '0345678',
-				'strCustCompanyCPNumber' => '09223456987',
+				'strCustCompanyCPNumber' => '(0922)-345-6987',
 				'strCustCompanyFaxNumber' => '0031234',
 				'boolIsActive' => '1'
 			)

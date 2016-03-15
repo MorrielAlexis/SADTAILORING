@@ -1,4 +1,48 @@
 
+      $('.validateComName').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s\,\.]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateComName').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s\,\.]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });      
+
+      //Kapag whitespace
+      $('.validateComName').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
+
+      $('.validateConPerson').on('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      $('.validateConPerson').blur('input', function() {
+        var input=$(this);
+        var re=/^[a-zA-Z\'\-\s]+$/;
+        var is_name=re.test(input.val());
+        if(is_name){input.removeClass("invalid").addClass("valid");}
+        else{input.removeClass("valid").addClass("invalid");}
+      });
+
+      //Kapag whitespace
+      $('.validateConPerson').blur('input', function() {
+        var name = $(this).val();
+        $(this).val(name.trim());
+      }); 
+//////////////////////////////////////////////
       $('.validateFirst').on('input', function() {
         var input=$(this);
         var re = /^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/;
@@ -238,4 +282,15 @@
         if(is_email){input.removeClass("invalid").addClass("valid");}
         else{input.removeClass("valid").addClass("invalid");}
       });
+//////////////////////////////////////////////////////////////////
+      $('.validateFax').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+      });
+
+       $('.validateFax').keyup(function() {
+        var numbers = $(this).val();
+        $(this).val(numbers.replace(/\D/, ''));
+        $(this).val($(this).val().replace(/(\d{2})\-?(\d{3})\-?(\d{4})/,'($1)-$2-$3'))
+      }); 
 

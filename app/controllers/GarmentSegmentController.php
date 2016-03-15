@@ -102,7 +102,7 @@ class GarmentSegmentController extends BaseController{
 				
 				$segment->save();
 				return Redirect::to('/maintenance/garmentsDetails?successEdit=true');
-			} else return Redirect::to('/maintenance/garmentsDetails?successEdit=duplicate');
+			} else return Redirect::to('/maintenance/garmentsDetails?success=duplicate');
 		}else return Redirect::to('/maintenance/garmentsDetails?input=invalid');
 	}
 

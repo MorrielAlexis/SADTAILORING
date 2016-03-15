@@ -246,7 +246,7 @@
                         </div>
 
                           <div class="modal-footer col s12">
-                            <button type="submit" style="color:black" class="modal-action modal-close waves-effect waves-green btn-flat">OK</button>
+                            <button type="submit" style="color:black" class="modal-action waves-effect waves-green btn-flat">OK</button>
                             <a href="#!" style="color:black" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
@@ -357,7 +357,7 @@
     @stop
 
 @section('scripts')
-    {{ HTML::script('js/customerind_validation.js') }}
+    {{ HTML::script('js/customer_validation.js') }}
 
     <script>
       function clearData(){

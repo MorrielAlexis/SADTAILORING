@@ -172,7 +172,7 @@
 
                           <div>
                             <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
-                            <input id="editdtEmpBday" name="editdtEmpBday" type="date" class = "datepicker">
+                            <input id="editdtEmpBday" name="editdtEmpBday" type="date" value="{{date("Y-m-d", strtotime( $employee->dtEmpBday ))}}" class = "datepicker">
                           </div>  
 
                            <div class="input-field">                                                    

@@ -37,7 +37,7 @@ class CustomerIndividualController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
-		$regexHouse = "/^[a-zA-Z0-9\-]+$/";
+		$regexHouse = "/[0-9a-zA-Z\-\s]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
@@ -122,7 +122,7 @@ class CustomerIndividualController extends BaseController{
 		$validInput = TRUE;
 
 		$regex = "/^[a-zA-Z\'\-\.]+( [a-zA-Z\'\-\.]+)*$/";
-		$regexHouse = "/^[a-zA-Z0-9\-]+$/";
+		$regexHouse = "/[0-9a-zA-Z\-\s]+$/";
 		$regexStreet = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexBarangay = "/^[a-zA-Z0-9\'\-\.]+( [a-zA-Z0-9\'\-\.]+)*$/";
 		$regexCity = "/^[a-zA-Z\'\-]+( [a-zA-Z\'\-]+)*$/";
@@ -202,9 +202,6 @@ class CustomerIndividualController extends BaseController{
 	public function delCustPrivIndiv()
 	{
 		$id = Input::get('delIndivID');
-		$isDeleted = FALSE;
-
-		if(!$isDeleted){
 		$individual = PrivateIndividual::find($id);
 
 		$reason = ReasonIndividual::create(array(
@@ -216,7 +213,6 @@ class CustomerIndividualController extends BaseController{
 		$reason->save();
 		$individual->save();
 		return Redirect::to('/maintenance/customerIndividual?successDel=true');
-	 }else return Redirect::to('/maintenance/customerIndividual?successDel=false');
 	}
 
 	public function reactCustPrivIndiv()
