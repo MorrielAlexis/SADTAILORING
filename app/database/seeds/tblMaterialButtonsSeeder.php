@@ -26,7 +26,7 @@ class tblMaterialButtonsSeeder extends Seeder{
 				'strMaterialButtonSize' => 'Medium',
 				'strMaterialButtonColor' => 'White',
 				'strMaterialButtonDesc' => '2 holes wholes with extra circular lining',
-				'strMaterialZipperImage' =>'imgMaterialButtons/a22-1004',
+				'strMaterialButtonImage' =>'imgMaterialButtons/a22-1004',
 				'boolIsActive' => '1'
 			)
 
