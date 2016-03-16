@@ -70,6 +70,8 @@ Route::get('/chooseProduct','ProductController@products');
 Route::get('/alteration','AlterationController@alter');
 Route::get('/madeOrder','OrderController@order');
 Route::get('/trans','ChooseTransController@trans');
+Route::get('/cart','CartController@cart');
+Route::get('/orderMeasurement','OrderMeasurementController@order');
 
 
 
