@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblJobOrderSegmentPattern extends Migration {
+class tblJobOrderSegmentPattern extends Migration {
 
 	/**
 	 * Run the migrations.

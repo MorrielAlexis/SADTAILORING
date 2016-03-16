@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblPrice extends Migration {
+class tblPrice extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,8 +13,8 @@ class TblPrice extends Migration {
 	public function up()
 	{
 		Schema::create('tblPrice', function(Blueprint $table){
-			$table->string('strJobOrderID')->index();
-			$table->primary('strJobOrderID');//primary key
+			$table->string('strPriceJobOrderID')->index();//fk
+			$table->primary('strPriceID');//primary key
 			$table->double('dblPricePerOrder');
 			$table->datetime('dtDateAsOf');
 			$table->boolean('boolIsActive');
@@ -22,7 +22,7 @@ class TblPrice extends Migration {
 		});
 
 		Schema::table('tblPrice', function(Blueprint $table){
-			$table->foreign('strJobOrderID')->references('strJobOrderID')->on('tblJobOrder');
+			$table->foreign('strPriceJobOrderID')->references('strJobOrderID')->on('tblJobOrder');
 		});
 	}
 

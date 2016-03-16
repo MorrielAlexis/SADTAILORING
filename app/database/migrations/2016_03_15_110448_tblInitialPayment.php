@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TblInitialPayment extends Migration {
+class tblInitialPayment extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,8 +13,8 @@ class TblInitialPayment extends Migration {
 	public function up()
 	{
 		Schema::create('tblInitialPayment', function(Blueprint $table){
-			$table->string('strPaymentID')->index();//fk
-			$table->primary('strPaymentID');//primary key
+			$table->string('strInPaymentID')->index();//fk
+			$table->primary('strInitialPaymentID');//primary key
 			$table->double('dblDownpaymentRate');
 			$table->double('dblDownpaymentAmt');
 			$table->boolean('boolIsPaid');
@@ -24,7 +24,7 @@ class TblInitialPayment extends Migration {
 		});
 
 		Schema::table('tblInitialPayment', function(Blueprint $table){
-			$table->foreign('strPaymentID')->references('strPaymentID')->on('tblPayment');
+			$table->foreign('strInPaymentID')->references('strPaymentID')->on('tblPayment');
 		});
 	}
 
