@@ -13,8 +13,8 @@ class tblInitialPayment extends Migration {
 	public function up()
 	{
 		Schema::create('tblInitialPayment', function(Blueprint $table){
-			$table->string('strInPaymentID')->index();//fk
-			$table->primary('strInitialPaymentID');//primary key
+			$table->string('strPaymentID')->index();//fk
+			$table->primary('strPaymentID');//primary key
 			$table->double('dblDownpaymentRate');
 			$table->double('dblDownpaymentAmt');
 			$table->boolean('boolIsPaid');
@@ -24,7 +24,7 @@ class tblInitialPayment extends Migration {
 		});
 
 		Schema::table('tblInitialPayment', function(Blueprint $table){
-			$table->foreign('strInPaymentID')->references('strPaymentID')->on('tblPayment');
+			$table->foreign('strPaymentID')->references('strPaymentID')->on('tblPayment');
 		});
 	}
 

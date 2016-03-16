@@ -4,9 +4,9 @@ class TransPrice extends Eloquent{
 	
 
 	protected $table = 'tblPrice';
-	protected $primaryKey = 'strPriceID';
-	protected $fillable = array('strPriceID',
-								'strPriceJobOrderID',
+	protected $primaryKey = 'strJobOrderID';
+	protected $fillable = array('strJobOrderID',
+								// 'strPriceJobOrderID',
 								'dblPricePerOrder',
 								'strTOPDescription',
 								'dtDateAsOf',

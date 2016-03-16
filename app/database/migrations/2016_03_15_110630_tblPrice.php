@@ -13,8 +13,8 @@ class tblPrice extends Migration {
 	public function up()
 	{
 		Schema::create('tblPrice', function(Blueprint $table){
-			$table->string('strPriceJobOrderID')->index();//fk
-			$table->primary('strPriceID');//primary key
+			$table->string('strJobOrderID')->index();//fk
+			$table->primary('strJobOrderID');//primary key
 			$table->double('dblPricePerOrder');
 			$table->datetime('dtDateAsOf');
 			$table->boolean('boolIsActive');
@@ -22,7 +22,7 @@ class tblPrice extends Migration {
 		});
 
 		Schema::table('tblPrice', function(Blueprint $table){
-			$table->foreign('strPriceJobOrderID')->references('strJobOrderID')->on('tblJobOrder');
+			$table->foreign('strJobOrderID')->references('strJobOrderID')->on('tblJobOrder');
 		});
 	}
 
