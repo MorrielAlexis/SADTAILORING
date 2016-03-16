@@ -15,6 +15,7 @@ class TblInitialPayment extends Migration {
 		Schema::create('tblInitialPayment', function(Blueprint $table){
 			$table->string('strPaymentID')->index();//fk
 			$table->primary('strPaymentID');//primary key
+			$table->double('dblDownpaymentRate');
 			$table->double('dblDownpaymentAmt');
 			$table->boolean('boolIsPaid');
 			$table->datetime('dtPaymentDate');
