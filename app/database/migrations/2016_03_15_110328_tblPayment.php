@@ -15,7 +15,10 @@ class TblPayment extends Migration {
 		Schema::create('tblPayment', function(Blueprint $table){
 			$table->string('strPaymentID')->primary();
 			$table->string('strJobOrderID')->index();//fk
+			$table->string('strPaymentType');
 			$table->double('dblAmountPaid');
+			$table->double('dblBalance');
+			$table->double('dblAmountTendered');
 			$table->boolean('boolIsPaid');
 			$table->datetime('dtPaymentDate');
 			$table->boolean('boolIsActive');
