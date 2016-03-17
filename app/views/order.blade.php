@@ -48,10 +48,22 @@
 		                  </select>
 		                </div>  
 
-						<div class = "input-field col s6">
+				<div class="row">
+					<div class="col s12 m12 l12" style="padding:40px;">
+						<div class = "input-field col s4" style="padding-left:100px">
 							<input id="jobOrderQuantity" name = "jobOrderQuantity" type="text">
-			                <label for="quantity"> Quantity:</label>
+			                <label style="color:black"><font size="+0.95"> Quantity </font></label>
 						</div>
+						<div class = "input-field col s4" style="padding-left:100px">
+							<input id="unitPrice" name = "jobOrderQuantity" type="text" disabled>
+			                <label style="color:black"> Unit Price</label>
+						</div>
+						<div class = "input-field col s4" style="padding-left:100px">
+							<input id="totalPrice" name = "jobOrderQuantity" type="text" disabled>
+			                <label style="color:black"> Total Price</label>
+						</div>
+					</div>
+				</div>
 						<div class = "col s6">&nbsp</div>
 						<div class = "col s12">
 							<center>
