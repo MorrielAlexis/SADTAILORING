@@ -4,7 +4,7 @@ class TransJobOrder extends Eloquent{
 	
 
 	protected $table = 'tblJobOrder';
-	protected $primaryKey = 'strJobDescriptionID';
+	protected $primaryKey = 'strJobOrderID';
 	protected $fillable = array('strJobOrderID',
 								'strJobDescID',
 								'strCustomerID',

@@ -90,7 +90,7 @@ Route::post('/checkEmployee', array('uses' => 'AjaxController@checkEmployeeInput
 
 
 
-
+Route::post('/addJobOrder', array('uses' => 'OrderController@addJobOrder'));
 
 
 
@@ -99,11 +99,15 @@ Route::post('/addCustPrivIndiv', array('uses' => 'CustomerIndividualController@a
 Route::post('/editCustPrivIndiv', array('uses' => 'CustomerIndividualController@editCustPrivIndiv'));
 Route::post('/delCustPrivIndiv', array('uses' => 'CustomerIndividualController@delCustPrivIndiv'));
 Route::post('/reactCustPrivIndiv', array('uses' => 'CustomerIndividualController@reactCustPrivIndiv'));
+
+Route::post('addWalkInIndiv', array('uses' => 'adminWalkController@addCustPrivIndiv'));
 //////////////////////CRUD FOR CUSTOMER COMPANY//////////////////////
 Route::post('/addCustCompany', array('uses' => 'CustomerCompanyController@addCustCompany'));
 Route::post('/editCustCompany', array('uses' => 'CustomerCompanyController@editCustCompany'));
 Route::post('/delCustCompany', array('uses' => 'CustomerCompanyController@delCustCompany'));
 Route::post('/reactCustCompany', array('uses' => 'CustomerCompanyController@reactCustCompany'));
+
+Route::post('/addWalkInCompany', array('uses' => 'adminWalkController@addCustCompany'));
 //////////////////////CRUD FOR EMPLOYEE//////////////////////
 Route::post('/addEmployee', array('uses'=>'EmployeeController@addEmployee'));
 Route::post('/editEmployee', array('uses'=>'EmployeeController@editEmployee'));

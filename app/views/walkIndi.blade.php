@@ -29,50 +29,76 @@
 		        <div class="card-panel">
 		          	<div class="card-content">
 						<form action="{{URL::to('addCustPrivIndiv')}}" method="POST">
-			                <div class="input-field">                 
-			                  <input value = "INDI001" id="addIndiID" name="addIndiID" type="text" class="" readonly>
-			                  <label for="indi_id">Individual ID: </label>
-			                </div>
+              
+                <div class="input-field">                 
+                  <input value = "{{$newID}}" id="addIndiID" name="addIndiID" type="text" class="" readonly>
+                  <label for="indi_id">Individual ID: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input required id="addFName" name = "addFName" type="text" class="validateFirst">
-			                  <label for="first_name"> *First Name: </label>
-			                </div>
+                <div class="input-field">
+                  <input required id="addFName" name = "addFName" type="text" class="validateFirst">
+                  <label for="first_name"> *First Name: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input id="addMName" name = "addMName" type="text" class="validateMiddle">
-			                  <label for="middle_name"> Middle Name: </label>
-			                </div>
+                <div class="input-field">
+                  <input id="addMName" name = "addMName" type="text" class="validateMiddle">
+                  <label for="middle_name"> Middle Name: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input required id="addLName" name = "addLName" type="text" class="validateLast">
-			                  <label for="last_name"> *Last Name: </label>
-			                </div>
+                <div class="input-field">
+                  <input required id="addLName" name = "addLName" type="text" class="validateLast">
+                  <label for="last_name"> *Last Name: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input id="addAddress" name = "addAddress" type="text" class="validateAddress">
-			                  <label for="address"> *Address: </label>
-			                </div>
+                <div class="input-field">
+                  <input required id="addCustPrivHouseNo" name="addCustPrivHouseNo" type="text" class="validateHouseNo">
+                  <label for="House No">*House No./Unit No./Floor Number: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input required id="addEmail" name = "addEmail" type="text" class="validateEmail">
-			                  <label for="email"> *Email Address: </label>
-			                </div>
+                 <div class="input-field">
+                  <input required id="addCustPrivStreet" name="addCustPrivStreet" type="text" class="validateStreet">
+                  <label for=" Street">*Street: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11">
-			                  <label for="cellphone"> *Cellphone Number: </label>
-			                </div>
+                <div class="input-field">
+                  <input  id="addCustPrivBarangay" name="addCustPrivBarangay" type="text" class="validateBarangay">
+                  <label for=" Brgy">Barangay/Subd: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input id="addCelAlt" name = "addCelAlt" type="text" class="validateCellAlt" maxlength="11">
-			                  <label for="cellphone"> Cellphone Number: (alternate)</label>
-			                </div>
+                <div class="input-field">
+                  <input required id="addCustPrivCity" name="addCustPrivCity" type="text" class="validateCity">
+                  <label for=" City">*City/Municipality: </label>
+                </div>
 
-			                <div class="input-field">
-			                  <input id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10">
-			                  <label for="tel"> Telephone Number: </label>
-			                </div>
+                <div class="input-field">
+                  <input id="addCustPrivProvince" name="addCustPrivProvince" type="text" class="validateProvince">
+                  <label for=" Province">Province/Region: </label>
+                </div>
+
+                 <div class="input-field">
+                  <input id="addCustPrivZipCode" name="addCustPrivZipCode" type="text" class="validateZip">
+                  <label for=" Zip Code">Zip Code: </label>
+                </div>
+
+                <div class="input-field">
+                  <input required id="addEmail" name = "addEmail" type="text" class="validateEmail">
+                  <label for="email"> *Email Address: </label>
+                </div>
+
+                <div class="input-field">
+                  <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11">
+                  <label for="cellphone"> *Cellphone Number: </label>
+                </div>
+
+                <div class="input-field">
+                  <input id="addCelAlt" name = "addCelAlt" type="text" class="validateCellAlt" maxlength="11">
+                  <label for="cellphone"> Cellphone Number: (alternate)</label>
+                </div>
+
+                <div class="input-field">
+                  <input id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10">
+                  <label for="tel"> Telephone Number: </label>
+                </div>
 							<center><a style="color:black" class="btn btn-large center-text light-green accent-1" href="">Save</a></center>
 							<br>
 					    </form>

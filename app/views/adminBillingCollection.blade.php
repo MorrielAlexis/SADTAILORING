@@ -10,11 +10,30 @@
     	</div>
   	</div>
 
-  	<div div class = "col s12 m12 l12"  style="background:#80d8ff; opacity:0.75; margin-top:20px; margin-right:15px; margin-left:10px; padding:25px;">
-  		<div class="col s4 m4 l4">
-  		<label style="color:black; margin-left:50px"><font size="+0.90">Billing Month</label>
-  				<a><span class="badge">
-  				<select class="browser-default">
+<div style="background:#80d8ff;">
+  	<div class="row">
+  	<div class = "col s12 m12 l12"  style="background:#80d8ff; opacity:0.75; margin-top:20px; margin-right:15px; margin-left:10px; padding-top:25px;">
+  		<div class="col s4">
+  		<label style="color:black; margin-left:10px"><font size="+0.90">Billing Month</label>
+		</div>
+
+		<div class="col s4">
+  		<label style="color:black;"><font size="+0.90">Billing Year</label>
+  		</div>
+
+  		<div class="col s4">
+  		<label style="color:black"><font size="+0.90">Billing Day</label>
+  		</div>
+  	
+
+  	</div>
+  	</div>
+
+  	<div class="row">
+  		<div class="col s12 m12 112" style="background:#80d8ff; opacity:0.75;">
+  			
+  			<div class="col s4">
+  				<select class="browser-default" style="margin-left:0px">
 					<option value="1" disabled selected>--Choose Month--</option>
 					<option value="2">January</option>
 					<option value="3">February</option>
@@ -29,13 +48,10 @@
 					<option value="12">November</option>
 					<option value="13">December</option>
 				</select>
-				</span></a>
-		</div>
+  			</div>
 
-		<div class="col s4 m4 l4">
-  		<label style="color:black; margin-left:50px"><font size="+0.90">Billing Year</label>
-  			<a><span class="badge">
-  			<select class="browser-default">
+			<div class="col s4">
+  				<select class="browser-default">
 					<option value="1" disabled selected>--Choose Year--</option>
 					<option value="2">2016</option>
 					<option value="3">2015</option>
@@ -49,14 +65,11 @@
 					<option value="11">2007</option>
 					<option value="12">2006</option>
 					<option value="13">2005</option>
-				</select>
-			</span></a>
-  		</div>
+				</select>				
+			</div>
 
-  		<div class="col s4 m4 l4">
-  		<label style="color:black; margin-left:50px"><font size="+0.90">Billing Day</label>
-  			<a><span class="badge">
-  			<select class="browser-default">
+			<div class="col s4">
+				<select class="browser-default">
 					<option value="1" disabled selected>--Choose Day--</option>
 					<option value="2">1</option>
 					<option value="3">2</option>
@@ -90,19 +103,14 @@
 					<option value="13">30</option>
 					<option value="13">31</option>
 				</select>
-				</span></a>
+			</div>
+
+
   		</div>
 
-  		<div class="col s4 m4 l4">
-  		<label style="color:black; margin-left:50px"><font size="+0.90">Total No. of Customer</label><a><span class="badge">3</span></a>
-  		</div>
+  		  	<button class="waves-effect waves-dark btn light-green accent-1" style="color:black; margin-left:900px; margin-top:20px; margin-bottom:20px"><i class="material-icons left">done_all</i>Go</button>
 
-  		<div class="col s4 m4 l4" >
-  		<label style="color:black; margin-left:50px;"><font size="+0.90">Update</label><a><span class="new badge">0</span></a>
-  		</div>
-  	
-  	<button class="waves-effect waves-dark btn light-green accent-1" style="color:black; margin-left:900px"><i class="material-icons left">done_all</i>Go</button>
-
+  	</div>
   	</div>
 
   	<div class = "col s12 m12 l12" style="background:white; margin-top:20px; margin-right:15px; margin-left:10px; padding:25px;  border:3px outset gray;">				
