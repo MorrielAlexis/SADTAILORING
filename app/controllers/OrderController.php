@@ -22,13 +22,18 @@ class OrderController extends BaseController{
 		$segment = Segment::all();
 		$fabric = FabricType::all();
 		$swatch = Swatch::all();
+		$price = DB::table('tblgarment_price')
+				->select('*')
+				->get();
+
 
 		return View::make('order')
 					->with('newID', $newID)
 					->with('category', $category)
 					->with('segment', $segment)
 					->with('fabric', $fabric)
-					->with('swatch', $swatch);
+					->with('swatch', $swatch)
+					->with('price', $price);
 	}
 
 	public function addJobOrder()

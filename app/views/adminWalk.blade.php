@@ -14,7 +14,7 @@
   	<div class="row">
 	    <div class="col s12">
 	      <ul class="tabs">
-	        <li class="tab col s3"><a href="#tabIndi">Individual</a></li>
+	        <li class="tab col s3"><a href="#tabIndi">Customer Details</a></li>
 <!-- 	        <li class="tab col s3"><a href="#tabCom">Company</a></li> -->
 	      </ul>
 	    </div>

@@ -55,7 +55,7 @@
 			                <label style="color:black"><font size="+0.95"> Quantity </font></label>
 						</div>
 						<div class = "input-field col s4" style="padding-left:100px">
-							<input id="unitPrice" name = "jobOrderQuantity" type="text" disabled>
+							<input id="unitPrice" name = "unitPrice" type="text" disabled>
 			                <label style="color:black"> Unit Price</label>
 						</div>
 						<div class = "input-field col s4" style="padding-left:100px">
@@ -425,13 +425,35 @@
 	</script>
 	
 	<script>
-		
+		$(document).ready(function(){
+			var data = {{ json_encode($price) }} ;
+			var i = 0;
 
-	</script>
-	
+			$("#addSegment").on('change', function () {
+				var cat = $("#addCategory").val();
+				var seg = $("#addSegment").val();
+				for(i = 0; i < data.length; i++){
 
-	<script>
-		//$("#order").addClass("disabledbutton");
+					if(cat == data[i].strCategoryID && seg == data[i].strSegmentID){
+						$("#unitPrice").val(data[i].dblPrice);
+						$("#totalPrice").val(data[i].dblPrice * $("#jobOrderQuantity").val());
+					}
+				}	
+	        });
+
+	        $("#jobOrderQuantity").keyup(function () {
+				var cat = $("#addCategory").val();
+				var seg = $("#addSegment").val();
+				for(i = 0; i < data.length; i++){
+
+					if(cat == data[i].strCategoryID && seg == data[i].strSegmentID){
+						$("#unitPrice").val(data[i].dblPrice);
+						$("#totalPrice").val(data[i].dblPrice * $("#jobOrderQuantity").val());
+					}
+				}	
+	        });
+		});
+
 	</script>
 
     <script src="js/jquery-1.12.0.min.js"></script>

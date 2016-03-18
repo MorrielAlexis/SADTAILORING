@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-	
+	<style type="text/css">
+		.disabledbutton {
+    		pointer-events: none;
+    		opacity: 0.4;
+		}
+	</style>
 
 	<div class = "main-wrapper">	
 		<div class="row">
@@ -28,7 +33,7 @@
 		<!-- Hard-coded for now. Change the value into something dynamic (Found in the input tag). -->
 		<div class="col s6">
 			<div class="input-field col s12" style="padding-left:200px;">
-			          <input style="color:black" disabled id="cust_name" type="text" class="validate" value="{{$garment->strGarmentCategoryName}}"></input>
+			          <input style="color:black" disabled id="category_name" type="text" class="validate" value="{{$garment->strGarmentCategoryName}}"></input>
 			          <label for="cust_name" style="color:black"><font size="+0.95">GARMENT CATEGORY:</font></label>
 	  		</div>
 	  	</div>
@@ -36,7 +41,7 @@
 		<!-- Hard coded as well. Base this according to the garment category.-->
 		<div class="col s6">
 			<div class="input-field col s12" style="padding-left:200px">
-				<input style="color:black" disabled id="cust_name" type="text" class="validate" value="{{$garment->strGarmentSegmentName}}"></input>
+				<input style="color:black" disabled id="segment_name" type="text" class="validate" value="{{$garment->strGarmentSegmentName}}"></input>
 	  			<label style="color:black"><font size="+0.95">GARMENT SEGMENT:</font></label>
 			</div>
 		</div>
@@ -54,7 +59,7 @@
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="blouse" name="blouse">
 									<input type="hidden" value="{{Input::get('jobOrder')}}" id="joMeas" name="joMeas">
 
 
@@ -89,7 +94,7 @@
 		                  					<label for="shoulderToWaist"> Shoulder To Waist: </label>
 					          			</div>							
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -101,50 +106,34 @@
 	</div>
 
 	<!--Women's Uniform Short -->
-<!--		<div class="row">
+		<div class="row">
       	<div class="col s12 m12 l12">
 	        <div class="card-panel">
 	          	<div class="card-content">
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="shorts" name="shorts">
 					          		<h5>Short</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s3">
-					          				<input id="longNeck" name = "longNeck" type="text">
-		                  					<label for="longNeck"> Neck Circumference:</label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longBust" name = "longBust" type="text">
-		                  					<label for="longBust"> Bust:</label>
-					          			</div>
-					          			<div class = "input-field col s3">
 					          				<input id="longHips" name = "longHips" type="text">
-		                  					<label for="longHips"> Hips: </label>
+		                  					<label for="longHips"> Waist: </label>
 					          			</div>
 					          			<div class = "input-field col s3">
-					          				<input id="longShoulder" name = "longShoulder" type="text">
-		                  					<label for="longShoulder"> Shoulder:</label>
-					          			</div>	
+					          				<input id="longLength" name = "longLength" type="text">
+		                  					<label for="longLength">Hips:</label>
+					          			</div>
 					          			<div class = "input-field col s3">
 					          				<input id="longLength" name = "longLength" type="text">
 		                  					<label for="longLength"> Length:</label>
 					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longWaist" name = "longWaist" type="text">
-		                  					<label for="longWaist"> Waist: </label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longSleeve" name = "longSleeve" type="text">
-		                  					<label for="longSleeve"> Sleeve: </label>
-					          			</div>	
-					          			<div class = "input-field col s3">
-					          				<input id="longArmhole" name = "longArmhole" type="text">
-		                  					<label for="longArmhole"> Arm Hole: </label>
-					          			</div>								
+										<div class = "input-field col s3">
+					          				<input id="longLength" name = "longLength" type="text">
+		                  					<label for="longLength"> Inseam:</label>
+					          			</div>							
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -153,53 +142,25 @@
 			</div>
 		</div>
 	</div>
-</div>-->
+</div>
 
 	<!-- Women's Uniform Ribbon -->
-<!--		<div class="row">
+		<div class="row">
       	<div class="col s12 m12 l12">
 	        <div class="card-panel">
 	          	<div class="card-content">
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="ribbon" name="ribbon">
 					          		<h5>Ribbon</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s3">
 					          				<input id="longNeck" name = "longNeck" type="text">
 		                  					<label for="longNeck"> Neck Circumference:</label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longBust" name = "longBust" type="text">
-		                  					<label for="longBust"> Bust:</label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longHips" name = "longHips" type="text">
-		                  					<label for="longHips"> Hips: </label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longShoulder" name = "longShoulder" type="text">
-		                  					<label for="longShoulder"> Shoulder:</label>
-					          			</div>	
-					          			<div class = "input-field col s3">
-					          				<input id="longLength" name = "longLength" type="text">
-		                  					<label for="longLength"> Length:</label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longWaist" name = "longWaist" type="text">
-		                  					<label for="longWaist"> Waist: </label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longSleeve" name = "longSleeve" type="text">
-		                  					<label for="longSleeve"> Sleeve: </label>
-					          			</div>	
-					          			<div class = "input-field col s3">
-					          				<input id="longArmhole" name = "longArmhole" type="text">
-		                  					<label for="longArmhole"> Arm Hole: </label>
-					          			</div>								
+					          			</div>							
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -208,7 +169,7 @@
 			</div>
 		</div>
 	</div>
-</div>-->
+</div>
 	
 	<!-- Women's Uniforms -->
 	<div class="row">
@@ -218,7 +179,7 @@
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="skirt" name="skirt">
 					          		<h5>Skirt</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s4">
@@ -234,7 +195,7 @@
 		                  					<label for="longHips"> Length: </label>
 					          			</div>					          
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -253,7 +214,7 @@
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="polo" name="polo">
 					          		<h5>Polo (Long/Short Sleeve)</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s4">
@@ -293,7 +254,7 @@
 		                  					<label for="longArmhole"> Wrist: </label>
 					          			</div>								
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -312,7 +273,7 @@
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="pants" name="pants">
 					          		<h5>Pants</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s3">
@@ -332,7 +293,7 @@
 		                  					<label for="longShoulder"> Length:</label>
 					          			</div>						          				
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -351,7 +312,7 @@
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="muscle" name="muscle">
 					          		<h5>Muscle Shirt</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s3">
@@ -387,7 +348,7 @@
 		                  					<label for="longArmhole"> Arm Hole: </label>
 					          			</div>								
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -406,7 +367,7 @@
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="coat" name="coat">
 					          		<h5>Coat</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s4">
@@ -422,7 +383,7 @@
 		                  					<label for="longHips"> Jacket Length: </label>
 					          			</div>					
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -441,7 +402,7 @@
 					<div class="row">
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
-					          	<div class="card-content">
+					          	<div class="card-content" id="dressShirt" id="dressShirt">
 					          		<h5>Dress Shirt</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s3">
@@ -477,7 +438,7 @@
 		                  					<label for="longArmhole"> Arm Hole: </label>
 					          			</div>								
 					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
+					          		
 					          	</div>
 					        </diV>
 					    </div>
@@ -488,45 +449,90 @@
 	</div>
 </div>
 
-	<!--Tuxedo-->
-		<!-- Women's Uniforms -->
-		<div class="row">
+<!-- 	Tuxedo
+	Women's Uniforms
+	<div class="row">
       	<div class="col s12 m12 l12">
-	        <div class="card-panel">
-	          	<div class="card-content">
-					<div class="row">
-				      	<div class="col s12 m12 l12">
-					        <div class="card-panel">
-					          	<div class="card-content">
-					          		<h5>Pants</h5> 
-					          		<div class = "row">
-					          			<div class = "input-field col s3">
-					          				<input id="longNeck" name = "longNeck" type="text">
-		                  					<label for="longNeck"> Hip (for the bottoms):</label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longBust" name = "longBust" type="text">
-		                  					<label for="longBust"> Seat (for the bottoms):</label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longHips" name = "longHips" type="text">
-		                  					<label for="longHips"> Inseam: </label>
-					          			</div>
-					          			<div class = "input-field col s3">
-					          				<input id="longShoulder" name = "longShoulder" type="text">
-		                  					<label for="longShoulder"> Length:</label>
-					          			</div>					
-					          		</div>
-					          		<button style="margin-left:800px; padding-left:50px; padding-right:50px"><font size="+1"></font>SAVE</button>
-					          	</div>
-					        </diV>
-					    </div>
-					</div>
+        <div class="card-panel">
+          	<div class="card-content">
+				<div class="row">
+			      	<div class="col s12 m12 l12">
+				        <div class="card-panel">
+				          	<div class="card-content">
+				          		<h5>Pants</h5> 
+				          		<div class = "row">
+				          			<div class = "input-field col s3">
+				          				<input id="longNeck" name = "longNeck" type="text">
+	                  					<label for="longNeck"> Hip (for the bottoms):</label>
+				          			</div>
+				          			<div class = "input-field col s3">
+				          				<input id="longBust" name = "longBust" type="text">
+	                  					<label for="longBust"> Seat (for the bottoms):</label>
+				          			</div>
+				          			<div class = "input-field col s3">
+				          				<input id="longHips" name = "longHips" type="text">
+	                  					<label for="longHips"> Inseam: </label>
+				          			</div>
+				          			<div class = "input-field col s3">
+				          				<input id="longShoulder" name = "longShoulder" type="text">
+	                  					<label for="longShoulder"> Length:</label>
+				          			</div>					
+				          		</div>
+				          		
+				          	</div>
+				        </diV>
+				    </div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+</div> -->
 
 
+@stop
+
+@section('scripts')
+	<script>
+		$(document).ready(function(){
+			$("#skirt").addClass("disabledbutton");
+			$("#blouse").addClass("disabledbutton");
+			$("#coat").addClass("disabledbutton");
+			$("#dressShirt").addClass("disabledbutton");
+			$("#pants").addClass("disabledbutton");
+			$("#polo").addClass("disabledbutton");
+			$("#muscle").addClass("disabledbutton");
+			$("#ribbon").addClass("disabledbutton");
+			$("#shorts").addClass("disabledbutton");
+
+
+			if($("#segment_name").val() == 'Skirt'){
+				$("#skirt").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Blouse'){
+				$("#blouse").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Coat'){
+				$("#coat").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Dress shirt'){
+				$("#dressShirt").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Pants'){
+				$("#pants").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Long Sleeve Polo'){
+				$("#polo").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Muscle Shirt'){
+				$("#muscle").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Ribbon'){
+				$("#ribbon").removeClass("disabledbutton");
+			}
+			if($("#segment_name").val() == 'Shorts'){
+				$("#shorts").removeClass("disabledbutton");
+			}
+		});
+	</script>
 @stop
