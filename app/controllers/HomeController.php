@@ -27,22 +27,25 @@ class HomeController extends BaseController {
 	public function LogIn()
 	{
 		$user = Input::get('username');
-		$pass = Input::get('password');
-		$check1 = User::where('strUserID','=', $user)->first();
-		$check2 = User::where('strPassword','=',$pass)->first();
+    	$pass = Input::get('password');
+    	$check = DB::table('tblUser')
+    			->select('strUserID', 'strPassword')
+    			->where('strUserID', '=', $user)
+    			->first();
 
-		if($check1 == $check2)
-		{
-			$empID = DB::table('tblUser')
+    	$empID = DB::table('tblUser')
 				->rightJoin('tblEmployee', 'tblUser.strLoginEmpID', '=', 'tblEmployee.strEmployeeID')
 				->where('tblUser.strUserID', '=', $user )
 				->first();
-			
-			$name = $empID->strEmpFName . " " . $empID ->strEmpLName;
-			Session::put('user',$name);
-			return View::make('layouts/master')->with('user', $user)->with('empID', $empID);
-		}else
-			return Redirect::to('/')->with('message', 'Login Failed, USERNAME/PASSWORD Dont Exists');
+
+		if(!$empID == null){
+			if($check->strUserID == $user && $check->strPassword == $pass){ 
+	
+				$name = $empID->strEmpFName . " " . $empID ->strEmpLName;
+				Session::put('user',$name);
+				return View::make('layouts/master')->with('user', $user)->with('empID', $empID);
+			}else return Redirect::to('/')->with('message', 'Login Failed, USERNAME/PASSWORD Dont Exists');
+		}else return Redirect::to('/')->with('message', 'Login Failed, User does not have an account!');
 	}
 
 	public function remembLog()

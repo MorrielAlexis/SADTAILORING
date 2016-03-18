@@ -63,7 +63,7 @@ Route::group(array('prefix' => 'transaction'), function() {
 	Route::get('/adminBillingCollection', 'AdminBillingAndCollectionController@collection');
 });
 
-
+Route::post('/bill', 'AdminBillingAndCollectionController@generateBill');
 Route::get('/walkIndi','WalkIndiController@indi');
 Route::get('/walkCom','WalkComController@com');
 Route::get('/chooseProduct','ProductController@products');

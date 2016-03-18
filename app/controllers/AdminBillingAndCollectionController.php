@@ -12,4 +12,10 @@ class AdminBillingAndCollectionController extends BaseController{
 
 		return View::make('adminBillingPayment');
 	}
+
+	public function generateBill(){
+		$pdf = PDF::loadView('billingPDF');
+        return $pdf->stream();
+		return View::make('bill');
+	}
 }

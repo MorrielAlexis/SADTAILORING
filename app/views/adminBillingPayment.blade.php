@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 
 @section('content')
@@ -48,7 +49,6 @@
 
 
 		</div>
-
 		<div class = "col s5 m5 l5" style="background:#80d8ff;padding:40px; margin-left:0px; border:3px outset white;">
 			<div style="margin-bottom:50px">
 			<label><font size="+3">PAYMENT DETAILS</font></label>
@@ -70,9 +70,11 @@
 			<div class="col s12 m12 l12" style="background:#80d8ff; padding-left:550px; padding-top:20px; padding-bottom:20px">
   				<button class="waves-effect waves-dark btn light-green accent-1" style="color:black; margin-right:15px"><i class="material-icons left">system_update_alt</i>Save</button>
 	  			<button class="waves-effect waves-dark btn light-green accent-1" style="color:black; margin-right:15px"><i class="material-icons left">input</i>Edit</button>
-	  			<button class="waves-effect waves-dark btn light-green accent-1" style="color:black;"><i class="material-icons left">delete</i>Discard</button>
+	  			<button class="waves-effect waves-dark btn light-green accent-1" style="color:black; margin-right:15px"><i class="material-icons left">delete</i>Discard</button>
+		<form action="{{ URL::to('bill') }}" method="POST">
+  				<button type="submit" class="waves-effect waves-dark btn light-green accent-1" style="color:black; margin-right:15px" href="{{ URL::to('bill') }}"><i class="material-icons left">system_update_alt</i>Print</button>
+  		</form>
   			</div>
-
 		<div class = "col s12 m12 l12" style="background:#80d8ff; margin-top:20px; padding:40px;  border:3px outset white;">			
 			<label><left><font size="+1">Order Details</font></left></label>
 			<label style="padding-left:600px"><font size="+1">March 12, 2016 2:30AM</font></label>
