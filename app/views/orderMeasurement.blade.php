@@ -17,41 +17,30 @@
 
 		<div class="col s6">
 			<div class="input-field col s12" style="padding-left:200px">
-			          <input style="color:black" disabled id="cust_name" type="text" class="validate" value="Buenavides, Honey May"></input>
+				@foreach($customer as $cust)
 			          <label for="cust_name" style="color:black"><font size="+0.95">CUSTOMER NAME:</font></label>
+			          <input style="color:black" disabled id="cust_name" type="text" class="validate" value="{{$cust->strCustPrivLName}}, {{$cust->strCustPrivFName}} {{$cust->strCustPrivMName}}">
+	  			@endforeach
 	  		</div>
 	  	</div>
-
+		
+		@foreach($garments as $garment)
 		<!-- Hard-coded for now. Change the value into something dynamic (Found in the input tag). -->
 		<div class="col s6">
 			<div class="input-field col s12" style="padding-left:200px;">
-			          <input style="color:black" disabled id="cust_name" type="text" class="validate" value="Uniform"></input>
+			          <input style="color:black" disabled id="cust_name" type="text" class="validate" value="{{$garment->strGarmentCategoryName}}"></input>
 			          <label for="cust_name" style="color:black"><font size="+0.95">GARMENT CATEGORY:</font></label>
 	  		</div>
 	  	</div>
 
-		<div class="col s6">
-			<div class="input-field col s12" style="padding-left:200px">
-	  				<label style="color:black"><font size="+0.95">CUSTOMER SEX:</font></label>
-					    <select class="browser-default">
-					    	  <option value="1" disabled selected>--- Choose customer sex ---</option>
-						      <option value="1">Male</option>
-						      <option value="2">Female</option>
-					    </select>
-			</div>
-		</div>
-
 		<!-- Hard coded as well. Base this according to the garment category.-->
 		<div class="col s6">
 			<div class="input-field col s12" style="padding-left:200px">
-	  				<label style="color:black"><font size="+0.95">GARMENT SEGMENT:</font></label>
-					    <select class="browser-default">
-					    	  <option value="1" disabled selected>--- Choose garment segment ---</option>
-						      <option value="1">Blouse</option>
-						      <option value="4">Skirt</option>
-					    </select>
+				<input style="color:black" disabled id="cust_name" type="text" class="validate" value="{{$garment->strGarmentSegmentName}}"></input>
+	  			<label style="color:black"><font size="+0.95">GARMENT SEGMENT:</font></label>
 			</div>
 		</div>
+		@endforeach
 		
 	    <button class="btn btn-large center-text light-green accent-1" style="margin-left:750px; margin-top:50px; color:black">Submit Measurements</button>
 	</div>
@@ -66,6 +55,9 @@
 				      	<div class="col s12 m12 l12">
 					        <div class="card-panel">
 					          	<div class="card-content">
+									<input type="hidden" value="{{Input::get('jobOrder')}}" id="joMeas" name="joMeas">
+
+
 					          		<h5>Blouse</h5> 
 					          		<div class = "row">
 					          			<div class = "input-field col s3">
@@ -535,7 +527,6 @@
 		</div>
 	</div>
 </div>
-
 
 
 @stop

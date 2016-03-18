@@ -71,7 +71,8 @@ Route::get('/alteration','AlterationController@alter');
 Route::get('/madeOrder','OrderController@order');
 Route::get('/trans','ChooseTransController@trans');
 Route::get('/cart','CartController@cart');
-Route::get('/orderMeasurement','OrderMeasurementController@order');
+
+Route::get('orderMeasurement/{orderID}/{custID}', array('as' => 'orderMeasurement', 'uses' => 'OrderMeasurementController@order'));
 
 
 

@@ -58,6 +58,14 @@ class AdminWalkController extends BaseController{
         }
 
 			if(!$isAdded){
+				$customer = Customer::create(array(
+					'strCustomerID' => Input::get('addIndiID'),
+					'boolHasAccount'  => 0,
+					'boolIsActive' => 1
+					));
+
+				$customer->save();
+
 				$individual = PrivateIndividual::create(array(
 					'strCustPrivIndivID' => Input::get('addIndiID'),
 					'strCustPrivFName' => trim(Input::get('addFName')),		
@@ -112,6 +120,14 @@ class AdminWalkController extends BaseController{
         }
 		
 			if(!$isAdded){
+				$customer = Customer::create(array(
+					'strCustomerID' => Input::get('addIndiID'),
+					'boolHasAccount'  => 0,
+					'boolIsActive' => 1
+					));
+
+				$customer->save();
+
 				$company = Company::create(array(
 					'strCustCompanyID' => Input::get('addComID'),
 					'strCustCompanyName' => trim(Input::get('addComName')),		
