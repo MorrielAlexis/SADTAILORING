@@ -48,10 +48,22 @@
 		                  </select>
 		                </div>  
 
-						<div class = "input-field col s6">
+				<div class="row">
+					<div class="col s12 m12 l12" style="padding:40px;">
+						<div class = "input-field col s4" style="padding-left:100px">
 							<input id="jobOrderQuantity" name = "jobOrderQuantity" type="text">
-			                <label for="quantity"> Quantity:</label>
+			                <label style="color:black"><font size="+0.95"> Quantity </font></label>
 						</div>
+						<div class = "input-field col s4" style="padding-left:100px">
+							<input id="unitPrice" name = "unitPrice" type="text" disabled>
+			                <label style="color:black"> Unit Price</label>
+						</div>
+						<div class = "input-field col s4" style="padding-left:100px">
+							<input id="totalPrice" name = "jobOrderQuantity" type="text" disabled>
+			                <label style="color:black"> Total Price</label>
+						</div>
+					</div>
+				</div>
 						<div class = "col s6">&nbsp</div>
 						<div class = "col s12">
 							<center>
@@ -413,7 +425,35 @@
 	</script>
 	
 	<script>
-		//$("#order").addClass("disabledbutton");
+		$(document).ready(function(){
+			var data = {{ json_encode($price) }} ;
+			var i = 0;
+
+			$("#addSegment").on('change', function () {
+				var cat = $("#addCategory").val();
+				var seg = $("#addSegment").val();
+				for(i = 0; i < data.length; i++){
+
+					if(cat == data[i].strCategoryID && seg == data[i].strSegmentID){
+						$("#unitPrice").val(data[i].dblPrice);
+						$("#totalPrice").val(data[i].dblPrice * $("#jobOrderQuantity").val());
+					}
+				}	
+	        });
+
+	        $("#jobOrderQuantity").keyup(function () {
+				var cat = $("#addCategory").val();
+				var seg = $("#addSegment").val();
+				for(i = 0; i < data.length; i++){
+
+					if(cat == data[i].strCategoryID && seg == data[i].strSegmentID){
+						$("#unitPrice").val(data[i].dblPrice);
+						$("#totalPrice").val(data[i].dblPrice * $("#jobOrderQuantity").val());
+					}
+				}	
+	        });
+		});
+
 	</script>
 
     <script src="js/jquery-1.12.0.min.js"></script>

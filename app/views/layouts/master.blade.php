@@ -123,7 +123,7 @@
                           <div class="collapsible-body">
                             <ul>
                               <li><a style="color:black; font-weight:normal" class="waves-effect waves-white " href="{{URL::to('transaction/walk')}}">Walk In Customer</a></li>
-                              <li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('transaction/online')}}">Online Customer</a></li>
+                              <!--<li><a style="color:black; font-weight:normal" class="waves-effect waves-white" href="{{URL::to('transaction/online')}}">Online Customer</a></li>-->
 
                              <div class="divider"></div>
                             </ul>

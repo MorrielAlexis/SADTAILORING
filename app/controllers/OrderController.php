@@ -22,18 +22,24 @@ class OrderController extends BaseController{
 		$segment = Segment::all();
 		$fabric = FabricType::all();
 		$swatch = Swatch::all();
+		$price = DB::table('tblgarment_price')
+				->select('*')
+				->get();
+
 
 		return View::make('order')
 					->with('newID', $newID)
 					->with('category', $category)
 					->with('segment', $segment)
 					->with('fabric', $fabric)
-					->with('swatch', $swatch);
+					->with('swatch', $swatch)
+					->with('price', $price);
 	}
 
 	public function addJobOrder()
 	{	
-		dd(Input::get('customerID'));
+		$ownFabric = Input::has('ownFabric');
+
 		$jobOrder = TransJobOrder::create(array(
 			'strJobOrderID' => Input::get('jobOrderID'),
 			'strJobDescID' => 'JOBDESC01',
@@ -59,17 +65,21 @@ class OrderController extends BaseController{
 
 		$jobOrderGarments->save();
 
-		if(Input::has('ownFabric')){
+
+		if(!$ownFabric == TRUE){
 			$jobOrderFabric = TransJobOrderFabric::create(array(
-				'strJobOrderID' => Input::get('jobOrderID'),
+				'strOrderID' => Input::get('jobOrderID'),
 				'strFabricSwatch' => Input::get('addSwatch'),
 				'boolIsActive' => 1
 			));
 
 			$jobOrderFabric->save();
 		}
+ 		
+		$JO = Input::get('jobOrderID');
+		$customerID = Input::get('customerID');
 
-		return Redirect::to('/orderMeasurement');
+		return Redirect::route('orderMeasurement', array('orderID' => $JO, 'custID' => $customerID));
 	}
 
 	public function smartCounter($id)
