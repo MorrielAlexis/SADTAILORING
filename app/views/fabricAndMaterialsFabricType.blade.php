@@ -81,7 +81,7 @@
     <div class="row">
       <div class="col s12 m12 l12">
 
-          <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new fabric type to the table" href="#addFabricType">ADD NEW FABRIC TYPE</button>
+          <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new fabric type to the table" href="#addFabricType">ADD FABRIC TYPE</button>
       </div>
     </div>
   </div> <!-- End of Main Wrapper  --> 
@@ -122,31 +122,33 @@
                     <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of fabric type from the table" href="#del{{$fabricType->strFabricTypeID}}">DEACTIVATE</button></td>
               	
                     <div id="edit{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer"> <!-- editFabricType  --> 
-                      <h5><font color = "#1b5e20"><center>Edit Fabric Type</center> </font> </h5>
+                      <h5><font color = "#1b5e20"><center>EDIT FABRIC TYPE</center> </font> </h5>
                       <form action="{{URL::to('editFabricType')}}" method="POST">
-                      <div class="modal-content col s12">
-                        <p>
+                        <div class="divider" style="height:2px"></div>
+                        <div class="modal-content col s12">
                         
                         <div class="input-field">
                           <input value = "{{ $fabricType->strFabricTypeID }}" id="editFabricTypeID" name = "editFabricTypeID" type="hidden">
-
                         </div>
 
-                        <div class="input-field">
+                  <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                        <div class="input-field col s12">
                           <input required value = "{{ $fabricType->strFabricTypeName }}" id="editFabricTypeName" name = "editFabricTypeName" type="text" class="validateTypeName">
-                          <label for="fabrictype_name">*Fabric Type Name: </label>
+                          <label for="fabrictype_name">*Fabric Type Name </label>
                         </div>
+                  </div>
 
-                        <div class="input-field">
+                  <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                        <div class="input-field col s12">
                           <input required value = "{{ $fabricType->strFabricTypeDesc }}" id="editFabricTypeDesc" name = "editFabricTypeDesc" type="text" class="validateTypeDesc">
-                          <label for="fabrictype_description">*Fabric Desription: </label>
+                          <label for="fabrictype_description">*Fabric Desription </label>
                         </div>  
-                        </p>
-                      </div>
+                  </div>
+                  </div>
 
-                      <div class="modal-footer col s12">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                      <div class="modal-footer col s12" style="background-color:#26a69a">
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Update</button>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                       </div>
                       </form>
                     </div> <!-- editFabricType  -->    
@@ -154,39 +156,44 @@
 
               <!--**********DELETE***********-->
               <div id="del{{ $fabricType->strFabricTypeID }}" class="modal modal-fixed-footer">                     
-                <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate the swatch?</center> </font> </h5>                       
+                <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS FABRIC TYPE?</center> </font> </h5>                       
                   <form action="{{URL::to('delFabricType')}}" method="POST">
+                    <div class="divider" style="height:2px"></div>
                     <div class="modal-content col s12">
-                      <p>
+                      
                           <div class="input-field">
                             <input value="{{$fabricType->strFabricTypeID}}" id="delFabricID" name="delFabricID" type="hidden">
-
                           </div>
 
-                          <div class="input-field">
-                            <label for="first_name">Fabric Type Name: </label>
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
+                            <label for="first_name">Fabric Type Name </label>
                             <input value="{{$fabricType->strFabricTypeName}}" id="delFabricName" name="delFabricName" type="text" readonly>
                           </div>
+                      </div>
 
-                           <div class="input-field">
-                            <label for="middle_name">Fabric Desription: </label>
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
+                            <label for="middle_name">Fabric Desription </label>
                             <input value="{{$fabricType->strFabricTypeDesc}}" id="delFabricDesc" name="delFabricDesc" type="text" readonly>
                           </div>
+                      </div>
 
                           <div>
                             <input value="{{$fabricType->strFabricTypeID}}" id="delInactiveFabricType" name="delInactiveFabricType" type="hidden">
                           </div>
 
-                           <div class="input-field">
-                            <label for="middle_name">*Reason for Deactivation: </label>
+                      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                           <div class="input-field col s12">
+                            <label for="middle_name">*Reason for Deactivation </label>
                             <input value="{{$fabricType->strInactiveReason}}" id="delInactiveReason" name="delInactiveReason" type="text" required>
                           </div>
-                        </p>
+                      </div>
                       </div>
 
-                          <div class="modal-footer col s12">
+                          <div class="modal-footer col s12" style="background-color:#26a69a">
                             <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
                         </form>
                     </div>
@@ -203,34 +210,34 @@
 
             <!--********ADD******-->
               <div id="addFabricType" class="modal modal-fixed-footer"> <!-- addFabricType  -->                 
-                <h5><font color = "#1b5e20"><center>Add Fabric Type</center> </font> </h5> 
+                <h5><font color = "#1b5e20"><center>ADD NEW FABRIC TYPE</center> </font> </h5> 
                 <form action="{{URL::to('addFabricType')}}" method="POST">
+                <div class="divider" style="height:2px"></div>
                 <div class="modal-content col s12">
-                <p>           
+                          
 
                   <div class="input-field">
                     <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="hidden">
                   </div>
 
-                  <div class="input-field">
-                    <input value = "{{$newID}}" id="addFabricTypeID" name = "addFabricTypeID" type="hidden">
-                  </div>
-
-                  <div class="input-field">
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="input-field col s12">
                     <input required id="addFabricTypeName" name = "addFabricTypeName" type="text" class="validateTypeName">
-                    <label for="fabrictype_name">*Fabric Name: </label>
+                    <label for="fabrictype_name">*Fabric Name </label>
                   </div>
+              </div>
 
-                  <div class="input-field">
+              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                  <div class="input-field col s12">
                     <input required id="addFabricTypeDesc" name = "addFabricTypeDesc" type="text" class="validateTypeDesc">
-                    <label for="fabrictype_description">*Fabric Desription: </label>
+                    <label for="fabrictype_description">*Fabric Desription </label>
                   </div>
-                </p>
-                </div>
+              </div>
+              </div>
 
-                  <div class="modal-footer col s12">
-                    <button type="submit" id="addFabType" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                    <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
+                  <div class="modal-footer col s12" style="background-color:#26a69a">
+                    <button type="submit" id="addFabType" class=" modal-action  waves-effect waves-green btn-flat">Add</button>
+                    <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button> 
                   </div>
                 </form>
     	       </div><!-- addFabricType  -->

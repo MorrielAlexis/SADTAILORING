@@ -81,7 +81,7 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new swatch to the table" href="#addSwatches">ADD NEW SWATCH</button>
+        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new swatch to the table" href="#addSwatches">ADD FABRIC SWATCH</button>
       </div>
     </div>
   </div>
@@ -123,16 +123,19 @@
     
 
                       <div id="edit{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">                        
-                        <h5><font color = "#1b5e20"><center>Edit Fabric Swatch</center> </font> </h5>
+                        <h5><font color = "#1b5e20"><center>EDIT FABRIC SWATCH</center> </font> </h5>
                           <form action="{{URL::to('editSwatch')}}" method="POST" enctype="multipart/form-data">
+                            <div class="divider" style="height:2px"></div>
                             <div class="modal-content col s12">
-                            <p>                           
+                                                      
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="editSwatchID" name= "editSwatchID" type="hidden">
                               </div>
 
-                              <div class="input-field">
-                                <select required  name='editFabric'>
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
+                                <select class="browser-default" required  name='editFabric'>
+                                  <option disabled selected value="">*Fabric Type</option>
                                   @foreach($fabricType as $fab)
                                     @if($swatch->strSwatchFabricTypeName == $fab->strFabricTypeID && $fab->boolIsActive == 1)
                                       <option selected value="{{ $fab->strFabricTypeID }}">{{ $fab->strFabricTypeName }}</option>
@@ -141,21 +144,25 @@
                                     @endif
                                   @endforeach
                                 </select>
-                                <label>*Fabric Type</label>
+                                <!--<label>*Fabric Type</label>-->
                               </div>  
+                        </div>
 
-                              <div class="input-field">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s6">
                                 <input required value="{{$swatch->strSwatchName}}" id="editSwatchName" name = "editSwatchName" type="text" class="validateSwatchName">
-                                <label for="swatch_name">*Swatch Name: </label>
+                                <label for="swatch_name">*Swatch Name </label>
                               </div>    
 
-                              <div class="input-field">
+                              <div class="input-field col s6">
                                 <input required value="{{$swatch->strSwatchCode}}" id="editSwatchCode" name = "editSwatchCode" type="text" class="validateSwatchCode">
-                                <label for="swatch_code">*Swatch Code: </label>
+                                <label for="swatch_code">*Swatch Code </label>
                               </div>
+                        </div>
 
-                              <div class="file-field input-field">
-                                <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                              <div class="file-field input-field col s12">
+                                <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                                   <span>Upload Image</span>
                                   <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                 </div>
@@ -164,52 +171,59 @@
                                   <input value="{{$swatch->strSwatchImage}}" id="editSwatchImage" name="editSwatchImage" class="file-path validate" type="text" readonly="readonly">
                                 </div>
                               </div>
-                            </p>
-                            </div>            
-                              <div class="modal-footer col s12">
-                                <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                        </div>
+                        </div>            
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
+                                <button type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat">Update</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div>                          
                           </form>
                           </div> 
                           <!--******************Soft Delete*************************-->
                       <div id="del{{$swatch->strSwatchID}}" class="modal modal-fixed-footer">                        
-                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>                           
+                        <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS SWATCH?</center> </font> </h5>                           
                           <form action="{{URL::to('delSwatch')}}" method="POST"> 
+                          <div class="divider" style="height:2px"></div>
                           <div class="modal-content col s12">  
-                            <p>
+                            
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="delSwatchID" name= "delSwatchID" type="hidden">
                               </div>
 
-                              <div class="input-field">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
                                   <input type="text" value="{{$swatch->strFabricTypeName}}" readonly>
                                   <label>Fabric Type</label>
-                              </div>  
+                              </div>
+                        </div>  
 
-                              <div class="input-field">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s6">
                                 <input value="{{$swatch->strSwatchName}}" type="text" class="" readonly>
-                                <label for="swatch_name">Swatch Name: </label>
+                                <label for="swatch_name">Swatch Name </label>
                               </div>    
 
-                              <div class="input-field">
+                              <div class="input-field col s6">
                                 <input value="{{$swatch->strSwatchCode}}" type="text" class="" readonly>
-                                <label for="swatch_code">Swatch Code: </label>
+                                <label for="swatch_code">Swatch Code </label>
                               </div>
+                        </div>
 
                               <div class="input-field">
                                 <input value = "{{ $swatch->strSwatchID }}" id="delInactiveSwatch" name= "delInactiveSwatch" type="hidden">
                               </div>   
 
-                              <div class="input-field">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                              <div class="input-field col s12">
                                 <input value="{{$swatch->strInactiveReason}}" id="delInactiveReason" name= "delInactiveReason" type="text" class="" required>
-                                <label for="swatch_code">*Reason for Deactivation: </label>
-                              </div>                 
-                          </div>
+                                <label for="swatch_code">*Reason for Deactivation </label>
+                              </div> 
+                        </div>                
+                        </div>
                           
-                            <div class="modal-footer col s12">
+                            <div class="modal-footer col s12" style="background-color:#26a69a">
                               <button type="submit" class=" modal-action waves-effect waves-green btn-flat">OK</button>
-                              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                             </div>
                           </p>
                         </form>
@@ -229,39 +243,44 @@
 
                 <!--    <Modal Structure for Add swatches> -->
             <div id="addSwatches" class="modal modal-fixed-footer">
-             <h5><font color = "#1b5e20"><center>Add Fabric Swatch</center> </font> </h5>
+             <h5><font color = "#1b5e20"><center>ADD NEW FABRIC SWATCH</center> </font> </h5>
               <form action="{{URL::to('addSwatch')}}" method="POST" id="addSwatch" name="addSwatch" enctype="multipart/form-data"> 
-
+                <div class="divider" style="height:2px"></div>
                 <div class="modal-content col s12">
-                  <p>
  
                     <div class="input-field">
                       <input value = "{{$newID}}" id="addSwatchID" name= "addSwatchID" type="hidden">
                     </div>
 
-                    <div class="input-field">
-                      <select name='addFabric' id='addFabric' required>
+                <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                    <div class="input-field col s12">
+                      <select class="browser-default" name='addFabric' id='addFabric' required>
+                         <option disabled selected value="">*Fabric Type</option>
                           @foreach($fabricType as $fab)
                             @if($fab->boolIsActive == 1)
                               <option value="{{ $fab->strFabricTypeID }}">{{ $fab->strFabricTypeName }}</option>
                             @endif
                           @endforeach
                       </select>
-                      <label>*Fabric Type</label>
-                    </div>  
+                      <!--<label>*Fabric Type</label>-->
+                    </div> 
+                </div> 
 
-                    <div class="input-field">
+                <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                    <div class="input-field col s6">
                       <input required id="addSwatchName" name="addSwatchName" type="text" class="validateSwatchName">
-                      <label for="swatch_name">*Swatch Name: </label>
+                      <label for="swatch_name">*Swatch Name </label>
                     </div>    
 
-                    <div class="input-field">
+                    <div class="input-field col s6">
                       <input required id="addSwatchCode" name = "addSwatchCode" type="text" class="validateSwatchCode">
-                      <label for="swatch_code">*Swatch Code: </label>
+                      <label for="swatch_code">*Swatch Code </label>
                     </div>
+                </div>
 
-                    <div class="file-field input-field">
-                      <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                    <div class="file-field input-field col s12">
+                      <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                         <span>Upload Image</span>
                         <input id="addImg" name="addImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                       </div>
@@ -270,15 +289,12 @@
                         <input id="addImage" name="addImage" class="file-path validate" type="text" readonly="readonly">
                       </div>
                     </div>
-
-                    <br>
-                    <br>
-                  </p>  
+                </div>  
                 </div>
 
-                <div class="modal-footer col s12">
-                  <button type="submit" id="send" name="send" class=" modal-action waves-effect waves-green btn-flat">ADD</button>
-                  <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                <div class="modal-footer col s12" style="background-color:#26a69a">
+                  <button type="submit" id="send" name="send" class=" modal-action waves-effect waves-green btn-flat">Add</button>
+                  <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                 </div>           
               </form>
             </div>

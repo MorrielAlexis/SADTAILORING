@@ -17,7 +17,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Good! Data was successfully added!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully added material!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Good! Data was successfully edited!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully edited material!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Good! Data was successfully deactivated!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully deactivated material!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Good! Data was successfully reactivated!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully reactivated material!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
 
        <div class="row">
           <div class="col s12 m12 l12">
-              <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table" href="#addThread">ADD NEW THREAD</button>
+              <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1"style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new thread detail to the table" href="#addThread">ADD THREAD</button>
           </div>
         </div>                                 
 
@@ -143,32 +143,40 @@
                             
                           <!--EDIT THREADS-->
                           <div id="edit{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
-                            <div class="modal-content col s12">
-                            <h5><font color = "#1b5e20"><center>Edit Thread</center> </font> </h5>
-                            <p>
+                            <h5><font color = "#1b5e20"><center>EDIT THREAD</center> </font> </h5>
                             <form action="{{URL::to('editThread')}}" method="POST" enctype="multipart/form-data"> 
+                              <div class="divider" style="height:2px"></div>
+                                <div class="modal-content col s12">
+
 
                                 <div class="input-field">
                                   <input id="editThreadID" name = "editThreadID" value = "{{ $thread->strMaterialThreadID }}" type="hidden">
                                 </div>
                           
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input id="editThreadName" name = "editThreadName" value = "{{ $thread->strMaterialThreadName }}" type="text" class="validateName">
                                   <label for="Thread_Name"> *Thread Name </label>
                                 </div>
+                          </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input id="editThreadColor" name = "editThreadColor" value = "{{ $thread->strMaterialThreadColor }}" type="text" class="validateColor">
                                   <label for="Thread_Color"> *Thread Color </label>
                                 </div>
+                          </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input id="editThreadDesc" name = "editThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text" class="validateDesc">
                                   <label for="Thread_Color"> Description </label>
                                 </div>
+                          </div>
 
-                                <div class="file-field input-field">
-                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                <div class="file-field input-field col s12">
+                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                                     <span>Upload Image</span>
                                     <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                   </div>
@@ -177,56 +185,63 @@
                                     <input value="{{$thread->strMaterialThreadImage}}" class="file-path validate" id="editThreadImage" name="editThreadImage" type="text">
                                   </div>                   
                                 </div> 
-                              </p>
-                              </div>    
+                          </div>
+                          </div>    
 
-                              <div class="modal-footer col s12">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>   
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Update</button>
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>   
                               </div>
                             </form>
                           </div>
                         
                             <!--deactivate THREADS-->
                           <div id="del{{ $thread->strMaterialThreadID }}" class="modal modal-fixed-footer">
-                            <form action="{{URL::to('delThread')}}" method="POST">
-                              <div class="modal-content col s12">
-                                <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                                <p>
+                            <form action="{{URL::to('delThread')}}" method="POST">                             
+                                <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS THREAD?</center> </font> </h5> 
+                                <div class="divider" style="height:2px"></div>
+                                <div class="modal-content col s12">
          
                                   <div class="input-field">
                                     <input value="{{$thread->strMaterialThreadID}}" id="delThreadID" name="delThreadID" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
-                                    <label for="first_name">Thread Name: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
+                                    <label for="first_name">Thread Name </label>
                                     <input value="{{$thread->strMaterialThreadName}}" id="delThreadName" name="delThreadName" type="text"  readonly>
                                   </div>
-                                                
-                                   <div class="input-field">
-                                    <label for="middle_name">Thread Color: </label>
+                              </div>
+                                    
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">            
+                                   <div class="input-field col s12">
+                                    <label for="middle_name">Thread Color </label>
                                     <input value="{{$thread->strMaterialThreadColor}}" id="delThreadColor" name="delThreadColor" type="text" readonly>
                                   </div>
+                              </div>
 
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
                                   <div class="input-field">
                                     <input id="delThreadDesc" name = "delThreadDesc" value = "{{ $thread->strMaterialThreadDesc }}" type="text" readonly>
-                                    <label for="Thread_Color"> Description: </label>
+                                    <label for="Thread_Color"> Description </label>
                                   </div>
+                              </div>
 
                                   <div class="input-field">
                                     <input value="{{$thread->strMaterialThreadID}}" id="delInactiveThread" name="delInactiveThread" type="hidden" readonly>
                                   </div>
 
-                                  <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                  <div class="input-field col s12">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$thread->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation </label>
                                   </div>
-                                </p>
+                              </div>
                               </div>
 
-                              <div class="modal-footer col s12">
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                               </div> 
                             </form>
                           </div>
@@ -251,7 +266,7 @@
 
       <div class="row">
         <div class="col s12 m12 l12">
-            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new needle detail to the table" href="#addNeedle">ADD NEW NEEDLE</button>
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new needle detail to the table" href="#addNeedle">ADD NEEDLE</button>
         </div>
       </div>  
 
@@ -287,46 +302,53 @@
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of needle detail from the table" href="#del{{$needle->strMaterialNeedleID}}">DEACTIVATE</button>
                             
                           <div id="edit{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Edit Needle</center> </font> </h5>
+                            <h5><font color = "#1b5e20"><center>EDIT NEEDLE</center> </font> </h5>
                             <form action="{{URL::to('editNeedle')}}" method="POST" enctype="multipart/form-data"> 
+                              <div class="divider" style="height:2px"></div>
+                              <div class="modal-content col s12">
 
-                              <div class="modal-content col s12">                              
                                 <div class="input-field">
                                   <input id="editNeedleID" name = "editNeedleID" value = "{{$needle->strMaterialNeedleID}}" type="hidden">
                                 </div>
                           
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input required id="editNeedleName" name = "editNeedleName" value = "{{$needle->strMaterialNeedleName}}" type="text" class="validateName">
                                   <label for="Needle_Name"> *Needle Name </label>
                                 </div>
+                          </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input required id="editNeedleSize" name = "editNeedleSize" value = "{{$needle->strMaterialNeedleSize}}" type="text" class="validateSize">
                                   <label for="Needle_Size"> *Needle Size </label>
                                 </div>
+                          </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input required id="editNeedleDesc" name = "editNeedleDesc" value = "{{$needle->strMaterialNeedleDesc}}" type="text" class="validateDesc">
                                   <label for="Needle_Size"> Description </label>
                                 </div>
+                          </div>
 
-                                           
-                                <div class="file-field input-field">
-                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">                 
+                                <div class="file-field input-field col s12">
+                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                                     <span>Upload Image</span>
                                     <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                   </div>
 
                                   <div class="file-path-wrapper">
                                     <input value="{{$needle->strMaterialNeedleImage}}" class="file-path validate" id="editNeedleImage" name="editNeedleImage" type="text">
-                                  </div>
-                                  <br><br> 
+                                  </div> 
                                 </div>
-                              </div>    
+                          </div>
+                          </div>    
 
-                              <div class="modal-footer col s12">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Update</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div>
                             </form>
                           </div>
@@ -334,45 +356,51 @@
                         
 
                           <div id="del{{$needle->strMaterialNeedleID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
+                            <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS NEEDLE?</center> </font> </h5> 
                             <form action="{{URL::to('delNeedle')}}" method="POST">
-
+                              <div class="divider" style="height:2px"></div>
                               <div class="modal-content col s12">
                                 
-                                <p>
                                   <div class="input-field">
                                     <input value="{{$needle->strMaterialNeedleID}}" id="delNeedleID" name="delNeedleID" type="hidden">   
                                   </div>
 
-                                  <div class="input-field">
-                                    <label for="needle_name">Needle Name: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
+                                    <label for="needle_name">Needle Name </label>
                                     <input value="{{$needle->strMaterialNeedleName}}" id="delNeedleName" name="delNeedleName" type="text"  readonly>
                                   </div>
+                              </div>
 
-                                   <div class="input-field">
-                                    <label for="needle_size">Needle Size: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                   <div class="input-field col s12">
+                                    <label for="needle_size">Needle Size </label>
                                     <input value="{{$needle->strMaterialNeedleSize}}" id="delNeedlSize" name="delNeedleSize" type="text"  readonly>
                                   </div>
+                              </div>
 
-                                  <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
                                     <label for="needle_desc">Description </label>
                                     <input value="{{$needle->strMaterialNeedleDesc}}" id="delNeedleDesc" name="delNeedleDesc" type="text"  readonly>
                                   </div>
+                              </div>
 
                                   <div class="input-field">
                                     <input value="{{$needle->strMaterialNeedleID}}" id="delInactiveNeedle" name="delInactiveNeedle" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                  <div class="input-field col s12">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$needle->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Needle_Reason"> *Reason for Deactivation: </label>
+                                    <label for="Needle_Reason"> *Reason for Deactivation </label>
                                   </div>
-                                </p>
+                              </div>
                               </div>
 
-                              <div class="modal-footer col s12">
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                               </div> 
                             </form>
                           </div>
@@ -397,7 +425,7 @@
 
       <div class="row">
         <div class="col s12 m12 l12">
-            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new button detail to the table" href="#addButton">ADD NEW BUTTON</button>
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new button detail to the table" href="#addButton">ADD BUTTON</button>
         </div>
       </div> 
 
@@ -437,51 +465,58 @@
                            
                           <!-- <EDIT BUTTONS>   -->
                           <div id="edit{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Edit Button</center> </font> </h5>
-
-                              <div class="modal-content col s12">
+                            <h5><font color = "#1b5e20"><center>EDIT BUTTON</center> </font> </h5>
                             <form action="{{URL::to('editButton')}}" method="POST" enctype="multipart/form-data">                               
+                              <div class="divider" style="height:2px"></div> 
+                              <div class="modal-content col s12">
+
                                 <div class="input-field">
                                   <input id="editButtonID" name = "editButtonID" value = "{{$button->strMaterialButtonID}}" type="hidden">
                                 </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input required id="editButtonName" name = "editButtonName" value = "{{$button->strMaterialButtonName}}" type="text" class="validateName">
                                   <label for="Button_Name"> *Button Name </label>
                                 </div>
+                          </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s6">
                                   <input required id="editButtonSize" name = "editButtonSize" value = "{{$button->strMaterialButtonSize}}" type="text" class="validateSize">
                                   <label for="Button_Size"> *Button Size </label>
                                 </div>
 
-                                <div class="input-field">
+                                <div class="input-field col s6">
                                   <input required id="editButtonColor" name = "editButtonColor" value = "{{$button->strMaterialButtonColor}}" type="text" class="validateColor">
                                   <label for="Button_Color"> *Button Color </label>
                                 </div>
+                          </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input required id="editButtonDesc" name = "editButtonDesc" value = "{{$button->strMaterialButtonDesc}}" type="text" class="validateDesc">
-                                  <label for="Button_Color"> Description: </label>
+                                  <label for="Button_Color"> Description </label>
                                 </div>
+                          </div>
 
-                                              
-                                <div class="file-field input-field">
-                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">               
+                                <div class="file-field input-field col s12">
+                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                                     <span>Upload Image</span>
                                     <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                   </div>
                                   <div class="file-path-wrapper">
                                     <input value="{{$button->strMaterialButtonImage}}" class="file-path validate" id="editButtonImage" name="editButtonImage" type="text">
                                   </div>
-                                </div>  
-                                <br><br>                            
-                              </div>    
+                                </div>                             
+                          </div>
+                          </div>    
 
 
-                              <div class="modal-footer col s12">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Update</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div>
                             </form>  
                           </div>
@@ -489,49 +524,57 @@
                        
 
                           <div id="del{{$button->strMaterialButtonID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5> 
-                              <div class="modal-content col s12">
-                            <form action="{{URL::to('delButton')}}" method="POST">
-                                <p>
+                            <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS BUTTON?</center> </font> </h5>                             
+                              <form action="{{URL::to('delButton')}}" method="POST">
+                                <div class="divider" style="height:2px"></div>
+                                <div class="modal-content col s12">
+
+
                                   <div class="input-field">
                                    <input value="{{$button->strMaterialButtonID}}" id="delButtonID" name="delButtonID" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
-                                    <label for="Button_Name">Button Name: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
+                                    <label for="Button_Name">Button Name </label>
                                     <input value="{{$button->strMaterialButtonName}}" id="delButtonName" name="delButtonName" type="text" readonly>
                                   </div>
+                              </div>
 
-                                  <div class="input-field">
-                                    <label for="Button_Size">Button Size: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s6">
+                                    <label for="Button_Size">Button Size </label>
                                     <input value="{{$button->strMaterialButtonSize}}" id="delButtonSize" name="delButtonSize" type="text"  readonly>
                                   </div>
 
-                                  <div class="input-field">
-                                    <label for="Button_Color">Button Color: </label>
+                                  <div class="input-field col s6">
+                                    <label for="Button_Color">Button Color </label>
                                     <input value="{{$button->strMaterialButtonColor}}" id="delButtonColor" name="delButtonColor" type="text" readonly>
                                   </div>
+                              </div>
 
-                                   <div class="input-field">
-                                    <label for="Button_Desc">Desc: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                   <div class="input-field col s12">
+                                    <label for="Button_Desc">Description </label>
                                     <input value="{{$button->strMaterialButtonDesc}}" id="delButtonColor" name="delButtonColor" type="text"  readonly>
                                   </div>
+                              </div>
 
                                   <div class="input-field">
                                     <input value="{{$button->strMaterialButtonID}}" id="delInactiveButton" name="delInactiveButton" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                  <div class="input-field col s12">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$button->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation </label>
                                   </div>
-                                  <br><br>
-                                </p>
+                              </div>
                               </div>
 
-                              <div class="modal-footer col s12">
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                               </div> 
                             </form>
                           </div>
@@ -556,7 +599,7 @@
 
     <div class="row">
         <div class="col s12 m12 l12">
-            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new zipper detail to the table" href="#addZipper">ADD NEW ZIPPER</button>
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new zipper detail to the table" href="#addZipper">ADD ZIPPER</button>
         </div>
       </div> 
 
@@ -595,37 +638,44 @@
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of zipper detail from the table" href="#del{{$zipper->strMaterialZipperID}}">DEACTIVATE</button>
                             
                           <div id="edit{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Edit Zipper</center> </font> </h5>
+                            <h5><font color = "#1b5e20"><center>EDIT ZIPPER</center> </font> </h5>
                             <form action="{{URL::to('editZipper')}}" method="POST" enctype="multipart/form-data">
+                              <div class="divider" style="height:2px"></div>
+                              <div class="modal-content col s12"> 
 
-                              <div class="modal-content col s12">                             
                                 <div class="input-field">
                                   <input id="editZipperID" name = "editZipperID" value = "{{$zipper->strMaterialZipperID}}" type="hidden">
                                 </div>
                           
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input required id="editZipperName" name = "editZipperName" value = "{{$zipper->strMaterialZipperName}}" type="text" class="validateName">
                                   <label for="Zipper_Name"> *Zipper Name </label>
                                 </div>
+                          </div>
 
-                                <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s6">
                                   <input required id="editZipperSize" name = "editZipperSize" value = "{{$zipper->strMaterialZipperSize}}" type="text" class="validateSize">
                                   <label for="Zipper_Size"> *Zipper Size </label>
                                 </div>
 
-                                <div class="input-field">
+                                <div class="input-field col s6">
                                   <input required id="editZipperColor" name = "editZipperColor" value = "{{$zipper->strMaterialZipperColor}}" type="text" class="validateColor">
                                   <label for="Zipper_Color"> *Zipper Color </label>
                                 </div>
+                          </div>
 
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
                                 <div class="input-field">
                                   <input required id="editZipperDesc" name = "editZipperDesc" value = "{{$zipper->strMaterialZipperDesc}}" type="text" class="validateDesc">
                                   <label for="Zipper_Desc"> Description </label>
                                 </div>
-
+                          </div>
                          
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
                                 <div class="file-field input-field">
-                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                                     <span>Upload Image</span>
                                     <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                   </div>
@@ -634,12 +684,12 @@
                                     <input value="{{$zipper->strMaterialZipperImage}}" class="file-path validate" id="editZipperImage" name="editZipperImage" type="text">
                                   </div>
                                 </div>
-                                <br><br>
-                              </div>    
+                          </div>
+                          </div>    
 
-                              <div class="modal-footer col s12">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Update</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div>
                             </form>
                           </div>
@@ -647,49 +697,56 @@
                         
 
                           <div id="del{{$zipper->strMaterialZipperID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
-                              <div class="modal-content col s12">
-                            <form action="{{URL::to('delZipper')}}" method="POST">
-                                <p>                           
+                            <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS ZIPPER?</center> </font> </h5>                            
+                              <form action="{{URL::to('delZipper')}}" method="POST">
+                                <div class="divider" style="height:2px"></div>                          
+                                <div class="modal-content col s12">
+
                                   <div class="input-field">
                                     <input value="{{$zipper->strMaterialZipperID}}" id="delZipperID" name="delZipperID" type="hidden">
                                    </div>
 
-                                  <div class="input-field">
-                                    <label for="Zipper_Name">Zipper Name: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
+                                    <label for="Zipper_Name">Zipper Name </label>
                                     <input value="{{$zipper->strMaterialZipperName}}" id="delZipperName" name="delZipperName" type="text" readonly>
                                   </div>
+                              </div>
 
-                                   <div class="input-field">
-                                    <label for="Zipper_Size">Zipper Size: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s6">
+                                    <label for="Zipper_Size">Zipper Size </label>
                                     <input value="{{$zipper->strMaterialZipperSize}}" id="delZipperSize" name="delZipperSize" type="text" readonly>
                                   </div>
 
-                                   <div class="input-field">
-                                    <label for="Zipper_Color">Zipper Color: </label>
+                                  <div class="input-field col s6">
+                                    <label for="Zipper_Color">Zipper Color </label>
                                     <input value="{{$zipper->strMaterialZipperColor}}" id="delZipperColor" name="delZipperColor" type="text" readonly>
                                   </div>
+                              </div>
 
-                                  <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
                                     <label for="Zipper_Desc">Description</label>
                                     <input value="{{$zipper->strMaterialZipperDesc}}" id="delZipperColor" name="delZipperColor" type="text" readonly>
                                   </div>
+                              </div>
 
                                  <div class="input-field">
                                     <input value="{{$zipper->strMaterialZipperID}}" id="delInactiveZipper" name="delInactiveZipper" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                  <div class="input-field col s12">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$zipper->strInactiveReason}}" type="text" class="validate" required>
                                     <label for="Thread_Color"> *Reason for Deactivation: </label>
                                   </div>
-                                  <br><br>
-                                </p>
+                              </div>
                               </div>
 
-                              <div class="modal-footer col s12">
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div> 
                             </form>
                           </div>
@@ -714,7 +771,7 @@
 
        <div class="row">
         <div class="col s12 m12 l12">
-            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new hook and eye detail to the table" href="#addHookEye">ADD NEW HOOK AND EYE</button>
+            <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new hook and eye detail to the table" href="#addHookEye">ADD HOOK AND EYE</button>
         </div>
       </div> 
 
@@ -756,37 +813,44 @@
 
                             
                           <div id="edit{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Edit Hook and Eye</center> </font> </h5>
+                            <h5><font color = "#1b5e20"><center>EDIT HOOK AND EYE</center> </font> </h5>
                             <form action ="{{URL::to('editHook')}}" method="POST" enctype="multipart/form-data">
-
+                              <div class="divider" style="height:2px"></div>
                               <div class="modal-content col s12"> 
                                                          
                                 <div class="input-field">
                                   <input id="editHookID" name = "editHookID" value = "{{$hook->strMaterialHookID}}" type="hidden">
                                 </div>
                           
-                                <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input id="editHookName" name = "editHookName" value = "{{$hook->strMaterialHookName}}" type="text" class="validateName">
                                   <label for="HookEye_Name"> *Hook and Eye Name </label>
                                 </div>
+                            </div>
 
-                                <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s6">
                                   <input id="editHookSize" name = "editHookSize" value = "{{$hook->strMaterialHookSize}}" type="text" class="validateSize">
                                   <label for="HookEye_Size"> *Hook and Eye Size </label>
                                 </div>
 
-                                <div class="input-field">
+                                <div class="input-field col s6">
                                   <input id="editHookColor" name = "editHookColor" value = "{{$hook->strMaterialHookColor}}" type="text" class="validateColor">
                                   <label for="Hookeye_Color"> *Hook and Eye Color </label>
                                 </div>
+                            </div>
 
-                                <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                <div class="input-field col s12">
                                   <input id="editHookDesc" name = "editHookDesc" value = "{{$hook->strMaterialHookDesc}}" type="text" class="validateDesc">
                                   <label for="Hookeye_Desc">Description </label>
                                 </div>
+                            </div>
 
-                                <div class="file-field input-field">
-                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                <div class="file-field input-field col s12">
+                                  <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                                     <span>Upload Image</span>
                                     <input type="file" id="editImg" name="editImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                                   </div>
@@ -794,63 +858,69 @@
                                     <input value="{{$hook->strMaterialHookImage}}" id="editHookImage" name="editHookImage" class="file-path validate" type="text">
                                   </div>
                                 </div> 
-                                <br><br>
-                              </div>    
+                            </div>
+                            </div>    
 
-                              <div class="modal-footer col s12">
-                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>   
-                              </div>
+                            <div class="modal-footer col s12" style="background-color:#26a69a">
+                                <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Update</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>   
+                            </div>
                             </form>
                           </div>
                         
 
                           <div id="del{{$hook->strMaterialHookID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
+                            <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS HOOK AND EYE?</center> </font> </h5>
                             <form action="{{URL::to('delHook')}}" method="POST">
+                              <div class="divider" style="height:2px"></div>
                               <div class="modal-content col s12">
                                 
-                                
-                                <p>
+
                                  <div class="input-field">
                                     <input value="{{$hook->strMaterialHookID}}" id="delHookID" name="delHookID" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
-                                    <label for="Hook_Name">Hook and Eye Name: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
+                                    <label for="Hook_Name">Hook and Eye Name </label>
                                     <input value="{{$hook->strMaterialHookName}}" id="delHookName" name="delHookName" type="text" readonly>
                                   </div>
+                              </div>
 
-                                  <div class="input-field">
-                                    <label for="Hook_Size">Hook and Eye Size: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s6">
+                                    <label for="Hook_Size">Hook and Eye Size </label>
                                     <input value="{{$hook->strMaterialHookSize}}" id="delHookSize" name="delHookSize" type="text" readonly>
                                   </div>
 
-                                  <div class="input-field">
-                                    <label for="Hook_Color">Hook and Eye Color: </label>
+                                  <div class="input-field col s6">
+                                    <label for="Hook_Color">Hook and Eye Color </label>
                                     <input value="{{$hook->strMaterialHookColor}}" id="delHookColor" name="delHookColor" type="text" readonly>
                                   </div>
+                              </div>
 
-                                  <div class="input-field">
-                                    <label for="Hook_Desc">Description: </label>
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
+                                    <label for="Hook_Desc">Description </label>
                                     <input value="{{$hook->strMaterialHookDesc}}" id="delHookDesc" name="delHookDesc" type="text" readonly>
                                   </div>
+                              </div>
 
                                   <div class="input-field">
                                     <input value="{{$hook->strMaterialHookID}}" id="delInactiveHook" name="delInactiveHook" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                  <div class="input-field col s12">
                                     <input id="delInactiveReason" name = "delInactiveReason" value="{{$hook->strInactiveReason}}" type="text" class="validate" required>
-                                    <label for="Thread_Color"> *Reason for Deactivation: </label>
+                                    <label for="Thread_Color"> *Reason for Deactivation </label>
                                   </div>
-                                  <br><br>
-                                </p>
+                              </div>
                               </div>
 
-                              <div class="modal-footer col s12">
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
                                 <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                               </div>
                             </form>
                           </div>
@@ -873,31 +943,39 @@
 
   <!--MODAL: add Thread-->
   <div id="addThread" class="modal modal-fixed-footer">
-    <h5><font color = "#1b5e20"><center>Add Thread</center> </font> </h5>
-
-      <div class="modal-content col s12">
-    <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
+    <h5><font color = "#1b5e20"><center>ADD NEW THREAD</center> </font> </h5>
+      <form action="{{URL::to('addThread')}}" method="POST" enctype="multipart/form-data">
+        <div class="divider" style="height:2px"></div>
+        <div class="modal-content col s12">
+    
         <div class="input-field">
             <input id="addThreadID" name = "addThreadID" value = "{{$newThreadID}}" type="hidden">
          </div>
-                    
-        <div class="input-field">
+       
+    <div class = "col s12" style="padding:15px;  border:3px solid white;">             
+        <div class="input-field col s12">
           <input required id="addThreadName" name = "addThreadName" type="text" class="validateName">
           <label for="Thread_Name"> *Thread Name </label>
         </div>
+    </div>
 
-        <div class="input-field">
+    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+        <div class="input-field col s12">
           <input required id="addThreadColor" name = "addThreadColor" type="text" class="validateColor">
           <label for="Thread_Color"> *Thread Color </label>
         </div>
+    </div>
 
-        <div class="input-field">
+    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+        <div class="input-field col s12">
           <input required id="addThreadDesc" name = "addThreadDesc" type="text" class="validateDesc">
           <label for="Thread_Desc"> Description </label>
         </div>
+    </div>
 
-        <div class="file-field input-field">
-          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+    <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+        <div class="file-field input-field col s12">
+          <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
             <span>Upload Image</span>
             <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
           </div>
@@ -906,13 +984,13 @@
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
         </div>
-          <br><br>
-      </div>
+    </div>
+    </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer col s12">
-        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+      <div class="modal-footer col s12" style="background-color:#26a69a">
+        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Save</button>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
       </div>
     </form>
   </div>
@@ -920,80 +998,98 @@
 
   <!--MODAL: add Needle-->
   <div id="addNeedle" class="modal modal-fixed-footer">
-    <h5><font color = "#1b5e20"><center>Add Needle</center> </font> </h5>
-      <div class="modal-content col s12">
-    <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
+    <h5><font color = "#1b5e20"><center>ADD NEW NEEDLE</center> </font> </h5>   
+      <form action="{{URL::to('addNeedle')}}" method="POST" enctype="multipart/form-data">
+        <div class="divider" style="height:2px"></div>
+        <div class="modal-content col s12"> 
+
         <div class="input-field">
            <input id="addNeedleID" name = "addNeedleID" value = "{{$newNeedleID}}" type="hidden">
          </div>
-                    
-        <div class="input-field">
-          <input required id="addNeedleName" name = "addNeedleName"  type="text" class="validateName">
-          <label for="Needle_Name"> *Needle Name </label>
-        </div>
-
-        <div class="input-field">
-          <input required  id="addNeedleSize" name = "addNeedleSize" type="text" class="validateSize">
-          <label for="Needle_Size"> *Needle Size </label>
-        </div>
-                    
-         <div class="input-field">
-          <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateDesc">
-          <label for="Needle_Desc"> Description: </label>
-        </div>
-                                  
-        <div class="file-field input-field">
-          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
-            <span>Upload Image</span>
-            <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
-          </div>
-
-          <div class="file-path-wrapper">
-            <input class="file-path validate" id="addImage" name="addImage" type="text">
+         
+        <div class = "col s12" style="padding:15px;  border:3px solid white;">           
+          <div class="input-field col s12">
+            <input required id="addNeedleName" name = "addNeedleName"  type="text" class="validateName">
+            <label for="Needle_Name"> *Needle Name </label>
           </div>
         </div>
-        <br><br>
+
+        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+          <div class="input-field col s12">
+            <input required  id="addNeedleSize" name = "addNeedleSize" type="text" class="validateSize">
+            <label for="Needle_Size"> *Needle Size </label>
+          </div>
+        </div>
+              
+        <div class = "col s12" style="padding:15px;  border:3px solid white;">      
+          <div class="input-field col s12">
+            <input required  id="addNeedleDesc" name = "addNeedleDesc" type="text" class="validateDesc">
+            <label for="Needle_Desc"> Description </label>
+          </div>
+        </div>
+
+       <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">                           
+          <div class="file-field input-field col s12">
+            <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+              <span>Upload Image</span>
+              <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
+            </div>
+
+            <div class="file-path-wrapper">
+              <input class="file-path validate" id="addImage" name="addImage" type="text">
+            </div>
+          </div>
+        </div>
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer col s12">
-        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+      <div class="modal-footer col s12" style="background-color:#26a69a">
+        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Save</button>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
       </div>
     </form>
   </div>
 
   <!--MODAL: add Button-->
   <div id="addButton" class="modal modal-fixed-footer">
-    <h5><font color = "#1b5e20"><center>Add Button</center> </font> </h5>
-      <div class="modal-content col s12">
+    <h5><font color = "#1b5e20"><center>ADD NEW BUTTON</center> </font> </h5>
     <form action="{{URL::to('addButton')}}" method="POST" enctype="multipart/form-data">
+      <div class="divider" style="height:2px"></div>
+      <div class="modal-content col s12">
+    
         <div class="input-field">
           <input id="addButtonID" name = "addButtonID" value = "{{$newButtonID}}" type="hidden">
         </div>
-                    
-        <div class="input-field">
+        
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">            
+        <div class="input-field col s12">
           <input required  id="addButtonName" name = "addButtonName" type="text" class="validateName">
           <label for="Button_Name"> *Button Name </label>
         </div>
+      </div>
 
-        <div class="input-field">
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+        <div class="input-field col s6">
           <input required id="addButtonSize" name = "addButtonSize" type="text" class="validateSize">
           <label for="Button_Size"> *Button Size </label>
         </div>
 
-        <div class="input-field">
+        <div class="input-field col s6">
           <input required id="addButtonColor" name = "addButtonColor" type="text" class="validateColor">
           <label for="Button_Color"> *Button Color </label>
         </div>
+      </div>
 
-        <div class="input-field">
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+        <div class="input-field col s12">
           <input required id="addButtonDesc" name = "addButtonDesc" type="text" class="validateDesc">
-          <label for="Button_Desc"> Description: </label>
+          <label for="Button_Desc"> Description </label>
         </div>
-                                       
-        <div class="file-field input-field">
-          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+      </div>
+         
+      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">                              
+        <div class="file-field input-field col s12">
+          <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
             <span>Upload Image</span>
             <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
           </div>
@@ -1001,48 +1097,57 @@
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
         </div>
-        <br><br>
+      </div>
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer col s12">
-        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+      <div class="modal-footer col s12" style="background-color:#26a69a">
+        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Save</button>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
       </div>
     </form>
   </div>
 
   <!--MODAL: add Zipper-->
   <div id="addZipper" class="modal modal-fixed-footer">
-    <h5><font color = "#1b5e20"><center>Add Zipper</center> </font> </h5>
-      <div class="modal-content col s12">
+    <h5><font color = "#1b5e20"><center>ADD NEW ZIPPER</center> </font> </h5>
     <form action="{{URL::to('addZipper')}}" method="POST" enctype="multipart/form-data">
+      <div class="divider" style="height:2px"></div>
+      <div class="modal-content col s12">
+    
         <div class="input-field">
           <input id="addZipperID" name = "addZipperID" value = "{{$newZipperID}}" type="hidden">
         </div>
-                    
-        <div class="input-field">
+        
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">            
+        <div class="input-field col s12">
           <input required id="addZipperName" name = "addZipperName" type="text" class="validateName">
           <label for="Zipper_Name"> *Zipper Name </label>
         </div>
+      </div>
 
-        <div class="input-field">
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+        <div class="input-field col s6">
           <input required id="addZipperSize" name = "addZipperSize" type="text" class="validateSize">
           <label for="Zipper_Size"> *Zipper Size </label>
         </div>
 
-        <div class="input-field">
+        <div class="input-field col s6">
           <input required id="addZipperColor" name = "addZipperColor" type="text" class="validateColor">
           <label for="Zipper_Color"> *Zipper Color </label>
         </div>
+      </div>
 
-        <div class="input-field">
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+        <div class="input-field col s12">
           <input required id="addZipperDesc" name = "addZipperDesc" type="text" class="validateDesc">
           <label for="Zipper_Desc"> Description </label>
         </div>
+      </div>
 
-        <div class="file-field input-field">
-          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+        <div class="file-field input-field col s12">
+          <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
             <span>Upload Image</span>
             <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
           </div>
@@ -1050,50 +1155,58 @@
           <div class="file-path-wrapper">
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
-
         </div>
-        <br><br>
+      </div>
       </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer col s12">
-        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">SAVE</button>
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+      <div class="modal-footer col s12" style="background-color:#26a69a">
+        <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Save</button>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
       </div>
     </form>
   </div>
 
   <!--MODAL: add HookEye-->
   <div id="addHookEye" class="modal modal-fixed-footer">
-    <h5><font color = "#1b5e20"><center>Add Hook and Eye</center> </font> </h5>
-      <div class="modal-content col s12">
+    <h5><font color = "#1b5e20"><center>ADD NEW HOOK AND EYE</center> </font> </h5>
     <form action="{{URL::to('addHook')}}" method="POST" enctype="multipart/form-data">
+      <div class="divider" style="height:2px"></div>
+      <div class="modal-content col s12">
+    
         <div class="input-field">
           <input id="addHookEyeID" name = "addHookID" value = "{{$newHookID}}" type="hidden">
         </div>
-                    
-        <div class="input-field">
+          
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">          
+        <div class="input-field col s12">
           <input required id="addHookEyeName" name = "addHookName" type="text" class="validateName">
-          <label for="HookEye_Name"> *Hook and Eye Name: </label>
+          <label for="HookEye_Name"> *Hook and Eye Name </label>
         </div>
+      </div>
 
-        <div class="input-field">
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+        <div class="input-field col s6">
           <input required id="addHookEyeSize" name = "addHookSize" type="text" class="validateSize">
-          <label for="HookEye_Size"> *Hook and Eye Size: </label>
+          <label for="HookEye_Size"> *Hook and Eye Size </label>
         </div>
 
-        <div class="input-field">
+        <div class="input-field col s6">
           <input required id="addHookEyeColor" name = "addHookColor" type="text" class="validateColor">
-          <label for="Hookeye_Color"> *Hook and Eye Color: </label>
+          <label for="Hookeye_Color"> *Hook and Eye Color </label>
         </div>
+      </div>
 
-         <div class="input-field">
+      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+         <div class="input-field col s12">
           <input required id="addHookEyeDesc" name = "addHookDesc" type="text" class="validateDesc">
-          <label for="Hookeye_Desc"> Description: </label>
+          <label for="Hookeye_Desc"> Description </label>
         </div>
+      </div>
 
-        <div class="file-field input-field">
-          <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+        <div class="file-field input-field col s12">
+          <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
             <span>Upload Image</span>
             <input type="file" id="addImg" name="addImg" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
           </div>
@@ -1101,13 +1214,13 @@
             <input class="file-path validate" id="addImage" name="addImage" type="text">
           </div>
         </div>
-        <br><br>
+      </div>
      </div>
     
       <!--MODAL FOOTER-->
-      <div class="modal-footer col s12">
-        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-        <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
+      <div class="modal-footer col s12" style="background-color:#26a69a">
+        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Add</button>
+        <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button> 
       </div>
       
     </form>

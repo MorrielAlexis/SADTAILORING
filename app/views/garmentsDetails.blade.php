@@ -91,7 +91,7 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new segment to the table" href="#addSegment">ADD NEW SEGMENT</button>
+        <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new segment to the table" href="#addSegment">ADD GARMENT SEGMENT</button>
       </div>
     </div>
   </div>
@@ -127,16 +127,17 @@
                     <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of segment from table" href="#del{{ $segment->strGarmentSegmentID }}">DEACTIVATE</button>
        
                       <div id="edit{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
-                        <h5><font color = "#1b5e20"><center>Edit Garment Segment</center> </font> </h5>
+                        <h5><font color = "#1b5e20"><center>EDIT GARMENT SEGMENT</center> </font> </h5>
                           <form action="{{URL::to('editGarmentSegment')}}" method="POST"> 
+                            <div class="divider" style="height:2px"></div>
                             <div class="modal-content col s12">
-                            <p>
 
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="editSegmentID" name="editSegmentID" type="hidden"> 
                               </div>
 
-                              <div class="input-field">                                                    
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">                                                    
                                 <select class="browser-default" id="editCategory" name="editCategory"required>
                                   <option value="" disabled selected>Choose garment category</option>
                                   @foreach($category as $cat)
@@ -147,67 +148,77 @@
                                     @endif
                                   @endforeach
                                 </select>   
-                              </div>   
+                              </div>  
+                          </div> 
                         
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
                                 <input required value="{{ $segment->strGarmentSegmentName }}" id="editSegmentName" name= "editSegmentName" type="text" class="validateSegName">
-                                <label for="segment_name">*Segment Name: </label>
+                                <label for="segment_name">*Segment Name </label>
                               </div>
-
-                              <div class="input-field">
-
-                                <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validateSegDesc">
-                               <label for="segment_description">*Segment Description:</label>
-                              </div>
-                            </p>
                           </div>
 
-                          <div class="modal-footer col s12">
-                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                              <div class="input-field col s12">
+                                <input required value="{{ $segment->strGarmentSegmentDesc }}" id="SegmentDesc" name = "editSegmentDesc" type="text" class="validateSegDesc">
+                               <label for="segment_description">*Segment Description</label>
+                              </div>
+                          </div>
+                          </div>
+
+                          <div class="modal-footer col s12" style="background-color:#26a69a">
+                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Update</button>
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                           </div>
                         </form>
                       </div>
                     <!--***************************Soft Delete********************************-->
                       <div id="del{{ $segment->strGarmentSegmentID }}" class="modal modal-fixed-footer">
-                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate the segment?</center> </font> </h5>
+                        <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS GARMENT SEGMENT?</center> </font> </h5>
                           <form action="{{URL::to('delGarmentSegment')}}" method="POST">   
-                            <div class="modal-content col s12">
-                            <p> 
+                            <div class="divider" style="height:2px"></div>
+                            <div class="modal-content col s12"> 
 
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delSegmentID" name="delSegmentID" type="hidden">
                               </div>
 
-                              <div class="input-field">                                                    
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">                                                    
                                   <input type="text" value="{{$segment->strGarmentCategoryName}}">
-                                  <label>Category Name:</label>
+                                  <label>Category Name</label>
                               </div>   
+                          </div>
 
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
                                 <input value="{{ $segment->strGarmentSegmentName }}"type="text" readonly>
-                                <label for="segment_name">Segment Name: </label>
+                                <label for="segment_name">Segment Name </label>
                               </div>
+                          </div>
 
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
                                 <input value="{{ $segment->strGarmentSegmentDesc }}" type="text" readonly>
-                                <label for="segment_description">Segment Description: </label>
+                                <label for="segment_description">Segment Description </label>
                               </div>
+                          </div>
 
                               <div class="input-field">
                                 <input value="{{ $segment->strGarmentSegmentID }}" id="delInactiveSegment" name="delInactiveSegment" type="hidden">
                               </div>
 
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                              <div class="input-field col s12">
                                 <input value="{{ $segment->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
-                                <label for="segment_description">*Reason for Deactivation: </label>
+                                <label for="segment_description">*Reason for Deactivation </label>
                               </div>
-                            </p>
+                          </div>
                           </div>
 
-                          <div class="modal-footer col s12">
-                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                          <div class="modal-footer col s12" style="background-color:#26a69a">
+                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                           </div>
                         </form>
                       </div>
@@ -227,15 +238,18 @@
 
 
     			    <div id="addSegment" class="modal modal-fixed-footer">
-                <h5><font color = "#1b5e20"><center>Add Garment Segment</center> </font> </h5> 
+                <h5><font color = "#1b5e20"><center>ADD NEW GARMENT SEGMENT</center> </font> </h5> 
                 <form action="{{URL::to('addGarmentSegment')}}" method="POST">
+                  <div class="divider" style="height:2px"></div>
                   <div class="modal-content col s12">
-                    <p>
+
+
                       <div class="input-field">
                         <input value="{{ $newID }}" id="addSegmentID" name="addSegmentID" type="hidden">
                       </div>
 
-                      <div class="input-field">
+                  <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                      <div class="input-field col s12">
                         <select class="browser-default" name='addCategory' id='addCategory' required>
                           <option value="" disabled selected>Choose garment category</option>
                           @foreach($category as $category_1)
@@ -245,22 +259,26 @@
                           @endforeach
                         </select> 
                       </div>  
-
-                      <div class="input-field">
-                        <input required id="addSegmentName" name= "addSegmentName" type="text" class="validateSegName">
-                        <label for="segment_name">*Segment Name: </label>
-                      </div>
-
-                      <div class="input-field">
-                        <input required id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validateSegDesc">
-                        <label for="segment_description">*Segment Description: </label>
-                      </div>
-                    </p>
                   </div>
 
-                  <div class="modal-footer col s12">
-                    <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                    <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                  <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                      <div class="input-field col s12">
+                        <input required id="addSegmentName" name= "addSegmentName" type="text" class="validateSegName">
+                        <label for="segment_name">*Segment Name </label>
+                      </div>
+                  </div>
+
+                  <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                      <div class="input-field col s12">
+                        <input required id="addSegmentDesc" name = "addSegmentDesc" type="text" class="validateSegDesc">
+                        <label for="segment_description">*Segment Description </label>
+                      </div>
+                  </div>
+                  </div>
+
+                  <div class="modal-footer col s12" style="background-color:#26a69a">
+                    <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Add</button>
+                    <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                   </div>
                 </form>
               </div>

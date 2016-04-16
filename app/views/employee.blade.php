@@ -93,7 +93,7 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new employee to the table" href="#newemp">ADD NEW EMPLOYEE</button>
+       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new employee to the table" href="#newemp">ADD EMPLOYEE PROFILE</button>
      </div>
     </div>
   </div>
@@ -146,36 +146,42 @@
                   
                <!-- <Modal Structure for Edit Employee>   -->
                    <div id="edit{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">                       
-                    <h5><font color = "#1b5e20"><center>Edit Employee Profile</center> </font> </h5>
+                    <h5><font color = "#1b5e20"><center>EDIT EMPLOYEE'S PROFILE</center> </font> </h5>
                       <form action="{{URL::to('editEmployee')}}" method="POST"> 
+                        <div class="divider" style="height:2px"></div>
                         <div class="modal-content col s12">
-                          <p>
-                          <div class="input-field">
-                            <label for="first_name">Employee ID: </label>
+
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
+                            <label for="first_name">Employee ID </label>
                             <input value="{{$employee->strEmployeeID}}" id="editEmpID" name="editEmpID" type="text" class="" readonly>
                           </div>
+                      </div>
 
-                          <div class="input-field">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s4">
                             <input required value="{{$employee->strEmpFName}}" id="editFirstName" name="editFirstName" type="text" class="validateFirst">
-                            <label for="first_name">*Employee First Name: </label>
+                            <label for="first_name">*First Name </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s4">
                             <input value="{{$employee->strEmpMName}}" id="editMiddleName" name="editMiddleName" type="text" class="validateMiddle">
-                            <label for="middle_name">Employee Middle Name: </label>
+                            <label for="middle_name">Middle Name </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s4">
                             <input required value="{{$employee->strEmpLName}}" id="editLastName" name="editLastName" type="text" class="validateLast">
-                            <label for="LastName">*Employee Last Name: </label>
+                            <label for="LastName">*Last Name </label>
                           </div>
+                      </div>
 
-                          <div>
-                            <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="col s6">
+                            <p><font size = "-1" color = "gray">*Date of Birth </font></p>
                             <input id="editdtEmpBday" name="editdtEmpBday" type="date" value="{{date("Y-m-d", strtotime( $employee->dtEmpBday ))}}" class = "datepicker">
                           </div>  
 
-                           <div class="input-field">                                                    
+                           <div class="input-field col s6" style="margin-top:47px">                                                    
                             <select required name='editSex'>
                               <option disabled>Sex</option>
                                   @if($employee->strSex == "M")
@@ -187,40 +193,47 @@
                                   @endif
                             </select>    
                             <label>Sex</label>
-                          </div>   
+                          </div>  
+                        </div> 
 
 
-                          <div class="input-field">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s3">
                             <input required value="{{$employee->strEmpHouseNo}}" id="editEmpHouseNo" name="editEmpHouseNo" type="text" class="validateHouseNo">
-                            <label for="Emp House No">*House No.: </label>
+                            <label for="Emp House No">*House No. </label>
                           </div>
 
-                           <div class="input-field">
+                           <div class="input-field col s3">
                             <input required value="{{$employee->strEmpStreet}}" id="editEmpStreet" name="editEmpStreet" type="text" class="validateStreet">
-                            <label for="Emp Street">*Street: </label>
+                            <label for="Emp Street">*Street </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s3">
                             <input value="{{$employee->strEmpBarangay}}" id="editEmpBarangay" name="editEmpBarangay" type="text" class="validateBarangay">
-                            <label for="Emp Brgy">Barangay/Subd: </label>
+                            <label for="Emp Brgy">Barangay/Subd </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s3">
                             <input required value="{{$employee->strEmpCity}}" id="editEmpCity" name="editEmpCity" type="text" class="validateCity">
-                            <label for="Emp City">*City/Municipality: </label>
+                            <label for="Emp City">*City/Municipality </label>
                           </div>
+                        </div>
 
-                          <div class="input-field">
+
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s6">
                             <input value="{{$employee->strEmpProvince}}" id="editEmpProvince" name="editEmpProvince" type="text" class="validateProvince">
-                            <label for="Emp Province">Province: </label>
+                            <label for="Emp Province">Province </label>
                           </div>
 
-                           <div class="input-field">
+                           <div class="input-field col s6">
                             <input value="{{$employee->strEmpZipCode}}" id="editEmpZipCode" name="editEmpZipCode" type="text" class="validateZip">
-                            <label for="Emp Zip Code">Zip Code: </label>
+                            <label for="Emp Zip Code">Zip Code </label>
                           </div>
+                      </div>
 
-                          <div class="input-field">                                                    
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">                                                    
                             <select required name='editRoles'>
                                 @foreach($roles as $role)
                                     @if($employee->strRole == $role->strEmpRoleID AND $role->boolIsActive == 1)
@@ -232,32 +245,35 @@
                             </select>    
                             <label >Role</label>
                           </div> 
-
-                          <div class="input-field">
-                            <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell" maxlength="11">
-                            <label for="cellphone_number">*Cellphone Number: </label>
-                          </div>
-
-                          <div class="input-field">
-                            <input value="{{$employee->strCellNoAlt}}" id="editCellNoAlt" name="editCellNoAlt" type="text" class="validateCellAlt" maxlength="11">
-                            <label for="cellphone_number">Cellphone Number: (alternate)</label>
-                          </div>
-
-                          <div class="input-field">
-                            <input value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validatePhone" maxlength="10">
-                            <label for="landline_number">Landline Number: </label>
-                          </div>
-
-                          <div class="input-field">
-                            <input  value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
-                            <label for="email">Email Address: </label>
-                          </div>
-                          <br><br>
-                          </p>
                         </div>
 
-                        <div class="modal-footer col s12">
-                          <button type="submit" class="waves-effect waves-green btn-flat">UPDATE</button>
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s6">
+                            <input required value="{{$employee->strCellNo}}" id="editCellNo" name="editCellNo" type="text" class="validateCell" maxlength="11">
+                            <label for="cellphone_number">*Cellphone Number </label>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <input value="{{$employee->strCellNoAlt}}" id="editCellNoAlt" name="editCellNoAlt" type="text" class="validateCellAlt" maxlength="11">
+                            <label for="cellphone_number">Cellphone Number (alternate)</label>
+                          </div>
+                        </div>
+
+                        <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="input-field col s6">
+                            <input value="{{$employee->strPhoneNo}}" id="editPhoneNo" name="editPhoneNo" type="text" class="validatePhone" maxlength="10">
+                            <label for="landline_number">Landline Number </label>
+                          </div>
+
+                          <div class="input-field col s6">
+                            <input  value="{{$employee->strEmailAdd}}" id="editEmail" name="editEmail"type="text" class="validateEmail">
+                            <label for="email">Email Address </label>
+                          </div>
+                        </div>
+                        </div>
+
+                        <div class="modal-footer col s12" style="background-color:#26a69a">
+                          <button type="submit" class="waves-effect waves-green btn-flat">Update</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
                       </form>
@@ -265,47 +281,54 @@
 
                     <!-- Modal for (SOFT) delete Employee -->
                     <div id="del{{$employee->strEmployeeID}}" class="modal modal-fixed-footer">                        
-                      <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
+                      <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS EMPLOYEE?</center> </font> </h5>
                         <form action="{{URL::to('delEmployee')}}" method="POST">
+                            <div class="divider" style="height:2px"></div>
                             <div class="modal-content col s12">
-                            <p>
+
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
                             <div class="input-field">
-                              <label for="first_name">Employee ID: </label>
+                              <label for="first_name">Employee ID </label>
                               <input value="{{$employee->strEmployeeID}}" id="delEmpID" name="delEmpID" type="text" class="" readonly>
                             </div>
+                        </div>
 
-                            <div class="input-field">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                            <div class="input-field col s4">
                               <input value="{{$employee->strEmpFName}}" id="delFirstName" name="delFirstName" type="text" class="" readonly>
-                              <label for="first_name">Employee First Name: </label>
+                              <label for="first_name">First Name </label>
                             </div>
 
-                            <div class="input-field">
+                            <div class="input-field col s4">
                               <input value="{{$employee->strEmpMName}}" id="delMiddleName" name="delMiddleName" type="text" class="" readonly>
-                              <label for="middle_name">Employee Middle Name: </label>
+                              <label for="middle_name">Middle Name </label>
                             </div>
 
-                            <div class="input-field">
+                            <div class="input-field col s4">
                               <input value="{{$employee->strEmpLName}}" id="delLastName" name="delLastName" type="text" class="" readonly>
-                              <label for="LastName">Employee Last Name: </label>
+                              <label for="LastName">Last Name </label>
                             </div>
+                        </div>
 
-                            <div class="input-field">       
+                        <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                            <div class="input-field col s12">       
                                 <input type="text" value="{{$employee->strEmpRoleName}}" readonly>                                                                               
                             </div>
+                        </div>
 
                           <div class="input-field">
                             <input id="delInactiveEmp" name = "delInactiveEmp" value = "{{$employee->strEmployeeID}}" type="hidden">
                           </div>
 
-                          <div class="input-field">
+                        <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="input-field col s12">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$employee->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Deactivation: </label>
+                            <label for="fax"> *Reason for Deactivation </label>
                           </div>
-                          <br><br>
-                          </p> 
+                        </div>
                         </div>   
 
-                        <div class="modal-footer col s12">
+                        <div class="modal-footer col s12" style="background-color:#26a69a">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                         </div>                  
@@ -325,75 +348,86 @@
                 
           <!-- <Modal Structure for Add Employee> -->
     			<div id="newemp" class="modal modal-fixed-footer">              
-            <h5><font color = "#1b5e20"><center>Add an Employee</center> </font> </h5>
+            <h5><font color = "#1b5e20"><center>ADD NEW EMPLOYEE PROFILE</center> </font> </h5>
             <form action="{{URL::to('addEmployee')}}" method="POST" id="addEmployee" class="employee-form" name="addEmployee">               
+                <div class="divider" style="height:2px"></div>
                 <div class="modal-content col s12">
-                <p>
 
-                  <div class="input-field">
-                    <label for="empID">Employee ID: </label>
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="input-field col s12">
+                    <label for="empID">Employee ID </label>
                     <input value="{{$newID}}" id="addEmpID" name="addEmpID" type="text" class="" readonly>                      
                   </div>
+              </div>
 
-                  <div class="input-field">
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="input-field col s4">
                     <input required id="addFirstName" name="addFirstName" type="text" class="validateFirst">
-                    <label for="first_name">*First Name: </label>
+                    <label for="first_name">*First Name </label>
                   </div>
 
-                  <div class="input-field">
+                  <div class="input-field col s4">
                     <input id="addMiddleName" name="addMiddleName" type="text" class="validateMiddle">
-                    <label for="middle_name">Middle Name: </label>
+                    <label for="middle_name">Middle Name </label>
                   </div>
 
-                  <div class="input-field">
+                  <div class="input-field col s4">
                     <input required id="addLastName" name="addLastName" type="text" class="validateLast">
-                    <label for="last_name">*Last Name: </label>
+                    <label for="last_name">*Last Name </label>
                   </div>
+              </div>
 
-                  <div>
-                    <p><font size = "-1" color = "gray">*Date of Birth:</font></p>
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="col s6">
+                    <p><font size = "-1" color = "gray">*Date of Birth </font></p>
                     <input id="adddtEmpBday" name="adddtEmpBday" type="date" class = "datepicker">
                   </div>
 
-                  <div class="input-field">
+                  <div class="input-field col s6" style="margin-top:47px">
                     <select value="" name='addSex' id='addSex' required>
                       <option value="M">Male</option>
                       <option value="F">Female</option>
                     </select>    
                     <label >Sex</label>
-                  </div>   
+                  </div>
+              </div>   
 
-                  <div class="input-field">
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="input-field col s3">
                     <input required id="addEmpHouseNo." name="addEmpHouseNo" type="text" class="validateHouseNo">
-                    <label for="Emp House No">*House No.: </label>
+                    <label for="Emp House No">*House No. </label>
                   </div>
 
-                   <div class="input-field">
+                   <div class="input-field col s3">
                     <input required id="addEmpStreet" name="addEmpStreet" type="text" class="validateStreet">
-                    <label for="Emp Street">*Street: </label>
+                    <label for="Emp Street">*Street </label>
                   </div>
 
-                  <div class="input-field">
+                  <div class="input-field col s3">
                     <input  id="addEmpBarangay" name="addEmpBarangay" type="text" class="validateBarangay">
-                    <label for="Emp Brgy">Barangay/Subd: </label>
+                    <label for="Emp Brgy">Barangay/Subd </label>
                   </div>
 
-                  <div class="input-field">
+                  <div class="input-field col s3">
                     <input required id="addEmpCity" name="addEmpCity" type="text" class="validateCity">
-                    <label for="Emp City">*City/Municipality: </label>
+                    <label for="Emp City">*City/Municipality </label>
                   </div>
+              </div>
 
-                  <div class="input-field">
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="input-field col s6">
                     <input id="addEmpProvince" name="addEmpProvince" type="text" class="validateProvince">
-                    <label for="Emp Province">Province: </label>
+                    <label for="Emp Province">Province </label>
                   </div>
 
-                   <div class="input-field">
+                   <div class="input-field col s6">
                     <input  id="addEmpZipCode" name="addEmpZipCode" type="text" class="validateZip">
-                    <label for="Emp Zip Code">Zip Code: </label>
+                    <label for="Emp Zip Code">Zip Code </label>
                   </div>
+              </div>
 
-                  <div class="input-field">
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="input-field col s12">
                     <select name='addRoles' id='addRoles' required>
                       @foreach($roles as $roles2)
                         @if($roles2->boolIsActive == 1)
@@ -402,36 +436,39 @@
                       @endforeach
                     </select>   
                     <label>Role</label>
-                  </div>      
-                   
-                  <div class="input-field">
+                  </div>
+              </div>      
+                
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">   
+                  <div class="input-field col s6">
                     <input required id="addCellNo" name="addCellNo" type="text" class="validateCell" maxlength="11">
-                    <label for="cellphone_number">*Cellphone Number: </label>
+                    <label for="cellphone_number">*Cellphone Number </label>
                     <span id="left"></span>
                   </div>
 
-                  <div class="input-field">
+                  <div class="input-field col s6">
                     <input id="addCellNoAlt" name="addCellNoAlt" type="text" class="validateCellAlt" maxlength="11">
-                    <label for="cellphone_number">Cellphone Number: (alternate) </label>
+                    <label for="cellphone_number">Cellphone Number (alternate) </label>
                     <span id="left"></span>
                   </div>
-
-                  <div class="input-field">
-                    <input id="addPhoneNo" name="addPhoneNo" type="text" class="validatePhone" maxlength="10">
-                    <label for="landline_number">Landline Number: </label>
-                  </div>
-
-                  <div class="input-field">
-                    <input required id="addEmail" name="addEmail" type="email" class="validateEmail">
-                    <label for="email" data-error="wrong" data-success="right">*Email Address: </label>
-                  </div>
-
-                </p>
               </div>
 
-              <div class="modal-footer col s12">
-                <button type="submit" id="send" name="send" class="modal-action waves-effect waves-green btn-flat">ADD</button>
-                <button type="button" onclick="clearData()" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button>
+              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                  <div class="input-field col s6">
+                    <input id="addPhoneNo" name="addPhoneNo" type="text" class="validatePhone" maxlength="10">
+                    <label for="landline_number">Landline Number </label>
+                  </div>
+
+                  <div class="input-field col s6">
+                    <input required id="addEmail" name="addEmail" type="email" class="validateEmail">
+                    <label for="email" data-error="wrong" data-success="right">*Email Address </label>
+                  </div>
+              </div>
+              </div>
+
+              <div class="modal-footer col s12" style="background-color:#26a69a">
+                <button type="submit" id="send" name="send" class="modal-action waves-effect waves-green btn-flat">Add</button>
+                <button type="button" onclick="clearData()" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>
               </div>
             </form>
           </div>

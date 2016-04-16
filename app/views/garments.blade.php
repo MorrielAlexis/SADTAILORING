@@ -128,68 +128,76 @@
               
                       <!-- Modal Structure for Edit Garment Category> -->
                       <div id="edit{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
-                        <h5><font color = "#1b5e20"><center>Edit Garment Category</center> </font> </h5>                          
+                        <h5><font color = "#1b5e20"><center>EDIT GARMENT CATEGORY</center> </font> </h5>                          
                             <form action="{{URL::to('editGarmentCategory')}}" method="POST">       
+                              <div class="divider" style="height:2px"></div>
                               <div class="modal-content col s12">
-                              <p> 
                                 
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="editGarmentID" name="editGarmentID" type="hidden">
                               </div>
 
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
                                 <input required value="{{ $category->strGarmentCategoryName }}" id="editGarmentName" name="editGarmentName"type="text" class="validateGarmentName">
-                                <label for="garment_name">*Garment Name: </label>
+                                <label for="garment_name">*Garment Name </label>
                               </div>
+                          </div>
 
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                              <div class="input-field col s12">
                                 <input required value= "{{ $category->strGarmentCategoryDesc }}" id="editGarmentDescription" name="editGarmentDescription" name="GarmentDescription" type="text" class="validateGarmentDesc">
-                                <label for="garment_description">*Garment Desription: </label>
+                                <label for="garment_description">*Garment Desription </label>
                               </div>
-                            </p>
+                          </div>
                           </div>
 
-                          <div class="modal-footer col s12">
-                            <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                          <div class="modal-footer col s12" style="background-color:#26a69a">
+                              <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Update</button>
+                              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                           </div>
-                        </form>
-                      </div>
+                    </form>
+                  </div>
                       <!--///////////////////////DELETE/////////////////////-->
                       <div id="del{{ $category->strGarmentCategoryID }}" class="modal modal-fixed-footer">
-                        <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate garment?</center> </font> </h5>
+                        <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS GARMENT CATEGORY?</center> </font> </h5>
                         <form action="{{URL::to('delGarmentCategory')}}" method="POST">
+                          <div class="divider" style="height:2px"></div>
                           <div class="modal-content col s12">
-                            <p> 
                             
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" id="delGarmentID" name="delGarmentID" type="hidden">
                               </div>
 
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
                                 <input required pattern="[A-Za-z\s]+" value="{{ $category->strGarmentCategoryName }}" type="text" class="" readonly>
-                                <label for="garment_name">Garment Name: </label>
+                                <label for="garment_name">Garment Name </label>
                               </div>
+                          </div>
 
-                              <div class="input-field">
+                          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                              <div class="input-field col s12">
                                <input  value= "{{ $category->strGarmentCategoryDesc }}" type="text" class="" readonly>
-                                <label for="garment_description">Garment Desription: </label>
+                                <label for="garment_description">Garment Desription </label>
                               </div>
+                          </div>
 
                               <div class="input-field">
                                 <input value="{{ $category->strGarmentCategoryID }}" type="hidden" id="delInactiveGarment" name="delInactiveGarment">
                               </div>
 
+                          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
                               <div class="input-field">
                                 <input value="{{ $category->strInactiveReason }}" type="text" id="delInactiveReason" name="delInactiveReason" class="validate" required>
-                                <label for="reason"> *Reason for Deactivation: </label>
+                                <label for="reason"> *Reason for Deactivation </label>
                               </div>
-                            </p>
+                          </div>
                           </div>
 
-                          <div class="modal-footer col s12">
+                          <div class="modal-footer col s12" style="background-color:#26a69a">
                             <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                           </div>
                         </form>
                       </div>
@@ -207,31 +215,33 @@
              
          <!--    <Modal for Add Garment Category> -->
             <div id="addGCategory" class="modal modal-fixed-footer">
-              <h5><font color = "#1b5e20"><center>Add Garment Category</center> </font> </h5>
+              <h5><font color = "#1b5e20"><center>ADD NEW GARMENT CATEGORY</center> </font> </h5>
               <form action="{{URL::to('addGarmentCategory')}}" method="POST" id="addGarmentCategory" name="addGarmentCategory"> 
-
+                <div class="divider" style="height:2px"></div>
                 <div class="modal-content col s12">
-
-                  <p>  
+  
                   <div class="input-field">
                     <input value="{{ $newID }}" id="addGarmentID" name="addGarmentID" type="hidden">
                   </div>
 
-                    <div class="input-field">
+                <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                    <div class="input-field col s12">
                       <input required id="addGarmentName" name="addGarmentName" type="text" class="validateGarmentName">
-                      <label for="garment_name">*Garment Name: </label>
+                      <label for="garment_name">*Garment Name </label>
                     </div>
-
-                    <div class="input-field">
-                      <input required id="addGarmentDesc" name="addGarmentDesc" type="text" class="validateGarmentDesc">
-                      <label for="garment_description">*Garment Desription: </label>
-                    </div>
-                  </p>
                 </div>
 
-                <div class="modal-footer">
-                  <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                  <vutton type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
+                <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                    <div class="input-field">
+                      <input required id="addGarmentDesc" name="addGarmentDesc" type="text" class="validateGarmentDesc">
+                      <label for="garment_description">*Garment Desription </label>
+                    </div>
+                </div>
+                </div>
+
+                <div class="modal-footer" style="background-color:#26a69a">
+                  <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Add</button>
+                  <vutton type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button> 
                 </div>
               </form>
             </div>

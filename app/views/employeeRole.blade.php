@@ -84,7 +84,7 @@
 
     <div class="row">
       <div class="col s12 m12 l12">
-       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new role to the table" href="#addRole">ADD A NEW ROLE</button>
+       <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to add a new role to the table" href="#addRole">ADD EMPLOYEE ROLE</button>
       </div>
     </div>
   </div>
@@ -119,66 +119,78 @@
                 <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to remove data of role from table" href="#del{{$role->strEmpRoleID}}">DEACTIVATE</button>
                 </td>	
                   <div id="edit{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">                     
-                    <h5><font color = "#1b5e20"><center>Edit role</center> </font> </h5>
+                    <h5><font color = "#1b5e20"><center>EDIT EMPLOYEE ROLE</center> </font> </h5>
                     <form action="{{URL::to('editRole')}}" method="POST">
+                      <div class="divider" style="height:2px"></div>
                       <div class="modal-content col s12">
-                        <p>
-                          <div class="input-field">
+
+                          <div class="input-field col s12">
                             <input value="{{$role->strEmpRoleID}}" id="editRoleID" name="editRoleID" type="hidden">
                           </div>
 
-                          <div class="input-field">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
                             <input required pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" id="editRoleName" name="editRoleName" type="text" class="validateRole">
-                            <label for="role_name">*Role Name: </label>
+                            <label for="role_name">*Role Name </label>
                           </div>
-
-                          <div class="input-field">
-                            <input required value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validateRole">
-                            <label for="role_description">*Role Description: </label>
-                          </div>  
-                        </p>    
                       </div>
 
-                      <div class="modal-footer col s12">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+
+                      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="input-field col s12">
+                            <input required value="{{$role->strEmpRoleDesc}}" id="editRoleDescription" name="editRoleDescription" type="text" class="validateRole">
+                            <label for="role_description">*Role Description </label>
+                          </div>  
+                      </div>
+                      </div>
+
+                      <div class="modal-footer col s12" style="background-color:#26a69a">
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Update</button>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                       </div>
                     </form>
                   </div>
                   <!---/////////////////DELETE ROLE//////////////////////-->
                   <div id="del{{$role->strEmpRoleID}}" class="modal modal-fixed-footer">                     
-                     <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate?</center> </font> </h5>
+                     <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS EMPLOYEE ROLE?</center> </font> </h5>
                       <form action="{{URL::to('delRole')}}" method="POST">
+                       <div class="divider" style="height:2px"></div>
                        <div class="modal-content col s12">
-                        <p>
-                          <div class="input-field">
+
+
+                          <div class="input-field col s12">
                             <input value="{{$role->strEmpRoleID}}" id="delRoleID" name="delRoleID" type="hidden">
                           </div>
 
-                          <div class="input-field">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
                             <input pattern="[A-Za-z\s]+" value="{{$role->strEmpRoleName}}" type="text" class="" readonly>
-                            <label for="role_name">Role Name: </label>
+                            <label for="role_name">Role Name </label>
                           </div>
+                    </div>
 
-                          <div class="input-field">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
                             <input  value="{{$role->strEmpRoleDesc}}" type="text" class="" readonly>
-                            <label for="role_description">Role Description: </label>
+                            <label for="role_description">Role Description </label>
                           </div>  
+                    </div>
 
                           <div class="input-field">
                             <input id="delInactiveRole" name = "delInactiveRole" value = "{{$role->strEmpRoleID}}" type="hidden">
                           </div>
 
+                    <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
                           <div class="input-field">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$role->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Deactivation: </label>
+                            <label for="fax"> *Reason for Deactivation </label>
                           </div>
-                        </p>    
+                    </div>    
                       </div>
 
-                      <div class="modal-footer col s12">
+                      <div class="modal-footer col s12" style="background-color:#26a69a">
                         <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                       </div>
                     </form>
                   </div>
@@ -193,29 +205,33 @@
           </div>
         
     			<div id="addRole" class="modal">
-            <h5><font color = "#1b5e20"><center>Add a Role</center> </font> </h5>
+            <h5><font color = "#1b5e20"><center>ADD NEW EMPLOYEE ROLE</center> </font> </h5>
               <form action="{{URL::to('addRole')}}" method="POST" id="formAddRole" name="formAddRole">
+                <div class="divider" style="height:2px"></div>
                <div class="modal-content col s12">
-                <p>
+
                   <div class="input-field">
                     <input value="{{$newID}}" id="addRoleID" name="addRoleID" type="hidden">
                   </div>
                         
-                  <div class="input-field">
+              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                  <div class="input-field col s12">
                     <input required pattern="[A-Za-z\s]+" id="addRoleName" name="addRoleName" type="text" class="validateRole">
-                    <label for="role_name">*Role Name: </label>
+                    <label for="role_name">*Role Name </label>
                   </div>
-
-                  <div class="input-field">
-                    <input required pattern="[A-Za-z\s]+" id="addRoleDescription" name="addRoleDescription" type="text" class="validateRole">
-                    <label for="role_description">*Role Description: </label>
-                  </div>
-                </p>
               </div>
 
-                <div class="modal-footer col s12">
-                  <button type="submit" class="modal-action  waves-effect waves-green btn-flat">ADD</button>
-                  <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                  <div class="input-field col s12">
+                    <input required pattern="[A-Za-z\s]+" id="addRoleDescription" name="addRoleDescription" type="text" class="validateRole">
+                    <label for="role_description">*Role Description </label>
+                  </div>
+              </div>
+              </div>
+
+                <div class="modal-footer col s12" style="background-color:#26a69a">
+                  <button type="submit" class="modal-action  waves-effect waves-green btn-flat">Add</button>
+                  <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                 </div>
             </form>
           </div>

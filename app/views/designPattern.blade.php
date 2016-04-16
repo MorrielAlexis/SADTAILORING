@@ -31,7 +31,7 @@
         <div class="row" id="success-message">
           <div class="col s12 m12 l12">
             <div class="card-panel yellow">
-              <span class="black-text" style="color:black">Successfully edit segment pattern!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
+              <span class="black-text" style="color:black">Successfully edited segment pattern!<i class="material-icons right" onclick="$('#success-message').hide()">clear</i></span>
             </div>
           </div>
         </div>
@@ -119,15 +119,17 @@
                   <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="CLick to remove data of pattern from table" href="#del{{ $pattern->strDesignPatternID }}">DEACTIVATE</button>
                       
                     <div id="edit{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">                     
-                        <h5><font color = "#1b5e20"><center>Edit Segment Pattern</center> </font> </h5>                        
+                        <h5><font color = "#1b5e20"><center>EDIT SEGMENT PATTERN</center> </font> </h5>                        
                         <form action="{{URL::to('editDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                        <div class="divider" style="height:2px"></div>
                         <div class="modal-content col s12">
-                          <p>
+                          
                           <div class="input-field">
                             <input value= "{{ $pattern->strDesignPatternID }}" id="editPatternID" name= "editPatternID" type="hidden">
                           </div>
 
-                          <div class="input-field">                                                    
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s6">                                                    
                             <select class="browser-default editCategory" id="{{ $pattern->strDesignPatternID }}" name='editCategory'>
                               @foreach($category as $cat)
                                 @if($pattern->strDesignCategory == $cat->strGarmentCategoryID && $cat->boolIsActive == 1)
@@ -139,8 +141,8 @@
                             </select>    
                           </div>  
 
-                          <div class="input-field">                                                    
-                            <select class="browser-default editSegment" id="{{ $pattern->strDesignPatternID }}" name="editSegment">
+                          <div class="input-field col s6">                                                    
+                            <select class="browser-default editSegment" id="{{ $pattern->strDesignPatternID }}" name='editSegment'>
                                   @foreach($segment as $segment_2)
                                     @if($pattern->strDesignSegmentName == $segment_2->strGarmentSegmentID && $segment_2->boolIsActive == 1)
                                       <option selected value="{{ $segment_2->strGarmentSegmentID }}" class="{{$segment_2->strCategory }}">{{ $segment_2->strGarmentSegmentName }}</option>
@@ -149,15 +151,19 @@
                                     @endif
                                   @endforeach
                             </select>    
-                          </div>   
+                          </div> 
+                      </div>  
 
-                          <div class="input-field">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
                             <input required value = "{{ $pattern->strPatternName }}" id="editPatternName" name= "editPatternName" type="text" class="validatePatternName">
-                            <label for="pattern_name">Pattern Name: </label>
+                            <label for="pattern_name">Pattern Name </label>
                           </div>
+                      </div>
 
-                          <div class="file-field input-field">
-                            <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="file-field input-field col s12">
+                            <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                               <span>Upload Image</span>
                               <input id="editImg" name="editImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                             </div>
@@ -166,56 +172,61 @@
                               <input value="{{$pattern->strPatternImage}}" id="editImage" name="editImage" class="file-path validate" type="text" readonly="readonly">
                             </div>
                           </div>
+                      </div>
+                      </div>
 
-                          </p>
-                        </div>
-                        <div class="modal-footer col s12">
+                        <div class="modal-footer col s12" style="background-color:#26a69a">
                           <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                         </div>
                       </form>
                    </div>  
                  <!-- DELETE DESIGN PATTERN --> 
 
                 <div id="del{{ $pattern->strDesignPatternID }}" class="modal modal-fixed-footer">
-                      <h5><font color = "#1b5e20"><center>Are you sure want to deactivate segment pattern?</center> </font> </h5>
+                      <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS SEGMENT PATTERN?</center> </font> </h5>
                         <form action="{{URL::to('delDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                        <div class="divider" style="height:2px"></div>
                         <div class="modal-content col s12">
-                        <p>
+
                         <div class="input-field">
                           <input value= "{{ $pattern->strDesignPatternID }}" id="delPatternID" name= "delPatternID" type="hidden">
                         </div>
 
-                        <div class="input-field">                                                    
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                        <div class="input-field col s6">                                                    
                             <input type="text" value="{{$pattern->strGarmentCategoryName}}" readonly>
                           <label>Category</label>
                         </div> 
 
-                        <div class="input-field">                                                    
+                        <div class="input-field col s6">                                                    
                             <input type="text" value="{{$pattern->strGarmentSegmentName}}" readonly>
                           <label>Segment</label>
-                        </div>   
+                        </div>  
+                    </div> 
   
-                        <div class="input-field">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                        <div class="input-field col s12">
                           <input value = "{{ $pattern->strPatternName }}" type="text" class="validate" readonly>
-                          <label for="pattern_name">Pattern Name: </label>
+                          <label for="pattern_name">Pattern Name </label>
                         </div>
+                    </div>
 
                           <div class="input-field">
                             <input id="delInactivePattern" name = "delInactivePattern" value = "{{$pattern->strDesignPatternID}}" type="hidden">
                           </div>
 
-                          <div class="input-field">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="input-field col s12">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$pattern->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Deactivation: </label>
+                            <label for="fax"> *Reason for Deactivation </label>
                           </div>
-                          <br>
-                        </p>
-                      </div>              
+                    </div>
+                    </div>              
 
-                      <div class="modal-footer col s12">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">GO</button>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a> 
+                      <div class="modal-footer col s12" style="background-color:#26a69a">
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a> 
                       </div>
                     </form>              
                     </div>
@@ -235,15 +246,17 @@
            
 
             <div id="addDesign" class="modal modal-fixed-footer">
-              <h5><font color = "#1b5e20"><center>Add a Segment Pattern</center> </font> </h5> 
+              <h5><font color = "#1b5e20"><center>ADD NEW SEGMENT PATTERN</center> </font> </h5> 
                 <form action="{{URL::to('addDesignPattern')}}" method="POST" enctype="multipart/form-data">
+                <div class="divider" style="height:2px"></div>
                 <div class="modal-content col s12">
-                <p>
+
                 <div class="input-field">
                   <input value = "{{$newID}}" id="addPatternID" name= "addPatternID" type="hidden">
                 </div>
 
-                <div class="input-field">
+            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                <div class="input-field col s6">
                   <select class="browser-default" name='addCategory' id='addCategory' required>
                       @foreach($category as $category)
                         @if($category->boolIsActive == 1)
@@ -253,7 +266,7 @@
                   </select>   
                 </div>  
 
-                <div class="input-field">
+                <div class="input-field col s6">
                   <select class="browser-default" required id="addSegment" name="addSegment">
                         @foreach($segment as $segment_1)
                           @if($segment_1->boolIsActive == 1)
@@ -261,15 +274,19 @@
                           @endif
                         @endforeach
                   </select>
-                </div>   
+                </div>  
+            </div> 
 
-                <div class="input-field">
+            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                <div class="input-field col s12">
                   <input required id="addPatternName" name= "addPatternName" type="text" class="validatePatternName">
-                  <label for="pattern_name">Pattern Name: </label>
+                  <label for="pattern_name">Pattern Name </label>
                 </div>
+            </div>
 
-                <div class="file-field input-field">
-                  <div style="color:black" class="btn tooltipped btn-small center-text light-green darken-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
+            <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                <div class="file-field input-field col s12">
+                  <div style="color:black" class="btn tooltipped btn-small center-text light-green lighten-2" data-position="bottom" data-delay="50" data-tooltip="May upload jpg, png, gif, bmp, tif, tiff files">
                     <span>Upload Image</span>
                     <input id="addImg" name="addImg" type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|images/*">
                   </div>
@@ -278,14 +295,12 @@
                     <input id="addImage" name="addImage" class="file-path validate" type="text" readonly="readonly">
                   </div>
                 </div>
-                
-                <br>
-                </p>
-              </div>
+            </div>
+            </div>
 
-              <div class="modal-footer col s12">
-                <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
+              <div class="modal-footer col s12" style="background-color:#26a69a">
+                <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Add</button>
+                <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button> 
               </div>
               </form>
             </div>	

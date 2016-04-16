@@ -148,7 +148,7 @@
           <div class="row">
             <div class="col s12 m12 l12">
               <div class="card-panel">
-                <span class="card-title"><h5><center>Measurement Category</center></h5></span>
+                <span class="card-title"><h5><center>Measurement Information</center></h5></span>
                 <div class="divider"></div>
                 <div class="card-content">
 
@@ -176,15 +176,17 @@
                           <td><button style = "color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to edit measurement information" href="#del{{$head->strMeasurementID}}">DEACTIVATE</button>
                         
                           <div id="edit{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Edit Measurement Information</center> </font> </h5>
+                            <h5><font color = "#1b5e20"><center>EDIT MEASUREMENT INFORMATION</center> </font> </h5>
                               <form action="{{URL::to('editMeasurementCategory')}}" method="POST"> 
+                                <div class="divider" style="height:2px"></div>
                                 <div class="modal-content col s12"> 
-                                  <p>
+ 
                                     <div class="input-field">
                                       <input value="{{ $head->strMeasurementID }}" id="editMeasurementID" name="editMeasurementID" type="hidden" readonly>                                 
                                     </div>
 
-                                    <div class="input-field">                                                    
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                    <div class="input-field col s6">                                                    
                                       <select class="browser-default editCategory" name="editCategory" id="{{ $head->strMeasurementID}}"> 
                                         @foreach($category as $cat)
                                             @if($head->strCategoryName == $cat->strGarmentCategoryID && $cat->boolIsActive == 1) 
@@ -196,7 +198,7 @@
                                       </select>    
                                     </div>       
                                       
-                                    <div class="input-field">                                                    
+                                    <div class="input-field col s6">                                                    
                                       <select class="browser-default editSegment" required name='editSegment' id="{{ $head->strMeasurementID}}">
                                         @foreach($segment as $seg)
                                           @if($head->strSegmentName == $seg->strGarmentSegmentID && $seg->boolIsActive == 1)
@@ -206,9 +208,11 @@
                                           @endif
                                         @endforeach
                                       </select>    
-                                    </div>     
+                                    </div> 
+                                </div>    
     
-                                    <div class="input-field">                                                                               
+                                <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                    <div class="input-field col s12">                                                                               
                                        <select class="browser-default" name="editDetail" id="editDetail" required>
                                            @foreach($detailList as $dl)
                                               @if($head->strMeasurementName == $dl->strMeasurementDetailID && $dl->boolIsActive == 1)
@@ -219,12 +223,12 @@
                                            @endforeach
                                        </select>   
                                      </div>
-                                  </p>
+                                  </div>
                                 </div> 
 
-                                <div class="modal-footer col s12">
-                                  <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                                <div class="modal-footer col s12" style="background-color:#26a69a">
+                                  <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Update</button>
+                                  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                                 </div>
                               </form>
                             </div>
@@ -232,43 +236,49 @@
                           <!--///////////////////////DELETE/////////////-->
 
                           <div id="del{{$head->strMeasurementID}}" class="modal modal-fixed-footer">
-                            <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>
+                            <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS MEASUREMENT INFORMATION?</center> </font> </h5>
                             <form action="{{URL::to('delMeasurementCategory')}}" method="POST"> 
+                              <div class="divider" style="height:2px"></div>
                               <div class="modal-content col s12">
-                                <p>
+                                
                                   <div class="input-field">
                                       <input value="{{ $head->strMeasurementID }}" id="delMeasurementID" name="delMeasurementID" type="hidden" readonly>                                 
                                     </div>
 
-                                  <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s6">
                                     <input value="{{ $head->strGarmentCategoryName }}" type="text" readonly>
-                                    <label for="measurement_id">Garment Category: </label>
+                                    <label for="measurement_id">Garment Category </label>
                                   </div>
 
-                                  <div class="input-field">
+                                  <div class="input-field col s6">
                                     <input value="{{ $head->strGarmentSegmentName }}" type="text" readonly>
-                                    <label for="measurement_name">Segment: </label>
+                                    <label for="measurement_name">Segment </label>
                                   </div>
+                            </div>
 
-                                  <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
                                     <input value="{{ $head->strMeasurementDetailName }}" type="text" readonly>
-                                    <label for="measurement_desc">Measurement Name: </label>
+                                    <label for="measurement_desc">Measurement Name </label>
                                   </div>
+                            </div>
 
                                   <div class="input-field">
                                       <input value="{{ $head->strMeasurementID }}" id="delInactiveHead" name="delInactiveHead" type="hidden">                                 
                                   </div>
 
+                            <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
                                   <div class="input-field">
                                     <input value="{{ $head->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text" class="validate" required>
-                                    <label for="measurement_desc">Reason for Deactivation: </label>
+                                    <label for="measurement_desc">Reason for Deactivation </label>
                                   </div>
-                                </p>
-                              </div>
+                            </div>
+                            </div>
 
-                              <div class="modal-footer col s12">
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div>
                             </form>
                           </div>
@@ -285,16 +295,17 @@
                   </div>
 
                   <div id="addMeasurementInfo" class="modal modal-fixed-footer">
-                    <h5><font color = "#1b5e20"><center>Add Measurement Information</center> </font> </h5> 
+                    <h5><font color = "#1b5e20"><center>ADD NEW MEASUREMENT INFORMATION</center> </font> </h5> 
                       <form action="{{URL::to('addMeasurementCategory')}}" method="POST">
+                        <div class="divider" style="height:2px"></div>
                         <div class="modal-content col s12">
-                          <p>
 
                           <div class="input-field">
                             <input value="{{ $categoryNewID }}" id="addMeasurementID" name="addMeasurementID" type="text" hidden>
                           </div>
 
-                          <div class="input-field">                                                    
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s6">                                                    
                               <select class="browser-default" required id="addCategory" name='addCategory'>                                      
                                   @foreach($category as $category_1)
                                     @if($category_1->boolIsActive == 1)  
@@ -304,7 +315,7 @@
                               </select>    
                           </div>        
                 
-                          <div class="input-field">                                                    
+                          <div class="input-field col s6">                                                    
                             <select class="browser-default" required id="addSegment" name='addSegment'>
                                 @foreach($segment as $segment_1)
                                   @if($segment_1->boolIsActive == 1)
@@ -312,9 +323,11 @@
                                   @endif
                                 @endforeach                          
                             </select>    
-                          </div>     
+                          </div>   
+                      </div>  
 
-                          <div class="input-field">                                                                                 
+                      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="input-field col s12">                                                                                 
                             <select class="browser-default" name="addDetail" id="addDetail" required>
                                 @foreach($detailList as $detail_1)
                                   @if($detail_1->boolIsActive == 1)
@@ -323,12 +336,12 @@
                                 @endforeach                               
                             </select>
                           </div>
-                        </p>                       
+                      </div>                       
                       </div>
 
-                      <div class="modal-footer col s12">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                      <div class="modal-footer col s12" style="background-color:#26a69a">
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Add</button>
+                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                       </div>
                     </form>
                   </div> 
@@ -351,7 +364,7 @@
 
             <div class="row">
               <div class="col s12 m12 l6">
-                <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new measurement detail to the table" href="#addMeasurementPart">ADD NEW PART</button>
+                <button style="color:black; margin-right:35px; margin-left: 20px" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to add a new measurement detail to the table" href="#addMeasurementPart">ADD MEASUREMENT PART</button>
               </div>
             </div>
 
@@ -382,67 +395,77 @@
                         <td><button style="color:black" class="modal-trigger btn tooltipped btn-small center-text light-green accent-1" data-position="bottom" data-delay="50" data-tooltip="Click to deactivate measurement detail from the table" href="#del{{ $detail->strMeasurementDetailID }}">DEACTIVATE</button>
 
                         <div id="edit{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                          <h5><font color = "#1b5e20"><center>Edit Measurement Part</center> </font> </h5>
+                          <h5><font color = "#1b5e20"><center>EDIT MEASUREMENT PART</center> </font> </h5>
                             <form action="{{URL::to('editMeasurementDetail')}}" method="POST"> 
+                              <div class="divider" style="height:2px"></div>
                               <div class="modal-content col s12">
-                                <p>
+                                
                                     <div class="input-field">
                                       <input value="{{ $detail->strMeasurementDetailID }}" id="editDetailID" name="editDetailID" type="hidden">
                                     </div>
 
-                                    <div class="input-field">
+                              <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                    <div class="input-field col s12">
                                       <input required value="{{ $detail->strMeasurementDetailName }}" id="editDetailName" name = "editDetailName" type="text" class="validateDetailName">
-                                      <label for="measurement_name"> *Measurement Name: </label>
+                                      <label for="measurement_name"> *Measurement Name </label>
                                     </div>
-
-                                    <div class="input-field">
-                                      <input required value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
-                                      <label for="measurement_desc">*Measurement Description: </label>
-                                    </div>
-                                </p>
                               </div>
 
-                              <div class="modal-footer col s12">
-                                <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">UPDATE</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                              <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                    <div class="input-field col s12">
+                                      <input required value="{{ $detail->strMeasurementDetailDesc }}" id="editDetailDesc" name = "editDetailDesc" type="text" class="validateDetailDesc">
+                                      <label for="measurement_desc">*Measurement Description </label>
+                                    </div>
+                              </div>
+                              </div>
+
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
+                                <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Update</button>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div>
                           </form>
                         </div>
                           <!--///////////////////////DELETE/////////////-->
 
                         <div id="del{{ $detail->strMeasurementDetailID }}" class="modal modal-fixed-footer">
-                          <h5><font color = "#1b5e20"><center>Are you sure you want to deactivate measurement detail?</center> </font> </h5>                            
+                          <h5><font color = "#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS MEASUREMENT PART?</center> </font> </h5>                            
                             <form action="{{URL::to('delMeasurementDetail')}}" method="POST"> 
+                              <div class="divider" style="height:2px"></div>
                               <div class="modal-content col s12">
-                                <p>
+                                
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailID }}" id="delDetailID" name="delDetailID" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
                                     <input value="{{ $detail->strMeasurementDetailName }}" type="text"  readonly>
-                                    <label for="measurement_name"> Measurement Name: </label>
+                                    <label for="measurement_name"> Measurement Name </label>
                                   </div>
+                            </div>
 
-                                  <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                                  <div class="input-field col s12">
                                     <input value="{{ $detail->strMeasurementDetailDesc }}"type="text"  readonly>
-                                    <label for="measurement_desc">Measurement Description: </label>
+                                    <label for="measurement_desc">Measurement Description </label>
                                   </div>
+                            </div>
 
                                   <div class="input-field">
                                     <input value="{{ $detail->strMeasurementDetailID }}" id="delInactiveDetail" name="delInactiveDetail" type="hidden">
                                   </div>
 
-                                  <div class="input-field">
+                            <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                                  <div class="input-field col s12">
                                     <input value="{{ $detail->strInactiveReason }}" id="delInactiveReason" name="delInactiveReason" type="text"  required>
-                                    <label for="measurement_desc">Reason for Deactivation: </label>
+                                    <label for="measurement_desc">Reason for Deactivation </label>
                                   </div>
-                                </p>
-                              </div>
+                            </div>
+                            </div>
 
-                              <div class="modal-footer col s12">
+                              <div class="modal-footer col s12" style="background-color:#26a69a">
                                 <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">OK</button>
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>  
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>  
                               </div>
                             </form>
                           </div>
@@ -460,29 +483,33 @@
                   </div>
           
                 <div id="addMeasurementPart" class="modal modal-fixed-footer">
-                  <h5><font color = "#1b5e20"><center>Add Measurement Part</center> </font> </h5>
+                  <h5><font color = "#1b5e20"><center>ADD NEW MEASUREMENT PART</center> </font> </h5>
                     <form action="{{URL::to('addMeasurementDetail')}}" method="POST">
+                      <div class="divider" style="height:2px"></div>
                       <div class="modal-content col s12">
-                        <p>
+                        
                           <div class="input-field">
                             <input value="{{$detailNewID}}" id="addDetailID" name="addDetailID" type="text"  hidden>
                           </div>
 
-                          <div class="input-field">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
                             <input required id="addDetailName" name= "addDetailName" type="text" class="validateDetailName" >
-                            <label for="measurement_name"> *Measurement Name: </label>
+                            <label for="measurement_name"> *Measurement Name </label>
                           </div>
-
-                          <div class="input-field">
-                            <input required id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
-                            <label for="measurement_desc">*Measurement Description: </label>
-                          </div>
-                        </p>
                       </div>
 
-                      <div class="modal-footer col s12">
-                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">ADD</button>
-                        <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">CANCEL</button> 
+                      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="input-field col s12">
+                            <input required id="addDetailDesc" name ="addDetailDesc" type="text" class="validateDetailDesc">
+                            <label for="measurement_desc">*Measurement Description </label>
+                          </div>
+                      </div>
+                      </div>
+
+                      <div class="modal-footer col s12" style="background-color:#26a69a">
+                        <button type="submit" class=" modal-action  waves-effect waves-green btn-flat">Add</button>
+                        <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button> 
                       </div>
                     </form>
                   </div>          

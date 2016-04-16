@@ -128,84 +128,99 @@
                   
 
                     <div id="edit{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">                     
-                     <h5><font color = "#1b5e20"><center>Edit Company Profile </center> </font> </h5>                      
+                     <h5><font color = "#1b5e20"><center>EDIT COMPANY'S CUSTOMER PROFILE</center> </font> </h5>                      
                         <form action="{{URL::to('editCustCompany')}}" method="POST">
+                          <div class="divider" style="height:2px"></div>
                         <div class="modal-content col s12">
-                        <p>
-                        <div class="input-field">                 
+                        
+
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                        <div class="input-field col s12">                 
                           <input value="{{$company->strCustCompanyID}}" id="editComID" name="editComID" type="text" class="" readonly>
-                          <label for="company_id">Company ID: </label>
+                          <label for="company_id">Company ID </label>
                         </div>
+                    </div>
 
-                        <div class="input-field">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                        <div class="input-field col s12">
                           <input required id="editComName" name = "editComName" value = "{{$company->strCustCompanyName}}" type="text" class="validateComName">
-                          <label for="company_name">*Company Name: </label>
+                          <label for="company_name">*Company Name </label>
                         </div>
+                    </div>
 
-                          <div class="input-field">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s3">
                             <input required value="{{$company->strCustCompanyHouseNo}}" id="editCustCompanyHouseNo" name="editCustCompanyHouseNo" type="text" class="validateHouseNo">
-                            <label for="House No">*House No/Unit/Floor No.: </label>
+                            <label for="House No">*House No. </label>
                           </div>
 
-                           <div class="input-field">
+                           <div class="input-field col s3">
                             <input required value="{{$company->strCustCompanyStreet }}" id="editCustCompanyStreet" name="editCustCompanyStreet" type="text" class="validateStreet">
-                            <label for=" Street">*Street: </label>
+                            <label for=" Street">*Street </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s3">
                             <input value="{{$company->strCustCompanyBarangay}}" id="editCustCompanyBarangay" name="editCustCompanyBarangay" type="text" class="validateBarangay">
-                            <label for=" Brgy">Barangay/Subd: </label>
+                            <label for=" Brgy">Barangay/Subd </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s3">
                             <input required value="{{$company->strCustCompanyCity}}" id="editCustCompanyCity" name="editCustCompanyCity" type="text" class="validateCity">
-                            <label for=" City">*City/Municipality: </label>
+                            <label for=" City">*City/Municipality </label>
                           </div>
+                    </div>
 
-                          <div class="input-field">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s6">
                             <input value="{{$company->strCustCompanyProvince}}" id="editCustCompanyProvince" name="editCustCompanyProvince" type="text" class="validateProvince">
-                            <label for=" Province">Province: </label>
+                            <label for=" Province">Province </label>
                           </div>
 
-                           <div class="input-field">
+                           <div class="input-field col s6">
                             <input value="{{$company->strCustCompanyZipCode}}" id="editCustCompanyZipCode" name="editCustCompanyZipCode" type="text" class="validateZip">
-                            <label for=" Zip Code">Zip Code: </label>
+                            <label for=" Zip Code">Zip Code </label>
                           </div>
-
-
-                        <div class="input-field">
-                          <input required id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validateConPerson">
-                          <label for="company_name">*Contact Person: </label>
-                        </div>
-
-                        <div class="input-field">
-                          <input required id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validateEmail">
-                          <label for="com_email_address">*Company Email Address: </label>
-                        </div>
-
-                        <div class="input-field">
-                          <input required id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validateCell" maxlength="11">
-                          <label for="cellphone"> *Cellphone Number: </label>
-                        </div>
-
-                        <div class="input-field">
-                          <input id="editCelAlt" name = "editCelAlt" value = "{{$company->strCustCompanyCPNumberAlt}}" type="text" class="validateCellAlt" maxlength="11">
-                          <label for="cellphone"> Cellphone Number: (alternate)</label>
-                        </div>
-
-                        <div class="input-field">
-                          <input id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validatePhone" maxlength="10">
-                          <label for="tel"> Telephone Number: </label>
-                        </div>
-
-                        <div class="input-field">
-                          <input id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validateFax" maxlength="9" minlength="9">
-                          <label for="fax"> Fax Number: </label>
-                        </div>
-                        </p>
                       </div>
 
-                      <div class="modal-footer col s12">
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                        <div class="input-field col s6">
+                          <input required id="editConPerson" name = "editConPerson" value = "{{$company->strCustContactPerson}}" type="text" class="validateConPerson">
+                          <label for="company_name">*Contact Person </label>
+                        </div>
+
+                        <div class="input-field col s6">
+                          <input required id="editComEmailAddress" name = "editComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="validateEmail">
+                          <label for="com_email_address">*Company Email Address </label>
+                        </div>
+                    </div>
+
+                    <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                        <div class="input-field col s6">
+                          <input required id="editCel" name = "editCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="validateCell" maxlength="11">
+                          <label for="cellphone"> *Cellphone Number </label>
+                        </div>
+
+                        <div class="input-field col s6">
+                          <input id="editCelAlt" name = "editCelAlt" value = "{{$company->strCustCompanyCPNumberAlt}}" type="text" class="validateCellAlt" maxlength="11">
+                          <label for="cellphone"> Cellphone Number (alternate)</label>
+                        </div>
+                    </div>
+
+                    <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                        <div class="input-field col s6">
+                          <input id="editPhone" name = "editPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="validatePhone" maxlength="10">
+                          <label for="tel"> Telephone Number </label>
+                        </div>
+
+                        <div class="input-field col s6">
+                          <input id="editFax" name = "editFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="validateFax" maxlength="9" minlength="9">
+                          <label for="fax"> Fax Number </label>
+                        </div>
+                    </div>
+                        
+                      </div>
+
+                      <div class="modal-footer col s12" style="background-color:#26a69a">
                          <button type="submit" class="waves-effect waves-green btn-flat">Update</button>  
                          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>   
                       </div>
@@ -213,58 +228,67 @@
                    </div>
                     <!-- DELETE -->
                    <div id="del{{$company->strCustCompanyID}}" class="modal modal-fixed-footer">                      
-                      <h5><font color="#1b5e20"><center>Are you sure you want to deactivate?</center></font></h5>                       
+                      <h5><font color="#1b5e20"><center>ARE YOU SURE TO DEACTIVATE THIS CUSTOMER?</center></font></h5>                       
                         <form action="{{URL::to('delCustCompany')}}" method="POST">
+                          <div class="divider" style="height:2px"></div>
                           <div class="modal-content col s12">
-                          <p>
 
-                          <div class="input-field">
-                            <label for="first_name">Company ID: </label>
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
+                            <label for="first_name">Company ID </label>
                             <input value="{{$company->strCustCompanyID}}" id="delCompanyID" name="delCompanyID" type="text" class="" readonly>
                           </div>
+                      </div>
 
-                          <div class="input-field">
-                            <label for="first_name">Company Name: </label>
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s12">
+                            <label for="first_name">Company Name </label>
                             <input value="{{$company->strCustCompanyName}}" id="delCompanyName" name="delCompanyName" type="text" class="" readonly>
                           </div>
+                      </div>
 
-                          <div class="input-field">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s6">
                             <input value="{{$company->strCustContactPerson}}" id="delConPerson" name="delConPerson" type="text" class="" readonly>
-                            <label for="LastName">Contact Person: </label>
+                            <label for="LastName">Contact Person </label>
                           </div>
 
-                            <div class="input-field">
+                            <div class="input-field col s6">
                             <input required id="delComEmailAddress" name = "delComEmailAddress" value = "{{$company->strCustCompanyEmailAddress}}" type="text" class="" readonly>
-                            <label for="com_email_address">Company Email Address: </label>
+                            <label for="com_email_address">Company Email Address </label>
                           </div>
+                      </div>
 
-                          <div class="input-field">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white;">
+                          <div class="input-field col s4">
                             <input required id="delCel" name = "delCel" value = "{{$company->strCustCompanyCPNumber}}" type="text" class="" maxlength="11"readonly>
-                            <label for="cellphone"> Cellphone Number: </label>
+                            <label for="cellphone"> Cellphone Number </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s4">
                             <input required id="delPhone" name = "delPhone" value = "{{$company->strCustCompanyTelNumber}}" type="text" class="" maxlength="10" readonly>
-                            <label for="tel"> Telephone Number: </label>
+                            <label for="tel"> Telephone Number </label>
                           </div>
 
-                          <div class="input-field">
+                          <div class="input-field col s4">
                             <input id="delFax" name = "delFax" value = "{{$company->strCustCompanyFaxNumber}}" type="text" class="" maxlength="9" minlength="9" readonly>
-                            <label for="fax"> Fax Number: </label>
+                            <label for="fax"> Fax Number </label>
                           </div>
+                      </div>
 
                           <div class="input-field">
                             <input id="delInactiveComp" name = "delInactiveComp" value = "{{$company->strCustCompanyID}}" type="hidden">
                           </div>
 
-                          <div class="input-field">
+                      <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+                          <div class="input-field col s12 wrap-text">
                             <input id="delInactiveReason" name = "delInactiveReason" value = "{{$company->strInactiveReason}}" type="text" class="validate" required>
-                            <label for="fax"> *Reason for Deactivation: </label>
+                            <label for="fax"> *Reason for Deactivation </label>
                           </div>
-                        </p>
+                      </div>
                       </div>
 
-                         <div class="modal-footer col s12">
+                         <div class="modal-footer col s12" style="background-color:#26a69a">
                           <button type="submit" class="waves-effect waves-green btn-flat">OK</button>
                           <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
                           </div> 
@@ -283,85 +307,98 @@
             </div>  
     
             <div id="addCom" class="modal modal-fixed-footer">
-             <div class = "label"> <h5><font color = "#1b5e20"><center>Add Company Profile </center> </font> </h5>                      
+             <div class = "label"> <h5><font color = "#1b5e20"><center>ADD NEW COMPANY CUSTOMER PROFILE</center> </font> </h5>                      
                 <form action="{{URL::to('addCustCompany')}}" method="POST">
+                  <div class="divider" style="height:2px"></div>
                   <div class="modal-content col s12">
-                   <p>
 
-              <div class="input-field">                 
+          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+              <div class="input-field col s12">                 
                 <input value="{{$newID}}" id="addComID" name="addComID" type="text" class="" readonly>
-                <label for="company_id">Company ID: </label>
+                <label for="company_id">Company ID </label>
               </div>
+          </div>
 
-              <div class="input-field">
+          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+              <div class="input-field col s12">
                 <input required id="addComName" name = "addComName" type="text" class="validateComName">
-                <label for="company_name"> *Company Name: </label>
+                <label for="company_name"> *Company Name </label>
               </div>
+          </div>
 
-              <div class="input-field">
+          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+              <div class="input-field col s3">
                   <input required id="addCustCompanyHouseNo" name="addCustCompanyHouseNo" type="text" class="validateHouseNo">
-                  <label for="House No">*House No./Unit No./Floor Number: </label>
+                  <label for="House No">*House No. </label>
               </div>
 
-               <div class="input-field">
+               <div class="input-field col s3">
                 <input  required id="addCustCompanyStreet" name="addCustCompanyStreet" type="text" class="validateStreet">
-                <label for=" Street">*Street: </label>
+                <label for=" Street">*Street </label>
               </div>
 
-              <div class="input-field">
+              <div class="input-field col s3">
                 <input id="addCustCompanyBarangay" name="addCustCompanyBarangay" type="text" class="validateBarangay">
-                <label for=" Brgy">Barangay/Subd: </label>
+                <label for=" Brgy">Barangay/Subd </label>
               </div>
 
-              <div class="input-field">
+              <div class="input-field col s3">
                 <input required="" id="addCustCompanyCity" name="addCustCompanyCity" type="text" class="validateCity">
-                <label for=" City">*City/Municipality: </label>
+                <label for=" City">*City/Municipality </label>
               </div>
+          </div>
 
-              <div class="input-field">
+          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+              <div class="input-field col s6">
                 <input id="addCustCompanyProvince" name="addCustCompanyProvince" type="text" class="validateProvince">
-                <label for=" Province">Province: </label>
+                <label for=" Province">Province </label>
               </div>
 
-               <div class="input-field">
+               <div class="input-field col s6">
                 <input id="addCustCompanyZipCode" name="addCustCompanyZipCode" type="text" class="validateZip">
-                <label for=" Zip Code">Zip Code: </label>
+                <label for=" Zip Code">Zip Code </label>
               </div>
+          </div>
 
-              <div class="input-field">
+          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+              <div class="input-field col s6">
                 <input required id="addConPerson" name = "addConPerson" type="text" class="validateConPerson">
-                <label for="company_name"> *Contact Person: </label>
+                <label for="company_name"> *Contact Person </label>
               </div>
 
-              <div class="input-field">
+              <div class="input-field col s6">
                 <input required id="addComEmailAdd" name = "addComEmailAddress" type="text" class="validateEmail">
-                <label for="com_email_address"> *Company Email Address: </label>
+                <label for="com_email_address"> *Company Email Address </label>
               </div>
+          </div>
 
-              <div class="input-field">
+          <div class = "col s12" style="padding:15px;  border:3px solid white;">
+              <div class="input-field col s6">
                 <input required id="addCel" name = "addCel" type="text" class="validateCell" maxlength="11" minlength="11">
-                <label for="cellphone"> *Cellphone Number: </label>
+                <label for="cellphone"> *Cellphone Number </label>
               </div>
 
-              <div class="input-field">
+              <div class="input-field col s6">
                 <input id="addCelAlt" name = "addCelAlt" type="text" class="validateCellAlt" maxlength="11" minlength="11">
-                <label for="cellphone"> Cellphone Number: (alternate)</label>
+                <label for="cellphone"> Cellphone Number (alternate)</label>
               </div>
+          </div>
 
-              <div class="input-field">
+          <div class = "col s12" style="padding:15px;  border:3px solid white; margin-bottom:40px">
+              <div class="input-field col s6">
                 <input  id="addPhone" name = "addPhone" type="text" class="validatePhone" maxlength="10" minlength="10">
-                <label for="tel"> Telephone Number: </label>
+                <label for="tel"> Telephone Number </label>
               </div>
 
-              <div class="input-field">
+              <div class="input-field col s6">
                 <input id="addFax" name = "addFax" type="text" class="validateFax" maxlength="9" minlength="9">
-                <label for="fax"> Fax Number: </label>
+                <label for="fax"> Fax Number </label>
               </div>
-              <br>
-              </p>
+          </div>
+
               </div>
 
-            <div class="modal-footer col s12">
+            <div class="modal-footer col s12" style="background-color:#26a69a">
               <button type="submit" class=" waves-effect waves-green btn-flat">Add</button>  
               <button type="button" onclick="clearData()" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</button>
             </div>
